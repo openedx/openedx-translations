@@ -2,7 +2,6 @@
 Establishing a Repository for Translations Management
 #####################################################
 
-***********
 Description
 ***********
 The openedx-translations repository has been established as part of `OEP-58`_. This
