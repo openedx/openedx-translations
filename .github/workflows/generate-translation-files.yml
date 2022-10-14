@@ -15,11 +15,16 @@ jobs:
     outputs:
       branch: ${{ steps.dynamic_branch.outputs.branch }}
     steps:
-    - name: dynamically set BRANCH environment variable
+    # sets the job output that creates a unique branch name
+    - name: dynamically set branch job output variable
       id: dynamic_branch
       run: echo "::set-output name=branch::automated/generate-translations-$(date +'%Y%m%dT%H%M%S')"
+
+    # clones the openedx-translations repo so a branch can be added in the next step
     - name: clone openedx/openedx-translations
       uses: actions/checkout@v3
+    
+    # creates the branch where all the translations will be added to
     - name: make and push a new branch
       run: |
         git checkout -b ${{ steps.dynamic_branch.outputs.branch }}
@@ -33,8 +38,6 @@ jobs:
     needs: [setup-branch]
 
     steps:
-      - name: Test BRANCH variable
-        run: echo ${{ needs.setup-branch.outputs.branch }}
       # Clones the openedx-translations repo
       - name: clone openedx/openedx-translations
         uses: actions/checkout@v3
@@ -104,8 +107,6 @@ jobs:
     needs: [setup-branch, python-translations]
 
     steps:
-      - name: Test BRANCH variable
-        run: echo ${{ needs.setup-branch.outputs.branch }}
       # Clones the openedx-translations repo on the automated/generate-translations-# branch
       - name: clone openedx/openedx-translations
         uses: actions/checkout@v3
