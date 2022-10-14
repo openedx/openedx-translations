@@ -9,22 +9,20 @@ on:
   schedule:
     - cron: '0 0 * * *'  # every day at midnight
 
-env:
-  BRANCH: automated/generate-translations-${{ date +'%Y-%m-%dT%H:%M:%S' }}
-
 jobs:
   setup-branch:
     runs-on: ubuntu-latest
     steps:
-    - name: echo branch name
-      id: date
-      run: echo $BRANCH
+    - name: dynamically set BRANCH environment variable
+      run: echo "BRANCH=automated/generate-translations-$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+    - name: Test BRANCH variable
+      run: echo ${{ env.BRANCH }}
     - name: clone openedx/openedx-translations
       uses: actions/checkout@v3
     - name: make and push a new branch
       run: |
-        git checkout -b automated/generate-translations
-        git push --set-upstream origin automated/generate-translations
+        git checkout -b {{ env.BRANCH }}
+        git push --set-upstream origin {{ env.BRANCH }}
 
   python-translations:
     strategy:
@@ -34,6 +32,8 @@ jobs:
     needs: [setup-branch]
 
     steps:
+      - name: Test BRANCH variable
+        run: echo ${{ env.BRANCH }}
       # Clones the openedx-translations repo
       - name: clone openedx/openedx-translations
         uses: actions/checkout@v3
