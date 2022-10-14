@@ -9,10 +9,16 @@ on:
   schedule:
     - cron: '0 0 * * *'  # every day at midnight
 
+env:
+  BRANCH: automated/generate-translations-${{ date +'%Y-%m-%dT%H:%M:%S' }}
+
 jobs:
   setup-branch:
     runs-on: ubuntu-latest
     steps:
+    - name: echo branch name
+      id: date
+      run: echo $BRANCH
     - name: clone openedx/openedx-translations
       uses: actions/checkout@v3
     - name: make and push a new branch
