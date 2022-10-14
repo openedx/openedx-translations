@@ -14,15 +14,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: dynamically set BRANCH environment variable
-      run: echo "BRANCH=automated/generate-translations-$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+      run: echo "BRANCH=automated/generate-translations-$(date +'%Y%m%dT%H%M%S')" >> $GITHUB_ENV
     - name: Test BRANCH variable
       run: echo ${{ env.BRANCH }}
     - name: clone openedx/openedx-translations
       uses: actions/checkout@v3
     - name: make and push a new branch
       run: |
-        git checkout -b {{ env.BRANCH }}
-        git push --set-upstream origin {{ env.BRANCH }}
+        git checkout -b ${{ env.BRANCH }}
+        git push --set-upstream origin ${{ env.BRANCH }}
 
   python-translations:
     strategy:
