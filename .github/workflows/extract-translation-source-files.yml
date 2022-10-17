@@ -112,7 +112,6 @@ jobs:
 
     steps:
       # Clones the openedx-translations repo on the automated/extract-translation-source-files-# branch
-      # Clones the openedx-translations repo on the automated/generate-translations branch
       - name: clone openedx/openedx-translations
         uses: actions/checkout@v3
         with:
@@ -133,7 +132,6 @@ jobs:
         run: |
           echo "A Pull Request cannot be created in the openedx-translations repository because there are no commits to the branch"
           git push origin -d ${{ needs.setup-branch.outputs.branch }}
-          
       
       # Merges the pull request
       - name: merge pull request
