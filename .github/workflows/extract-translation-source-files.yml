@@ -78,6 +78,7 @@ jobs:
       
       # git adds only the translation source files, found in conf/locale/en
       - name: git add the translation source files
+        id: add-sources
         run: |
           # set identity
           git config --global user.email "translations-bot@openedx.org"
@@ -93,13 +94,12 @@ jobs:
           DJANGOJS_PATH=$(find $EN_DIR -name 'djangojs.po')
           git add $DJANGO_PATH $DJANGOJS_PATH -v
           # Check the git statuses of the translation source files
-          GIT_STATUS=$(git status DJANGO_PATH DJANGOJS_PATH -s)
-          echo ${{ env.GIT_STATUS }}
+          echo ::set-output name=GIT_STATUS::"$(git status DJANGO_PATH DJANGOJS_PATH -s)"
   
           
       # Attempts to commit the translation source files if there is a difference
       - name: git commit the translation source files
-        if: "${{ env.GIT_STATUS != '' }}"
+        if: "${{ steps.add-sources.outputs.GIT_STATUS != '' }}"
         run: |
           # commit the changes
           git commit -m "chore: add extracted translation source files from ${{ matrix.repo }}"
