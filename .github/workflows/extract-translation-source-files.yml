@@ -94,12 +94,12 @@ jobs:
           git add $DJANGO_PATH $DJANGOJS_PATH -v
           # Check the git statuses of the translation source files
           GIT_STATUS=$(git status DJANGO_PATH DJANGOJS_PATH -s)
-          echo $GIT_STATUS
+          echo ${{ env.GIT_STATUS }}
   
           
       # Attempts to commit the translation source files if there is a difference
       - name: git commit the translation source files
-        if: toJSON(env.GIT_STATUS) != "{}"
+        if: "${{ env.GIT_STATUS != '' }}"
         run: |
           # commit the changes
           git commit -m "chore: add extracted translation source files from ${{ matrix.repo }}"
