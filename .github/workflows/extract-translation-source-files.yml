@@ -128,12 +128,19 @@ jobs:
       
       # Merges the pull request
       - name: merge pull request
+        id: mergePR
         env:
           # This token requires Write access to the openedx-translations repo
           GITHUB_TOKEN: ${{ secrets.EDX_TRANSIFEX_BOT_GITHUB_TOKEN }}
         run: gh pr merge ${{ steps.createPR.outputs.PR_URL }} --merge
         
+      # Notify that branch did not merge because there were no new commits in the branch
+      - name: notify of empty branch
+        if: (always() && steps.mergePR.outcome == 'failure')
+        run: echo "A failure to merge the branch is due to the branch being empty of commits."
+      
       # Delete the branch
       - name: delete branch
+        if: always()
         run: git push origin -d ${{ needs.setup-branch.outputs.branch }}
         
