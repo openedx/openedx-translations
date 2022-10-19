@@ -135,7 +135,7 @@ jobs:
 
       # Notify that branch did not merge because there were no new commits in the branch
       - name: notify of empty branch
-        if: (always() && steps.mergePR.outcome == 'failure')
+        if: (steps.mergePR.outcome == 'skipped')
         run: echo "A failure to merge the branch is due to the branch being empty of commits."
 
       # Delete the branch
