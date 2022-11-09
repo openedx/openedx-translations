@@ -221,7 +221,7 @@ jobs:
           # This token requires Write access to the openedx-translations repo
           GITHUB_TOKEN: ${{ secrets.EDX_TRANSIFEX_BOT_GITHUB_TOKEN }}
         if: "${{ env.COMMIT_COUNT > 0 }}"
-        run: gh pr merge ${{ env.PR_URL }} --merge
+        run: gh pr merge ${{ env.PR_URL }} --merge --auto
 
       # Notify that branch did not merge because there were no new commits in the branch
       - name: notify of empty branch
