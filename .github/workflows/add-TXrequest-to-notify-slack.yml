@@ -30,7 +30,7 @@ jobs:
 
   notify:
     runs-on: ubuntu-latest
-    if: ${{ contains(github.event.issue.title, '[GH Request]') || startsWith(github.event.issue.body, 'Firm Name') || contains(github.event.issue.labels.*.name, 'github-request')}}
+    if: ${{ contains(github.event.issue.title, '[TX Request]') || contains(github.event.issue.labels.*.name, 'translations-request')}}
     steps:
       - name: Generate token
         id: generate_token
