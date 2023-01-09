@@ -21,7 +21,7 @@ jobs:
   add_label:
     runs-on: ubuntu-latest
     # This is defined on all 2 jobs - so need to change x2 if changing this.
-    if: ${{ (contains(github.event.issue.title, '[TX Request]') && !contains(github.event.issue.labels.*.name, 'translations-request') }}
+    if: ${{ contains(github.event.issue.title, '[TX Request]') && !contains(github.event.issue.labels.*.name, 'translations-request') }}
     steps:
       - name: apply translations-request label
         uses: actions-ecosystem/action-add-labels@v1
@@ -30,7 +30,7 @@ jobs:
 
   notify:
     runs-on: ubuntu-latest
-    if: ${{ contains(github.event.issue.title, '[TX Request]') || contains(github.event.issue.labels.*.name, 'translations-request')}}
+    if: ${{ contains(github.event.issue.title, '[TX Request]') || contains(github.event.issue.labels.*.name, 'translations-request') }}
     steps:
       - name: Generate token
         id: generate_token
