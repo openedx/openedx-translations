@@ -230,11 +230,9 @@ jobs:
         run: gh pr merge ${{ env.PR_URL }} --merge --auto
 
       # Notify that branch did not merge because there were no new commits in the branch
-      - name: notify of empty branch
+      # and delete the branch now that it is unnecessary
+      - name: notify of empty branch and delete branch
         if: (steps.mergePR.outcome == 'skipped')
-        run: echo "The branch was not merged because the branch had 0 commits."
-
-      # Delete the branch
-      - name: delete branch
-        if: always()
-        run: git push origin -d ${{ needs.setup-branch.outputs.branch }}
+        run: |
+          echo "The branch was not merged because the branch had 0 commits."
+          git push origin -d ${{ needs.setup-branch.outputs.branch }}
