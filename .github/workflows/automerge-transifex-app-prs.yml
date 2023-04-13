@@ -1,0 +1,27 @@
+# Automatically merge pull requests created by the "Transifex Integration" github app
+# https://github.com/apps/transifex-integration
+
+name: Automerge Transifex GH app PRs
+
+on:
+  - pull_request
+
+jobs:
+  automerge-transifex-app-pr:
+    runs-on: ubuntu-latest
+    # Merges the pull request
+    steps:
+      - name: clone repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: merge pull request
+        id: mergePR
+        env:
+          # secrets can't be used in job conditionals, so we set them to env here
+          TRANSIFEX_APP_ACTOR_NAME: "${{ secrets.TRANSIFEX_APP_ACTOR_NAME }}"
+          TRANSIFEX_APP_ACTOR_ID: "${{ secrets.TRANSIFEX_APP_ACTOR_ID }}"
+          # This token requires Write access to the openedx-translations repo
+          GITHUB_TOKEN: ${{ secrets.EDX_TRANSIFEX_BOT_GITHUB_TOKEN }}
+        if: "${{ github.actor == env.TRANSIFEX_APP_ACTOR_NAME && github.actor_id == env.TRANSIFEX_APP_ACTOR_ID }}"
+        run: gh pr merge ${{ github.head_ref }} --rebase --auto
