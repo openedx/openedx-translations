@@ -1,0 +1,16 @@
+# Get the `github.actor` and `github.actor_id` from the "Transifex Integration" github app
+# https://github.com/apps/transifex-integration
+
+name: Echo actor name and id
+
+on:
+  - pull_request
+
+jobs:
+  echo-actor-name-id:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo actor name and id
+        run: |
+          echo $GITHUB_ACTOR
+          echo $GITHUB_ACTOR_ID
