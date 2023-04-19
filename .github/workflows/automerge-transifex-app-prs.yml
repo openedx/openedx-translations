@@ -24,4 +24,4 @@ jobs:
           # This token requires Write access to the openedx-translations repo
           GITHUB_TOKEN: ${{ secrets.EDX_TRANSIFEX_BOT_GITHUB_TOKEN }}
         if: "${{ github.actor == env.TRANSIFEX_APP_ACTOR_NAME && github.actor_id == env.TRANSIFEX_APP_ACTOR_ID }}"
-        run: gh pr merge ${{ github.head_ref }} --auto
+        run: gh pr merge ${{ github.head_ref }} --merge --auto
