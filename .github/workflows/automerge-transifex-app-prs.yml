@@ -28,6 +28,7 @@ jobs:
         with:
           retry_wait_seconds: 60
           max_attempts: 5
+          timeout_minutes: 15
           retry_on: error
           command: |
             gh pr merge ${{ github.head_ref }} --rebase --auto
