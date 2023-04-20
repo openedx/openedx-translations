@@ -98,7 +98,8 @@ jobs:
           # extract_translations into EN_DIR and adds them
           DJANGO_PATH=$(find $EN_DIR -name 'django.po')
           DJANGOJS_PATH=$(find $EN_DIR -name 'djangojs.po')
-          git add $DJANGO_PATH $DJANGOJS_PATH -v
+          # use (-f) to force add the files even if they are ignored in the source repo
+          git add $DJANGO_PATH $DJANGOJS_PATH -f -v
           # Check the git statuses of the translation source files
           echo "GIT_STATUS=$(git status $DJANGO_PATH $DJANGOJS_PATH -s | wc -l)" >> $GITHUB_ENV
 
