@@ -1,0 +1,27 @@
+# run make test for python
+
+name: Python Tests
+
+on:
+  - pull_request
+
+jobs:
+  python-translations:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Clones the openedx-translations repo
+      - name: clone openedx/openedx-translations
+        uses: actions/checkout@v3
+
+      # Sets up Python
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+
+      # Run the script
+      - name: run python tests
+        run: |
+          make test_requirements
+          make test
