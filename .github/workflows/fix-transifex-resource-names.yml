@@ -1,0 +1,32 @@
+# This workflow runs fix-transifex-resource-names.py nightly
+
+name: Set the openedx-translations to readable resource names
+
+on:
+  workflow_dispatch:  # by request
+  push:  # after adding repositories to the openedx-translations repo
+    branches: [ main ]
+    paths:
+      - 'transifex.yml'
+      - '.github/workflows/extract-translation-source-files.yml'
+
+jobs:
+  python-translations:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Clones the openedx-translations repo
+      - name: clone openedx/openedx-translations
+        uses: actions/checkout@v3
+
+      # Sets up Python
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+
+      # Run the script
+      - name: Fix transifex automatic resource names
+        run: |
+          make transifex_resources_requirements
+          make fix_transifex_resource_names
