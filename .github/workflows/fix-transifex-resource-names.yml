@@ -27,6 +27,8 @@ jobs:
 
       # Run the script
       - name: Fix transifex automatic resource names
+        env:
+          TRANSIFEX_API_TOKEN: ${{ secrets.TRANSIFEX_API_TOKEN }} 
         run: |
           make transifex_resources_requirements
           make fix_transifex_resource_names
