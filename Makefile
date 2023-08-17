@@ -1,4 +1,4 @@
-.PHONY: piptools upgrade fix_transifex_resource_names transifex_resources_requirements
+.PHONY: piptools upgrade fix_transifex_resource_names transifex_resources_requirements validate_translation_files
 
 piptools:
 	pip install -q -r requirements/pip_tools.txt
@@ -29,3 +29,11 @@ test_requirements:  ## Installs test.txt requirements
 
 test:  ## Run scripts tests
 	 pytest -v -s scripts/tests
+
+validate_translation_files:  ## Run basic validation to ensure files are compilable
+	find translations/ -name '*.po' \
+	    | grep -v '/en/LC_MESSAGES/' \
+	    | xargs -I{} msgfmt -v --strict --check {}
+	@echo '-----------------------------------------'
+	@echo 'Congratulations! Translation files are valid.'
+	@echo '-----------------------------------------'
