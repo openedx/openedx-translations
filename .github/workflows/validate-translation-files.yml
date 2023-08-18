@@ -1,0 +1,23 @@
+# Validate the po files to ensure translation files are compilable.
+
+name: Validate translation PO files
+
+on:
+  - pull_request
+
+jobs:
+  validate-po-files:
+    runs-on: ubuntu-latest
+    steps:
+      # Clones the openedx-translations repo
+      - name: clone openedx/openedx-translations
+        uses: actions/checkout@v3
+
+      - name: Install gettext
+        run: |
+          sudo apt install -y gettext
+
+      - name: Validate translation files
+        id: validate_translation_files
+        run: |
+          make validate_translation_files
