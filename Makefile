@@ -10,12 +10,12 @@ upgrade: piptools  ## update the requirements/*.txt files with the latest packag
 	pip install -qr requirements/pip.txt
 	pip install -qr requirements/pip_tools.txt
 	pip-compile --rebuild --upgrade -o requirements/translations.txt requirements/translations.in
-	pip-compile --rebuild --upgrade -o requirements/transifex-resources.txt requirements/transifex-resources.in
+	pip-compile --rebuild --upgrade -o requirements/transifex.txt requirements/transifex.in
 	pip-compile --rebuild --upgrade -o requirements/test.txt requirements/test.in
 
 
 transifex_resources_requirements:  ## Installs the requirements file
-	pip install -q -r requirements/transifex-resources.txt
+	pip install -q -r requirements/transifex.txt
 
 fix_transifex_resource_names:  ## Runs the script
 	python scripts/fix_transifex_resource_names.py
