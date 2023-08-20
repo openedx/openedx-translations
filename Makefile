@@ -1,4 +1,10 @@
-.PHONY: piptools upgrade fix_transifex_resource_names transifex_resources_requirements validate_translation_files
+.PHONY: piptools upgrade fix_transifex_resource_names transifex_resources_requirements validate_translation_files \
+sync_translations sync_translations_github_workflow
+
+
+# Default languages for the sync_translations.py file
+export TX_LANGUAGES := ar,de,fr_CA
+
 
 piptools:
 	pip install -q -r requirements/pip_tools.txt
@@ -12,6 +18,7 @@ upgrade: piptools  ## update the requirements/*.txt files with the latest packag
 	pip-compile --rebuild --upgrade -o requirements/translations.txt requirements/translations.in
 	pip-compile --rebuild --upgrade -o requirements/transifex.txt requirements/transifex.in
 	pip-compile --rebuild --upgrade -o requirements/test.txt requirements/test.in
+	pip-compile --rebuild --upgrade -o requirements/sync.txt requirements/sync.in
 
 
 transifex_resources_requirements:  ## Installs the requirements file
@@ -37,3 +44,13 @@ validate_translation_files:  ## Run basic validation to ensure files are compila
 	@echo '-----------------------------------------'
 	@echo 'Congratulations! Translation files are valid.'
 	@echo '-----------------------------------------'
+
+sync_requirements:  ## install sync.txt requirements
+	pip install -q -r requirements/sync.txt
+
+sync_translations:  ## Syncs from the old projects to the new openedx-translations project
+	python scripts/sync_translations.py $(SYNC_ARGS)
+
+sync_translations_github_workflow:  ## Run with parameters from .github/workflows/sync-translations.yml
+	make SYNC_ARGS="--simulate-github-workflow $(SYNC_ARGS)" sync_translations
+

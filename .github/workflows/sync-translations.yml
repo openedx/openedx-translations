@@ -1,0 +1,141 @@
+name: Migrate translations from the old Transifex project
+
+on:
+#  schedule:  # TODO: Maybe before merge
+#    # https://crontab.guru/#0_0_*_*_1
+#    # At midnight on Mondays
+#    - cron: 0 0 * * 1"
+  workflow_dispatch:
+#  push:
+#    branches: [sync_translations]  # TODO: Remove before merge
+
+jobs:
+  migrate-translations:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        batch:
+          - new_slug: edx-ora2
+            old_slug: openassessment
+            old_project_slug: edx-platform
+
+          - new_slug: edx-ora2-js
+            old_slug: openassessment-js
+            old_project_slug: edx-platform
+
+          - new_slug: edx-proctoring
+            old_slug: edx-proctoring
+            old_project_slug: edx-platform
+
+          - new_slug: studio-frontend
+            old_slug: studio-frontend
+            old_project_slug: edx-platform
+
+          - new_slug: donexblock
+            old_slug: xblock-done
+            old_project_slug: xblocks
+
+          - new_slug: xblock-drag-and-drop-v2
+            old_slug: drag-and-drop-v2
+            old_project_slug: xblocks
+
+          - new_slug: xblock-free-text-response
+            old_slug: xblock-free-text-response
+            old_project_slug: xblocks
+
+          - new_slug: course-discovery
+            old_slug: course_discovery
+            old_project_slug: edx-platform
+
+          - new_slug: course-discovery
+            old_slug: course_discovery
+            old_project_slug: edx-platform
+
+          - new_slug: course-discovery-js
+            old_slug: course_discovery-js
+            old_project_slug: edx-platform
+
+          - new_slug: credentials-js
+            old_slug: credentials-js
+            old_project_slug: edx-platform
+
+          - new_slug: credentials
+            old_slug: credentials
+            old_project_slug: edx-platform
+
+          - new_slug: frontend-app-account
+            old_slug: frontend-app-account
+            old_project_slug: edx-platform
+
+          - new_slug: frontend-app-authn
+            old_slug: frontend-app-authn
+            old_project_slug: edx-platform
+
+          - new_slug: frontend-app-course-authoring
+            old_slug: frontend-app-course-authoring
+            old_project_slug: edx-platform
+
+          - new_slug: frontend-app-discussions
+            old_slug: frontend-app-discussions
+            old_project_slug: edx-platform
+
+          - new_slug: frontend-app-ecommerce
+            old_slug: frontend-app-ecommerce
+            old_project_slug: edx-platform
+
+          - new_slug: frontend-app-gradebook
+            old_slug: frontend-app-gradebook
+            old_project_slug: edx-platform
+
+          - new_slug: frontend-app-learner-dashboard
+            old_slug: frontend-app-learner-dashboard
+            old_project_slug: edx-platform
+
+          - new_slug: frontend-app-learner-record
+            old_slug: frontend-app-learner-record
+            old_project_slug: edx-platform
+
+          - new_slug: frontend-app-learning
+            old_slug: frontend-app-learning
+            old_project_slug: edx-platform
+
+          - new_slug: frontend-app-profile
+            old_slug: frontend-app-profile
+            old_project_slug: edx-platform
+
+          - new_slug: frontend-app-program-console
+            old_slug: frontend-app-program-manager
+            old_project_slug: edx-platform
+
+          - new_slug: frontend-component-footer
+            old_slug: frontend-component-footer-edx
+            old_project_slug: edx-platform
+
+          - new_slug: frontend-component-header
+            old_slug: frontend-component-header
+            old_project_slug: edx-platform
+
+          - new_slug: paragon
+            old_slug: paragon
+            old_project_slug: edx-platform
+
+
+#    if: ${{ !github.event.inputs.resource || github.event.inputs.resource == matrix.new_resource_slug }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.8
+      - name: Install Python dependencies
+        run: make sync_requirements
+
+      - name: Sync
+        env:
+          # `TX_LANGUAGES` list of languages is set in the `Makefile`
+          TX_NEW_SLUG: ${{ matrix.batch.new_slug }}
+          TX_OLD_SLUG: ${{ matrix.batch.old_slug }}
+          TX_OLD_PROJECT_SLUG: ${{ matrix.batch.old_project_slug }}
+          TX_API_TOKEN: ${{ secrets.TRANSIFEX_API_TOKEN }}
+        run: make sync_translations
