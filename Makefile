@@ -28,7 +28,7 @@ test_requirements:  ## Installs test.txt requirements
 	pip install -q -r requirements/test.txt
 
 test:  ## Run scripts tests
-	 pytest -v -s scripts/tests
+	 pytest -v -s --cov=. --cov-report=term-missing --cov-report=html scripts/tests
 
 validate_translation_files:  ## Run basic validation to ensure files are compilable
 	find translations/ -name '*.po' \
