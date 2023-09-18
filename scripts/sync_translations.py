@@ -107,7 +107,7 @@ class Command:
             translation_id = self.get_translation_id(new_translation)
             if old_translation := old_translations.get(translation_id):
                 updates = {}
-                for attr in ['reviewed', 'proofread', 'strings', 'tags']:
+                for attr in ['reviewed', 'proofread', 'strings']:
                     if old_attr_value := getattr(old_translation, attr, None):
                         if old_attr_value != getattr(new_translation, attr, None):
                             updates[attr] = old_attr_value
@@ -117,6 +117,32 @@ class Command:
 
                     if not self.is_dry_run():
                         new_translation.save(**updates)
+
+    def sync_tags(self, old_resource, new_resource):
+        """
+        Sync tags from the old Transifex resource into the new Transifex resource. This process is language independent.
+        """
+        old_resource_str = self.tx_api.ResourceString.filter(resource=old_resource)
+        new_resource_str = self.tx_api.ResourceString.filter(resource=new_resource)
+
+        old_quick_lookup = {
+            item['attributes']['string_hash']: item['attributes']['tags'] for item in old_resource_str.to_dict()['data']
+        }
+
+        for new_info in new_resource_str.all():
+            old_tags = old_quick_lookup.get(new_info.string_hash)
+            new_tags = new_info.tags
+
+            if old_tags is None:  # in case of new changes are not synced yet
+                continue
+            if len(new_tags) == 0 and len(old_tags) == 0:  # nothing to compare
+                continue
+
+            if len(new_tags) != len(old_tags) or set(new_tags) != set(old_tags):
+                print(f'  - found tag difference for {new_info.string_hash}. overwriting: {new_tags} with {old_tags}')
+
+                if not self.is_dry_run():
+                    new_info.save(tags=old_tags)
 
     def get_translation_id(self, translation):
         """
@@ -144,6 +170,9 @@ class Command:
 
         for lang_code in languages:
             self.sync_translations(language_code=lang_code, **resource_pair)
+
+        print('Syncing tags...')
+        self.sync_tags(**resource_pair)
 
         print('-' * 80, '\n')
 
