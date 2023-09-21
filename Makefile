@@ -1,4 +1,11 @@
-.PHONY: piptools upgrade fix_transifex_resource_names transifex_resources_requirements validate_translation_files
+.PHONY: piptools upgrade fix_transifex_resource_names transifex_resources_requirements validate_translation_files \
+sync_translations sync_translations_github_workflow
+
+
+# Default languages for the sync_translations.py file
+# Eventually, this should be all the languages Open edX supports. We're starting with a subset for now.
+export TX_LANGUAGES := ar,de,fr_CA
+
 
 piptools:
 	pip install -q -r requirements/pip_tools.txt
@@ -37,3 +44,13 @@ validate_translation_files:  ## Run basic validation to ensure files are compila
 	@echo '-----------------------------------------'
 	@echo 'Congratulations! Translation files are valid.'
 	@echo '-----------------------------------------'
+
+sync_requirements:  ## install translations.txt requirements
+	pip install -q -r requirements/translations.txt
+
+sync_translations:  ## Syncs from the old projects to the new openedx-translations project
+	python scripts/sync_translations.py $(SYNC_ARGS)
+
+sync_translations_github_workflow:  ## Run with parameters from .github/workflows/sync-translations.yml
+	make SYNC_ARGS="--simulate-github-workflow $(SYNC_ARGS)" sync_translations
+
