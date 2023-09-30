@@ -1,4 +1,4 @@
-.PHONY: piptools upgrade fix_transifex_resource_names transifex_resources_requirements validate_translation_files \
+.PHONY: piptools upgrade fix_transifex_resource_names translations_scripts_requirements validate_translation_files \
 sync_translations sync_translations_github_workflow
 
 
@@ -17,11 +17,10 @@ upgrade: piptools  ## update the requirements/*.txt files with the latest packag
 	pip install -qr requirements/pip.txt
 	pip install -qr requirements/pip_tools.txt
 	pip-compile --rebuild --upgrade -o requirements/translations.txt requirements/translations.in
-	pip-compile --rebuild --upgrade -o requirements/transifex.txt requirements/transifex.in
 	pip-compile --rebuild --upgrade -o requirements/test.txt requirements/test.in
 
 
-transifex_resources_requirements:  ## Installs the requirements file
+translations_scripts_requirements:  ## Installs the requirements file
 	pip install -q -r requirements/transifex.txt
 
 fix_transifex_resource_names:  ## Runs the script
@@ -44,9 +43,6 @@ validate_translation_files:  ## Run basic validation to ensure files are compila
 	@echo '-----------------------------------------'
 	@echo 'Congratulations! Translation files are valid.'
 	@echo '-----------------------------------------'
-
-sync_requirements:  ## install translations.txt requirements
-	pip install -q -r requirements/translations.txt
 
 sync_translations:  ## Syncs from the old projects to the new openedx-translations project
 	python scripts/sync_translations.py $(SYNC_ARGS)
