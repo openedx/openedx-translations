@@ -21,7 +21,7 @@ upgrade: piptools  ## update the requirements/*.txt files with the latest packag
 
 
 translations_scripts_requirements:  ## Installs the requirements file
-	pip install -q -r requirements/transifex.txt
+	pip install -q -r requirements/translations.txt
 
 fix_transifex_resource_names:  ## Runs the script
 	python scripts/fix_transifex_resource_names.py
