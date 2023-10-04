@@ -125,9 +125,10 @@ class Command:
         old_resource_str = self.tx_api.ResourceString.filter(resource=old_resource)
         new_resource_str = self.tx_api.ResourceString.filter(resource=new_resource)
 
-        old_quick_lookup = {
-            item['attributes']['string_hash']: item['attributes']['tags'] for item in old_resource_str.to_dict()['data']
-        }
+        old_quick_lookup = {}
+        for item in old_resource_str.all():
+            dict_item = item.to_dict()
+            old_quick_lookup[dict_item['attributes']['string_hash']] = dict_item['attributes']['tags']
 
         for new_info in new_resource_str.all():
             old_tags = old_quick_lookup.get(new_info.string_hash)
