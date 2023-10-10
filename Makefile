@@ -5,7 +5,7 @@ sync_translations sync_translations_github_workflow
 # Default languages for the sync_translations.py file
 # This includes languages with at least 50% translated entries.
 # This list should be all the languages Open edX supports until the migration is complete.
-export TX_LANGUAGES := ar,da,de_DE,el,es-149,es_ES,fr_CA,hi,he,id,it_IT,pt_BR,pt_PT,ru,th,tr_TR,uk,zh_CN
+export TX_LANGUAGES := ar,da,de_DE,el,es_149,es_ES,fr_CA,hi,he,id,it_IT,pt_BR,pt_PT,ru,th,tr_TR,uk,zh_CN
 
 
 piptools:
