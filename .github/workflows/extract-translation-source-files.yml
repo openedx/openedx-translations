@@ -254,6 +254,98 @@ jobs:
           # push changes to branch
           git push
 
+  # Non-Django, non-JS repositories with a generic extraction interface
+  generic-translations:
+    strategy:
+      # using max-parallel to avoid git push/pull issues when running in parallel
+      max-parallel: 1
+      matrix:
+        repo:
+          - tutor-contrib-aspects
+
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    needs: [setup-branch]
+
+    steps:
+      # Clones the openedx-translations repo
+      - name: clone openedx/openedx-translations
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ needs.setup-branch.outputs.branch }}
+
+      # Clones the  repository
+      - name: clone openedx/${{ matrix.repo }}
+        uses: actions/checkout@v3
+        with:
+          repository: openedx/${{ matrix.repo }}
+          path: translations/${{ matrix.repo }}
+
+      # Sets up Python
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+
+      # Installs Python requirements from translations.txt
+      - name: install requirements
+        run: pip install -r requirements/translations.txt
+
+      # Extracts the translation source files
+      - name: extract translation source files
+        run: |
+          cd translations/${{ matrix.repo }}
+          make extract_translations
+
+      # Validate compilation of translation source files
+      - name: validate compilation of translation source files
+        run: |
+          cd translations/${{ matrix.repo }}
+          make compile_translations
+
+      # git adds only the translation source files, found in conf/locale/en
+      - name: git add the translation source files
+        id: add-sources
+        run: |
+          # set identity
+          git config --global user.email "translations-bot@openedx.org"
+          git config --global user.name "edx-transifex-bot"
+          # Change directory to translations/${{ matrix.repo }}
+          cd translations/${{ matrix.repo }}
+          # finds the directory containing the english locale usually located
+          # in */*/conf/locale/en
+          # This is slightly different from the python-translations line above
+          # in that it ignores top level dotfiles and searches further down the
+          # directory tree, which may be needed in these use cases.
+          EN_DIR=$(find ./* -type d -regex ".*conf\/locale\/en$")
+          # If the directory is not found, exit with an error. This can happen
+          # if we add a repository that doesn't comply with OEP-58, or it
+          # doesn't have any translations yet
+          if [ -z "$EN_DIR" ]; then
+            echo "Missing English locale directory for ${{ matrix.repo }}!"
+            echo "exiting with error!"
+            exit 1
+          fi
+          # remove translations/${{ matrix.repo }}/.git so we don't commit a
+          # submodule
+          rm -rf .git
+
+          # use (-f) to force add the files even if they are ignored in the
+          # source repo
+          git add -A $EN_DIR -f
+          # Check the git statuses of the translation source files, this will
+          # store the number of files staged for the next step
+          echo "GIT_STATUS=$(git status $EN_DIR -s | wc -l)" >> $GITHUB_ENV
+
+      # Attempts to commit the translation source files if there is a difference
+      - name: git commit the translation source files
+        if: "${{ env.GIT_STATUS > 0 }}"
+        run: |
+          # commit the changes
+          git commit -m "chore: add extracted translation source files from ${{ matrix.repo }}"
+          # push changes to branch
+          git push
+
   merge-translations:
     runs-on: ubuntu-latest
     needs: [setup-branch, python-translations, js-translations]
