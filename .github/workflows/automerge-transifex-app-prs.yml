@@ -16,6 +16,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: merge pull request
+        uses: nick-fields/retry@v2
         id: mergePR
         env:
           # secrets can't be used in job conditionals, so we set them to env here
@@ -23,13 +24,17 @@ jobs:
           TRANSIFEX_APP_ACTOR_ID: "${{ secrets.TRANSIFEX_APP_ACTOR_ID }}"
           # This token requires Write access to the openedx-translations repo
           GITHUB_TOKEN: ${{ secrets.EDX_TRANSIFEX_BOT_GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.number }}
         if: "${{ github.actor == env.TRANSIFEX_APP_ACTOR_NAME && github.actor_id == env.TRANSIFEX_APP_ACTOR_ID }}"
-        uses: nick-fields/retry@v2
         with:
           retry_wait_seconds: 60
           max_attempts: 5
           timeout_minutes: 15
           retry_on: error
           command: |
+            # Attempt to merge the PR
             gh pr merge ${{ github.head_ref }} --rebase --auto
-            gh pr status --json mergedAt --jq '.["currentBranch"]["mergedAt"] | fromdate'
+
+            # The `fromdate | todate` are used merge to validate that `mergedAt` isn't null
+            # therefore verifying that the pull request was merged successfully.
+            gh pr view "$PR_NUMBER" --json mergedAt --jq '.mergedAt | fromdate | todate'
