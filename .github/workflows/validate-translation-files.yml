@@ -8,6 +8,9 @@ on:
 jobs:
   validate-po-files:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       # Clones the openedx-translations repo
       - name: clone openedx/openedx-translations
@@ -20,4 +23,35 @@ jobs:
       - name: Validate translation files
         id: validate_translation_files
         run: |
-          make validate_translation_files
+          has_validation_errors=0
+          python scripts/validate_translation_files.py 2>validation_errors.txt || has_validation_errors=1
+          cat validation_errors.txt
+
+          {
+            echo 'VALIDATION_ERRORS<<EOF'
+            fold -w 100 -s validation_errors.txt
+            echo EOF
+          } >> "$GITHUB_OUTPUT"
+
+          exit $has_validation_errors
+
+      # Due to GitHub Actions security reasons this will not work on fork pull requests.
+      # This shouldn't be an issue, because bots writes directly to this repository.
+      - name: Post translation validation results as a comment
+        if: always()
+        uses: mshick/add-pr-comment@7c0890544fb33b0bdd2e59467fbacb62e028a096
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          message: |
+            :white_check_mark: All translation files are valid.
+
+            This comment has been posted by the `validate-translation-files.yml` GitHub Actions workflow.
+
+          message-failure: |
+            :warning: There are errors in the translation files:
+
+            ```
+            ${{ steps.validate_translation_files.outputs.VALIDATION_ERRORS }}
+            ```
+
+            This comment has been posted by the `validate-translation-files.yml` GitHub Actions workflow.
