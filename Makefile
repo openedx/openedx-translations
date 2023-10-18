@@ -38,12 +38,7 @@ test:  ## Run scripts tests
 	 pytest -v -s --cov=. --cov-report=term-missing --cov-report=html scripts/tests
 
 validate_translation_files:  ## Run basic validation to ensure files are compilable
-	find translations/ -name '*.po' \
-	    | grep -v '/en/LC_MESSAGES/' \
-	    | xargs -I{} msgfmt -v --strict --check {}
-	@echo '-----------------------------------------'
-	@echo 'Congratulations! Translation files are valid.'
-	@echo '-----------------------------------------'
+	python scripts/validate_translation_files.py
 
 sync_translations:  ## Syncs from the old projects to the new openedx-translations project
 	python scripts/sync_translations.py $(SYNC_ARGS)
