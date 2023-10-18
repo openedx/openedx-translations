@@ -8,6 +8,9 @@ on:
 jobs:
   validate-po-files:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
     steps:
       # Clones the openedx-translations repo
       - name: clone openedx/openedx-translations
@@ -20,4 +23,28 @@ jobs:
       - name: Validate translation files
         id: validate_translation_files
         run: |
-          make validate_translation_files
+          has_validation_errors=0
+          make validate_translation_files 2>validation_errors.txt || has_validation_errors=1
+          cat validation_errors.txt
+
+          {
+            echo 'VALIDATION_ERRORS<<EOF'
+            cat validation_errors.txt
+            echo EOF
+          } >> "$GITHUB_OUTPUT"
+
+          exit $has_validation_errors
+
+      - name: Post comment if validation fails
+        if: failure()
+        uses: peter-evans/create-or-update-comment@411d7f9b4092af4736447c5420752e3b2be55ec1
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            :warning: There are errors in the translation files:
+
+            ```
+            ${{ steps.validate_translation_files.outputs.VALIDATION_ERRORS }}
+            ```
+
+            This comment has been posted by the `validate-translation-files.yml` GitHub Actions workflow.
