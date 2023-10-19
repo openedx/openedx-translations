@@ -35,11 +35,10 @@ jobs:
 
           exit $has_validation_errors
 
-      # Due to GitHub Actions security reasons this will not work on fork pull requests.
-      # This shouldn't be an issue, because bots writes directly to this repository.
       - name: Post translation validation results as a comment
-        if: always()
-        continue-on-error: true  # Don't fail the build if posting the comment fails on fork pull requests.
+        # Due to GitHub Actions security reasons posting a comment isn't possible on fork pull requests.
+        # This shouldn't be an issue, because bots writes directly to this repository.
+        if: ${{ always() && !github.event.pull_request.head.repo.fork }}
         uses: mshick/add-pr-comment@7c0890544fb33b0bdd2e59467fbacb62e028a096
         with:
           message: |
