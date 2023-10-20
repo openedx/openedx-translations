@@ -28,21 +28,31 @@ def validate_translation_file(po_file):
         ['msgfmt', '-v', '--strict', '--check', po_file],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
-        text=True,
     )
+
+    stdout = completed_process.stdout.decode(encoding='utf-8', errors='replace')
+    stderr = completed_process.stderr.decode(encoding='utf-8', errors='replace')
+
     return {
         'valid': completed_process.returncode == 0,
-        'output': completed_process.stdout + '\n' + completed_process.stderr
+        'output': f'{stdout}\n{stderr}',
     }
 
 
-def main():
+def main(translations_dir='translations'):
     """
-    Run msgfmt and print errors to stderr.
+    Run GNU gettext `msgfmt` and print errors to stderr.
+
+    Returns integer OS Exit code:
+
+      return 0 for valid translation.
+      return 1 for invalid translations.
     """
     translations_valid = True
 
-    po_files = get_translation_files('translations')
+    invalid_lines = []
+
+    po_files = get_translation_files(translations_dir)
     for po_file in po_files:
         result = validate_translation_file(po_file)
 
@@ -50,21 +60,26 @@ def main():
             print('VALID: ' + po_file)
             print(result['output'], '\n' * 2)
         else:
-            print('INVALID: ' + po_file, file=sys.stderr)
-            print(result['output'], '\n' * 2, file=sys.stderr)
+            invalid_lines.append('INVALID: ' + po_file)
+            invalid_lines.append(result['output'] + '\n' * 2)
             translations_valid = False
 
-    print('-----------------------------------------')
+    # Print validation errors in the bottom for easy reading
+    print('\n'.join(invalid_lines), file=sys.stderr)
+
     if translations_valid:
+        print('-----------------------------------------')
         print('SUCCESS: All translation files are valid.')
+        print('-----------------------------------------')
         exit_code = 0
     else:
-        print('FAILURE: Some translations are invalid. Check the stderr for error messages.')
+        print('---------------------------------------', file=sys.stderr)
+        print('FAILURE: Some translations are invalid.', file=sys.stderr)
+        print('---------------------------------------', file=sys.stderr)
         exit_code = 1
-    print('-----------------------------------------')
 
-    sys.exit(exit_code)
+    return exit_code
 
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())  # pragma: no cover
