@@ -3,7 +3,6 @@ Tests for sync_translations.py
 """
 import types
 
-import pytest
 import responses
 from transifex.api import transifex_api, Project
 from transifex.api.jsonapi import Resource

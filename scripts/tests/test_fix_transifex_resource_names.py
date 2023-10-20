@@ -1,7 +1,7 @@
 """
 Tests for fix_transifex_resource_names.py.
 """
-import unittest
+
 from unittest.mock import MagicMock
 from ..fix_transifex_resource_names import get_repo_slug_from_resource
 
