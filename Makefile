@@ -37,8 +37,13 @@ test_requirements:  ## Installs test.txt requirements
 test:  ## Run scripts tests
 	 pytest -v -s --cov=. --cov-report=term-missing --cov-report=html scripts/tests
 
-validate_translation_files:  ## Run basic validation to ensure files are compilable
+validate_translation_files:  ## Run basic validation to ensure translation files are valid
 	python scripts/validate_translation_files.py
+
+
+validate_translation_files_mark_fuzzy:  ## Run basic validation and mark invalid entries as fuzzy
+	python scripts/validate_translation_files.py --mark-fuzzy
+
 
 sync_translations:  ## Syncs from the old projects to the new openedx-translations project
 	python scripts/sync_translations.py $(SYNC_ARGS)

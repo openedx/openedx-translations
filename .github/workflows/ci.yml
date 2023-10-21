@@ -1,0 +1,130 @@
+# Run pull request tests and validation for openedx-translations
+
+name: CI
+
+on:
+  - pull_request
+
+jobs:
+  # Run unit and integration tests for Python
+  tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      statuses: write
+    steps:
+      - name: clone openedx/openedx-translations
+        uses: actions/checkout@v3
+
+      - name: Install gettext
+        run: sudo apt install -y gettext
+
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+
+      - name: Run python tests
+        run: |
+          make test_requirements
+          make test
+
+      - name: Allow editing translation files for bot pull requests
+        env:
+          # secrets can't be used in job conditionals, so we set them to env here
+          TRANSIFEX_APP_ACTOR_NAME: "${{ secrets.TRANSIFEX_APP_ACTOR_NAME }}"
+          TRANSIFEX_APP_ACTOR_ID: "${{ secrets.TRANSIFEX_APP_ACTOR_ID }}"
+        if: "${{ github.actor == env.TRANSIFEX_APP_ACTOR_NAME && github.actor_id == env.TRANSIFEX_APP_ACTOR_ID }}"
+        run: |
+          echo "VALIDATION_OPTIONS=--mark-fuzzy" >> "$GITHUB_ENV"
+
+      - name: Validate translation files
+        id: validate_translation_files
+        run: |
+          has_errors=0
+          python scripts/validate_translation_files.py $VALIDATION_OPTIONS 2>error_log.txt || has_errors=1
+
+          cat error_log.txt  # Print the errors to the console for debugging
+
+          # Save the validation errors to an output variable
+          {
+            echo 'ERROR_LOG<<EOF'
+            fold -w 100 -s error_log.txt
+            echo EOF
+          } >> "$GITHUB_OUTPUT"
+
+          exit $has_errors
+
+      - name: Commit fixes to git
+        id: commit_fixes
+        if: ${{ github.event.repository.full_name == github.event.pull_request.head.repo.full_name }}
+        run: |
+          # Commit if there are changes to translation files
+          if ! git diff --no-ext-diff --quiet --exit-code; then
+            # Set the git user to the bot user to enable commit
+            git config --global user.email "translations-bot@openedx.org"
+            git config --global user.name "edx-transifex-bot"
+
+            # Switch from the merge commit to the pull request branch to enable push
+            git checkout "${{ github.head_ref }}"
+
+            git add translations/
+            git commit --message "fix: mark invalid entries as fuzzy" translations/
+            git push
+
+            echo "FUZZY_FIX_COMMIT_SHA=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          else
+            echo "No changes to commit"
+          fi
+
+      - name: Allow merging the fuzzy fix commit
+        uses: actions/github-script@v6
+        if: ${{ steps.commit_fixes.outputs.FUZZY_FIX_COMMIT_SHA }}
+        with:
+          script: |
+            await github.rest.repos.createCommitStatus({
+              context: 'tests',
+              description: 'ci.yml: Forced success status.',
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: '${{ steps.commit_fixes.outputs.FUZZY_FIX_COMMIT_SHA }}',
+              state: 'success',
+            })
+
+      - name: Post translation validation results as a pull request comment
+        # Due to GitHub Actions security reasons posting a comment isn't possible on fork pull requests.
+        # This shouldn't be an issue, because bots writes directly to this repository.
+        if: ${{ always() && github.event.repository.full_name == github.event.pull_request.head.repo.full_name }}
+        uses: mshick/add-pr-comment@7c0890544fb33b0bdd2e59467fbacb62e028a096
+        with:
+          message: |
+            :white_check_mark: All translation files are valid.
+
+            ```
+            ${{ steps.validate_translation_files.outputs.ERROR_LOG || 'No errors were reported.' }}
+            ```
+
+            This comment has been posted by the `validate-translation-files.yml` GitHub Actions workflow.
+
+          message-failure: |
+            :warning: There are errors in the translation files:
+
+            ```
+            ${{ steps.validate_translation_files.outputs.ERROR_LOG || 'No errors were reported.' }}
+            ```
+
+            This comment has been posted by the `validate-translation-files.yml` GitHub Actions workflow.
+
+      - name: Auto-merge pull request
+        env:
+          # secrets can't be used in job conditionals, so we set them to env here
+          TRANSIFEX_APP_ACTOR_NAME: "${{ secrets.TRANSIFEX_APP_ACTOR_NAME }}"
+          TRANSIFEX_APP_ACTOR_ID: "${{ secrets.TRANSIFEX_APP_ACTOR_ID }}"
+          # This token requires Write access to the openedx-translations repo
+          GITHUB_TOKEN: ${{ secrets.EDX_TRANSIFEX_BOT_GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.number }}
+        if: "${{ github.actor == env.TRANSIFEX_APP_ACTOR_NAME && github.actor_id == env.TRANSIFEX_APP_ACTOR_ID }}"
+        run: |
+          # Add the pull request to the merge queue with --rebase commit strategy
+          gh pr merge ${{ github.head_ref }} --rebase --auto
