@@ -6,10 +6,128 @@ name: Extract Translation Source Files
 
 on:
   workflow_dispatch:    # by request
+    inputs:
+      repo:
+        description: 'Repository to extract translation source files from (leave blank to run all)'
+        required: false
+        type: string
+
   schedule:
     - cron: '0 0 * * *'  # every day at midnight
 
 jobs:
+  setup-matrix:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/github-script@v6
+        id: generate_repo_matrix
+        with:
+          script: |
+            // Need to use a workaround until https://github.com/actions/toolkit/issues/1576 is fixed
+            // const selectedRepo = core.getInput('repo');
+            const selectedRepo = ${{ toJSON(github.event.inputs.repo) }};
+
+            const allPythonRepos = [
+              'AudioXBlock',
+              'completion',
+              'course-discovery',
+              'credentials',
+              'credentials-themes',
+              'DoneXBlock',
+              'edx-ace',
+              'edx-bulk-grades',
+              'edx-ora2',
+              'edx-proctoring',
+              'FeedbackXBlock',
+              'RecommenderXBlock',
+              'xblock-drag-and-drop-v2',
+              'xblock-free-text-response',
+              'xblock-google-drive',
+              'xblock-image-explorer',
+              'xblock-image-modal',
+              'xblock-lti-consumer',
+              'xblock-qualtrics-survey',
+              'xblock-sql-grader',
+              'xblock-submit-and-compare',
+            ];
+
+            const allJavascriptRepos = [
+              'frontend-app-admin-portal',
+              'frontend-app-publisher',
+              'frontend-app-account',
+              'frontend-app-authn',
+              'frontend-app-communications',
+              'frontend-app-course-authoring',
+              'frontend-app-discussions',
+              'frontend-app-ecommerce',
+              'frontend-app-enterprise-public-catalog',
+              'frontend-app-gradebook',
+              'frontend-app-learner-dashboard',
+              'frontend-app-learner-record',
+              'frontend-app-learning',
+              'frontend-app-library-authoring',
+              'frontend-app-ora-grading',
+              'frontend-app-payment',
+              'frontend-app-profile',
+              'frontend-app-program-console',
+              'frontend-app-support-tools',
+              'frontend-component-footer',
+              'frontend-component-header',
+              'frontend-lib-content-components',
+              'frontend-lib-special-exams',
+              'paragon',
+              'studio-frontend',
+            ];
+
+            const allGenericRepos = [
+              {
+                repo: 'tutor-contrib-aspects',
+                transifex_file_path: 'transifex_input.yaml'
+              },
+            ]
+
+            core.setOutput('hasPythonRepos', true);
+            core.setOutput('hasJavascriptRepos', true);
+            core.setOutput('hasGenericRepos', true);
+
+            if (selectedRepo === '') {
+              core.setOutput('pythonRepos', allPythonRepos);
+              core.setOutput('javascriptRepos', allJavascriptRepos);
+              core.setOutput('genericRepos', allGenericRepos);
+              return;
+            }
+
+            if (allPythonRepos.includes(selectedRepo)) {
+              core.setOutput('pythonRepos', [selectedRepo]);
+            } else {
+              core.setOutput('pythonRepos', []);
+              core.setOutput('hasPythonRepos', false);
+            }
+
+            if (allJavascriptRepos.includes(selectedRepo)) {
+              core.setOutput('javascriptRepos', [selectedRepo]);
+            } else {
+              core.setOutput('javascriptRepos', []);
+              core.setOutput('hasJavascriptRepos', false);
+            }
+
+            const genericRepoConfig = allGenericRepos.find(repoConfig => repoConfig.repo === selectedRepo);
+            if (genericRepoConfig !== undefined) {
+              core.setOutput('genericRepos', [genericRepoConfig]);
+            } else {
+              core.setOutput('genericRepos', []);
+              core.setOutput('hasGenericRepos', false);
+            }
+
+    outputs:
+      has_python_repos: ${{ steps.generate_repo_matrix.outputs.hasPythonRepos }}
+      python_repos: ${{ steps.generate_repo_matrix.outputs.pythonRepos }}
+      has_js_repos: ${{ steps.generate_repo_matrix.outputs.hasJavascriptRepos }}
+      js_repos: ${{ steps.generate_repo_matrix.outputs.javascriptRepos }}
+      has_generic_repos: ${{ steps.generate_repo_matrix.outputs.hasGenericRepos }}
+      generic_repos: ${{ steps.generate_repo_matrix.outputs.genericRepos }}
+
   setup-branch:
     runs-on: ubuntu-latest
     outputs:
@@ -34,36 +152,16 @@ jobs:
         git push --set-upstream origin ${{ steps.dynamic_branch.outputs.branch }}
 
   python-translations:
+    if: ${{ fromJson(needs.setup-matrix.outputs.has_python_repos) == true }}
+    needs: [setup-branch, setup-matrix]
     strategy:
       # using max-parallel to avoid git push/pull issues when running in parallel
       max-parallel: 1
       matrix:
-        repo:
-          - AudioXBlock
-          - completion
-          - course-discovery
-          - credentials
-          - credentials-themes
-          - DoneXBlock
-          - edx-ace
-          - edx-bulk-grades
-          - edx-ora2
-          - edx-proctoring
-          - FeedbackXBlock
-          - RecommenderXBlock
-          - xblock-drag-and-drop-v2
-          - xblock-free-text-response
-          - xblock-google-drive
-          - xblock-image-explorer
-          - xblock-image-modal
-          - xblock-lti-consumer
-          - xblock-qualtrics-survey
-          - xblock-sql-grader
-          - xblock-submit-and-compare
+        repo: ${{ fromJson(needs.setup-matrix.outputs.python_repos) }}
 
     runs-on: ubuntu-latest
     continue-on-error: true
-    needs: [setup-branch]
 
     steps:
       # Clones the openedx-translations repo
@@ -161,6 +259,8 @@ jobs:
           git push
 
   js-translations:
+    if: ${{ !cancelled() && fromJson(needs.setup-matrix.outputs.has_js_repos) == true }}
+    needs: [setup-branch, setup-matrix, python-translations]
     strategy:
       # using max-parallel to avoid git push/pull issues when running in parallel
       max-parallel: 1
@@ -175,35 +275,10 @@ jobs:
         # * frontend-app-programs-dashboard
         # repos with errors running extract_translations
         # * frontend-template-application
-        repo:
-          - frontend-app-admin-portal
-          - frontend-app-publisher
-          - frontend-app-account
-          - frontend-app-authn
-          - frontend-app-communications
-          - frontend-app-course-authoring
-          - frontend-app-discussions
-          - frontend-app-ecommerce
-          - frontend-app-enterprise-public-catalog
-          - frontend-app-gradebook
-          - frontend-app-learner-dashboard
-          - frontend-app-learner-record
-          - frontend-app-learning
-          - frontend-app-library-authoring
-          - frontend-app-ora-grading
-          - frontend-app-payment
-          - frontend-app-profile
-          - frontend-app-program-console
-          - frontend-app-support-tools
-          - frontend-component-footer
-          - frontend-component-header
-          - frontend-lib-content-components
-          - frontend-lib-special-exams
-          - paragon
-          - studio-frontend
+        repo: ${{ fromJson(needs.setup-matrix.outputs.js_repos) }}
     runs-on: ubuntu-latest
     continue-on-error: true
-    needs: [setup-branch, python-translations]
+
     steps:
       # Clones the openedx-translations repo
       - name: clone openedx/openedx-translations
@@ -259,17 +334,16 @@ jobs:
   # assumes that a `extract_translations` make target exists and will create
   # a transifex_input.yaml file in the root of the site.
   generic-translations:
+    if: ${{ !cancelled() && fromJson(needs.setup-matrix.outputs.has_generic_repos) == true }}
+    needs: [setup-branch, setup-matrix, js-translations]
     strategy:
       # using max-parallel to avoid git push/pull issues when running in parallel
       max-parallel: 1
       matrix:
-        repository_config:
-          - repo: tutor-contrib-aspects
-            transifex_file_path: transifex_input.yaml
+        repository_config: ${{ fromJson(needs.setup-matrix.outputs.generic_repos) }}
 
     runs-on: ubuntu-latest
     continue-on-error: true
-    needs: [setup-branch]
 
     steps:
       # Clones the openedx-translations repo
