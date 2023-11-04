@@ -1,7 +1,12 @@
-import sys
+"""
+Validate translation files using GNU gettext `msgfmt` command.
+"""
+
+import argparse
 import os
 import os.path
 import subprocess
+import sys
 
 
 def get_translation_files(translation_directory):
@@ -39,7 +44,9 @@ def validate_translation_file(po_file):
     }
 
 
-def main(translations_dir='translations'):
+def validate_translation_files(
+    translations_dir='translations',
+):
     """
     Run GNU gettext `msgfmt` and print errors to stderr.
 
@@ -81,5 +88,14 @@ def main(translations_dir='translations'):
     return exit_code
 
 
+def main():  # pragma: no cover
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--dir', action='store', type=str, default='translations')
+    args = parser.parse_args()
+    sys.exit(validate_translation_files(
+        translations_dir=args.dir,
+    ))
+
+
 if __name__ == '__main__':
-    sys.exit(main())  # pragma: no cover
+    main()  # pragma: no cover

@@ -3,10 +3,11 @@ Tests for the validate_translation_files.py script.
 """
 
 import os.path
+import re
 
 from ..validate_translation_files import (
     get_translation_files,
-    main,
+    validate_translation_files,
 )
 
 SCRIPT_DIR = os.path.dirname(__file__)
@@ -35,7 +36,7 @@ def test_main_on_invalid_files(capsys):
     Integration test for the `main` function on some invalid files.
     """
     mock_translations_dir = os.path.join(SCRIPT_DIR, 'mock_translations_dir')
-    exit_code = main(mock_translations_dir)
+    exit_code = validate_translation_files(mock_translations_dir)
     out, err = capsys.readouterr()
 
     assert 'VALID:' in out, 'Valid files should be printed in stdout'
@@ -44,8 +45,7 @@ def test_main_on_invalid_files(capsys):
     assert 'hi/LC_MESSAGES/django.po' not in out, 'Invalid file should be printed in stderr'
     assert 'en/LC_MESSAGES/django.po' not in out, 'Source file should not be validated'
 
-    assert 'INVALID:' in err
-    assert 'hi/LC_MESSAGES/django.po' in err
+    assert re.match(r'INVALID: .*hi/LC_MESSAGES/django.po', err)
     assert '\'msgstr\' is not a valid Python brace format string, unlike \'msgid\'' in err
     assert 'FAILURE: Some translations are invalid.' in err
 
@@ -57,7 +57,7 @@ def test_main_on_valid_files(capsys):
     Integration test for the `main` function but only for the Arabic translations which is valid.
     """
     mock_translations_dir = os.path.join(SCRIPT_DIR, 'mock_translations_dir/demo-xblock/conf/locale/ar')
-    exit_code = main(mock_translations_dir)
+    exit_code = validate_translation_files(mock_translations_dir)
     out, err = capsys.readouterr()
 
     assert 'VALID:' in out, 'Valid files should be printed in stdout'
