@@ -3,8 +3,8 @@ sync_translations sync_translations_github_workflow rerun_tests_for_transifex_bo
 
 
 # Default languages for the sync_translations.py file
-# This includes languages with at least 50% translated entries.
-# This list should be all the languages Open edX supports until the migration is complete.
+# This list represents the supported languages by the Open edX community as stated by the Translators Working Group:
+#   - https://openedx.atlassian.net/wiki/spaces/COMM/pages/3157524644/Translation+Working+Group#The-following-is-a-table-of-the-latest-list-of-languages-supported--by-the-Translation-Working-Group
 export TX_LANGUAGES := ar,da,de_DE,el,es_419,es_ES,fr_CA,hi,he,id,it_IT,pt_BR,pt_PT,ru,th,tr_TR,uk,zh_CN
 
 
