@@ -3,7 +3,7 @@
 name: Validate translation PO files
 
 on:
-  pull_request:
+  - pull_request
 
 jobs:
   validate-po-files:
@@ -12,16 +12,28 @@ jobs:
       contents: read
       pull-requests: write
     steps:
+      # Define .po filepaths, so we can skip this action unless a .po
+      # file has been modified in this diff
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            pofiles:
+              - '**.po'
+
       # Clones the openedx-translations repo
       - name: clone openedx/openedx-translations
+        if: steps.filter.outputs.pofiles == 'true'
         uses: actions/checkout@v3
 
       - name: Install gettext
+        if: steps.filter.outputs.pofiles == 'true'
         run: |
           sudo apt install -y gettext
 
       - name: Validate translation files
         id: validate_translation_files
+        if: steps.filter.outputs.pofiles == 'true'
         run: |
           has_validation_errors=0
           python scripts/validate_translation_files.py 2>validation_errors.txt || has_validation_errors=1
