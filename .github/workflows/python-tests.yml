@@ -10,22 +10,37 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Define which file extensions, when touched, should trigger the
+      # Python tests, so we can skip this Action if we've only touched .po files
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            non_pofiles:
+              - '**.txt'
+              - '**.yml'
+              - '**.in'
+              - '**.py'
+
       # Clones the openedx-translations repo
       - name: clone openedx/openedx-translations
         uses: actions/checkout@v3
 
       - name: Install gettext
+        if: steps.filter.outputs.non_pofiles == 'true'
         run: |
           sudo apt install -y gettext
 
       # Sets up Python
       - name: setup python
+        if: steps.filter.outputs.non_pofiles == 'true'
         uses: actions/setup-python@v4
         with:
           python-version: '3.8'
 
       # Run the script
       - name: run python tests
+        if: steps.filter.outputs.non_pofiles == 'true'
         run: |
           make test_requirements
           make test
