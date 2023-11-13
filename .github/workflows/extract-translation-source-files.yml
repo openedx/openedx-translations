@@ -35,6 +35,7 @@ jobs:
               'credentials',
               'credentials-themes',
               'DoneXBlock',
+              'ecommerce',
               'edx-ace',
               'edx-bulk-grades',
               'edx-ora2',
@@ -214,7 +215,8 @@ jobs:
           cd translations/${{ matrix.repo }}
           # finds the directory containing the english locale usually located in
           # */*/conf/locale/en
-          EN_DIR=$(find . -type d -regex ".+conf\/locale\/en$")
+          # but also exclude any hidden directories that might exist for some reason
+          EN_DIR=$(find . -type d -not -path '*/.*' -regex ".+conf\/locale\/en$")
           # If the directory is not found, exit with an error. This can happen if we add a repository that doesn't
           # comply with OEP-58, or it still doesn't have any translations yet
           if [ -z "$EN_DIR" ]; then
