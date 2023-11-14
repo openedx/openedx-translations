@@ -6,93 +6,14 @@ en:
     \ {% if RUN_SUPERSET %} - **Superset Version**: {{ DOCKER_IMAGE_SUPERSET }} \n\
     \ {% endif %} \n\n## Dependencies: {% for requirement in OPENEDX_EXTRA_PIP_REQUIREMENTS\
     \ %} {% if 'openedx-event-sink-clickhouse' in requirement %} - **Clickhouse Event\
-    \ Sink Version**: {{ requirement.split('==')[1] }} \n {% elif 'event-routing-backends'\
-    \ in requirement %} - **Event Routing Backends Version**: {{ requirement.split('==')[1]\
-    \ }} \n {% endif %} {% endfor %} "
+    \ Sink Version**: {{ requirement }} \n {% elif 'event-routing-backends' in requirement\
+    \ %} - **Event Routing Backends Version**: {{ requirement }} \n {% endif %} {%\
+    \ endfor %} "
   : ""
-  ? '### Course Enrollment
-
-
-
-    These charts can help you understand how many students are enrolled in your course
-    by showing how enrollments have changed over time and which enrollment modes students
-    are choosing. More details about each chart can be found by clicking the "3 dot"
-    menu at the top right of the chart and selecting "Show chart description".
-
-
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
-  : '### Inscriptions au cours
-
-
-
-    Ces graphiques peuvent vous aider à comprendre combien d''étudiants sont inscrits à votre cours en montrant comment les inscriptions ont changé au fil du temps et quels modes d''inscription choisissent les étudiants. Plus de détails sur chaque graphique peuvent être trouvés en cliquant sur le menu "3 points" en haut à droite du graphique et en sélectionnant "Afficher la description du graphique".
-
-
-    Vous pouvez filtrer ces résultats en sélectionnant diverses options parmi les filtres de gauche.'
-  ? '### Problem Engagement
-
-
-    These charts can help you learn which problems your students have engaged with
-    or skipped, and the relative difficulty of problems across your course. More details
-    about each chart can be found by clicking the "3 dot" menu at the top right of
-    the chart and selecting "Show chart description".
-
-
-    **Select a course from the filters on the left to populate these charts.**'
-  : '### Engagement des problèmes
-
-
-    Ces graphiques peuvent vous aider à découvrir quels problèmes vos élèves ont abordés ou ignorés, ainsi que la difficulté relative des problèmes tout au long de votre cours. Plus de détails sur chaque graphique peuvent être trouvés en cliquant sur le menu "3 points" en haut à droite du graphique et en sélectionnant "Afficher la description du graphique".
-
-
-    **Sélectionnez un cours parmi les filtres sur la gauche pour remplir ces graphiques.**'
-  ? '### Problem Performance
-
-
-    These charts help show the difficulty of your problems by showing you which answers
-    your students choose and which require many tries or hints to complete successfully.
-
-
-    **Select a problem from the filters on the left to populate the charts.**'
-  : '### Performance des problèmes
-
-
-    Ces graphiques aident à montrer la difficulté de vos problèmes en vous montrant quelles réponses choisissent vos élèves et lesquelles nécessitent de nombreux essais ou indices pour réussir.
-
-
-    **Sélectionnez un problème parmi les filtres de gauche pour remplir les graphiques.**'
-  ? '### Video Engagement
-
-
-    These charts can help understand which videos are watched, and rewatched, most
-    often. It can also show how many users use the closed captions and transcript
-    features on your videos, and how often.
-
-
-    **Select a course from the filters on the left to populate these charts.**'
-  : '### Engagement vidéo
-
-
-    Ces graphiques peuvent aider à comprendre quelles vidéos sont regardées et revues le plus souvent. Il peut également montrer combien d''utilisateurs utilisent les fonctionnalités de sous-titres et de transcription sur vos vidéos, et à quelle fréquence.
-
-
-    **Sélectionnez un cours parmi les filtres de gauche pour remplir ces graphiques.**'
-  ? '### Video Performance
-
-
-    This section allows you to see which parts of a particular video are most watched
-    or skipped.
-
-
-    **Select a video from the filters on the left to populate these charts.**'
-  : '### Performance vidéo
-
-
-    Cette section vous permet de voir quelles parties d''une vidéo particulière sont les plus regardées ou ignorées.
-
-
-    **Sélectionnez une vidéo parmi les filtres de gauche pour remplir ces graphiques.**'
+  <div>Filter these results by selecting various options from the filters panel.</div>: ""
+  <div>Select a course from the Filters panel to populate these charts.</div>: ""
+  <div>Select a problem from the Filters panel to populate the charts.</div>: ""
+  <div>Select a video from the Filters panel to populate these charts.</div>: ""
   ? A count of the number of enrollments and un-enrollments per day. Learners can
     enroll and unenroll multiple times, in this chart each individual enrollment and
     unenrollment will be counted.
@@ -141,6 +62,7 @@ en:
   Event type: Type d'événement
   Events per course: Événements par cours
   Forum Interaction: Interactions sur les forums
+  Help: ""
   Hints / Answer Displayed Before Correct Answer Chosen: Conseils / réponses affichés avant que la bonne réponse soit choisie
   Instance Health: État de santé de l'instance
   Instructor Dashboard: Tableau de bord de l'instructeur
@@ -227,3 +149,5 @@ en:
   Watched Video Segments: Segments vidéo regardés
   Watches Per Video: Vues par vidéo
   xAPI Events Over Time: Événements xAPI au fil du temps
+  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': ''
+  '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': ''
