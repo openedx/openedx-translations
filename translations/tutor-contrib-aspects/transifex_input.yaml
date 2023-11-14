@@ -6,9 +6,9 @@ en:
     \ {% if RUN_SUPERSET %} - **Superset Version**: {{ DOCKER_IMAGE_SUPERSET }} \n\
     \ {% endif %} \n\n## Dependencies: {% for requirement in OPENEDX_EXTRA_PIP_REQUIREMENTS\
     \ %} {% if 'openedx-event-sink-clickhouse' in requirement %} - **Clickhouse Event\
-    \ Sink Version**: {{ requirement.split('==')[1] }} \n {% elif 'event-routing-backends'\
-    \ in requirement %} - **Event Routing Backends Version**: {{ requirement.split('==')[1]\
-    \ }} \n {% endif %} {% endfor %} "
+    \ Sink Version**: {{ requirement }} \n {% elif 'event-routing-backends' in requirement\
+    \ %} - **Event Routing Backends Version**: {{ requirement }} \n {% endif %} {%\
+    \ endfor %} "
   : "# Instance information Aspects: {{ ASPECTS_VERSION }}\n{% if RUN_VECTOR %} -\
     \ **Vector Version**: {{ DOCKER_IMAGE_VECTOR }} \n {% endif %} {% if RUN_CLICKHOUSE\
     \ %} - **Clickhouse Version**: {{ DOCKER_IMAGE_CLICKHOUSE }} \n {% endif %} {%\
@@ -16,103 +16,17 @@ en:
     \ {% if RUN_SUPERSET %} - **Superset Version**: {{ DOCKER_IMAGE_SUPERSET }} \n\
     \ {% endif %} \n\n## Dependencies: {% for requirement in OPENEDX_EXTRA_PIP_REQUIREMENTS\
     \ %} {% if 'openedx-event-sink-clickhouse' in requirement %} - **Clickhouse Event\
-    \ Sink Version**: {{ requirement.split('==')[1] }} \n {% elif 'event-routing-backends'\
-    \ in requirement %} - **Event Routing Backends Version**: {{ requirement.split('==')[1]\
-    \ }} \n {% endif %} {% endfor %} "
-  ? '### Course Enrollment
-
-
-
-    These charts can help you understand how many students are enrolled in your course
-    by showing how enrollments have changed over time and which enrollment modes students
-    are choosing. More details about each chart can be found by clicking the "3 dot"
-    menu at the top right of the chart and selecting "Show chart description".
-
-
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
-  : '### Course Enrollment
-
-
-
-    These charts can help you understand how many students are enrolled in your course
-    by showing how enrollments have changed over time and which enrollment modes students
-    are choosing. More details about each chart can be found by clicking the "3 dot"
-    menu at the top right of the chart and selecting "Show chart description".
-
-
-    You can filter these results by choosing selecting various options from the filters
-    on the left.'
-  ? '### Problem Engagement
-
-
-    These charts can help you learn which problems your students have engaged with
-    or skipped, and the relative difficulty of problems across your course. More details
-    about each chart can be found by clicking the "3 dot" menu at the top right of
-    the chart and selecting "Show chart description".
-
-
-    **Select a course from the filters on the left to populate these charts.**'
-  : '### Problem Engagement
-
-
-    These charts can help you learn which problems your students have engaged with
-    or skipped, and the relative difficulty of problems across your course. More details
-    about each chart can be found by clicking the "3 dot" menu at the top right of
-    the chart and selecting "Show chart description".
-
-
-    **Select a course from the filters on the left to populate these charts.**'
-  ? '### Problem Performance
-
-
-    These charts help show the difficulty of your problems by showing you which answers
-    your students choose and which require many tries or hints to complete successfully.
-
-
-    **Select a problem from the filters on the left to populate the charts.**'
-  : '### Problem Performance
-
-
-    These charts help show the difficulty of your problems by showing you which answers
-    your students choose and which require many tries or hints to complete successfully.
-
-
-    **Select a problem from the filters on the left to populate the charts.**'
-  ? '### Video Engagement
-
-
-    These charts can help understand which videos are watched, and rewatched, most
-    often. It can also show how many users use the closed captions and transcript
-    features on your videos, and how often.
-
-
-    **Select a course from the filters on the left to populate these charts.**'
-  : '### Video Engagement
-
-
-    These charts can help understand which videos are watched, and rewatched, most
-    often. It can also show how many users use the closed captions and transcript
-    features on your videos, and how often.
-
-
-    **Select a course from the filters on the left to populate these charts.**'
-  ? '### Video Performance
-
-
-    This section allows you to see which parts of a particular video are most watched
-    or skipped.
-
-
-    **Select a video from the filters on the left to populate these charts.**'
-  : '### Video Performance
-
-
-    This section allows you to see which parts of a particular video are most watched
-    or skipped.
-
-
-    **Select a video from the filters on the left to populate these charts.**'
+    \ Sink Version**: {{ requirement }} \n {% elif 'event-routing-backends' in requirement\
+    \ %} - **Event Routing Backends Version**: {{ requirement }} \n {% endif %} {%\
+    \ endfor %} "
+  <div>Filter these results by selecting various options from the filters panel.</div>: <div>Filter
+    these results by selecting various options from the filters panel.</div>
+  <div>Select a course from the Filters panel to populate these charts.</div>: <div>Select
+    a course from the Filters panel to populate these charts.</div>
+  <div>Select a problem from the Filters panel to populate the charts.</div>: <div>Select
+    a problem from the Filters panel to populate the charts.</div>
+  <div>Select a video from the Filters panel to populate these charts.</div>: <div>Select
+    a video from the Filters panel to populate these charts.</div>
   ? A count of the number of enrollments and un-enrollments per day. Learners can
     enroll and unenroll multiple times, in this chart each individual enrollment and
     unenrollment will be counted.
@@ -176,6 +90,7 @@ en:
   Event type: Event type
   Events per course: Events per course
   Forum Interaction: Forum Interaction
+  Help: Help
   Hints / Answer Displayed Before Correct Answer Chosen: Hints / Answer Displayed
     Before Correct Answer Chosen
   Instance Health: Instance Health
@@ -286,3 +201,5 @@ en:
   Watched Video Segments: Watched Video Segments
   Watches Per Video: Watches Per Video
   xAPI Events Over Time: xAPI Events Over Time
+  '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}': '{{ASPECTS_INSTRUCTOR_HELP_MARKDOWN}}'
+  '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}': '{{ASPECTS_OPERATOR_HELP_MARKDOWN}}'
