@@ -35,6 +35,12 @@ jobs:
             # Attempt to merge the PR
             gh pr merge ${{ github.head_ref }} --rebase --auto
 
-            # The `fromdate | todate` are used merge to validate that `mergedAt` isn't null
-            # therefore verifying that the pull request was merged successfully.
-            gh pr view "$PR_NUMBER" --json mergedAt --jq '.mergedAt | fromdate | todate'
+            MERGE_DATE="$(gh pr view "$PR_NUMBER" --json mergedAt --jq '.mergedAt')"
+
+            if [ -n "$MERGE_DATE" ]; then
+              echo "Success: PR merged at '$MERGE_DATE'"
+              exit 0
+            else
+              echo "PR not merged yet, retrying via 'nick-fields/retry'..."
+              exit 1
+            fi
