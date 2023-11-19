@@ -181,7 +181,7 @@ class Command:
         """
         Run the script from a GitHub Actions migrate-from-transifex-old-project.yml workflow file.
         """
-        pairs_list = workflow_configs['jobs']['migrate-translations']['strategy']['matrix']['batch']
+        pairs_list = workflow_configs['jobs']['migrate-translations']['strategy']['matrix']['resource']
 
         print('Verifying existence of resource pairs...')
         for pair in pairs_list:
