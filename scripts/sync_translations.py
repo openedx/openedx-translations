@@ -30,6 +30,19 @@ NEW_PROJECT_SLUG = 'openedx-translations'
 ORGANIZATION_SLUG = 'open-edx'
 
 
+def parse_tx_date(date_str):
+    """
+    Parse a date string coming from Transifex into a datetime object.
+    """
+    if date_str:
+        if date_str.endswith('Z'):
+            date_str = date_str.replace('Z', '+00:00')
+
+        return datetime.fromisoformat(date_str)
+
+    return None
+
+
 class Command:
 
     workflow_file_path = '.github/workflows/sync-translations.yml'
@@ -118,25 +131,61 @@ class Command:
         Sync specific language translations into the new Transifex resource.
         """
         print(' syncing', language_code, '...')
-        old_translations = {
+        translations_from_old_project = {
             self.get_translation_id(translation): translation
             for translation in self.get_translations(language_code=language_code, resource=old_resource)
         }
 
-        for new_translation in self.get_translations(language_code=language_code, resource=new_resource):
-            translation_id = self.get_translation_id(new_translation)
-            if old_translation := old_translations.get(translation_id):
-                updates = {}
-                for attr in ['reviewed', 'proofread', 'strings']:
-                    if old_attr_value := getattr(old_translation, attr, None):
-                        if old_attr_value != getattr(new_translation, attr, None):
-                            updates[attr] = old_attr_value
+        for current_translation in self.get_translations(language_code=language_code, resource=new_resource):
+            translation_id = self.get_translation_id(current_translation)
+            if translation_from_old_project := translations_from_old_project.get(translation_id):
+                self.sync_translation_entry(
+                    translation_from_old_project=translation_from_old_project,
+                    current_translation=current_translation,
+                )
 
-                if updates:
-                    print(translation_id, updates)
+    def sync_translation_entry(self, translation_from_old_project, current_translation):
+        """
+        Sync a single translation entry from the old project to the new one.
 
-                    if not self.is_dry_run():
-                        new_translation.save(**updates)
+        Return:
+            str: status code
+               - updated: if the entry was updated
+               - skipped: if the entry was skipped
+               - updated-dry-run: if the entry was updated in dry-run mode
+        """
+        translation_id = self.get_translation_id(current_translation)
+
+        updates = {}
+        for attr in ['reviewed', 'proofread', 'strings']:
+            if old_attr_value := getattr(translation_from_old_project, attr, None):
+                if old_attr_value != getattr(current_translation, attr, None):
+                    updates[attr] = old_attr_value
+
+        # Avoid overwriting more recent translations in the open-edx/openedx-translations project
+        newer_translation_found = False
+        old_project_translation_time = parse_tx_date(translation_from_old_project.datetime_translated)
+        current_translation_time = parse_tx_date(current_translation.datetime_translated)
+
+        if old_project_translation_time and current_translation_time:
+            newer_translation_found = current_translation_time > old_project_translation_time
+
+        if updates:
+            if newer_translation_found:
+                print(translation_id, updates,
+                    (
+                      f'[Skipped: current translation "{current_translation_time}" '
+                      f'is more recent than "{old_project_translation_time}"]'
+                    )
+                )
+                return 'skipped'
+            else:
+                print(translation_id, updates, '[Dry run]' if self.is_dry_run() else '')
+                if self.is_dry_run():
+                    return 'updated-dry-run'
+                else:
+                    current_translation.save(**updates)
+                    return 'updated'
 
     def sync_tags(self, old_resource, new_resource):
         """
