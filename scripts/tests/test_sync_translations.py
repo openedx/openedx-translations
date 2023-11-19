@@ -1,9 +1,14 @@
 """
 Tests for sync_translations.py
 """
+from dataclasses import dataclass
+from datetime import datetime, timezone
 import types
+from typing import Union
 
+import pytest
 import responses
+
 from transifex.api import transifex_api, Project
 from transifex.api.jsonapi import Resource
 from transifex.api.jsonapi.auth import BearerAuthentication
@@ -14,14 +19,17 @@ from ..sync_translations import Command, ORGANIZATION_SLUG
 HOST = transifex_api.HOST
 
 
-def sync_command():
-    result = Command(
-        argv=[],
-        tx_api=transifex_api,
-        environ={
+def sync_command(**kwargs):
+    command_args = {
+        'tx_api': transifex_api,
+        'dry_run': True,
+        'simulate_github_workflow': False,
+        'environ': {
             'TX_API_TOKEN': 'dummy-token'
         }
-    )
+    }
+    command_args.update(kwargs)
+    result = Command(**command_args)
     result.tx_api.make_auth_headers = BearerAuthentication('dummy-token')
     return result
 

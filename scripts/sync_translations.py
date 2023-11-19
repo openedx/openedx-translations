@@ -1,6 +1,25 @@
+"""
+Sync translations from the deprecated Transifex projects into the new openedx-translations project.
+
+  - Old projects links:
+     * edX Platform Core: https://app.transifex.com/open-edx/edx-platform/
+     * XBlocks: https://app.transifex.com/open-edx/xblocks/
+
+  - New project link:
+     * https://app.transifex.com/open-edx/openedx-translations/
+
+
+Variable names meaning:
+
+ - current_translation: translation in the new "open-edx/openedx-translations" project
+ - translation_from_old_project: translation in the old "open-edx/edx-platform" or "open-edx/xblocks" projects
+
+"""
+
+import argparse
 import configparser
+from datetime import datetime
 import os
-import sys
 from os.path import expanduser
 import yaml
 
@@ -15,8 +34,9 @@ class Command:
 
     workflow_file_path = '.github/workflows/sync-translations.yml'
 
-    def __init__(self, argv, tx_api, environ):
-        self.argv = argv
+    def __init__(self, tx_api, dry_run, simulate_github_workflow, environ):
+        self.dry_run = dry_run
+        self.simulate_github_workflow = simulate_github_workflow
         self.tx_api = tx_api
         self.environ = environ
 
@@ -24,13 +44,13 @@ class Command:
         """
         Check if the script is running in dry-run mode.
         """
-        return '--dry-run' in self.argv
+        return self.dry_run
 
     def is_simulated_github_actions(self):
         """
         Check if the script is running in simulated GitHub Actions mode.
         """
-        return '--simulate-github-workflow' in self.argv
+        return self.simulate_github_workflow
 
     def get_resource_url(self, resource, project_slug):
         return f'https://www.transifex.com/{ORGANIZATION_SLUG}/{project_slug}/{resource.slug}'
@@ -213,6 +233,21 @@ class Command:
             )
 
 
-if __name__ == '__main__':
-    command = Command(sys.argv, environ=os.environ, tx_api=transifex_api)
+def main():  # pragma: no cover
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--simulate-github-workflow', action='store_true',
+                        dest='simulate_github_workflow')
+    parser.add_argument('--dry-run', action='store_true', dest='dry_run')
+    argparse_args = parser.parse_args()
+
+    command = Command(
+        tx_api=transifex_api,
+        environ=os.environ,
+        dry_run=argparse_args.dry_run,
+        simulate_github_workflow=argparse_args.simulate_github_workflow,
+    )
     command.run()
+
+
+if __name__ == '__main__':
+    main()  # pragma: no cover
