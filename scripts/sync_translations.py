@@ -1,6 +1,25 @@
+"""
+Sync translations from the deprecated Transifex projects into the new openedx-translations project.
+
+  - Old projects links:
+     * edX Platform Core: https://app.transifex.com/open-edx/edx-platform/
+     * XBlocks: https://app.transifex.com/open-edx/xblocks/
+
+  - New project link:
+     * https://app.transifex.com/open-edx/openedx-translations/
+
+
+Variable names meaning:
+
+ - current_translation: translation in the new "open-edx/openedx-translations" project
+ - translation_from_old_project: translation in the old "open-edx/edx-platform" or "open-edx/xblocks" projects
+
+"""
+
+import argparse
 import configparser
+from datetime import datetime
 import os
-import sys
 from os.path import expanduser
 import yaml
 
@@ -11,12 +30,26 @@ NEW_PROJECT_SLUG = 'openedx-translations'
 ORGANIZATION_SLUG = 'open-edx'
 
 
+def parse_tx_date(date_str):
+    """
+    Parse a date string coming from Transifex into a datetime object.
+    """
+    if date_str:
+        if date_str.endswith('Z'):
+            date_str = date_str.replace('Z', '+00:00')
+
+        return datetime.fromisoformat(date_str)
+
+    return None
+
+
 class Command:
 
     workflow_file_path = '.github/workflows/sync-translations.yml'
 
-    def __init__(self, argv, tx_api, environ):
-        self.argv = argv
+    def __init__(self, tx_api, dry_run, simulate_github_workflow, environ):
+        self.dry_run = dry_run
+        self.simulate_github_workflow = simulate_github_workflow
         self.tx_api = tx_api
         self.environ = environ
 
@@ -24,13 +57,13 @@ class Command:
         """
         Check if the script is running in dry-run mode.
         """
-        return '--dry-run' in self.argv
+        return self.dry_run
 
     def is_simulated_github_actions(self):
         """
         Check if the script is running in simulated GitHub Actions mode.
         """
-        return '--simulate-github-workflow' in self.argv
+        return self.simulate_github_workflow
 
     def get_resource_url(self, resource, project_slug):
         return f'https://www.transifex.com/{ORGANIZATION_SLUG}/{project_slug}/{resource.slug}'
@@ -98,25 +131,61 @@ class Command:
         Sync specific language translations into the new Transifex resource.
         """
         print(' syncing', language_code, '...')
-        old_translations = {
+        translations_from_old_project = {
             self.get_translation_id(translation): translation
             for translation in self.get_translations(language_code=language_code, resource=old_resource)
         }
 
-        for new_translation in self.get_translations(language_code=language_code, resource=new_resource):
-            translation_id = self.get_translation_id(new_translation)
-            if old_translation := old_translations.get(translation_id):
-                updates = {}
-                for attr in ['reviewed', 'proofread', 'strings']:
-                    if old_attr_value := getattr(old_translation, attr, None):
-                        if old_attr_value != getattr(new_translation, attr, None):
-                            updates[attr] = old_attr_value
+        for current_translation in self.get_translations(language_code=language_code, resource=new_resource):
+            translation_id = self.get_translation_id(current_translation)
+            if translation_from_old_project := translations_from_old_project.get(translation_id):
+                self.sync_translation_entry(
+                    translation_from_old_project=translation_from_old_project,
+                    current_translation=current_translation,
+                )
 
-                if updates:
-                    print(translation_id, updates)
+    def sync_translation_entry(self, translation_from_old_project, current_translation):
+        """
+        Sync a single translation entry from the old project to the new one.
 
-                    if not self.is_dry_run():
-                        new_translation.save(**updates)
+        Return:
+            str: status code
+               - updated: if the entry was updated
+               - skipped: if the entry was skipped
+               - updated-dry-run: if the entry was updated in dry-run mode
+        """
+        translation_id = self.get_translation_id(current_translation)
+
+        updates = {}
+        for attr in ['reviewed', 'proofread', 'strings']:
+            if old_attr_value := getattr(translation_from_old_project, attr, None):
+                if old_attr_value != getattr(current_translation, attr, None):
+                    updates[attr] = old_attr_value
+
+        # Avoid overwriting more recent translations in the open-edx/openedx-translations project
+        newer_translation_found = False
+        old_project_translation_time = parse_tx_date(translation_from_old_project.datetime_translated)
+        current_translation_time = parse_tx_date(current_translation.datetime_translated)
+
+        if old_project_translation_time and current_translation_time:
+            newer_translation_found = current_translation_time > old_project_translation_time
+
+        if updates:
+            if newer_translation_found:
+                print(translation_id, updates,
+                    (
+                      f'[Skipped: current translation "{current_translation_time}" '
+                      f'is more recent than "{old_project_translation_time}"]'
+                    )
+                )
+                return 'skipped'
+            else:
+                print(translation_id, updates, '[Dry run]' if self.is_dry_run() else '')
+                if self.is_dry_run():
+                    return 'updated-dry-run'
+                else:
+                    current_translation.save(**updates)
+                    return 'updated'
 
     def sync_tags(self, old_resource, new_resource):
         """
@@ -181,7 +250,7 @@ class Command:
         """
         Run the script from a GitHub Actions migrate-from-transifex-old-project.yml workflow file.
         """
-        pairs_list = workflow_configs['jobs']['migrate-translations']['strategy']['matrix']['batch']
+        pairs_list = workflow_configs['jobs']['migrate-translations']['strategy']['matrix']['resource']
 
         print('Verifying existence of resource pairs...')
         for pair in pairs_list:
@@ -213,6 +282,21 @@ class Command:
             )
 
 
-if __name__ == '__main__':
-    command = Command(sys.argv, environ=os.environ, tx_api=transifex_api)
+def main():  # pragma: no cover
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--simulate-github-workflow', action='store_true',
+                        dest='simulate_github_workflow')
+    parser.add_argument('--dry-run', action='store_true', dest='dry_run')
+    argparse_args = parser.parse_args()
+
+    command = Command(
+        tx_api=transifex_api,
+        environ=os.environ,
+        dry_run=argparse_args.dry_run,
+        simulate_github_workflow=argparse_args.simulate_github_workflow,
+    )
     command.run()
+
+
+if __name__ == '__main__':
+    main()  # pragma: no cover
