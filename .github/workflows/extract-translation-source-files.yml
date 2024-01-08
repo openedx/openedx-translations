@@ -5,15 +5,16 @@
 name: Extract Translation Source Files
 
 on:
-  workflow_dispatch:    # by request
-    inputs:
-      repo:
-        description: 'Repository to extract translation source files from (leave blank to run all)'
-        required: false
-        type: string
+  # workflow_dispatch:    # by request
+  #   inputs:
+  #     repo:
+  #       description: 'Repository to extract translation source files from (leave blank to run all)'
+  #       required: false
+  #       type: string
 
-  schedule:
-    - cron: '0 0 * * *'  # every day at midnight
+  # schedule:
+  #   - cron: '0 0 * * *'  # every day at midnight
+  - pull_request
 
 jobs:
   setup-matrix:
@@ -30,57 +31,58 @@ jobs:
 
             const allPythonRepos = [
               'AudioXBlock',
-              'completion',
-              'course-discovery',
-              'credentials',
-              'credentials-themes',
-              'DoneXBlock',
-              'ecommerce',
-              'edx-ace',
-              'edx-bulk-grades',
-              'edx-enterprise',
-              'edx-ora2',
-              'edx-platform',
-              'edx-proctoring',
-              'FeedbackXBlock',
-              'RecommenderXBlock',
-              'xblock-drag-and-drop-v2',
-              'xblock-free-text-response',
-              'xblock-google-drive',
-              'xblock-image-explorer',
-              'xblock-image-modal',
-              'xblock-lti-consumer',
-              'xblock-qualtrics-survey',
-              'xblock-sql-grader',
-              'xblock-submit-and-compare',
+              # 'completion',
+              # 'course-discovery',
+              # 'credentials',
+              # 'credentials-themes',
+              # 'DoneXBlock',
+              # 'ecommerce',
+              # 'edx-ace',
+              # 'edx-bulk-grades',
+              # 'edx-enterprise',
+              # 'edx-ora2',
+              # 'edx-platform',
+              # 'edx-proctoring',
+              # 'FeedbackXBlock',
+              # 'RecommenderXBlock',
+              # 'xblock-drag-and-drop-v2',
+              # 'xblock-free-text-response',
+              # 'xblock-google-drive',
+              # 'xblock-image-explorer',
+              # 'xblock-image-modal',
+              # 'xblock-lti-consumer',
+              # 'xblock-qualtrics-survey',
+              # 'xblock-sql-grader',
+              # 'xblock-submit-and-compare',
             ];
 
             const allJavascriptRepos = [
-              'frontend-app-admin-portal',
-              'frontend-app-publisher',
-              'frontend-app-account',
-              'frontend-app-authn',
-              'frontend-app-communications',
-              'frontend-app-course-authoring',
-              'frontend-app-discussions',
-              'frontend-app-ecommerce',
-              'frontend-app-enterprise-public-catalog',
-              'frontend-app-gradebook',
-              'frontend-app-learner-dashboard',
-              'frontend-app-learner-record',
-              'frontend-app-learning',
-              'frontend-app-library-authoring',
-              'frontend-app-ora-grading',
-              'frontend-app-payment',
-              'frontend-app-profile',
-              'frontend-app-program-console',
-              'frontend-app-support-tools',
-              'frontend-component-footer',
-              'frontend-component-header',
-              'frontend-lib-content-components',
-              'frontend-lib-special-exams',
-              'paragon',
-              'studio-frontend',
+              # 'frontend-app-admin-portal',
+              # 'frontend-app-publisher',
+              # 'frontend-app-account',
+              # 'frontend-app-authn',
+              # 'frontend-app-communications',
+              # 'frontend-app-course-authoring',
+              # 'frontend-app-discussions',
+              # 'frontend-app-ecommerce',
+              # 'frontend-app-enterprise-public-catalog',
+              # 'frontend-app-gradebook',
+              # 'frontend-app-learner-dashboard',
+              # 'frontend-app-learner-record',
+              # 'frontend-app-learning',
+              # 'frontend-app-library-authoring',
+              # 'frontend-app-ora-grading',
+              # 'frontend-app-payment',
+              # 'frontend-app-profile',
+              # 'frontend-app-program-console',
+              # 'frontend-app-support-tools',
+              'frontend-component-ai-translations',
+              # 'frontend-component-footer',
+              # 'frontend-component-header',
+              # 'frontend-lib-content-components',
+              # 'frontend-lib-special-exams',
+              # 'paragon',
+              # 'studio-frontend',
             ];
 
             const allGenericRepos = [
