@@ -11,6 +11,11 @@ on:
         description: 'Repository to extract translation source files from (leave blank to run all)'
         required: false
         type: string
+      ref:
+        description: 'If repository is specified, the ref to extract translation source files from (leave blank to use the default branch)'
+        required: false
+        default: ''
+        type: string
 
   schedule:
     - cron: '0 0 * * *'  # every day at midnight
@@ -178,10 +183,11 @@ jobs:
         run: sudo apt install -y gettext
 
       # Clones the  repository
-      - name: clone openedx/${{ matrix.repo }}
+      - name: clone ${{ github.repository_owner }}/${{ matrix.repo }}
         uses: actions/checkout@v3
         with:
-          repository: openedx/${{ matrix.repo }}
+          repository: ${{ github.repository_owner }}/${{ matrix.repo }}
+          ref: ${{ github.event.inputs.ref }}
           path: translations/${{ matrix.repo }}
 
       - name: prepare the environment with edx-platform specific changes
@@ -326,10 +332,11 @@ jobs:
           ref: ${{ needs.setup-branch.outputs.branch }}
 
       # Clones the  repository
-      - name: clone openedx/${{ matrix.repo }}
+      - name: clone ${{ github.repository_owner }}/${{ matrix.repo }}
         uses: actions/checkout@v3
         with:
-          repository: openedx/${{ matrix.repo }}
+          repository: ${{ github.repository_owner }}/${{ matrix.repo }}
+          ref: ${{ github.event.inputs.ref }}
           path: translations/${{ matrix.repo }}
 
       # Sets up node/npm
@@ -392,10 +399,11 @@ jobs:
           ref: ${{ needs.setup-branch.outputs.branch }}
 
       # Clones the  repository
-      - name: clone openedx/${{ matrix.repository_config.repo }}
+      - name: clone ${{ github.repository_owner }}/${{ matrix.repository_config.repo }}
         uses: actions/checkout@v3
         with:
-          repository: openedx/${{ matrix.repository_config.repo }}
+          repository: ${{ github.repository_owner }}/${{ matrix.repository_config.repo }}
+          ref: ${{ github.event.inputs.ref }}
           path: translations/${{ matrix.repository_config.repo }}
 
       # Sets up Python
