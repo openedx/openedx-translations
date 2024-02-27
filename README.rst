@@ -44,7 +44,7 @@ pull requests, run the following command:
 
 .. code-block:: bash
 
-    make rerun_tests_for_transifex_bot_pull_requests
+    make retry_merge_transifex_bot_pull_requests
 
 
 Translations sync from old Transifex projects

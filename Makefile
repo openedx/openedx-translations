@@ -46,6 +46,6 @@ sync_translations:  ## Syncs from the old projects to the new openedx-translatio
 sync_translations_github_workflow:  ## Run with parameters from .github/workflows/sync-translations.yml
 	make SYNC_ARGS="--simulate-github-workflow $(SYNC_ARGS)" sync_translations
 
-MAX_PULL_REQUESTS_TO_RESTART := 1000
-rerun_tests_for_transifex_bot_pull_requests:  ## Re-trigger GitHub Actions all the transifex bot pull requests
-	bash scripts/rerun_tests_for_transifex_bot_pull_requests.sh
+export MAX_PULL_REQUESTS_TO_RESTART := 1000
+retry_merge_transifex_bot_pull_requests:  ## Fix Transifex bot stuck and unmerged pull requests.
+	bash scripts/retry_merge_transifex_bot_pull_requests.sh
