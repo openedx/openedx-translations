@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-06 00:32+0000\n"
+"POT-Creation-Date: 2024-03-09 00:32+0000\n"
 "PO-Revision-Date: 2023-11-20 11:35+0000\n"
 "Last-Translator: edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2024\n"
 "Language-Team: Danish (https://app.transifex.com/open-edx/teams/6205/da/)\n"
@@ -147,7 +147,6 @@ msgid "Uploaded Tar file not found. Try again."
 msgstr "Uploadet Tar-fil blev ikke fundet. Prøv igen."
 
 #: cms/djangoapps/contentstore/errors.py:10
-#: cms/djangoapps/contentstore/views/import_export.py:145
 msgid "We only support uploading a .tar.gz file."
 msgstr "Vi understøtter kun upload af en .tar.gz-fil."
 
@@ -178,8 +177,8 @@ msgid "Unknown User ID: {0}"
 msgstr "Ukendt bruger-id: {0}"
 
 #: cms/djangoapps/contentstore/errors.py:17
-msgid "Unsafe tar file. Aborting import."
-msgstr "Usikker tar-fil. Afbryder import."
+msgid "Unsafe archive file. Aborting import."
+msgstr "Usikker arkivfil. Afbryder import."
 
 #: cms/djangoapps/contentstore/errors.py:18
 msgid "User permission denied."
@@ -250,22 +249,22 @@ msgstr "Dårlig kursusplacering til rådighed"
 msgid "Missing branch on fresh clone"
 msgstr "Manglende gren på frisk klon"
 
-#: cms/djangoapps/contentstore/helpers.py:141
+#: cms/djangoapps/contentstore/helpers.py:170
 msgid "Vertical"
 msgstr "Lodret"
 
-#: cms/djangoapps/contentstore/helpers.py:145
+#: cms/djangoapps/contentstore/helpers.py:174
 #: cms/templates/course_outline.html:208 lms/templates/ccx/schedule.html:86
 #: lms/templates/seq_block.html:136
 msgid "Section"
 msgstr "Afsnit"
 
-#: cms/djangoapps/contentstore/helpers.py:147
+#: cms/djangoapps/contentstore/helpers.py:176
 #: lms/templates/ccx/schedule.html:90
 msgid "Subsection"
 msgstr "Undersektion"
 
-#: cms/djangoapps/contentstore/helpers.py:149
+#: cms/djangoapps/contentstore/helpers.py:178
 #: lms/djangoapps/instructor/views/tools.py:241
 #: lms/djangoapps/instructor/views/tools.py:253 xmodule/unit_block.py:41
 #: lms/templates/ccx/schedule.html:94 lms/templates/seq_block.html:89
@@ -273,7 +272,7 @@ msgstr "Undersektion"
 msgid "Unit"
 msgstr "Enhed"
 
-#: cms/djangoapps/contentstore/helpers.py:156
+#: cms/djangoapps/contentstore/helpers.py:185
 #: cms/djangoapps/contentstore/views/component.py:215
 #: openedx/core/djangoapps/content_libraries/constants.py:15
 msgid "Problem"
@@ -387,7 +386,7 @@ msgstr "Der findes allerede en transskription med sprogkoden \"{language_code}\"
 msgid "A transcript file is required."
 msgstr "En transskriptionsfil er påkrævet."
 
-#: cms/djangoapps/contentstore/utils.py:748
+#: cms/djangoapps/contentstore/utils.py:749
 #: cms/templates/visibility_editor.html:113
 msgid "Deleted Group"
 msgstr "Slettet gruppe"
@@ -395,39 +394,39 @@ msgstr "Slettet gruppe"
 #. Translators: This is building up a list of groups. It is marked for
 #. translation because of the
 #. comma, which is used as a separator between each group.
-#: cms/djangoapps/contentstore/utils.py:813
+#: cms/djangoapps/contentstore/utils.py:814
 #, python-brace-format
 msgid "{previous_groups}, {current_group}"
 msgstr "{previous_groups}, {current_group}"
 
-#: cms/djangoapps/contentstore/utils.py:976
+#: cms/djangoapps/contentstore/utils.py:977
 #: cms/djangoapps/contentstore/views/block.py:272
 #: cms/djangoapps/contentstore/views/component.py:214 xmodule/html_block.py:59
 msgid "Text"
 msgstr "Tekst"
 
-#: cms/djangoapps/contentstore/utils.py:1172
+#: cms/djangoapps/contentstore/utils.py:1173
 #, python-brace-format
 msgid "Duplicate of {0}"
 msgstr "Duplikat af {0}"
 
-#: cms/djangoapps/contentstore/utils.py:1174
+#: cms/djangoapps/contentstore/utils.py:1175
 #, python-brace-format
 msgid "Duplicate of '{0}'"
 msgstr "Duplikat af '{0}'"
 
-#: cms/djangoapps/contentstore/utils.py:1222
+#: cms/djangoapps/contentstore/utils.py:1223
 msgid "Invalid prerequisite course key"
 msgstr "Ugyldig forudsætning for kursusnøgle"
 
-#: cms/djangoapps/contentstore/utils.py:1741
+#: cms/djangoapps/contentstore/utils.py:1742
 msgid "Set Date"
 msgstr "Indstil dato"
 
 #. #-#-#-#-#  django.po (0.1a)  #-#-#-#-#
 #. Translators: This is the status of an active video upload
 #: cms/djangoapps/contentstore/video_storage_handlers.py:118
-#: cms/templates/import.html:112
+#: cms/templates/import.html:114
 msgid "Uploading"
 msgstr "Indlæser"
 
@@ -780,11 +779,20 @@ msgstr "Gennemført kursusoptagelsesprøve"
 msgid "Course successfully exported to git repository"
 msgstr "Kurset blev eksporteret til git repository"
 
-#: cms/djangoapps/contentstore/views/import_export.py:174
+#: cms/djangoapps/contentstore/views/import_export.py:150
+#, python-brace-format
+msgid ""
+"We support uploading files in one of the following formats: "
+"{IMPORTABLE_FILE_TYPES}"
+msgstr ""
+"Vi understøtter upload af filer i et af følgende formater: "
+"{IMPORTABLE_FILE_TYPES}"
+
+#: cms/djangoapps/contentstore/views/import_export.py:179
 msgid "Some chunks missed during file upload. Please try again"
 msgstr "Nogle bidder gik glip af under filupload. Prøv igen"
 
-#: cms/djangoapps/contentstore/views/import_export.py:185
+#: cms/djangoapps/contentstore/views/import_export.py:190
 msgid "File upload failed. Please try again"
 msgstr "Filupload mislykkedes. Prøv igen"
 
@@ -913,62 +921,62 @@ msgstr ""
 "Du må ikke fjerne den sidste Admin. Tilføj en anden administrator først."
 
 #: cms/djangoapps/contentstore/xblock_storage_handlers/create_xblock.py:101
-#: xmodule/library_content_block.py:808
+#: xmodule/library_content_block.py:821
 msgid "Empty"
 msgstr "Tom"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:218
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:568
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:220
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:570
 #, python-brace-format
 msgid "Libraries cannot have more than {limit} components"
 msgstr "Biblioteker kan ikke have mere end {limit} komponenter"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:430
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:432
 #: openedx/core/djangoapps/xblock/rest_api/views.py:242
 msgid "Invalid data"
 msgstr "Ugyldige data"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:432
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:434
 #: openedx/core/djangoapps/xblock/rest_api/views.py:244
 #, python-brace-format
 msgid "Invalid data ({details})"
 msgstr "Ugyldige data ( {details} )"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:543
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:545
 msgid "There was a problem pasting your component."
 msgstr "Der opstod et problem med at indsætte din komponent."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:547
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:549
 msgid "Your clipboard is empty or invalid."
 msgstr "Dit udklipsholder er tomt eller ugyldigt."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:671
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:673
 #, python-brace-format
 msgid "You can not move {source_type} into {target_parent_type}."
 msgstr "Du kan ikke flytte {source_type} til {target_parent_type} ."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:680
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:682
 msgid "Item is already present in target location."
 msgstr "Varen er allerede til stede på målplaceringen."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:682
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:684
 msgid "You can not move an item into itself."
 msgstr "Du kan ikke flytte et element ind i sig selv."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:684
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:686
 msgid "You can not move an item into it's child."
 msgstr "Du kan ikke flytte et element ind i dets underordnede element."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:686
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:688
 msgid "You can not move an item directly into content experiment."
 msgstr "Du kan ikke flytte et element direkte ind i indholdseksperimentet."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:688
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:690
 #, python-brace-format
 msgid "{source_usage_key} not found in {parent_usage_key}."
 msgstr "{source_usage_key} ikke fundet i {parent_usage_key} ."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:700
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:702
 #, python-brace-format
 msgid ""
 "You can not move {source_usage_key} at an invalid index ({target_index})."
@@ -976,12 +984,12 @@ msgstr ""
 "Du kan ikke flytte {source_usage_key} ved et ugyldigt indeks ( "
 "{target_index} )."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:707
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:709
 #, python-brace-format
 msgid "You must provide target_index ({target_index}) as an integer."
 msgstr "Du skal angive target_index ( {target_index} ) som et heltal."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1019
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1021
 #, python-brace-format
 msgid ""
 "Students must score {score}{pct_sign} or higher to access course materials."
@@ -991,11 +999,11 @@ msgstr ""
 
 #. Translators: This is the percent sign. It will be used to represent
 #. a percent value out of 100, e.g. "58%" means "58/100".
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1024
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1026
 msgid "%"
 msgstr "%"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1550
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1554
 #, python-brace-format
 msgid "{section_or_subsection} \"{display_name}\""
 msgstr "{section_or_subsection} \"{display_name}\""
@@ -5468,29 +5476,29 @@ msgid "Open Responses"
 msgstr "Åbne svar"
 
 #. Translators: number sent refers to the number of emails sent
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:74
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:80
 msgid "0 sent"
 msgstr "0 sendt"
 
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:84
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:90
 #, python-brace-format
 msgid "{num_emails} sent"
 msgid_plural "{num_emails} sent"
 msgstr[0] "{num_emails} sendt"
 msgstr[1] "{num_emails} sendt"
 
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:93
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:99
 #, python-brace-format
 msgid "{num_emails} failed"
 msgid_plural "{num_emails} failed"
 msgstr[0] "{num_emails} mislykkedes"
 msgstr[1] "{num_emails} mislykkedes"
 
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:134
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
 msgid "Complete"
 msgstr "Fuldført"
 
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:134
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
 msgid "Incomplete"
 msgstr "Ufuldstændig"
 
@@ -9522,7 +9530,7 @@ msgid "Retirement does not exist!"
 msgstr "Pension findes ikke!"
 
 #: openedx/core/djangoapps/user_api/admin.py:72 cms/templates/export.html:161
-#: cms/templates/import.html:175
+#: cms/templates/import.html:177
 msgid "Success"
 msgstr "Succes"
 
@@ -12733,26 +12741,26 @@ msgstr "Indholdsbiblioteker er ikke tilgængelige i den aktuelle kørselstid."
 msgid "Source content library does not exist: {source_library_id}"
 msgstr "Kildeindholdsbibliotek eksisterer ikke: {source_library_id}"
 
-#: xmodule/library_content_block.py:610
+#: xmodule/library_content_block.py:623
 msgid "This component is out of date. The library has new content."
 msgstr "Denne komponent er forældet. Biblioteket har nyt indhold."
 
 #. Translators: {refresh_icon} placeholder is substituted to "↻" (without
 #. double quotes)
-#: xmodule/library_content_block.py:615
+#: xmodule/library_content_block.py:628
 #, python-brace-format
 msgid "{refresh_icon} Update now."
 msgstr "{refresh_icon} Opdater nu."
 
-#: xmodule/library_content_block.py:623
+#: xmodule/library_content_block.py:636
 msgid "Library is invalid, corrupt, or has been deleted."
 msgstr "Bibliotek er ugyldigt, beskadiget, eller er blevet slettet."
 
-#: xmodule/library_content_block.py:625
+#: xmodule/library_content_block.py:638
 msgid "Edit Library List."
 msgstr "Rediger Bibliotek Liste."
 
-#: xmodule/library_content_block.py:652
+#: xmodule/library_content_block.py:665
 msgid ""
 "This course does not support content libraries. Contact your system "
 "administrator for more information."
@@ -12760,24 +12768,24 @@ msgstr ""
 "Dette kursus understøtter ikke indholdsbiblioteker. Kontakt din "
 "systemadministrator for mere information."
 
-#: xmodule/library_content_block.py:662
+#: xmodule/library_content_block.py:675
 msgid "A library has not yet been selected."
 msgstr "Bibliotek er endnu ikke blevet valgt."
 
-#: xmodule/library_content_block.py:664
+#: xmodule/library_content_block.py:677
 msgid "Select a Library."
 msgstr "Vælg et bibliotek"
 
-#: xmodule/library_content_block.py:678
+#: xmodule/library_content_block.py:691
 #, python-brace-format
 msgid "There are no problems in the specified library of type {capa_type}."
 msgstr "Der er ingen problemer i det angivne bibliotek af typen {capa_type} ."
 
-#: xmodule/library_content_block.py:681
+#: xmodule/library_content_block.py:694
 msgid "Select another problem type."
 msgstr "Vælg en anden opgavetype."
 
-#: xmodule/library_content_block.py:692
+#: xmodule/library_content_block.py:705
 #, python-brace-format
 msgid "The specified library is configured to fetch {count} problem, "
 msgid_plural "The specified library is configured to fetch {count} problems, "
@@ -12786,22 +12794,22 @@ msgstr[0] ""
 msgstr[1] ""
 "Det angivne bibliotek er konfigureret til at hente {count} problemer, "
 
-#: xmodule/library_content_block.py:697
+#: xmodule/library_content_block.py:710
 #, python-brace-format
 msgid "but there is only {actual} matching problem."
 msgid_plural "but there are only {actual} matching problems."
 msgstr[0] "men der er kun {actual} matchende problem."
 msgstr[1] "men der er kun {actual} matchende problemer."
 
-#: xmodule/library_content_block.py:703
+#: xmodule/library_content_block.py:716
 msgid "Edit the library configuration."
 msgstr "Rediger konfiguration for biblioteket."
 
-#: xmodule/library_content_block.py:721
+#: xmodule/library_content_block.py:734
 msgid "Invalid Library"
 msgstr "Ugyldigt bibliotek"
 
-#: xmodule/library_content_block.py:722
+#: xmodule/library_content_block.py:735
 msgid "No Library Selected"
 msgstr "Intet bibliotek valgt"
 
@@ -16394,23 +16402,23 @@ msgstr "Hvilket indhold eksporteres?"
 msgid "The following content is exported."
 msgstr "Følgende indhold eksporteres."
 
-#: cms/templates/export.html:254 cms/templates/import.html:230
+#: cms/templates/export.html:254 cms/templates/import.html:232
 msgid "Course content and structure"
 msgstr "Kursusindhold og struktur"
 
-#: cms/templates/export.html:255 cms/templates/import.html:231
+#: cms/templates/export.html:255 cms/templates/import.html:233
 msgid "Course dates"
 msgstr "Kursusdatoer"
 
-#: cms/templates/export.html:256 cms/templates/import.html:232
+#: cms/templates/export.html:256 cms/templates/import.html:234
 msgid "Grading policy"
 msgstr "Karakterpolitik"
 
-#: cms/templates/export.html:257 cms/templates/import.html:233
+#: cms/templates/export.html:257 cms/templates/import.html:235
 msgid "Any group configurations"
 msgstr "Eventuelle gruppekonfigurationer"
 
-#: cms/templates/export.html:258 cms/templates/import.html:234
+#: cms/templates/export.html:258 cms/templates/import.html:236
 msgid ""
 "Settings on the Advanced Settings page, including MATLAB API keys and LTI "
 "passports"
@@ -16422,12 +16430,12 @@ msgstr ""
 msgid "The following content is not exported."
 msgstr "Følgende indhold eksporteres ikke."
 
-#: cms/templates/export.html:262 cms/templates/import.html:238
+#: cms/templates/export.html:262 cms/templates/import.html:240
 msgid ""
 "Learner-specific content, such as learner grades and discussion forum data"
 msgstr "Elevspecifikt indhold, såsom elevkarakterer og diskussionsforumdata"
 
-#: cms/templates/export.html:263 cms/templates/import.html:239
+#: cms/templates/export.html:263 cms/templates/import.html:241
 msgid "The course team"
 msgstr "Kursusholdet"
 
@@ -16871,7 +16879,7 @@ msgstr "Bibliotek import"
 msgid "Course Import"
 msgstr "Kursusimport"
 
-#: cms/templates/import.html:49
+#: cms/templates/import.html:50
 msgid ""
 "Be sure you want to import a library before continuing. The contents of the "
 "imported library will replace the contents of the existing library. "
@@ -16885,7 +16893,7 @@ msgstr ""
 " du fortsætter, anbefaler vi, at du eksporterer det aktuelle bibliotek, så "
 "du har en sikkerhedskopi af det."
 
-#: cms/templates/import.html:50
+#: cms/templates/import.html:51
 msgid ""
 "The library that you import must be in a .tar.gz file (that is, a .tar file "
 "compressed with GNU Zip). This .tar.gz file must contain a library.xml file."
@@ -16895,7 +16903,7 @@ msgstr ""
 ".tar-fil komprimeret med GNU Zip). Denne .tar.gz-fil skal indeholde en "
 "library.xml-fil. Det kan også indeholde andre filer."
 
-#: cms/templates/import.html:51
+#: cms/templates/import.html:52
 msgid ""
 "The import process has five stages. During the first two stages, you must "
 "stay on this page. You can leave this page after the Unpacking stage has "
@@ -16907,7 +16915,7 @@ msgstr ""
 "afsluttet. Vi anbefaler dog, at du ikke foretager vigtige ændringer i dit "
 "bibliotek, før importhandlingen er fuldført."
 
-#: cms/templates/import.html:53
+#: cms/templates/import.html:54
 msgid ""
 "Be sure you want to import a course before continuing. The contents of the "
 "imported course will replace the contents of the existing course. "
@@ -16921,17 +16929,19 @@ msgstr ""
 "fortsætter, anbefaler vi, at du eksporterer det aktuelle kursus, så du har "
 "en sikkerhedskopi af det."
 
-#: cms/templates/import.html:54
+#: cms/templates/import.html:55
 msgid ""
 "The course that you import must be in a .tar.gz file (that is, a .tar file "
-"compressed with GNU Zip). This .tar.gz file must contain a course.xml file. "
-"It may also contain other files."
+"compressed with GNU Zip) or .zip (that is a compressed file). This .tar.gz "
+"or .zip file must contain a course.xml file. It may also contain other "
+"files."
 msgstr ""
-"Kurset, som du importerer, skal være i en .tar.gz-fil (det vil sige en .tar-"
-"fil komprimeret med GNU Zip). Denne .tar.gz-fil skal indeholde en "
-"course.xml-fil. Det kan også indeholde andre filer."
+"Kurset, du importerer, skal være i en .tar.gz-fil (det vil sige en .tar-fil "
+"komprimeret med GNU Zip) eller .zip (det er en komprimeret fil). Denne "
+".tar.gz- eller .zip-fil skal indeholde en course.xml-fil. Det kan også "
+"indeholde andre filer."
 
-#: cms/templates/import.html:55
+#: cms/templates/import.html:56
 msgid ""
 "The import process has five stages. During the first two stages, you must "
 "stay on this page. You can leave this page after the Unpacking stage has "
@@ -16943,47 +16953,47 @@ msgstr ""
 "afsluttet. Vi anbefaler dog, at du ikke foretager vigtige ændringer i dit "
 "kursus, før importhandlingen er afsluttet."
 
-#: cms/templates/import.html:65
+#: cms/templates/import.html:67
 msgid "Select a .tar.gz File to Replace Your Library Content"
 msgstr "Vælg en .tar.gz-fil for at erstatte dit biblioteksindhold"
 
-#: cms/templates/import.html:67
-msgid "Select a .tar.gz File to Replace Your Course Content"
-msgstr "Vælg en .tar.gz-fil for at erstatte dit kursusindhold"
+#: cms/templates/import.html:69
+msgid "Select a .tar.gz or .zip File to Replace Your Course Content"
+msgstr "Vælg en .tar.gz- eller .zip-fil for at erstatte dit kursusindhold"
 
-#: cms/templates/import.html:75
+#: cms/templates/import.html:77
 msgid "Choose a File to Import"
 msgstr "Vælg en fil at importere"
 
-#: cms/templates/import.html:80
+#: cms/templates/import.html:82
 msgid "File Chosen:"
 msgstr "Fil valgt:"
 
-#: cms/templates/import.html:88
+#: cms/templates/import.html:90
 msgid "Replace my library with the selected file"
 msgstr "Erstat mit bibliotek med den valgte fil"
 
-#: cms/templates/import.html:90
+#: cms/templates/import.html:92
 msgid "Replace my course with the selected file"
 msgstr "Erstat mit kursus med den valgte fil"
 
-#: cms/templates/import.html:98
+#: cms/templates/import.html:100
 msgid "Library Import Status"
 msgstr "Biblioteksimportstatus"
 
-#: cms/templates/import.html:100
+#: cms/templates/import.html:102
 msgid "Course Import Status"
 msgstr "Kursusimportstatus"
 
-#: cms/templates/import.html:116
+#: cms/templates/import.html:118
 msgid "Transferring your file to our servers"
 msgstr "Overførsel af din fil til vores servere"
 
-#: cms/templates/import.html:127
+#: cms/templates/import.html:129
 msgid "Unpacking"
 msgstr "Udpakning"
 
-#: cms/templates/import.html:128
+#: cms/templates/import.html:130
 msgid ""
 "Expanding and preparing folder/file structure (You can now leave this page "
 "safely, but avoid making drastic changes to content until this import is "
@@ -16993,23 +17003,23 @@ msgstr ""
 "sikkert, men undgå at foretage drastiske ændringer i indholdet, indtil denne"
 " import er fuldført)"
 
-#: cms/templates/import.html:140
+#: cms/templates/import.html:142
 msgid "Verifying"
 msgstr "Bekræfter"
 
-#: cms/templates/import.html:141
+#: cms/templates/import.html:143
 msgid "Reviewing semantics, syntax, and required data"
 msgstr "Gennemgang af semantik, syntaks og nødvendige data"
 
-#: cms/templates/import.html:154
+#: cms/templates/import.html:156
 msgid "Updating Library"
 msgstr "Opdatering af bibliotek"
 
-#: cms/templates/import.html:156
+#: cms/templates/import.html:158
 msgid "Updating Course"
 msgstr "Opdatering af kursus"
 
-#: cms/templates/import.html:161
+#: cms/templates/import.html:163
 msgid ""
 "Integrating your imported content into this library. This process might take"
 " longer with larger libraries."
@@ -17017,7 +17027,7 @@ msgstr ""
 "Integrering af dit importerede indhold i dette bibliotek. Denne proces kan "
 "tage længere tid med større biblioteker."
 
-#: cms/templates/import.html:163
+#: cms/templates/import.html:165
 msgid ""
 "Integrating your imported content into this course. This process might take "
 "longer with larger courses."
@@ -17025,27 +17035,27 @@ msgstr ""
 "Integrering af dit importerede indhold i dette kursus. Denne proces kan tage"
 " længere tid med større kurser."
 
-#: cms/templates/import.html:180
+#: cms/templates/import.html:182
 msgid "Your imported content has now been integrated into this library"
 msgstr "Dit importerede indhold er nu blevet integreret i dette bibliotek"
 
-#: cms/templates/import.html:182
+#: cms/templates/import.html:184
 msgid "Your imported content has now been integrated into this course"
 msgstr "Dit importerede indhold er nu blevet integreret i dette kursus"
 
-#: cms/templates/import.html:190
+#: cms/templates/import.html:192
 msgid "View Updated Library"
 msgstr "Se opdateret bibliotek"
 
-#: cms/templates/import.html:192
+#: cms/templates/import.html:194
 msgid "View Updated Outline"
 msgstr "Se opdateret disposition"
 
-#: cms/templates/import.html:207
+#: cms/templates/import.html:209
 msgid "Why import a library?"
 msgstr "Hvorfor importere et bibliotek?"
 
-#: cms/templates/import.html:208
+#: cms/templates/import.html:210
 msgid ""
 "You might want to update an existing library to a new version, or replace an"
 " existing library entirely. You might also have developed a library outside "
@@ -17055,11 +17065,11 @@ msgstr ""
 "eller erstatte et eksisterende bibliotek helt. Du har muligvis også udviklet"
 " et bibliotek uden for {studio_name} ."
 
-#: cms/templates/import.html:212
+#: cms/templates/import.html:214
 msgid "Note: Library content is not automatically updated in courses"
 msgstr "Bemærk: Biblioteksindhold opdateres ikke automatisk i kurser"
 
-#: cms/templates/import.html:213
+#: cms/templates/import.html:215
 msgid ""
 "If you change and import a library that is referenced by randomized content "
 "blocks in one or more courses, those courses do not automatically use the "
@@ -17072,15 +17082,15 @@ msgstr ""
 "randomiserede indholdsblokke for at bringe dem ajour med det seneste "
 "biblioteksindhold."
 
-#: cms/templates/import.html:216
+#: cms/templates/import.html:218
 msgid "Learn more about importing a library"
 msgstr "Få mere at vide om import af et bibliotek"
 
-#: cms/templates/import.html:222
+#: cms/templates/import.html:224
 msgid "Why import a course?"
 msgstr "Hvorfor importere et kursus?"
 
-#: cms/templates/import.html:223
+#: cms/templates/import.html:225
 msgid ""
 "You may want to run a new version of an existing course, or replace an "
 "existing course altogether. Or, you may have developed a course outside "
@@ -17090,23 +17100,23 @@ msgstr ""
 "erstatte et eksisterende kursus helt. Eller du kan have udviklet et kursus "
 "uden for {studio_name} ."
 
-#: cms/templates/import.html:227
+#: cms/templates/import.html:229
 msgid "What content is imported?"
 msgstr "Hvilket indhold importeres?"
 
-#: cms/templates/import.html:228
+#: cms/templates/import.html:230
 msgid "The following content is imported."
 msgstr "Følgende indhold importeres."
 
-#: cms/templates/import.html:236
+#: cms/templates/import.html:238
 msgid "The following content is not imported."
 msgstr "Følgende indhold importeres ikke."
 
-#: cms/templates/import.html:244
+#: cms/templates/import.html:246
 msgid "Warning: Importing while a course is running"
 msgstr "Advarsel: Importerer, mens et kursus kører"
 
-#: cms/templates/import.html:245
+#: cms/templates/import.html:247
 msgid ""
 "If you perform an import while your course is running, and you change the "
 "URL names (or url_name nodes) of any Problem components, the student data "
@@ -17118,7 +17128,7 @@ msgstr ""
 "der er knyttet til disse problemkomponenter, gå tabt. Disse data inkluderer "
 "elevernes problemscore."
 
-#: cms/templates/import.html:248
+#: cms/templates/import.html:250
 msgid "Learn more about importing a course"
 msgstr "Få mere at vide om import af et kursus"
 
