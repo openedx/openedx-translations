@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-06 00:32+0000\n"
+"POT-Creation-Date: 2024-03-09 00:32+0000\n"
 "PO-Revision-Date: 2023-11-20 11:35+0000\n"
 "Last-Translator: edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2024\n"
 "Language-Team: German (Germany) (https://app.transifex.com/open-edx/teams/6205/de_DE/)\n"
@@ -150,7 +150,6 @@ msgstr ""
 "noch einmal."
 
 #: cms/djangoapps/contentstore/errors.py:10
-#: cms/djangoapps/contentstore/views/import_export.py:145
 msgid "We only support uploading a .tar.gz file."
 msgstr "Wir unterstützen zum Hochladen nur Dateien mit .tar .gz."
 
@@ -183,8 +182,8 @@ msgid "Unknown User ID: {0}"
 msgstr "Unbekannte Nutzer-ID: {0}"
 
 #: cms/djangoapps/contentstore/errors.py:17
-msgid "Unsafe tar file. Aborting import."
-msgstr "Unsichere Tar-Datei, Import wird abgebrochen."
+msgid "Unsafe archive file. Aborting import."
+msgstr "Unsichere Archivdatei. Import wird abgebrochen."
 
 #: cms/djangoapps/contentstore/errors.py:18
 msgid "User permission denied."
@@ -256,22 +255,22 @@ msgstr "Mangelhafter Kursort angegeben"
 msgid "Missing branch on fresh clone"
 msgstr "Fehlender Zweig bei neuem Klon"
 
-#: cms/djangoapps/contentstore/helpers.py:141
+#: cms/djangoapps/contentstore/helpers.py:170
 msgid "Vertical"
 msgstr "Senkrecht"
 
-#: cms/djangoapps/contentstore/helpers.py:145
+#: cms/djangoapps/contentstore/helpers.py:174
 #: cms/templates/course_outline.html:208 lms/templates/ccx/schedule.html:86
 #: lms/templates/seq_block.html:136
 msgid "Section"
 msgstr "Abschnitt"
 
-#: cms/djangoapps/contentstore/helpers.py:147
+#: cms/djangoapps/contentstore/helpers.py:176
 #: lms/templates/ccx/schedule.html:90
 msgid "Subsection"
 msgstr "Unterabschnitt"
 
-#: cms/djangoapps/contentstore/helpers.py:149
+#: cms/djangoapps/contentstore/helpers.py:178
 #: lms/djangoapps/instructor/views/tools.py:241
 #: lms/djangoapps/instructor/views/tools.py:253 xmodule/unit_block.py:41
 #: lms/templates/ccx/schedule.html:94 lms/templates/seq_block.html:89
@@ -279,7 +278,7 @@ msgstr "Unterabschnitt"
 msgid "Unit"
 msgstr "Lerneinheit"
 
-#: cms/djangoapps/contentstore/helpers.py:156
+#: cms/djangoapps/contentstore/helpers.py:185
 #: cms/djangoapps/contentstore/views/component.py:215
 #: openedx/core/djangoapps/content_libraries/constants.py:15
 msgid "Problem"
@@ -400,7 +399,7 @@ msgstr "Ein Transkript mit dem \"{language_code}\" Sprach-Code existiert bereits
 msgid "A transcript file is required."
 msgstr "Ein Transkript-Dokument ist erforderlich."
 
-#: cms/djangoapps/contentstore/utils.py:748
+#: cms/djangoapps/contentstore/utils.py:749
 #: cms/templates/visibility_editor.html:113
 msgid "Deleted Group"
 msgstr "Gelöschte Gruppe"
@@ -408,39 +407,39 @@ msgstr "Gelöschte Gruppe"
 #. Translators: This is building up a list of groups. It is marked for
 #. translation because of the
 #. comma, which is used as a separator between each group.
-#: cms/djangoapps/contentstore/utils.py:813
+#: cms/djangoapps/contentstore/utils.py:814
 #, python-brace-format
 msgid "{previous_groups}, {current_group}"
 msgstr "{previous_groups}, {current_group}"
 
-#: cms/djangoapps/contentstore/utils.py:976
+#: cms/djangoapps/contentstore/utils.py:977
 #: cms/djangoapps/contentstore/views/block.py:272
 #: cms/djangoapps/contentstore/views/component.py:214 xmodule/html_block.py:59
 msgid "Text"
 msgstr "Text"
 
-#: cms/djangoapps/contentstore/utils.py:1172
+#: cms/djangoapps/contentstore/utils.py:1173
 #, python-brace-format
 msgid "Duplicate of {0}"
 msgstr "Kopie von '{0}'"
 
-#: cms/djangoapps/contentstore/utils.py:1174
+#: cms/djangoapps/contentstore/utils.py:1175
 #, python-brace-format
 msgid "Duplicate of '{0}'"
 msgstr "Duplikat von '{0}'"
 
-#: cms/djangoapps/contentstore/utils.py:1222
+#: cms/djangoapps/contentstore/utils.py:1223
 msgid "Invalid prerequisite course key"
 msgstr "Ungültiger Vorbedingungskursschlüssel."
 
-#: cms/djangoapps/contentstore/utils.py:1741
+#: cms/djangoapps/contentstore/utils.py:1742
 msgid "Set Date"
 msgstr "Datum festlegen"
 
 #. #-#-#-#-#  django.po (0.1a)  #-#-#-#-#
 #. Translators: This is the status of an active video upload
 #: cms/djangoapps/contentstore/video_storage_handlers.py:118
-#: cms/templates/import.html:112
+#: cms/templates/import.html:114
 msgid "Uploading"
 msgstr "Hochladen"
 
@@ -801,13 +800,22 @@ msgstr "Erfolgreich abgeschlossene Kurseingangsprüfung"
 msgid "Course successfully exported to git repository"
 msgstr "Kurs erfolgreich in ein Gitrepository exportiert"
 
-#: cms/djangoapps/contentstore/views/import_export.py:174
+#: cms/djangoapps/contentstore/views/import_export.py:150
+#, python-brace-format
+msgid ""
+"We support uploading files in one of the following formats: "
+"{IMPORTABLE_FILE_TYPES}"
+msgstr ""
+"Wir unterstützen das Hochladen von Dateien in einem der folgenden Formate: "
+"{IMPORTABLE_FILE_TYPES}"
+
+#: cms/djangoapps/contentstore/views/import_export.py:179
 msgid "Some chunks missed during file upload. Please try again"
 msgstr ""
 "Einige Daten wurden beim Hochladen der Datei übersehen. Bitte versuchen Sie "
 "es noch einmal"
 
-#: cms/djangoapps/contentstore/views/import_export.py:185
+#: cms/djangoapps/contentstore/views/import_export.py:190
 msgid "File upload failed. Please try again"
 msgstr "Hochladen der Datei fehlgeschlagen. Bitte versuchen Sie es erneut"
 
@@ -942,64 +950,64 @@ msgstr ""
 "Sie zuerst einen anderen Administratoren hinzu."
 
 #: cms/djangoapps/contentstore/xblock_storage_handlers/create_xblock.py:101
-#: xmodule/library_content_block.py:808
+#: xmodule/library_content_block.py:821
 msgid "Empty"
 msgstr "Leer"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:218
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:568
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:220
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:570
 #, python-brace-format
 msgid "Libraries cannot have more than {limit} components"
 msgstr "Bibliotheken können nicht mehr als {limit} Komponenten beinhalten."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:430
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:432
 #: openedx/core/djangoapps/xblock/rest_api/views.py:242
 msgid "Invalid data"
 msgstr "Ungültige Daten"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:432
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:434
 #: openedx/core/djangoapps/xblock/rest_api/views.py:244
 #, python-brace-format
 msgid "Invalid data ({details})"
 msgstr "Ungültige Daten ({details})"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:543
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:545
 msgid "There was a problem pasting your component."
 msgstr "Beim Einfügen Ihrer Komponente ist ein Problem aufgetreten."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:547
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:549
 msgid "Your clipboard is empty or invalid."
 msgstr "Ihre Zwischenablage ist leer oder ungültig."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:671
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:673
 #, python-brace-format
 msgid "You can not move {source_type} into {target_parent_type}."
 msgstr "Sie können {source_type} nicht nach {target_parent_type} verschieben."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:680
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:682
 msgid "Item is already present in target location."
 msgstr "Gegenstand bereits am Zielort vorhanden."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:682
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:684
 msgid "You can not move an item into itself."
 msgstr "Sie können ein Objekte nicht auf sich selbst verschieben."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:684
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:686
 msgid "You can not move an item into it's child."
 msgstr ""
 "Sie können ein Objekt nicht zu seinem eigenen Unterobjekt verschieben."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:686
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:688
 msgid "You can not move an item directly into content experiment."
 msgstr ""
 "Sie können ein Objekt nicht direkt in ein Inhaltsexperiment verschieben."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:688
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:690
 #, python-brace-format
 msgid "{source_usage_key} not found in {parent_usage_key}."
 msgstr "{source_usage_key} nicht in {parent_usage_key} gefunden."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:700
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:702
 #, python-brace-format
 msgid ""
 "You can not move {source_usage_key} at an invalid index ({target_index})."
@@ -1007,12 +1015,12 @@ msgstr ""
 "Sie können  {source_usage_key} nicht zu einem ungültigen index "
 "({target_index}) verschieben."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:707
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:709
 #, python-brace-format
 msgid "You must provide target_index ({target_index}) as an integer."
 msgstr "Sie müssen einen target_index ({target_index}) als integer angeben."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1019
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1021
 #, python-brace-format
 msgid ""
 "Students must score {score}{pct_sign} or higher to access course materials."
@@ -1022,11 +1030,11 @@ msgstr ""
 
 #. Translators: This is the percent sign. It will be used to represent
 #. a percent value out of 100, e.g. "58%" means "58/100".
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1024
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1026
 msgid "%"
 msgstr "%"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1550
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1554
 #, python-brace-format
 msgid "{section_or_subsection} \"{display_name}\""
 msgstr "{section_or_subsection} \"{display_name}\""
@@ -5616,29 +5624,29 @@ msgid "Open Responses"
 msgstr "Antworten öffnen"
 
 #. Translators: number sent refers to the number of emails sent
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:74
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:80
 msgid "0 sent"
 msgstr "0 verschickt"
 
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:84
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:90
 #, python-brace-format
 msgid "{num_emails} sent"
 msgid_plural "{num_emails} sent"
 msgstr[0] "{num_emails} gesendet"
 msgstr[1] "{num_emails} gesendet"
 
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:93
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:99
 #, python-brace-format
 msgid "{num_emails} failed"
 msgid_plural "{num_emails} failed"
 msgstr[0] "{num_emails} fehlgeschlagen"
 msgstr[1] "{num_emails} fehlgeschlagen"
 
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:134
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
 msgid "Complete"
 msgstr "Abgeschlossen"
 
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:134
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
 msgid "Incomplete"
 msgstr "Unvollständig"
 
@@ -9738,7 +9746,7 @@ msgid "Retirement does not exist!"
 msgstr "Ein Rücktritt ist nicht möglich!"
 
 #: openedx/core/djangoapps/user_api/admin.py:72 cms/templates/export.html:161
-#: cms/templates/import.html:175
+#: cms/templates/import.html:177
 msgid "Success"
 msgstr "Operation Erfolgreich"
 
@@ -13085,26 +13093,26 @@ msgstr "Inhalt sind in der aktuellen Laufzeit nicht verfügbar."
 msgid "Source content library does not exist: {source_library_id}"
 msgstr "Inhalt existiert nicht: {source_library_id}"
 
-#: xmodule/library_content_block.py:610
+#: xmodule/library_content_block.py:623
 msgid "This component is out of date. The library has new content."
 msgstr "Die Aufgabe ist abgelaufen. Die Bibliothek hat neue Inhalte."
 
 #. Translators: {refresh_icon} placeholder is substituted to "↻" (without
 #. double quotes)
-#: xmodule/library_content_block.py:615
+#: xmodule/library_content_block.py:628
 #, python-brace-format
 msgid "{refresh_icon} Update now."
 msgstr "{refresh_icon} jetzt aktualisieren."
 
-#: xmodule/library_content_block.py:623
+#: xmodule/library_content_block.py:636
 msgid "Library is invalid, corrupt, or has been deleted."
 msgstr "Diese Bibliothek ist ungültig, unbrauchbar oder wurde gelöscht."
 
-#: xmodule/library_content_block.py:625
+#: xmodule/library_content_block.py:638
 msgid "Edit Library List."
 msgstr "Bibliothekenliste bearbeiten"
 
-#: xmodule/library_content_block.py:652
+#: xmodule/library_content_block.py:665
 msgid ""
 "This course does not support content libraries. Contact your system "
 "administrator for more information."
@@ -13112,25 +13120,25 @@ msgstr ""
 "Dieser Kurs unterstützt keine Inhaltsbibliotheken. Weitere Informationen "
 "erhalten Sie von Ihrem Systemadministrator."
 
-#: xmodule/library_content_block.py:662
+#: xmodule/library_content_block.py:675
 msgid "A library has not yet been selected."
 msgstr "Es wurde noch keine Bibliothek ausgewählt."
 
-#: xmodule/library_content_block.py:664
+#: xmodule/library_content_block.py:677
 msgid "Select a Library."
 msgstr "Wählen Sie eine Bibliothek."
 
-#: xmodule/library_content_block.py:678
+#: xmodule/library_content_block.py:691
 #, python-brace-format
 msgid "There are no problems in the specified library of type {capa_type}."
 msgstr ""
 "In der angegebenen Bibliothek vom Typ {capa_type} gibt es keine Probleme."
 
-#: xmodule/library_content_block.py:681
+#: xmodule/library_content_block.py:694
 msgid "Select another problem type."
 msgstr "Einen anderen Aufgabentyp wählen."
 
-#: xmodule/library_content_block.py:692
+#: xmodule/library_content_block.py:705
 #, python-brace-format
 msgid "The specified library is configured to fetch {count} problem, "
 msgid_plural "The specified library is configured to fetch {count} problems, "
@@ -13141,22 +13149,22 @@ msgstr[1] ""
 "Die angegebene Bibliothek ist zum Abrufen von {count} -Problemen "
 "konfiguriert. "
 
-#: xmodule/library_content_block.py:697
+#: xmodule/library_content_block.py:710
 #, python-brace-format
 msgid "but there is only {actual} matching problem."
 msgid_plural "but there are only {actual} matching problems."
 msgstr[0] "aber es gibt nur ein {actual} Matching-Problem."
 msgstr[1] "aber es gibt nur {actual} Matching-Probleme."
 
-#: xmodule/library_content_block.py:703
+#: xmodule/library_content_block.py:716
 msgid "Edit the library configuration."
 msgstr "Konfiguration der Bibliothek bearbeiten"
 
-#: xmodule/library_content_block.py:721
+#: xmodule/library_content_block.py:734
 msgid "Invalid Library"
 msgstr "Ungültige Bibliothek"
 
-#: xmodule/library_content_block.py:722
+#: xmodule/library_content_block.py:735
 msgid "No Library Selected"
 msgstr "Keine Bibliothek ausgewählt"
 
@@ -16849,23 +16857,23 @@ msgstr "Welche Inhalte werden exportiert?"
 msgid "The following content is exported."
 msgstr "Der folgende Inhalt wird exportiert."
 
-#: cms/templates/export.html:254 cms/templates/import.html:230
+#: cms/templates/export.html:254 cms/templates/import.html:232
 msgid "Course content and structure"
 msgstr "Inhalt und Struktur des Kurses"
 
-#: cms/templates/export.html:255 cms/templates/import.html:231
+#: cms/templates/export.html:255 cms/templates/import.html:233
 msgid "Course dates"
 msgstr "Kursdaten"
 
-#: cms/templates/export.html:256 cms/templates/import.html:232
+#: cms/templates/export.html:256 cms/templates/import.html:234
 msgid "Grading policy"
 msgstr "Bewertungsrichtlinien"
 
-#: cms/templates/export.html:257 cms/templates/import.html:233
+#: cms/templates/export.html:257 cms/templates/import.html:235
 msgid "Any group configurations"
 msgstr "Beliebige Gruppenkonfigurationen"
 
-#: cms/templates/export.html:258 cms/templates/import.html:234
+#: cms/templates/export.html:258 cms/templates/import.html:236
 msgid ""
 "Settings on the Advanced Settings page, including MATLAB API keys and LTI "
 "passports"
@@ -16877,13 +16885,13 @@ msgstr ""
 msgid "The following content is not exported."
 msgstr "Der folgende Inhalt ist nicht exportiert."
 
-#: cms/templates/export.html:262 cms/templates/import.html:238
+#: cms/templates/export.html:262 cms/templates/import.html:240
 msgid ""
 "Learner-specific content, such as learner grades and discussion forum data"
 msgstr ""
 "Nutzerspezifische Inhalte, wie beispielsweise Bewertungen und Forendaten."
 
-#: cms/templates/export.html:263 cms/templates/import.html:239
+#: cms/templates/export.html:263 cms/templates/import.html:241
 msgid "The course team"
 msgstr "Das Kurs Team"
 
@@ -17335,7 +17343,7 @@ msgstr "Bibliothek Importieren"
 msgid "Course Import"
 msgstr "Kurs importieren"
 
-#: cms/templates/import.html:49
+#: cms/templates/import.html:50
 msgid ""
 "Be sure you want to import a library before continuing. The contents of the "
 "imported library will replace the contents of the existing library. "
@@ -17350,7 +17358,7 @@ msgstr ""
 "aktuelle Bibliothek zu exportieren, damit Sie eine Sicherungskopie davon "
 "haben."
 
-#: cms/templates/import.html:50
+#: cms/templates/import.html:51
 msgid ""
 "The library that you import must be in a .tar.gz file (that is, a .tar file "
 "compressed with GNU Zip). This .tar.gz file must contain a library.xml file."
@@ -17361,7 +17369,7 @@ msgstr ""
 "Diese.tar.gz-Datei muss eine library.xml-Datei enthalten. Sie kann auch "
 "andere Dateien enthalten."
 
-#: cms/templates/import.html:51
+#: cms/templates/import.html:52
 msgid ""
 "The import process has five stages. During the first two stages, you must "
 "stay on this page. You can leave this page after the Unpacking stage has "
@@ -17374,7 +17382,7 @@ msgstr ""
 "wichtige Änderungen an Ihrer Bibliothek erst nach Abschluss des "
 "Importvorgangs vorzunehmen."
 
-#: cms/templates/import.html:53
+#: cms/templates/import.html:54
 msgid ""
 "Be sure you want to import a course before continuing. The contents of the "
 "imported course will replace the contents of the existing course. "
@@ -17388,17 +17396,19 @@ msgstr ""
 "machen.{em_end} Bevor Sie fortfahren, empfehlen wir Ihnen, den aktuellen "
 "Kurs zu exportieren, damit Sie eine Sicherungskopie davon haben."
 
-#: cms/templates/import.html:54
+#: cms/templates/import.html:55
 msgid ""
 "The course that you import must be in a .tar.gz file (that is, a .tar file "
-"compressed with GNU Zip). This .tar.gz file must contain a course.xml file. "
-"It may also contain other files."
+"compressed with GNU Zip) or .zip (that is a compressed file). This .tar.gz "
+"or .zip file must contain a course.xml file. It may also contain other "
+"files."
 msgstr ""
-"Der Kurs, den Sie importieren muss eine .tar.gz Datei (dies ist eine Tar-"
-"Datei die mit GNU Zip komprimiert wurde) sein. Die .tar.gz Datei muss eine "
-"course.xml Datei enthalten. Sie kann auch andere Dateien enthalten."
+"Der Kurs, den Sie importieren, muss in einer .tar.gz-Datei (d. h. einer mit "
+"GNU Zip komprimierten .tar-Datei) oder .zip (d. h. einer komprimierten "
+"Datei) vorliegen. Diese .tar.gz- oder .zip-Datei muss eine course.xml-Datei "
+"enthalten. Es kann auch andere Dateien enthalten."
 
-#: cms/templates/import.html:55
+#: cms/templates/import.html:56
 msgid ""
 "The import process has five stages. During the first two stages, you must "
 "stay on this page. You can leave this page after the Unpacking stage has "
@@ -17410,48 +17420,50 @@ msgstr ""
 "Entpacken beendet wurde. Wir empfehlen trotzdem mit wichtigen Änderungen bis"
 " zur fertigstellung des Importprozesses zu warten."
 
-#: cms/templates/import.html:65
+#: cms/templates/import.html:67
 msgid "Select a .tar.gz File to Replace Your Library Content"
 msgstr ""
 "Wählen Sie die a .tar.gz-Datei, um Ihren Bibliothek-Inhalt zu ersetzen."
 
-#: cms/templates/import.html:67
-msgid "Select a .tar.gz File to Replace Your Course Content"
-msgstr "Wählen sie eine .tar.gz Datei um ihren Kursinhalt zu ersetzen"
+#: cms/templates/import.html:69
+msgid "Select a .tar.gz or .zip File to Replace Your Course Content"
+msgstr ""
+"Wählen Sie eine .tar.gz- oder .zip-Datei aus, um Ihren Kursinhalt zu "
+"ersetzen"
 
-#: cms/templates/import.html:75
+#: cms/templates/import.html:77
 msgid "Choose a File to Import"
 msgstr "Wählen Sie eine Datei zum Import"
 
-#: cms/templates/import.html:80
+#: cms/templates/import.html:82
 msgid "File Chosen:"
 msgstr "Wählen Sie eine Datei:"
 
-#: cms/templates/import.html:88
+#: cms/templates/import.html:90
 msgid "Replace my library with the selected file"
 msgstr "Meine Bibliothek mit der ausgewählten Datei ersetzen"
 
-#: cms/templates/import.html:90
+#: cms/templates/import.html:92
 msgid "Replace my course with the selected file"
 msgstr "Meinen Kurs mit der ausgewählten Datei ersetzen"
 
-#: cms/templates/import.html:98
+#: cms/templates/import.html:100
 msgid "Library Import Status"
 msgstr "Bibliothek-Import Status"
 
-#: cms/templates/import.html:100
+#: cms/templates/import.html:102
 msgid "Course Import Status"
 msgstr "Kursimport Status"
 
-#: cms/templates/import.html:116
+#: cms/templates/import.html:118
 msgid "Transferring your file to our servers"
 msgstr "Ihre Datei wird zu unserem Server übertragen"
 
-#: cms/templates/import.html:127
+#: cms/templates/import.html:129
 msgid "Unpacking"
 msgstr "Entpacken"
 
-#: cms/templates/import.html:128
+#: cms/templates/import.html:130
 msgid ""
 "Expanding and preparing folder/file structure (You can now leave this page "
 "safely, but avoid making drastic changes to content until this import is "
@@ -17461,23 +17473,23 @@ msgstr ""
 "verlassen, aber vermeiden sie wichtige Änderungen bis der Importprozess "
 "beendet wurde)"
 
-#: cms/templates/import.html:140
+#: cms/templates/import.html:142
 msgid "Verifying"
 msgstr "Prüfen"
 
-#: cms/templates/import.html:141
+#: cms/templates/import.html:143
 msgid "Reviewing semantics, syntax, and required data"
 msgstr "Prüfen der Semantik, des Syntax und der benötigten Daten"
 
-#: cms/templates/import.html:154
+#: cms/templates/import.html:156
 msgid "Updating Library"
 msgstr "Bibliothek aktualisieren"
 
-#: cms/templates/import.html:156
+#: cms/templates/import.html:158
 msgid "Updating Course"
 msgstr "Aktualisieren des Kurses"
 
-#: cms/templates/import.html:161
+#: cms/templates/import.html:163
 msgid ""
 "Integrating your imported content into this library. This process might take"
 " longer with larger libraries."
@@ -17485,7 +17497,7 @@ msgstr ""
 "Ihr Inhalt wird in diese Bibliothek integriert. Dieser Prozess kann bei "
 "großen Bibliotheken länger dauern."
 
-#: cms/templates/import.html:163
+#: cms/templates/import.html:165
 msgid ""
 "Integrating your imported content into this course. This process might take "
 "longer with larger courses."
@@ -17493,27 +17505,27 @@ msgstr ""
 "Ihr Inhalt wird in diesen Kurs integriert. Dieser Prozess kann bei großen "
 "Bibliotheken länger dauern."
 
-#: cms/templates/import.html:180
+#: cms/templates/import.html:182
 msgid "Your imported content has now been integrated into this library"
 msgstr "Ihr importierter Inhalt ist jetzt in dieser Bibliothek"
 
-#: cms/templates/import.html:182
+#: cms/templates/import.html:184
 msgid "Your imported content has now been integrated into this course"
 msgstr "Ihr importierter Inhalt ist nun in ihren Kurs integriert"
 
-#: cms/templates/import.html:190
+#: cms/templates/import.html:192
 msgid "View Updated Library"
 msgstr "Aktualisierte Bibliothek ansehen"
 
-#: cms/templates/import.html:192
+#: cms/templates/import.html:194
 msgid "View Updated Outline"
 msgstr "Aktualisierte Übersicht ansehen"
 
-#: cms/templates/import.html:207
+#: cms/templates/import.html:209
 msgid "Why import a library?"
 msgstr "Warum sollte ich eine Bibliothek importieren?"
 
-#: cms/templates/import.html:208
+#: cms/templates/import.html:210
 msgid ""
 "You might want to update an existing library to a new version, or replace an"
 " existing library entirely. You might also have developed a library outside "
@@ -17524,13 +17536,13 @@ msgstr ""
 "Möglicherweise haben Sie auch eine Bibliothek außerhalb von {studio_name} "
 "entwickelt."
 
-#: cms/templates/import.html:212
+#: cms/templates/import.html:214
 msgid "Note: Library content is not automatically updated in courses"
 msgstr ""
 "Hinweis: Bibliothek Inhalt wird nicht automatisch in all Ihren Kursen "
 "aktualisiert."
 
-#: cms/templates/import.html:213
+#: cms/templates/import.html:215
 msgid ""
 "If you change and import a library that is referenced by randomized content "
 "blocks in one or more courses, those courses do not automatically use the "
@@ -17543,15 +17555,15 @@ msgstr ""
 "müssen die randomisierten Inhaltsblöcke manuell aktualisieren, um sie mit "
 "den neuesten Bibliotheksinhalten auf den neuesten Stand zu bringen."
 
-#: cms/templates/import.html:216
+#: cms/templates/import.html:218
 msgid "Learn more about importing a library"
 msgstr "Erfahren Sie mehr über das Importieren von Bibliotheken"
 
-#: cms/templates/import.html:222
+#: cms/templates/import.html:224
 msgid "Why import a course?"
 msgstr "Warum sollte ich einen Kurs importieren?"
 
-#: cms/templates/import.html:223
+#: cms/templates/import.html:225
 msgid ""
 "You may want to run a new version of an existing course, or replace an "
 "existing course altogether. Or, you may have developed a course outside "
@@ -17561,23 +17573,23 @@ msgstr ""
 "ausführen oder einen bestehenden Kurs ganz ersetzen. Oder Sie haben einen "
 "Kurs außerhalb von {studio_name} entwickelt."
 
-#: cms/templates/import.html:227
+#: cms/templates/import.html:229
 msgid "What content is imported?"
 msgstr "Welche Inhalte werden importiert?"
 
-#: cms/templates/import.html:228
+#: cms/templates/import.html:230
 msgid "The following content is imported."
 msgstr "Der folgende Inhalt wird importiert."
 
-#: cms/templates/import.html:236
+#: cms/templates/import.html:238
 msgid "The following content is not imported."
 msgstr "Der folgende Inhalt wird nicht importiert."
 
-#: cms/templates/import.html:244
+#: cms/templates/import.html:246
 msgid "Warning: Importing while a course is running"
 msgstr "Achtung: Sie importieren während der Kurs bereits begonnen hat"
 
-#: cms/templates/import.html:245
+#: cms/templates/import.html:247
 msgid ""
 "If you perform an import while your course is running, and you change the "
 "URL names (or url_name nodes) of any Problem components, the student data "
@@ -17590,7 +17602,7 @@ msgstr ""
 "verloren gehen. Diese Daten beinhalten die Noten der Teilnehmer für diese "
 "Fragestellung."
 
-#: cms/templates/import.html:248
+#: cms/templates/import.html:250
 msgid "Learn more about importing a course"
 msgstr "Erfahren Sie mehr über das Importieren von Kursen"
 
