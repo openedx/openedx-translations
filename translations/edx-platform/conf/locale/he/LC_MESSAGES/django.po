@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-06 00:32+0000\n"
+"POT-Creation-Date: 2024-03-09 00:32+0000\n"
 "PO-Revision-Date: 2023-11-20 11:35+0000\n"
 "Last-Translator: edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2024\n"
 "Language-Team: Hebrew (https://app.transifex.com/open-edx/teams/6205/he/)\n"
@@ -141,7 +141,6 @@ msgid "Uploaded Tar file not found. Try again."
 msgstr "קובץ Tar שהועלה לא נמצא. נסה שוב."
 
 #: cms/djangoapps/contentstore/errors.py:10
-#: cms/djangoapps/contentstore/views/import_export.py:145
 msgid "We only support uploading a .tar.gz file."
 msgstr "אנו תומכים בהעלאת קובץ .tar.gz בלבד."
 
@@ -171,8 +170,8 @@ msgid "Unknown User ID: {0}"
 msgstr "מזהה משתמש לא ידוע: {0}"
 
 #: cms/djangoapps/contentstore/errors.py:17
-msgid "Unsafe tar file. Aborting import."
-msgstr "קובץ ה-Tar אינו בטוח. פעולת הייבוא מופסקת."
+msgid "Unsafe archive file. Aborting import."
+msgstr "קובץ ארכיון לא בטוח. ביטול הייבוא."
 
 #: cms/djangoapps/contentstore/errors.py:18
 msgid "User permission denied."
@@ -240,22 +239,22 @@ msgstr "ניתן מיקום קורס שגוי"
 msgid "Missing branch on fresh clone"
 msgstr "חסר ענף בשכפול חדש"
 
-#: cms/djangoapps/contentstore/helpers.py:141
+#: cms/djangoapps/contentstore/helpers.py:170
 msgid "Vertical"
 msgstr "אנכי"
 
-#: cms/djangoapps/contentstore/helpers.py:145
+#: cms/djangoapps/contentstore/helpers.py:174
 #: cms/templates/course_outline.html:208 lms/templates/ccx/schedule.html:86
 #: lms/templates/seq_block.html:136
 msgid "Section"
 msgstr "פרק"
 
-#: cms/djangoapps/contentstore/helpers.py:147
+#: cms/djangoapps/contentstore/helpers.py:176
 #: lms/templates/ccx/schedule.html:90
 msgid "Subsection"
 msgstr "תת פרק"
 
-#: cms/djangoapps/contentstore/helpers.py:149
+#: cms/djangoapps/contentstore/helpers.py:178
 #: lms/djangoapps/instructor/views/tools.py:241
 #: lms/djangoapps/instructor/views/tools.py:253 xmodule/unit_block.py:41
 #: lms/templates/ccx/schedule.html:94 lms/templates/seq_block.html:89
@@ -263,7 +262,7 @@ msgstr "תת פרק"
 msgid "Unit"
 msgstr "יחידה"
 
-#: cms/djangoapps/contentstore/helpers.py:156
+#: cms/djangoapps/contentstore/helpers.py:185
 #: cms/djangoapps/contentstore/views/component.py:215
 #: openedx/core/djangoapps/content_libraries/constants.py:15
 msgid "Problem"
@@ -374,7 +373,7 @@ msgstr "כבר קיים תמליל עם קוד השפה „{language_code}”."
 msgid "A transcript file is required."
 msgstr "נדרש קובץ תמליל."
 
-#: cms/djangoapps/contentstore/utils.py:748
+#: cms/djangoapps/contentstore/utils.py:749
 #: cms/templates/visibility_editor.html:113
 msgid "Deleted Group"
 msgstr "קבוצה נמחקה"
@@ -382,39 +381,39 @@ msgstr "קבוצה נמחקה"
 #. Translators: This is building up a list of groups. It is marked for
 #. translation because of the
 #. comma, which is used as a separator between each group.
-#: cms/djangoapps/contentstore/utils.py:813
+#: cms/djangoapps/contentstore/utils.py:814
 #, python-brace-format
 msgid "{previous_groups}, {current_group}"
 msgstr "{previous_groups} , {current_group}"
 
-#: cms/djangoapps/contentstore/utils.py:976
+#: cms/djangoapps/contentstore/utils.py:977
 #: cms/djangoapps/contentstore/views/block.py:272
 #: cms/djangoapps/contentstore/views/component.py:214 xmodule/html_block.py:59
 msgid "Text"
 msgstr "טקסט"
 
-#: cms/djangoapps/contentstore/utils.py:1172
+#: cms/djangoapps/contentstore/utils.py:1173
 #, python-brace-format
 msgid "Duplicate of {0}"
 msgstr "העתקה של {0}"
 
-#: cms/djangoapps/contentstore/utils.py:1174
+#: cms/djangoapps/contentstore/utils.py:1175
 #, python-brace-format
 msgid "Duplicate of '{0}'"
 msgstr "העתקה של '{0}'"
 
-#: cms/djangoapps/contentstore/utils.py:1222
+#: cms/djangoapps/contentstore/utils.py:1223
 msgid "Invalid prerequisite course key"
 msgstr "מפתח דרישות קדם לא חוקי"
 
-#: cms/djangoapps/contentstore/utils.py:1741
+#: cms/djangoapps/contentstore/utils.py:1742
 msgid "Set Date"
 msgstr "הגדרת תאריך"
 
 #. #-#-#-#-#  django.po (0.1a)  #-#-#-#-#
 #. Translators: This is the status of an active video upload
 #: cms/djangoapps/contentstore/video_storage_handlers.py:118
-#: cms/templates/import.html:112
+#: cms/templates/import.html:114
 msgid "Uploading"
 msgstr "מעלה"
 
@@ -763,11 +762,18 @@ msgstr "מבחן כניסה לקורס הושלם"
 msgid "Course successfully exported to git repository"
 msgstr "הקורס יוצַא בהצלחה למאגר git"
 
-#: cms/djangoapps/contentstore/views/import_export.py:174
+#: cms/djangoapps/contentstore/views/import_export.py:150
+#, python-brace-format
+msgid ""
+"We support uploading files in one of the following formats: "
+"{IMPORTABLE_FILE_TYPES}"
+msgstr "אנו תומכים בהעלאת קבצים באחד מהפורמטים הבאים: {IMPORTABLE_FILE_TYPES}"
+
+#: cms/djangoapps/contentstore/views/import_export.py:179
 msgid "Some chunks missed during file upload. Please try again"
 msgstr "כמה נתחים פספסו במהלך העלאת הקבצים. בבקשה נסה שוב"
 
-#: cms/djangoapps/contentstore/views/import_export.py:185
+#: cms/djangoapps/contentstore/views/import_export.py:190
 msgid "File upload failed. Please try again"
 msgstr "העלאת הקובץ נכשלה. בבקשה נסה שוב"
 
@@ -892,74 +898,74 @@ msgid "You may not remove the last Admin. Add another Admin first."
 msgstr "לא ניתן להסיר את המנהל האחרון. הוסיפו מנהל אחר לפני כן."
 
 #: cms/djangoapps/contentstore/xblock_storage_handlers/create_xblock.py:101
-#: xmodule/library_content_block.py:808
+#: xmodule/library_content_block.py:821
 msgid "Empty"
 msgstr "ריק"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:218
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:568
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:220
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:570
 #, python-brace-format
 msgid "Libraries cannot have more than {limit} components"
 msgstr "ספריות לא יכולות לכלול יותר מרכיבי {limit}"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:430
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:432
 #: openedx/core/djangoapps/xblock/rest_api/views.py:242
 msgid "Invalid data"
 msgstr "נתונים לא חוקיים"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:432
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:434
 #: openedx/core/djangoapps/xblock/rest_api/views.py:244
 #, python-brace-format
 msgid "Invalid data ({details})"
 msgstr "נתונים לא חוקיים ({details})"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:543
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:545
 msgid "There was a problem pasting your component."
 msgstr "הייתה בעיה בהדבקת הרכיב שלך."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:547
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:549
 msgid "Your clipboard is empty or invalid."
 msgstr "לוח הגזירים שלך ריק או שגוי."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:671
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:673
 #, python-brace-format
 msgid "You can not move {source_type} into {target_parent_type}."
 msgstr "לא ניתן להעביר את {source_type} אל {target_parent_type}."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:680
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:682
 msgid "Item is already present in target location."
 msgstr "הפריט כבר קיים במקום היעד."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:682
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:684
 msgid "You can not move an item into itself."
 msgstr "אי אפשר להעביר פריט לתוך עצמו."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:684
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:686
 msgid "You can not move an item into it's child."
 msgstr "אי אפשר להעביר פריט לתוך צאצא שלו."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:686
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:688
 msgid "You can not move an item directly into content experiment."
 msgstr "אי אפשר להעביר פריט ישירות לניסוי תוכן."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:688
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:690
 #, python-brace-format
 msgid "{source_usage_key} not found in {parent_usage_key}."
 msgstr "{source_usage_key} לא נמצא ב- {parent_usage_key} ."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:700
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:702
 #, python-brace-format
 msgid ""
 "You can not move {source_usage_key} at an invalid index ({target_index})."
 msgstr ""
 "אינך יכול להעביר {source_usage_key} באינדקס לא חוקי ( {target_index} )."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:707
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:709
 #, python-brace-format
 msgid "You must provide target_index ({target_index}) as an integer."
 msgstr "עליך לספק target_index ( {target_index} ) כמספר שלם."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1019
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1021
 #, python-brace-format
 msgid ""
 "Students must score {score}{pct_sign} or higher to access course materials."
@@ -969,11 +975,11 @@ msgstr ""
 
 #. Translators: This is the percent sign. It will be used to represent
 #. a percent value out of 100, e.g. "58%" means "58/100".
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1024
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1026
 msgid "%"
 msgstr "%"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1550
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1554
 #, python-brace-format
 msgid "{section_or_subsection} \"{display_name}\""
 msgstr "{section_or_subsection} \"{display_name}\""
@@ -5343,11 +5349,11 @@ msgid "Open Responses"
 msgstr "תשובות פתוחות"
 
 #. Translators: number sent refers to the number of emails sent
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:74
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:80
 msgid "0 sent"
 msgstr "0 נשלח"
 
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:84
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:90
 #, python-brace-format
 msgid "{num_emails} sent"
 msgid_plural "{num_emails} sent"
@@ -5355,7 +5361,7 @@ msgstr[0] "{num_emails} נשלח"
 msgstr[1] "{num_emails} נשלח"
 msgstr[2] "{num_emails} נשלח"
 
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:93
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:99
 #, python-brace-format
 msgid "{num_emails} failed"
 msgid_plural "{num_emails} failed"
@@ -5363,11 +5369,11 @@ msgstr[0] "{num_emails} נכשל"
 msgstr[1] "{num_emails} נכשל"
 msgstr[2] "{num_emails} נכשל"
 
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:134
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
 msgid "Complete"
 msgstr "הושלם"
 
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:134
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
 msgid "Incomplete"
 msgstr "לא הושלם"
 
@@ -9273,7 +9279,7 @@ msgid "Retirement does not exist!"
 msgstr "לא קיימת אפשרות פרישה!"
 
 #: openedx/core/djangoapps/user_api/admin.py:72 cms/templates/export.html:161
-#: cms/templates/import.html:175
+#: cms/templates/import.html:177
 msgid "Success"
 msgstr "הצלחה"
 
@@ -12351,49 +12357,49 @@ msgstr "ספריות תוכן אינן זמינות בזמן הריצה הנוכ
 msgid "Source content library does not exist: {source_library_id}"
 msgstr "ספריית תוכן המקור אינה קיימת: {source_library_id}"
 
-#: xmodule/library_content_block.py:610
+#: xmodule/library_content_block.py:623
 msgid "This component is out of date. The library has new content."
 msgstr "מרכיב זה מיושן. ישנו תוכן חדש בספריה."
 
 #. Translators: {refresh_icon} placeholder is substituted to "↻" (without
 #. double quotes)
-#: xmodule/library_content_block.py:615
+#: xmodule/library_content_block.py:628
 #, python-brace-format
 msgid "{refresh_icon} Update now."
 msgstr "{refresh_icon} עדכן עכשיו."
 
-#: xmodule/library_content_block.py:623
+#: xmodule/library_content_block.py:636
 msgid "Library is invalid, corrupt, or has been deleted."
 msgstr "הספרייה אינה חוקית, מושחתת או נמחקה."
 
-#: xmodule/library_content_block.py:625
+#: xmodule/library_content_block.py:638
 msgid "Edit Library List."
 msgstr "ערוך רשימת ספריה"
 
-#: xmodule/library_content_block.py:652
+#: xmodule/library_content_block.py:665
 msgid ""
 "This course does not support content libraries. Contact your system "
 "administrator for more information."
 msgstr "קורס זה אינו תומך בספריות תוכן. למידע נוסף, צור קשר עם מנהל המערכת. "
 
-#: xmodule/library_content_block.py:662
+#: xmodule/library_content_block.py:675
 msgid "A library has not yet been selected."
 msgstr "לא נבחרה ספריה."
 
-#: xmodule/library_content_block.py:664
+#: xmodule/library_content_block.py:677
 msgid "Select a Library."
 msgstr "בחר ספריה."
 
-#: xmodule/library_content_block.py:678
+#: xmodule/library_content_block.py:691
 #, python-brace-format
 msgid "There are no problems in the specified library of type {capa_type}."
 msgstr "אין בעיות בספרייה שצוינה מסוג {capa_type} ."
 
-#: xmodule/library_content_block.py:681
+#: xmodule/library_content_block.py:694
 msgid "Select another problem type."
 msgstr "בחר סוג בעיה אחר."
 
-#: xmodule/library_content_block.py:692
+#: xmodule/library_content_block.py:705
 #, python-brace-format
 msgid "The specified library is configured to fetch {count} problem, "
 msgid_plural "The specified library is configured to fetch {count} problems, "
@@ -12401,7 +12407,7 @@ msgstr[0] "הספרייה שצוינה מוגדרת להביא בעיית {count
 msgstr[1] "הספרייה שצוינה מוגדרת להביא בעיות {count} , "
 msgstr[2] "הספרייה שצוינה מוגדרת להביא בעיות {count} , "
 
-#: xmodule/library_content_block.py:697
+#: xmodule/library_content_block.py:710
 #, python-brace-format
 msgid "but there is only {actual} matching problem."
 msgid_plural "but there are only {actual} matching problems."
@@ -12409,15 +12415,15 @@ msgstr[0] "אבל יש רק בעיית התאמה {actual} ."
 msgstr[1] "אבל יש רק בעיות התאמה {actual} ."
 msgstr[2] "אבל יש רק בעיות התאמה {actual} ."
 
-#: xmodule/library_content_block.py:703
+#: xmodule/library_content_block.py:716
 msgid "Edit the library configuration."
 msgstr "ערוך את הגדרת הבעיה."
 
-#: xmodule/library_content_block.py:721
+#: xmodule/library_content_block.py:734
 msgid "Invalid Library"
 msgstr "ספריה לא חוקית"
 
-#: xmodule/library_content_block.py:722
+#: xmodule/library_content_block.py:735
 msgid "No Library Selected"
 msgstr "לא נבחרה ספריה"
 
@@ -15892,23 +15898,23 @@ msgstr "איזה תוכן מיוצא?"
 msgid "The following content is exported."
 msgstr "התוכן הבא מיוצא."
 
-#: cms/templates/export.html:254 cms/templates/import.html:230
+#: cms/templates/export.html:254 cms/templates/import.html:232
 msgid "Course content and structure"
 msgstr "תוכן ומבנה הקורס"
 
-#: cms/templates/export.html:255 cms/templates/import.html:231
+#: cms/templates/export.html:255 cms/templates/import.html:233
 msgid "Course dates"
 msgstr "תאריכי קורסים"
 
-#: cms/templates/export.html:256 cms/templates/import.html:232
+#: cms/templates/export.html:256 cms/templates/import.html:234
 msgid "Grading policy"
 msgstr "מדיניות לדירוג"
 
-#: cms/templates/export.html:257 cms/templates/import.html:233
+#: cms/templates/export.html:257 cms/templates/import.html:235
 msgid "Any group configurations"
 msgstr "כל תצורות קבוצתיות"
 
-#: cms/templates/export.html:258 cms/templates/import.html:234
+#: cms/templates/export.html:258 cms/templates/import.html:236
 msgid ""
 "Settings on the Advanced Settings page, including MATLAB API keys and LTI "
 "passports"
@@ -15918,12 +15924,12 @@ msgstr "הגדרות בדף ההגדרות המתקדמות, כולל מפתחו
 msgid "The following content is not exported."
 msgstr "התוכן הבא אינו מיוצא."
 
-#: cms/templates/export.html:262 cms/templates/import.html:238
+#: cms/templates/export.html:262 cms/templates/import.html:240
 msgid ""
 "Learner-specific content, such as learner grades and discussion forum data"
 msgstr "תוכן ספציפי ללומד, כגון ציוני לומד ונתוני פורום דיונים"
 
-#: cms/templates/export.html:263 cms/templates/import.html:239
+#: cms/templates/export.html:263 cms/templates/import.html:241
 msgid "The course team"
 msgstr "צוות הקורס"
 
@@ -16343,7 +16349,7 @@ msgstr "יבוא ספריה"
 msgid "Course Import"
 msgstr "יבוא קורס"
 
-#: cms/templates/import.html:49
+#: cms/templates/import.html:50
 msgid ""
 "Be sure you want to import a library before continuing. The contents of the "
 "imported library will replace the contents of the existing library. "
@@ -16355,7 +16361,7 @@ msgstr ""
 "הספרייה הקיימת. {em_start}לא ניתן לבטל יבוא של ספריה{em_end}. בטרם תמשיך, "
 "אנו ממליצים שתייצא את הספרייה הנוכחית על מנת שיהיה בידיך עותק גיבוי ."
 
-#: cms/templates/import.html:50
+#: cms/templates/import.html:51
 msgid ""
 "The library that you import must be in a .tar.gz file (that is, a .tar file "
 "compressed with GNU Zip). This .tar.gz file must contain a library.xml file."
@@ -16365,7 +16371,7 @@ msgstr ""
 "GNU Zip). קובץ ‎.tar.gz חייב לכלול קובץ library.xml. ייתכן שהוא יכלול  גם "
 "קבצים אחרים."
 
-#: cms/templates/import.html:51
+#: cms/templates/import.html:52
 msgid ""
 "The import process has five stages. During the first two stages, you must "
 "stay on this page. You can leave this page after the Unpacking stage has "
@@ -16376,7 +16382,7 @@ msgstr ""
 "ניתן לעזוב את העמוד לאחר השלמת שלב חילוץ הקובץ. יחד עם זאת, אנו ממליצים כי "
 "לא תבצע שינויים חשובים בספרייתך עד להשלמת פעולת הייבוא.   "
 
-#: cms/templates/import.html:53
+#: cms/templates/import.html:54
 msgid ""
 "Be sure you want to import a course before continuing. The contents of the "
 "imported course will replace the contents of the existing course. "
@@ -16388,17 +16394,18 @@ msgstr ""
 "הקיים.  {em_start}לא ניתן לבטל את פעולת הייבוא{em_end}. בטרם תמשיך, אנו "
 "ממליצים כי תייצא את הקורס הנוכחי על מנת שיהיה לך עותק גיבוי. "
 
-#: cms/templates/import.html:54
+#: cms/templates/import.html:55
 msgid ""
 "The course that you import must be in a .tar.gz file (that is, a .tar file "
-"compressed with GNU Zip). This .tar.gz file must contain a course.xml file. "
-"It may also contain other files."
+"compressed with GNU Zip) or .zip (that is a compressed file). This .tar.gz "
+"or .zip file must contain a course.xml file. It may also contain other "
+"files."
 msgstr ""
-"הקורס המיובא חייב להיות בקובץ  .tar.gz (זהו קובץ .tar דחוס באמצעותGNU Zip). "
-"קובץ .tar.gz זה חייב להכיל קובץ course.xml.  הוא יכול להכיל בנוסף קבצים "
-"אחרים."
+"הקורס שאתה מייבא חייב להיות בקובץ .tar.gz (כלומר, קובץ .tar דחוס עם GNU Zip)"
+" או .zip (שהוא קובץ דחוס). קובץ ‎.tar.gz או ‎.zip זה חייב להכיל קובץ "
+"course.xml. הוא עשוי להכיל גם קבצים אחרים."
 
-#: cms/templates/import.html:55
+#: cms/templates/import.html:56
 msgid ""
 "The import process has five stages. During the first two stages, you must "
 "stay on this page. You can leave this page after the Unpacking stage has "
@@ -16409,47 +16416,47 @@ msgstr ""
 "ניתן לעזוב את העמוד לאחר השלמת שלב חילוץ הקובץ. יחד עם זאת, אנו ממליצים כי "
 "לא תבצע שינויים חשובים בקורס שלך עד להשלמת פעולת הייבוא.   "
 
-#: cms/templates/import.html:65
+#: cms/templates/import.html:67
 msgid "Select a .tar.gz File to Replace Your Library Content"
 msgstr "בחר קובץ .tar.gz להחלפת תוכן הספריה שלך"
 
-#: cms/templates/import.html:67
-msgid "Select a .tar.gz File to Replace Your Course Content"
-msgstr "בחר קובץ  .tar.gz להחלפת תוכן הקורס שלך"
+#: cms/templates/import.html:69
+msgid "Select a .tar.gz or .zip File to Replace Your Course Content"
+msgstr "בחר קובץ ‎.tar.gz או ‎.zip כדי להחליף את תוכן הקורס שלך"
 
-#: cms/templates/import.html:75
+#: cms/templates/import.html:77
 msgid "Choose a File to Import"
 msgstr "בחר קובץ ליבוא"
 
-#: cms/templates/import.html:80
+#: cms/templates/import.html:82
 msgid "File Chosen:"
 msgstr "קובץ שנבחר:"
 
-#: cms/templates/import.html:88
+#: cms/templates/import.html:90
 msgid "Replace my library with the selected file"
 msgstr "החלף את הספריה שלי בקובץ שנבחר"
 
-#: cms/templates/import.html:90
+#: cms/templates/import.html:92
 msgid "Replace my course with the selected file"
 msgstr "החלף את הקורס שלי בקובץ שנבחר"
 
-#: cms/templates/import.html:98
+#: cms/templates/import.html:100
 msgid "Library Import Status"
 msgstr "מצב יבוא ספריה"
 
-#: cms/templates/import.html:100
+#: cms/templates/import.html:102
 msgid "Course Import Status"
 msgstr "מצב יבוא קורס"
 
-#: cms/templates/import.html:116
+#: cms/templates/import.html:118
 msgid "Transferring your file to our servers"
 msgstr "מעביר את הקובץ שלך לשרתים שלנו"
 
-#: cms/templates/import.html:127
+#: cms/templates/import.html:129
 msgid "Unpacking"
 msgstr "חילוץ קובץ"
 
-#: cms/templates/import.html:128
+#: cms/templates/import.html:130
 msgid ""
 "Expanding and preparing folder/file structure (You can now leave this page "
 "safely, but avoid making drastic changes to content until this import is "
@@ -16458,23 +16465,23 @@ msgstr ""
 "הרחבת מבנה תיקייה/קובץ והכנתו (תוכל כעת לעזוב בבטחה את העמוד אך הימנע מעריכת"
 " שינויים דרסטיים לתוכן עד שיסתיים ייבוא זה)."
 
-#: cms/templates/import.html:140
+#: cms/templates/import.html:142
 msgid "Verifying"
 msgstr "מאמת"
 
-#: cms/templates/import.html:141
+#: cms/templates/import.html:143
 msgid "Reviewing semantics, syntax, and required data"
 msgstr "סקירת סמנטיקה, תחביר ונתונים נדרשים"
 
-#: cms/templates/import.html:154
+#: cms/templates/import.html:156
 msgid "Updating Library"
 msgstr "מעדכן ספריה"
 
-#: cms/templates/import.html:156
+#: cms/templates/import.html:158
 msgid "Updating Course"
 msgstr "מעדכן קורס"
 
-#: cms/templates/import.html:161
+#: cms/templates/import.html:163
 msgid ""
 "Integrating your imported content into this library. This process might take"
 " longer with larger libraries."
@@ -16482,7 +16489,7 @@ msgstr ""
 "מבצע אינטגרציה לתוכן המיובא שלך. תהליך זה עלול לקחת זמן רב יותר בספריות "
 "גדולות."
 
-#: cms/templates/import.html:163
+#: cms/templates/import.html:165
 msgid ""
 "Integrating your imported content into this course. This process might take "
 "longer with larger courses."
@@ -16490,27 +16497,27 @@ msgstr ""
 "אינטגרציה של תוכן קורס מיובא לתוך קורס זה. תהליך זה עלול לקחת זמן רב יותר "
 "בקורסים גדולים."
 
-#: cms/templates/import.html:180
+#: cms/templates/import.html:182
 msgid "Your imported content has now been integrated into this library"
 msgstr "לא בוצעה אינטגרציה של התוכן המיובא שלך לתוך ספריה זו."
 
-#: cms/templates/import.html:182
+#: cms/templates/import.html:184
 msgid "Your imported content has now been integrated into this course"
 msgstr "התוכן המיובא שלך עבר אינטגרציה לתוך קורס זה"
 
-#: cms/templates/import.html:190
+#: cms/templates/import.html:192
 msgid "View Updated Library"
 msgstr "צפה בספריה מעודכנת"
 
-#: cms/templates/import.html:192
+#: cms/templates/import.html:194
 msgid "View Updated Outline"
 msgstr "צפה במתווה מעודכן"
 
-#: cms/templates/import.html:207
+#: cms/templates/import.html:209
 msgid "Why import a library?"
 msgstr "מדוע לייבא ספריה?"
 
-#: cms/templates/import.html:208
+#: cms/templates/import.html:210
 msgid ""
 "You might want to update an existing library to a new version, or replace an"
 " existing library entirely. You might also have developed a library outside "
@@ -16519,11 +16526,11 @@ msgstr ""
 "ייתכן שתרצה לעדכן ספריה קיימת בגרסה חדשה או להחליף לגמרי ספריה קיימת. ייתכן "
 "שתרצה גם לפתח ספריה מחוץ ל-{studio_name}."
 
-#: cms/templates/import.html:212
+#: cms/templates/import.html:214
 msgid "Note: Library content is not automatically updated in courses"
 msgstr "הערה: תוכן הספריה אינו מעודכן אוטומטית בקורסים."
 
-#: cms/templates/import.html:213
+#: cms/templates/import.html:215
 msgid ""
 "If you change and import a library that is referenced by randomized content "
 "blocks in one or more courses, those courses do not automatically use the "
@@ -16534,15 +16541,15 @@ msgstr ""
 "או יותר, קורסים אלו לא ישתמשו אוטומטית בתוכן שעודכן. עליך לרענן באופן "
 "אוטומטי את חסימות התוכן האקראיות על מנת לעדכן אותם בתוכן הספרייה האחרון."
 
-#: cms/templates/import.html:216
+#: cms/templates/import.html:218
 msgid "Learn more about importing a library"
 msgstr "למידע נוסף אודות יבוא ספריה"
 
-#: cms/templates/import.html:222
+#: cms/templates/import.html:224
 msgid "Why import a course?"
 msgstr "מדוע לייבא קורס?"
 
-#: cms/templates/import.html:223
+#: cms/templates/import.html:225
 msgid ""
 "You may want to run a new version of an existing course, or replace an "
 "existing course altogether. Or, you may have developed a course outside "
@@ -16551,23 +16558,23 @@ msgstr ""
 "יתכן ותרצה להריץ גרסה חדשה של קורס קיים או להחליף לגמרי קורס קיים. יתכן "
 "ופיתחת קורס מחוץ ל{studio_name}. "
 
-#: cms/templates/import.html:227
+#: cms/templates/import.html:229
 msgid "What content is imported?"
 msgstr "איזה תוכן מיובא?"
 
-#: cms/templates/import.html:228
+#: cms/templates/import.html:230
 msgid "The following content is imported."
 msgstr "התוכן הבא מיובא."
 
-#: cms/templates/import.html:236
+#: cms/templates/import.html:238
 msgid "The following content is not imported."
 msgstr "התוכן הבא אינו מיובא."
 
-#: cms/templates/import.html:244
+#: cms/templates/import.html:246
 msgid "Warning: Importing while a course is running"
 msgstr "אזהרה: יבוא בזמן שקורס עדיין מועבר"
 
-#: cms/templates/import.html:245
+#: cms/templates/import.html:247
 msgid ""
 "If you perform an import while your course is running, and you change the "
 "URL names (or url_name nodes) of any Problem components, the student data "
@@ -16577,7 +16584,7 @@ msgstr ""
 "במידה ותבצע יבוא בזמן שהקורס רץ עדיין ותשנה את שם כתובות ה-URL\n"
 "(or url_name nodes) של רכיבי בעיה כלשהם, יתכן ותאבד את המידע של הסטודנטים המקושר לרכיבי בעיה אלו. מידע זה כולל את ציוני הבעיה של סטודנטים אלו.  "
 
-#: cms/templates/import.html:248
+#: cms/templates/import.html:250
 msgid "Learn more about importing a course"
 msgstr "למידע נוסף אודות יבוא קורס"
 
