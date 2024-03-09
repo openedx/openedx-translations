@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-06 00:32+0000\n"
+"POT-Creation-Date: 2024-03-09 00:32+0000\n"
 "PO-Revision-Date: 2023-11-20 11:35+0000\n"
 "Last-Translator: edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2024\n"
 "Language-Team: Hindi (https://app.transifex.com/open-edx/teams/6205/hi/)\n"
@@ -146,7 +146,6 @@ msgid "Uploaded Tar file not found. Try again."
 msgstr "अपलोड की गई टार फ़ाइल नहीं मिली। पुनः प्रयास करें।"
 
 #: cms/djangoapps/contentstore/errors.py:10
-#: cms/djangoapps/contentstore/views/import_export.py:145
 msgid "We only support uploading a .tar.gz file."
 msgstr "हम केवल एक .tar.gz फाइल अपलोड करने का समर्थन करते हैं।"
 
@@ -177,8 +176,8 @@ msgid "Unknown User ID: {0}"
 msgstr "अज्ञात उपयोगकर्ता आईडी: {0}"
 
 #: cms/djangoapps/contentstore/errors.py:17
-msgid "Unsafe tar file. Aborting import."
-msgstr "असुरक्षित टार फ़ाइल। आयात निरस्त किया जा रहा है।"
+msgid "Unsafe archive file. Aborting import."
+msgstr "असुरक्षित संग्रह फ़ाइल. आयात निरस्त करना."
 
 #: cms/djangoapps/contentstore/errors.py:18
 msgid "User permission denied."
@@ -249,22 +248,22 @@ msgstr "खराब पाठ्यक्रम स्थान प्रदा
 msgid "Missing branch on fresh clone"
 msgstr "ताजा क्लोन पर शाखा गायब है"
 
-#: cms/djangoapps/contentstore/helpers.py:141
+#: cms/djangoapps/contentstore/helpers.py:170
 msgid "Vertical"
 msgstr "सीधा"
 
-#: cms/djangoapps/contentstore/helpers.py:145
+#: cms/djangoapps/contentstore/helpers.py:174
 #: cms/templates/course_outline.html:208 lms/templates/ccx/schedule.html:86
 #: lms/templates/seq_block.html:136
 msgid "Section"
 msgstr "अनुभाग"
 
-#: cms/djangoapps/contentstore/helpers.py:147
+#: cms/djangoapps/contentstore/helpers.py:176
 #: lms/templates/ccx/schedule.html:90
 msgid "Subsection"
 msgstr "उपधारा"
 
-#: cms/djangoapps/contentstore/helpers.py:149
+#: cms/djangoapps/contentstore/helpers.py:178
 #: lms/djangoapps/instructor/views/tools.py:241
 #: lms/djangoapps/instructor/views/tools.py:253 xmodule/unit_block.py:41
 #: lms/templates/ccx/schedule.html:94 lms/templates/seq_block.html:89
@@ -272,7 +271,7 @@ msgstr "उपधारा"
 msgid "Unit"
 msgstr "इकाई"
 
-#: cms/djangoapps/contentstore/helpers.py:156
+#: cms/djangoapps/contentstore/helpers.py:185
 #: cms/djangoapps/contentstore/views/component.py:215
 #: openedx/core/djangoapps/content_libraries/constants.py:15
 msgid "Problem"
@@ -385,7 +384,7 @@ msgstr "\"{language_code}\" भाषा कोड के साथ एक प�
 msgid "A transcript file is required."
 msgstr "एक प्रतिलेख फ़ाइल आवश्यक है।"
 
-#: cms/djangoapps/contentstore/utils.py:748
+#: cms/djangoapps/contentstore/utils.py:749
 #: cms/templates/visibility_editor.html:113
 msgid "Deleted Group"
 msgstr "हटाया गया समूह"
@@ -393,39 +392,39 @@ msgstr "हटाया गया समूह"
 #. Translators: This is building up a list of groups. It is marked for
 #. translation because of the
 #. comma, which is used as a separator between each group.
-#: cms/djangoapps/contentstore/utils.py:813
+#: cms/djangoapps/contentstore/utils.py:814
 #, python-brace-format
 msgid "{previous_groups}, {current_group}"
 msgstr "{previous_groups}, {current_group}"
 
-#: cms/djangoapps/contentstore/utils.py:976
+#: cms/djangoapps/contentstore/utils.py:977
 #: cms/djangoapps/contentstore/views/block.py:272
 #: cms/djangoapps/contentstore/views/component.py:214 xmodule/html_block.py:59
 msgid "Text"
 msgstr "टेक्स्ट"
 
-#: cms/djangoapps/contentstore/utils.py:1172
+#: cms/djangoapps/contentstore/utils.py:1173
 #, python-brace-format
 msgid "Duplicate of {0}"
 msgstr "{0} का डुप्लीकेट"
 
-#: cms/djangoapps/contentstore/utils.py:1174
+#: cms/djangoapps/contentstore/utils.py:1175
 #, python-brace-format
 msgid "Duplicate of '{0}'"
 msgstr "'{0}' का डुप्लीकेट"
 
-#: cms/djangoapps/contentstore/utils.py:1222
+#: cms/djangoapps/contentstore/utils.py:1223
 msgid "Invalid prerequisite course key"
 msgstr "अमान्य शर्त पाठ्यक्रम कुंजी"
 
-#: cms/djangoapps/contentstore/utils.py:1741
+#: cms/djangoapps/contentstore/utils.py:1742
 msgid "Set Date"
 msgstr "तारीख तय करें"
 
 #. #-#-#-#-#  django.po (0.1a)  #-#-#-#-#
 #. Translators: This is the status of an active video upload
 #: cms/djangoapps/contentstore/video_storage_handlers.py:118
-#: cms/templates/import.html:112
+#: cms/templates/import.html:114
 msgid "Uploading"
 msgstr "अपलोड हो रहा है"
 
@@ -782,11 +781,20 @@ msgstr "पूर्ण पाठ्यक्रम प्रवेश परी
 msgid "Course successfully exported to git repository"
 msgstr "पाठ्यक्रम सफलतापूर्वक git रिपोजिटरी में निर्यात किया गया"
 
-#: cms/djangoapps/contentstore/views/import_export.py:174
+#: cms/djangoapps/contentstore/views/import_export.py:150
+#, python-brace-format
+msgid ""
+"We support uploading files in one of the following formats: "
+"{IMPORTABLE_FILE_TYPES}"
+msgstr ""
+"हम निम्नलिखित प्रारूपों में से किसी एक में फ़ाइलें अपलोड करने का समर्थन करते"
+" हैं: {IMPORTABLE_FILE_TYPES}"
+
+#: cms/djangoapps/contentstore/views/import_export.py:179
 msgid "Some chunks missed during file upload. Please try again"
 msgstr "फ़ाइल अपलोड के दौरान कुछ हिस्से छूट गए। कृपया पुन: प्रयास करें"
 
-#: cms/djangoapps/contentstore/views/import_export.py:185
+#: cms/djangoapps/contentstore/views/import_export.py:190
 msgid "File upload failed. Please try again"
 msgstr "फ़ाइल अपलोड विफल रहा। कृपया पुन: प्रयास करें"
 
@@ -916,62 +924,62 @@ msgid "You may not remove the last Admin. Add another Admin first."
 msgstr "आप अंतिम व्यवस्थापक को नहीं निकाल सकते। पहले एक और व्यवस्थापक जोड़ें।"
 
 #: cms/djangoapps/contentstore/xblock_storage_handlers/create_xblock.py:101
-#: xmodule/library_content_block.py:808
+#: xmodule/library_content_block.py:821
 msgid "Empty"
 msgstr "खाली"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:218
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:568
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:220
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:570
 #, python-brace-format
 msgid "Libraries cannot have more than {limit} components"
 msgstr "लाइब्रेरी में {limit} से अधिक घटक नहीं हो सकते"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:430
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:432
 #: openedx/core/djangoapps/xblock/rest_api/views.py:242
 msgid "Invalid data"
 msgstr "अमान्य डाटा"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:432
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:434
 #: openedx/core/djangoapps/xblock/rest_api/views.py:244
 #, python-brace-format
 msgid "Invalid data ({details})"
 msgstr "अमान्य डाटा ({details})"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:543
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:545
 msgid "There was a problem pasting your component."
 msgstr "आपके घटक को चिपकाने में एक समस्या थी।"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:547
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:549
 msgid "Your clipboard is empty or invalid."
 msgstr "आपका क्लिपबोर्ड खाली या अमान्य है।"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:671
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:673
 #, python-brace-format
 msgid "You can not move {source_type} into {target_parent_type}."
 msgstr "आप {source_type} को {target_parent_type} में नहीं ले जा सकते।"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:680
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:682
 msgid "Item is already present in target location."
 msgstr "आइटम लक्ष्य स्थान पर पहले से ही मौजूद है।"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:682
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:684
 msgid "You can not move an item into itself."
 msgstr "आप एक वस्तु को अपने आप में स्थानांतरित नहीं कर सकते।"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:684
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:686
 msgid "You can not move an item into it's child."
 msgstr "आप किसी वस्तु को बच्चे में स्थानांतरित नहीं कर सकते।"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:686
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:688
 msgid "You can not move an item directly into content experiment."
 msgstr "आप किसी वस्तु को सीधे सामग्री प्रयोग में नहीं ले जा सकते।"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:688
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:690
 #, python-brace-format
 msgid "{source_usage_key} not found in {parent_usage_key}."
 msgstr "{source_usage_key} {parent_usage_key} में नहीं मिला।"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:700
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:702
 #, python-brace-format
 msgid ""
 "You can not move {source_usage_key} at an invalid index ({target_index})."
@@ -979,14 +987,14 @@ msgstr ""
 "आप किसी अमान्य इंडेक्स ({target_index}) पर {source_usage_key} को स्थानांतरित"
 " नहीं कर सकते।"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:707
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:709
 #, python-brace-format
 msgid "You must provide target_index ({target_index}) as an integer."
 msgstr ""
 "आपको target_index ({target_index}) को एक पूर्णांक के रूप में प्रदान करना "
 "होगा।"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1019
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1021
 #, python-brace-format
 msgid ""
 "Students must score {score}{pct_sign} or higher to access course materials."
@@ -996,11 +1004,11 @@ msgstr ""
 
 #. Translators: This is the percent sign. It will be used to represent
 #. a percent value out of 100, e.g. "58%" means "58/100".
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1024
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1026
 msgid "%"
 msgstr "%"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1550
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1554
 #, python-brace-format
 msgid "{section_or_subsection} \"{display_name}\""
 msgstr "{section_or_subsection} \"{display_name}\""
@@ -5468,29 +5476,29 @@ msgid "Open Responses"
 msgstr "ओपन रिस्पोंसेस्"
 
 #. Translators: number sent refers to the number of emails sent
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:74
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:80
 msgid "0 sent"
 msgstr "0 भेजा गया"
 
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:84
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:90
 #, python-brace-format
 msgid "{num_emails} sent"
 msgid_plural "{num_emails} sent"
 msgstr[0] "{num_emails} भेजा गया"
 msgstr[1] "{num_emails} भेजा गया"
 
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:93
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:99
 #, python-brace-format
 msgid "{num_emails} failed"
 msgid_plural "{num_emails} failed"
 msgstr[0] "{num_emails} विफल रहा"
 msgstr[1] "{num_emails} विफल रहा"
 
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:134
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
 msgid "Complete"
 msgstr "पूरा हुआ"
 
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:134
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
 msgid "Incomplete"
 msgstr "अधूरा"
 
@@ -9520,7 +9528,7 @@ msgid "Retirement does not exist!"
 msgstr "सेवानिवृत्ति मौजूद नहीं है!"
 
 #: openedx/core/djangoapps/user_api/admin.py:72 cms/templates/export.html:161
-#: cms/templates/import.html:175
+#: cms/templates/import.html:177
 msgid "Success"
 msgstr "सफल"
 
@@ -12760,26 +12768,26 @@ msgstr "वर्तमान रनटाइम में सामग्री
 msgid "Source content library does not exist: {source_library_id}"
 msgstr "स्रोत सामग्री लाइब्रेरी मौजूद नहीं है: {source_library_id}"
 
-#: xmodule/library_content_block.py:610
+#: xmodule/library_content_block.py:623
 msgid "This component is out of date. The library has new content."
 msgstr "यह घटक पुराना है। पुस्तकालय में नई सामग्री है।"
 
 #. Translators: {refresh_icon} placeholder is substituted to "↻" (without
 #. double quotes)
-#: xmodule/library_content_block.py:615
+#: xmodule/library_content_block.py:628
 #, python-brace-format
 msgid "{refresh_icon} Update now."
 msgstr "{refresh_icon} अभी अपडेट करें।"
 
-#: xmodule/library_content_block.py:623
+#: xmodule/library_content_block.py:636
 msgid "Library is invalid, corrupt, or has been deleted."
 msgstr "लाइब्रेरी अमान्य, भ्रष्ट है, या हटा दी गई है।"
 
-#: xmodule/library_content_block.py:625
+#: xmodule/library_content_block.py:638
 msgid "Edit Library List."
 msgstr "लाइब्रेरी सूची संपादित करें।"
 
-#: xmodule/library_content_block.py:652
+#: xmodule/library_content_block.py:665
 msgid ""
 "This course does not support content libraries. Contact your system "
 "administrator for more information."
@@ -12787,24 +12795,24 @@ msgstr ""
 "यह पाठ्यक्रम सामग्री पुस्तकालयों का समर्थन नहीं करता है। अधिक जानकारी के लिए"
 " अपने सिस्टम व्यवस्थापक से संपर्क करें।"
 
-#: xmodule/library_content_block.py:662
+#: xmodule/library_content_block.py:675
 msgid "A library has not yet been selected."
 msgstr "एक पुस्तकालय अभी तक चयनित नहीं हुआ है।"
 
-#: xmodule/library_content_block.py:664
+#: xmodule/library_content_block.py:677
 msgid "Select a Library."
 msgstr "एक पुस्तकालय का चयन करें।"
 
-#: xmodule/library_content_block.py:678
+#: xmodule/library_content_block.py:691
 #, python-brace-format
 msgid "There are no problems in the specified library of type {capa_type}."
 msgstr "{capa_type} प्रकार की निर्दिष्ट लाइब्रेरी में कोई समस्या नहीं है।"
 
-#: xmodule/library_content_block.py:681
+#: xmodule/library_content_block.py:694
 msgid "Select another problem type."
 msgstr "एक अन्य समस्या प्रकार चुनें।"
 
-#: xmodule/library_content_block.py:692
+#: xmodule/library_content_block.py:705
 #, python-brace-format
 msgid "The specified library is configured to fetch {count} problem, "
 msgid_plural "The specified library is configured to fetch {count} problems, "
@@ -12813,22 +12821,22 @@ msgstr[0] ""
 msgstr[1] ""
 "निर्दिष्ट लाइब्रेरी को {count} समस्याएं लाने के लिए कॉन्फ़िगर किया गया है, "
 
-#: xmodule/library_content_block.py:697
+#: xmodule/library_content_block.py:710
 #, python-brace-format
 msgid "but there is only {actual} matching problem."
 msgid_plural "but there are only {actual} matching problems."
 msgstr[0] "लेकिन केवल {actual} मिलान समस्या है।"
 msgstr[1] "लेकिन केवल {actual} मिलान संबंधी समस्याएं हैं।"
 
-#: xmodule/library_content_block.py:703
+#: xmodule/library_content_block.py:716
 msgid "Edit the library configuration."
 msgstr "पुस्तकालय कॉन्फ़िगरेशन संपादित करें।"
 
-#: xmodule/library_content_block.py:721
+#: xmodule/library_content_block.py:734
 msgid "Invalid Library"
 msgstr "अमान्य पुस्तकालय"
 
-#: xmodule/library_content_block.py:722
+#: xmodule/library_content_block.py:735
 msgid "No Library Selected"
 msgstr " कोई पुस्तकालय चयनित नहीं है"
 
@@ -16421,23 +16429,23 @@ msgstr "क्या सामग्री निर्यात की जा�
 msgid "The following content is exported."
 msgstr "निम्नलिखित सामग्री निर्यात की जाती है।"
 
-#: cms/templates/export.html:254 cms/templates/import.html:230
+#: cms/templates/export.html:254 cms/templates/import.html:232
 msgid "Course content and structure"
 msgstr "पाठ्यक्रम सामग्री और संरचना"
 
-#: cms/templates/export.html:255 cms/templates/import.html:231
+#: cms/templates/export.html:255 cms/templates/import.html:233
 msgid "Course dates"
 msgstr "कोर्स की तारीखें"
 
-#: cms/templates/export.html:256 cms/templates/import.html:232
+#: cms/templates/export.html:256 cms/templates/import.html:234
 msgid "Grading policy"
 msgstr "श्रेणी नीति"
 
-#: cms/templates/export.html:257 cms/templates/import.html:233
+#: cms/templates/export.html:257 cms/templates/import.html:235
 msgid "Any group configurations"
 msgstr "कोई समूह कॉन्फ़िगरेशन"
 
-#: cms/templates/export.html:258 cms/templates/import.html:234
+#: cms/templates/export.html:258 cms/templates/import.html:236
 msgid ""
 "Settings on the Advanced Settings page, including MATLAB API keys and LTI "
 "passports"
@@ -16448,13 +16456,13 @@ msgstr ""
 msgid "The following content is not exported."
 msgstr "निम्नलिखित सामग्री निर्यात नहीं की जाती है।"
 
-#: cms/templates/export.html:262 cms/templates/import.html:238
+#: cms/templates/export.html:262 cms/templates/import.html:240
 msgid ""
 "Learner-specific content, such as learner grades and discussion forum data"
 msgstr ""
 "शिक्षार्थी-विशिष्ट सामग्री, जैसे कि शिक्षार्थी ग्रेड और चर्चा मंच डेटा"
 
-#: cms/templates/export.html:263 cms/templates/import.html:239
+#: cms/templates/export.html:263 cms/templates/import.html:241
 msgid "The course team"
 msgstr "कोर्स की टीम"
 
@@ -16901,7 +16909,7 @@ msgstr "पुस्तकालय आयात"
 msgid "Course Import"
 msgstr "कोर्स आयात"
 
-#: cms/templates/import.html:49
+#: cms/templates/import.html:50
 msgid ""
 "Be sure you want to import a library before continuing. The contents of the "
 "imported library will replace the contents of the existing library. "
@@ -16915,7 +16923,7 @@ msgstr ""
 "पहले, हम अनुशंसा करते हैं कि आप वर्तमान लाइब्रेरी का निर्यात करें, ताकि आपके"
 " पास इसकी एक बैकअप प्रति हो।"
 
-#: cms/templates/import.html:50
+#: cms/templates/import.html:51
 msgid ""
 "The library that you import must be in a .tar.gz file (that is, a .tar file "
 "compressed with GNU Zip). This .tar.gz file must contain a library.xml file."
@@ -16925,7 +16933,7 @@ msgstr ""
 "(अर्थात, GNU ज़िप के साथ एक .tar फ़ाइल संपीड़ित)। इस .tar.gz फ़ाइल में एक "
 "Library.xml फ़ाइल होनी चाहिए। इसमें अन्य फाइलें भी हो सकती हैं।"
 
-#: cms/templates/import.html:51
+#: cms/templates/import.html:52
 msgid ""
 "The import process has five stages. During the first two stages, you must "
 "stay on this page. You can leave this page after the Unpacking stage has "
@@ -16937,7 +16945,7 @@ msgstr ""
 "completed. We recommend, however, that you don't make important changes to "
 "your library until the import operation has completed."
 
-#: cms/templates/import.html:53
+#: cms/templates/import.html:54
 msgid ""
 "Be sure you want to import a course before continuing. The contents of the "
 "imported course will replace the contents of the existing course. "
@@ -16950,17 +16958,19 @@ msgstr ""
 "कोर्स आयात नहीं कर सकते {em_end}। आगे बढ़ने से पहले, हम अनुशंसा करते हैं कि "
 "आप वर्तमान पाठ्यक्रम को निर्यात करें, ताकि आपके पास इसकी एक बैकअप प्रति हो।"
 
-#: cms/templates/import.html:54
+#: cms/templates/import.html:55
 msgid ""
 "The course that you import must be in a .tar.gz file (that is, a .tar file "
-"compressed with GNU Zip). This .tar.gz file must contain a course.xml file. "
-"It may also contain other files."
+"compressed with GNU Zip) or .zip (that is a compressed file). This .tar.gz "
+"or .zip file must contain a course.xml file. It may also contain other "
+"files."
 msgstr ""
-"आपके द्वारा आयात किया जाने वाला कोर्स .tar.gz फ़ाइल में होना चाहिए (अर्थात, "
-"GNU ज़िप के साथ एक .tar फ़ाइल संपीड़ित)। इस .tar.gz फ़ाइल में एक course.xml "
-"फ़ाइल होनी चाहिए। इसमें अन्य फाइलें भी हो सकती हैं।"
+"आप जो पाठ्यक्रम आयात करते हैं वह .tar.gz फ़ाइल (अर्थात् GNU ज़िप के साथ "
+"संपीड़ित .tar फ़ाइल) या .zip (वह एक संपीड़ित फ़ाइल है) में होना चाहिए। इस "
+".tar.gz या .zip फ़ाइल में एक course.xml फ़ाइल होनी चाहिए। इसमें अन्य फ़ाइलें"
+" भी हो सकती हैं."
 
-#: cms/templates/import.html:55
+#: cms/templates/import.html:56
 msgid ""
 "The import process has five stages. During the first two stages, you must "
 "stay on this page. You can leave this page after the Unpacking stage has "
@@ -16972,47 +16982,47 @@ msgstr ""
 "हालांकि, हम अनुशंसा करते हैं कि आप अपने पाठ्यक्रम में महत्वपूर्ण बदलाव न "
 "करें, जब तक कि आयात ऑपरेशन पूरा नहीं हो जाता।"
 
-#: cms/templates/import.html:65
+#: cms/templates/import.html:67
 msgid "Select a .tar.gz File to Replace Your Library Content"
 msgstr "अपनी लाइब्रेरी सामग्री को बदलने के लिए .tar.gz फ़ाइल चुनें"
 
-#: cms/templates/import.html:67
-msgid "Select a .tar.gz File to Replace Your Course Content"
-msgstr "अपने पाठ्यक्रम सामग्री को बदलने के लिए atar.gz फ़ाइल का चयन करें"
+#: cms/templates/import.html:69
+msgid "Select a .tar.gz or .zip File to Replace Your Course Content"
+msgstr "अपने पाठ्यक्रम की सामग्री को बदलने के लिए .tar.gz या .zip फ़ाइल चुनें"
 
-#: cms/templates/import.html:75
+#: cms/templates/import.html:77
 msgid "Choose a File to Import"
 msgstr "आयात करने के लिए एक फ़ाइल चुनें"
 
-#: cms/templates/import.html:80
+#: cms/templates/import.html:82
 msgid "File Chosen:"
 msgstr "फ़ाइल चुना:"
 
-#: cms/templates/import.html:88
+#: cms/templates/import.html:90
 msgid "Replace my library with the selected file"
 msgstr "मेरी लाइब्रेरी को चयनित फ़ाइल से बदलें"
 
-#: cms/templates/import.html:90
+#: cms/templates/import.html:92
 msgid "Replace my course with the selected file"
 msgstr "मेरे पाठ्यक्रम को चयनित फ़ाइल से बदलें"
 
-#: cms/templates/import.html:98
+#: cms/templates/import.html:100
 msgid "Library Import Status"
 msgstr "पुस्तकालय आयात की स्थिति"
 
-#: cms/templates/import.html:100
+#: cms/templates/import.html:102
 msgid "Course Import Status"
 msgstr "कोर्स आयात की स्थिति"
 
-#: cms/templates/import.html:116
+#: cms/templates/import.html:118
 msgid "Transferring your file to our servers"
 msgstr "अपनी फ़ाइल को हमारे सर्वर पर स्थानांतरित करना"
 
-#: cms/templates/import.html:127
+#: cms/templates/import.html:129
 msgid "Unpacking"
 msgstr "अनपैक"
 
-#: cms/templates/import.html:128
+#: cms/templates/import.html:130
 msgid ""
 "Expanding and preparing folder/file structure (You can now leave this page "
 "safely, but avoid making drastic changes to content until this import is "
@@ -17022,23 +17032,23 @@ msgstr ""
 "सुरक्षित रूप से छोड़ सकते हैं, लेकिन जब तक यह आयात पूरा नहीं हो जाता तब तक "
 "सामग्री में भारी बदलाव करने से बचें)"
 
-#: cms/templates/import.html:140
+#: cms/templates/import.html:142
 msgid "Verifying"
 msgstr "सत्यापित किया जा रहा"
 
-#: cms/templates/import.html:141
+#: cms/templates/import.html:143
 msgid "Reviewing semantics, syntax, and required data"
 msgstr "सिमेंटिक्स, सिंटैक्स और आवश्यक डेटा की समीक्षा करना"
 
-#: cms/templates/import.html:154
+#: cms/templates/import.html:156
 msgid "Updating Library"
 msgstr "पुस्तकालय का अद्यतन करना"
 
-#: cms/templates/import.html:156
+#: cms/templates/import.html:158
 msgid "Updating Course"
 msgstr "अद्यतन पाठ्यक्रम"
 
-#: cms/templates/import.html:161
+#: cms/templates/import.html:163
 msgid ""
 "Integrating your imported content into this library. This process might take"
 " longer with larger libraries."
@@ -17046,7 +17056,7 @@ msgstr ""
 "इस पुस्तकालय में अपनी आयातित सामग्री को एकीकृत करना। यह प्रक्रिया बड़े "
 "पुस्तकालयों के साथ अधिक समय ले सकती है।"
 
-#: cms/templates/import.html:163
+#: cms/templates/import.html:165
 msgid ""
 "Integrating your imported content into this course. This process might take "
 "longer with larger courses."
@@ -17054,27 +17064,27 @@ msgstr ""
 "इस पाठ्यक्रम में अपनी आयातित सामग्री को एकीकृत करना। यह प्रक्रिया बड़े "
 "पाठ्यक्रमों के साथ अधिक समय ले सकती है।"
 
-#: cms/templates/import.html:180
+#: cms/templates/import.html:182
 msgid "Your imported content has now been integrated into this library"
 msgstr "आपकी आयातित सामग्री अब इस लाइब्रेरी में एकीकृत हो गई है"
 
-#: cms/templates/import.html:182
+#: cms/templates/import.html:184
 msgid "Your imported content has now been integrated into this course"
 msgstr "आपकी आयातित सामग्री अब इस पाठ्यक्रम में एकीकृत हो गई है"
 
-#: cms/templates/import.html:190
+#: cms/templates/import.html:192
 msgid "View Updated Library"
 msgstr "अद्यतित लाइब्रेरी देखें"
 
-#: cms/templates/import.html:192
+#: cms/templates/import.html:194
 msgid "View Updated Outline"
 msgstr "अद्यतन रूपरेखा देखें"
 
-#: cms/templates/import.html:207
+#: cms/templates/import.html:209
 msgid "Why import a library?"
 msgstr "पुस्तकालय का आयात क्यों?"
 
-#: cms/templates/import.html:208
+#: cms/templates/import.html:210
 msgid ""
 "You might want to update an existing library to a new version, or replace an"
 " existing library entirely. You might also have developed a library outside "
@@ -17084,12 +17094,12 @@ msgstr ""
 "मौजूदा लाइब्रेरी को पूरी तरह से बदल सकते हैं। आपने {studio_name} के बाहर एक "
 "पुस्तकालय भी विकसित किया होगा।"
 
-#: cms/templates/import.html:212
+#: cms/templates/import.html:214
 msgid "Note: Library content is not automatically updated in courses"
 msgstr ""
 "नोट: लाइब्रेरी सामग्री स्वचालित रूप से पाठ्यक्रमों में अपडेट नहीं की जाती है"
 
-#: cms/templates/import.html:213
+#: cms/templates/import.html:215
 msgid ""
 "If you change and import a library that is referenced by randomized content "
 "blocks in one or more courses, those courses do not automatically use the "
@@ -17101,15 +17111,15 @@ msgstr ""
 "की गई सामग्री का उपयोग नहीं करते हैं। नवीनतम लाइब्रेरी सामग्री के साथ "
 "अद्यतित करने के लिए आपको यादृच्छिक रूप से सामग्री ब्लॉक को ताज़ा करना होगा।"
 
-#: cms/templates/import.html:216
+#: cms/templates/import.html:218
 msgid "Learn more about importing a library"
 msgstr "लाइब्रेरी आयात करने के बारे में और जानें"
 
-#: cms/templates/import.html:222
+#: cms/templates/import.html:224
 msgid "Why import a course?"
 msgstr "एक कोर्स क्यों आयात करें?"
 
-#: cms/templates/import.html:223
+#: cms/templates/import.html:225
 msgid ""
 "You may want to run a new version of an existing course, or replace an "
 "existing course altogether. Or, you may have developed a course outside "
@@ -17119,23 +17129,23 @@ msgstr ""
 "पाठ्यक्रम को पूरी तरह से बदल सकते हैं। या, आपने {studio_name} के बाहर एक "
 "कोर्स विकसित किया हो सकता है।"
 
-#: cms/templates/import.html:227
+#: cms/templates/import.html:229
 msgid "What content is imported?"
 msgstr "क्या सामग्री आयात की जाती है?"
 
-#: cms/templates/import.html:228
+#: cms/templates/import.html:230
 msgid "The following content is imported."
 msgstr "निम्नलिखित सामग्री आयात की जाती है।"
 
-#: cms/templates/import.html:236
+#: cms/templates/import.html:238
 msgid "The following content is not imported."
 msgstr "निम्नलिखित सामग्री आयात नहीं की जाती है।"
 
-#: cms/templates/import.html:244
+#: cms/templates/import.html:246
 msgid "Warning: Importing while a course is running"
 msgstr "चेतावनी: जब कोई कोर्स चल रहा हो तो आयात करना"
 
-#: cms/templates/import.html:245
+#: cms/templates/import.html:247
 msgid ""
 "If you perform an import while your course is running, and you change the "
 "URL names (or url_name nodes) of any Problem components, the student data "
@@ -17146,7 +17156,7 @@ msgstr ""
 " नाम (या url_name नोड) बदलते हैं, तो उन समस्या घटकों से संबंधित छात्र डेटा "
 "खो सकता है। इस डेटा में छात्रों की समस्या स्कोर शामिल हैं।"
 
-#: cms/templates/import.html:248
+#: cms/templates/import.html:250
 msgid "Learn more about importing a course"
 msgstr "कोर्स आयात करने के बारे में और जानें"
 
