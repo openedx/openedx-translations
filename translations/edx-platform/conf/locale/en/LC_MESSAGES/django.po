@@ -66,7 +66,7 @@ msgstr ""
 "#-#-#-#-#  mako.po (PROJECT VERSION)  #-#-#-#-#\n"
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-08 00:31+0000\n"
+"POT-Creation-Date: 2024-03-09 00:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -173,7 +173,6 @@ msgid "Uploaded Tar file not found. Try again."
 msgstr ""
 
 #: cms/djangoapps/contentstore/errors.py:10
-#: cms/djangoapps/contentstore/views/import_export.py:145
 msgid "We only support uploading a .tar.gz file."
 msgstr ""
 
@@ -203,7 +202,7 @@ msgid "Unknown User ID: {0}"
 msgstr ""
 
 #: cms/djangoapps/contentstore/errors.py:17
-msgid "Unsafe tar file. Aborting import."
+msgid "Unsafe archive file. Aborting import."
 msgstr ""
 
 #: cms/djangoapps/contentstore/errors.py:18
@@ -265,22 +264,22 @@ msgstr ""
 msgid "Missing branch on fresh clone"
 msgstr ""
 
-#: cms/djangoapps/contentstore/helpers.py:171
+#: cms/djangoapps/contentstore/helpers.py:170
 msgid "Vertical"
 msgstr ""
 
-#: cms/djangoapps/contentstore/helpers.py:175
+#: cms/djangoapps/contentstore/helpers.py:174
 #: cms/templates/course_outline.html:208 lms/templates/ccx/schedule.html:86
 #: lms/templates/seq_block.html:136
 msgid "Section"
 msgstr ""
 
-#: cms/djangoapps/contentstore/helpers.py:177
+#: cms/djangoapps/contentstore/helpers.py:176
 #: lms/templates/ccx/schedule.html:90
 msgid "Subsection"
 msgstr ""
 
-#: cms/djangoapps/contentstore/helpers.py:179
+#: cms/djangoapps/contentstore/helpers.py:178
 #: lms/djangoapps/instructor/views/tools.py:241
 #: lms/djangoapps/instructor/views/tools.py:253 xmodule/unit_block.py:41
 #: lms/templates/ccx/schedule.html:94 lms/templates/seq_block.html:89
@@ -288,7 +287,7 @@ msgstr ""
 msgid "Unit"
 msgstr ""
 
-#: cms/djangoapps/contentstore/helpers.py:186
+#: cms/djangoapps/contentstore/helpers.py:185
 #: cms/djangoapps/contentstore/views/component.py:215
 #: openedx/core/djangoapps/content_libraries/constants.py:15
 msgid "Problem"
@@ -397,7 +396,7 @@ msgstr ""
 msgid "A transcript file is required."
 msgstr ""
 
-#: cms/djangoapps/contentstore/utils.py:748
+#: cms/djangoapps/contentstore/utils.py:749
 #: cms/templates/visibility_editor.html:113
 msgid "Deleted Group"
 msgstr ""
@@ -405,39 +404,39 @@ msgstr ""
 #. Translators: This is building up a list of groups. It is marked for
 #. translation because of the
 #. comma, which is used as a separator between each group.
-#: cms/djangoapps/contentstore/utils.py:813
+#: cms/djangoapps/contentstore/utils.py:814
 #, python-brace-format
 msgid "{previous_groups}, {current_group}"
 msgstr ""
 
-#: cms/djangoapps/contentstore/utils.py:976
+#: cms/djangoapps/contentstore/utils.py:977
 #: cms/djangoapps/contentstore/views/block.py:272
 #: cms/djangoapps/contentstore/views/component.py:214 xmodule/html_block.py:59
 msgid "Text"
 msgstr ""
 
-#: cms/djangoapps/contentstore/utils.py:1172
+#: cms/djangoapps/contentstore/utils.py:1173
 #, python-brace-format
 msgid "Duplicate of {0}"
 msgstr ""
 
-#: cms/djangoapps/contentstore/utils.py:1174
+#: cms/djangoapps/contentstore/utils.py:1175
 #, python-brace-format
 msgid "Duplicate of '{0}'"
 msgstr ""
 
-#: cms/djangoapps/contentstore/utils.py:1222
+#: cms/djangoapps/contentstore/utils.py:1223
 msgid "Invalid prerequisite course key"
 msgstr ""
 
-#: cms/djangoapps/contentstore/utils.py:1741
+#: cms/djangoapps/contentstore/utils.py:1742
 msgid "Set Date"
 msgstr ""
 
 #. #-#-#-#-#  django.po (0.1a)  #-#-#-#-#
 #. Translators: This is the status of an active video upload
 #: cms/djangoapps/contentstore/video_storage_handlers.py:118
-#: cms/templates/import.html:112
+#: cms/templates/import.html:114
 msgid "Uploading"
 msgstr ""
 
@@ -770,11 +769,18 @@ msgstr ""
 msgid "Course successfully exported to git repository"
 msgstr ""
 
-#: cms/djangoapps/contentstore/views/import_export.py:174
+#: cms/djangoapps/contentstore/views/import_export.py:150
+#, python-brace-format
+msgid ""
+"We support uploading files in one of the following formats: "
+"{IMPORTABLE_FILE_TYPES}"
+msgstr ""
+
+#: cms/djangoapps/contentstore/views/import_export.py:179
 msgid "Some chunks missed during file upload. Please try again"
 msgstr ""
 
-#: cms/djangoapps/contentstore/views/import_export.py:185
+#: cms/djangoapps/contentstore/views/import_export.py:190
 msgid "File upload failed. Please try again"
 msgstr ""
 
@@ -894,7 +900,7 @@ msgid "You may not remove the last Admin. Add another Admin first."
 msgstr ""
 
 #: cms/djangoapps/contentstore/xblock_storage_handlers/create_xblock.py:101
-#: xmodule/library_content_block.py:808
+#: xmodule/library_content_block.py:821
 msgid "Empty"
 msgstr ""
 
@@ -8651,7 +8657,7 @@ msgid "Retirement does not exist!"
 msgstr ""
 
 #: openedx/core/djangoapps/user_api/admin.py:72 cms/templates/export.html:161
-#: cms/templates/import.html:175
+#: cms/templates/import.html:177
 msgid "Success"
 msgstr ""
 
@@ -11464,71 +11470,71 @@ msgstr ""
 msgid "Source content library does not exist: {source_library_id}"
 msgstr ""
 
-#: xmodule/library_content_block.py:610
+#: xmodule/library_content_block.py:623
 msgid "This component is out of date. The library has new content."
 msgstr ""
 
 #. Translators: {refresh_icon} placeholder is substituted to "↻" (without
 #. double quotes)
-#: xmodule/library_content_block.py:615
+#: xmodule/library_content_block.py:628
 #, python-brace-format
 msgid "{refresh_icon} Update now."
 msgstr ""
 
-#: xmodule/library_content_block.py:623
+#: xmodule/library_content_block.py:636
 msgid "Library is invalid, corrupt, or has been deleted."
 msgstr ""
 
-#: xmodule/library_content_block.py:625
+#: xmodule/library_content_block.py:638
 msgid "Edit Library List."
 msgstr ""
 
-#: xmodule/library_content_block.py:652
+#: xmodule/library_content_block.py:665
 msgid ""
 "This course does not support content libraries. Contact your system "
 "administrator for more information."
 msgstr ""
 
-#: xmodule/library_content_block.py:662
+#: xmodule/library_content_block.py:675
 msgid "A library has not yet been selected."
 msgstr ""
 
-#: xmodule/library_content_block.py:664
+#: xmodule/library_content_block.py:677
 msgid "Select a Library."
 msgstr ""
 
-#: xmodule/library_content_block.py:678
+#: xmodule/library_content_block.py:691
 #, python-brace-format
 msgid "There are no problems in the specified library of type {capa_type}."
 msgstr ""
 
-#: xmodule/library_content_block.py:681
+#: xmodule/library_content_block.py:694
 msgid "Select another problem type."
 msgstr ""
 
-#: xmodule/library_content_block.py:692
+#: xmodule/library_content_block.py:705
 #, python-brace-format
 msgid "The specified library is configured to fetch {count} problem, "
 msgid_plural "The specified library is configured to fetch {count} problems, "
 msgstr[0] ""
 msgstr[1] ""
 
-#: xmodule/library_content_block.py:697
+#: xmodule/library_content_block.py:710
 #, python-brace-format
 msgid "but there is only {actual} matching problem."
 msgid_plural "but there are only {actual} matching problems."
 msgstr[0] ""
 msgstr[1] ""
 
-#: xmodule/library_content_block.py:703
+#: xmodule/library_content_block.py:716
 msgid "Edit the library configuration."
 msgstr ""
 
-#: xmodule/library_content_block.py:721
+#: xmodule/library_content_block.py:734
 msgid "Invalid Library"
 msgstr ""
 
-#: xmodule/library_content_block.py:722
+#: xmodule/library_content_block.py:735
 msgid "No Library Selected"
 msgstr ""
 
@@ -14687,23 +14693,23 @@ msgstr ""
 msgid "The following content is exported."
 msgstr ""
 
-#: cms/templates/export.html:254 cms/templates/import.html:230
+#: cms/templates/export.html:254 cms/templates/import.html:232
 msgid "Course content and structure"
 msgstr ""
 
-#: cms/templates/export.html:255 cms/templates/import.html:231
+#: cms/templates/export.html:255 cms/templates/import.html:233
 msgid "Course dates"
 msgstr ""
 
-#: cms/templates/export.html:256 cms/templates/import.html:232
+#: cms/templates/export.html:256 cms/templates/import.html:234
 msgid "Grading policy"
 msgstr ""
 
-#: cms/templates/export.html:257 cms/templates/import.html:233
+#: cms/templates/export.html:257 cms/templates/import.html:235
 msgid "Any group configurations"
 msgstr ""
 
-#: cms/templates/export.html:258 cms/templates/import.html:234
+#: cms/templates/export.html:258 cms/templates/import.html:236
 msgid ""
 "Settings on the Advanced Settings page, including MATLAB API keys and LTI "
 "passports"
@@ -14713,12 +14719,12 @@ msgstr ""
 msgid "The following content is not exported."
 msgstr ""
 
-#: cms/templates/export.html:262 cms/templates/import.html:238
+#: cms/templates/export.html:262 cms/templates/import.html:240
 msgid ""
 "Learner-specific content, such as learner grades and discussion forum data"
 msgstr ""
 
-#: cms/templates/export.html:263 cms/templates/import.html:239
+#: cms/templates/export.html:263 cms/templates/import.html:241
 msgid "The course team"
 msgstr ""
 
@@ -15080,7 +15086,7 @@ msgstr ""
 msgid "Course Import"
 msgstr ""
 
-#: cms/templates/import.html:49
+#: cms/templates/import.html:50
 msgid ""
 "Be sure you want to import a library before continuing. The contents of the "
 "imported library will replace the contents of the existing library. "
@@ -15089,14 +15095,14 @@ msgid ""
 "copy of it."
 msgstr ""
 
-#: cms/templates/import.html:50
+#: cms/templates/import.html:51
 msgid ""
 "The library that you import must be in a .tar.gz file (that is, a .tar file "
 "compressed with GNU Zip). This .tar.gz file must contain a library.xml file. "
 "It may also contain other files."
 msgstr ""
 
-#: cms/templates/import.html:51
+#: cms/templates/import.html:52
 msgid ""
 "The import process has five stages. During the first two stages, you must "
 "stay on this page. You can leave this page after the Unpacking stage has "
@@ -15104,7 +15110,7 @@ msgid ""
 "your library until the import operation has completed."
 msgstr ""
 
-#: cms/templates/import.html:53
+#: cms/templates/import.html:54
 msgid ""
 "Be sure you want to import a course before continuing. The contents of the "
 "imported course will replace the contents of the existing course. {em_start}"
@@ -15112,14 +15118,14 @@ msgid ""
 "that you export the current course, so that you have a backup copy of it."
 msgstr ""
 
-#: cms/templates/import.html:54
+#: cms/templates/import.html:55
 msgid ""
 "The course that you import must be in a .tar.gz file (that is, a .tar file "
-"compressed with GNU Zip). This .tar.gz file must contain a course.xml file. "
-"It may also contain other files."
+"compressed with GNU Zip) or .zip (that is a compressed file). This .tar.gz "
+"or .zip file must contain a course.xml file. It may also contain other files."
 msgstr ""
 
-#: cms/templates/import.html:55
+#: cms/templates/import.html:56
 msgid ""
 "The import process has five stages. During the first two stages, you must "
 "stay on this page. You can leave this page after the Unpacking stage has "
@@ -15127,113 +15133,113 @@ msgid ""
 "your course until the import operation has completed."
 msgstr ""
 
-#: cms/templates/import.html:65
+#: cms/templates/import.html:67
 msgid "Select a .tar.gz File to Replace Your Library Content"
 msgstr ""
 
-#: cms/templates/import.html:67
-msgid "Select a .tar.gz File to Replace Your Course Content"
+#: cms/templates/import.html:69
+msgid "Select a .tar.gz or .zip File to Replace Your Course Content"
 msgstr ""
 
-#: cms/templates/import.html:75
+#: cms/templates/import.html:77
 msgid "Choose a File to Import"
 msgstr ""
 
-#: cms/templates/import.html:80
+#: cms/templates/import.html:82
 msgid "File Chosen:"
 msgstr ""
 
-#: cms/templates/import.html:88
+#: cms/templates/import.html:90
 msgid "Replace my library with the selected file"
 msgstr ""
 
-#: cms/templates/import.html:90
+#: cms/templates/import.html:92
 msgid "Replace my course with the selected file"
 msgstr ""
 
-#: cms/templates/import.html:98
+#: cms/templates/import.html:100
 msgid "Library Import Status"
 msgstr ""
 
-#: cms/templates/import.html:100
+#: cms/templates/import.html:102
 msgid "Course Import Status"
 msgstr ""
 
-#: cms/templates/import.html:116
+#: cms/templates/import.html:118
 msgid "Transferring your file to our servers"
 msgstr ""
 
-#: cms/templates/import.html:127
+#: cms/templates/import.html:129
 msgid "Unpacking"
 msgstr ""
 
-#: cms/templates/import.html:128
+#: cms/templates/import.html:130
 msgid ""
 "Expanding and preparing folder/file structure (You can now leave this page "
 "safely, but avoid making drastic changes to content until this import is "
 "complete)"
 msgstr ""
 
-#: cms/templates/import.html:140
+#: cms/templates/import.html:142
 msgid "Verifying"
 msgstr ""
 
-#: cms/templates/import.html:141
+#: cms/templates/import.html:143
 msgid "Reviewing semantics, syntax, and required data"
 msgstr ""
 
-#: cms/templates/import.html:154
+#: cms/templates/import.html:156
 msgid "Updating Library"
 msgstr ""
 
-#: cms/templates/import.html:156
+#: cms/templates/import.html:158
 msgid "Updating Course"
 msgstr ""
 
-#: cms/templates/import.html:161
+#: cms/templates/import.html:163
 msgid ""
 "Integrating your imported content into this library. This process might take "
 "longer with larger libraries."
 msgstr ""
 
-#: cms/templates/import.html:163
+#: cms/templates/import.html:165
 msgid ""
 "Integrating your imported content into this course. This process might take "
 "longer with larger courses."
 msgstr ""
 
-#: cms/templates/import.html:180
+#: cms/templates/import.html:182
 msgid "Your imported content has now been integrated into this library"
 msgstr ""
 
-#: cms/templates/import.html:182
+#: cms/templates/import.html:184
 msgid "Your imported content has now been integrated into this course"
 msgstr ""
 
-#: cms/templates/import.html:190
+#: cms/templates/import.html:192
 msgid "View Updated Library"
 msgstr ""
 
-#: cms/templates/import.html:192
+#: cms/templates/import.html:194
 msgid "View Updated Outline"
 msgstr ""
 
-#: cms/templates/import.html:207
+#: cms/templates/import.html:209
 msgid "Why import a library?"
 msgstr ""
 
-#: cms/templates/import.html:208
+#: cms/templates/import.html:210
 msgid ""
 "You might want to update an existing library to a new version, or replace an "
 "existing library entirely. You might also have developed a library outside "
 "of {studio_name}."
 msgstr ""
 
-#: cms/templates/import.html:212
+#: cms/templates/import.html:214
 msgid "Note: Library content is not automatically updated in courses"
 msgstr ""
 
-#: cms/templates/import.html:213
+#: cms/templates/import.html:215
 msgid ""
 "If you change and import a library that is referenced by randomized content "
 "blocks in one or more courses, those courses do not automatically use the "
@@ -15241,38 +15247,38 @@ msgid ""
 "bring them up to date with the latest library content."
 msgstr ""
 
-#: cms/templates/import.html:216
+#: cms/templates/import.html:218
 msgid "Learn more about importing a library"
 msgstr ""
 
-#: cms/templates/import.html:222
+#: cms/templates/import.html:224
 msgid "Why import a course?"
 msgstr ""
 
-#: cms/templates/import.html:223
+#: cms/templates/import.html:225
 msgid ""
 "You may want to run a new version of an existing course, or replace an "
 "existing course altogether. Or, you may have developed a course outside "
 "{studio_name}."
 msgstr ""
 
-#: cms/templates/import.html:227
+#: cms/templates/import.html:229
 msgid "What content is imported?"
 msgstr ""
 
-#: cms/templates/import.html:228
+#: cms/templates/import.html:230
 msgid "The following content is imported."
 msgstr ""
 
-#: cms/templates/import.html:236
+#: cms/templates/import.html:238
 msgid "The following content is not imported."
 msgstr ""
 
-#: cms/templates/import.html:244
+#: cms/templates/import.html:246
 msgid "Warning: Importing while a course is running"
 msgstr ""
 
-#: cms/templates/import.html:245
+#: cms/templates/import.html:247
 msgid ""
 "If you perform an import while your course is running, and you change the "
 "URL names (or url_name nodes) of any Problem components, the student data "
@@ -15280,7 +15286,7 @@ msgid ""
 "students' problem scores."
 msgstr ""
 
-#: cms/templates/import.html:248
+#: cms/templates/import.html:250
 msgid "Learn more about importing a course"
 msgstr ""
 
