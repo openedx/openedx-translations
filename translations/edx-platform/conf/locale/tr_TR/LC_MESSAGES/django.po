@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-06 00:32+0000\n"
+"POT-Creation-Date: 2024-03-09 00:32+0000\n"
 "PO-Revision-Date: 2023-11-20 11:35+0000\n"
 "Last-Translator: edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2024\n"
 "Language-Team: Turkish (Turkey) (https://app.transifex.com/open-edx/teams/6205/tr_TR/)\n"
@@ -148,7 +148,6 @@ msgid "Uploaded Tar file not found. Try again."
 msgstr "Yüklenen Tar dosyası bulunamadı. Tekrar deneyin."
 
 #: cms/djangoapps/contentstore/errors.py:10
-#: cms/djangoapps/contentstore/views/import_export.py:145
 msgid "We only support uploading a .tar.gz file."
 msgstr "Şu an için sadece .tar.gz dosyasının yüklenmesini destekliyoruz."
 
@@ -180,8 +179,8 @@ msgid "Unknown User ID: {0}"
 msgstr "Bilinmeyen Kullanıcı Kimliği: {0}"
 
 #: cms/djangoapps/contentstore/errors.py:17
-msgid "Unsafe tar file. Aborting import."
-msgstr "Güvenilmeyen tar dosyası. İçe aktarma işlemi iptal ediliyor."
+msgid "Unsafe archive file. Aborting import."
+msgstr "Güvenli olmayan arşiv dosyası. İçe aktarma iptal ediliyor."
 
 #: cms/djangoapps/contentstore/errors.py:18
 msgid "User permission denied."
@@ -253,22 +252,22 @@ msgstr "Kötü ders yeri verildi"
 msgid "Missing branch on fresh clone"
 msgstr "Temiz kopyada olmayan geliştirme dalı"
 
-#: cms/djangoapps/contentstore/helpers.py:141
+#: cms/djangoapps/contentstore/helpers.py:170
 msgid "Vertical"
 msgstr "Dikey"
 
-#: cms/djangoapps/contentstore/helpers.py:145
+#: cms/djangoapps/contentstore/helpers.py:174
 #: cms/templates/course_outline.html:208 lms/templates/ccx/schedule.html:86
 #: lms/templates/seq_block.html:136
 msgid "Section"
 msgstr "Bölüm"
 
-#: cms/djangoapps/contentstore/helpers.py:147
+#: cms/djangoapps/contentstore/helpers.py:176
 #: lms/templates/ccx/schedule.html:90
 msgid "Subsection"
 msgstr "Altbölüm"
 
-#: cms/djangoapps/contentstore/helpers.py:149
+#: cms/djangoapps/contentstore/helpers.py:178
 #: lms/djangoapps/instructor/views/tools.py:241
 #: lms/djangoapps/instructor/views/tools.py:253 xmodule/unit_block.py:41
 #: lms/templates/ccx/schedule.html:94 lms/templates/seq_block.html:89
@@ -276,7 +275,7 @@ msgstr "Altbölüm"
 msgid "Unit"
 msgstr "Ünite"
 
-#: cms/djangoapps/contentstore/helpers.py:156
+#: cms/djangoapps/contentstore/helpers.py:185
 #: cms/djangoapps/contentstore/views/component.py:215
 #: openedx/core/djangoapps/content_libraries/constants.py:15
 msgid "Problem"
@@ -388,7 +387,7 @@ msgstr "\"{language_code}\" dil kodlu bir altyazı zaten mevcut."
 msgid "A transcript file is required."
 msgstr "Bir altyazı dosyası gerekiyor."
 
-#: cms/djangoapps/contentstore/utils.py:748
+#: cms/djangoapps/contentstore/utils.py:749
 #: cms/templates/visibility_editor.html:113
 msgid "Deleted Group"
 msgstr "Silinmiş Grup"
@@ -396,39 +395,39 @@ msgstr "Silinmiş Grup"
 #. Translators: This is building up a list of groups. It is marked for
 #. translation because of the
 #. comma, which is used as a separator between each group.
-#: cms/djangoapps/contentstore/utils.py:813
+#: cms/djangoapps/contentstore/utils.py:814
 #, python-brace-format
 msgid "{previous_groups}, {current_group}"
 msgstr "{previous_groups}, {current_group}"
 
-#: cms/djangoapps/contentstore/utils.py:976
+#: cms/djangoapps/contentstore/utils.py:977
 #: cms/djangoapps/contentstore/views/block.py:272
 #: cms/djangoapps/contentstore/views/component.py:214 xmodule/html_block.py:59
 msgid "Text"
 msgstr "Metin"
 
-#: cms/djangoapps/contentstore/utils.py:1172
+#: cms/djangoapps/contentstore/utils.py:1173
 #, python-brace-format
 msgid "Duplicate of {0}"
 msgstr "{0}'ın kopyası"
 
-#: cms/djangoapps/contentstore/utils.py:1174
+#: cms/djangoapps/contentstore/utils.py:1175
 #, python-brace-format
 msgid "Duplicate of '{0}'"
 msgstr "'{0}'ın tekrarı"
 
-#: cms/djangoapps/contentstore/utils.py:1222
+#: cms/djangoapps/contentstore/utils.py:1223
 msgid "Invalid prerequisite course key"
 msgstr "Geçersiz ders anahtar koşulu."
 
-#: cms/djangoapps/contentstore/utils.py:1741
+#: cms/djangoapps/contentstore/utils.py:1742
 msgid "Set Date"
 msgstr "Tarihi Belirle"
 
 #. #-#-#-#-#  django.po (0.1a)  #-#-#-#-#
 #. Translators: This is the status of an active video upload
 #: cms/djangoapps/contentstore/video_storage_handlers.py:118
-#: cms/templates/import.html:112
+#: cms/templates/import.html:114
 msgid "Uploading"
 msgstr "Yüklüyor"
 
@@ -783,11 +782,20 @@ msgstr "Bitirilmiş Ders Giriş sınavı"
 msgid "Course successfully exported to git repository"
 msgstr "Ders git deposuna başarıyla aktarıldı"
 
-#: cms/djangoapps/contentstore/views/import_export.py:174
+#: cms/djangoapps/contentstore/views/import_export.py:150
+#, python-brace-format
+msgid ""
+"We support uploading files in one of the following formats: "
+"{IMPORTABLE_FILE_TYPES}"
+msgstr ""
+"Dosyaların aşağıdaki formatlardan birinde yüklenmesini destekliyoruz: "
+"{IMPORTABLE_FILE_TYPES}"
+
+#: cms/djangoapps/contentstore/views/import_export.py:179
 msgid "Some chunks missed during file upload. Please try again"
 msgstr "Dosya yükleme sırasında bazı parçalar kayboldu. Lütfen tekrar deneyin"
 
-#: cms/djangoapps/contentstore/views/import_export.py:185
+#: cms/djangoapps/contentstore/views/import_export.py:190
 msgid "File upload failed. Please try again"
 msgstr "Dosya yükleme başarısız. Lütfen tekrar deneyin"
 
@@ -916,62 +924,62 @@ msgid "You may not remove the last Admin. Add another Admin first."
 msgstr "Son Yöneticiyi kaldıramazsınız. Önce başka bir Yönetici ekleyin."
 
 #: cms/djangoapps/contentstore/xblock_storage_handlers/create_xblock.py:101
-#: xmodule/library_content_block.py:808
+#: xmodule/library_content_block.py:821
 msgid "Empty"
 msgstr "Boş"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:218
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:568
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:220
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:570
 #, python-brace-format
 msgid "Libraries cannot have more than {limit} components"
 msgstr "Kütüphaneler {limit} bileşenden daha fazlasına sahip olamaz"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:430
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:432
 #: openedx/core/djangoapps/xblock/rest_api/views.py:242
 msgid "Invalid data"
 msgstr "Geçersiz veri"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:432
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:434
 #: openedx/core/djangoapps/xblock/rest_api/views.py:244
 #, python-brace-format
 msgid "Invalid data ({details})"
 msgstr "Geçersiz veri ({details})"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:543
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:545
 msgid "There was a problem pasting your component."
 msgstr "Bileşeninizi yapıştırırken bir hata gerçekleşti."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:547
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:549
 msgid "Your clipboard is empty or invalid."
 msgstr "Panonuz boş veya geçersiz."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:671
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:673
 #, python-brace-format
 msgid "You can not move {source_type} into {target_parent_type}."
 msgstr "{source_type} verisini {target_parent_type} üzerine taşıyamazsınız."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:680
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:682
 msgid "Item is already present in target location."
 msgstr "Nesne hedef konumda zaten mevcut."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:682
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:684
 msgid "You can not move an item into itself."
 msgstr "Bir nesneyi zaten bulunduğu konuma taşıyamazsınız."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:684
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:686
 msgid "You can not move an item into it's child."
 msgstr "Bir nesneyi kendi altına taşıyamazsınız."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:686
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:688
 msgid "You can not move an item directly into content experiment."
 msgstr "Bir nesneyi doğrudan içerik denemesine taşıyamazsınız."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:688
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:690
 #, python-brace-format
 msgid "{source_usage_key} not found in {parent_usage_key}."
 msgstr "{source_usage_key} anahtarı {parent_usage_key} içinde bulunamadı."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:700
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:702
 #, python-brace-format
 msgid ""
 "You can not move {source_usage_key} at an invalid index ({target_index})."
@@ -979,12 +987,12 @@ msgstr ""
 "{source_usage_key} anahtarını geçersiz bir ({target_index}) indeksine "
 "taşıyamazsınız."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:707
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:709
 #, python-brace-format
 msgid "You must provide target_index ({target_index}) as an integer."
 msgstr "({target_index}) target_index bir tamsayı olarak girilmeli."
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1019
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1021
 #, python-brace-format
 msgid ""
 "Students must score {score}{pct_sign} or higher to access course materials."
@@ -994,11 +1002,11 @@ msgstr ""
 
 #. Translators: This is the percent sign. It will be used to represent
 #. a percent value out of 100, e.g. "58%" means "58/100".
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1024
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1026
 msgid "%"
 msgstr "%"
 
-#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1550
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1554
 #, python-brace-format
 msgid "{section_or_subsection} \"{display_name}\""
 msgstr "{section_or_subsection} \"{display_name}\""
@@ -5489,29 +5497,29 @@ msgid "Open Responses"
 msgstr "Açık Cevaplar"
 
 #. Translators: number sent refers to the number of emails sent
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:74
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:80
 msgid "0 sent"
 msgstr "0 gönderilen"
 
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:84
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:90
 #, python-brace-format
 msgid "{num_emails} sent"
 msgid_plural "{num_emails} sent"
 msgstr[0] "{num_emails} gönderildi"
 msgstr[1] "{num_emails} gönderildi"
 
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:93
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:99
 #, python-brace-format
 msgid "{num_emails} failed"
 msgid_plural "{num_emails} failed"
 msgstr[0] "{num_emails} başarısız oldu"
 msgstr[1] "{num_emails} başarısız oldu"
 
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:134
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
 msgid "Complete"
 msgstr "Tamamlanmış"
 
-#: lms/djangoapps/instructor/views/instructor_task_helpers.py:134
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
 msgid "Incomplete"
 msgstr "Eksik"
 
@@ -9560,7 +9568,7 @@ msgid "Retirement does not exist!"
 msgstr "Unutulma hakkı mevcut değil!"
 
 #: openedx/core/djangoapps/user_api/admin.py:72 cms/templates/export.html:161
-#: cms/templates/import.html:175
+#: cms/templates/import.html:177
 msgid "Success"
 msgstr "Başarı"
 
@@ -12804,26 +12812,26 @@ msgstr "İçerik kitaplıkları geçerli çalışma zamanında kullanılamıyor.
 msgid "Source content library does not exist: {source_library_id}"
 msgstr "Kaynak içerik kitaplığı mevcut değil: {source_library_id}"
 
-#: xmodule/library_content_block.py:610
+#: xmodule/library_content_block.py:623
 msgid "This component is out of date. The library has new content."
 msgstr "Bu bileşen güncel değil. Kütüphane yeni içeriğe sahip."
 
 #. Translators: {refresh_icon} placeholder is substituted to "↻" (without
 #. double quotes)
-#: xmodule/library_content_block.py:615
+#: xmodule/library_content_block.py:628
 #, python-brace-format
 msgid "{refresh_icon} Update now."
 msgstr "{refresh_icon} Şimdi güncelle."
 
-#: xmodule/library_content_block.py:623
+#: xmodule/library_content_block.py:636
 msgid "Library is invalid, corrupt, or has been deleted."
 msgstr "Kütüphane geçersiz, bozulmuş veya silinmiş."
 
-#: xmodule/library_content_block.py:625
+#: xmodule/library_content_block.py:638
 msgid "Edit Library List."
 msgstr "Kütüphane Listesini Düzenle."
 
-#: xmodule/library_content_block.py:652
+#: xmodule/library_content_block.py:665
 msgid ""
 "This course does not support content libraries. Contact your system "
 "administrator for more information."
@@ -12831,24 +12839,24 @@ msgstr ""
 "Bu ders, içerik kütüphanelerini desteklemiyor. Daha fazla bilgi için sistem "
 "yöneticisi ile iletişime geçiniz."
 
-#: xmodule/library_content_block.py:662
+#: xmodule/library_content_block.py:675
 msgid "A library has not yet been selected."
 msgstr "Henüz bir kütüphane seçilmedi."
 
-#: xmodule/library_content_block.py:664
+#: xmodule/library_content_block.py:677
 msgid "Select a Library."
 msgstr "Bir Kütüphane Seçin."
 
-#: xmodule/library_content_block.py:678
+#: xmodule/library_content_block.py:691
 #, python-brace-format
 msgid "There are no problems in the specified library of type {capa_type}."
 msgstr "Belirtilen {capa_type} tipi kitaplıkta sorun yok."
 
-#: xmodule/library_content_block.py:681
+#: xmodule/library_content_block.py:694
 msgid "Select another problem type."
 msgstr "Farklı problem türü seçiniz."
 
-#: xmodule/library_content_block.py:692
+#: xmodule/library_content_block.py:705
 #, python-brace-format
 msgid "The specified library is configured to fetch {count} problem, "
 msgid_plural "The specified library is configured to fetch {count} problems, "
@@ -12858,22 +12866,22 @@ msgstr[1] ""
 "Belirtilen kitaplık {count} sorunlarını getirecek şekilde "
 "yapılandırılmıştır, "
 
-#: xmodule/library_content_block.py:697
+#: xmodule/library_content_block.py:710
 #, python-brace-format
 msgid "but there is only {actual} matching problem."
 msgid_plural "but there are only {actual} matching problems."
 msgstr[0] "ancak yalnızca {actual} eşleştirme sorunu var."
 msgstr[1] "ancak yalnızca {actual} eşleştirme sorunları var."
 
-#: xmodule/library_content_block.py:703
+#: xmodule/library_content_block.py:716
 msgid "Edit the library configuration."
 msgstr "Kütüphane ayarlarını düzenleyin."
 
-#: xmodule/library_content_block.py:721
+#: xmodule/library_content_block.py:734
 msgid "Invalid Library"
 msgstr "Geçersiz Kütüphane"
 
-#: xmodule/library_content_block.py:722
+#: xmodule/library_content_block.py:735
 msgid "No Library Selected"
 msgstr "Hiçbir Kütüphane Seçilmedi"
 
@@ -16472,23 +16480,23 @@ msgstr "Hangi içerik dışa aktarıldı?"
 msgid "The following content is exported."
 msgstr "Aşağıdaki içerik dışa aktarıldı."
 
-#: cms/templates/export.html:254 cms/templates/import.html:230
+#: cms/templates/export.html:254 cms/templates/import.html:232
 msgid "Course content and structure"
 msgstr "Ders içeriği ve yapısı"
 
-#: cms/templates/export.html:255 cms/templates/import.html:231
+#: cms/templates/export.html:255 cms/templates/import.html:233
 msgid "Course dates"
 msgstr "Ders tarihleri"
 
-#: cms/templates/export.html:256 cms/templates/import.html:232
+#: cms/templates/export.html:256 cms/templates/import.html:234
 msgid "Grading policy"
 msgstr "Notlandırma koşulları"
 
-#: cms/templates/export.html:257 cms/templates/import.html:233
+#: cms/templates/export.html:257 cms/templates/import.html:235
 msgid "Any group configurations"
 msgstr "Herhangi bir grup yapılandırması"
 
-#: cms/templates/export.html:258 cms/templates/import.html:234
+#: cms/templates/export.html:258 cms/templates/import.html:236
 msgid ""
 "Settings on the Advanced Settings page, including MATLAB API keys and LTI "
 "passports"
@@ -16500,13 +16508,13 @@ msgstr ""
 msgid "The following content is not exported."
 msgstr "Aşağıdaki içerik dışarı aktarılmadı."
 
-#: cms/templates/export.html:262 cms/templates/import.html:238
+#: cms/templates/export.html:262 cms/templates/import.html:240
 msgid ""
 "Learner-specific content, such as learner grades and discussion forum data"
 msgstr ""
 "Öğrenciye-özel içerik, öğrenci notları ve tartışma forum verileri gibi"
 
-#: cms/templates/export.html:263 cms/templates/import.html:239
+#: cms/templates/export.html:263 cms/templates/import.html:241
 msgid "The course team"
 msgstr "Ders takımı"
 
@@ -16952,7 +16960,7 @@ msgstr "Kütüphane İçe Aktarımı"
 msgid "Course Import"
 msgstr "Dersi İçe Aktarma"
 
-#: cms/templates/import.html:49
+#: cms/templates/import.html:50
 msgid ""
 "Be sure you want to import a library before continuing. The contents of the "
 "imported library will replace the contents of the existing library. "
@@ -16965,7 +16973,7 @@ msgstr ""
 "almayı geri alamazsınız{em_end}. Dersin yedeğini almak için dersi dışa "
 "aktarmayı tavsiye ediyoruz."
 
-#: cms/templates/import.html:50
+#: cms/templates/import.html:51
 msgid ""
 "The library that you import must be in a .tar.gz file (that is, a .tar file "
 "compressed with GNU Zip). This .tar.gz file must contain a library.xml file."
@@ -16975,7 +16983,7 @@ msgstr ""
 "dosyası) olmalıdır. Bu .tar.gz dosyası course.xml isimli bir dosyayla "
 "birlikte diğer bazı dosyaları da içermelidir. "
 
-#: cms/templates/import.html:51
+#: cms/templates/import.html:52
 msgid ""
 "The import process has five stages. During the first two stages, you must "
 "stay on this page. You can leave this page after the Unpacking stage has "
@@ -16987,7 +16995,7 @@ msgstr ""
 "sonra terk edebilirsiniz. Bununla birlikte, içe aktarma işlemi bitene kadar "
 "dersinizde önemli değişiklikler yapmamanızı öneririz."
 
-#: cms/templates/import.html:53
+#: cms/templates/import.html:54
 msgid ""
 "Be sure you want to import a course before continuing. The contents of the "
 "imported course will replace the contents of the existing course. "
@@ -17000,17 +17008,19 @@ msgstr ""
 "almayı geri alamazsınız{em_end}. Dersin yedeğini almak için dersi dışa "
 "aktarmayı tavsiye ediyoruz."
 
-#: cms/templates/import.html:54
+#: cms/templates/import.html:55
 msgid ""
 "The course that you import must be in a .tar.gz file (that is, a .tar file "
-"compressed with GNU Zip). This .tar.gz file must contain a course.xml file. "
-"It may also contain other files."
+"compressed with GNU Zip) or .zip (that is a compressed file). This .tar.gz "
+"or .zip file must contain a course.xml file. It may also contain other "
+"files."
 msgstr ""
-"İçer aktardığınız ders .tar.gz formatında (GNU Zip'le sıkıştırılmış .tar "
-"dosyası) olmalıdır. Bu .tar.gz dosyası course.xml isimli bir dosyayla "
-"birlikte diğer bazı dosyaları da içermelidir. "
+"İçe aktardığınız dersin bir .tar.gz dosyasında (yani, GNU Zip ile "
+"sıkıştırılmış bir .tar dosyası) veya .zip dosyasında (yani sıkıştırılmış bir"
+" dosya) olması gerekir. Bu .tar.gz veya .zip dosyası bir course.xml dosyası "
+"içermelidir. Ayrıca başka dosyalar da içerebilir."
 
-#: cms/templates/import.html:55
+#: cms/templates/import.html:56
 msgid ""
 "The import process has five stages. During the first two stages, you must "
 "stay on this page. You can leave this page after the Unpacking stage has "
@@ -17022,47 +17032,47 @@ msgstr ""
 "sonra terk edebilirsiniz. Bununla birlikte, içe aktarma işlemi bitene kadar "
 "dersinizde önemli değişiklikler yapmamanızı öneririz."
 
-#: cms/templates/import.html:65
+#: cms/templates/import.html:67
 msgid "Select a .tar.gz File to Replace Your Library Content"
 msgstr "Ders İçeriğinizin Yerine Yenisini Koymak için .tar.gz dosyası seçiniz"
 
-#: cms/templates/import.html:67
-msgid "Select a .tar.gz File to Replace Your Course Content"
-msgstr "Ders İçeriğinizin Yerine Yenisini Koymak için .tar.gz dosyası seçiniz"
+#: cms/templates/import.html:69
+msgid "Select a .tar.gz or .zip File to Replace Your Course Content"
+msgstr "Kurs İçeriğinizi Değiştirmek için bir .tar.gz veya .zip Dosyası Seçin"
 
-#: cms/templates/import.html:75
+#: cms/templates/import.html:77
 msgid "Choose a File to Import"
 msgstr "İçe Aktarım için Bir Dosya Seçin"
 
-#: cms/templates/import.html:80
+#: cms/templates/import.html:82
 msgid "File Chosen:"
 msgstr "Seçili Dosya:"
 
-#: cms/templates/import.html:88
+#: cms/templates/import.html:90
 msgid "Replace my library with the selected file"
 msgstr "Seçilen dosya ile benim kütüphanemi değiştirin"
 
-#: cms/templates/import.html:90
+#: cms/templates/import.html:92
 msgid "Replace my course with the selected file"
 msgstr "Seçilen dosya ile benim dersimi değiştirin"
 
-#: cms/templates/import.html:98
+#: cms/templates/import.html:100
 msgid "Library Import Status"
 msgstr "Kütüphane İçe Aktarım Durumu"
 
-#: cms/templates/import.html:100
+#: cms/templates/import.html:102
 msgid "Course Import Status"
 msgstr "Ders İçeri Aktarım Durumu"
 
-#: cms/templates/import.html:116
+#: cms/templates/import.html:118
 msgid "Transferring your file to our servers"
 msgstr "Dosyanız sunucularımıza aktarılıyor"
 
-#: cms/templates/import.html:127
+#: cms/templates/import.html:129
 msgid "Unpacking"
 msgstr "Açılıyor"
 
-#: cms/templates/import.html:128
+#: cms/templates/import.html:130
 msgid ""
 "Expanding and preparing folder/file structure (You can now leave this page "
 "safely, but avoid making drastic changes to content until this import is "
@@ -17072,23 +17082,23 @@ msgstr ""
 " terkedebilirsiniz fakat içe aktarım tamamlanana kadar içerikte ciddi "
 "değişiklikler yapmayınız)"
 
-#: cms/templates/import.html:140
+#: cms/templates/import.html:142
 msgid "Verifying"
 msgstr "Doğrulanıyor"
 
-#: cms/templates/import.html:141
+#: cms/templates/import.html:143
 msgid "Reviewing semantics, syntax, and required data"
 msgstr "Anlam, yazım kuralları ve gerekli veriler gözden geçiriliyor"
 
-#: cms/templates/import.html:154
+#: cms/templates/import.html:156
 msgid "Updating Library"
 msgstr "Kütüphaneyi Güncelleme"
 
-#: cms/templates/import.html:156
+#: cms/templates/import.html:158
 msgid "Updating Course"
 msgstr "Ders Güncelleniyor"
 
-#: cms/templates/import.html:161
+#: cms/templates/import.html:163
 msgid ""
 "Integrating your imported content into this library. This process might take"
 " longer with larger libraries."
@@ -17096,7 +17106,7 @@ msgstr ""
 "İçeri aktarılmış içeriğiniz bu kütüphaneyle bütünleştiriliyor. Büyük "
 "kütüphaneler için bu işlem zaman alabilir."
 
-#: cms/templates/import.html:163
+#: cms/templates/import.html:165
 msgid ""
 "Integrating your imported content into this course. This process might take "
 "longer with larger courses."
@@ -17104,27 +17114,27 @@ msgstr ""
 "İçer aktarılmış içerik bu ders ile bütülenleştiriliyor. Büyük dersler için "
 "bu işlem zaman alabilir."
 
-#: cms/templates/import.html:180
+#: cms/templates/import.html:182
 msgid "Your imported content has now been integrated into this library"
 msgstr "İçe aktarılmış içerik bu kütüphaneye eklenmiş durumda"
 
-#: cms/templates/import.html:182
+#: cms/templates/import.html:184
 msgid "Your imported content has now been integrated into this course"
 msgstr "İçe aktarılmış içeriğiniz bu derse eklenmiş durumda"
 
-#: cms/templates/import.html:190
+#: cms/templates/import.html:192
 msgid "View Updated Library"
 msgstr "Güncellenmiş Kütüphaneyi Görüntüle"
 
-#: cms/templates/import.html:192
+#: cms/templates/import.html:194
 msgid "View Updated Outline"
 msgstr "Güncellenmiş Taslağa Gözat"
 
-#: cms/templates/import.html:207
+#: cms/templates/import.html:209
 msgid "Why import a library?"
 msgstr "Neden bir kütüphaneyi içe aktarıyoruz?"
 
-#: cms/templates/import.html:208
+#: cms/templates/import.html:210
 msgid ""
 "You might want to update an existing library to a new version, or replace an"
 " existing library entirely. You might also have developed a library outside "
@@ -17134,12 +17144,12 @@ msgstr ""
 "isteyebilirsiniz. Ayrıca {studio_name} dışında bir kütüphane de geliştirmiş "
 "olabilirsiniz."
 
-#: cms/templates/import.html:212
+#: cms/templates/import.html:214
 msgid "Note: Library content is not automatically updated in courses"
 msgstr ""
 "Not: Derslerdeki kütüphane içeriği otomatik olarak güncellenmeyecektir."
 
-#: cms/templates/import.html:213
+#: cms/templates/import.html:215
 msgid ""
 "If you change and import a library that is referenced by randomized content "
 "blocks in one or more courses, those courses do not automatically use the "
@@ -17152,15 +17162,15 @@ msgstr ""
 "Rasgele sıralanmış içerik bloklarını en yeni kütüphane içeriğiyle güncel "
 "hale getirmek için elle yenilemeniz gerekir."
 
-#: cms/templates/import.html:216
+#: cms/templates/import.html:218
 msgid "Learn more about importing a library"
 msgstr "Bir kütüphaneyi içe aktarma hakkında daha fazla bilgi edinin"
 
-#: cms/templates/import.html:222
+#: cms/templates/import.html:224
 msgid "Why import a course?"
 msgstr "Neden dersi içe aktarıyoruz?"
 
-#: cms/templates/import.html:223
+#: cms/templates/import.html:225
 msgid ""
 "You may want to run a new version of an existing course, or replace an "
 "existing course altogether. Or, you may have developed a course outside "
@@ -17170,23 +17180,23 @@ msgstr ""
 "yerine toptan koyabilirsiniz. Veya, {studio_name} dışında da dersi "
 "geliştirmiş olabilirsiniz."
 
-#: cms/templates/import.html:227
+#: cms/templates/import.html:229
 msgid "What content is imported?"
 msgstr "Hangi içerik içe aktarıldı?"
 
-#: cms/templates/import.html:228
+#: cms/templates/import.html:230
 msgid "The following content is imported."
 msgstr "Aşağıdaki içerik içeri aktarıldı."
 
-#: cms/templates/import.html:236
+#: cms/templates/import.html:238
 msgid "The following content is not imported."
 msgstr "Aşağıdaki içerik içeri aktarılmadı."
 
-#: cms/templates/import.html:244
+#: cms/templates/import.html:246
 msgid "Warning: Importing while a course is running"
 msgstr "Uyarı: Ders yayındayken içeri aktarım işlemi"
 
-#: cms/templates/import.html:245
+#: cms/templates/import.html:247
 msgid ""
 "If you perform an import while your course is running, and you change the "
 "URL names (or url_name nodes) of any Problem components, the student data "
@@ -17198,7 +17208,7 @@ msgstr ""
 "bileşenlerine bağlı veriyi kaybedebilirsiniz. Bu veriler arasında "
 "öğrencilerin problem notları bulunmaktadır. "
 
-#: cms/templates/import.html:248
+#: cms/templates/import.html:250
 msgid "Learn more about importing a course"
 msgstr "Bir dersi içe aktarmak hakkında daha fazla bilgi edinin"
 
