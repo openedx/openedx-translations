@@ -39,9 +39,25 @@ def is_dry_run():
     return '--dry-run' in sys.argv
 
 
+def get_transifex_project_slug():
+    """
+    Get Transifex project slug e.g. openedx-translations or openedx-translations-<release-name>.
+    """
+    slug = getenv('TRANSIFEX_PROJECT_SLUG')
+    if not slug:
+        raise RuntimeError(
+            'Error: Cannot determine Transifex project slug. Set `TRANSIFEX_PROJECT_SLUG` environment variable to '
+            '"openedx-translations" or "openedx-translations-<release-name>". '
+            'List of Open edX releases are available in the following page: '
+            'https://openedx.atlassian.net/wiki/spaces/OEPM/pages/4191191044/Open+edX+Releases+Homepage'
+        )
+
+    return slug
+
+
 def get_transifex_project():
     """
-    Get openedx-translations project from Transifex.
+    Get the translations project object from Transifex.
     """
     transifex_api_token = getenv('TRANSIFEX_API_TOKEN')
     if not transifex_api_token:
@@ -58,7 +74,7 @@ def get_transifex_project():
     transifex_api.setup(auth=transifex_api_token)
 
     openedx_org = transifex_api.Organization.get(slug='open-edx')
-    return openedx_org.fetch('projects').get(slug='openedx-translations')
+    return openedx_org.fetch('projects').get(slug=get_transifex_project_slug())
 
 
 def get_repo_slug_from_resource(resource):
@@ -101,7 +117,7 @@ def main(argv):
         print(__doc__)
         return
 
-    print('Updating openedx-translations project resource and slug names:')
+    print(f'Updating "{get_transifex_project_slug()}" project resource and slug names:')
 
     openedx_translations_proj = get_transifex_project()
     for resource in openedx_translations_proj.fetch('resources'):
