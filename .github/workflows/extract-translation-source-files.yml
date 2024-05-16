@@ -95,7 +95,19 @@ jobs:
             const allGenericRepos = [
               {
                 repo: 'tutor-contrib-aspects',
-                transifex_file_path: 'transifex_input.yaml'
+                transifex_file_path: 'transifex_input.yaml',
+              },
+              {
+                repo: 'openedx-app-ios',
+                transifex_file_path: 'I18N/I18N/en.lproj/Localizable.strings',
+                before_extract: 'make translation_requirements',
+                ref: 'develop',  // TODO: Use main branch https://github.com/openedx/openedx-translations/issues/6395
+              },
+              {
+                repo: 'openedx-app-android',
+                transifex_file_path: 'i18n/src/main/res/values/strings.xml',
+                before_extract: 'make translation_requirements',
+                ref: 'develop',  // TODO: Use main branch https://github.com/openedx/openedx-translations/issues/6395
               },
             ]
 
@@ -404,7 +416,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: ${{ github.repository_owner }}/${{ matrix.repository_config.repo }}
-          ref: ${{ github.event.inputs.ref }}
+          ref: ${{ github.event.inputs.ref || matrix.repository_config.ref }}
           path: translations/${{ matrix.repository_config.repo }}
 
       # Sets up Python
@@ -416,6 +428,13 @@ jobs:
       # Installs Python requirements from translations.txt
       - name: install requirements
         run: pip install -r requirements/translations.txt
+
+      - name: run optional pre-extraction step
+        if: "${{ matrix.repository_config.before_extract }}"
+        run: |
+          # If the repository has additional requirements or processing steps run them
+          cd translations/${{ matrix.repository_config.repo }}
+          ${{ matrix.repository_config.before_extract }}
 
       # Extracts the translation source files
       - name: extract translation source files
