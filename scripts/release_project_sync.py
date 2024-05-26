@@ -228,26 +228,31 @@ class Command:
         """
         return f'context:{translation.resource_string.context}:key:{translation.resource_string.key}'
 
-    def get_languages(self):
+    def get_language_ids(self, project):
         """
         Get a list of languages to sync translations for.
         """
-        return self.get_transifex_project()_
+        languages = [
+            lang.id
+            for lang in project.fetch('languages')
+        ]
+        print('languages', languages)
+        return languages
 
-    def sync_pair_into_new_resource(self, main_resource, release_resource):
+    def sync_pair_into_new_resource(self, main_resource, release_resource, languages):
         """
         Sync translations from both the edx-platform and XBlock projects into the new openedx-translations project.
         """
-        languages = self.get_languages()
+        self.get_language_ids(main_resource.project)
 
         print(f'Syncing {main_resource.name} --> {release_resource.name}...')
         print(f'Syncing: {languages}')
         print(f' - from: {self.get_resource_url(main_resource)}')
         print(f' - to:   {self.get_resource_url(release_resource)}')
 
-        for lang_code in languages:
+        for lang in languages:
             pass
-            # self.sync_translations(language_code=lang_code, **resource_pair)
+            # self.sync_translations(language_code=lang.code, **resource_pair)
 
         print('Syncing tags...')
         pass
@@ -262,10 +267,18 @@ class Command:
         main_project = self.get_transifex_project(project_slug=MAIN_PROJECT_SLUG)
         release_project = self.get_transifex_project(project_slug=self.get_release_project_slug())
 
+        main_project_language_ids = self.get_language_ids(main_project)
+        release_project_language_ids = self.get_language_ids(release_project)
+        missing_languages = set(main_project_language_ids) - set(release_project_language_ids)
+        for lang_id in missing_languages:
+            missing_lang = self.tx_api.Resource.create(lang_id)
+            print('missing_lang', missing_lang)
+            # release_project.fetch('languages').append(missing_lang)
+
         main_resources = main_project.fetch('resources')
         pairs_list = []
         print('Verifying sync plan...')
-        for main_resource in main_resources:
+        for main_resource in main_resources[:3]:
             release_resource = self.get_resource(release_project, main_resource.slug)
             print(f'Planning to sync "{main_resource.id}" --> "{release_resource.id}"')
             pairs_list.append(
@@ -276,6 +289,7 @@ class Command:
             self.sync_pair_into_new_resource(
                 main_resource=main_resource,
                 release_resource=release_resource,
+                language_ids=main_project_language_ids,
             )
 
 
