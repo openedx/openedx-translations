@@ -231,7 +231,6 @@ class Command:
         languages = [
             lang.id
             for lang in project.fetch('languages')
-            if 'zh_CN' in lang.id  # TEMP: FOR TESTING
         ]
         print('languages', languages)
         return languages
@@ -275,7 +274,7 @@ class Command:
         main_resources = main_project.fetch('resources')
         pairs_list = []
         print('Verifying sync plan...')
-        for main_resource in main_resources[:3]:
+        for main_resource in main_resources:
             try:
                 release_resource = self.get_resource(release_project, main_resource.slug)
             except exceptions.DoesNotExist as error:

@@ -1,0 +1,29 @@
+# This workflow runs release_project_sync.py on demand
+
+name: Fix Transifex resource names and slugs
+
+on:
+  workflow_dispatch:  # by request
+
+jobs:
+  release-project-sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Clones the openedx-translations repo
+      - name: clone openedx/openedx-translations
+        uses: actions/checkout@v3
+
+      # Sets up Python
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+
+      # Run the script
+      - name: Fix transifex automatic resource names
+        env:
+          TRANSIFEX_API_TOKEN: ${{ secrets.TRANSIFEX_API_TOKEN }}
+        run: |
+          make translations_scripts_requirements
+          python ./scripts/release_project_sync.py redwood
