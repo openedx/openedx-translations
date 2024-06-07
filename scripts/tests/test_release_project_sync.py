@@ -14,7 +14,6 @@ from transifex.api.jsonapi.auth import BearerAuthentication
 from . import response_data
 from ..release_project_sync import (
     Command,
-    ORGANIZATION_SLUG,
 )
 
 HOST = transifex_api.HOST
@@ -28,7 +27,7 @@ def sync_command(**kwargs):
         'resource': '',
         'release_name': 'zebrawood',
         'environ': {
-            'TX_API_TOKEN': 'dummy-token'
+            'TRANSIFEX_API_TOKEN': 'dummy-token'
         }
     }
     command_args.update(kwargs)
