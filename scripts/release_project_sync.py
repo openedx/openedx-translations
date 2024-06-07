@@ -54,7 +54,7 @@ class Command:
         """
         Get openedx-translations projects from Transifex.
         """
-        tx_api_token = self.environ.get('TX_API_TOKEN')
+        tx_api_token = self.environ.get('TRANSIFEX_API_TOKEN')
         if not tx_api_token:
             config = configparser.ConfigParser()
             config.read(expanduser('~/.transifexrc'))
