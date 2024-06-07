@@ -17,24 +17,26 @@ import argparse
 import configparser
 import os
 from os.path import expanduser
+import dataclasses
 
-from transifex.api import transifex_api
-from transifex.api.jsonapi import exceptions
+from transifex.api import TransifexApi, transifex_api
+from transifex.api.jsonapi.exceptions import DoesNotExist, JsonApiException
 
 ORGANIZATION_SLUG = 'open-edx'
 MAIN_PROJECT_SLUG = 'openedx-translations'
 RELEASE_PROJECT_SLUG_TEMPLATE = 'openedx-translations-{release_name}'
 
 
+@dataclasses.dataclass
 class Command:
 
-    def __init__(self, tx_api, dry_run, resource, language, release_name, environ):
-        self.dry_run = dry_run
-        self.release_name = release_name
-        self.resource = resource
-        self.language = language
-        self.tx_api = tx_api
-        self.environ = environ
+    resource: str
+    language: str
+    tx_api: TransifexApi
+    environ: any
+    release_name: str
+
+    dry_run: bool = True
 
     def is_dry_run(self):
         """
@@ -70,7 +72,7 @@ class Command:
             self.tx_api.setup(auth=tx_api_token)
             project = self.tx_api.Project.get(id=f'o:{ORGANIZATION_SLUG}:p:{project_slug}')
             return project
-        except exceptions.DoesNotExist as error:
+        except (DoesNotExist, JsonApiException) as error:
             print(f'Error: Project not found: {project_slug}. Error: {error}')
             raise
 
@@ -80,7 +82,7 @@ class Command:
 
         try:
             return self.tx_api.Resource.get(id=resource_id)
-        except exceptions.DoesNotExist as error:
+        except (DoesNotExist, JsonApiException) as error:
             print(f'Error: Resource not found: {resource_id}. Error: {error}')
             raise
 
@@ -245,10 +247,10 @@ class Command:
 
             try:
                 release_resource = self.get_resource(release_project, main_resource.slug)
-            except exceptions.DoesNotExist as error:
+            except (DoesNotExist, JsonApiException) as error:
                 print(
-                    f'WARNING: Skipping resource {main_resource.slug} because it does not exist in '
-                    f'"{release_project.slug}". \nError: "{error}"'
+                    f'NOTICE: Skipping resource {main_resource.slug} because it does not exist in '
+                    f'"{release_project.slug}". \nError details: "{error}"'
                 )
             else:
                 print(f'Planning to sync "{main_resource.id}" --> "{release_resource.id}"')
@@ -276,6 +278,8 @@ def main():  # pragma: no cover
     parser.add_argument('release_name',
                         help='Open edX Release name in lower case .e.g redwood or zebrawood.')
     argparse_args = parser.parse_args()
+
+    print(f'release_project_sync.py args: {argparse_args}.')
 
     command = Command(
         tx_api=transifex_api,
