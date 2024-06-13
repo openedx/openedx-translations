@@ -220,7 +220,7 @@ jobs:
         uses: actions/setup-python@v4
         id: setup_python
         with:
-          python-version: '3.8'
+          python-version: '3.9'
           cache: pip
           # The `edx-platf*rm` wildcard will be expanded to `edx-platform` if its requirement file exists,
           # otherwise it will be omitted
@@ -245,8 +245,6 @@ jobs:
         run: |
           cd translations/${{ matrix.repo }}
           make extract_translations
-        env:
-          IS_OPENEDX_TRANSLATIONS_WORKFLOW: yes
 
       # Validate compilation of translation source files
       - name: validate compilation of translation source files
@@ -423,7 +421,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.8'
+          python-version: '3.9'
 
       # Installs Python requirements from translations.txt
       - name: install requirements
