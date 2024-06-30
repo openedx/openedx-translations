@@ -5,20 +5,7 @@
 name: Extract Translation Source Files
 
 on:
-  workflow_dispatch:    # by request
-    inputs:
-      repo:
-        description: 'Repository to extract translation source files from (leave blank to run all)'
-        required: false
-        type: string
-      ref:
-        description: 'If repository is specified, the ref to extract translation source files from (leave blank to use the default branch)'
-        required: false
-        default: ''
-        type: string
-
-  schedule:
-    - cron: '0 0 * * *'  # every day at midnight
+  - pull_request
 
 jobs:
   setup-matrix:
