@@ -31,6 +31,22 @@ jobs:
         run: |
           sudo apt install -y gettext
 
+      - name: setup python
+        if: steps.filter.outputs.pofiles == 'true'
+        uses: actions/setup-python@v4
+        id: setup_python
+        with:
+          python-version: '3.8'
+          cache: pip
+          cache-dependency-path: |
+            requirements/translations.txt
+
+      - name: Install requirements
+        if: steps.filter.outputs.pofiles == 'true'
+        run: |
+          python --version
+          make translations_scripts_requirements
+
       - name: Validate translation files
         id: validate_translation_files
         if: steps.filter.outputs.pofiles == 'true'
