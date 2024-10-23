@@ -66,7 +66,7 @@ msgstr ""
 "#-#-#-#-#  mako.po (PROJECT VERSION)  #-#-#-#-#\n"
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-10-22 00:32+0000\n"
+"POT-Creation-Date: 2024-10-23 00:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -909,7 +909,7 @@ msgid "You may not remove the last Admin. Add another Admin first."
 msgstr ""
 
 #: cms/djangoapps/contentstore/xblock_storage_handlers/create_xblock.py:101
-#: xmodule/library_content_block.py:793
+#: xmodule/library_content_block.py:458
 msgid "Empty"
 msgstr ""
 
@@ -1201,11 +1201,11 @@ msgstr ""
 #: common/djangoapps/course_modes/models.py:63 xmodule/annotatable_block.py:65
 #: xmodule/capa_block.py:177 xmodule/conditional_block.py:88
 #: xmodule/discussion_block.py:47 xmodule/html_block.py:54
-#: xmodule/html_block.py:390 xmodule/library_content_block.py:128
-#: xmodule/lti_block.py:131 xmodule/split_test_block.py:82
-#: xmodule/unit_block.py:38 xmodule/word_cloud_block.py:57
-#: xmodule/x_module.py:226 cms/templates/container.html:167
-#: cms/templates/library.html:51
+#: xmodule/html_block.py:390 xmodule/item_bank_block.py:451
+#: xmodule/library_content_block.py:77 xmodule/lti_block.py:131
+#: xmodule/split_test_block.py:82 xmodule/unit_block.py:38
+#: xmodule/word_cloud_block.py:57 xmodule/x_module.py:226
+#: cms/templates/container.html:167 cms/templates/library.html:51
 msgid "Display Name"
 msgstr ""
 
@@ -9776,10 +9776,10 @@ msgstr ""
 #: xmodule/annotatable_block.py:66 xmodule/capa_block.py:178
 #: xmodule/conditional_block.py:89 xmodule/discussion_block.py:48
 #: xmodule/html_block.py:55 xmodule/html_block.py:365 xmodule/html_block.py:391
-#: xmodule/library_content_block.py:129 xmodule/library_root_xblock.py:30
-#: xmodule/poll_block.py:49 xmodule/unit_block.py:39
-#: xmodule/video_block/video_xfields.py:20 xmodule/word_cloud_block.py:58
-#: xmodule/x_module.py:227
+#: xmodule/item_bank_block.py:452 xmodule/library_content_block.py:78
+#: xmodule/library_root_xblock.py:30 xmodule/poll_block.py:49
+#: xmodule/unit_block.py:39 xmodule/video_block/video_xfields.py:20
+#: xmodule/word_cloud_block.py:58 xmodule/x_module.py:227
 msgid "The display name for this component."
 msgstr ""
 
@@ -10352,7 +10352,7 @@ msgstr ""
 msgid "Whether to force the save button to appear on the page"
 msgstr ""
 
-#: xmodule/capa_block.py:263 xmodule/library_content_block.py:165
+#: xmodule/capa_block.py:263 xmodule/item_bank_block.py:77
 msgid "Show Reset Button"
 msgstr ""
 
@@ -11661,126 +11661,144 @@ msgstr ""
 msgid "List of course update items"
 msgstr ""
 
-#: xmodule/library_content_block.py:69
-msgid "Any Type"
-msgstr ""
-
-#: xmodule/library_content_block.py:134 cms/templates/widgets/header.html:285
-msgid "Library"
-msgstr ""
-
-#: xmodule/library_content_block.py:135
-msgid "Select the library from which you want to draw content."
-msgstr ""
-
-#: xmodule/library_content_block.py:141
-msgid "Library Version"
-msgstr ""
-
-#: xmodule/library_content_block.py:145
+#: xmodule/item_bank_block.py:64 xmodule/library_content_block.py:94
 msgid "Count"
 msgstr ""
 
-#: xmodule/library_content_block.py:146
+#: xmodule/item_bank_block.py:65 xmodule/library_content_block.py:95
 msgid ""
 "Enter the number of components to display to each student. Set it to -1 to "
 "display all components."
 msgstr ""
 
-#: xmodule/library_content_block.py:151
-msgid "Problem Type"
-msgstr ""
-
-#: xmodule/library_content_block.py:152
-msgid ""
-"Choose a problem type to fetch from the library. If \"Any Type\" is selected "
-"no filtering is applied."
-msgstr ""
-
-#: xmodule/library_content_block.py:166
+#: xmodule/item_bank_block.py:78
 msgid ""
 "Determines whether a 'Reset Problems' button is shown, so users may reset "
 "their answers and reshuffle selected items."
 msgstr ""
 
-#: xmodule/library_content_block.py:522
+#: xmodule/item_bank_block.py:471
+#, python-brace-format
+msgid ""
+"The problem bank has been configured to show {count} problems. Please "
+"specify a positive number of problems, or specify -1 to show all problems."
+msgstr ""
+
+#: xmodule/item_bank_block.py:475 xmodule/item_bank_block.py:487
+msgid "Edit the problem bank configuration."
+msgstr ""
+
+#: xmodule/item_bank_block.py:483
+#, python-brace-format
+msgid ""
+"The problem bank has been configured to show {count} problems, but only "
+"{actual} have been selected."
+msgstr ""
+
+#: xmodule/library_content_block.py:51
+msgid "Any Type"
+msgstr ""
+
+#: xmodule/library_content_block.py:83 cms/templates/widgets/header.html:285
+msgid "Library"
+msgstr ""
+
+#: xmodule/library_content_block.py:84
+msgid "Select the library from which you want to draw content."
+msgstr ""
+
+#: xmodule/library_content_block.py:90
+msgid "Library Version"
+msgstr ""
+
+#: xmodule/library_content_block.py:100
+msgid "Problem Type"
+msgstr ""
+
+#: xmodule/library_content_block.py:101
+msgid ""
+"Choose a problem type to fetch from the library. If \"Any Type\" is selected "
+"no filtering is applied."
+msgstr ""
+
+#: xmodule/library_content_block.py:200
 msgid "Source content library has not been specified."
 msgstr ""
 
-#: xmodule/library_content_block.py:526
+#: xmodule/library_content_block.py:204
 msgid "Content libraries are not available in the current runtime."
 msgstr ""
 
-#: xmodule/library_content_block.py:529
+#: xmodule/library_content_block.py:207
 #, python-brace-format
 msgid "Source content library does not exist: {source_library_id}"
 msgstr ""
 
-#: xmodule/library_content_block.py:595
+#: xmodule/library_content_block.py:273
 msgid "This component is out of date. The library has new content."
 msgstr ""
 
 #. Translators: {refresh_icon} placeholder is substituted to "↻" (without
 #. double quotes)
-#: xmodule/library_content_block.py:600
+#: xmodule/library_content_block.py:278
 #, python-brace-format
 msgid "{refresh_icon} Update now."
 msgstr ""
 
-#: xmodule/library_content_block.py:608
+#: xmodule/library_content_block.py:286
 msgid "Library is invalid, corrupt, or has been deleted."
 msgstr ""
 
-#: xmodule/library_content_block.py:610
+#: xmodule/library_content_block.py:288
 msgid "Edit Library List."
 msgstr ""
 
-#: xmodule/library_content_block.py:637
+#: xmodule/library_content_block.py:315
 msgid ""
 "This course does not support content libraries. Contact your system "
 "administrator for more information."
 msgstr ""
 
-#: xmodule/library_content_block.py:647
+#: xmodule/library_content_block.py:325
 msgid "A library has not yet been selected."
 msgstr ""
 
-#: xmodule/library_content_block.py:649
+#: xmodule/library_content_block.py:327
 msgid "Select a Library."
 msgstr ""
 
-#: xmodule/library_content_block.py:663
+#: xmodule/library_content_block.py:341
 #, python-brace-format
 msgid "There are no problems in the specified library of type {capa_type}."
 msgstr ""
 
-#: xmodule/library_content_block.py:666
+#: xmodule/library_content_block.py:344
 msgid "Select another problem type."
 msgstr ""
 
-#: xmodule/library_content_block.py:677
+#: xmodule/library_content_block.py:355
 #, python-brace-format
 msgid "The specified library is configured to fetch {count} problem, "
 msgid_plural "The specified library is configured to fetch {count} problems, "
 msgstr[0] ""
 msgstr[1] ""
 
-#: xmodule/library_content_block.py:682
+#: xmodule/library_content_block.py:360
 #, python-brace-format
 msgid "but there is only {actual} matching problem."
 msgid_plural "but there are only {actual} matching problems."
 msgstr[0] ""
 msgstr[1] ""
 
-#: xmodule/library_content_block.py:688
+#: xmodule/library_content_block.py:366
 msgid "Edit the library configuration."
 msgstr ""
 
-#: xmodule/library_content_block.py:706
+#: xmodule/library_content_block.py:384
 msgid "Invalid Library"
 msgstr ""
 
-#: xmodule/library_content_block.py:707
+#: xmodule/library_content_block.py:385
 msgid "No Library Selected"
 msgstr ""
 
