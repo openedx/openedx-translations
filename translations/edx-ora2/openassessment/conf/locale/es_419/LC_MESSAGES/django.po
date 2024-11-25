@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-ora2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-27 00:29+0000\n"
+"POT-Creation-Date: 2024-11-13 17:55-0500\n"
 "PO-Revision-Date: 2023-05-10 00:48+0000\n"
 "Last-Translator: edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2024\n"
 "Language-Team: Spanish (Latin America) (https://app.transifex.com/open-edx/teams/6205/es_419/)\n"
@@ -60,7 +60,7 @@ msgid "Example {example_number} is missing an option for \"{criterion_name}\""
 msgstr ""
 "El ejemplo {example_number} es una opción faltante para \"{criterion_name}\""
 
-#: assessment/score_type_constants.py:21 xblock/grade_mixin.py:524
+#: assessment/score_type_constants.py:21 xblock/grade_mixin.py:547
 msgid "Peer"
 msgstr "Par"
 
@@ -169,7 +169,7 @@ msgstr "Documentos de Respuesta"
 msgid "No description provided."
 msgstr "No se suministró descripción."
 
-#: data.py:1625 templates/legacy/edit/oa_edit_criterion.html:54
+#: data.py:1626 templates/legacy/edit/oa_edit_criterion.html:54
 #: xblock/studio_mixin.py:57
 msgid "None"
 msgstr "Ninguno"
@@ -246,6 +246,7 @@ msgstr "Habilita Múltiples Documentos"
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:93
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:131
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:157
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:169
 #: templates/legacy/edit/oa_edit_peer_assessment.html:45
 msgid "False"
 msgstr "Falso"
@@ -254,6 +255,7 @@ msgstr "Falso"
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:94
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:132
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:158
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:170
 #: templates/legacy/edit/oa_edit_peer_assessment.html:46
 msgid "True"
 msgstr "Verdadero"
@@ -372,6 +374,34 @@ msgstr ""
 "Especifica si los estudiantes pueden ver la rúbrica mientras se encuentran "
 "formulando su respuesta."
 
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:167
+msgid "Allow Learner Resubmissions"
+msgstr "Permitir reenvíos de alumnos"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:174
+msgid ""
+"Set to TRUE to allow learners to resubmit ungraded work. Set to FALSE if "
+"resubmissions are not allowed."
+msgstr ""
+"Configúrelo en VERDADERO para permitir a los alumnos volver a enviar "
+"trabajos sin calificar. Establezca en FALSO si no se permiten reenvíos."
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:178
+msgid "Resubmission Grace Period"
+msgstr "Período de gracia de reenvío"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:187
+msgid ""
+"Specify the maximum period during which resubmissions are allowed. If left "
+"blank, learners will be able to reset their submission as long as it has not"
+" been graded. The grace period starts once the learner has submitted their "
+"response."
+msgstr ""
+"Especifique el período máximo durante el cual se permiten reenvíos. Si se "
+"deja en blanco, los alumnos podrán restablecer su envío siempre que no haya "
+"sido calificado. El período de gracia comienza una vez que el alumno ha "
+"enviado su respuesta."
+
 #: templates/legacy/edit/oa_edit_criterion.html:6
 #: templates/legacy/staff_area/oa_student_info.html:122
 #: templates/legacy/staff_area/oa_student_info_assessment_detail.html:25
@@ -442,11 +472,11 @@ msgstr "Rúbrica"
 msgid "Schedule"
 msgstr "Calendario"
 
-#: templates/legacy/edit/oa_edit_header_and_validation.html:31
+#: templates/legacy/edit/oa_edit_header_and_validation.html:29
 msgid "Assessment steps"
 msgstr "Pasos de la Prueba"
 
-#: templates/legacy/edit/oa_edit_header_and_validation.html:38
+#: templates/legacy/edit/oa_edit_header_and_validation.html:36
 msgid "Settings"
 msgstr "Configuración"
 
@@ -542,6 +572,29 @@ msgstr ""
 "Esta característica está siendo habilitada por la configuración del nivel "
 "del curso. Se puede encontrar en la tarjeta Configuración de evaluación de "
 "respuesta abierta en la página del estudio Páginas y recursos."
+
+#: templates/legacy/edit/oa_edit_peer_assessment.html:60
+msgid "Grading strategy for the peer assessment"
+msgstr "Estrategia de calificación para la evaluación por pares"
+
+#: templates/legacy/edit/oa_edit_peer_assessment.html:62
+msgid "Mean"
+msgstr "Significar"
+
+#: templates/legacy/edit/oa_edit_peer_assessment.html:63
+msgid "Median (default)"
+msgstr "Mediana (predeterminada)"
+
+#: templates/legacy/edit/oa_edit_peer_assessment.html:66
+msgid ""
+"Select the preferred grading strategy for the peer assessment. By default, "
+"the median across all peer reviews is used to calculate the final grade. If "
+"you select the mean, the average of all peer reviews will be used."
+msgstr ""
+"Seleccione la estrategia de calificación preferida para la evaluación por "
+"pares. De forma predeterminada, se utiliza la mediana de todas las "
+"revisiones por pares para calcular la calificación final. Si selecciona la "
+"media, se utilizará el promedio de todas las revisiones por pares."
 
 #: templates/legacy/edit/oa_edit_peer_assessment_schedule.html:5
 msgid "Peer Assessment Deadlines"
@@ -650,51 +703,47 @@ msgstr "Configuración de plazos"
 msgid "Select a deadline configuration option"
 msgstr "Seleccione una opción de configuración de fecha límite"
 
-#: templates/legacy/edit/oa_edit_schedule.html:13
-msgid " NEW"
-msgstr "NUEVO"
-
-#: templates/legacy/edit/oa_edit_schedule.html:19
+#: templates/legacy/edit/oa_edit_schedule.html:14
 msgid "Configure deadlines manually"
 msgstr "Configurar plazos manualmente"
 
-#: templates/legacy/edit/oa_edit_schedule.html:23
+#: templates/legacy/edit/oa_edit_schedule.html:18
 msgid "Match deadlines to the subsection due date"
 msgstr ""
 "Hacer coincidir los plazos con la fecha de vencimiento de la subsección"
 
-#: templates/legacy/edit/oa_edit_schedule.html:27
+#: templates/legacy/edit/oa_edit_schedule.html:22
 msgid "Match deadlines to the course end date"
 msgstr "Hacer coincidir los plazos con la fecha de finalización del curso."
 
-#: templates/legacy/edit/oa_edit_schedule.html:30
+#: templates/legacy/edit/oa_edit_schedule.html:25
 msgid "Learn more about open response date settings"
 msgstr ""
 "Obtenga más información sobre la configuración de fecha de respuesta abierta"
 
-#: templates/legacy/edit/oa_edit_schedule.html:40
+#: templates/legacy/edit/oa_edit_schedule.html:35
 msgid "Response Start Date"
 msgstr "Fecha de inicio de respuestas"
 
-#: templates/legacy/edit/oa_edit_schedule.html:53
+#: templates/legacy/edit/oa_edit_schedule.html:48
 msgid "Response Start Time"
 msgstr "Hora de inicio de respuestas"
 
-#: templates/legacy/edit/oa_edit_schedule.html:62
+#: templates/legacy/edit/oa_edit_schedule.html:57
 msgid "The date and time when learners can begin submitting responses."
 msgstr ""
 "La fecha y hora cuando los estudiantes pueden empezar a enviar las "
 "respuestas."
 
-#: templates/legacy/edit/oa_edit_schedule.html:70
+#: templates/legacy/edit/oa_edit_schedule.html:65
 msgid "Response Due Date"
 msgstr "Fecha límite de entrega de respuestas"
 
-#: templates/legacy/edit/oa_edit_schedule.html:83
+#: templates/legacy/edit/oa_edit_schedule.html:78
 msgid "Response Due Time"
 msgstr "Hora de entrega de respuestas"
 
-#: templates/legacy/edit/oa_edit_schedule.html:92
+#: templates/legacy/edit/oa_edit_schedule.html:87
 msgid "The date and time when learners can no longer submit responses."
 msgstr "Fecha y hora cuando los estudiantes ya no pueden enviar respuestas."
 
@@ -1814,7 +1863,7 @@ msgstr ""
 msgid "We could not submit your response"
 msgstr "No pudimos subir su respuesta"
 
-#: templates/legacy/response/oa_response.html:332
+#: templates/legacy/response/oa_response.html:333
 msgid "Submit your response and move to the next step"
 msgstr "Publique su respuesta y continúe con el siguiente paso"
 
@@ -1931,6 +1980,14 @@ msgstr ""
 "Todavía debe completar la %(start_tag)setapa de auto evaluación%(end_tag)s.\n"
 "                    "
 
+#: templates/legacy/response/oa_response_submitted.html:63
+msgid "We could not reset your response"
+msgstr "No pudimos restablecer tu respuesta."
+
+#: templates/legacy/response/oa_response_submitted.html:69
+msgid "Reset response and submit again"
+msgstr "Restablecer respuesta y enviar de nuevo"
+
 #: templates/legacy/response/oa_response_team_already_submitted.html:15
 msgid "Error"
 msgstr "Error"
@@ -1998,7 +2055,7 @@ msgstr ""
 "puede completar su auto-calificación ni seguir con esta tarea. Así mismo, "
 "recibirá una calificación de Incompleto."
 
-#: templates/legacy/staff/oa_staff_grade.html:13 xblock/grade_mixin.py:365
+#: templates/legacy/staff/oa_staff_grade.html:13 xblock/grade_mixin.py:369
 msgid "Staff Grade"
 msgstr "Calificación del Personal de soporte"
 
@@ -2562,79 +2619,75 @@ msgstr ""
 msgid "Loading Open Response Assessment..."
 msgstr "Cargando evaluación de respuesta abierta..."
 
-#: xblock/grade_mixin.py:77 xblock/leaderboard_mixin.py:61
+#: xblock/grade_mixin.py:78 xblock/leaderboard_mixin.py:61
 msgid "An unexpected error occurred."
 msgstr "Ocurrió un error inesperado."
 
-#: xblock/grade_mixin.py:179
+#: xblock/grade_mixin.py:180
 msgid "Peer Assessment"
 msgstr "Evaluación por pares"
 
-#: xblock/grade_mixin.py:181
+#: xblock/grade_mixin.py:182
 msgid "Self Assessment"
 msgstr "Auto revisión"
 
-#: xblock/grade_mixin.py:221
+#: xblock/grade_mixin.py:222
 msgid "Assessment feedback could not be saved."
 msgstr "Los comentarios sobre la revisión no pudieron ser guardados."
 
-#: xblock/grade_mixin.py:232
+#: xblock/grade_mixin.py:233
 msgid "Feedback saved."
 msgstr "Comentarios guardados."
 
-#: xblock/grade_mixin.py:366 xblock/grade_mixin.py:512
+#: xblock/grade_mixin.py:370 xblock/grade_mixin.py:535
 msgid "Staff Comments"
 msgstr "Comentarios del equipo del curso"
 
-#: xblock/grade_mixin.py:372
-msgid "Peer Median Grade"
-msgstr "Calificación mediana de los pares"
-
-#: xblock/grade_mixin.py:377 xblock/grade_mixin.py:519
+#: xblock/grade_mixin.py:383 xblock/grade_mixin.py:542
 #, python-brace-format
 msgid "Peer {peer_index}"
 msgstr "Par {peer_index}"
 
-#: xblock/grade_mixin.py:378
+#: xblock/grade_mixin.py:384
 msgid "Peer Comments"
 msgstr "Comentarios de pares"
 
-#: xblock/grade_mixin.py:388
+#: xblock/grade_mixin.py:394
 msgid "Self Assessment Grade"
 msgstr "Auto calificación"
 
-#: xblock/grade_mixin.py:388
+#: xblock/grade_mixin.py:394
 msgid "Your Self Assessment"
 msgstr "Su auto evaluación"
 
-#: xblock/grade_mixin.py:389 xblock/grade_mixin.py:531
+#: xblock/grade_mixin.py:395 xblock/grade_mixin.py:554
 msgid "Your Comments"
 msgstr "Sus comentarios"
 
-#: xblock/grade_mixin.py:485
+#: xblock/grade_mixin.py:429
+msgid "Peer Mean Grade"
+msgstr "Calificación media de los pares"
+
+#: xblock/grade_mixin.py:430
+msgid "Peer Median Grade"
+msgstr "Calificación mediana de los pares"
+
+#: xblock/grade_mixin.py:508
 msgid "Waiting for peer reviews"
 msgstr "Esperando por las revisiones de los pares"
 
-#: xblock/grade_mixin.py:655
+#: xblock/grade_mixin.py:677
 msgid "The grade for this problem is determined by your Staff Grade."
 msgstr ""
 "La calificación para este problema es determinado por su personal de "
 "calificaciones."
 
-#: xblock/grade_mixin.py:657
-msgid ""
-"The grade for this problem is determined by the median score of your Peer "
-"Assessments."
-msgstr ""
-"La calificación para este problema es determinada por la media de tus "
-"evaluaciones pares."
-
-#: xblock/grade_mixin.py:660
+#: xblock/grade_mixin.py:681
 msgid "The grade for this problem is determined by your Self Assessment."
 msgstr ""
 "La calificación para este problema está determinada por tu auto evaluación."
 
-#: xblock/grade_mixin.py:666
+#: xblock/grade_mixin.py:687
 #, python-brace-format
 msgid ""
 "You have successfully completed this problem and received a "
@@ -2643,13 +2696,29 @@ msgstr ""
 "Has completado exitosamente este problema y obtenido una calificación total "
 "de  {earned_points}/{total_points}."
 
-#: xblock/grade_mixin.py:674
+#: xblock/grade_mixin.py:695
 msgid ""
 "You have not yet received all necessary peer reviews to determine your final"
 " grade."
 msgstr ""
 "Aún no has recibido las revisiones pares necesarias para determinar tu "
 "calificación final."
+
+#: xblock/grade_mixin.py:710
+msgid ""
+"The grade for this problem is determined by the median score of your Peer "
+"Assessments."
+msgstr ""
+"La calificación para este problema es determinada por la media de tus "
+"evaluaciones pares."
+
+#: xblock/grade_mixin.py:715
+msgid ""
+"The grade for this problem is determined by the mean score of your Peer "
+"Assessments."
+msgstr ""
+"La calificación de este problema está determinada por la puntuación media de"
+" sus evaluaciones de pares."
 
 #: xblock/openassesment_template_mixin.py:66
 msgid "Peer Assessment Only"
@@ -2670,6 +2739,22 @@ msgstr "Auto Evaluación a Evaluación Par"
 #: xblock/openassesment_template_mixin.py:70
 msgid "Self Assessment to Staff Assessment"
 msgstr "Auto Evaluación a Evaluación del Personal"
+
+#: xblock/openassessmentblock.py:1358
+msgid "You can't reset your submission."
+msgstr "No puedes restablecer tu envío."
+
+#: xblock/openassessmentblock.py:1371
+msgid "The user does not exist."
+msgstr "El usuario no existe."
+
+#: xblock/openassessmentblock.py:1374
+msgid "There is no submission to reset."
+msgstr "No hay ningún envío para restablecer."
+
+#: xblock/openassessmentblock.py:1376
+msgid "Submission reset successfully."
+msgstr "El envío se restableció correctamente."
 
 #: xblock/rubric_reuse_mixin.py:62
 msgid "You must specify a block id from which to copy a rubric."
@@ -2710,45 +2795,45 @@ msgstr ""
 "No tiene permisos para acceder a la calificación de miembros del equipo de "
 "curso de ORA."
 
-#: xblock/staff_area_mixin.py:242
+#: xblock/staff_area_mixin.py:241
 msgid "Pending"
 msgstr "Pendiente"
 
-#: xblock/staff_area_mixin.py:243
+#: xblock/staff_area_mixin.py:242
 msgid "Complete/Overwritten"
 msgstr "Completo / Sobrescrito"
 
-#: xblock/staff_area_mixin.py:246
+#: xblock/staff_area_mixin.py:245
 msgid "Not applicable"
 msgstr "No aplica"
 
-#: xblock/staff_area_mixin.py:247
+#: xblock/staff_area_mixin.py:246
 msgid "Not submitted"
 msgstr "No entregado"
 
-#: xblock/staff_area_mixin.py:248
+#: xblock/staff_area_mixin.py:247
 msgid "Submitted"
 msgstr "Enviado"
 
-#: xblock/staff_area_mixin.py:342
+#: xblock/staff_area_mixin.py:341
 msgid "Error getting learner information."
 msgstr "Error al obtener la información del estudiante."
 
-#: xblock/staff_area_mixin.py:385
+#: xblock/staff_area_mixin.py:384
 msgid "Error loading the checked out learner response."
 msgstr "Error cargando la respuesta elegida por el estudiante."
 
-#: xblock/staff_area_mixin.py:386
+#: xblock/staff_area_mixin.py:385
 msgid "No other learner responses are available for grading at this time."
 msgstr ""
 "No hay otras respuestas de estudiantes disponibles para calificar en este "
 "momento."
 
-#: xblock/staff_area_mixin.py:388
+#: xblock/staff_area_mixin.py:387
 msgid "Error getting staff grade information."
 msgstr "Error obteniendo la información de calificación del equipo del curso."
 
-#: xblock/staff_area_mixin.py:409
+#: xblock/staff_area_mixin.py:408
 msgid "Error getting staff grade ungraded and checked out counts."
 msgstr "Error obteniendo el conteo de respuestas enviadas y no calificadas."
 
@@ -2788,36 +2873,36 @@ msgstr ""
 "integrantes del equipo para el problema para permitirle al equipo enviar "
 "nuevamente una respuesta."
 
-#: xblock/studio_mixin.py:243 xblock/studio_mixin.py:255
+#: xblock/studio_mixin.py:246 xblock/studio_mixin.py:258
 msgid "Error updating XBlock configuration"
 msgstr "Error al actualizar la configuración del XBlock"
 
-#: xblock/studio_mixin.py:260
+#: xblock/studio_mixin.py:263
 msgid "Error: Text Response and File Upload Response cannot both be disabled"
 msgstr ""
 "Error: Texto de Respuesta y Archivo de Respuesta Cargado no pueden ser ambos"
 " inhabilitados"
 
-#: xblock/studio_mixin.py:264
+#: xblock/studio_mixin.py:267
 msgid ""
 "Error: When Text Response is disabled, File Upload Response must be Required"
 msgstr ""
 "Error: Cuando el Texto de Respuesta es inhabilitado, es requerido el Archivo"
 " de Respuesta Cargado"
 
-#: xblock/studio_mixin.py:267
+#: xblock/studio_mixin.py:270
 msgid ""
 "Error: When File Upload Response is disabled, Text Response must be Required"
 msgstr ""
 "Error: Cuando el Archivo de Respuesta Cargado es inhabilitado, es requerido "
 "el Texto de Respuesta"
 
-#: xblock/studio_mixin.py:291
+#: xblock/studio_mixin.py:294
 #, python-brace-format
 msgid "Validation error: {error}"
 msgstr "Error de validación: {error}"
 
-#: xblock/studio_mixin.py:323
+#: xblock/studio_mixin.py:328
 msgid "Successfully updated OpenAssessment XBlock"
 msgstr "Se actualizó correctamente el OpenAssessment XBlock"
 
@@ -2872,27 +2957,27 @@ msgstr ""
 "La fecha de comienzo '{start}' no puede ser después que la fecha límite "
 "'{due}'"
 
-#: xblock/utils/validation.py:118
+#: xblock/utils/validation.py:120
 msgid "This problem must include at least one assessment."
 msgstr "Este problema debe incluir por lo menos una valoración"
 
-#: xblock/utils/validation.py:122
+#: xblock/utils/validation.py:124
 msgid "The assessment order you selected is invalid."
 msgstr "El orden de revisión que seleccionó es inválido."
 
-#: xblock/utils/validation.py:132
+#: xblock/utils/validation.py:134
 msgid "In peer assessment, the \"Must Grade\" value must be a positive integer."
 msgstr ""
 "En las revisiones por pares, el valor de \"Revisiones requeridas\"  debe ser"
 " un entero positivo."
 
-#: xblock/utils/validation.py:135
+#: xblock/utils/validation.py:137
 msgid "In peer assessment, the \"Graded By\" value must be a positive integer."
 msgstr ""
 "En la calificación por pares, el valor de \"Calificado por\" debe ser un "
 "número entero positivo."
 
-#: xblock/utils/validation.py:139
+#: xblock/utils/validation.py:141
 msgid ""
 "In peer assessment, the \"Must Grade\" value must be greater than or equal "
 "to the \"Graded By\" value."
@@ -2900,25 +2985,25 @@ msgstr ""
 "En la calificación por pares, el valor de \"Revisiones requeridas\" debe ser"
 " mayor o igual al valor de \"debe ser calificado por\"."
 
-#: xblock/utils/validation.py:148
+#: xblock/utils/validation.py:150
 msgid "You must provide at least one example response for learner training."
 msgstr ""
 "Debe proporcionar al menos una respuesta de ejemplo para el entrenamiento de"
 " los estudiantes."
 
-#: xblock/utils/validation.py:151
+#: xblock/utils/validation.py:153
 msgid "Each example response for learner training must be unique."
 msgstr ""
 "Cada respuesta de ejemplo para el entrenamiento de los estudiantes debe ser "
 "único."
 
-#: xblock/utils/validation.py:158
+#: xblock/utils/validation.py:160
 msgid "The \"required\" value must be true if staff assessment is the only step."
 msgstr ""
 "El valor \"requerido\" debe estar en true si la calificación de miembros del"
 " equipo del curso es el único paso."
 
-#: xblock/utils/validation.py:162
+#: xblock/utils/validation.py:164
 msgid ""
 "The number of assessments cannot be changed after the problem has been "
 "released."
@@ -2926,70 +3011,78 @@ msgstr ""
 "El número de valoraciones no puede ser cambiado luego de que el problema "
 "haya sido liberado."
 
-#: xblock/utils/validation.py:167
+#: xblock/utils/validation.py:169
 msgid ""
 "The assessment type cannot be changed after the problem has been released."
 msgstr ""
 "El tipo de evaluación no se puede cambiar después de que el problema ha sido"
 " liberado."
 
-#: xblock/utils/validation.py:190
+#: xblock/utils/validation.py:176
+msgid ""
+"The grading strategy for peer assessments cannot be changed after the "
+"problem has been released."
+msgstr ""
+"La estrategia de calificación para las evaluaciones de pares no se puede "
+"cambiar una vez que se haya publicado el problema."
+
+#: xblock/utils/validation.py:200
 msgid "This rubric definition is not valid."
 msgstr "La definición de esta rúbrica no es válida"
 
-#: xblock/utils/validation.py:193
+#: xblock/utils/validation.py:203
 msgid "You must provide at least one prompt."
 msgstr "Debe proporcionar al menos un mensaje."
 
-#: xblock/utils/validation.py:199
+#: xblock/utils/validation.py:209
 #, python-brace-format
 msgid "Options in '{criterion}' have duplicate name(s): {duplicates}"
 msgstr ""
 "Las opciones en '{criterion}' tiene el nombre(s):  duplicado {duplicates}"
 
-#: xblock/utils/validation.py:207
+#: xblock/utils/validation.py:217
 msgid "Criteria with no options must require written feedback."
 msgstr "Criterios sin opciones deben requerir retroalimentación escrita."
 
-#: xblock/utils/validation.py:216
+#: xblock/utils/validation.py:226
 msgid "Prompts cannot be created or deleted after a problem is released."
 msgstr ""
 "Las preguntas o planteamientos del ejercicio no se pueden crear o borrar "
 "luego de que un problema ha sido liberado."
 
-#: xblock/utils/validation.py:220
+#: xblock/utils/validation.py:230
 msgid "The number of criteria cannot be changed after a problem is released."
 msgstr ""
 "El número de criterios no puede ser cambiado después de que un problema ha "
 "sido liberado."
 
-#: xblock/utils/validation.py:233
+#: xblock/utils/validation.py:243
 msgid "Criteria names cannot be changed after a problem is released"
 msgstr ""
 "Los nombres de los criterios no pueden cambiarse después de que un problema "
 "ha sido liberado."
 
-#: xblock/utils/validation.py:238
+#: xblock/utils/validation.py:248
 msgid "The number of options cannot be changed after a problem is released."
 msgstr ""
 "El número de opciones no puede ser cambiado después de que un problema ha "
 "sido liberado."
 
-#: xblock/utils/validation.py:243
+#: xblock/utils/validation.py:253
 msgid "Point values cannot be changed after a problem is released."
 msgstr ""
 "Los valores de puntaje no puede ser cambiados después de que un problema ha "
 "sido liberado."
 
-#: xblock/utils/validation.py:294
+#: xblock/utils/validation.py:304
 msgid "Learner training must have at least one training example."
 msgstr "El entrenamiento del estudiante debe tener al menos un ejemplo."
 
-#: xblock/utils/validation.py:359
+#: xblock/utils/validation.py:369
 msgid "Leaderboard number is invalid."
 msgstr ""
 "El número ingresado para el tablero de estudiantes destacados es inválido."
 
-#: xblock/utils/validation.py:382
+#: xblock/utils/validation.py:392
 msgid "The submission format is invalid."
 msgstr "El formato del envío es inválido"
