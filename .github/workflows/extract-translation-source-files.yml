@@ -167,7 +167,7 @@ jobs:
       id: date
       run: echo $BRANCH
     - name: clone openedx/openedx-translations
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     # creates the branch where all the translations will be added to
     - name: make and push a new branch
@@ -190,7 +190,7 @@ jobs:
     steps:
       # Clones the openedx-translations repo
       - name: clone openedx/openedx-translations
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ needs.setup-branch.outputs.branch }}
 
@@ -200,7 +200,7 @@ jobs:
 
       # Clones the  repository
       - name: clone ${{ github.repository_owner }}/${{ matrix.repo }}
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: ${{ github.repository_owner }}/${{ matrix.repo }}
           ref: ${{ github.event.inputs.ref }}
@@ -340,13 +340,13 @@ jobs:
     steps:
       # Clones the openedx-translations repo
       - name: clone openedx/openedx-translations
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ needs.setup-branch.outputs.branch }}
 
       # Clones the  repository
       - name: clone ${{ github.repository_owner }}/${{ matrix.repo }}
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: ${{ github.repository_owner }}/${{ matrix.repo }}
           ref: ${{ github.event.inputs.ref }}
@@ -407,13 +407,13 @@ jobs:
     steps:
       # Clones the openedx-translations repo
       - name: clone openedx/openedx-translations
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ needs.setup-branch.outputs.branch }}
 
       # Clones the  repository
       - name: clone ${{ github.repository_owner }}/${{ matrix.repository_config.repo }}
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: ${{ github.repository_owner }}/${{ matrix.repository_config.repo }}
           ref: ${{ github.event.inputs.ref || matrix.repository_config.ref }}
@@ -478,7 +478,7 @@ jobs:
     steps:
       # Clones the openedx-translations repo on the automated/extract-translation-source-files-# branch
       - name: clone openedx/openedx-translations
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ needs.setup-branch.outputs.branch }}
           fetch-depth: 0
