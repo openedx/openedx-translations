@@ -172,12 +172,12 @@ def test_translations_entry_update_translation():
         translation='same translation',
     )
 
-    status = command.sync_translation_entry(
+    status, updates = command.determine_translation_updates(
         translation_from_old_project, current_translation
     )
 
-    assert status == 'updated'
-    assert current_translation.updates == {
+    assert status == 'update'
+    assert updates == {
         'reviewed': True,
     }
 
@@ -201,12 +201,12 @@ def test_translations_entry_more_recent_review():
         reviewed=True,
     )
 
-    status = command.sync_translation_entry(
+    status, updates = command.determine_translation_updates(
         translation_from_main_project, release_translation
     )
 
     assert status == 'no-op'
-    assert not release_translation.updates, 'save() should not be called'
+    assert not updates, 'updates should be empty'
 
 
 def test_translations_entry_dry_run():
@@ -226,12 +226,14 @@ def test_translations_entry_dry_run():
         translation='same translation',
     )
 
-    status = command.sync_translation_entry(
+    status, updates = command.determine_translation_updates(
         translation_from_old_project, current_translation
     )
 
-    assert status == 'updated-dry-run'
-    assert not current_translation.updates, 'save() should not be called in --dry-run mode'
+    assert status == 'update-dry-run'
+    assert updates == {
+        'reviewed': True,
+    }, 'Planned updates but never saved because of dry-run'
 
 
 def test_translations_entry_different_translation():
@@ -251,9 +253,9 @@ def test_translations_entry_different_translation():
         translation='another translation',
     )
 
-    status = command.sync_translation_entry(
+    status, updates = command.determine_translation_updates(
         translation_from_old_project, current_translation
     )
 
     assert status == 'no-op'
-    assert not current_translation.updates, 'save() should not be called in --dry-run mode'
+    assert updates == {}, ''
