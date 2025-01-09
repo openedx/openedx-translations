@@ -20,6 +20,8 @@ Slugs are even worse, sometimes they're also the lengthy while other times they'
  - "b8933764bdb3063ca09d6aa20341102f"
 
 This script updates slugs to be like names.
+
+Transifex Python API docs: https://github.com/transifex/transifex-python/blob/devel/transifex/api/README.md
 """
 
 import configparser
