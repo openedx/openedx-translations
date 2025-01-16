@@ -11,6 +11,7 @@ Variable names meaning:
  - main_translation: translation in the main "open-edx/openedx-translations" project
  - release_translation: translation in the release project "open-edx/openedx-translations-<release-name>"
 
+Python API docs: https://github.com/transifex/transifex-python/blob/devel/transifex/api/README.md
 """
 
 import argparse
@@ -25,6 +26,13 @@ from transifex.api.jsonapi.exceptions import DoesNotExist, JsonApiException
 ORGANIZATION_SLUG = 'open-edx'
 MAIN_PROJECT_SLUG = 'openedx-translations'
 RELEASE_PROJECT_SLUG_TEMPLATE = 'openedx-translations-{release_name}'
+
+
+def chunks(lst, n):
+    """Yield successive n-sized chunks from lst."""
+    for i in range(0, len(lst), n):
+        yield lst[i:i + n]
+
 
 
 @dataclasses.dataclass
@@ -107,49 +115,81 @@ class Command:
             for translation in self.get_translations(lang_id=lang_id, resource=main_resource)
         }
 
+        updates_to_apply = []
         for release_translation in self.get_translations(lang_id=lang_id, resource=release_resource):
             translation_id = self.get_translation_id(release_translation)
             if translation_from_main_project := translations_from_main_project.get(translation_id):
-                self.sync_translation_entry(
+                status, updates = self.determine_translation_updates(
                     translation_from_main_project=translation_from_main_project,
                     release_translation=release_translation,
                 )
+                if updates and status == 'update':
+                    updates_to_apply.append({
+                        'id': release_translation.id,
+                        'attributes': updates,
+                    })
+
+        if updates_to_apply and not self.is_dry_run():
+            for updates_chunk in chunks(updates_to_apply, 145):
+                self.tx_api.ResourceTranslation.bulk_update(updates_chunk)
+
         print(' finished', lang_id)
 
-    def sync_translation_entry(self, translation_from_main_project, release_translation):
+    def determine_translation_updates(self, translation_from_main_project, release_translation):
         """
-        Sync translation review from the main project to the release one.
+        Compare translations between main and release projects and determine needed updates.
 
         Return:
-            str: status code
-               - updated: if the entry was updated
-               - no-op: if the entry don't need any updates
-               - updated-dry-run: if the entry was updated in dry-run mode
+            tuple: status, updates
+                - status:
+                    - updated: the entry needs to be updated
+                    - no-op: if the entry don't need any updates
+                    - updated-dry-run: the entry needs to be updated but actually skipped due to dry-run mode
+                - updates: dict of updates to be applied to the release translation
         """
         translation_id = self.get_translation_id(release_translation)
 
         updates = {}
 
-        # Only update review status if translations are the same across projects
-        if translation_from_main_project.strings == release_translation.strings:
+        def _update_review_proofread_attrs():
             for attr in ['reviewed', 'proofread']:
                 # Reviews won't be deleted in the release project
                 if main_attr_value := getattr(translation_from_main_project, attr, None):
                     if main_attr_value != getattr(release_translation, attr, None):
                         updates[attr] = main_attr_value
-        else:
+
+        if (
+            translation_from_main_project.strings
+            and release_translation.strings
+            and translation_from_main_project.strings != release_translation.strings
+        ):
+            # Do not override anything if translations are different
             print(translation_id, 'has different translations will not update it')
-            return 'no-op'
+            return 'no-op', updates
+
+        if (
+            translation_from_main_project.strings
+            and translation_from_main_project.strings == release_translation.strings
+        ):
+            # Only update review status if translations are the same across projects
+            _update_review_proofread_attrs()
+
+        if (
+            translation_from_main_project.strings
+            and not release_translation.strings
+        ):
+            # Set translations from the old project and update review status
+            updates['strings'] = translation_from_main_project.strings
+            _update_review_proofread_attrs()
 
         if updates:
             print(translation_id, updates, '[Dry run]' if self.is_dry_run() else '')
             if self.is_dry_run():
-                return 'updated-dry-run'
+                return 'update-dry-run', updates
             else:
-                release_translation.save(**updates)
-                return 'updated'
+                return 'update', updates
 
-        return 'no-op'
+        return 'no-op', updates
 
     def sync_tags(self, main_resource, release_resource):
         """
@@ -165,6 +205,10 @@ class Command:
             dict_item = item.to_dict()
             main_quick_lookup[dict_item['attributes']['string_hash']] = dict_item['attributes']['tags']
 
+        dry_run_note = ''
+        if self.is_dry_run():
+            dry_run_note = ' (dry-run)'
+
         for release_info in release_resource_str.all():
             main_tags = main_quick_lookup.get(release_info.string_hash)
             release_tags = release_info.tags
@@ -175,7 +219,7 @@ class Command:
                 continue
 
             if len(release_tags) != len(main_tags) or set(release_tags) != set(main_tags):
-                print(f'  - found tag difference for {release_info.string_hash}. overwriting: {release_tags} with {main_tags}')
+                print(f'  - found tag difference for {release_info.string_hash}. overwriting{dry_run_note}: {release_tags} with {main_tags}')
 
                 if not self.is_dry_run():
                     release_info.save(tags=main_tags)
@@ -270,6 +314,10 @@ def main():  # pragma: no cover
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--dry-run', action='store_true', dest='dry_run',
                         help='Run the script without writing anything to Transifex.')
+
+    ## TODO: Override source project
+    ## TODO: Override older translations
+
     parser.add_argument('--resource', default='', dest='resource',
                         help='Resource slug e.g. "AudioXBlock" or "frontend-app-learning". '
                              'Leave empty to sync all resources.')
