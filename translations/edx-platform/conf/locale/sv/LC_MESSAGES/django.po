@@ -167,6 +167,10 @@ msgstr ""
 "Om du använder http-adresser så måste du ange användarnamnet och lösenordet "
 "i adressen. Liknande som i https://user:pass@github.com/user/course."
 
+#: cms/djangoapps/contentstore/git_export_utils.py:44
+msgid "Unable to determine branch, repo in detached HEAD mode"
+msgstr "Det går inte att bestämma gren, repo i läge för fristående HEAD"
+
 #: cms/djangoapps/contentstore/git_export_utils.py:45
 msgid "Unable to update or clone git repository."
 msgstr "Kunde inte uppdatera eller klona git-repon."
@@ -174,6 +178,14 @@ msgstr "Kunde inte uppdatera eller klona git-repon."
 #: cms/djangoapps/contentstore/git_export_utils.py:46
 msgid "Unable to export course to xml."
 msgstr "Kunde inte exportera kursen till xml."
+
+#: cms/djangoapps/contentstore/git_export_utils.py:48
+msgid ""
+"Unable to commit changes. This is usually because there are no changes to be"
+" committed"
+msgstr ""
+"Det går inte att genomföra ändringar. Detta beror vanligtvis på att det inte"
+" finns några förändringar att göra"
 
 #: cms/djangoapps/contentstore/git_export_utils.py:52
 msgid "Bad course location provided"
@@ -208,6 +220,14 @@ msgstr "Enhet"
 msgid "Problem"
 msgstr "Problem"
 
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/advanced_settings.py:47
+msgid "Marks a field as deprecated."
+msgstr "Markerar ett fält som föråldrat."
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/advanced_settings.py:48
+msgid "User-friendly display name for the field"
+msgstr "Användarvänligt visningsnamn för fältet"
+
 #: cms/djangoapps/contentstore/rest_api/v0/serializers/advanced_settings.py:49
 msgid "Help text that describes the setting."
 msgstr "Hjälptext som beskriver inställningen."
@@ -215,6 +235,19 @@ msgstr "Hjälptext som beskriver inställningen."
 #: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:14
 msgid "Tab type"
 msgstr "Typ av flik"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:15
+msgid "Default name for the tab displayed to users"
+msgstr "Standardnamn för fliken som visas för användare"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:21
+msgid "True the tab is hidden for the course"
+msgstr "Det är sant att fliken är dold för kursen"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:25
+msgid "True if it's possible to reorder the tab in the list of tabs"
+msgstr ""
+"Sant om det är möjligt att ändra ordningen på fliken i listan med flikar"
 
 #: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:29
 msgid "True if this tab should be displayed only for instructors"
@@ -224,19 +257,49 @@ msgstr "Sant om den här fliken endast ska visas för instruktörer"
 msgid "Additional settings specific to the tab"
 msgstr "Ytterligare inställningar specifika för fliken"
 
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:74
+msgid "ID of tab to update"
+msgstr "ID för flik som ska uppdateras"
+
 #: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:75
 msgid "Location (Usage Key) of tab to update"
 msgstr "Plats (användningsnyckel) för fliken att uppdatera"
 
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:89
+msgid "Need to supply either a valid tab_id or a tab_location."
+msgstr "Behöver ange antingen ett giltigt tab_id eller en tab_location."
+
 #: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:100
 msgid "True to hide the tab, and False to show it."
 msgstr "True för att dölja fliken, och False för att visa den."
+
+#: cms/djangoapps/contentstore/rest_api/v0/views/tabs.py:117
+msgid "Change the visibility of tabs in a course."
+msgstr "Ändra synligheten för flikar i en kurs."
+
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:116
+msgid "The information you entered is incorrect."
+msgstr "Den angivna informationen är inkorrekt. "
+
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:138
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:228
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:253
+#: xmodule/video_block/video_handlers.py:459
+#, python-brace-format
+msgid "The following parameters are required: {missing}."
+msgstr "Följande parametrar saknas:  {missing}."
 
 #: cms/djangoapps/contentstore/transcript_storage_handlers.py:233
 #: xmodule/video_block/video_handlers.py:463
 #, python-brace-format
 msgid "A transcript with the \"{language_code}\" language code already exists."
 msgstr "En översättning märkt \"{language_code}\" existerar redan."
+
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:237
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:172
+#: xmodule/video_block/video_handlers.py:467
+msgid "A transcript file is required."
+msgstr "En översättningsfil krävs."
 
 #: cms/djangoapps/contentstore/utils.py:800
 #: cms/templates/visibility_editor.html:113
@@ -257,9 +320,152 @@ msgstr "{previous_groups}, {current_group}"
 msgid "Text"
 msgstr "Text"
 
+#: cms/djangoapps/contentstore/utils.py:1227
+#, python-brace-format
+msgid "Duplicate of {0}"
+msgstr "Kopia av {0}"
+
+#: cms/djangoapps/contentstore/utils.py:1229
+#, python-brace-format
+msgid "Duplicate of '{0}'"
+msgstr "Kopia av '{0}'"
+
+#: cms/djangoapps/contentstore/utils.py:1285
+msgid "Invalid prerequisite course key"
+msgstr "Ogiltig förkunskapsnyckel"
+
+#: cms/djangoapps/contentstore/utils.py:1856
+msgid "Set Date"
+msgstr "Bestämma datum"
+
+#. Translators: This is the status for a video that the servers are currently
+#. processing
+#: cms/djangoapps/contentstore/video_storage_handlers.py:120
+msgid "In Progress"
+msgstr "Pågående"
+
+#. Translators: This is the status for a video that the servers have
+#. successfully processed
+#: cms/djangoapps/contentstore/video_storage_handlers.py:122
+#: openedx/core/djangoapps/content_staging/data.py:19
+msgid "Ready"
+msgstr "Klar"
+
+#. Translators: This is the status for a video that is uploaded completely
+#: cms/djangoapps/contentstore/video_storage_handlers.py:124
+msgid "Uploaded"
+msgstr "Uppladdad"
+
+#. Translators: This is the status for a video that the servers have failed to
+#. process
+#: cms/djangoapps/contentstore/video_storage_handlers.py:126
+msgid "Failed"
+msgstr "Misslyckad"
+
+#. Translators: This is the status for a video that is cancelled during upload
+#. by user
+#: cms/djangoapps/contentstore/video_storage_handlers.py:128
+msgid "Cancelled"
+msgstr "Avbruten"
+
+#. Translators: This is the status for a video which has failed
+#. due to being flagged as a duplicate by an external or internal CMS
+#: cms/djangoapps/contentstore/video_storage_handlers.py:131
+msgid "Failed Duplicate"
+msgstr "Misslyckades duplicera"
+
+#. Translators: This is the status for a video which has duplicate token for
+#. youtube
+#: cms/djangoapps/contentstore/video_storage_handlers.py:133
+msgid "YouTube Duplicate"
+msgstr "YouTube Duplicate"
+
+#. Translators: This is the status for a video for which an invalid
+#. processing token was provided in the course settings
+#: cms/djangoapps/contentstore/video_storage_handlers.py:136
+msgid "Invalid Token"
+msgstr "Ogiltig token"
+
+#. Translators: This is the status for a video that was included in a course
+#. import
+#: cms/djangoapps/contentstore/video_storage_handlers.py:138
+msgid "Imported"
+msgstr "Importerad"
+
+#. Translators: This is the status for a video that is having its
+#. transcription in progress on servers
+#: cms/djangoapps/contentstore/video_storage_handlers.py:142
+msgid "Transcription in Progress"
+msgstr "Transkription pågår"
+
+#. Translators: This is the status for a video whose transcription job was
+#. failed for some languages
+#: cms/djangoapps/contentstore/video_storage_handlers.py:146
+msgid "Partial Failure"
+msgstr "Partiellt misslyckande"
+
+#. Translators: This is the status for a video whose transcription job has
+#. failed altogether
+#: cms/djangoapps/contentstore/video_storage_handlers.py:148
+msgid "Transcript Failed"
+msgstr "Transkribering misslyckades"
+
+#: cms/djangoapps/contentstore/video_storage_handlers.py:338
+msgid "An image file is required."
+msgstr "Det krävs en bildfil. "
+
+#. Translators: This is the header for a CSV file column
+#. containing URLs for video encodings for the named profile
+#. (e.g. desktop, mobile high quality, mobile low quality)
+#: cms/djangoapps/contentstore/video_storage_handlers.py:511
+#, python-brace-format
+msgid "{profile_name} URL"
+msgstr "{profile_name} URL"
+
+#: cms/djangoapps/contentstore/video_storage_handlers.py:517
+msgid "Duration"
+msgstr "Varaktighet"
+
+#: cms/djangoapps/contentstore/video_storage_handlers.py:518
+msgid "Date Added"
+msgstr "Tillagt vid datum"
+
+#: cms/djangoapps/contentstore/video_storage_handlers.py:520
+msgid "Status"
+msgstr "Status"
+
+#. #-#-#-#-#  django.po (0.1a)  #-#-#-#-#
+#. Translators: This is listed as the duration for a video that has not
+#. yet reached the point in its processing by the servers where its
+#. duration is determined.
+#: cms/djangoapps/contentstore/video_storage_handlers.py:533
+#: openedx/core/djangoapps/api_admin/models.py:42 cms/templates/index.html:487
+msgid "Pending"
+msgstr "Avvaktan"
+
+#. Translators: This is the suggested filename when downloading the URL
+#. listing for videos uploaded through Studio
+#: cms/djangoapps/contentstore/video_storage_handlers.py:566
+#, python-brace-format
+msgid "{course}_video_urls"
+msgstr "{course}_video_urls"
+
 #: cms/djangoapps/contentstore/video_storage_handlers.py:948
 msgid "A non zero positive integer is expected"
 msgstr "Ett positivt heltal som inte är noll förväntas"
+
+#: cms/djangoapps/contentstore/video_utils.py:42
+msgid "The image must have name, content type, and size information."
+msgstr "Bilden måste ha namn, innehållstyp, och information om storlek. "
+
+#: cms/djangoapps/contentstore/video_utils.py:44
+#, python-brace-format
+msgid ""
+"This image file type is not supported. Supported file types are "
+"{supported_file_formats}."
+msgstr ""
+"Den här bildfiltypen stöds inte. Filtyper som stöds är "
+"{supported_file_formats}."
 
 #: cms/djangoapps/contentstore/video_utils.py:48
 #, python-brace-format
@@ -270,6 +476,43 @@ msgstr "Den här bildfilen måste vara mindre än {image_max_size}."
 #, python-brace-format
 msgid "This image file must be larger than {image_min_size}."
 msgstr "Den här bildfilen måste vara större än  {image_min_size}."
+
+#: cms/djangoapps/contentstore/video_utils.py:64
+#, python-brace-format
+msgid ""
+"Recommended image resolution is "
+"{image_file_max_width}x{image_file_max_height}. The minimum resolution is "
+"{image_file_min_width}x{image_file_min_height}."
+msgstr ""
+"Rekommenderad bildupplösning är "
+"{image_file_max_width}x{image_file_max_height}. Minsta upplösning är "
+"{image_file_min_width}x{image_file_min_height}."
+
+#: cms/djangoapps/contentstore/video_utils.py:72
+#, python-brace-format
+msgid ""
+"This image file must have an aspect ratio of "
+"{video_image_aspect_ratio_text}."
+msgstr ""
+"Den här bildfilen måste ha bildförhållandet {video_image_aspect_ratio_text}."
+
+#: cms/djangoapps/contentstore/video_utils.py:79
+msgid ""
+"The image file name can only contain letters, numbers, hyphens (-), and "
+"underscores (_)."
+msgstr ""
+"Bildfils namnet kan endast innehålla bokstäver, nummer, bindestreck (-), och"
+" understreck (_)."
+
+#: cms/djangoapps/contentstore/views/certificates.py:165
+msgid "must have name of the certificate"
+msgstr "måste ha namnet på certifikatet"
+
+#: cms/djangoapps/contentstore/views/certificates.py:355
+#: cms/djangoapps/contentstore/views/certificates.py:393
+#, python-brace-format
+msgid "PermissionDenied: Failed in authenticating {user}"
+msgstr "PermissionDenied: Det gick inte att autentisera {user}"
 
 #. #-#-#-#-#  django.po (0.1a)  #-#-#-#-#
 #. Translators: 'Discussion' refers to the tab in the courseware that leads to
@@ -298,14 +541,84 @@ msgstr "Bibliotekets innehåll"
 msgid "Drag and Drop"
 msgstr "Dra och släpp"
 
+#: cms/djangoapps/contentstore/views/component.py:253
+msgid "Blank"
+msgstr "Tom"
+
+#: cms/djangoapps/contentstore/views/component.py:256
+msgid "Peer Assessment Only"
+msgstr "Endast kamratbedömning"
+
 #: cms/djangoapps/contentstore/views/course.py:360
 msgid "Course has been successfully reindexed."
 msgstr "Kursen har framgångsrikt indexerats."
+
+#: cms/djangoapps/contentstore/views/course.py:927
+msgid ""
+"There is already a course defined with the same organization and course "
+"number. Please change either organization or course number to be unique."
+msgstr ""
+"Det finns redan en kurs definierad med samma organisation och kursnummer. "
+"Ändra antingen organisation eller kursnummer för att vara unikt."
+
+#: cms/djangoapps/contentstore/views/course.py:940
+#, python-brace-format
+msgid ""
+"Unable to create course '{name}'.\n"
+"\n"
+"{err}"
+msgstr ""
+"Det gick inte att skapa kursen '{name}'.\n"
+"\n"
+"{fela}"
+
+#: cms/djangoapps/contentstore/views/course.py:952
+msgid ""
+"User does not have the permission to create courses in this organization or "
+"course creation is disabled"
+msgstr ""
+"Användaren har inte behörighet att skapa kurser i den här organisationen "
+"eller så är skapande av kurser inaktiverat"
+
+#: cms/djangoapps/contentstore/views/course.py:969
+msgid ""
+"You must link this course to an organization in order to continue. "
+"Organization you selected does not exist in the system, you will need to add"
+" it to the system"
+msgstr ""
+"Du måste länka den här kursen till en organisation för att kunna fortsätta. "
+"Den organisation du valde finns inte i systemet, du måste lägga till den i "
+"systemet"
+
+#: cms/djangoapps/contentstore/views/export_git.py:47
+msgid "Course successfully exported to git repository"
+msgstr "Kursen har blivit exporterad till git repo"
+
+#: cms/djangoapps/contentstore/views/import_export.py:190
+msgid "File upload failed. Please try again"
+msgstr "Filuppladdning misslyckades. Var god försök igen"
+
+#: cms/djangoapps/contentstore/views/library.py:223
+msgid ""
+"User does not have the permission to create library in this organization or "
+"course creation is disabled"
+msgstr ""
+"Användaren har inte behörighet att skapa bibliotek i den här organisationen "
+"eller så är skapande av kurser inaktiverat"
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:638
+msgid "There is a problem with the YouTube transcript file."
+msgstr "Det finns ett problem med YouTubes transkriptionsfil."
 
 #: cms/djangoapps/contentstore/xblock_storage_handlers/create_xblock.py:101
 #: xmodule/library_content_block.py:826
 msgid "Empty"
 msgstr "Tom"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:674
+#, python-brace-format
+msgid "You can not move {source_type} into {target_parent_type}."
+msgstr "Du kan inte flytta {source_type} till {target_parent_type}."
 
 #: cms/djangoapps/maintenance/views.py:48
 msgid ""
@@ -10800,6 +11113,19 @@ msgstr "Ta bort helt!"
 msgid "Choose an image file to replace current image."
 msgstr "Välj en bildfil som ersätter nuvarande bild."
 
+#: wiki/plugins/images/templates/wiki/plugins/images/sidebar.html:27
+msgid "Image id"
+msgstr "Bild-id"
+
+#: wiki/plugins/images/templates/wiki/plugins/images/sidebar.html:29
+#: wiki/plugins/links/templates/wiki/plugins/links/sidebar.html:13
+msgid "Insert"
+msgstr "Infoga"
+
+#: wiki/plugins/images/templates/wiki/plugins/images/sidebar.html:45
+msgid "No images found for this article"
+msgstr "Inga bilder hittades för den här artikeln"
+
 #: wiki/plugins/images/templates/wiki/plugins/images/sidebar.html:54
 msgid "Manage images"
 msgstr "Hantera bilder"
@@ -10807,6 +11133,10 @@ msgstr "Hantera bilder"
 #: wiki/plugins/images/templates/wiki/plugins/images/sidebar.html:60
 msgid "Add new image"
 msgstr "Lägg till ny bild"
+
+#: wiki/plugins/images/templates/wiki/plugins/images/sidebar.html:96
+msgid "Add image"
+msgstr "Lägg till bild"
 
 #: wiki/plugins/images/templates/wiki/plugins/images/sidebar.html:104
 msgid "You do not have permissions to add images."
@@ -10834,6 +11164,15 @@ msgstr ""
 msgid "Link to another wiki page"
 msgstr "Länka till en annan wikisida"
 
+#: wiki/plugins/links/templates/wiki/plugins/links/sidebar.html:5
+msgid ""
+"Type in something from another wiki page's title and auto-complete will help"
+" you create a tag for you wiki link. Tags for links look like this:"
+msgstr ""
+"Skriv in något från en annan wiki-sidans titel och så kommer auto-complete "
+"hjälpa dig att skapa en tagg för din wiki-länk. Taggar för länkar ser ut så "
+"här:"
+
 #: wiki/plugins/links/templates/wiki/plugins/links/sidebar.html:22
 msgid ""
 "You can link to another website simply by inserting an address example.com "
@@ -10850,6 +11189,10 @@ msgstr "Meddelanden"
 #: wiki/plugins/notifications/forms.py:17
 msgid "When this article is edited"
 msgstr "När denna artikel redigerades"
+
+#: wiki/plugins/notifications/forms.py:18
+msgid "Also receive emails about article edits"
+msgstr "Jag vill få mail om ändringar på artikeln."
 
 #: wiki/plugins/notifications/forms.py:41
 msgid "Your notification settings were updated."
@@ -10887,6 +11230,10 @@ msgstr "aviseringar"
 msgid "No notifications"
 msgstr "Inga aviseringar"
 
+#: wiki/plugins/notifications/templates/wiki/plugins/notifications/menubaritem.html:19
+msgid "Clear notifications list"
+msgstr "Rensa aviseringslista"
+
 #: wiki/templates/wiki/base.html:113
 msgid "Search..."
 msgstr "Sök..."
@@ -10912,6 +11259,10 @@ msgstr "Artikel raderad"
 msgid "Article Deleted"
 msgstr "Artikel Raderad"
 
+#: wiki/templates/wiki/dir.html:4
+msgid "Listing articles in"
+msgstr "Listar artiklar i"
+
 #: wiki/templates/wiki/dir.html:16
 msgid "Up one level"
 msgstr "Upp en nivå"
@@ -10925,21 +11276,58 @@ msgstr "Lägg till artikel"
 msgid "clear"
 msgstr "rensa"
 
+#: wiki/templates/wiki/dir.html:40 wiki/templates/wiki/dir.html:44
+msgid "article,articles"
+msgstr "artikel,artiklar"
+
+#: wiki/templates/wiki/dir.html:42
+#, python-format
+msgid "%(cnt)s %(articles_plur)s in this level %(match_plur)s your search."
+msgstr "%(cnt)s %(articles_plur)s i denna nivå %(match_plur)s din sökning."
+
 #: wiki/templates/wiki/dir.html:44
 msgid "is,are"
 msgstr "är,är"
+
+#: wiki/templates/wiki/dir.html:56
+msgid "Last modified"
+msgstr "Senast ändrad"
 
 #: wiki/templates/wiki/history.html:74
 msgid "no log message"
 msgstr "inget loggmeddelande"
 
+#: wiki/templates/wiki/permission_denied.html:9
+msgid "Sorry, you don't have permission to view this page."
+msgstr "Tyvärr, du har inte behörighet att visa den här sidan."
+
+#: wiki/templates/wiki/preview_inline.html:8
+msgid "Previewing revision"
+msgstr "Förhandsgranska revision"
+
+#: wiki/templates/wiki/preview_inline.html:15
+msgid "Previewing merge between"
+msgstr "Förhandsgranska sammanfogning mellan"
+
 #: wiki/templates/wiki/preview_inline.html:17
 msgid "and"
 msgstr "och"
 
+#: wiki/templates/wiki/source.html:4
+msgid "Source of"
+msgstr "Källa till"
+
+#: wiki/templates/wiki/source.html:9
+msgid "This article is currently locked for editing."
+msgstr "Denna artikel är för nuvarande låst för redigering."
+
 #: wiki/templates/wiki/accounts/login.html:6
 msgid "Please log in"
 msgstr "Vänligen logga in"
+
+#: wiki/templates/wiki/accounts/login.html:12
+msgid "Log me in..."
+msgstr "Logga in mig..."
 
 #: wiki/templates/wiki/accounts/login.html:18
 msgid "Don't have an account?"
@@ -10952,6 +11340,16 @@ msgstr "Skriv upp mig..."
 #: wiki/templates/wiki/article/create_root.html:22
 msgid "Congratulations!"
 msgstr "Gratulerar!"
+
+#: wiki/templates/wiki/article/create_root.html:24
+msgid ""
+"You have django-wiki installed... but there are no articles. So it's time to"
+" create the first one, the root article. In the beginning, it will only be "
+"editable by administrators, but you can define permissions after."
+msgstr ""
+"Du har django-wiki installerad... men det finns inga artiklar. Så det är "
+"dags att skapa den första, rotartikeln. I början kommer det bara att kunna "
+"redigeras av administratörer, men du kan definiera behörigheter efter."
 
 #: wiki/templates/wiki/includes/anonymous_blocked.html:8
 #, python-format
@@ -10983,9 +11381,25 @@ msgstr "Visa källa"
 msgid "View"
 msgstr "Se"
 
+#: wiki/templates/wiki/includes/breadcrumbs.html:28
+msgid "No sub-articles"
+msgstr "Inga underartiklar"
+
+#: wiki/templates/wiki/includes/breadcrumbs.html:31
+msgid "...and more"
+msgstr "...samt mer"
+
 #: wiki/templates/wiki/includes/breadcrumbs.html:35
 msgid "Browse articles in this level"
 msgstr "Bläddra bland artiklar på denna nivå"
+
+#: wiki/templates/wiki/includes/breadcrumbs.html:51
+msgid "New article next to"
+msgstr "Ny artikel bredvid"
+
+#: wiki/templates/wiki/includes/revision_info.html:18
+msgid "restored"
+msgstr "återskapad"
 
 #: wiki/templates/wiki/includes/revision_info.html:24
 msgid "unlocked"
@@ -11008,6 +11422,11 @@ msgstr "Du är nu inloggad"
 msgid "New article '%s' created."
 msgstr "Artikeln '%s' har skapats."
 
+#: wiki/views/article.py:92
+#, python-format
+msgid "There was an error creating this article: %s"
+msgstr "Ett del uppstod när artikeln %s skulle skapas."
+
 #: wiki/views/article.py:94
 msgid "There was an error creating this article."
 msgstr "Ett del uppstod när artikeln skulle skapas."
@@ -11016,6 +11435,17 @@ msgstr "Ett del uppstod när artikeln skulle skapas."
 msgid ""
 "This article together with all its contents are now completely gone! Thanks!"
 msgstr "Denna artikel tillsammans med allt innehåll är nu borttagen."
+
+#: wiki/views/article.py:193
+#, python-format
+msgid ""
+"The article \"%s\" is now marked as deleted! Thanks for keeping the site "
+"free from unwanted material!"
+msgstr "Artikeln \"%s\" är nu borttagen!"
+
+#: wiki/views/article.py:276
+msgid "Your changes were saved."
+msgstr "Dina inställningar har sparats."
 
 #: wiki/views/article.py:356
 msgid "Restoring article"
@@ -11041,6 +11471,15 @@ msgstr "Ny titel"
 msgid "Merge between Revision #%(r1)d and Revision #%(r2)d"
 msgstr "Sammanslagning mellan revision #%(r1)d och revision #%(r2)d"
 
+#: wiki/views/article.py:635
+#, python-format
+msgid ""
+"A new revision was created: Merge between Revision #%(r1)d and Revision "
+"#%(r2)d"
+msgstr ""
+"En ny revision skapades: Sammanslagning mellan revision #%(r1)d och revision"
+" #%(r2)d"
+
 #: edx_proctoring_proctortrack/backends/proctortrack_rest.py:32
 msgid ""
 "Click on the \"Start System Check\" link below to download and run the "
@@ -11065,14 +11504,42 @@ msgstr ""
 "För att bekräfta att proctoring har startat, se till att ditt "
 "webbkameraflöde och den blå Proctortrack-rutan båda är synliga på din skärm."
 
+#: edx_proctoring_proctortrack/backends/proctortrack_rest.py:35
+msgid "Click on the \"Start Proctored Exam\" button below to continue."
+msgstr "Klicka på knappen \"Starta Proctored Exam\" nedan för att fortsätta."
+
 #: cms/templates/404.html:7 cms/templates/error.html:12
 #: lms/templates/static_templates/404.html:9
 msgid "Page Not Found"
 msgstr "Sidan hittas inte"
 
+#: cms/templates/404.html:15 lms/templates/static_templates/404.html:14
+msgid "Page not found"
+msgstr "Den begärda sidan hittades inte"
+
+#: cms/templates/404.html:19
+msgid "The page that you were looking for was not found."
+msgstr "Sidan du letade efter hittades inte."
+
+#: cms/templates/404.html:20
+msgid "Go back to the {homepage}."
+msgstr "Gå tillbaka till {hemsidan}."
+
+#: cms/templates/500.html:8
+msgid "{studio_name} Server Error"
+msgstr "{studio_name} Serverfel"
+
 #: cms/templates/500.html:19
 msgid "The {em_start}{studio_name}{em_end} servers encountered an error"
 msgstr "Servrarna {em_start} {studio_name} {em_end} stötte på ett fel"
+
+#: cms/templates/500.html:28
+msgid ""
+"An error occurred in {studio_name} and the page could not be loaded. Please "
+"try again in a few moments."
+msgstr ""
+"Ett fel uppstod i {studio_name} och sidan kunde inte laddas. Vänligen försök"
+" igen om några minuter."
 
 #: cms/templates/500.html:31
 msgid ""
@@ -11095,6 +11562,10 @@ msgstr "Studios tillgänglighetspolicy"
 msgid "Content"
 msgstr "Innehåll"
 
+#: cms/templates/certificates.html:15
+msgid "Course Certificates"
+msgstr "Kurscertifikat"
+
 #: cms/templates/certificates.html:71
 msgid "This module is not enabled."
 msgstr "Den här modulen är inte aktiverad."
@@ -11102,6 +11573,18 @@ msgstr "Den här modulen är inte aktiverad."
 #: cms/templates/certificates.html:77
 msgid "This course does not use a mode that offers certificates."
 msgstr "Kursen använder inte ett läge som erbjuder certifikat."
+
+#: cms/templates/certificates.html:91
+msgid "Working with Certificates"
+msgstr "Arbetar med certifikat"
+
+#: cms/templates/certificates.html:93
+msgid ""
+"For verified certificates, specify between one and four signatories and "
+"upload the associated images."
+msgstr ""
+"För verifierade certifikat anger du mellan en och fyra signatörer och laddar"
+" upp de associerade bilderna."
 
 #: cms/templates/certificates.html:94
 msgid ""
@@ -11113,6 +11596,18 @@ msgstr ""
 "höger längst upp till höger i formuläret och välj {em_start} Redigera "
 "{em_end} eller radera ikonen."
 
+#: cms/templates/certificates.html:95
+msgid ""
+"To view a sample certificate, choose a course mode and select "
+"{em_start}Preview Certificate{em_end}."
+msgstr ""
+"Om du vill visa ett provcertifikat väljer du ett kursläge och väljer "
+"{em_start} Preview Certificate {em_end}."
+
+#: cms/templates/certificates.html:97
+msgid "Issuing Certificates to Learners"
+msgstr "Utfärda certifikat till lärare"
+
 #: cms/templates/certificates.html:98
 msgid ""
 "To begin issuing course certificates, a course team member with either the "
@@ -11123,6 +11618,27 @@ msgstr ""
 "eller administratörsrollen {em_start} Aktivera {em_end}. Endast "
 "kursteamemedlemmar med dessa roller kan redigera eller ta bort ett aktiverat"
 " certifikat."
+
+#: cms/templates/certificates.html:99
+msgid ""
+"{em_start}Do not{em_end} delete certificates after a course has started; "
+"learners who have already earned certificates will no longer be able to "
+"access them."
+msgstr ""
+"{em_start} Ta inte bort {em_end} certifikat efter att en kurs har startat. "
+"Elever som redan har tjänat certifikat kommer inte längre kunna komma åt "
+"dem."
+
+#: cms/templates/certificates.html:100
+msgid "Learn more about certificates"
+msgstr "Läs mer om certifikat"
+
+#: cms/templates/certificates.html:115
+#: cms/templates/group_configurations.html:126
+#: cms/templates/settings_advanced.html:146
+#: cms/templates/settings_graders.html:168
+msgid "Details & Schedule"
+msgstr "Detaljer och schema"
 
 #: cms/templates/certificates.html:116
 #: cms/templates/group_configurations.html:127 cms/templates/settings.html:721
@@ -11168,6 +11684,16 @@ msgstr "Checklistor"
 #: cms/templates/widgets/header.html:226 cms/templates/widgets/header.html:297
 msgid "Tools"
 msgstr "Verktyg"
+
+#: cms/templates/component.html:17
+#: cms/templates/studio_xblock_wrapper.html:162
+msgid "Duplicate"
+msgstr "Duplicera"
+
+#: cms/templates/component.html:23 cms/templates/component.html:28
+#: cms/templates/studio_xblock_wrapper.html:143
+msgid "Move"
+msgstr "Flytta"
 
 #: cms/templates/component.html:39 cms/templates/edit-tabs.html:146
 #: cms/templates/edit-tabs.html:147
@@ -14431,6 +14957,16 @@ msgstr ""
 "{line_break} Om du har slutfört den här uppgiften är din betyg tillgänglig "
 "på framsidasidan {link_start} {link_end}."
 
+#: lms/templates/hidden_content.html:28
+msgid ""
+"Because the due date has passed, this assignment is no longer "
+"available.{line_break}If you have completed this assignment, your grade is "
+"available on the {link_start}progress page{link_end}."
+msgstr ""
+"Eftersom förfallodagen har passerat är den här uppgiften inte längre "
+"tillgänglig. {line_break} Om du har slutfört den här uppgiften är din betyg "
+"tillgänglig på framsidasidan {link_start} {link_end}."
+
 #: lms/templates/courseware/courses.html:42
 #: lms/templates/courseware/courses.html:43 lms/templates/index.html:26
 #: lms/templates/index.html:27
@@ -14454,6 +14990,18 @@ msgstr "Har din e-postklient bryt URL-adressen i två rader?"
 #: lms/templates/invalid_email_key.html:16
 msgid "The keys are valid for a limited amount of time. Has the key expired?"
 msgstr "Nycklarna gäller för en begränsad tid. Har nyckeln gått ut?"
+
+#. Translators:  "External resource" means that this learning module is hosted
+#. on a platform external to the edX LMS
+#: lms/templates/lti.html:9
+msgid "External resource"
+msgstr "Extern resurs"
+
+#. Translators: "points" is the student's achieved score on this LTI unit, and
+#. "total_points" is the maximum number of points achievable.
+#: lms/templates/lti.html:16
+msgid "{points} / {total_points} points"
+msgstr "Poäng {points} / {total_points}"
 
 #: lms/templates/lti.html:38
 msgid "View resource in a new window"
@@ -14490,9 +15038,21 @@ msgstr "Bild:"
 msgid "Name:"
 msgstr "Namn:"
 
+#: lms/templates/manage_user_standing.html:24
+msgid "Choose an action:"
+msgstr "Välj en åtgärd:"
+
+#: lms/templates/manage_user_standing.html:28
+msgid "Disable Account"
+msgstr "Inaktivera konto"
+
 #: lms/templates/manage_user_standing.html:31
 msgid "Reenable Account"
 msgstr "Reenable Account"
+
+#: lms/templates/manage_user_standing.html:34
+msgid "Remove Profile Image"
+msgstr "Ta bort profilbilden"
 
 #: lms/templates/manage_user_standing.html:43
 msgid "Students whose accounts have been disabled"
@@ -14510,6 +15070,10 @@ msgid ""
 msgstr ""
 "Vi beklagar, den här modulen är inte tillgänglig för tillfället. Vår "
 "personal jobbar på att fixa det så snart som möjligt."
+
+#: lms/templates/module-error.html:28
+msgid "Raw data:"
+msgstr "Rådata:"
 
 #: lms/templates/preview_menu.html:54
 msgid "Course View"
@@ -14568,6 +15132,14 @@ msgstr "Återställ ditt svar"
 msgid "Show answer"
 msgstr "Visa svar"
 
+#: lms/templates/problem.html:96
+msgid ""
+"Some problems have options such as save, reset, hints, or show answer. These"
+" options follow the Submit button."
+msgstr ""
+"Vissa problem har alternativ som spara, återställ, tips eller visa svar. "
+"Dessa alternativ följer Submit-knappen."
+
 #: lms/templates/problem.html:152
 msgid "Answers are displayed within the problem"
 msgstr "Svaren visas i problemet"
@@ -14580,6 +15152,10 @@ msgstr "Nästa tips"
 msgid "Review"
 msgstr "Recension"
 
+#: lms/templates/provider_login.html:38
+msgid "Log In"
+msgstr "Logga in"
+
 #: lms/templates/provider_login.html:46 lms/templates/provider_login.html:47
 #: lms/templates/signup_modal.html:41 lms/templates/signup_modal.html:63
 #: themes/stanford-style/lms/templates/register-form.html:83
@@ -14587,6 +15163,11 @@ msgstr "Recension"
 #: themes/stanford-style/lms/templates/register-shib.html:134
 msgid "E-mail"
 msgstr "E-post"
+
+#: lms/templates/provider_login.html:51
+#, python-format
+msgid "Return To %s"
+msgstr "Återgå till %s"
 
 #: lms/templates/public_video.html:39
 msgid "Learn more about this course"
@@ -14643,36 +15224,563 @@ msgstr "Nästa"
 msgid "Completed"
 msgstr "Avslutad"
 
+#: lms/templates/signup_modal.html:27
+msgid "Sign Up for {platform_name}"
+msgstr "Registrera dig för {platform_name}"
+
+#: lms/templates/signup_modal.html:51 lms/templates/signup_modal.html:70
+msgid "e.g. Your Name (for certificates)"
+msgstr "t.ex. ditt namn (för certifikat)"
+
+#: lms/templates/signup_modal.html:53
+msgid "{start_li}Welcome{end_li} {name}"
+msgstr "{start_li}Välkommen{end_li} {name}"
+
 #: lms/templates/signup_modal.html:57
 #: themes/stanford-style/lms/templates/register-shib.html:120
 msgid "Enter a public username:"
 msgstr "Ange ett offentligt användarnamn:"
 
+#: lms/templates/signup_modal.html:80
+msgid "Ed. Completed"
+msgstr "Ed. Avslutad"
+
+#: lms/templates/signup_modal.html:136
+#: themes/stanford-style/lms/templates/register-form.html:246
+#: themes/stanford-style/lms/templates/register-shib.html:164
+msgid "I agree to the {link_start}Terms of Service{link_end}"
+msgstr "Jag godkänner {link_start} användarvillkor {link_end}"
+
+#: lms/templates/signup_modal.html:152
+#: themes/stanford-style/lms/templates/register-form.html:272
+msgid "Create My Account"
+msgstr "Skapa mitt konto"
+
+#: lms/templates/signup_modal.html:159
+msgid "Already have an account?"
+msgstr "Har du redan ett konto?"
+
+#: lms/templates/signup_modal.html:159
+msgid "Login."
+msgstr "Logga in."
+
+#: lms/templates/split_test_author_view.html:30
+msgid "Active Groups"
+msgstr "Aktiva grupper"
+
 #: lms/templates/split_test_author_view.html:36
 msgid "Inactive Groups"
 msgstr "Inaktiva grupper"
 
+#: lms/templates/staff_problem_info.html:39
+msgid "{platform_name} Content Quality Assessment"
+msgstr "{platform_name} Utvärdering av innehållskvalitet"
+
 #: lms/templates/staff_problem_info.html:43
 msgid "Comment"
 msgstr "Kommentar"
+
+#: lms/templates/staff_problem_info.html:45
+msgid "Tag"
+msgstr "Märka"
+
+#: lms/templates/staff_problem_info.html:46
+msgid "Optional tag (eg \"done\" or \"broken\"):"
+msgstr "Valfri tagg (t.ex. &quot;gjort&quot; eller &quot;bruten&quot;):"
+
+#: lms/templates/staff_problem_info.html:49
+msgid "Add comment"
+msgstr "Lägg till kommentar"
+
+#: lms/templates/staff_problem_info.html:61
+msgid "Staff Debug:"
+msgstr "Personal Debug:"
+
+#: lms/templates/staff_problem_info.html:81
+msgid "Reset Learner's Attempts to Zero"
+msgstr "Återställ lärarens försök att nollställa"
+
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:94
+#: lms/templates/staff_problem_info.html:89
+msgid "Rescore Only If Score Improves"
+msgstr "Rescore Only Om poäng förbättras"
+
+#: lms/templates/staff_problem_info.html:93
+msgid "Override Score"
+msgstr "Åsidosätt poäng"
+
+#: lms/templates/static_htmlbook.html:113 lms/templates/static_pdfbook.html:38
+#: lms/templates/staticbook.html:82
+msgid "Textbook Navigation"
+msgstr "Textboknavigering"
 
 #: lms/templates/courseware/gradebook.html:130
 #: lms/templates/staticbook.html:119
 msgid "Page"
 msgstr "Sida"
 
+#: lms/templates/staticbook.html:125
+msgid "Next page"
+msgstr "Nästa sida"
+
+#: lms/templates/tracking_log.html:6
+msgid "datetime"
+msgstr "datum Tid"
+
+#: lms/templates/tracking_log.html:6
+msgid "source"
+msgstr "källa"
+
+#: lms/templates/tracking_log.html:6
+msgid "type"
+msgstr "typ"
+
+#: lms/templates/unsubscribe.html:15
+msgid "Unsubscribe Successful!"
+msgstr "Avsluta framgångsrikt!"
+
+#: lms/templates/unsubscribe.html:20
+msgid ""
+"You will no longer receive forum notification emails from {platform_name}. "
+"You may {dashboard_link_start}return to your dashboard{link_end}. If you did"
+" not mean to do this, {undo_link_start}you can re-subscribe{link_end}."
+msgstr ""
+"Du kommer inte längre få e-postmeddelanden från forumet från "
+"{platform_name}. Du kan {dashboard_link_start} återgå till instrumentpanelen"
+" {link_end}. Om du inte menade att göra det här, {undo_link_start} kan du "
+"prenumerera på nytt {link_end}."
+
+#: lms/templates/header/header.html:67
+#: lms/templates/header/user_dropdown.html:40
+#: lms/templates/user_dropdown.html:57
+msgid "More Options"
+msgstr "Fler inställningar"
+
+#: lms/templates/using.html:4
+msgid "Using the system"
+msgstr "Använda systemet"
+
+#: lms/templates/using.html:8
+msgid ""
+"During video playback, use the subtitles and the scroll bar to navigate. "
+"Clicking the subtitles is a fast way to skip forwards and backwards by small"
+" amounts."
+msgstr ""
+"Under videouppspelning, använd undertexten och rullningsfältet för att "
+"navigera. Att klicka på undertexten är ett snabbt sätt att hoppa framåt och "
+"bakåt med små mängder."
+
+#: lms/templates/using.html:16
+msgid ""
+"If you need bigger or smaller fonts, use your browsers settings to scale "
+"them up or down. Under Google Chrome, this is done by pressing ctrl-plus, or"
+" ctrl-minus at the same time."
+msgstr ""
+"Om du behöver större eller mindre teckensnitt använder du inställningarna "
+"för webbläsare för att skala dem upp eller ner. Under Google Chrome görs "
+"detta genom att trycka på ctrl-plus eller ctrl-minus samtidigt."
+
+#: lms/templates/video.html:61
+msgid "Download video file"
+msgstr "Ladda ner videofil"
+
 #: lms/templates/video.html:115
 msgid "Copy"
 msgstr "Kopiera"
+
+#: lms/templates/video.html:126
+msgid "Transcripts"
+msgstr "avskrifter"
+
+#: lms/templates/word_cloud.html:47
+msgid "Your words were:"
+msgstr "Dina ord var:"
 
 #: lms/templates/api_admin/api_access_request_form.html:12
 #: lms/templates/api_admin/status.html:16
 msgid "{platform_name} API Access Request"
 msgstr "{platform_name} API Access Request"
 
+#: lms/templates/api_admin/api_access_request_form.html:20
+msgid "Request API Access"
+msgstr "Begär API-åtkomst"
+
+#. Translators: "platform_name" is the name of this Open edX installation.
+#. "api_support_email_link" is HTML for a link to email the API support staff.
+#: lms/templates/api_admin/status.html:27
+msgid ""
+"Your request to access the {platform_name} Course Catalog API has been "
+"denied. If you think this is an error, or for other questions about using "
+"this API, contact {api_support_email_link}."
+msgstr ""
+"Din förfrågan om att komma åt API-katalogen {platform_name} Kurskatalog har "
+"blivit nekad. Om du tycker att det här är ett fel eller för andra frågor om "
+"hur du använder det här API: n, kontakta {api_support_email_link}."
+
+#: lms/templates/api_admin/status.html:33
+msgid ""
+"Your request to access the {platform_name} Course Catalog API has been "
+"approved."
+msgstr ""
+"Din förfrågan om åtkomst till {platform_name} Course Catalog API har "
+"godkänts."
+
+#: lms/templates/api_admin/status.html:39
+msgid "Application Name"
+msgstr "applikationsnamn"
+
+#: lms/templates/api_admin/status.html:41
+msgid "API Client Secret"
+msgstr "API Client Secret"
+
+#: lms/templates/api_admin/status.html:42
+msgid "Redirect URLs"
+msgstr "Omdirigera webbadresser"
+
+#: lms/templates/api_admin/terms_of_service.html:12
+msgid "Terms of Service for {platform_name} APIs"
+msgstr "Användarvillkor för {platform_name} API"
+
+#: lms/templates/api_admin/terms_of_service.html:15
+msgid ""
+"Welcome to {platform_name}. Thank you for using {platform_name}'s Course "
+"Discovery API, Enterprise API and/or any additional APIs that we may offer "
+"from time to time (collectively, the \"APIs\"). Please read these Terms of "
+"Service prior to accessing or using the APIs. These Terms of Service, any "
+"additional terms within accompanying API documentation, and any applicable "
+"policies and guidelines that {platform_name} makes available and/or updates "
+"from time to time are agreements (collectively, the \"Terms\") between you "
+"and {platform_name}. These Terms are issued under the enterprise product "
+"agreement, member participation agreement, or other direct agreement "
+"governing the purchase of {platform_name} products, if any (the "
+"\"Agreement\"), executed by you or the party on whose behalf you are "
+"accessing or using the APIs and {platform_name}.  In the event that you have"
+" such an Agreement that applies to your use of the APIs, the Agreement will "
+"control in the event of any conflict between it and these Terms. By "
+"accessing or using the APIs, you accept and agree to be legally bound by the"
+" Terms, whether or not you are a registered user. If you are accessing or "
+"using the APIs on behalf of a company, organization or other legal entity, "
+"you are agreeing to these Terms for that entity and representing and "
+"warranting to {platform_name} that you have full authority to accept and "
+"agree to these Terms for such entity, in which case the terms \"you,\" "
+"\"your\" or related terms herein shall refer to such entity on whose behalf "
+"you are accessing or using the APIs. If you do not have such authority or if"
+" you do not understand or do not wish to be bound by the Terms, you should "
+"not use the APIs."
+msgstr ""
+"Välkommen till {platform_name}. Tack för att du använder {platform_name}s "
+"Course Discovery API, Enterprise API och/eller eventuella ytterligare API:er"
+" som vi kan erbjuda från tid till annan (tillsammans kallade API:erna). Läs "
+"dessa användarvillkor innan du får åtkomst till eller använder API:erna. "
+"Dessa användarvillkor, eventuella ytterligare villkor i medföljande API-"
+"dokumentation och alla tillämpliga policyer och riktlinjer som "
+"{platform_name} gör tillgängliga och/eller uppdaterar från tid till annan är"
+" avtal (sammantaget \"Villkoren\") mellan dig och {platform_name}. Dessa "
+"villkor utfärdas under företagsproduktavtalet, medlemsdeltagandeavtalet "
+"eller annat direkt avtal som reglerar köp av {platform_name}-produkter, i "
+"förekommande fall (\"Avtalet\"), som utförs av dig eller den part för vars "
+"räkning du använder eller använder API:erna och {platform_name}. I händelse "
+"av att du har ett sådant avtal som gäller för din användning av API:erna "
+"kommer avtalet att styra i händelse av konflikt mellan det och dessa "
+"villkor. Genom att komma åt eller använda API:erna accepterar och samtycker "
+"du till att vara juridiskt bunden av Villkoren, oavsett om du är en "
+"registrerad användare eller inte. Om du får åtkomst till eller använder "
+"API:erna på uppdrag av ett företag, en organisation eller annan juridisk "
+"person, godkänner du dessa villkor för den enheten och representerar och "
+"garanterar för {platform_name} att du har full behörighet att acceptera och "
+"godkänna dessa villkor för sådan enhet, i vilket fall termerna \"du\", "
+"\"din\" eller relaterade termer häri ska hänvisa till en sådan enhet på vars"
+" vägnar du använder eller använder API:erna. Om du inte har sådan behörighet"
+" eller om du inte förstår eller inte vill vara bunden av Villkoren, bör du "
+"inte använda API:erna."
+
+#: lms/templates/api_admin/terms_of_service.html:17
+msgid "API Access"
+msgstr "API-åtkomst"
+
+#: lms/templates/api_admin/terms_of_service.html:19
+msgid ""
+"To access the APIs, you will need to create an {platform_name} user account "
+"for your application (not for personal use). This account will provide you "
+"with access to our API request page at {request_url}. On that page, you must"
+" complete the API request form including a description of your proposed uses"
+" for the APIs. Any account and registration information that you provide to "
+"{platform_name} must be accurate and up to date, and you agree to inform us "
+"promptly of any changes. {platform_name_capitalized} will review your API "
+"request form and, upon approval in {platform_name}'s sole discretion, will "
+"provide you with instructions for obtaining your API shared secret and "
+"client ID."
+msgstr ""
+"För att komma åt API:erna måste du skapa ett {platform_name}-användarkonto "
+"för din applikation (inte för personligt bruk). Detta konto ger dig åtkomst "
+"till vår API-förfrågningssida på {request_url}. På den sidan måste du fylla "
+"i API-begäran inklusive en beskrivning av dina föreslagna användningar för "
+"API:erna. All konto- och registreringsinformation som du tillhandahåller "
+"till {platform_name} måste vara korrekt och uppdaterad, och du samtycker "
+"till att informera oss omedelbart om eventuella ändringar. "
+"{platform_name_capitalized} kommer att granska ditt API-begäranformulär och,"
+" efter godkännande efter {platform_name}s eget gottfinnande, kommer att ge "
+"dig instruktioner för hur du skaffar din API delade hemlighet och klient-ID."
+
+#: lms/templates/api_admin/terms_of_service.html:33
+msgid ""
+"scraping or similar techniques to aggregate or otherwise create permanent "
+"copies of API Content;"
+msgstr ""
+"skrapning eller liknande tekniker för att aggregera eller på annat sätt "
+"skapa permanenta kopior av API-innehåll;"
+
+#: lms/templates/api_admin/terms_of_service.html:34
+msgid ""
+"violating, misappropriating or infringing any copyright, trademark rights, "
+"rights of privacy or publicity, confidential information or any other right "
+"of any third party;"
+msgstr ""
+"kränker, missfördelar eller kränker upphovsrätt, varumärkesrättigheter, "
+"integritetsskydd eller publicitet, konfidentiell information eller annan "
+"rättighet från tredje part."
+
+#: lms/templates/api_admin/terms_of_service.html:38
+msgid ""
+"distributing any virus, Trojan horse, spyware, adware, malware, bot, time "
+"bomb, worm, or other harmful or malicious component; or"
+msgstr ""
+"distribuera virus, trojansk häst, spionprogram, adware, skadlig kod, bot, "
+"tidsbom, mask eller annan skadlig eller skadlig komponent; eller"
+
+#: lms/templates/api_admin/terms_of_service.html:48
+msgid ""
+"You agree to comply with all applicable laws, regulations, and third party "
+"rights (including without limitation laws regarding the import or export of "
+"data or software, privacy, copyright, and local laws). You will not use the "
+"APIs to encourage or promote illegal activity or violation of third party "
+"rights. You will not violate any other terms of service with "
+"{platform_name}. You will only access (or attempt to access) an API by the "
+"means described in the documentation of that API. You will not misrepresent "
+"or mask either your identity or Your Application's identity when using the "
+"APIs."
+msgstr ""
+"Du samtycker till att följa alla tillämpliga lagar, förordningar och tredje "
+"parts rättigheter (inklusive utan begränsning lagar angående import eller "
+"export av data eller programvara, sekretess, upphovsrätt och lokala lagar). "
+"Du kommer inte att använda API:erna för att uppmuntra eller främja olaglig "
+"aktivitet eller kränkning av tredje parts rättigheter. Du kommer inte att "
+"bryta mot några andra användarvillkor med {platform_name}. Du kommer endast "
+"att komma åt (eller försöka få åtkomst till) ett API på det sätt som "
+"beskrivs i dokumentationen för det API. Du kommer inte att förvränga eller "
+"maskera vare sig din identitet eller din applikations identitet när du "
+"använder API:erna."
+
+#: lms/templates/api_admin/terms_of_service.html:50
+msgid "Ownership"
+msgstr "Äganderätt"
+
+#: lms/templates/api_admin/terms_of_service.html:54
+msgid ""
+"All names, logos and seals (\"Trademarks\") that appear in the APIs, API "
+"Content, or on or through the services made available on or through the "
+"APIs, if any, are the property of their respective owners. You may not "
+"remove, alter, or obscure any copyright, Trademark, or other proprietary "
+"rights notices incorporated in or accompanying the API Content. If any "
+"{platform_name} Participant (as hereinafter defined) or other third party "
+"revokes access to API Content owned or controlled by that {platform_name} "
+"Participant or third party, including without limitation any Trademarks, you"
+" must ensure that all API Content pertaining to that {platform_name} "
+"Participant or third party is deleted from Your Application and your "
+"networks, systems and servers as soon as reasonably possible. "
+"\"{platform_name_capitalized} Participants\" means MIT, Harvard, and the "
+"other entities providing information, API Content or services for the APIs, "
+"the course instructors and their staffs."
+msgstr ""
+"Alla namn, logotyper och sigill (\"Varumärken\") som förekommer i API:erna, "
+"API-innehållet eller på eller genom de tjänster som görs tillgängliga på "
+"eller via API:erna, om några, är deras respektive ägares egendom. Du får "
+"inte ta bort, ändra eller dölja några meddelanden om upphovsrätt, varumärken"
+" eller andra äganderätter som ingår i eller medföljer API-innehållet. Om "
+"någon {platform_name}-deltagare (enligt definitionen nedan) eller annan "
+"tredje part återkallar åtkomst till API-innehåll som ägs eller kontrolleras "
+"av denna {platform_name}-deltagare eller tredje part, inklusive utan "
+"begränsning eventuella varumärken, måste du se till att allt API-innehåll "
+"som hänför sig till den { platform_name} Deltagare eller tredje part raderas"
+" från din applikation och dina nätverk, system och servrar så snart det är "
+"rimligt möjligt. \"{platform_name_capitalized}-deltagare\" avser MIT, "
+"Harvard och de andra enheterna som tillhandahåller information, API-innehåll"
+" eller tjänster för API:erna, kursinstruktörerna och deras personal."
+
+#: lms/templates/api_admin/terms_of_service.html:72
+msgid "Confidentiality"
+msgstr "sekretess"
+
+#: lms/templates/api_admin/terms_of_service.html:74
+msgid ""
+"Your credentials (such as client secret and IDs) are intended to be used "
+"solely by you. You will keep your credentials confidential and prevent and "
+"discourage others from using your credentials. Your credentials may not be "
+"embedded in open source projects."
+msgstr ""
+"Dina referenser (som klienthemlighet och ID) är avsedda att användas enbart "
+"av dig. Du kommer att hålla dina referenser konfidentiella och förhindra och"
+" avskräcka andra från att använda dina referenser. Dina referenser kanske "
+"inte är inbäddade i projekt med öppen källkod."
+
+#: lms/templates/api_admin/terms_of_service.html:76
+msgid ""
+"In the event that {platform_name} provides you with access to information "
+"specific to {platform_name} and/or the APIs that is either marked as "
+"\"Confidential\" or which a reasonable person would assume to be "
+"confidential or proprietary given the terms of its disclosure "
+"(\"Confidential Information\"), you agree to use this information only to "
+"use and build with the APIs. You may not disclose the Confidential "
+"Information to anyone without {platform_name}'s prior written consent, and "
+"you agree to protect the Confidential Information from unauthorized use and "
+"disclosure in the same way that you would protect your own confidential "
+"information. Confidential Information does not include information that you "
+"independently developed, that was rightfully given to you by a third party "
+"without any confidentiality obligation, or that becomes public through no "
+"fault of your own. You may disclose Confidential Information when compelled "
+"to do so by law if you provide {platform_name} with reasonable prior notice,"
+" unless a court orders that {platform_name} not receive notice."
+msgstr ""
+"I händelse av att {platform_name} ger dig åtkomst till information som är "
+"specifik för {platform_name} och/eller API:erna som antingen är markerade "
+"som \"Konfidentiell\" eller som en rimlig person skulle anta är "
+"konfidentiell eller proprietär med tanke på villkoren för dess avslöjande ( "
+"\"Konfidentiell information\"), samtycker du till att endast använda denna "
+"information för att använda och bygga med API:erna. Du får inte avslöja den "
+"konfidentiella informationen till någon utan {platform_name}s föregående "
+"skriftliga medgivande, och du samtycker till att skydda den konfidentiella "
+"informationen från obehörig användning och avslöjande på samma sätt som du "
+"skulle skydda din egen konfidentiella information. Konfidentiell information"
+" inkluderar inte information som du självständigt utvecklat, som rättmätigt "
+"har getts till dig av en tredje part utan någon konfidentiell skyldighet, "
+"eller som blir offentlig utan ditt eget fel. Du kan avslöja konfidentiell "
+"information när du tvingas göra det enligt lag om du ger {platform_name} "
+"rimligt förhandsmeddelande, såvida inte en domstol beslutar att "
+"{platform_name} inte får meddelande."
+
+#: lms/templates/api_admin/terms_of_service.html:78
+msgid "Disclaimer of Warranty / Limitation of Liabilities"
+msgstr "Ansvarsfriskrivning / Ansvarsbegränsning"
+
+#: lms/templates/api_admin/terms_of_service.html:82
+msgid ""
+"{platform_name} AND THE {platform_name} PARTICIPANTS DO NOT WARRANT THAT THE"
+" APIS WILL OPERATE IN AN UNINTERRUPTED OR ERROR-FREE MANNER, THAT THE APIS "
+"ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS, OR THAT THE APIS OR API "
+"CONTENT PROVIDED WILL MEET YOUR NEEDS OR EXPECTATIONS. {platform_name} AND "
+"THE {platform_name} PARTICIPANTS ALSO MAKE NO WARRANTY ABOUT THE ACCURACY, "
+"COMPLETENESS, TIMELINESS, OR QUALITY OF THE APIS OR ANY API CONTENT, OR THAT"
+" ANY PARTICULAR API CONTENT WILL CONTINUE TO BE MADE AVAILABLE."
+msgstr ""
+"{platform_name} OCH {platform_name}-DELTAGARE GARANTERAR INTE ATT APIS "
+"KOMMER ATT FUNGERA PÅ ETT OAVBROTT ELLER FELFRITT SÄTT, ATT APISNA ÄR FRIA "
+"VIRUS ELLER ANDRA SKADLIGA KOMPONENTER, ELLER ATT DET ER ATT DET HAR ATT DU "
+"TILLHANDAHÅLLER API:EN. ELLER FÖRVÄNTNINGAR. {platform_name} OCH "
+"{platform_name}-DELTAGARE GER INTE INGEN GARANTI OM NOGGRANNHETEN, "
+"FULLSTÄNDIGHETEN, AKTUELLA ELLER KVALITETEN PÅ APIS ELLER NÅGOT API-"
+"INNEHÅLL, ELLER ATT NÅGOT SÄRSKILT API-INNEHÅLL FORTSÄTTER ATT GÖRAS "
+"TILLGÄNGLIGT."
+
+#: lms/templates/api_admin/terms_of_service.html:84
+msgid ""
+"USE OF THE APIS, AND THE API CONTENT AND ANY SERVICES OBTAINED FROM OR "
+"THROUGH THE APIS, IS AT YOUR OWN RISK. YOUR ACCESS TO OR DOWNLOAD OF "
+"INFORMATION, MATERIALS OR DATA THROUGH THE APIS IS AT YOUR OWN DISCRETION "
+"AND RISK, AND YOU WILL BE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR PROPERTY"
+" (INCLUDING YOUR COMPUTER SYSTEM) OR LOSS OF DATA THAT RESULTS FROM THE "
+"DOWNLOAD OR USE OF SUCH INFORMATION, MATERIALS OR DATA, UNLESS OTHERWISE "
+"EXPRESSLY PROVIDED FOR IN THE {platform_name} PRIVACY POLICY."
+msgstr ""
+"ANVÄNDNING AV APIS, OCH API-INNEHÅLLET OCH ALLA TJÄNSTER SOM ERHÅLLS FRÅN "
+"ELLER GENOM APIS, ÄR PÅ DIN EGEN RISK. DIN TILLGÅNG TILL ELLER NEDLADDNING "
+"AV INFORMATION, MATERIAL ELLER DATA GENOM API:EN ÄR PÅ DITT EGEN VAL OCH "
+"RISK, OCH DU KOMMER ENDA ANSVARIG FÖR ALLA SKADA PÅ DIN EGENDOM (INKLUSIVE "
+"DITT DATORSYSTEM) ELLER DIN DATALOSS ELLER RESULTAT ANVÄNDNING AV SÅDAN "
+"INFORMATION, MATERIAL ELLER DATA, OM INTE ANNAT SÅ UTTRYCKLIGEN FÖRESKRIVS I"
+" {platform_name} SEKRETESSPOLICY."
+
+#: lms/templates/api_admin/terms_of_service.html:100
+msgid ""
+"The Terms constitute the entire agreement between you and {platform_name} "
+"with respect to your use of the APIs and API Content, superseding any prior "
+"agreements between you and {platform_name} regarding your use of the APIs "
+"and API Content. The failure of {platform_name} to exercise or enforce any "
+"right or provision of the Terms shall not constitute a waiver of such right "
+"or provision. If any provision of the Terms is found by a court of competent"
+" jurisdiction to be invalid, the parties nevertheless agree that the court "
+"should endeavor to give effect to the parties' intentions as reflected in "
+"the provision and the other provisions of the Terms shall remain in full "
+"force and effect. The Terms do not create any third party beneficiary rights"
+" or any agency, partnership, or joint venture. For any notice provided to "
+"you by {platform_name} under these Terms, {platform_name} may notify you via"
+" the email address associated with your {platform_name} account."
+msgstr ""
+"Villkoren utgör hela avtalet mellan dig och {platform_name} med avseende på "
+"användningen av API och API-innehåll, vilket ersätter eventuella tidigare "
+"avtal mellan dig och {platform_name} angående din användning av API: er och "
+"API-innehåll. Att {platform_name} misslyckas med att utöva eller verkställa "
+"någon rättighet eller bestämmelse i Villkoren ska inte utgöra ett upphävande"
+" av sådan rättighet eller bestämmelse. Om någon bestämmelse i Villkoren "
+"fastställs av en behörig domstol som är ogiltig, är parterna likväl överens "
+"om att domstolen ska sträva efter att verkställa parternas avsikter enligt "
+"vad som anges i bestämmelsen och övriga bestämmelser i villkoren ska förbli "
+"i Full kraft och effekt. Villkoren skapar inte några tredjepartsmottagare "
+"rättigheter eller något organ, partnerskap eller joint venture. För alla "
+"meddelanden som tillhandahålls av {platform_name} enligt dessa villkor kan "
+"{platform_name} meddela dig via e-postadressen som är kopplad till ditt "
+"{platform_name} -konto."
+
+#: lms/templates/api_admin/catalogs/edit.html:12
+msgid "Edit {catalog_name}"
+msgstr "Redigera {catalog_name}"
+
+#: lms/templates/api_admin/catalogs/edit.html:29
+#: lms/templates/api_admin/catalogs/list.html:32
+msgid "Download CSV"
+msgstr "Hämta CSV"
+
+#: lms/templates/bulk_email/confirm_unsubscribe.html:34
+msgid "Note:"
+msgstr "not:"
+
+#: lms/templates/calculator/toggle_calculator.html:10
+msgid "Open Calculator"
+msgstr "Öppna Kalkylator"
+
+#: lms/templates/calculator/toggle_calculator.html:36
+msgid "Tips"
+msgstr "tips"
+
+#: lms/templates/calculator/toggle_calculator.html:38
+msgid ""
+"Use parentheses () to make expressions clear. You can use parentheses inside"
+" other parentheses."
+msgstr ""
+"Använd parenteser () för att göra uttryck klart. Du kan använda parenteser "
+"inom andra parenteser."
+
+#: lms/templates/calculator/toggle_calculator.html:49
+msgid "To Use"
+msgstr "Att använda"
+
 #: lms/templates/calculator/toggle_calculator.html:50
 msgid "Type"
 msgstr "Typ"
+
+#: lms/templates/calculator/toggle_calculator.html:54
+msgid "Numbers"
+msgstr "Tal"
+
+#. Translators: This refers to mathematical operators such as `plus`, `minus`,
+#. `division` and others.
+#: lms/templates/calculator/toggle_calculator.html:68
+msgid "Operators"
+msgstr "operatörer"
+
+#. Translators: Please do not translate mathematical symbols.
+#: lms/templates/calculator/toggle_calculator.html:73
+msgid "^ (raise to a power)"
+msgstr "^ (höja till en kraft)"
 
 #. Translators: this is part of scientific notation. Please see
 #. http://en.wikipedia.org/wiki/Scientific_notation#E_notation
@@ -14692,6 +15800,16 @@ msgstr "Resultat"
 #: lms/templates/ccx/coach_dashboard.html:28
 msgid "CCX Coach Dashboard"
 msgstr "CCX Coach Dashboard"
+
+#: lms/templates/ccx/coach_dashboard.html:51
+msgid "Create a new Custom Course for {platform_name}"
+msgstr "Skapa en ny anpassad kurs för {platform_name}"
+
+#: lms/templates/ccx/coach_dashboard.html:69
+#: lms/templates/ccx/coach_dashboard.html:81
+#: lms/templates/ccx/grading_policy.html:4
+msgid "Grading Policy"
+msgstr "Betygsättningspolicy"
 
 #: lms/templates/ccx/coach_dashboard.html:72
 #: lms/templates/instructor/instructor_dashboard_2/membership.html:9
@@ -14730,11 +15848,33 @@ msgstr ""
 "Om det här alternativet är {em_start} markerat {em_end}, registreras "
 "användare som ännu inte har registrerat sig för {platform_name} automatiskt."
 
+#: lms/templates/ccx/enrollment.html:31
+#: lms/templates/instructor/instructor_dashboard_2/membership.html:32
+msgid ""
+"If this option is left {em_start}unchecked{em_end}, users who have not yet "
+"registered for {platform_name} will not be enrolled, but will be allowed to "
+"enroll once they make an account."
+msgstr ""
+"Om det här alternativet är kvar {em_start} unchecked {em_end}, kommer "
+"användare som inte har registrerat sig för {platform_name} inte att vara "
+"inskrivna, men kommer att få registrera sig när de har skapat ett konto."
+
 #: lms/templates/ccx/enrollment.html:37
 #: lms/templates/instructor/instructor_dashboard_2/membership.html:34
 msgid "Checking this box has no effect if 'Unenroll' is selected."
 msgstr ""
 "Kryssning av denna ruta har ingen effekt om &#39;Unenroll&#39; är vald."
+
+#: lms/templates/ccx/enrollment.html:48
+#: lms/templates/instructor/instructor_dashboard_2/membership.html:47
+#: lms/templates/instructor/instructor_dashboard_2/membership.html:84
+#: lms/templates/instructor/instructor_dashboard_2/membership.html:127
+msgid ""
+"If this option is {em_start}checked{em_end}, users will receive an email "
+"notification."
+msgstr ""
+"Om det här alternativet är {em_start} markerat {em_end}, kommer användarna "
+"att få ett e-postmeddelande."
 
 #: lms/templates/ccx/enrollment.html:85 lms/templates/ccx/enrollment.html:93
 msgid "Revoke access"
@@ -14744,9 +15884,36 @@ msgstr "Återkalla åtkomst"
 msgid "WARNING"
 msgstr "VARNING"
 
+#: lms/templates/ccx/grading_policy.html:12
+msgid ""
+"For advanced users only. Errors in the grading policy can lead to the course"
+" failing to display. This form does not check the validity of the policy "
+"before saving."
+msgstr ""
+"Endast för avancerade användare. Fel i betygspolicyn kan leda till att "
+"kursen inte visas. Denna blankett kontrollerar inte policyens giltighet "
+"innan du sparar."
+
 #: lms/templates/ccx/grading_policy.html:13
 msgid "Most coaches should not need to make changes to the grading policy."
 msgstr "De flesta tränare borde inte behöva göra ändringar i betygspolicyn."
+
+#: lms/templates/ccx/grading_policy.html:23
+msgid "Save Grading Policy"
+msgstr "Spara betygspolicy"
+
+#. Translators: This explains to people using a screen reader how to interpret
+#. the format of YYYY-MM-DD
+#: lms/templates/ccx/schedule.html:52
+msgid "Date format four digit year dash two digit month dash two digit day"
+msgstr ""
+"Datumformat fyrsiffrigt år dash två siffror månad streck två siffror dag"
+
+#. Translators: This explains to people using a screen reader how to interpret
+#. the format of HH:MM
+#: lms/templates/ccx/schedule.html:55
+msgid "Time format two digit hours colon two digit minutes"
+msgstr "Tidsformat två siffra timmar kolon två siffror minuter"
 
 #: lms/templates/ccx/schedule.html:56
 msgid "Time"
@@ -14756,17 +15923,145 @@ msgstr "Tid"
 msgid "You have unsaved changes."
 msgstr "Du har olagrade ändringar."
 
+#: lms/templates/ccx/schedule.html:79
+msgid "There was an error saving changes."
+msgstr "Det gick inte att spara ändringar."
+
+#: lms/templates/ccx/schedule.html:83
+msgid "Schedule a Unit"
+msgstr "Planera en enhet"
+
+#: lms/templates/ccx/schedule.html:100
+msgid "Start Date"
+msgstr "Start datum"
+
+#: lms/templates/ccx/schedule.html:106 lms/templates/ccx/schedule.html:121
+msgid "yyyy-mm-dd"
+msgstr "yyyy-mm-dd"
+
+#. Translators: This explains to people using a screen reader how to interpret
+#. the format of HH:MM
+#: lms/templates/ccx/schedule.html:108
+msgid "Start time format two digit hours colon two digit minutes"
+msgstr "Starttidstyp tvåciffriga timmar kolon tvåciffriga minuter"
+
 #: lms/templates/ccx/schedule.html:109 lms/templates/ccx/schedule.html:124
 msgid "time"
 msgstr "tid"
+
+#: lms/templates/ccx/schedule.html:115
+msgid "(Optional)"
+msgstr "(Frivillig)"
+
+#. Translators: This explains to people using a screen reader how to interpret
+#. the format of HH:MM
+#: lms/templates/ccx/schedule.html:123
+msgid "Due Time format two digit hours colon two digit minutes"
+msgstr "Fördröjningstidsformat två siffra timmar kolon två siffror minuter"
+
+#: lms/templates/ccx/schedule.html:129
+msgid "Add Unit"
+msgstr "Lägg till enhet"
+
+#: lms/templates/ccx/schedule.html:133
+msgid "Add All Units"
+msgstr "Lägg till alla enheter"
+
+#: lms/templates/ccx/schedule.html:137
+msgid "All units have been added."
+msgstr "Alla enheter har lagts till."
+
+#: lms/templates/ccx/student_admin.html:6
+msgid "View gradebook"
+msgstr "Visa klassbok"
+
+#: lms/templates/ccx/student_admin.html:7
+msgid "Download student grades"
+msgstr "Hämta studentkvaliteter"
+
+#: lms/templates/certificates/_accomplishment-banner.html:50
+msgid "Print or share your certificate:"
+msgstr "Skriv ut eller dela ditt certifikat:"
+
+#: lms/templates/certificates/_accomplishment-banner.html:56
+msgid "Post on Facebook"
+msgstr "Posta på Facebook"
+
+#: lms/templates/certificates/_accomplishment-banner.html:60
+#: lms/templates/certificates/_accomplishment-banner.html:62
+#: lms/templates/dashboard/_dashboard_course_listing.html:241
+#: lms/templates/dashboard/_dashboard_course_listing.html:247
+msgid "Share on Twitter"
+msgstr "Dela på Twitter"
+
+#: lms/templates/certificates/_accomplishment-banner.html:66
+msgid "Tweet this Accomplishment. Pop up window."
+msgstr "Tweet detta resultat. Pop-up fönster."
+
+#: lms/templates/certificates/_accomplishment-banner.html:71
+#: lms/templates/certificates/_accomplishment-banner.html:73
+msgid "Add to LinkedIn Profile"
+msgstr "Lägg till på LinkedIn profil"
 
 #: lms/templates/certificates/_accomplishment-banner.html:80
 msgid "Add to Mozilla Backpack"
 msgstr "Lägg till i Mozilla Backpack"
 
+#: lms/templates/certificates/_accomplishment-banner.html:86
+msgid "Print Certificate"
+msgstr "Skriv ut certifikat"
+
+#: lms/templates/certificates/_accomplishment-header.html:9
+msgid "{platform_name} Home"
+msgstr "{platform_name} Hem"
+
+#: lms/templates/certificates/_accomplishment-rendering.html:69
+msgid "Supported by the following organizations"
+msgstr "Med stöd från följande organisationer"
+
+#: lms/templates/certificates/_edx-accomplishment-print-help.html:10
+msgid ""
+"For tips and tricks on printing your certificate, view the {link_start}Web "
+"Certificates help documentation{link_end}."
+msgstr ""
+"För tips och tricks om hur du skriver ut ditt certifikat, se "
+"{link_start}hjälpdokumentationen för webbcertifikat{link_end}."
+
+#: lms/templates/certificates/invalid.html:9
+msgid "Cannot Find Certificate"
+msgstr "Kan inte hitta certifikat"
+
+#: lms/templates/certificates/server-error.html:5
+msgid "Invalid Certificate Configuration."
+msgstr "Ogiltig certifikatkonfiguration."
+
+#: lms/templates/certificates/server-error.html:9
+msgid "There is a problem with this certificate."
+msgstr "Det här är ett problem med detta certifikat."
+
+#: lms/templates/certificates/server-error.html:14
+msgid ""
+"To resolve the problem, your partner manager should verify that the "
+"following information is correct."
+msgstr ""
+"För att lösa problemet måste din partnerhanterare verifiera att följande "
+"information är korrekt."
+
+#: lms/templates/certificates/server-error.html:18
+msgid "The institution that is linked to the course."
+msgstr "Institutionen som är kopplad till kursen."
+
 #: lms/templates/certificates/server-error.html:19
 msgid "The course information in the Course Administration tool."
 msgstr "Kursinformationen i Kurshanteringsverktyget."
+
+#: lms/templates/certificates/server-error.html:22
+msgid ""
+"If all of the information is correct and the problem persists, contact "
+"technical support."
+msgstr ""
+"Om all information är korrekt och problemet kvarstår, kontakta teknisk "
+"support."
 
 #: lms/templates/certificates/url_unsupported.html:11
 msgid ""
@@ -14781,9 +16076,52 @@ msgstr ""
 "du tittar på någon annans certifikat, kontakta dem för att få en uppdaterad "
 "länk."
 
+#: lms/templates/course_modes/_upgrade_button.html:14
+#: lms/templates/course_modes/choose.html:132
+msgid "Pursue the Verified Track"
+msgstr "Följ det verifierade spåret"
+
+#: lms/templates/course_modes/_upgrade_button.html:17
+#: lms/templates/course_modes/choose.html:134
+msgid "Pursue a Verified Certificate"
+msgstr "Fortsätt ett verifierat certifikat"
+
+#: lms/templates/course_modes/choose.html:12
+msgid "Enroll In {course_name} | Choose Your Track"
+msgstr "Logga in {course_name} | Välj ditt spår"
+
 #: lms/templates/course_modes/choose.html:62
 msgid "Sorry, there was an error when trying to enroll you"
 msgstr "Tyvärr, det uppstod ett fel när du försökte anmäla dig"
+
+#: lms/templates/course_modes/choose.html:91
+msgid "Pursue Academic Credit with the Verified Track"
+msgstr "Skaffa akademisk poäng med det verifierade spåret"
+
+#: lms/templates/course_modes/choose.html:93
+msgid "Pursue Academic Credit with a Verified Certificate"
+msgstr "Fortsätt akademiskt kredit med ett verifierat certifikat"
+
+#: lms/templates/course_modes/choose.html:97
+msgid ""
+"Become eligible for academic credit and highlight your new skills and "
+"knowledge with a verified certificate. Use this valuable credential to "
+"qualify for academic credit, advance your career, or strengthen your school "
+"applications."
+msgstr ""
+"Bli berättigad till akademisk kredit och markera dina nya färdigheter och "
+"kunskaper med ett verifierat certifikat. Använd den här värdefulla "
+"referensen för att kvalificera dig för akademisk kredit, fördjupa din "
+"karriär eller stärka dina skolans ansökningar."
+
+#: lms/templates/course_modes/choose.html:104
+#: lms/templates/course_modes/choose.html:116
+msgid ""
+"{b_start}Eligible for credit:{b_end} Receive academic credit after "
+"successfully completing the course"
+msgstr ""
+"{b_start} Stödberättigande för kredit: {b_end} Få akademisk kredit efter att"
+" ha avslutat kursen"
 
 #: lms/templates/course_modes/choose.html:106
 #: lms/templates/course_modes/choose.html:147
@@ -14795,10 +16133,27 @@ msgstr ""
 "tillgång till material när som helst för att fräscha upp det du har lärt "
 "dig."
 
+#: lms/templates/course_modes/choose.html:111
+#: lms/templates/course_modes/choose.html:152
+msgid ""
+"{b_start}Easily Sharable: {b_end}Add the certificate to your CV or resumé, "
+"or post it directly on LinkedIn."
+msgstr ""
+"{b_start}Lätt att dela: {b_end}Lägg till certifikatet i ditt CV eller CV, "
+"eller lägg upp det direkt på LinkedIn."
+
 #: lms/templates/course_modes/choose.html:114
 #: lms/templates/course_modes/choose.html:155
 msgid "Benefits of a Verified Certificate"
 msgstr "Fördelar med ett verifierat certifikat"
+
+#: lms/templates/course_modes/choose.html:117
+msgid ""
+"{b_start}Official:{b_end} Receive an instructor-signed certificate with the "
+"institution's logo"
+msgstr ""
+"{b_start} Officiell: {b_end} Ta emot ett instruktörsintyg med institutionens"
+" logotyp"
 
 #: lms/templates/course_modes/choose.html:139
 msgid ""
@@ -14811,26 +16166,266 @@ msgstr ""
 "och förbättra din karriär, eller markera ditt certifikat i skolans "
 "applikationer."
 
+#: lms/templates/course_modes/choose.html:157
+msgid ""
+"{b_start}Official: {b_end}Receive an instructor-signed certificate with the "
+"institution's logo"
+msgstr ""
+"{b_start} Officiell: {b_end} Ta emot ett instruktörsintyg med institutionens"
+" logotyp"
+
+#: lms/templates/course_modes/choose.html:158
+msgid ""
+"{b_start}Easily shareable: {b_end}Add the certificate to your CV or resumé, "
+"or post it directly on LinkedIn"
+msgstr ""
+"{b_start}Lätt att dela: {b_end}Lägg till certifikatet i ditt CV eller CV, "
+"eller lägg upp det direkt på LinkedIn"
+
+#: lms/templates/course_modes/choose.html:159
+msgid ""
+"{b_start}Motivating: {b_end}Give yourself an additional incentive to "
+"complete the course"
+msgstr ""
+"{b_start} Motivera: {b_end} Ge dig själv ett extra incitament för att "
+"slutföra kursen"
+
+#: lms/templates/course_modes/choose.html:204
+msgid "Audit This Course (No Certificate)"
+msgstr "Granska denna kurs (inget certifikat)"
+
+#: lms/templates/course_modes/choose.html:208
+msgid ""
+"Audit this course for free and have access to course materials and "
+"discussions forums. {b_start}This track does not include graded assignments,"
+" or unlimited course access.{b_end}"
+msgstr ""
+"Granska den här kursen gratis och ha tillgång till kursmaterial och "
+"diskussionsforum. {b_start}Det här spåret inkluderar inte betygsatta "
+"uppgifter eller obegränsad kursåtkomst.{b_end}"
+
+#: lms/templates/course_modes/choose.html:210
+msgid ""
+"Audit this course for free and have access to course materials and "
+"discussions forums. {b_start}This track does not include graded "
+"assignments.{b_end}"
+msgstr ""
+"Granska den här kursen gratis och ha tillgång till kursmaterial och "
+"diskussionsforum. {b_start}Det här spåret innehåller inte betygsatta "
+"uppgifter.{b_end}"
+
+#: lms/templates/course_modes/choose.html:212
+msgid ""
+"Audit this course for free and have access to course materials and "
+"discussions forums. {b_start}This track does not include unlimited course "
+"access.{b_end}"
+msgstr ""
+"Granska den här kursen gratis och ha tillgång till kursmaterial och "
+"diskussionsforum. {b_start}Det här spåret inkluderar inte obegränsad "
+"kursåtkomst.{b_end}"
+
+#: lms/templates/course_modes/choose.html:214
+msgid ""
+"Audit this course for free and have complete access to all the course "
+"material, activities, tests, and forums.  {b_start}Please note that this "
+"track does not offer a certificate for learners who earn a passing "
+"grade.{b_end}"
+msgstr ""
+"Granska kursen gratis och ha fullständig tillgång till allt kursmaterial, "
+"aktiviteter, tester och forum. {b_start} Observera att det här spåret inte "
+"erbjuder ett certifikat för elever som tjänar betygen. {b_end}"
+
+#: lms/templates/course_modes/error.html:13
+msgid "Unable to enroll in {course_name}"
+msgstr "Det gick inte att anmäla sig till {course_name}"
+
 #: lms/templates/course_modes/error.html:29
 msgid "Explore all courses on edX"
 msgstr "Utforska alla kurser på edX"
+
+#: lms/templates/course_modes/fbe.html:15
+#: lms/templates/course_modes/unfbe.html:19
+msgid ""
+"Showcase a {link_start}verified certificate{link_end} of completion on your "
+"resumé to advance your career"
+msgstr ""
+"Visa upp ett {link_start}verifierat certifikat{link_end} på ditt CV för att "
+"avancera din karriär"
+
+#: lms/templates/course_modes/fbe.html:20
+msgid ""
+"Get {start_bold}access to all course activities{end_bold}, including both "
+"graded and non-graded assignments, while the course is running"
+msgstr ""
+"Få {start_bold}åtkomst till alla kursaktiviteter{end_bold}, inklusive både "
+"betygsatta och icke betygsatta uppgifter, medan kursen pågår"
 
 #: lms/templates/course_modes/fbe.html:24
 msgid "Show more"
 msgstr "Visa mer"
 
+#: lms/templates/course_modes/fbe.html:26
+msgid ""
+"{start_bold}Full access{end_bold} to course content and materials, even "
+"after the course ends"
+msgstr ""
+"{start_bold}Full tillgång{end_bold} till kursinnehåll och material, även "
+"efter att kursen är slut"
+
+#: lms/templates/course_modes/fbe.html:35
+msgid "{link_start}Learn more{link_end} about course access"
+msgstr "{link_start}Läs mer{link_end} om kursåtkomst"
+
+#: lms/templates/course_modes/fbe.html:42
+#: lms/templates/course_modes/unfbe.html:23
+msgid ""
+"Support our {start_bold}mission{end_bold} to increase access to high-quality"
+" education for everyone, everywhere"
+msgstr ""
+"Stöd vårt {start_bold}uppdrag{end_bold} att öka tillgången till "
+"högkvalitativ utbildning för alla, överallt"
+
+#: lms/templates/course_modes/fbe.html:53
+msgid ""
+"Get temporary access to  {start_bold}non-graded{end_bold} activities, "
+"including discussion forums and non-graded assignments"
+msgstr ""
+"Få tillfällig åtkomst till {start_bold}icke betygsatta{end_bold} "
+"aktiviteter, inklusive diskussionsforum och icke betygsatta uppgifter"
+
+#: lms/templates/course_modes/fbe.html:57
+msgid ""
+"Get {start_bold}temporary access{end_bold} to the course material, including"
+" videos and readings"
+msgstr ""
+"Få {start_bold}tillfällig åtkomst{end_bold} till kursmaterialet, inklusive "
+"videor och läsningar"
+
+#: lms/templates/course_modes/fbe.html:62
+msgid "Access expires and all progress will be lost on"
+msgstr "Åtkomsten upphör och alla framsteg kommer att gå förlorade"
+
+#: lms/templates/course_modes/track_selection.html:92
+msgid "Choose a path for your course in"
+msgstr "Välj en väg för din kurs i"
+
+#: lms/templates/course_modes/track_selection.html:114
+msgid "Earn a certificate"
+msgstr "Förtjäna ett certifikat"
+
+#: lms/templates/course_modes/track_selection.html:142
+msgid ""
+"Studies show that those who choose this option are  {start_bold}more engaged"
+" and motivated{end_bold} to complete their courses"
+msgstr ""
+"Studier visar att de som väljer det här alternativet är {start_bold}mer "
+"engagerade och motiverade{end_bold} att slutföra sina kurser"
+
+#: lms/templates/course_modes/unfbe.html:34
+msgid "Get access to the course material, including videos and readings"
+msgstr "Få tillgång till kursmaterialet, inklusive videor och läsningar"
+
+#: lms/templates/courseware/accordion.html:30
+msgid "{span_start}current section{span_end}"
+msgstr "{span_start}aktuelt avsnitt{span_end}"
+
+#: lms/templates/courseware/accordion.html:48
+msgid "{section_format} due {{date}}"
+msgstr "{section_format} på grund av {{date}}"
+
+#: lms/templates/courseware/accordion.html:69
+msgid "This content is graded"
+msgstr "Detta innehåll är graderat"
+
+#: lms/templates/courseware/course_about.html:44
+msgid "An error occurred. Please try again later."
+msgstr "Ett fel uppstod. Vänligen försök igen senare."
+
+#: lms/templates/courseware/course_about.html:78
+msgid "You are enrolled in this course"
+msgstr "Du är med i kursen"
+
+#: lms/templates/courseware/course_about.html:95
+msgid "Enrollment is Closed"
+msgstr "Inskrivningen är stängd"
+
+#: lms/templates/courseware/course_about.html:114
+msgid "Enroll Now"
+msgstr "Anmäl dig nu"
+
 #: lms/templates/courseware/course_about.html:170
 msgid "Classes Start"
 msgstr "Kursstart"
+
+#: lms/templates/courseware/course_about.html:190
+msgid "Classes End"
+msgstr "Klasser slutar"
+
+#: lms/templates/courseware/course_about.html:203
+msgid "Estimated Effort"
+msgstr "Uppskattad insats"
 
 #: lms/templates/courseware/course_about.html:220
 msgid "Prerequisites"
 msgstr "förutsättningar"
 
+#: lms/templates/courseware/course_about.html:224
+#: lms/templates/dashboard/_dashboard_course_listing.html:425
+msgid ""
+"You must successfully complete {link_start}{prc_display}{link_end} before "
+"you begin this course."
+msgstr ""
+"Du måste slutföra {link_start} {prc_display} {link_end} innan du börjar "
+"kursen."
+
+#: lms/templates/courseware/course_about.html:244
+msgid "Additional Resources"
+msgstr "Ytterligare resurser"
+
 #: lms/templates/courseware/course_about.html:279
 msgctxt "self"
 msgid "enroll"
 msgstr "skriva in"
+
+#: lms/templates/courseware/course_about_sidebar_header.html:14
+#: themes/stanford-style/lms/templates/courseware/course_about_sidebar_header.html:8
+msgid "Share with friends and family!"
+msgstr "Dela med vänner och familj!"
+
+#: lms/templates/courseware/course_about_sidebar_header.html:27
+msgid "I just enrolled in {number} {title} through {account} {url}"
+msgstr "Jag har precis anmält mig till {number} {title} genom {account} {url}"
+
+#: lms/templates/courseware/course_about_sidebar_header.html:38
+msgid "I just enrolled in {number} {title} through {platform} {url}"
+msgstr ""
+"Jag har precis anmält mig till {number} {title} genom {platform} {url}"
+
+#: lms/templates/courseware/course_about_sidebar_header.html:55
+msgid "Post a Facebook message to say you've enrolled in this course"
+msgstr ""
+"Skicka ett Facebook-meddelande för att säga att du har anmält dig till denna"
+" kurs"
+
+#: lms/templates/courseware/course_about_sidebar_header.html:58
+#: themes/stanford-style/lms/templates/courseware/course_about_sidebar_header.html:13
+msgid "Email someone to say you've enrolled in this course"
+msgstr "Maila någon att säga att du har anmält dig till den här kursen"
+
+#: lms/templates/courseware/course_navigation.html:62
+msgid "current location"
+msgstr "nuvarande position"
+
+#. Translators: 'needs attention' is an alternative string for the
+#. notification image that indicates the tab "needs attention".
+#: lms/templates/courseware/course_navigation.html:67
+#: lms/templates/courseware/tabs.html:30
+msgid "needs attention"
+msgstr "behöver uppmärksamhet"
+
+#: lms/templates/courseware/course_navigation.html:76
+msgid "Course Material"
+msgstr "Kursmaterial"
 
 #: lms/templates/courseware/course_updates.html:10
 #: lms/templates/courseware/course_updates.html:40
@@ -14842,9 +16437,135 @@ msgstr "Dölj"
 msgid "Show"
 msgstr "Show"
 
+#: lms/templates/courseware/course_updates.html:28
+msgid "Show Earlier Course Updates"
+msgstr "Visa tidigare kursuppdateringar"
+
+#: lms/templates/courseware/courseware-error.html:29
+#: lms/templates/courseware/error-message.html:9
+msgid ""
+"We're sorry, this module is temporarily unavailable. Our staff is working to"
+" fix it as soon as possible."
+msgstr ""
+"Vi beklagar, den här modulen är inte tillgänglig för tillfället. Vår "
+"personal jobbar på att fixa det så snart som möjligt."
+
+#: lms/templates/courseware/courseware.html:257
+#, python-format
+msgid ""
+"To access course materials, you must score {required_score}% or higher on "
+"this                     exam. Your current score is {current_score}%."
+msgstr ""
+"För att få tillgång till kursmaterial måste du göra {required_score}% eller "
+"högre på den här tentamen. Ditt nuvarande poäng är {current_score}%."
+
+#: lms/templates/courseware/courseware.html:275
+msgid "Your score is {current_score}%. You have passed the entrance exam."
+msgstr "Din poäng är {current_score}%. Du har gått in på tentamen."
+
 #: lms/templates/courseware/gradebook.html:44
 msgid "Gradebook"
 msgstr "betygsbok"
+
+#: lms/templates/courseware/gradebook.html:91
+#: lms/templates/courseware/gradebook.html:116
+#: lms/templates/instructor/instructor_dashboard_2/course_info.html:59
+msgid "Total"
+msgstr "Total"
+
+#: lms/templates/courseware/gradebook.html:126
+msgid "previous page"
+msgstr "föregående sida"
+
+#: lms/templates/courseware/gradebook.html:130
+msgid "of"
+msgstr "av"
+
+#: lms/templates/courseware/gradebook.html:135
+msgid "next page"
+msgstr "nästa sida"
+
+#: lms/templates/courseware/news.html:6
+msgid "News - MITx 6.002x"
+msgstr "Nyheter - MITx 6.002x"
+
+#: lms/templates/courseware/news.html:21
+msgid "Updates to Discussion Posts You Follow"
+msgstr "Uppdateringar till diskussionsinlägg som du följer"
+
+#: lms/templates/courseware/program_marketing.html:94
+#: lms/templates/courseware/program_marketing.html:254
+msgid "Original Price"
+msgstr "Ursprungligt pris"
+
+#: lms/templates/courseware/program_marketing.html:104
+msgid "{currency})"
+msgstr "{valuta})"
+
+#: lms/templates/courseware/program_marketing.html:116
+msgid "Start Learning"
+msgstr "Börja lära dig"
+
+#: lms/templates/courseware/program_marketing.html:124
+msgid "Play"
+msgstr "Spela"
+
+#: lms/templates/courseware/program_marketing.html:127
+msgid "YouTube Video"
+msgstr "YouTube Video"
+
+#: lms/templates/courseware/program_marketing.html:215
+msgid "Average Length"
+msgstr "Genomsnittslängd"
+
+#: lms/templates/courseware/program_marketing.html:218
+msgid "{weeks_to_complete} weeks per course"
+msgstr "{weeks_to_complete} veckor per kurs"
+
+#: lms/templates/courseware/program_marketing.html:226
+msgid "Effort"
+msgstr "Ansträngning"
+
+#: lms/templates/courseware/program_marketing.html:229
+msgid ""
+"{min_hours_effort_per_week}-{max_hours_effort_per_week} hours per week, per "
+"course"
+msgstr ""
+"{min_hours_effort_per_week} - {max_hours_effort_per_week} timmar per vecka, "
+"per kurs"
+
+#: lms/templates/courseware/program_marketing.html:238
+msgid "Number of Courses"
+msgstr "Antal kurser"
+
+#: lms/templates/courseware/program_marketing.html:241
+msgid "{number_of_courses} courses in program"
+msgstr "{number_of_courses} kurser i programmet"
+
+#: lms/templates/courseware/program_marketing.html:260
+msgid "${newPrice}{htmlEnd} for entire program"
+msgstr "$ {newPrice} {htmlEnd} för hela programmet"
+
+#: lms/templates/courseware/program_marketing.html:324
+msgid "Starts on {}"
+msgstr "Börjar {}"
+
+#: lms/templates/courseware/progress.html:35
+msgid "{course_number} Progress"
+msgstr "{course_number} Framsteg"
+
+#: lms/templates/courseware/progress.html:63
+msgid "View Grading in studio"
+msgstr "Visa betyg i studio"
+
+#: lms/templates/courseware/progress.html:87
+#: lms/templates/dashboard/_dashboard_certificate_information.html:100
+msgid "Request Certificate"
+msgstr "Förfrågningsintyg"
+
+#: lms/templates/courseware/progress.html:102
+msgid "Requirements for Course Credit"
+msgstr "Krav på bankkrediter"
 
 #: lms/templates/courseware/progress.html:108
 msgid ""
