@@ -113,10 +113,18 @@ msgstr "Tom"
 msgid "No matching course found."
 msgstr "Ingen matchande kurs hittades."
 
+#: cms/djangoapps/maintenance/views.py:213
+msgid "Course is already in published state."
+msgstr "Kursen är redan i ett publicerat tillstånd"
+
 #: cms/djangoapps/models/settings/course_metadata.py:221
 #, python-brace-format
 msgid "Incorrect format for field '{name}'. {detailed_message}"
 msgstr "Felaktigt format för fältet '{namn}'. {detaljerad_meddelande}"
+
+#: cms/lib/xblock/tagging/tagging.py:21
+msgid "Dictionary with the available tags"
+msgstr "Ordbok med tillgängliga taggar"
 
 #: cms/templates/admin/base_site.html:4 lms/templates/admin/base_site.html:3
 msgid "Django site admin"
@@ -138,6 +146,12 @@ msgstr "Logga ut"
 #: cms/urls.py:29
 msgid "Studio Administration"
 msgstr "Studio Administration"
+
+#: common/djangoapps/course_modes/admin.py:40
+#: common/djangoapps/course_modes/models.py:60
+#: xmodule/library_content_block.py:139
+msgid "Mode"
+msgstr "Läge"
 
 #: common/djangoapps/course_modes/admin.py:48
 #: lms/djangoapps/courseware/date_summary.py:566
@@ -169,6 +183,17 @@ msgstr "Du är inskriven som en förtroendestudent"
 msgid "Professional Ed"
 msgstr "Professionell utbildnings"
 
+#: common/djangoapps/course_modes/models.py:63 xmodule/annotatable_block.py:65
+#: xmodule/capa_block.py:177 xmodule/conditional_block.py:88
+#: xmodule/discussion_block.py:47 xmodule/html_block.py:54
+#: xmodule/html_block.py:390 xmodule/library_content_block.py:122
+#: xmodule/lti_block.py:131 xmodule/split_test_block.py:82
+#: xmodule/unit_block.py:38 xmodule/word_cloud_block.py:57
+#: xmodule/x_module.py:226 cms/templates/container.html:157
+#: cms/templates/library.html:51
+msgid "Display Name"
+msgstr "Visas som"
+
 #: common/djangoapps/course_modes/models.py:69
 #: lms/templates/courseware/course_about.html:211
 msgid "Price"
@@ -177,6 +202,16 @@ msgstr "Pris"
 #: common/djangoapps/course_modes/models.py:81
 msgid "Upgrade Deadline"
 msgstr "Slutdatum för uppgradering"
+
+#: common/djangoapps/course_modes/models.py:83
+msgid ""
+"OPTIONAL: After this date/time, users will no longer be able to enroll in "
+"this mode. Leave this blank if users can enroll in this mode until "
+"enrollment closes for the course."
+msgstr ""
+"VALFRITT: Efter det här datumet / tiden kan användarna inte längre skriva in"
+" i det här läget. Lämna detta tomt om användarna kan registrera sig i det "
+"här läget tills inskrivningen stängs för kursen."
 
 #: common/djangoapps/course_modes/models.py:121
 msgid ""
@@ -217,10 +252,31 @@ msgstr ""
 "Kursläget {course_mode} har ett minimipris på {min_price}. Du måste ange ett"
 " pris som är större än eller lika med {min_price}."
 
+#. Translators: This will look like '$50', where {currency_symbol} is a symbol
+#. such as '$' and {price} is a
+#. numerical amount in that currency. Adjust this display as needed for your
+#. language.
+#: common/djangoapps/course_modes/models.py:925
+#, python-brace-format
+msgid "{currency_symbol}{price}"
+msgstr "{currency_symbol} {price}"
+
+#. #-#-#-#-#  django.po (0.1a)  #-#-#-#-#
+#. Translators: This refers to the cost of the course. In this case, the
+#. course costs nothing so it is free.
+#: common/djangoapps/course_modes/models.py:928
+#: lms/templates/course_modes/track_selection.html:150
+msgid "Free"
+msgstr "Gratis"
+
 #: common/djangoapps/course_modes/models.py:983
 msgid ""
 "The time period before a course ends in which a course mode will expire"
 msgstr "Tidsperioden före en kurs slutar då ett kursläge löper ut"
+
+#: common/djangoapps/course_modes/views.py:319
+msgid "Enrollment mode not supported"
+msgstr "Inskrivningsläget stöds inte"
 
 #: common/djangoapps/course_modes/views.py:359
 msgid "No selected price or selected price is too low."
@@ -229,6 +285,40 @@ msgstr "Inget valt pris eller valt pris är för lågt."
 #: common/djangoapps/student/admin.py:316
 msgid "User profile"
 msgstr "Användarprofil"
+
+#: common/djangoapps/student/admin.py:341
+msgid ""
+"Raw passwords are not stored, so there is no way to see this user's "
+"password."
+msgstr ""
+"Rålösenord lagras inte, så det finns inget sätt att se denna användares "
+"lösenord."
+
+#: common/djangoapps/student/admin.py:498
+#, python-brace-format
+msgid ""
+"Please add a key/value 'THIRD_PARTY_AUTH_ONLY_DOMAIN/{site_email_domain}' in"
+" SiteConfiguration model's site_values field."
+msgstr ""
+"Lägg till nyckeln/värdet 'THIRD_PARTY_AUTH_ONLY_DOMAIN/{site_email_domain}' "
+"i SiteConfiguration-modellens site_values-fält."
+
+#: common/djangoapps/student/admin.py:506
+msgid "User with this email doesn't exist in system."
+msgstr "Användare med denna e-postadress finns inte i systemet."
+
+#: common/djangoapps/student/middleware.py:32
+#, python-brace-format
+msgid ""
+"Your account has been disabled. If you believe this was done in error, "
+"please contact us at {support_email}"
+msgstr ""
+"Ditt konto har avaktiverats. Om du tror att detta gjordes felaktigt, "
+"kontakta oss på {support_email}"
+
+#: common/djangoapps/student/middleware.py:38
+msgid "Disabled Account"
+msgstr "Inaktiverat konto"
 
 #: common/djangoapps/student/models/course_enrollment.py:1588
 msgid "Name of the enrollment attribute"
@@ -246,9 +336,22 @@ msgstr ""
 msgid "Female"
 msgstr "Kvinna"
 
+#. Translators: 'Other' refers to the student's gender
+#: common/djangoapps/student/models/user.py:464
+msgid "Other/Prefer Not to Say"
+msgstr "Övrigt - föredrar att inte uppge"
+
 #: common/djangoapps/student/models/user.py:475
 msgid "Doctorate"
 msgstr "doktorsexamen"
+
+#: common/djangoapps/student/models/user.py:476
+msgid "Master's or professional degree"
+msgstr "Magisterexamen eller yrkesexamen"
+
+#: common/djangoapps/student/models/user.py:478
+msgid "Associate degree"
+msgstr "Högskoleexamen"
 
 #: common/djangoapps/student/models/user.py:479
 msgid "Secondary/high school"
@@ -267,14 +370,94 @@ msgstr "Grundskola / grundskola"
 msgid "Other education"
 msgstr "Övrig utbildning"
 
+#: common/djangoapps/student/models/user.py:1328
+#, python-brace-format
+msgid "{platform_name} Honor Code Certificate for {course_name}"
+msgstr "{platform_name} Förtroendecertifikat för {course_name}"
+
+#: common/djangoapps/student/models/user.py:1329
+#, python-brace-format
+msgid "{platform_name} Verified Certificate for {course_name}"
+msgstr "{platform_name} Verifierat certifikat för {course_name}"
+
+#: common/djangoapps/student/models/user.py:1337
+msgid ""
+"Your organization ID (if your organization has an existing page on LinkedIn)"
+" e.g 1337. If not provided, will default to sending Platform Name (e.g. edX)"
+" instead."
+msgstr ""
+"Ditt organisations-ID (om din organisation har en befintlig sida på "
+"LinkedIn) t.ex. 1337. Om det inte anges skickas som standard plattformsnamn "
+"(t.ex. edX) istället."
+
 #: common/djangoapps/student/models/user.py:1393
 #, python-brace-format
 msgid "{platform_name} Certificate for {course_name}"
 msgstr "{platform_name} Certifikat för {course_name}"
 
+#: common/djangoapps/student/models/user.py:1533
+msgid "Name of the UTM cookie"
+msgstr "Namnet på UTM-cookien"
+
+#: common/djangoapps/student/models/user.py:1561
+msgid "Name of this user attribute."
+msgstr "Namnet på det här användarattributet."
+
+#: common/djangoapps/student/models/user.py:1628
+msgid "Secondary email address to recover linked account."
+msgstr "Sekundär e-postadress för att återställa länkat konto."
+
+#: common/djangoapps/student/models/user.py:1675
+msgid ""
+"An employee (a user whose email has current site's domain name) whose email "
+"exists in this model, can be able to login from login screen through email "
+"and password. And if any employee's email doesn't exist in this model then "
+"that employee can login via third party authentication backend only."
+msgstr ""
+"En anställd (en användare vars e-post har det aktuella webbplatsens "
+"domännamn) vars e-postadress finns i denna modell, kan logga in från "
+"inloggningsskärmen via e-post och lösenord. Och om någon anställds e-post "
+"inte finns i den här modellen kan den anställde endast logga in via tredje "
+"parts autentiseringsbackend."
+
+#: common/djangoapps/student/models/user.py:1826
+msgid "Add a reason"
+msgstr "Lägg till en anledning"
+
 #: common/djangoapps/student/views/dashboard.py:142
 msgid " and "
 msgstr "och"
+
+#: common/djangoapps/student/views/dashboard.py:287
+msgid "ID photo not provided"
+msgstr "ID-foto tillhandahålls inte"
+
+#: common/djangoapps/student/views/dashboard.py:289
+msgid "Learner photo is blurry"
+msgstr "Learnerfotoet är suddigt"
+
+#: common/djangoapps/student/views/dashboard.py:290
+msgid "Name on ID does not match name on account"
+msgstr "Namn på ID matchar inte namn på konto"
+
+#: common/djangoapps/student/views/dashboard.py:291
+msgid "Learner photo not provided"
+msgstr "Learner photo not provided"
+
+#: common/djangoapps/student/views/dashboard.py:292
+msgid "ID photo is blurry"
+msgstr "ID-foto är suddigt"
+
+#: common/djangoapps/student/views/dashboard.py:597
+#, python-brace-format
+msgid ""
+"Check your {email_start}{email}{email_end} inbox for an account activation "
+"link from {platform_name}. If you need help, contact "
+"{link_start}{platform_name} Support{link_end}."
+msgstr ""
+"Kontrollera din {email_start} {email} {email_end} inkorg för en "
+"aktiveringslänk från {platform_name}. Om du behöver hjälp kontaktar du "
+"{link_start} {platform_name} vår support {link_end}."
 
 #: common/djangoapps/student/views/dashboard.py:622
 #, python-brace-format
@@ -286,9 +469,75 @@ msgstr ""
 "inloggning inte är tillgänglig. Gå till {link_start}dina "
 "kontoinställningar{link_end}."
 
+#: common/djangoapps/student/views/dashboard.py:755
+#, python-brace-format
+msgid "The course you are looking for does not start until {date}."
+msgstr "Kursen du letar efter börjar inte förrän {date}."
+
+#: common/djangoapps/student/views/management.py:343
+msgid "Course id not specified"
+msgstr "Kursens id är inte angivet"
+
+#: common/djangoapps/student/views/management.py:354
+msgid "Invalid course id"
+msgstr "Ogiltigt kurs-id"
+
+#: common/djangoapps/student/views/management.py:402
+msgid "Could not enroll"
+msgstr "Det gick inte att anmäla sig"
+
 #: common/djangoapps/student/views/management.py:440
 msgid "Enrollment action is invalid"
 msgstr "Registreringsåtgärden är ogiltig"
+
+#: common/djangoapps/student/views/management.py:483
+msgid "Please enter a username"
+msgstr "var vänlig ange ett användarnamn"
+
+#: common/djangoapps/student/views/management.py:488
+msgid "Please choose an option"
+msgstr "Välj ett alternativ"
+
+#: common/djangoapps/student/views/management.py:495
+msgid "User with username {} does not exist"
+msgstr "Användare med användarnamn {} existerar inte"
+
+#: common/djangoapps/student/views/management.py:503
+msgid "Successfully disabled {}'s account"
+msgstr "Avaktiverat {}: s konto"
+
+#: common/djangoapps/student/views/management.py:510
+msgid "Unexpected account status"
+msgstr "Oväntad konto status"
+
+#: common/djangoapps/student/views/management.py:551
+#, python-brace-format
+msgid ""
+"{html_start}Your {account_or_email} could not be "
+"{activated_or_confirmed}{html_end}Something went wrong, please <a "
+"href=\"{support_url}\">contact support</a> to resolve this issue."
+msgstr ""
+"{html_start}Din {account_or_email} kunde inte "
+"{activated_or_confirmed}{html_end}Något gick fel. <a "
+"href=\"{support_url}\">kontakta support</a> för att lösa problemet."
+
+#: common/djangoapps/student/views/management.py:586
+#, python-brace-format
+msgid ""
+"{html_start}This {account_or_email} has already been "
+"{activated_or_confirmed}.{html_end}"
+msgstr ""
+"{html_start}Denna {account_or_email} har redan "
+"{activated_or_confirmed}.{html_end}"
+
+#: common/djangoapps/student/views/management.py:598
+#, python-brace-format
+msgid ""
+"{html_start}Success{html_end} You have {activated_or_confirmed} your "
+"{account_or_email}."
+msgstr ""
+"{html_start}Framgång{html_end} Du har {activated_or_confirmed} ditt "
+"{account_or_email}."
 
 #: common/djangoapps/student/views/management.py:611
 #, python-brace-format
@@ -302,18 +551,185 @@ msgstr ""
 "varningar från oss relaterade till de kurser du är anmäld till. Logga in för"
 " att fortsätta."
 
+#: common/djangoapps/student/views/management.py:796
+msgid "Unable to send email activation link. Please try again later."
+msgstr ""
+"Det gick inte att skicka e-postaktiveringslänk. Vänligen försök igen senare."
+
+#: common/djangoapps/third_party_auth/admin.py:69
+msgid "Deleted the selected configuration(s)."
+msgstr "Raderade den valda konfigurationen(erna)"
+
+#: common/djangoapps/third_party_auth/admin.py:89
+msgid "Delete the selected configuration"
+msgstr "Radera konfigurationen"
+
+#: common/djangoapps/third_party_auth/middleware.py:45
+msgid "Unable to connect with the external provider, please try again"
+msgstr "Kan inte kontakta utgivaren. Var god försök senare. "
+
 #: common/djangoapps/third_party_auth/models.py:86
 msgid "Authentication with {} is currently unavailable."
 msgstr "Autentisering med {} är för närvarande inte tillgänglig."
+
+#: common/djangoapps/third_party_auth/models.py:130
+msgid ""
+"Secondary providers are displayed less prominently, in a separate list of "
+"\"Institution\" login providers."
+msgstr ""
+"Sekundära leverantörer visas mindre framträdande, i en separat lista över "
+"Inloggningsleverantörer."
+
+#: common/djangoapps/third_party_auth/models.py:140
+msgid ""
+"optional. If this provider is an Organization, this attribute can be used "
+"reference users in that Organization"
+msgstr ""
+"frivillig. Om denna leverantör är en organisation kan detta attribut "
+"användas som referensanvändare i den organisationen"
 
 #: common/djangoapps/third_party_auth/models.py:149
 msgid "The Site that this provider configuration belongs to."
 msgstr "Webbplatsen som den här leverantörskonfigurationen tillhör."
 
+#: common/djangoapps/third_party_auth/models.py:156
+#: common/djangoapps/third_party_auth/models.py:703
+msgid ""
+"If this option is enabled, users that visit a \"TPA hinted\" URL for this "
+"provider (e.g. a URL ending with `?tpa_hint=[provider_name]`) will be "
+"forwarded directly to the login URL of the provider instead of being first "
+"prompted with a login dialog."
+msgstr ""
+"Om det här alternativet är aktiverat, skickas användare som besöker en "
+"&quot;TPA-hintad&quot; -adress för den här leverantören (t.ex. en URL som "
+"slutar med `? Tpa_hint = [provider_name]`) direkt till leverantörens "
+"inloggningsadress i stället för att bli ombedd En inloggningsdialog."
+
+#: common/djangoapps/third_party_auth/models.py:179
+msgid ""
+"If this option is selected, users will be sent a welcome email upon "
+"registration."
+msgstr ""
+"Om du väljer detta alternativ så kommer any användare få ett välkomstmail "
+"när de registrerar sig. "
+
+#: common/djangoapps/third_party_auth/models.py:196
+msgid ""
+"If this option is set, then users logging in using this SSO provider will "
+"have their session length limited to no longer than this value. If set to 0 "
+"(zero), the session will expire upon the user closing their browser. If left"
+" blank, the Django platform session default length will be used."
+msgstr ""
+"Om det här alternativet är inställt, kommer användare som loggar in med den "
+"här SSO-leverantören att ha sin sessionslängd begränsad till inte längre än "
+"det här värdet. Om inställd till 0 (noll), löper sessionen ut när användaren"
+" stänger webbläsaren. Om den är tom, används standardlängden för Django-"
+"plattformssessionen."
+
+#: common/djangoapps/third_party_auth/models.py:461
+msgid "The Site that this SAML configuration belongs to."
+msgstr "Webbplatsen som denna SAML-konfiguration tillhör."
+
+#: common/djangoapps/third_party_auth/models.py:556
+#, python-brace-format
+msgid "{platform_name} Support"
+msgstr "{platform_name} Support"
+
+#: common/djangoapps/third_party_auth/models.py:611
+msgid "A configuration nickname."
+msgstr "Ett smeknamn för konfigurationen."
+
 #: common/djangoapps/third_party_auth/templates/third_party_auth/post_custom_auth_entry.html:5
 #: lms/templates/student_account/finish_auth.html:16
 msgid "Please wait"
 msgstr "Vänta"
+
+#. Translators: the translation for "LONG_DATE_FORMAT" must be a format
+#. string for formatting dates in a long form.  For example, the
+#. American English form is "%A, %B %d %Y".
+#. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:145
+msgid "LONG_DATE_FORMAT"
+msgstr "LONG_DATE_FORMAT"
+
+#. Translators: the translation for "SHORT_DATE_FORMAT" must be a
+#. format string for formatting dates in a brief form.  For example,
+#. the American English form is "%b %d %Y".
+#. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:189
+msgid "SHORT_DATE_FORMAT"
+msgstr "SHORT_DATE_FORMAT"
+
+#. Translators: the translation for "TIME_FORMAT" must be a format
+#. string for formatting times.  For example, the American English
+#. form is "%H:%M:%S". See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:201
+msgid "TIME_FORMAT"
+msgstr "TIDSFORMAT"
+
+#. Translators: This is an AM/PM indicator for displaying times.  It is
+#. used for the %p directive in date-time formats. See http://strftime.org
+#. for details.
+#: common/djangoapps/util/date_utils.py:263
+msgctxt "am/pm indicator"
+msgid "AM"
+msgstr "förmiddag "
+
+#. Translators: This is an AM/PM indicator for displaying times.  It is
+#. used for the %p directive in date-time formats. See http://strftime.org
+#. for details.
+#: common/djangoapps/util/date_utils.py:267
+msgctxt "am/pm indicator"
+msgid "PM"
+msgstr "eftermiddag "
+
+#. Translators: this is a weekday name that will be used when displaying
+#. dates, as in "Monday Februrary 10, 2014". It is used for the %A
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:274
+msgctxt "weekday name"
+msgid "Monday"
+msgstr "måndag"
+
+#. Translators: this is a weekday name that will be used when displaying
+#. dates, as in "Tuesday Februrary 11, 2014". It is used for the %A
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:278
+msgctxt "weekday name"
+msgid "Tuesday"
+msgstr "tisdag"
+
+#. Translators: this is a weekday name that will be used when displaying
+#. dates, as in "Wednesday Februrary 12, 2014". It is used for the %A
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:282
+msgctxt "weekday name"
+msgid "Wednesday"
+msgstr "onsdag"
+
+#. Translators: this is a weekday name that will be used when displaying
+#. dates, as in "Friday Februrary 14, 2014". It is used for the %A
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:290
+msgctxt "weekday name"
+msgid "Friday"
+msgstr "fredag"
+
+#. Translators: this is an abbreviated weekday name that will be used when
+#. displaying dates, as in "Tue Feb 11, 2014". It is used for the %a
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:309
+msgctxt "abbreviated weekday name"
+msgid "Tue"
+msgstr "tue"
+
+#. Translators: this is an abbreviated weekday name that will be used when
+#. displaying dates, as in "Thu Feb 13, 2014". It is used for the %a
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:317
+msgctxt "abbreviated weekday name"
+msgid "Thu"
+msgstr "tors"
 
 #. Translators: this is an abbreviated weekday name that will be used when
 #. displaying dates, as in "Sat Feb 15, 2014". It is used for the %a
@@ -322,6 +738,30 @@ msgstr "Vänta"
 msgctxt "abbreviated weekday name"
 msgid "Sat"
 msgstr "lör"
+
+#. Translators: this is an abbreviated weekday name that will be used when
+#. displaying dates, as in "Sun Feb 16, 2014". It is used for the %a
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:329
+msgctxt "abbreviated weekday name"
+msgid "Sun"
+msgstr "sön"
+
+#. Translators: this is an abbreviated month name that will be used when
+#. displaying dates, as in "Apr 10, 2014". It is used for the %b
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:348
+msgctxt "abbreviated month name"
+msgid "Apr"
+msgstr "April"
+
+#. Translators: this is an abbreviated month name that will be used when
+#. displaying dates, as in "Aug 10, 2014". It is used for the %b
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:364
+msgctxt "abbreviated month name"
+msgid "Aug"
+msgstr "Augusti"
 
 #. Translators: this is an abbreviated month name that will be used when
 #. displaying dates, as in "Oct 10, 2014". It is used for the %b
@@ -354,6 +794,19 @@ msgstr "mars"
 msgctxt "month name"
 msgid "April"
 msgstr "april"
+
+#. Translators: this is a month name that will be used when displaying
+#. dates, as in "August 10, 2014". It is used for the %B directive in
+#. date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:415
+msgctxt "month name"
+msgid "August"
+msgstr "augusti"
+
+#: common/djangoapps/util/milestones_helpers.py:60
+#, python-brace-format
+msgid "Course {course_id} requires {prerequisite_course_id}"
+msgstr "Kursen {course_id} kräver {prerequisite_course_id}"
 
 #: common/djangoapps/util/password_policy_validators.py:68
 #, python-brace-format
@@ -9686,6 +10139,20 @@ msgstr "Checklistor"
 msgid "Tools"
 msgstr "Verktyg"
 
+#: cms/templates/component.html:39 cms/templates/edit-tabs.html:146
+#: cms/templates/edit-tabs.html:147
+#: cms/templates/studio_xblock_wrapper.html:178
+msgid "Drag to reorder"
+msgstr "Dra för att sortera om"
+
+#: cms/templates/container.html:232
+msgid "Drag components to new locations within this component."
+msgstr "Dra komponenter till nya platser inom den här komponenten."
+
+#: cms/templates/course-create-rerun.html:42
+msgid "You are creating a re-run from:"
+msgstr "Du skapar en återkörning från:"
+
 #: cms/templates/course-create-rerun.html:84 cms/templates/index.html:81
 #: cms/templates/index.html:165 cms/templates/settings.html:73
 msgid "Organization"
@@ -9695,6 +10162,19 @@ msgstr "Organisation"
 #: cms/templates/index.html:167
 msgid "e.g. UniversityX or OrganizationX"
 msgstr "T.ex. UniversityX eller OrganizationX"
+
+#: cms/templates/course-create-rerun.html:137
+msgid "What transfers from the original course?"
+msgstr "Vilka överföringar från den ursprungliga kursen?"
+
+#: cms/templates/course_info.html:13 cms/templates/course_info.html:40
+msgid "Course Updates"
+msgstr "Kursuppdateringar"
+
+#: cms/templates/course_outline.html:15 cms/templates/course_outline.html:201
+#: cms/templates/course_outline.html:283
+msgid "Course Outline"
+msgstr "Kursplan"
 
 #: cms/templates/edit-tabs.html:85
 msgid ""
@@ -14515,6 +14995,10 @@ msgstr "Identitetsverifiering"
 msgid "You cannot verify your identity at this time."
 msgstr "Du kan inte verifiera din identitet just nu."
 
+#: lms/templates/verify_student/reverify_not_allowed.html:25
+msgid "Return to Your Dashboard"
+msgstr "Återgå till din kontrollpanel"
+
 #: lms/templates/widgets/cookie-consent.html:20
 msgid ""
 "This website uses cookies to ensure you get the best experience on our "
@@ -14543,6 +15027,10 @@ msgstr "{span_start}(active){span_end}"
 #: lms/templates/wiki/includes/breadcrumbs.html:10
 msgid "Course Wiki"
 msgstr "Kurs Wiki"
+
+#: openedx/core/djangoapps/dark_lang/templates/dark_lang/preview-language-fragment.html:16
+msgid "Preview Language Setting"
+msgstr "Förhandsgranska språkinställning"
 
 #: openedx/core/djangoapps/dark_lang/templates/dark_lang/preview-language-fragment.html:25
 msgid "Language Code"
@@ -14614,6 +15102,10 @@ msgstr ""
 msgid "How it works"
 msgstr "Hur det fungerar"
 
+#: openedx/features/course_experience/templates/course_experience/course-sock-fragment.html:34
+msgid "Pay the Verified Certificate upgrade fee"
+msgstr "Betala uppgraderingsavgiften för verifierat certifikat"
+
 #: openedx/features/course_experience/templates/course_experience/course-sock-fragment.html:35
 msgid "Verify your identity with a webcam and government-issued ID"
 msgstr "Verifiera din identitet med en webbkamera och statligt utfärdat ID"
@@ -14627,6 +15119,11 @@ msgstr ""
 "Mitt certifikat har hjälpt mig att visa upp min kunskap i mitt CV - jag "
 "känner att det här certifikatet verkligen kan hjälpa mig att få mitt "
 "drömjobb!"
+
+#: openedx/features/course_experience/templates/course_experience/course-sock-fragment.html:47
+#: openedx/features/course_experience/templates/course_experience/course-sock-fragment.html:56
+msgid "{learner_name}, edX Learner"
+msgstr "{learner_name}, edX-student"
 
 #: openedx/features/course_experience/templates/course_experience/course-sock-fragment.html:53
 msgid ""
@@ -14643,6 +15140,18 @@ msgstr ""
 msgid "Upgrade ({course_price})"
 msgstr "Uppgradera ({course_price})"
 
+#: openedx/features/course_experience/templates/course_experience/course-updates-fragment.html:49
+msgid "This course does not have any updates."
+msgstr "Kursen har inga uppdateringar."
+
+#. Translators: this section lists all the third-party authentication
+#. providers
+#. (for example, Google and LinkedIn) the user can link with or unlink from
+#. their edX account.
+#: openedx/features/learner_profile/static/learner_profile/templates/third_party_auth.html:10
+msgid "Connected Accounts"
+msgstr "Anslutna konton"
+
 #: openedx/features/learner_profile/static/learner_profile/templates/third_party_auth.html:20
 msgid "Not Linked"
 msgstr "Ej länkad"
@@ -14653,6 +15162,13 @@ msgstr "Ej länkad"
 #: openedx/features/learner_profile/static/learner_profile/templates/third_party_auth.html:34
 msgid "Unlink"
 msgstr "ta bort länken"
+
+#. Translators: clicking on this creates a link between a user's edX account
+#. and their account with an external authentication provider (like Google or
+#. LinkedIn).
+#: openedx/features/learner_profile/static/learner_profile/templates/third_party_auth.html:39
+msgid "Link"
+msgstr "Länk"
 
 #: openedx/features/learner_profile/templates/learner_profile/learner-achievements-fragment.html:20
 msgid "Completed {completion_date_html}"
@@ -14682,6 +15198,10 @@ msgstr "Min profil"
 msgid ""
 "Build out your profile to personalize your identity on {platform_name}."
 msgstr "Bygg ut din profil för att anpassa din identitet på {platform_name}."
+
+#: openedx/features/learner_profile/templates/learner_profile/learner_profile.html:60
+msgid "An error occurred. Try loading the page again."
+msgstr "Det uppstod ett fel. Försök att ladda sidan på nytt"
 
 #: themes/red-theme/lms/templates/footer.html:87
 msgid ""
@@ -14713,13 +15233,38 @@ msgstr ""
 "Vi beklagar, men den här versionen av din webbläsare stöds inte. Försök igen"
 " med en annan webbläsare eller en nyare version av din webbläsare."
 
+#: themes/stanford-style/lms/templates/register-form.html:18
+#: themes/stanford-style/lms/templates/register-shib.html:104
+msgid "The following errors occurred while processing your registration:"
+msgstr "Följande fel inträffade under behandlingen av din registrering:"
+
 #: themes/stanford-style/lms/templates/register-form.html:36
 msgid "Sign up with {provider_name}"
 msgstr "Registrera dig med {provider_name}"
 
+#: themes/stanford-style/lms/templates/register-form.html:49
+msgid "Create your own {platform_name} account below"
+msgstr "Skapa ditt eget {platform_name} konto nedan"
+
+#: themes/stanford-style/lms/templates/register-form.html:60
+msgid "You've successfully signed in with {selected_provider}."
+msgstr "Du har lyckats logga in med {selected_provider}."
+
+#: themes/stanford-style/lms/templates/register-form.html:61
+msgid ""
+"We just need a little more information before you start learning with "
+"{platform_name}."
+msgstr ""
+"Vi behöver bara lite mer information innan du börjar lära dig med "
+"{platform_name}."
+
 #: themes/stanford-style/lms/templates/register-form.html:69
 msgid "Please complete the following fields to register for an account. "
 msgstr "Vänligen fyll i följande fält för att registrera dig för ett konto."
+
+#: themes/stanford-style/lms/templates/register-form.html:89
+msgid "example: Jane Doe"
+msgstr "Exempel: Jane Doe"
 
 #: themes/stanford-style/lms/templates/register-form.html:90
 #: themes/stanford-style/lms/templates/register-form.html:144
@@ -14749,6 +15294,10 @@ msgstr "Ange ett offentligt visningsnamn:"
 msgid "Public Display Name"
 msgstr "Public Display Name"
 
+#: themes/stanford-style/lms/templates/register-form.html:161
+msgid "example: New York"
+msgstr "Exempel: New York"
+
 #: themes/stanford-style/lms/templates/register-form.html:180
 msgid "Highest Level of Education Completed"
 msgstr "Högsta utbildningsnivå slutförd"
@@ -14761,6 +15310,10 @@ msgstr ""
 #: themes/stanford-style/lms/templates/register-shib.html:10
 msgid "Preferences for {platform_name}"
 msgstr "Inställningar för {platform_name}"
+
+#: themes/stanford-style/lms/templates/register-shib.html:73
+msgid "Update my {platform_name} Account"
+msgstr "Uppdatera mitt {platform_name} konto"
 
 #: themes/stanford-style/lms/templates/register-shib.html:80
 msgid "Processing your account information"
@@ -14802,6 +15355,10 @@ msgstr ""
 " Kontrollera din spammapp och markera e-post från class.stanford.edu som "
 "&quot;inte spam&quot;, eftersom du vill kunna ta emot e-post från dina "
 "kurser."
+
+#: themes/stanford-style/lms/templates/register-sidebar.html:33
+msgid "Need help in registering with {platform_name}?"
+msgstr "Behöver du hjälp med att registrera dig med {platform_name}?"
 
 #: themes/stanford-style/lms/templates/register-sidebar.html:35
 msgid "View our FAQs for answers to commonly asked questions."
@@ -14855,6 +15412,16 @@ msgstr ""
 "Vi har fått en förfrågan om att ändra det e-postmeddelande som är kopplat "
 "till ditt {platform_name} -konto från {old_email} till {new_email}. Om det "
 "här är korrekt, bekräfta din nya e-postadress genom att besöka:"
+
+#: themes/stanford-style/lms/templates/emails/reject_name_change.txt:5
+msgid ""
+"We are sorry. Our course staff did not approve your request to change your "
+"name from {old_name} to {new_name}. If you need further assistance, please "
+"e-mail the tech support at {email}"
+msgstr ""
+"Vi är ledsna. Vår kurspersonal godkände inte din förfrågan om att ändra ditt"
+" namn från {old_name} till {new_name}. Om du behöver mer hjälp, skicka "
+"e-post till teknisk support på {email}"
 
 #: themes/stanford-style/lms/templates/static_templates/tos.html:13
 msgid "Put your Terms of Service here!"
