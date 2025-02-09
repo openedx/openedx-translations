@@ -11,23 +11,21 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
 # 
 # Translators:
-# Hoàng Trương <hoangta@vnu.edu.vn>, 2024
-# Hoang Truong <truonganhhoang@gmail.com>, 2024
-# Brian Smith, 2024
+# Brian Smith, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-04-29 00:34+0000\n"
-"PO-Revision-Date: 2023-11-20 11:35+0000\n"
-"Last-Translator: Brian Smith, 2024\n"
+"POT-Creation-Date: 2024-10-23 00:32+0000\n"
+"PO-Revision-Date: 2024-12-18 13:43+0000\n"
+"Last-Translator: Brian Smith, 2025\n"
 "Language-Team: Vietnamese (https://app.transifex.com/open-edx/teams/6205/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.14.0\n"
+"Generated-By: Babel 2.16.0\n"
 "Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
@@ -174,12 +172,14 @@ msgstr "Đang xóa"
 #. browser when a user needs to edit HTML
 #: cms/static/js/certificates/views/signatory_editor.js:162
 #: cms/static/js/views/asset.js:73
+#: cms/static/js/views/components/add_library_content.js:46
 #: cms/static/js/views/course_info_update.js:267
 #: cms/static/js/views/export.js:360
 #: cms/static/js/views/manage_users_and_roles.js:33
 #: cms/static/js/views/modals/base_modal.js:136
 #: cms/static/js/views/modals/course_outline_modals.js:219
 #: cms/static/js/views/modals/course_outline_modals.js:260
+#: cms/static/js/views/modals/preview_v2_library_changes.js:38
 #: cms/static/js/views/show_textbook.js:53 cms/static/js/views/tabs.js:188
 #: cms/static/js/views/validation.js:127
 #: common/static/common/js/components/utils/view_utils.js:68
@@ -280,7 +280,7 @@ msgid "Show Deprecated Settings"
 msgstr "Hiển thị cài đặt không được dùng nữa"
 
 #: cms/static/js/factories/textbooks.js:20
-#: cms/static/js/views/pages/group_configurations.js:83
+#: cms/static/js/views/pages/group_configurations.js:84
 msgid "You have unsaved changes. Do you really want to leave this page?"
 msgstr "Bạn có các thay đổi chưa lưu. Bạn có thực sự muốn rời khỏi trang này?"
 
@@ -331,10 +331,6 @@ msgstr "Lỗi khi nhập khóa học"
 #: cms/static/js/features/import/views/import.js:298
 msgid "There was an error with the upload"
 msgstr "Đã xảy ra lỗi khi tải lên"
-
-#: cms/static/js/maintenance/force_publish_course.js:76
-msgid "Internal Server Error."
-msgstr "Lỗi máy chủ nội bộ."
 
 #. Translators: This is the status of a video upload that is queued
 #. waiting for other uploads to complete
@@ -535,7 +531,6 @@ msgstr "Không thể tải lên tập tin của bạn"
 #: cms/static/js/views/modals/course_outline_modals.js:351
 #: cms/static/js/views/modals/edit_xblock.js:124
 #: cms/static/js/views/video_transcripts.js:325
-#: lms/static/js/demographics_collection/Wizard.jsx:82
 #: lms/static/js/student_account/tos_modal.js:48
 #: xmodule/js/src/html/edit.js:370
 #: cms/templates/js/course-video-settings.underscore:6
@@ -668,7 +663,13 @@ msgstr "Tải lên tệp mới"
 msgid "Load Another File"
 msgstr "Tải tập tin khác"
 
-#: cms/static/js/views/components/add_xblock.js:71
+#. Translators: "title" is the name of the current component being edited.
+#: cms/static/js/views/components/add_library_content.js:16
+msgid "Add library content"
+msgstr "Thêm nội dung thư viện"
+
+#: cms/static/js/views/components/add_xblock.js:78
+#: cms/static/js/views/components/add_xblock.js:89
 #: cms/static/js/views/utils/xblock_utils.js:55
 msgid "Adding"
 msgstr "Thêm"
@@ -685,10 +686,10 @@ msgstr "Bạn có chắc chắn muốn xóa bản cập nhật này không?"
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
 #: cms/static/js/views/course_info_update.js:241
-#: cms/static/js/views/course_outline.js:389
-#: cms/static/js/views/course_outline.js:401
-#: cms/static/js/views/pages/container.js:311
-#: cms/static/js/views/pages/container.js:323 cms/static/js/views/tabs.js:164
+#: cms/static/js/views/course_outline.js:397
+#: cms/static/js/views/course_outline.js:409
+#: cms/static/js/views/pages/container.js:328
+#: cms/static/js/views/pages/container.js:340 cms/static/js/views/tabs.js:164
 #: cms/static/js/views/utils/xblock_utils.js:101
 #: cms/static/js/views/utils/xblock_utils.js:113
 #: lms/static/js/Markdown.Editor.js:1091 xmodule/js/src/html/edit.js:885
@@ -697,42 +698,42 @@ msgstr "Bạn có chắc chắn muốn xóa bản cập nhật này không?"
 msgid "OK"
 msgstr "OK"
 
-#: cms/static/js/views/course_outline.js:234
-#: cms/static/js/views/pages/container.js:497
+#: cms/static/js/views/course_outline.js:242
+#: cms/static/js/views/pages/container.js:515
 #: cms/static/js/views/pages/container_subviews.js:187
 msgid "Copying"
 msgstr "Sao chép"
 
-#: cms/static/js/views/course_outline.js:328
+#: cms/static/js/views/course_outline.js:336
 msgid "Copy of '{componentDisplayName}'"
 msgstr "Bản sao của '{componentDisplayName}'"
 
-#: cms/static/js/views/course_outline.js:364
-#: cms/static/js/views/pages/container.js:285
+#: cms/static/js/views/course_outline.js:372
+#: cms/static/js/views/pages/container.js:302
 #: cms/static/js/views/utils/xblock_utils.js:79
 msgid "Pasting"
 msgstr "Dán"
 
-#: cms/static/js/views/course_outline.js:384
-#: cms/static/js/views/pages/container.js:306
+#: cms/static/js/views/course_outline.js:392
+#: cms/static/js/views/pages/container.js:323
 #: cms/static/js/views/utils/xblock_utils.js:96
 msgid "Some errors occurred"
 msgstr "Một số lỗi xảy ra"
 
-#: cms/static/js/views/course_outline.js:386
-#: cms/static/js/views/pages/container.js:308
+#: cms/static/js/views/course_outline.js:394
+#: cms/static/js/views/pages/container.js:325
 #: cms/static/js/views/utils/xblock_utils.js:98
 msgid "The following required files could not be added to the course:"
 msgstr "Không thể thêm các tệp bắt buộc sau vào khóa học:"
 
-#: cms/static/js/views/course_outline.js:394
-#: cms/static/js/views/pages/container.js:316
+#: cms/static/js/views/course_outline.js:402
+#: cms/static/js/views/pages/container.js:333
 #: cms/static/js/views/utils/xblock_utils.js:106
 msgid "You may need to update a file(s) manually"
 msgstr "Bạn có thể cần phải cập nhật (các) tệp theo cách thủ công"
 
-#: cms/static/js/views/course_outline.js:397
-#: cms/static/js/views/pages/container.js:319
+#: cms/static/js/views/course_outline.js:405
+#: cms/static/js/views/pages/container.js:336
 #: cms/static/js/views/utils/xblock_utils.js:109
 msgid ""
 "The following files already exist in this course but don't match the version"
@@ -741,26 +742,26 @@ msgstr ""
 "Các tệp sau đã tồn tại trong khóa học này nhưng không khớp với phiên bản "
 "được sử dụng bởi thành phần bạn đã dán:"
 
-#: cms/static/js/views/course_outline.js:406
-#: cms/static/js/views/pages/container.js:328
+#: cms/static/js/views/course_outline.js:414
+#: cms/static/js/views/pages/container.js:345
 #: cms/static/js/views/utils/xblock_utils.js:118
 msgid "New file(s) added to Files & Uploads."
 msgstr "(Các) tệp mới được thêm vào Tệp &amp; Nội dung tải lên."
 
-#: cms/static/js/views/course_outline.js:408
-#: cms/static/js/views/pages/container.js:330
+#: cms/static/js/views/course_outline.js:416
+#: cms/static/js/views/pages/container.js:347
 #: cms/static/js/views/utils/xblock_utils.js:120
 msgid "The following required files were imported to this course:"
 msgstr "Các tệp bắt buộc sau đã được nhập vào khóa học này:"
 
-#: cms/static/js/views/course_outline.js:413
-#: cms/static/js/views/pages/container.js:335
+#: cms/static/js/views/course_outline.js:421
+#: cms/static/js/views/pages/container.js:352
 #: cms/static/js/views/utils/xblock_utils.js:125
 msgid "View files"
 msgstr "Xem tập tin"
 
-#: cms/static/js/views/course_outline.js:422
-#: cms/static/js/views/pages/container.js:344
+#: cms/static/js/views/course_outline.js:430
+#: cms/static/js/views/pages/container.js:361
 #: cms/static/js/views/utils/xblock_utils.js:134
 msgid "Dismiss"
 msgstr "Loại bỏ"
@@ -1205,12 +1206,14 @@ msgid "Plugins"
 msgstr "bổ sung"
 
 #: cms/static/js/views/modals/edit_xblock.js:132
+#: cms/static/js/views/modals/preview_v2_library_changes.js:71
 #: lms/templates/ccx/schedule.underscore:13
 #: lms/templates/ccx/schedule.underscore:83
 msgid "Unit"
 msgstr "Đơn vị"
 
 #: cms/static/js/views/modals/edit_xblock.js:134
+#: cms/static/js/views/modals/preview_v2_library_changes.js:73
 msgid "Component"
 msgstr "Thành phần"
 
@@ -1229,6 +1232,39 @@ msgstr "Chọn một vị trí để di chuyển thành phần của bạn đế
 #: cms/static/js/views/modals/move_xblock_modal.js:66
 msgid "Move: {displayName}"
 msgstr "Di chuyển: {displayName}"
+
+#. Translators: "title" is the name of the current component being edited.
+#: cms/static/js/views/modals/preview_v2_library_changes.js:24
+msgid "Preview changes to: {title}"
+msgstr "Xem trước những thay đổi đối với: {title}"
+
+#: cms/static/js/views/modals/preview_v2_library_changes.js:36
+msgid "Accept changes"
+msgstr "Chấp nhận thay đổi"
+
+#: cms/static/js/views/modals/preview_v2_library_changes.js:37
+msgid "Ignore changes"
+msgstr "Bỏ qua những thay đổi"
+
+#: cms/static/js/views/modals/preview_v2_library_changes.js:94
+msgid "Ignore these changes?"
+msgstr "Bỏ qua những thay đổi này?"
+
+#: cms/static/js/views/modals/preview_v2_library_changes.js:95
+msgid ""
+"Would you like to permanently ignore this updated version? If so, you won't "
+"be able to update this until a newer version is published (in the library)."
+msgstr ""
+"Bạn có muốn bỏ qua vĩnh viễn phiên bản cập nhật này không? Nếu vậy, bạn sẽ "
+"không thể cập nhật cho đến khi phiên bản mới hơn được xuất bản (trong thư "
+"viện)."
+
+#. Translators: this is a message from the raw HTML editor displayed in the
+#. browser when a user needs to edit HTML
+#: cms/static/js/views/modals/preview_v2_library_changes.js:96
+#: xmodule/js/src/html/edit.js:695
+msgid "Ignore"
+msgstr "Phớt lờ"
 
 #: cms/static/js/views/modals/validation_error_modal.js:16
 msgid "Validation Error While Saving"
@@ -1279,7 +1315,7 @@ msgstr "Ngày thêm"
 
 #. Translators: "title" is the name of the current component or unit being
 #. edited.
-#: cms/static/js/views/pages/container.js:427
+#: cms/static/js/views/pages/container.js:468
 msgid "Editing access for: {title}"
 msgstr "Quyền chỉnh sửa cho: {title}"
 
@@ -1338,11 +1374,11 @@ msgstr ""
 msgid "Making Visible to Students"
 msgstr "Hiển thị cho sinh viên"
 
-#: cms/static/js/views/pages/course_outline.js:237
+#: cms/static/js/views/pages/course_outline.js:248
 msgid "Course Index"
 msgstr "Mục lục khóa học"
 
-#: cms/static/js/views/pages/course_outline.js:245
+#: cms/static/js/views/pages/course_outline.js:256
 msgid "There were errors reindexing course."
 msgstr "Đã xảy ra lỗi khi lập chỉ mục lại khóa học."
 
@@ -3367,47 +3403,6 @@ msgstr ""
 "Không thể xác định liệu chúng tôi có nên hoàn lại tiền cho bạn hay không vì "
 "Lỗi Hệ thống. Vui lòng thử lại sau."
 
-#: lms/static/js/demographics_collection/DemographicsCollectionBanner.jsx:66
-msgid "Want to make edX better for everyone?"
-msgstr "Bạn muốn làm cho edX tốt hơn cho mọi người?"
-
-#: lms/static/js/demographics_collection/DemographicsCollectionBanner.jsx:71
-msgid "Get started"
-msgstr "Bắt đầu"
-
-#: lms/static/js/demographics_collection/DemographicsCollectionModal.jsx:268
-msgid "Section {currentPage} of {totalPages}"
-msgstr "Mục {currentPage} của {totalPages}"
-
-#: lms/static/js/demographics_collection/DemographicsCollectionModal.jsx:276
-msgid "Help make edX better for everyone!"
-msgstr "Hãy giúp edX trở nên tốt hơn cho mọi người!"
-
-#: lms/static/js/demographics_collection/DemographicsCollectionModal.jsx:279
-msgid ""
-"Welcome to edX! Before you get started, please take a few minutes to fill-in"
-" the additional information below to help us understand a bit more about "
-"your background. You can always edit this information later in Account "
-"Settings."
-msgstr ""
-"Chào mừng đến với edX! Trước khi bạn bắt đầu, vui lòng dành vài phút để điền"
-" thông tin bổ sung bên dưới để giúp chúng tôi hiểu thêm một chút về lý lịch "
-"của bạn. Bạn luôn có thể chỉnh sửa thông tin này sau trong Cài đặt tài "
-"khoản."
-
-#: lms/static/js/demographics_collection/MultiselectDropdown.jsx:99
-msgid "Clear all"
-msgstr "Làm sạch tất cả"
-
-#: lms/static/js/demographics_collection/Wizard.jsx:76
-#: lms/static/js/demographics_collection/Wizard.jsx:115
-msgid "demographics questionnaire"
-msgstr "bảng câu hỏi nhân khẩu học"
-
-#: lms/static/js/demographics_collection/Wizard.jsx:82
-msgid "close questionnaire"
-msgstr "đóng bảng câu hỏi"
-
 #: lms/static/js/discovery/views/search_form.js:47
 #, javascript-format
 msgid "Viewing %s course"
@@ -4553,10 +4548,6 @@ msgstr "Đã bắt đầu {start}"
 msgid "Ends {end}"
 msgstr "Kết thúc {end}"
 
-#: lms/static/js/learner_dashboard/models/program_subscription_model.js:29
-msgid "${price}/month {currency}"
-msgstr "$ {price} /tháng {currency}"
-
 #: lms/static/js/learner_dashboard/views/course_entitlement_view.js:220
 msgid "You must select a session to access the course."
 msgstr "Bạn phải chọn một phiên để truy cập khóa học."
@@ -4612,75 +4603,16 @@ msgstr ""
 "Bạn có chắc chắn muốn hủy ghi danh {courseName} ( {courseNumber} ) không? "
 "Bạn sẽ được hoàn lại số tiền bạn đã thanh toán."
 
-#: lms/static/js/learner_dashboard/views/program_alert_list_view.js:39
-msgid "View program"
-msgstr "Xem chương trình"
-
-#: lms/static/js/learner_dashboard/views/program_alert_list_view.js:42
-msgid "Enroll in a {programName}'s course"
-msgstr "Ghi danh khóa học của {programName}"
-
-#: lms/static/js/learner_dashboard/views/program_alert_list_view.js:48
-msgid ""
-"You have an active subscription to the {programName} program but are not "
-"enrolled in any courses. Enroll in a remaining course and enjoy verified "
-"access."
-msgstr ""
-"Bạn có ghi danh đang hoạt động với chương trình {programName} nhưng chưa ghi"
-" danh bất kỳ khóa học nào. Ghi danh khóa học còn lại và tận hưởng quyền truy"
-" cập đã được xác minh."
-
-#: lms/static/js/learner_dashboard/views/program_alert_list_view.js:53
-msgid ""
-"According to our records, you are not enrolled in any courses included in "
-"your {programName} program subscription. Enroll in a course from the "
-"{i_start}Program Details{i_end} page."
-msgstr ""
-"Theo hồ sơ của chúng tôi, bạn chưa đăng ký bất kỳ khóa học nào có trong đăng"
-" ký chương trình {programName} của mình. Đăng ký khóa học từ trang {i_start}"
-" Chi tiết chương trình {i_end} ."
-
-#: lms/static/js/learner_dashboard/views/program_alert_list_view.js:67
-msgid "Subscription trial expires in less than 24 hours"
-msgstr "Bản dùng thử đăng ký sẽ hết hạn sau chưa đầy 24 giờ"
-
-#: lms/static/js/learner_dashboard/views/program_alert_list_view.js:69
-msgid "Subscription trial expires in {remainingDays} day"
-msgid_plural "Subscription trial expires in {remainingDays} days"
-msgstr[0] "Bản dùng thử đăng ký sẽ hết hạn sau {remainingDays} ngày"
-
-#: lms/static/js/learner_dashboard/views/program_alert_list_view.js:75
-msgid ""
-"Your {programName} trial will expire at {trialEndTime} on {trialEndDate} and"
-" the card on file will be charged {subscriptionPrice}."
-msgstr ""
-"Bản dùng thử {programName} của bạn sẽ hết hạn vào lúc {trialEndTime} vào "
-"{trialEndDate} và thẻ trong hồ sơ sẽ bị tính phí {subscriptionPrice} ."
-
-#: lms/static/js/learner_dashboard/views/program_alert_list_view.js:77
-msgid ""
-"Your {programName} trial will expire in {remainingDays} day at "
-"{trialEndTime} on {trialEndDate} and the card on file will be charged "
-"{subscriptionPrice}."
-msgid_plural ""
-"Your {programName} trial will expire in {remainingDays} days at "
-"{trialEndTime} on {trialEndDate} and the card on file will be charged "
-"{subscriptionPrice}."
-msgstr[0] ""
-"Bản dùng thử {programName} của bạn sẽ hết hạn sau {remainingDays} ngày tại "
-"{trialEndTime} trên {trialEndDate} và thẻ trong hồ sơ sẽ bị tính phí "
-"{subscriptionPrice} ."
-
-#: lms/static/js/learner_dashboard/views/program_details_sidebar_view.js:66
+#: lms/static/js/learner_dashboard/views/program_details_sidebar_view.js:62
 msgid "{type} Progress"
 msgstr "{type} Tiến độ"
 
-#: lms/static/js/learner_dashboard/views/program_details_sidebar_view.js:69
-#: lms/static/js/learner_dashboard/views/program_details_sidebar_view.js:87
+#: lms/static/js/learner_dashboard/views/program_details_sidebar_view.js:65
+#: lms/static/js/learner_dashboard/views/program_details_sidebar_view.js:83
 msgid "Earned Certificates"
 msgstr "Chứng chỉ đạt được"
 
-#: lms/static/js/learner_dashboard/views/program_details_view.js:172
+#: lms/static/js/learner_dashboard/views/program_details_view.js:142
 msgid "Enrolled"
 msgstr "Đã ghi danh"
 
@@ -6357,12 +6289,6 @@ msgstr "Bỏ qua tất cả"
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: xmodule/js/src/html/edit.js:695
-msgid "Ignore"
-msgstr "Phớt lờ"
-
-#. Translators: this is a message from the raw HTML editor displayed in the
-#. browser when a user needs to edit HTML
 #: xmodule/js/src/html/edit.js:700
 msgid "Image description"
 msgstr "Mô tả hình ảnh"
@@ -7252,34 +7178,34 @@ msgstr "Phát video"
 msgid "Do not show again"
 msgstr "Không hiển thị trở lại"
 
-#: xmodule/js/src/video/09_video_caption.js:106
+#: xmodule/js/src/video/09_video_caption.js:107
 msgid "Open language menu"
 msgstr "Mở trình đơn ngôn ngữ"
 
-#: xmodule/js/src/video/09_video_caption.js:561
+#: xmodule/js/src/video/09_video_caption.js:589
 msgid "Transcript will be displayed when you start playing the video."
 msgstr "Bản ghi sẽ được hiển thị khi bạn bắt đầu phát video."
 
-#: xmodule/js/src/video/09_video_caption.js:809
+#: xmodule/js/src/video/09_video_caption.js:837
 msgid ""
 "Activating a link in this group will skip to the corresponding point in the "
 "video."
 msgstr ""
 "Kích hoạt liên kết trong nhóm này sẽ chuyển sang điểm tương ứng trong video."
 
-#: xmodule/js/src/video/09_video_caption.js:812
+#: xmodule/js/src/video/09_video_caption.js:840
 msgid "Video transcript"
 msgstr "Bản ghi video"
 
-#: xmodule/js/src/video/09_video_caption.js:815
+#: xmodule/js/src/video/09_video_caption.js:843
 msgid "Start of transcript. Skip to the end."
 msgstr "Bắt đầu biên bản. Chuyển đến cuối."
 
-#: xmodule/js/src/video/09_video_caption.js:819
+#: xmodule/js/src/video/09_video_caption.js:847
 msgid "End of transcript. Skip to the start."
 msgstr "Kết thúc biên bản. Chuyển đến phần đầu."
 
-#: xmodule/js/src/video/09_video_caption.js:823
+#: xmodule/js/src/video/09_video_caption.js:851
 msgid ""
 "Press the UP arrow key to enter the language menu then use UP and DOWN arrow"
 " keys to navigate language options. Press ENTER to change to the selected "
@@ -7289,23 +7215,23 @@ msgstr ""
 " LÊN và XUỐNG để điều hướng các tùy chọn ngôn ngữ. Nhấn ENTER để thay đổi "
 "ngôn ngữ đã chọn."
 
-#: xmodule/js/src/video/09_video_caption.js:1176
+#: xmodule/js/src/video/09_video_caption.js:1205
 msgid "Hide closed captions"
 msgstr "Ẩn phụ đề"
 
-#: xmodule/js/src/video/09_video_caption.js:1194
+#: xmodule/js/src/video/09_video_caption.js:1223
 msgid "(Caption will be displayed when you start playing the video.)"
 msgstr "(Chú thích sẽ được hiển thị khi bạn bắt đầu phát video.)"
 
-#: xmodule/js/src/video/09_video_caption.js:1201
+#: xmodule/js/src/video/09_video_caption.js:1230
 msgid "Turn on closed captioning"
 msgstr "Bật phụ đề chi tiết"
 
-#: xmodule/js/src/video/09_video_caption.js:1308
+#: xmodule/js/src/video/09_video_caption.js:1338
 msgid "Turn on transcripts"
 msgstr "Bật bản chép lời"
 
-#: xmodule/js/src/video/09_video_caption.js:1321
+#: xmodule/js/src/video/09_video_caption.js:1353
 msgid "Turn off transcripts"
 msgstr "Tắt bản ghi"
 
@@ -7371,6 +7297,10 @@ msgstr "chi tiết về sự cố"
 #: cms/templates/js/add-xblock-component-button.underscore:7
 msgid "Add Component:"
 msgstr "Thêm thành phần:"
+
+#: cms/templates/js/add-xblock-component-button.underscore:10
+msgid "Beta"
+msgstr "Phiên bản beta"
 
 #: cms/templates/js/add-xblock-component-menu-problem.underscore:3
 #: cms/templates/js/add-xblock-component-menu.underscore:4
@@ -7768,6 +7698,15 @@ msgstr ""
 msgid "Upload Photo"
 msgstr "Tải ảnh lên"
 
+#: cms/templates/js/course-manage-tags.underscore:3
+msgid "Course tags"
+msgstr "Thẻ khóa học"
+
+#: cms/templates/js/course-manage-tags.underscore:7
+#: cms/templates/js/tag-list.underscore:28
+msgid "Manage tags"
+msgstr "Quản lý thẻ"
+
 #: cms/templates/js/course-outline.underscore:48
 #, python-format
 msgid "Prerequisite: %(prereq_display_name)s"
@@ -7865,7 +7804,7 @@ msgstr "Cài đặt giám sát"
 msgid "Configure"
 msgstr "Cấu hình"
 
-#: cms/templates/js/course-outline.underscore:216
+#: cms/templates/js/course-outline.underscore:215
 #: cms/templates/js/tag-count.underscore:2
 #: cms/templates/js/tag-count.underscore:5
 msgid "Manage Tags"
@@ -8884,10 +8823,6 @@ msgstr "Tóm tắt đơn vị Xpert"
 #: cms/templates/js/summary-configuration-editor.underscore:8
 msgid "Enable summaries"
 msgstr "Bật tóm tắt"
-
-#: cms/templates/js/tag-list.underscore:28
-msgid "Manage tags"
-msgstr "Quản lý thẻ"
 
 #: cms/templates/js/team-member.underscore:4
 msgid "Current Role:"
@@ -10641,7 +10576,6 @@ msgstr "Có hiệu lực"
 
 #: lms/templates/learner_dashboard/certificate_status.underscore:2
 #: lms/templates/learner_dashboard/upgrade_message.underscore:2
-#: lms/templates/learner_dashboard/upgrade_message_subscription.underscore:2
 msgid "Certificate Status:"
 msgstr "Trạng thái chứng chỉ:"
 
@@ -10767,11 +10701,6 @@ msgstr "Còn lại"
 msgid "%(programName)s Home Page."
 msgstr "%(programName)s Trang chủ."
 
-#: lms/templates/learner_dashboard/program_card.underscore:66
-#: lms/templates/learner_dashboard/program_header_view.underscore:5
-msgid "Subscribed"
-msgstr "Đã đăng ký"
-
 #: lms/templates/learner_dashboard/program_details_sidebar.underscore:3
 msgid "Your {program} Certificate"
 msgstr "Chứng chỉ {program} của bạn"
@@ -10781,56 +10710,11 @@ msgstr "Chứng chỉ {program} của bạn"
 msgid "Open the certificate you earned for the %(title)s program."
 msgstr "Mở chứng chỉ bạn đã kiếm được cho chương trình %(title)s ."
 
-#: lms/templates/learner_dashboard/program_details_sidebar.underscore:15
-msgid "Trial subscription"
-msgstr "Đăng ký dùng thử"
-
-#: lms/templates/learner_dashboard/program_details_sidebar.underscore:17
-msgid "Active subscription"
-msgstr "Đăng ký đang hoạt động"
-
-#: lms/templates/learner_dashboard/program_details_sidebar.underscore:18
-msgid "Inactive subscription"
-msgstr "Đăng ký không hoạt động"
-
-#: lms/templates/learner_dashboard/program_details_sidebar.underscore:27
-msgid ""
-"View your receipts or modify your subscription on the {a_start}Orders and "
-"subscriptions{a_end} page"
-msgstr ""
-"Xem biên lai của bạn hoặc sửa đổi đăng ký của bạn trên trang {a_start} Đơn "
-"đặt hàng và đăng ký {a_end}"
-
-#: lms/templates/learner_dashboard/program_details_sidebar.underscore:29
-msgid ""
-"Restart your subscription for {subscriptionPrice}. Your payment history is "
-"still available on the {a_start}Orders and subscriptions{a_end} page"
-msgstr ""
-"Khởi động lại đăng ký của bạn cho {subscriptionPrice} . Lịch sử thanh toán "
-"của bạn vẫn có trên trang {a_start} Đơn đặt hàng và đăng ký {a_end}"
-
-#: lms/templates/learner_dashboard/program_details_sidebar.underscore:30
-msgid ""
-"If you had a subscription previously, your payment history is still "
-"available on the {a_start}Orders and subscriptions{a_end} page"
-msgstr ""
-"Nếu trước đây bạn đã đăng ký thì lịch sử thanh toán của bạn vẫn có trên "
-"trang {a_start} Đơn đặt hàng và đăng ký {a_end}"
-
-#: lms/templates/learner_dashboard/program_details_sidebar.underscore:41
-msgid ""
-"Need help? Check out the {a_start}Learner Help "
-"Center{span_start}{icon}{span_end}{a_end} to troubleshoot issues or contact "
-"support"
-msgstr ""
-"Cần trợ giúp? Hãy xem {a_start} Trung tâm trợ giúp người học {span_start} "
-"{icon} {span_end} {a_end} để khắc phục sự cố hoặc liên hệ với bộ phận hỗ trợ"
-
-#: lms/templates/learner_dashboard/program_details_sidebar.underscore:56
+#: lms/templates/learner_dashboard/program_details_sidebar.underscore:12
 msgid "Program Record"
 msgstr "Bản ghi chương trình"
 
-#: lms/templates/learner_dashboard/program_details_sidebar.underscore:58
+#: lms/templates/learner_dashboard/program_details_sidebar.underscore:14
 msgid ""
 "Once you complete one of the program requirements you have a program record."
 " This record is marked complete once you meet all program requirements. A "
@@ -10843,34 +10727,34 @@ msgstr ""
 "tiếp tục hành trình học tập của bạn và chứng minh việc học của bạn cho người"
 " khác."
 
-#: lms/templates/learner_dashboard/program_details_sidebar.underscore:63
+#: lms/templates/learner_dashboard/program_details_sidebar.underscore:19
 msgid "View Program Record"
 msgstr "Xem bản ghi chương trình"
 
-#: lms/templates/learner_dashboard/program_details_sidebar.underscore:71
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:180
+#: lms/templates/learner_dashboard/program_details_sidebar.underscore:27
+#: lms/templates/learner_dashboard/program_details_tab_view.underscore:120
 msgid "Additional Credit Opportunities"
 msgstr "Cơ hội tín dụng bổ sung"
 
-#: lms/templates/learner_dashboard/program_details_sidebar.underscore:85
-#: lms/templates/learner_dashboard/program_details_sidebar.underscore:111
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:203
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:232
+#: lms/templates/learner_dashboard/program_details_sidebar.underscore:41
+#: lms/templates/learner_dashboard/program_details_sidebar.underscore:67
+#: lms/templates/learner_dashboard/program_details_tab_view.underscore:143
+#: lms/templates/learner_dashboard/program_details_tab_view.underscore:172
 msgid "Learn More"
 msgstr "Tìm hiểu thêm"
 
-#: lms/templates/learner_dashboard/program_details_sidebar.underscore:97
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:217
+#: lms/templates/learner_dashboard/program_details_sidebar.underscore:53
+#: lms/templates/learner_dashboard/program_details_tab_view.underscore:157
 msgid "Additional Professional Opportunities"
 msgstr "Cơ hội nghề nghiệp bổ sung"
 
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:34
-#: lms/templates/learner_dashboard/program_details_view.underscore:9
+#: lms/templates/learner_dashboard/program_details_tab_view.underscore:33
+#: lms/templates/learner_dashboard/program_details_view.underscore:8
 msgid "Congratulations!"
 msgstr "Chúc mừng!"
 
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:36
-#: lms/templates/learner_dashboard/program_details_view.underscore:11
+#: lms/templates/learner_dashboard/program_details_tab_view.underscore:35
+#: lms/templates/learner_dashboard/program_details_view.underscore:10
 #, python-format
 msgid ""
 "You have successfully completed all the requirements for the %(title)s "
@@ -10878,12 +10762,12 @@ msgid ""
 msgstr ""
 "Bạn đã hoàn thành thành công tất cả các yêu cầu cho %(title)s %(type)s ."
 
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:41
-#: lms/templates/learner_dashboard/program_details_view.underscore:16
+#: lms/templates/learner_dashboard/program_details_tab_view.underscore:40
+#: lms/templates/learner_dashboard/program_details_view.underscore:15
 msgid "Your Program Journey"
 msgstr "Hành trình chương trình của bạn"
 
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:44
+#: lms/templates/learner_dashboard/program_details_tab_view.underscore:43
 #, python-format
 msgid ""
 "Track and plan your progress through the %(count)s course(s) in this "
@@ -10894,93 +10778,56 @@ msgstr ""
 "trong chương trình này. Để hoàn thành chương trình, bạn phải đạt được chứng "
 "chỉ đã được xác minh cho mỗi khóa học."
 
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:65
-#: lms/templates/learner_dashboard/program_details_view.underscore:40
-msgid "Manage my subscription"
-msgstr "Quản lý đăng ký của tôi"
-
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:77
-#: lms/templates/learner_dashboard/program_details_view.underscore:52
-msgid "Restart my subscription"
-msgstr "Khởi động lại đăng ký của tôi"
-
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:81
-#: lms/templates/learner_dashboard/program_details_view.underscore:56
-msgid "Start {trialLength}-day free trial"
-msgstr "Bắt đầu dùng thử miễn phí {trialLength} -ngày"
-
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:90
-#: lms/templates/learner_dashboard/program_details_view.underscore:65
-msgid "Trial ends {trialEndDate} at {trialEndTime}"
-msgstr "Thời gian dùng thử kết thúc {trialEndDate} tại {trialEndTime}"
-
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:92
-#: lms/templates/learner_dashboard/program_details_view.underscore:67
-msgid "Your next billing date is {currentPeriodEnd}"
-msgstr "Ngày thanh toán tiếp theo của bạn là {currentPeriodEnd}"
-
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:94
-#: lms/templates/learner_dashboard/program_details_view.underscore:69
-msgid "{subscriptionPrice} subscription. Cancel anytime."
-msgstr "đăng ký {subscriptionPrice} . Hủy bỏ bất cứ lúc nào."
-
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:95
-#: lms/templates/learner_dashboard/program_details_view.underscore:70
-msgid "{subscriptionPrice} subscription after trial ends. Cancel anytime."
-msgstr ""
-"Đăng ký {subscriptionPrice} sau khi kết thúc thời gian dùng thử. Hủy bỏ bất "
-"cứ lúc nào."
-
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:112
-#: lms/templates/learner_dashboard/program_details_view.underscore:87
+#: lms/templates/learner_dashboard/program_details_tab_view.underscore:52
+#: lms/templates/learner_dashboard/program_details_view.underscore:28
 msgid "Upgrade All Remaining Courses ("
 msgstr "Nâng cấp tất cả các khóa học còn lại ("
 
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:116
-#: lms/templates/learner_dashboard/program_details_view.underscore:91
+#: lms/templates/learner_dashboard/program_details_tab_view.underscore:56
+#: lms/templates/learner_dashboard/program_details_view.underscore:32
 msgid "${listPrice}"
 msgstr "$ {listPrice}"
 
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:122
-#: lms/templates/learner_dashboard/program_details_view.underscore:97
+#: lms/templates/learner_dashboard/program_details_tab_view.underscore:62
+#: lms/templates/learner_dashboard/program_details_view.underscore:38
 msgid " ${price} {currency} )"
 msgstr " $ {price} {currency} )"
 
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:133
-#: lms/templates/learner_dashboard/program_details_view.underscore:108
+#: lms/templates/learner_dashboard/program_details_tab_view.underscore:73
+#: lms/templates/learner_dashboard/program_details_view.underscore:49
 msgid "COURSES IN PROGRESS"
 msgstr "CÁC KHÓA HỌC ĐANG ĐANG TIẾN HÀNH"
 
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:142
-#: lms/templates/learner_dashboard/program_details_view.underscore:117
+#: lms/templates/learner_dashboard/program_details_tab_view.underscore:82
+#: lms/templates/learner_dashboard/program_details_view.underscore:58
 msgid "REMAINING COURSES"
 msgstr "CÁC KHÓA HỌC CÒN LẠI"
 
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:150
-#: lms/templates/learner_dashboard/program_details_view.underscore:125
+#: lms/templates/learner_dashboard/program_details_tab_view.underscore:90
+#: lms/templates/learner_dashboard/program_details_view.underscore:66
 msgid "COMPLETED COURSES"
 msgstr "KHÓA HỌC ĐÃ HOÀN THÀNH"
 
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:157
-#: lms/templates/learner_dashboard/program_details_view.underscore:132
+#: lms/templates/learner_dashboard/program_details_tab_view.underscore:97
+#: lms/templates/learner_dashboard/program_details_view.underscore:73
 msgid "As you complete courses, you will see them listed here."
 msgstr ""
 "Khi bạn hoàn thành các khóa học, bạn sẽ thấy chúng được liệt kê ở đây."
 
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:158
-#: lms/templates/learner_dashboard/program_details_view.underscore:133
+#: lms/templates/learner_dashboard/program_details_tab_view.underscore:98
+#: lms/templates/learner_dashboard/program_details_view.underscore:74
 msgid ""
 "Complete courses on your schedule to ensure you stand out in your field!"
 msgstr ""
 "Hoàn thành các khóa học theo lịch trình của bạn để đảm bảo bạn nổi bật trong"
 " lĩnh vực của mình!"
 
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:182
+#: lms/templates/learner_dashboard/program_details_tab_view.underscore:122
 #, python-format
 msgid "Transform your %(org)s %(type)s into a full master’s degree"
 msgstr "Chuyển đổi %(org)s %(type)s của bạn thành bằng thạc sĩ đầy đủ"
 
-#: lms/templates/learner_dashboard/program_details_tab_view.underscore:185
+#: lms/templates/learner_dashboard/program_details_tab_view.underscore:125
 #, python-format
 msgid ""
 "Successful completion of %(org)s %(program)s credential can be applied "
@@ -10991,7 +10838,7 @@ msgstr ""
 " để lấy bằng thạc sĩ linh hoạt, nghiêm ngặt và giá cả phải chăng từ các "
 "trường đại học hàng đầu thế giới."
 
-#: lms/templates/learner_dashboard/program_details_view.underscore:19
+#: lms/templates/learner_dashboard/program_details_view.underscore:18
 #, python-format
 msgid ""
 "Track and plan your progress through the %(count)s courses in this program. "
@@ -11002,7 +10849,7 @@ msgstr ""
 "trong chương trình này. Để hoàn thành chương trình, bạn phải đạt được chứng "
 "chỉ đã được xác minh cho mỗi khóa học."
 
-#: lms/templates/learner_dashboard/program_header_view.underscore:20
+#: lms/templates/learner_dashboard/program_header_view.underscore:15
 msgid "{organization}\\'s logo"
 msgstr "logo của {organization}"
 
@@ -11010,55 +10857,13 @@ msgstr "logo của {organization}"
 msgid "My programs"
 msgstr "Chương trình của tôi"
 
-#: lms/templates/learner_dashboard/subscription_upsell_view.underscore:1
-msgid "New"
-msgstr "Mới"
-
-#: lms/templates/learner_dashboard/subscription_upsell_view.underscore:4
-msgid "Monthly program subscriptions {emDash} more flexible, more affordable"
-msgstr ""
-"Đăng ký chương trình hàng tháng {emDash} linh hoạt hơn, giá cả phải chăng "
-"hơn"
-
-#: lms/templates/learner_dashboard/subscription_upsell_view.underscore:10
-msgid ""
-"Now available for many popular programs, affordable monthly subscription "
-"pricing can help you manage your budget more effectively. Subscriptions "
-"start at {minSubscriptionPrice}/month USD per program, after a 7-day full "
-"access free trial. Cancel at any time."
-msgstr ""
-"Hiện có sẵn cho nhiều chương trình phổ biến, giá đăng ký hàng tháng phải "
-"chăng có thể giúp bạn quản lý ngân sách của mình hiệu quả hơn. Đăng ký bắt "
-"đầu ở {minSubscriptionPrice} /tháng USD cho mỗi chương trình, sau 7 ngày "
-"dùng thử miễn phí toàn quyền truy cập. Hủy bỏ bất cứ lúc nào."
-
-#: lms/templates/learner_dashboard/subscription_upsell_view.underscore:19
-msgid "Explore subscription options"
-msgstr "Khám phá các tùy chọn đăng ký"
-
 #: lms/templates/learner_dashboard/upgrade_message.underscore:3
-#: lms/templates/learner_dashboard/upgrade_message_subscription.underscore:3
 msgid "Needs verified certificate "
 msgstr "Cần chứng chỉ đã được xác minh "
 
 #: lms/templates/learner_dashboard/upgrade_message.underscore:9
 msgid "Upgrade to Verified"
 msgstr "Nâng cấp lên Đã xác minh"
-
-#: lms/templates/learner_dashboard/upgrade_message_subscription.underscore:8
-msgid "Upgrade with a subscription"
-msgstr "Nâng cấp bằng đăng ký"
-
-#: lms/templates/learner_dashboard/upgrade_message_subscription.underscore:14
-msgid "Pay {subscriptionPrice} for all courses in this program"
-msgstr ""
-"Thanh toán {subscriptionPrice} cho tất cả các khóa học trong chương trình "
-"này"
-
-#: lms/templates/learner_dashboard/upgrade_message_subscription.underscore:15
-msgid "Pay {subscriptionPrice} after {trialLength}-day free trial"
-msgstr ""
-"Thanh toán {subscriptionPrice} sau {trialLength} -ngày dùng thử miễn phí"
 
 #: lms/templates/student_account/account.underscore:2
 msgid "New Address"
