@@ -554,6 +554,10 @@ msgstr "Vorausbezahlter Rechnungsbetrag"
 msgid "Salesforce Opportunity ID"
 msgstr "Salesforce Gelegenheits ID"
 
+#: enterprise/forms.py:55
+msgid "Salesforce Opportunity Line Item"
+msgstr "Salesforce Opportunity-Position"
+
 #: enterprise/forms.py:58
 msgid "Emails Addresses"
 msgstr "E-Mail-Adressen"
@@ -634,6 +638,14 @@ msgid ""
 msgstr ""
 "Die Salesforce-Opportunity-ID muss aus 18 alphanumerischen Zeichen bestehen "
 "und mit 006 beginnen."
+
+#: enterprise/forms.py:176
+msgid ""
+"The Salesforce Opportunity Line Item must be 18 alphanumeric characters and "
+"begin with '00k'."
+msgstr ""
+"Die Salesforce Opportunity-Position muss 18 alphanumerische Zeichen lang "
+"sein und mit „00.000“ beginnen."
 
 #: enterprise/forms.py:184 enterprise/forms.py:232
 msgid "Ensure this value is greater than or equal to 0."
@@ -1221,6 +1233,26 @@ msgstr "Status"
 #: extensions/dashboard/users/views.py:48
 msgid "Failed to retrieve enrollment data."
 msgstr "Konnte Einschreibungsinformationen nicht abrufen. "
+
+#: extensions/iap/models.py:14
+msgid ""
+"Number of times to retry failing IAP client actions (e.g., payment creation,"
+" payment execution)"
+msgstr ""
+"Anzahl der Wiederholungsversuche bei fehlgeschlagenen IAP-Client-Aktionen "
+"(z.B. Zahlungserstellung, Zahlungsausführung)"
+
+#: extensions/iap/models.py:21
+msgid "Past number of days to fetch Android refunds for."
+msgstr "Vergangene Tage, für die Android-Erstattungen abgeholt werden können."
+
+#: extensions/iap/models.py:27
+msgid "mobile team email"
+msgstr "E-Mail-Adresse des mobilen Teams"
+
+#: extensions/iap/models.py:42
+msgid "Original Transaction ID"
+msgstr "Ursprüngliche Transaktions-ID"
 
 #: extensions/offer/constants.py:32
 msgid "Day 3"
@@ -3214,6 +3246,16 @@ msgstr "%(partner_name)s: Bestellbestätigung: [%(order_number)s]"
 msgid "Sections"
 msgstr "Abschnitte"
 
+#: templates/oscar/dashboard/catalogue/category_form.html:43
+#: templates/oscar/dashboard/catalogue/category_form.html:62
+msgid "Category details"
+msgstr "Kategoriedetails"
+
+#: templates/oscar/dashboard/catalogue/category_form.html:48
+#: templates/oscar/dashboard/catalogue/category_form.html:82
+msgid "Search engine optimisation"
+msgstr "Suchmaschinen-Optimierung"
+
 #: templates/oscar/dashboard/catalogue/category_form.html:106
 #: templates/oscar/dashboard/catalogue/product_update.html:324
 msgid "or"
@@ -3487,6 +3529,17 @@ msgstr "Produkte gesamt"
 msgid "Active Vouchers"
 msgstr "Aktive Gutscheine"
 
+#: templates/oscar/dashboard/offers/offer_detail.html:6
+#, python-format
+msgid ""
+"\n"
+"        %(name)s | Offers\n"
+"    "
+msgstr ""
+"\n"
+"%(name)s | Angebote\n"
+"    "
+
 #: templates/oscar/dashboard/offers/offer_detail.html:26
 msgid "Reinstating..."
 msgstr "Wiedereinstellung..."
@@ -3549,6 +3602,18 @@ msgstr "Bedingungen"
 #: templates/oscar/dashboard/offers/summary.html:31
 msgid "Restrictions"
 msgstr "Beschränkungen"
+
+#: templates/oscar/dashboard/offers/offer_detail.html:101
+msgid "Num of vouchers"
+msgstr "Anzahl von Gutscheinen"
+
+#: templates/oscar/dashboard/offers/offer_detail.html:110
+msgid "Attached vouchers"
+msgstr "Beigefügte Gutscheine"
+
+#: templates/oscar/dashboard/offers/offer_detail.html:142
+msgid "No vouchers are attached to this offer."
+msgstr "Diesem Angebot sind keine Gutscheine beigefügt."
 
 #: templates/oscar/dashboard/offers/offer_detail.html:150
 msgid "Export to CSV"
@@ -3718,6 +3783,10 @@ msgstr "Kundeninformation"
 msgid "Email address"
 msgstr "Email-Adresse"
 
+#: templates/oscar/dashboard/orders/order_detail.html:36
+msgid "Customer checked out as a guest."
+msgstr "Der Kunde hat als Gast ausgecheckt."
+
 #: templates/oscar/dashboard/orders/order_detail.html:50
 #: templates/oscar/dashboard/refunds/refund_detail.html:61
 msgid "Customer has deleted their account."
@@ -3830,6 +3899,11 @@ msgstr "Versand gesamt (inkl. Rabatte)"
 msgid "Shipping total"
 msgstr "Versandkosten gesamt"
 
+#: templates/oscar/dashboard/orders/order_detail.html:266
+#, python-format
+msgid "Surcharge %(name)s"
+msgstr "Aufpreis %(name)s"
+
 #: templates/oscar/dashboard/orders/order_detail.html:294
 msgid "With selected lines"
 msgstr "Mit ausgewählten Linien"
@@ -3867,6 +3941,10 @@ msgstr "Erstellen Sie ein Ereignis"
 msgid "with amount"
 msgstr "mit Betrag"
 
+#: templates/oscar/dashboard/orders/order_detail.html:358
+msgid "Create  Refund"
+msgstr "Rückerstattung erstellen"
+
 #: templates/oscar/dashboard/orders/order_detail.html:364
 msgid "Go!"
 msgstr "Los!"
@@ -3886,6 +3964,22 @@ msgstr "Status ändern"
 msgid "This order can't have its status changed."
 msgstr "Sie können nicht den Status dieser Order verändern. "
 
+#: templates/oscar/dashboard/orders/order_detail.html:390
+msgid "Status Changes"
+msgstr "Statusänderungen"
+
+#: templates/oscar/dashboard/orders/order_detail.html:397
+msgid "From"
+msgstr "Von"
+
+#: templates/oscar/dashboard/orders/order_detail.html:398
+msgid "To"
+msgstr "Zu"
+
+#: templates/oscar/dashboard/orders/order_detail.html:414
+msgid "No status changes."
+msgstr "Keine Statusänderungen."
+
 #: templates/oscar/dashboard/orders/order_detail.html:424
 msgid "Shipping Events"
 msgstr "Vorgänge beim Versand"
@@ -3895,6 +3989,17 @@ msgstr "Vorgänge beim Versand"
 #: templates/oscar/dashboard/refunds/refund_detail.html:168
 msgid "Lines"
 msgstr "Linien"
+
+#: templates/oscar/dashboard/orders/order_detail.html:446
+#, python-format
+msgid ""
+"\n"
+"                                                                %(title)s (quantity %(event_qty)s/%(total_qty)s)\n"
+"                                                            "
+msgstr ""
+"\n"
+"%(title)s (Menge %(event_qty)s / %(total_qty)s )\n"
+"                                                            "
 
 #: templates/oscar/dashboard/orders/order_detail.html:460
 msgid "No shipping events."
@@ -4040,9 +4145,23 @@ msgstr "Suchen"
 msgid "Advanced Search"
 msgstr "Erweiterte Suche"
 
+#: templates/oscar/dashboard/orders/order_list.html:78
+#: templates/oscar/dashboard/orders/order_list.html:164
+msgid "Order Search Results"
+msgstr "Suchergebnisse für Bestellungen"
+
+#: templates/oscar/dashboard/orders/order_list.html:80
+#: templates/oscar/dashboard/orders/order_list.html:166
+msgid "All Orders"
+msgstr "Alle Bestellungen"
+
 #: templates/oscar/dashboard/orders/order_list.html:85
 msgid "Download selected orders as a CSV"
 msgstr "Ausgewählte Bestellungen als CSV herunterladen"
+
+#: templates/oscar/dashboard/orders/order_list.html:86
+msgid "Submitting..."
+msgstr "Einreichen..."
 
 #: templates/oscar/dashboard/orders/order_list.html:86
 msgid "Download"
@@ -4056,11 +4175,23 @@ msgstr "Gesamt inkl. Steuern"
 msgid "Number of items"
 msgstr "Anzahl Artikel"
 
+#: templates/oscar/dashboard/orders/order_list.html:98
+msgid "Customer"
+msgstr "Kunde"
+
+#: templates/oscar/dashboard/orders/order_list.html:99
+msgid "Shipping address"
+msgstr "Lieferanschrift"
+
 #: templates/oscar/dashboard/orders/order_list.html:119
 #: templates/oscar/dashboard/refunds/refund_list.html:79
 #: templates/oscar/dashboard/refunds/refund_list.html:86
 msgid "Deleted"
 msgstr "Gelöscht"
+
+#: templates/oscar/dashboard/orders/order_list.html:148
+msgid "Changing..."
+msgstr "Ändern..."
 
 #: templates/oscar/dashboard/orders/order_list.html:169
 msgid "No orders found."
