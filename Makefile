@@ -5,6 +5,10 @@ retry_merge_transifex_bot_pull_requests
 # Default project to work on. Override to release project e.g. `openedx-translations-redwood` when cutting a release.
 export TRANSIFEX_PROJECT_SLUG := openedx-translations
 
+# Max pull requests
+export MAX_PULL_REQUESTS := 1000
+
+
 piptools:
 	pip install -q -r requirements/pip_tools.txt
 
@@ -37,6 +41,8 @@ test:  ## Run scripts tests
 validate_translation_files:  ## Run basic validation to ensure files are compilable
 	python scripts/validate_translation_files.py
 
-export MAX_PULL_REQUESTS_TO_RESTART := 1000
-retry_merge_transifex_bot_pull_requests:  ## Fix Transifex bot stuck and unmerged pull requests.
+retry_merge_transifex_bot_pull_requests:  ## Fix Transifex bot stuck and unmerged pull requests via restarting tests.
 	bash scripts/retry_merge_transifex_bot_pull_requests.sh
+
+retry_merge_valid_transifex_bot_pull_requests:  ## Fix Transifex bot stuck and unmerged pull requests via `gh pr merge --auto`.
+	bash scripts/retry_merge_valid_transifex_bot_pull_requests.sh
