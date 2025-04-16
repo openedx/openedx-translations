@@ -1226,6 +1226,17 @@ msgctxt "month name"
 msgid "December"
 msgstr "Dezembro"
 
+#: common/djangoapps/util/file.py:67
+#, python-brace-format
+msgid "The file must end with the extension '{file_types}'."
+msgid_plural ""
+"The file must end with one of the following extensions: '{file_types}'."
+msgstr[0] "O arquivo deve terminar com a extensão '{file_types}'."
+msgstr[1] ""
+"O arquivo deve terminar com uma das seguintes extensões: '{file_types}'."
+msgstr[2] ""
+"O arquivo deve terminar com uma das seguintes extensões: '{file_types}'."
+
 #: common/djangoapps/util/file.py:73
 #, python-brace-format
 msgid "Maximum upload file size is {file_size} bytes."
@@ -1787,8 +1798,7 @@ msgstr "Entrar em Contato com {platform_name}"
 #: lms/djangoapps/certificates/views/webview.py:238
 #, python-brace-format
 msgid "{platform_name} acknowledges the following student accomplishment"
-msgstr ""
-"Reconhecimento da {platform_name} para a realização dos seguintes estudantes"
+msgstr "{platform_name} reconhece a realização do seguinte aluno"
 
 #. Translators:  This text represents the description of course
 #: lms/djangoapps/certificates/views/webview.py:256
@@ -1885,6 +1895,14 @@ msgid ""
 msgstr ""
 "Uma solicitação de reembolso foi iniciada por {username} ({email}). Para "
 "processar esta solicitação, por favor, clique no link(s) abaixo."
+
+#: lms/djangoapps/course_home_api/outline/views.py:635
+msgid "'course_id' is required."
+msgstr "'course_id' é obrigatório."
+
+#: lms/djangoapps/course_home_api/outline/views.py:639
+msgid "Only 'course_id' is expected."
+msgstr "Apenas 'course_id' é esperado."
 
 #: lms/djangoapps/course_wiki/plugins/course_app.py:31
 #: lms/djangoapps/course_wiki/tab.py:19
@@ -3575,6 +3593,11 @@ msgstr "Esta revisão foi excluída."
 msgid "Restoring to this revision will mark the article as deleted."
 msgstr "A restauração desta versão marcará o artigo como excluído."
 
+#: openedx/core/djangoapps/auth_exchange/forms.py:72
+#, python-format
+msgid "'%s' is not a valid scope."
+msgstr "'%s' não é um escopo válido."
+
 #: openedx/core/djangoapps/bookmarks/views.py:39
 msgid "An error has occurred. Please try again."
 msgstr "Ocorreu um erro. Tente novamente."
@@ -4201,6 +4224,10 @@ msgid ""
 msgstr ""
 "A licença define como o conteúdo para este bloqueio pode ser compartilhado e"
 " reusado."
+
+#: openedx/features/course_experience/api/v1/views.py:64
+msgid "'course_key' is required."
+msgstr "'course_key' é obrigatório."
 
 #: xmodule/annotatable_block.py:44
 msgid "XML data for the annotation"
@@ -4875,6 +4902,20 @@ msgstr "A definição do problema não suporta uma nova correção."
 msgid "Problem must be answered before it can be graded again."
 msgstr "O problema deve ser respondido para poder ser avaliado novamente."
 
+#: xmodule/conditional_block.py:127
+#, python-brace-format
+msgid ""
+"The message that is shown to learners when not all conditions are met to "
+"show the content of this conditional block. Include {link} in the text of "
+"your message to give learners a direct link to required units. For example, "
+"'You must complete {link} before you can access this unit'."
+msgstr ""
+"A mensagem que é mostrada aos alunos quando nem todas as condições são "
+"atendidas para mostrar o conteúdo desse bloco condicional. Inclua {link} no "
+"texto da sua mensagem para dar aos alunos um link direto para as unidades "
+"necessárias. Por exemplo, 'Você deve completar {link} antes de poder acessar"
+" esta unidade'."
+
 #: xmodule/course_block.py:326
 msgid "LTI Passports"
 msgstr "Passaportes LTI"
@@ -4996,6 +5037,29 @@ msgstr ""
 #: xmodule/course_block.py:420
 msgid "Discussion Topic Mapping"
 msgstr "Mapeamento do Tópico de Discussão"
+
+#: xmodule/course_block.py:422
+msgid ""
+"Enter discussion categories in the following format: \"CategoryName\": "
+"{\"id\": \"i4x-InstitutionName-CourseNumber-course-CourseRun\"}. For "
+"example, one discussion category may be \"Lydian Mode\": {\"id\": "
+"\"i4x-UniversityX-MUS101-course-2015_T1\"}. The \"id\" value for each "
+"category must be unique. In \"id\" values, the only special characters that "
+"are supported are underscore, hyphen, and period. You can also specify a "
+"category as the default for new posts in the Discussion page by setting its "
+"\"default\" attribute to true. For example, \"Lydian Mode\": {\"id\": "
+"\"i4x-UniversityX-MUS101-course-2015_T1\", \"default\": true}."
+msgstr ""
+"Insira as categorias de discussão no seguinte formato: \"NomeDaCategoria\": "
+"{\"id\": \"i4x-InstitutionName-CourseNumber-course-CourseRun\"}. Por "
+"exemplo, uma categoria de discussão pode ser \"Modo Lídio\": {\"id\": "
+"\"i4x-UniversityX-MUS101-course-2015_T1\"}. O valor \"id\" para cada "
+"categoria deve ser exclusivo. Nos valores \"id\", os únicos caracteres "
+"especiais suportados são sublinhado, hífen e ponto final. Você também pode "
+"especificar uma categoria como padrão para novas publicações na página "
+"Discussão definindo seu atributo \"default\" como verdadeiro. Por exemplo, "
+"\"Modo Lídio\": {\"id\": \"i4x-UniversityX-MUS101-course-2015_T1\", "
+"\"default\": true}."
 
 #: xmodule/course_block.py:444
 msgid "Course Announcement Date"
@@ -5135,6 +5199,10 @@ msgstr ""
 #: xmodule/course_block.py:549 xmodule/library_root_xblock.py:36
 msgid "Advanced Module List"
 msgstr "Lista de Módulos Avançados"
+
+#: xmodule/course_block.py:550
+msgid "Enter the names of the advanced modules to use in your course."
+msgstr "Digite os nomes dos módulos avançados para usar em seu curso."
 
 #: xmodule/course_block.py:562
 msgid "Due Date Display Format"
@@ -5450,6 +5518,16 @@ msgstr ""
 "determinado. Cursos com ritmo auto-determinados não têm prazo de entregas "
 "para tarefas e os alunos podem seguir através do curso em qualquer "
 "velocidade até que o curso termine."
+
+#: xmodule/course_block.py:983
+msgid ""
+"Specify the video sharing options for the course. This can be set to one of "
+"three values: 'all-on', 'all-off' and 'per-video'. with 'per-video' as the "
+"default."
+msgstr ""
+"Especifique as opções de compartilhamento de vídeo para o curso. Isso pode "
+"ser definido para um dos três valores: 'all-on', 'all-off' e 'per-video', "
+"com 'per-video' como padrão."
 
 #: xmodule/course_block.py:1050
 msgid "Course-wide Custom CSS"
@@ -12568,6 +12646,14 @@ msgstr ""
 msgid "Add CCX Coach"
 msgstr "Adicionar Técnico CCX"
 
+#: lms/templates/instructor/instructor_dashboard_2/send_email.html:13
+msgid "To use the email tool, visit the"
+msgstr "Para usar a ferramenta de e-mail, visite a"
+
+#: lms/templates/instructor/instructor_dashboard_2/send_email.html:13
+msgid "new experience"
+msgstr "nova experiência"
+
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html:19
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html:23
 msgid "Send to:"
@@ -12652,6 +12738,12 @@ msgstr "Local do problema"
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html:165
 msgid "Rescore All Problems"
 msgstr "Reavaliar Todos os Problemas"
+
+#: lms/templates/instructor/instructor_dashboard_2/data_download_2/certificates.html:10
+#: lms/templates/instructor/instructor_dashboard_2/data_download_2/grading.html:11
+#: lms/templates/instructor/instructor_dashboard_2/data_download_2/reports.html:10
+msgid "Note"
+msgstr "Nota"
 
 #: lms/templates/learner_dashboard/_dashboard_navigation_courses.html:7
 msgid "My Courses"
