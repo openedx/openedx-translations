@@ -25,15 +25,16 @@
 # Translators:
 # Brian Smith, 2024
 # edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2025
+# Iryna Zaporozhets, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-25 00:36+0000\n"
+"POT-Creation-Date: 2025-05-09 00:37+0000\n"
 "PO-Revision-Date: 2023-11-20 11:35+0000\n"
-"Last-Translator: edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2025\n"
+"Last-Translator: Iryna Zaporozhets, 2025\n"
 "Language-Team: Ukrainian (https://app.transifex.com/open-edx/teams/6205/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -197,11 +198,15 @@ msgstr "Вертикальний"
 msgid "Unit"
 msgstr "Блок"
 
+#: cms/djangoapps/contentstore/management/commands/recreate_upstream_links.py:46
+msgid "COURSE_KEY"
+msgstr "COURSE_KEY"
+
 #. #-#-#-#-#  django.po (0.1a)  #-#-#-#-#
 #. Translators: This is listed as the duration for a video that has not
 #. yet reached the point in its processing by the servers where its
 #. duration is determined.
-#: cms/djangoapps/contentstore/models.py:354
+#: cms/djangoapps/contentstore/models.py:405
 #: cms/djangoapps/contentstore/video_storage_handlers.py:533
 #: openedx/core/djangoapps/api_admin/models.py:42 cms/templates/index.html:483
 msgid "Pending"
@@ -209,10 +214,15 @@ msgstr "В очікуванні"
 
 #. Translators: This is the status for a video that the servers have failed to
 #. process
-#: cms/djangoapps/contentstore/models.py:356
+#: cms/djangoapps/contentstore/models.py:407
 #: cms/djangoapps/contentstore/video_storage_handlers.py:127
 msgid "Failed"
 msgstr "Не складено"
+
+#: cms/djangoapps/contentstore/models.py:408 lms/templates/seq_block.html:76
+#: lms/templates/vert_module.html:28
+msgid "Completed"
+msgstr "Завершено"
 
 #: cms/djangoapps/contentstore/transcript_storage_handlers.py:116
 msgid "The information you entered is incorrect."
@@ -298,6 +308,13 @@ msgstr "Завантаження"
 msgid "In Progress"
 msgstr "Опрацьовується"
 
+#. Translators: This is the status for a video that the servers have
+#. successfully processed
+#: cms/djangoapps/contentstore/video_storage_handlers.py:123
+#: openedx/core/djangoapps/content_staging/data.py:19
+msgid "Ready"
+msgstr "Готово"
+
 #. Translators: This is the status for a video that is uploaded completely
 #: cms/djangoapps/contentstore/video_storage_handlers.py:125
 msgid "Uploaded"
@@ -373,6 +390,10 @@ msgstr "Дата додавання"
 #: xmodule/video_block/video_xfields.py:196
 msgid "Video ID"
 msgstr "Ідентифікатор відео"
+
+#: cms/djangoapps/contentstore/video_storage_handlers.py:520
+msgid "Status"
+msgstr "Статус"
 
 #. Translators: This is the suggested filename when downloading the URL
 #. listing for videos uploaded through Studio
@@ -475,6 +496,11 @@ msgstr "{platform_name} Рівні підтримки:"
 #: lms/templates/ux/reference/bootstrap/course-skeleton.html:24
 msgid "Discussion"
 msgstr "Обговорення"
+
+#: cms/djangoapps/contentstore/views/component.py:284
+#: lms/templates/video.html:57
+msgid "Video"
+msgstr "Відео"
 
 #: cms/djangoapps/contentstore/views/component.py:330
 msgid "Blank"
@@ -674,6 +700,17 @@ msgstr ""
 msgid "Empty"
 msgstr "Порожній"
 
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:438
+#: openedx/core/djangoapps/xblock/rest_api/views.py:334
+msgid "Invalid data"
+msgstr "Некоректні дані"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:440
+#: openedx/core/djangoapps/xblock/rest_api/views.py:336
+#, python-brace-format
+msgid "Invalid data ({details})"
+msgstr "Некоректні дані ({details})"
+
 #: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:752
 #, python-brace-format
 msgid "You can not move {source_type} into {target_parent_type}."
@@ -866,7 +903,7 @@ msgid "Display Name"
 msgstr "Назва, що відображається"
 
 #: common/djangoapps/course_modes/models.py:69
-#: lms/templates/courseware/course_about.html:214
+#: lms/templates/courseware/course_about.html:225
 msgid "Price"
 msgstr "Ціна"
 
@@ -7304,45 +7341,45 @@ msgstr "помилка"
 msgid "Custom Evaluated Script"
 msgstr "Сценарій власного оцінювання"
 
-#: xmodule/capa/responsetypes.py:2184
+#: xmodule/capa/responsetypes.py:2187
 #, python-brace-format
 msgid "error getting student answer from {student_answers}"
 msgstr "помилка отримання відповіді студента з {student_answers}"
 
-#: xmodule/capa/responsetypes.py:2208
+#: xmodule/capa/responsetypes.py:2211
 msgid "No answer entered!"
 msgstr "Жодної відповіді!"
 
-#: xmodule/capa/responsetypes.py:2432
+#: xmodule/capa/responsetypes.py:2438
 msgid "CustomResponse: check function returned an invalid dictionary!"
 msgstr "ЗагальнаВідповідь: функція перевірки повернула некоректний словник!"
 
-#: xmodule/capa/responsetypes.py:2525
+#: xmodule/capa/responsetypes.py:2531
 msgid "Symbolic Math Input"
 msgstr "Введення математичних символів"
 
 #. Translators: 'SymbolicResponse' is a problem type and should not be
 #. translated.
-#: xmodule/capa/responsetypes.py:2556
+#: xmodule/capa/responsetypes.py:2562
 #, python-brace-format
 msgid "An error occurred with SymbolicResponse. The error was: {error_msg}"
 msgstr ""
 "Виникла помилка в завданні типу SymbolicResponse. Повідомлення про помилку: "
 "{error_msg}"
 
-#: xmodule/capa/responsetypes.py:2594
+#: xmodule/capa/responsetypes.py:2600
 msgid "Code Input"
 msgstr "Введення кода"
 
-#: xmodule/capa/responsetypes.py:2652
+#: xmodule/capa/responsetypes.py:2658
 msgid "No answer provided."
 msgstr "Жодної відповіді не надано."
 
-#: xmodule/capa/responsetypes.py:2671
+#: xmodule/capa/responsetypes.py:2677
 msgid "Error: No grader has been set up for this problem."
 msgstr "Помилка: для даного завдання не призначено спосіб оцінювання"
 
-#: xmodule/capa/responsetypes.py:2732
+#: xmodule/capa/responsetypes.py:2738
 #, python-brace-format
 msgid ""
 "Unable to deliver your submission to grader (Reason: {error_msg}). Please "
@@ -7352,21 +7389,21 @@ msgstr ""
 "{error_msg}). Будь ласка, спробуйте пізніше."
 
 #. Translators: 'grader' refers to the edX automatic code grader.
-#: xmodule/capa/responsetypes.py:2755
+#: xmodule/capa/responsetypes.py:2761
 msgid "Invalid grader reply. Please contact the course staff."
 msgstr ""
 "Некоректна відповідь системи оцінювання. Будь ласка, зв'яжіться із "
 "персоналом курсу."
 
-#: xmodule/capa/responsetypes.py:2868
+#: xmodule/capa/responsetypes.py:2874
 msgid "External Grader"
 msgstr "Зовнішній оцінювач"
 
-#: xmodule/capa/responsetypes.py:3026
+#: xmodule/capa/responsetypes.py:3032
 msgid "Math Expression Input"
 msgstr "Введення математичних виразів"
 
-#: xmodule/capa/responsetypes.py:3125
+#: xmodule/capa/responsetypes.py:3131
 #, python-brace-format
 msgid ""
 "Factorial function not permitted in answer for this problem. Provided answer"
@@ -7375,65 +7412,65 @@ msgstr ""
 "Факторіальна функція не дозволена у відповідь на це завдання. Надана "
 "відповідь: {bad_input}"
 
-#: xmodule/capa/responsetypes.py:3132
+#: xmodule/capa/responsetypes.py:3138
 #, python-brace-format
 msgid "Invalid input: Could not parse '{bad_input}' as a formula."
 msgstr ""
 "Некоректні вхідні дані: Неможливо опрацювати '{bad_input}' в якості формули."
 
-#: xmodule/capa/responsetypes.py:3140
+#: xmodule/capa/responsetypes.py:3146
 #, python-brace-format
 msgid "Invalid input: Could not parse '{bad_input}' as a formula"
 msgstr ""
 "Некоректні вхідні дані: Неможливо опрацювати '{bad_input}' в якості формули"
 
-#: xmodule/capa/responsetypes.py:3247
+#: xmodule/capa/responsetypes.py:3253
 msgid "Circuit Schematic Builder"
 msgstr "Схематичний конструктор схем"
 
 #. Translators: 'SchematicResponse' is a problem type and should not be
 #. translated.
-#: xmodule/capa/responsetypes.py:3284
+#: xmodule/capa/responsetypes.py:3293
 #, python-brace-format
 msgid "Error in evaluating SchematicResponse. The error was: {error_msg}"
 msgstr ""
 "Помилка при обробці SchematicResponse. Повідомлення про помилку: {error_msg}"
 
-#: xmodule/capa/responsetypes.py:3325
+#: xmodule/capa/responsetypes.py:3334
 msgid "Image Mapped Input"
 msgstr "Вибір зони на зображенні"
 
-#: xmodule/capa/responsetypes.py:3350
+#: xmodule/capa/responsetypes.py:3359
 #, python-brace-format
 msgid "error grading {image_input_id} (input={user_input})"
 msgstr "Помилка при оцінюванні {image_input_id} (input={user_input})"
 
 #. Translators: {sr_coords} are the coordinates of a rectangle
-#: xmodule/capa/responsetypes.py:3371
+#: xmodule/capa/responsetypes.py:3380
 #, python-brace-format
 msgid "Error in problem specification! Cannot parse rectangle in {sr_coords}"
 msgstr ""
 "Помилка в описі завдання! Неможливо сформувати прямокутник з координатами "
 "{sr_coords}"
 
-#: xmodule/capa/responsetypes.py:3444
+#: xmodule/capa/responsetypes.py:3453
 msgid "Annotation Input"
 msgstr "Введення анотації"
 
-#: xmodule/capa/responsetypes.py:3571
+#: xmodule/capa/responsetypes.py:3580
 msgid "Checkboxes With Text Input"
 msgstr "Множинний вибір з текстовим полем"
 
-#: xmodule/capa/responsetypes.py:3624
+#: xmodule/capa/responsetypes.py:3633
 #, python-brace-format
 msgid "Answer not provided for {input_type}"
 msgstr "Відповідь для {input_type} не зазначена"
 
-#: xmodule/capa/responsetypes.py:3870
+#: xmodule/capa/responsetypes.py:3879
 msgid "The Staff answer could not be interpreted as a number."
 msgstr "Відповідь персоналу неможливо представити як число."
 
-#: xmodule/capa/responsetypes.py:3884
+#: xmodule/capa/responsetypes.py:3893
 #, python-brace-format
 msgid "Could not interpret '{given_answer}' as a number."
 msgstr "Неможливо представити '{given_answer}' в якості числа."
@@ -11292,7 +11329,7 @@ msgstr "наприклад: Інститут Х або Організація Х
 
 #: cms/templates/course-create-rerun.html:95 cms/templates/index.html:101
 #: cms/templates/settings.html:78
-#: lms/templates/courseware/course_about.html:164
+#: lms/templates/courseware/course_about.html:175
 msgid "Course Number"
 msgstr "Номер Курсу"
 
@@ -12253,7 +12290,7 @@ msgid "Add Instructor"
 msgstr "Додати викладача"
 
 #: cms/templates/settings.html:617
-#: lms/templates/courseware/course_about.html:239
+#: lms/templates/courseware/course_about.html:250
 msgid "Requirements"
 msgstr "Вимоги"
 
@@ -12805,7 +12842,7 @@ msgid "You should Register before trying to access the Unit"
 msgstr ""
 "Ви повинні зареєструватися, перш ніж отримати доступ до цього розділу."
 
-#: lms/templates/courseware/course_about.html:281
+#: lms/templates/courseware/course_about.html:292
 #: lms/templates/enroll_staff.html:34
 msgctxt "self"
 msgid "Enroll"
@@ -13066,17 +13103,17 @@ msgstr ""
 "ідентифікатор правильний. Якщо ви впевнені, що посилання або ідентифікатор "
 "вірний, зверніться в службу підтримки."
 
-#: lms/templates/courseware/course_about.html:80
-#: lms/templates/courseware/course_about.html:98
+#: lms/templates/courseware/course_about.html:91
+#: lms/templates/courseware/course_about.html:109
 #: lms/templates/dashboard/_dashboard_course_resume.html:21
 msgid "View Course"
 msgstr "Переглянути курс"
 
-#: lms/templates/courseware/course_about.html:94
+#: lms/templates/courseware/course_about.html:105
 msgid "Enrollment is Closed"
 msgstr "Запис на курс завершено"
 
-#: lms/templates/courseware/course_about.html:193
+#: lms/templates/courseware/course_about.html:204
 msgid "Classes End"
 msgstr "Заняття закінчуються"
 
