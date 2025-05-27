@@ -32,7 +32,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-25 00:36+0000\n"
+"POT-Creation-Date: 2025-05-27 00:37+0000\n"
 "PO-Revision-Date: 2023-11-20 11:35+0000\n"
 "Last-Translator: edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2025\n"
 "Language-Team: Indonesian (https://app.transifex.com/open-edx/teams/6205/id/)\n"
@@ -100,7 +100,7 @@ msgstr "Unit"
 #. Translators: This is listed as the duration for a video that has not
 #. yet reached the point in its processing by the servers where its
 #. duration is determined.
-#: cms/djangoapps/contentstore/models.py:354
+#: cms/djangoapps/contentstore/models.py:417
 #: cms/djangoapps/contentstore/video_storage_handlers.py:533
 #: openedx/core/djangoapps/api_admin/models.py:42 cms/templates/index.html:483
 msgid "Pending"
@@ -108,7 +108,7 @@ msgstr "Ditunda"
 
 #. Translators: This is the status for a video that the servers have failed to
 #. process
-#: cms/djangoapps/contentstore/models.py:356
+#: cms/djangoapps/contentstore/models.py:419
 #: cms/djangoapps/contentstore/video_storage_handlers.py:127
 msgid "Failed"
 msgstr "Gagal"
@@ -146,18 +146,18 @@ msgstr "Salinan dengan kode bahasa \"{language_code}\" sudah tersedia."
 msgid "A transcript file is required."
 msgstr "File transkrip dibutuhkan."
 
-#: cms/djangoapps/contentstore/utils.py:1086
+#: cms/djangoapps/contentstore/utils.py:1087
 #: cms/djangoapps/contentstore/views/block.py:277
 #: cms/djangoapps/contentstore/views/component.py:282 xmodule/html_block.py:61
 msgid "Text"
 msgstr "Teks"
 
-#: cms/djangoapps/contentstore/utils.py:1283
+#: cms/djangoapps/contentstore/utils.py:1284
 #, python-brace-format
 msgid "Duplicate of {0}"
 msgstr "Duplikasi dari {0}"
 
-#: cms/djangoapps/contentstore/utils.py:1285
+#: cms/djangoapps/contentstore/utils.py:1286
 #, python-brace-format
 msgid "Duplicate of '{0}'"
 msgstr "Duplikasi '{0}'"
@@ -242,6 +242,7 @@ msgstr "Isi dengan integer positif bukan nol"
 #: lms/djangoapps/courseware/tabs.py:241
 #: lms/djangoapps/discussion/plugins.py:27
 #: openedx/core/djangoapps/discussions/plugins.py:23
+#: openedx/core/djangoapps/notifications/email/utils.py:448
 #: openedx/features/lti_course_tab/tab.py:274 xmodule/discussion_block.py:198
 #: lms/djangoapps/discussion/templates/discussion/discussion_profile_page.html:48
 #: lms/templates/ux/reference/bootstrap/course-skeleton.html:24
@@ -463,7 +464,7 @@ msgid "Display Name"
 msgstr "Nama tampilan"
 
 #: common/djangoapps/course_modes/models.py:69
-#: lms/templates/courseware/course_about.html:214
+#: lms/templates/courseware/course_about.html:225
 msgid "Price"
 msgstr "Harga"
 
@@ -2079,6 +2080,7 @@ msgstr ""
 #. protect published content
 #: lms/djangoapps/certificates/views/webview.py:176
 #: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/base_body.html:231
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:50
 #: themes/red-theme/lms/templates/ace_common/edx_ace/common/base_body.html:174
 msgid "All rights reserved"
 msgstr "Seluruh hak cipta"
@@ -2514,7 +2516,7 @@ msgstr "Kursus"
 msgid "Syllabus"
 msgstr "Silabus"
 
-#: lms/djangoapps/courseware/views/index.py:233
+#: lms/djangoapps/courseware/views/index.py:231
 #, python-brace-format
 msgid ""
 "You are not signed in. To see additional course content, {sign_in_link} or "
@@ -2523,13 +2525,13 @@ msgstr ""
 "Anda belum signed in. Untuk melihat konten pelatihan tambahan, "
 "{sign_in_link} atau {register_link}, dan daftarkan diri dalam pelatihan ini."
 
-#: lms/djangoapps/courseware/views/index.py:236
+#: lms/djangoapps/courseware/views/index.py:234
 #: lms/djangoapps/courseware/views/views.py:561
 #: xmodule/discussion_block.py:187
 msgid "sign in"
 msgstr "sign in"
 
-#: lms/djangoapps/courseware/views/index.py:240
+#: lms/djangoapps/courseware/views/index.py:238
 #: lms/djangoapps/courseware/views/views.py:565
 #: lms/djangoapps/courseware/views/views.py:580
 #: xmodule/discussion_block.py:191
@@ -3389,7 +3391,7 @@ msgstr "Reset"
 #. messages as {action}.
 #: lms/djangoapps/instructor_task/tasks.py:139
 #: lms/templates/wiki/plugins/attachments/index.html:74
-#: wiki/models/article.py:245
+#: wiki/models/article.py:257
 #: wiki/plugins/attachments/templates/wiki/plugins/attachments/history.html:22
 #: wiki/plugins/attachments/templates/wiki/plugins/attachments/index.html:20
 #: wiki/plugins/attachments/templates/wiki/plugins/attachments/search.html:39
@@ -3580,7 +3582,7 @@ msgstr "Hak"
 msgid "Feature Based Enrollments"
 msgstr "Pendaftaran Berdasarkan Fitur"
 
-#: lms/djangoapps/support/views/manage_user.py:34
+#: lms/djangoapps/support/views/manage_user.py:35
 #: lms/templates/tracking_log.html:6
 msgid "username"
 msgstr "nama pengguna"
@@ -4613,11 +4615,36 @@ msgstr "Daftar putihkan {country} untuk {course}"
 msgid "Blacklist {country} for {course}"
 msgstr "Daftar hitamkan {country} untuk {course}"
 
+#: openedx/core/djangoapps/notifications/email/utils.py:449
+#: openedx/features/course_experience/plugins.py:34
+#: cms/templates/widgets/header.html:115 cms/templates/widgets/header.html:120
+#: lms/templates/api_admin/terms_of_service.html:66
+#: openedx/features/course_experience/templates/course_experience/course-updates-fragment.html:18
+#: openedx/features/course_experience/templates/course_experience/course-updates-fragment.html:25
+msgid "Updates"
+msgstr "Pembaruan"
+
+#: openedx/core/djangoapps/notifications/email/utils.py:450
+#: cms/templates/certificates.html:116
+#: cms/templates/group_configurations.html:127 cms/templates/settings.html:707
+#: cms/templates/settings_advanced.html:147
+#: cms/templates/settings_graders.html:50
+#: cms/templates/widgets/header.html:181 cms/templates/widgets/header.html:186
+msgid "Grading"
+msgstr "Pemeringkatan"
+
 #: openedx/core/djangoapps/notifications/email_notifications.py:19
 #: xmodule/capa_block.py:224 xmodule/capa_block.py:242
 #: xmodule/capa_block.py:281
 msgid "Never"
 msgstr "Tidak pernah"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_content.html:50
+#: openedx/core/djangoapps/notifications/templates/notifications/immediate_email_content.html:27
+#: wiki/templates/wiki/includes/article_menu.html:49
+#: lms/templates/wiki/includes/article_menu.html:13
+msgid "View"
+msgstr "Tampilkan"
 
 #: openedx/core/djangoapps/oauth_dispatch/models.py:141
 msgid "Content Provider"
@@ -4884,7 +4911,7 @@ msgstr "Masukkan alamat email anda minimal {min} karakter."
 msgid "The '{field_name}' field cannot be edited."
 msgstr "Isian '{field_name}' tidak dapat diubah."
 
-#: openedx/core/djangoapps/user_api/accounts/views.py:644
+#: openedx/core/djangoapps/user_api/accounts/views.py:647
 msgid ""
 "This account has been temporarily locked due to excessive login failures. "
 "Try again later."
@@ -4892,7 +4919,7 @@ msgstr ""
 "Akun ini telah dikunci sementara karena gagal login terlalu banyak. Coba "
 "lagi lain kali."
 
-#: openedx/core/djangoapps/user_api/accounts/views.py:654
+#: openedx/core/djangoapps/user_api/accounts/views.py:657
 #: openedx/core/djangoapps/user_authn/views/login.py:311
 #: lms/templates/provider_login.html:43
 msgid "Email or password is incorrect."
@@ -5451,14 +5478,6 @@ msgstr ""
 "Peserta ini tidak memiliki akses terhadap kursus ini. Akses telah kadaluarsa"
 " pada {expiration_date}."
 
-#: openedx/features/course_experience/plugins.py:34
-#: cms/templates/widgets/header.html:115 cms/templates/widgets/header.html:120
-#: lms/templates/api_admin/terms_of_service.html:66
-#: openedx/features/course_experience/templates/course_experience/course-updates-fragment.html:18
-#: openedx/features/course_experience/templates/course_experience/course-updates-fragment.html:25
-msgid "Updates"
-msgstr "Pembaruan"
-
 #: openedx/features/enterprise_support/api.py:1004
 #, python-brace-format
 msgid "Enrollment in {course_title} was not complete."
@@ -5827,46 +5846,46 @@ msgstr "kesalahan"
 msgid "Custom Evaluated Script"
 msgstr "Skrip yang dievaluasi secara kustom"
 
-#: xmodule/capa/responsetypes.py:2184
+#: xmodule/capa/responsetypes.py:2187
 #, python-brace-format
 msgid "error getting student answer from {student_answers}"
 msgstr ""
 "terjadi kesalahan dalam mendapatkan jawaban siswa dari {student_answers}"
 
-#: xmodule/capa/responsetypes.py:2208
+#: xmodule/capa/responsetypes.py:2211
 msgid "No answer entered!"
 msgstr "Jawaban belum dimasukkan!"
 
-#: xmodule/capa/responsetypes.py:2432
+#: xmodule/capa/responsetypes.py:2438
 msgid "CustomResponse: check function returned an invalid dictionary!"
 msgstr "CustomResponse: fungsi cek menunjukkan kamus yang tidak valid!"
 
-#: xmodule/capa/responsetypes.py:2525
+#: xmodule/capa/responsetypes.py:2531
 msgid "Symbolic Math Input"
 msgstr "Input Matematika Simbolik"
 
 #. Translators: 'SymbolicResponse' is a problem type and should not be
 #. translated.
-#: xmodule/capa/responsetypes.py:2556
+#: xmodule/capa/responsetypes.py:2562
 #, python-brace-format
 msgid "An error occurred with SymbolicResponse. The error was: {error_msg}"
 msgstr ""
 "Terjadi kesalahan dalam SymbolicResponse. Kesalahan adalah sebagai berikut: "
 "{error_msg}"
 
-#: xmodule/capa/responsetypes.py:2594
+#: xmodule/capa/responsetypes.py:2600
 msgid "Code Input"
 msgstr "Input Kode"
 
-#: xmodule/capa/responsetypes.py:2652
+#: xmodule/capa/responsetypes.py:2658
 msgid "No answer provided."
 msgstr "Jawaban belum diberikan."
 
-#: xmodule/capa/responsetypes.py:2671
+#: xmodule/capa/responsetypes.py:2677
 msgid "Error: No grader has been set up for this problem."
 msgstr "Kesalahan: Belum ada penilai ditugaskan untuk permasalahan ini."
 
-#: xmodule/capa/responsetypes.py:2732
+#: xmodule/capa/responsetypes.py:2738
 #, python-brace-format
 msgid ""
 "Unable to deliver your submission to grader (Reason: {error_msg}). Please "
@@ -5876,19 +5895,19 @@ msgstr ""
 "Silakan ulangi beberapa saat lagi."
 
 #. Translators: 'grader' refers to the edX automatic code grader.
-#: xmodule/capa/responsetypes.py:2755
+#: xmodule/capa/responsetypes.py:2761
 msgid "Invalid grader reply. Please contact the course staff."
 msgstr "Balasan penilai tidak valid. Silakan hubungi staf kursus."
 
-#: xmodule/capa/responsetypes.py:2868
+#: xmodule/capa/responsetypes.py:2874
 msgid "External Grader"
 msgstr "Penilai Eksternal"
 
-#: xmodule/capa/responsetypes.py:3026
+#: xmodule/capa/responsetypes.py:3032
 msgid "Math Expression Input"
 msgstr "Input Ekspresi Matematika"
 
-#: xmodule/capa/responsetypes.py:3125
+#: xmodule/capa/responsetypes.py:3131
 #, python-brace-format
 msgid ""
 "Factorial function not permitted in answer for this problem. Provided answer"
@@ -5897,66 +5916,66 @@ msgstr ""
 "Fungsi faktorial tidak diizinkan menjawab untuk masalah ini. Jawaban yang "
 "diberikan adalah: {bad_input}"
 
-#: xmodule/capa/responsetypes.py:3132
+#: xmodule/capa/responsetypes.py:3138
 #, python-brace-format
 msgid "Invalid input: Could not parse '{bad_input}' as a formula."
 msgstr ""
 "Masukan tidak valid: Tidak dapat menguraikan '{bad_input}' sebagai rumus."
 
-#: xmodule/capa/responsetypes.py:3140
+#: xmodule/capa/responsetypes.py:3146
 #, python-brace-format
 msgid "Invalid input: Could not parse '{bad_input}' as a formula"
 msgstr ""
 "Masukan tidak valid: Tidak dapat menguraikan '{bad_input}' sebagai rumus."
 
-#: xmodule/capa/responsetypes.py:3247
+#: xmodule/capa/responsetypes.py:3253
 msgid "Circuit Schematic Builder"
 msgstr "Pembangun Skema Sirkuit"
 
 #. Translators: 'SchematicResponse' is a problem type and should not be
 #. translated.
-#: xmodule/capa/responsetypes.py:3284
+#: xmodule/capa/responsetypes.py:3293
 #, python-brace-format
 msgid "Error in evaluating SchematicResponse. The error was: {error_msg}"
 msgstr ""
 "Kesalahan dalam mengevaluasi Respons Berskema. Kesalahannya yaitu: "
 "{error_msg}"
 
-#: xmodule/capa/responsetypes.py:3325
+#: xmodule/capa/responsetypes.py:3334
 msgid "Image Mapped Input"
 msgstr "Input Gambar yang Dipetakan"
 
-#: xmodule/capa/responsetypes.py:3350
+#: xmodule/capa/responsetypes.py:3359
 #, python-brace-format
 msgid "error grading {image_input_id} (input={user_input})"
 msgstr "Penilaian error  {image_input_id} (input={user_input})"
 
 #. Translators: {sr_coords} are the coordinates of a rectangle
-#: xmodule/capa/responsetypes.py:3371
+#: xmodule/capa/responsetypes.py:3380
 #, python-brace-format
 msgid "Error in problem specification! Cannot parse rectangle in {sr_coords}"
 msgstr ""
 "Kesalahan pada spesifikasi problem! Tidak dapat menguraikan rectangle di "
 "{sr_coords}"
 
-#: xmodule/capa/responsetypes.py:3444
+#: xmodule/capa/responsetypes.py:3453
 msgid "Annotation Input"
 msgstr "Anotasi Input"
 
-#: xmodule/capa/responsetypes.py:3571
+#: xmodule/capa/responsetypes.py:3580
 msgid "Checkboxes With Text Input"
 msgstr "Centangan dengan Input Teks"
 
-#: xmodule/capa/responsetypes.py:3624
+#: xmodule/capa/responsetypes.py:3633
 #, python-brace-format
 msgid "Answer not provided for {input_type}"
 msgstr "Jawaban tidak diberikan untuk {input_type}"
 
-#: xmodule/capa/responsetypes.py:3870
+#: xmodule/capa/responsetypes.py:3879
 msgid "The Staff answer could not be interpreted as a number."
 msgstr "Jawaban Staf tidak dapat diinterpretasikan sebagai angka."
 
-#: xmodule/capa/responsetypes.py:3884
+#: xmodule/capa/responsetypes.py:3893
 #, python-brace-format
 msgid "Could not interpret '{given_answer}' as a number."
 msgstr "Tidak dapat menafsirkan '{given_answer}' sebagai angka."
@@ -8395,7 +8414,7 @@ msgstr ""
 "{display_name} hanya dapat diakses peserta yang terdaftar. Masuk atau "
 "registrasi, dan daftar ke kursus ini untuk melihat."
 
-#: wiki/admin.py:77 wiki/models/article.py:28
+#: wiki/admin.py:77 wiki/models/article.py:30
 msgid "created"
 msgstr "dibuat"
 
@@ -8590,12 +8609,12 @@ msgstr "Saring"
 msgid "Settings for plugin"
 msgstr "Pengaturan plugin"
 
-#: wiki/models/article.py:23 wiki/models/pluginbase.py:158
+#: wiki/models/article.py:25 wiki/models/pluginbase.py:167
 #: wiki/plugins/attachments/models.py:20
 msgid "current revision"
 msgstr "revisi saat ini"
 
-#: wiki/models/article.py:25
+#: wiki/models/article.py:27
 msgid ""
 "The revision being displayed for this article. If you need to do a roll-"
 "back, simply change the value of this field."
@@ -8603,15 +8622,15 @@ msgstr ""
 "Revisi ditampilkan untuk artikel ini. Jika Anda memerlukan roll-back, "
 "silakan ubah nilai dalam field ini."
 
-#: wiki/models/article.py:29
+#: wiki/models/article.py:31
 msgid "modified"
 msgstr "telah dirubah"
 
-#: wiki/models/article.py:30
+#: wiki/models/article.py:32
 msgid "Article properties last modified"
 msgstr "Data artikel terakhir dimodifikasi terakhir"
 
-#: wiki/models/article.py:34
+#: wiki/models/article.py:36
 msgid ""
 "The owner of the article, usually the creator. The owner always has both "
 "read and write access."
@@ -8619,11 +8638,11 @@ msgstr ""
 "Pemilik artikel, biasanya adalah pembuat. Pemilik selalu memiliki akses baca"
 " dan tulis."
 
-#: wiki/models/article.py:36
+#: wiki/models/article.py:38
 msgid "group"
 msgstr "grup"
 
-#: wiki/models/article.py:38
+#: wiki/models/article.py:40
 msgid ""
 "Like in a UNIX file system, permissions can be given to a user according to "
 "group membership. Groups are handled through the Django auth system."
@@ -8632,73 +8651,73 @@ msgstr ""
 "sesuai dengan keanggotaan grupnya. Grup dikelola melalui sistem otoritas "
 "Django."
 
-#: wiki/models/article.py:40
+#: wiki/models/article.py:42
 msgid "group read access"
 msgstr "akses baca grup"
 
-#: wiki/models/article.py:41
+#: wiki/models/article.py:43
 msgid "group write access"
 msgstr "akses tulis grup"
 
-#: wiki/models/article.py:42
+#: wiki/models/article.py:44
 msgid "others read access"
 msgstr "akses baca lainnya"
 
-#: wiki/models/article.py:43
+#: wiki/models/article.py:45
 msgid "others write access"
 msgstr "akses tulis lainnya"
 
-#: wiki/models/article.py:173
+#: wiki/models/article.py:175
 #, python-format
 msgid "Article without content (%(id)d)"
 msgstr "Artikel tanpa isi (%(id)d)"
 
-#: wiki/models/article.py:201
+#: wiki/models/article.py:205
 msgid "content type"
 msgstr "jenis isi"
 
-#: wiki/models/article.py:203
+#: wiki/models/article.py:207
 msgid "object ID"
 msgstr "ID objek"
 
-#: wiki/models/article.py:209
+#: wiki/models/article.py:213
 msgid "Article for object"
 msgstr "Artikel untuk objek"
 
-#: wiki/models/article.py:210
+#: wiki/models/article.py:214
 msgid "Articles for object"
 msgstr "Artikel untuk objek"
 
-#: wiki/models/article.py:219
+#: wiki/models/article.py:231
 msgid "revision number"
 msgstr "nomer revisi"
 
-#: wiki/models/article.py:225
+#: wiki/models/article.py:237
 msgid "IP address"
 msgstr "alamat IP"
 
-#: wiki/models/article.py:232
+#: wiki/models/article.py:244
 msgid "user"
 msgstr "pengguna"
 
-#: wiki/models/article.py:246 wiki/templates/wiki/article.html:22
+#: wiki/models/article.py:258 wiki/templates/wiki/article.html:22
 #: wiki/templates/wiki/includes/revision_info.html:21
 msgid "locked"
 msgstr "terkunci"
 
-#: wiki/models/article.py:265 wiki/models/pluginbase.py:38
+#: wiki/models/article.py:283 wiki/models/pluginbase.py:40
 msgid "article"
 msgstr "artikel"
 
-#: wiki/models/article.py:268
+#: wiki/models/article.py:286
 msgid "article contents"
 msgstr "isi artikel"
 
-#: wiki/models/article.py:272
+#: wiki/models/article.py:290
 msgid "article title"
 msgstr "judul artikel"
 
-#: wiki/models/article.py:273
+#: wiki/models/article.py:291
 msgid ""
 "Each revision contains a title field that must be filled out, even if the "
 "title has not changed"
@@ -8706,19 +8725,19 @@ msgstr ""
 "Setiap revisi memiliki field judul yang harus diisi, meskipun judulnya tidak"
 " berubah"
 
-#: wiki/models/pluginbase.py:74
+#: wiki/models/pluginbase.py:79
 msgid "original article"
 msgstr "artikel asli"
 
-#: wiki/models/pluginbase.py:75
+#: wiki/models/pluginbase.py:80
 msgid "Permissions are inherited from this article"
 msgstr "Izin diberikan dari artikel ini"
 
-#: wiki/models/pluginbase.py:133
+#: wiki/models/pluginbase.py:140
 msgid "A plugin was changed"
 msgstr "Satu plugin telah diubah"
 
-#: wiki/models/pluginbase.py:160
+#: wiki/models/pluginbase.py:169
 msgid ""
 "The revision being displayed for this plugin.If you need to do a roll-back, "
 "simply change the value of this field."
@@ -8726,40 +8745,40 @@ msgstr ""
 "Revisi ditampilkan untuk plugin ini. Jika Anda memerlukan roll-back, silakan"
 " ubah nilai dalam field ini."
 
-#: wiki/models/urlpath.py:40
+#: wiki/models/urlpath.py:42
 msgid "Cache lookup value for articles"
 msgstr "Cache mencari nilai untuk artikel"
 
-#: wiki/models/urlpath.py:46
+#: wiki/models/urlpath.py:48
 msgid "slug"
 msgstr "slug"
 
-#: wiki/models/urlpath.py:136
+#: wiki/models/urlpath.py:138
 msgid "(root)"
 msgstr "(root)"
 
-#: wiki/models/urlpath.py:146
+#: wiki/models/urlpath.py:148
 msgid "URL path"
 msgstr "jalur URL"
 
-#: wiki/models/urlpath.py:147
+#: wiki/models/urlpath.py:149
 msgid "URL paths"
 msgstr "jalur URL"
 
-#: wiki/models/urlpath.py:152
+#: wiki/models/urlpath.py:154
 msgid "Sorry but you cannot have a root article with a slug."
 msgstr "Maaf Anda tidak dapat membuat artikel root dengan slug"
 
-#: wiki/models/urlpath.py:154
+#: wiki/models/urlpath.py:156
 msgid "A non-root note must always have a slug."
 msgstr "Catatan non-root harus memiliki slug."
 
-#: wiki/models/urlpath.py:157
+#: wiki/models/urlpath.py:159
 #, python-format
 msgid "There is already a root node on %s"
 msgstr "Telah terdapat nodus root pada %s"
 
-#: wiki/models/urlpath.py:262
+#: wiki/models/urlpath.py:264
 msgid ""
 "Articles who lost their parents\n"
 "===============================\n"
@@ -8771,7 +8790,7 @@ msgstr ""
 "\n"
 "Induk dari anak artikel ini telah dihapus. Anda perlu mencarikan rumah baru untuk anak artikel ini."
 
-#: wiki/models/urlpath.py:265
+#: wiki/models/urlpath.py:267
 msgid "Lost and found"
 msgstr "Hilang dan ditemukan"
 
@@ -9515,11 +9534,6 @@ msgstr "Perubahan"
 msgid "View Source"
 msgstr "Lihat Sumber"
 
-#: wiki/templates/wiki/includes/article_menu.html:49
-#: lms/templates/wiki/includes/article_menu.html:13
-msgid "View"
-msgstr "Tampilkan"
-
 #: wiki/templates/wiki/includes/breadcrumbs.html:16
 #: wiki/templates/wiki/includes/breadcrumbs.html:42
 msgid "Sub-articles for"
@@ -9742,14 +9756,6 @@ msgstr ""
 msgid "Learn more about certificates"
 msgstr "Pelajari lebih lanjut tentang sertifikat"
 
-#: cms/templates/certificates.html:116
-#: cms/templates/group_configurations.html:127 cms/templates/settings.html:707
-#: cms/templates/settings_advanced.html:147
-#: cms/templates/settings_graders.html:50
-#: cms/templates/widgets/header.html:181 cms/templates/widgets/header.html:186
-msgid "Grading"
-msgstr "Pemeringkatan"
-
 #: cms/templates/certificates.html:117
 #: cms/templates/group_configurations.html:128
 #: cms/templates/manage_users.html:28 cms/templates/settings.html:708
@@ -9901,7 +9907,7 @@ msgstr "misal UniversitasX atau OrganisasiX"
 
 #: cms/templates/course-create-rerun.html:95 cms/templates/index.html:101
 #: cms/templates/settings.html:78
-#: lms/templates/courseware/course_about.html:164
+#: lms/templates/courseware/course_about.html:175
 msgid "Course Number"
 msgstr "Nomor Kursus"
 
@@ -10628,7 +10634,7 @@ msgid "Instructors"
 msgstr "instruktur"
 
 #: cms/templates/settings.html:617
-#: lms/templates/courseware/course_about.html:239
+#: lms/templates/courseware/course_about.html:250
 msgid "Requirements"
 msgstr "Kebutuhan"
 
@@ -11209,7 +11215,7 @@ msgstr "Akun dengan alamat email baru telah ada sebelumnya."
 msgid "You should Register before trying to access the Unit"
 msgstr "Anda harus Mendaftar sebelum mengakses Unit ini"
 
-#: lms/templates/courseware/course_about.html:281
+#: lms/templates/courseware/course_about.html:292
 #: lms/templates/enroll_staff.html:34
 msgctxt "self"
 msgid "Enroll"
@@ -13417,53 +13423,53 @@ msgstr "{section_format} sesuai {{date}}"
 msgid "This content is graded"
 msgstr "Konten ini telah dinilai"
 
-#: lms/templates/courseware/course_about.html:44
+#: lms/templates/courseware/course_about.html:55
 msgid "An error occurred. Please try again later."
 msgstr "Terjadi kesalahan. Silakan coba lagi nanti."
 
-#: lms/templates/courseware/course_about.html:77
+#: lms/templates/courseware/course_about.html:88
 msgid "You are enrolled in this course"
 msgstr "Anda terdaftar pada pelatihan ini"
 
-#: lms/templates/courseware/course_about.html:80
-#: lms/templates/courseware/course_about.html:98
+#: lms/templates/courseware/course_about.html:91
+#: lms/templates/courseware/course_about.html:109
 #: lms/templates/dashboard/_dashboard_course_resume.html:21
 msgid "View Course"
 msgstr "Lihat Kursus"
 
-#: lms/templates/courseware/course_about.html:89
+#: lms/templates/courseware/course_about.html:100
 msgid "Enrollment in this course is by invitation only"
 msgstr "Pendaftaran kursus ini hanya melalui undangan"
 
-#: lms/templates/courseware/course_about.html:94
+#: lms/templates/courseware/course_about.html:105
 msgid "Enrollment is Closed"
 msgstr "Pendaftaran Ditutup"
 
-#: lms/templates/courseware/course_about.html:113
+#: lms/templates/courseware/course_about.html:124
 msgid "Enroll Now"
 msgstr "Daftar Sekarang"
 
-#: lms/templates/courseware/course_about.html:145
+#: lms/templates/courseware/course_about.html:156
 msgid "View About Page in studio"
 msgstr "Lihat Tentang Halaman di studio"
 
-#: lms/templates/courseware/course_about.html:173
+#: lms/templates/courseware/course_about.html:184
 msgid "Classes Start"
 msgstr "Kelas Dimulai"
 
-#: lms/templates/courseware/course_about.html:193
+#: lms/templates/courseware/course_about.html:204
 msgid "Classes End"
 msgstr "Kelas Berakhir"
 
-#: lms/templates/courseware/course_about.html:206
+#: lms/templates/courseware/course_about.html:217
 msgid "Estimated Effort"
 msgstr "Perkiraan Jam per Minggu"
 
-#: lms/templates/courseware/course_about.html:223
+#: lms/templates/courseware/course_about.html:234
 msgid "Prerequisites"
 msgstr "Prasyarat"
 
-#: lms/templates/courseware/course_about.html:227
+#: lms/templates/courseware/course_about.html:238
 #: lms/templates/dashboard/_dashboard_course_listing.html:425
 #, python-brace-format
 msgid ""
@@ -13473,11 +13479,11 @@ msgstr ""
 "Anda harus berhasil menyelesaikan {link_start} {prc_display} {link_end} "
 "sebelum memulai pelatihan ini."
 
-#: lms/templates/courseware/course_about.html:251
+#: lms/templates/courseware/course_about.html:262
 msgid "Additional Resources"
 msgstr "Sumber Tambahan"
 
-#: lms/templates/courseware/course_about.html:286
+#: lms/templates/courseware/course_about.html:297
 msgctxt "self"
 msgid "enroll"
 msgstr "daftar"
