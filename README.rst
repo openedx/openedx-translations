@@ -38,7 +38,7 @@ for the Redwood release (June 2024), the branches were:
 `Tutor Redwood v18`_, `edx-platform "open-release/redwood.master" branch`_
 and others.
 
-To update translations for a named release, find the corresponding named release project in the `Open edX Transifex project <https://app.transifex.com/open-edx/>`_  by searching for the release name (for example, Redwood) in the search box. 
+To update translations for a named release, find the corresponding named release project in the `Open edX Transifex project <https://app.transifex.com/open-edx/>`_  by searching for the release name (for example, Redwood) in the search box.
 
 Tools for repository maintainers
 ********************************
@@ -86,6 +86,11 @@ pull requests, run the following command:
 .. code-block:: bash
 
     make retry_merge_transifex_bot_pull_requests
+
+.. code-block:: bash
+
+    make retry_merge_valid_transifex_bot_pull_requests
+
 
 .. _OEP-58: https://github.com/openedx/open-edx-proposals/pull/367
 .. _openedx-atlas: https://github.com/openedx/openedx-atlas
