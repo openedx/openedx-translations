@@ -546,6 +546,10 @@ msgstr "Видалений"
 msgid "mooc"
 msgstr "mooc"
 
+#: apps/course_metadata/choices.py:44
+msgid "spoc"
+msgstr "spoc"
+
 #: apps/course_metadata/choices.py:45
 msgid "test"
 msgstr "тест"
@@ -1322,6 +1326,14 @@ msgstr "Вартість за клік у США, у доларах США."
 msgid "International Value Per Click"
 msgstr "Міжнародна вартість за клік."
 
+#: apps/course_metadata/models.py:1315
+msgid "International value per click in U.S. dollars."
+msgstr "Міжнародна вартість за клік у доларах США."
+
+#: apps/course_metadata/models.py:1359
+msgid "Latitude"
+msgstr "Широта"
+
 #: apps/course_metadata/models.py:1366
 msgid "Longitude"
 msgstr "Довгота"
@@ -1753,6 +1765,10 @@ msgstr ""
 #: apps/course_metadata/models.py:4109
 msgid "Provide a campus image for the header of the degree"
 msgstr "Надайте зображення кампусу для заголовка ступеня"
+
+#: apps/course_metadata/models.py:4115
+msgid "Provide a background image for the title section of the degree"
+msgstr "Надайте фонове зображення для розділу назви ступеня"
 
 #: apps/course_metadata/models.py:4120
 msgid "The fine print that displays at the Tuition section's bottom"
@@ -2199,6 +2215,55 @@ msgstr "Відвідайте курс в Publisher"
 msgid "You can review and modify the course end settings here:"
 msgstr "Ви можете переглянути та змінити кінцеві налаштування курс тут:"
 
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:41
+#, python-format
+msgid ""
+"\n"
+"        If no action is taken, the course will no longer be available for enrollment or access by learners on \n"
+"        <a href=\"%(partner_marketing_site_url)s\">%(partner_marketing_site_url)s</a> after the end date.\n"
+"        "
+msgstr ""
+"\n"
+"        Якщо не буде вжито жодних заходів, сайт курс буде недоступний для запис або для учні через \n"
+"        <a href=\"%(partner_marketing_site_url)s\">%(partner_marketing_site_url)s</a> після закриття кінцева дата.\n"
+"        "
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:47
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:34
+msgid "Thanks"
+msgstr "Дякую"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:6
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"Це автоматичне нагадування про те, що курс \"%(course_name)s\" (курс Ключ: %(course_key)s) закінчується в %(days)s на %(course_end_date)s.\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:10
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"Це автоматичне нагадування про те, що курс \"%(course_name)s\" (курс Ключ: %(course_key)s) офіційно завершився з %(course_end_date)s.\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:23
+msgid "Visit the Course in Publisher:"
+msgstr "Відвідайте сайт видавництва курс в :"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:29
+#, python-format
+msgid ""
+"\n"
+"If no action is taken, the course will no longer be available for enrollment or access by learners on %(partner_marketing_site_url)s after the end date.\n"
+msgstr ""
+"\n"
+"Якщо не буде вжито жодних заходів, сайт курс більше не буде доступний для запис або для учні на %(partner_marketing_site_url)s після кінцева дата.\n"
+
 #: apps/course_metadata/templates/course_metadata/email/go_live.html:9
 #: apps/course_metadata/templates/course_metadata/email/go_live.txt:3
 #: apps/course_metadata/templates/course_metadata/email/internal_review.html:9
@@ -2211,10 +2276,81 @@ msgstr "Ви можете переглянути та змінити кінце�
 msgid "Dear %(recipient_name)s,"
 msgstr "Шановний/шановна %(recipient_name)s ,"
 
+#: apps/course_metadata/templates/course_metadata/email/go_live.html:17
+#: apps/course_metadata/templates/course_metadata/email/go_live.txt:7
+#, python-format
+msgid ""
+"The About page for the %(course_run_number)s course run of %(course_name)s "
+"has been published. No further action is necessary."
+msgstr ""
+"Опубліковано сторінку «Про курс» для %(course_run_number)s циклу курсу "
+"%(course_name)s. Подальші дії не потрібні."
+
+#: apps/course_metadata/templates/course_metadata/email/go_live.html:24
+#, python-brace-format
+msgid "{link_start}{preview_url}{link_middle}View this About page.{link_end}"
+msgstr ""
+"{link_start}{preview_url}{link_middle}Переглянути сторінку «Про "
+"курс».{link_end}"
+
+#: apps/course_metadata/templates/course_metadata/email/go_live.html:33
+#: apps/course_metadata/templates/course_metadata/email/legal_review.html:23
+#: apps/course_metadata/templates/course_metadata/email/reviewed.html:38
+#, python-brace-format
+msgid ""
+"{link_start}{contact_us_email}{link_middle}{contact_us_email}{link_end}"
+msgstr ""
+"{link_start}{contact_us_email}{link_middle}{contact_us_email}{link_end}"
+
 #: apps/course_metadata/templates/course_metadata/email/go_live.txt:11
 #, python-format
 msgid "View this About page. %(preview_url)s"
 msgstr "Переглянути сторінку «Про курс». %(preview_url)s"
+
+#: apps/course_metadata/templates/course_metadata/email/go_live.txt:15
+#: apps/course_metadata/templates/course_metadata/email/legal_review.txt:15
+#: apps/course_metadata/templates/course_metadata/email/reviewed.txt:25
+msgid ""
+"Note: This email address is unable to receive replies. For questions or "
+"comments, please contact your Project Coordinator(s):"
+msgstr ""
+"Примітка: на цю електронну адресу не можна відповідати. Із запитаннями чи "
+"коментарями звертайтеся до свого координатора проекту:"
+
+#: apps/course_metadata/templates/course_metadata/email/internal_review.html:14
+#, python-brace-format
+msgid ""
+"{org_name} has submitted {course_key} for review. "
+"{link_start}{course_page_url}{link_middle}View this course run in "
+"Publisher{link_end} to review the changes and mark it as reviewed."
+msgstr ""
+"{org_name} подала {course_key} на розгляд. "
+"{link_start}{course_page_url}{link_middle}Відвідайте цей курс у "
+"Publisher{link_end}, щоб переглянути зміни та позначити його як перевірений."
+
+#: apps/course_metadata/templates/course_metadata/email/internal_review.html:20
+#, python-brace-format
+msgid ""
+"This is a good time to {link_start}{studio_url}{link_middle}review this "
+"course run in Studio{link_end}."
+msgstr ""
+"Зараз гарний час, щоб {link_start}{studio_url}{link_middle}переглянути цей "
+"цикл курсу в Studio{link_end}."
+
+#: apps/course_metadata/templates/course_metadata/email/internal_review.html:27
+#, python-brace-format
+msgid ""
+"Visit the {link_start}{restricted_admin_url}{link_middle}restricted course "
+"admin page{link_end} to set embargo rules for this course, as needed."
+msgstr ""
+"Відвідайте {link_start}{restricted_admin_url}{link_middle}сторінку "
+"адміністратора курсу з обмеженим досупом{link_end}, щоб за потреби "
+"встановити правила обмежень для цього курсу."
+
+#: apps/course_metadata/templates/course_metadata/email/internal_review.txt:6
+#, python-format
+msgid "%(org_name)s has submitted %(course_key)s for review."
+msgstr "%(course_key)sнадіслано %(org_name)s на перегляд."
 
 #: apps/course_metadata/templates/course_metadata/email/internal_review.txt:10
 #, python-format
@@ -2226,15 +2362,81 @@ msgstr "Сторінка у Publisher: %(course_page_url)s"
 msgid "Studio page: %(studio_url)s"
 msgstr "Сторінка у Studio: %(studio_url)s"
 
+#: apps/course_metadata/templates/course_metadata/email/internal_review.txt:19
+#, python-format
+msgid "Restricted Course admin: %(restricted_admin_url)s"
+msgstr "Адміністратор курсу з обмеженим доступом: %(restricted_admin_url)s"
+
+#: apps/course_metadata/templates/course_metadata/email/legal_review.html:15
+#, python-brace-format
+msgid ""
+"{org_name} has submitted {course_name} for review. "
+"{link_start}{course_page_url}{link_middle}View this course run in "
+"Publisher{link_end} to determine OFAC status."
+msgstr ""
+"{org_name} подала {course_name} на перевірку. "
+"{link_start}{course_page_url}{link_middle}Перегляньте цей курс у "
+"Publisher{link_end}, щоб визначити статус OFAC."
+
+#: apps/course_metadata/templates/course_metadata/email/legal_review.txt:6
+#, python-format
+msgid "%(org_name)s has submitted %(course_name)s for review."
+msgstr "%(course_name)s надіслано %(org_name)s на перегляд."
+
+#: apps/course_metadata/templates/course_metadata/email/legal_review.txt:11
+msgid "View this course run in Publisher above to determine OFAC status."
+msgstr ""
+"Перегляньте цей цикл курсу в Publisher вище, щоб визначити статус OFAC."
+
+#: apps/course_metadata/templates/course_metadata/email/reviewed.html:15
+#, python-brace-format
+msgid ""
+"The {link_start}{course_page_url}{link_middle}{course_run_number} course "
+"run{link_end} of {course_name} has been reviewed and approved by "
+"{platform_name}."
+msgstr ""
+"{link_start}{course_page_url}{link_middle}{course_run_number} цикл курсу "
+"{link_end} {course_name} переглянуто та схвалено {platform_name}."
+
+#: apps/course_metadata/templates/course_metadata/email/reviewed.html:22
+#: apps/course_metadata/templates/course_metadata/email/reviewed.txt:12
+#, python-format
+msgid ""
+"The course run about page will be published on %(go_live_date)s, pending no "
+"further edits."
+msgstr ""
+"Сторінка \"Про курс\" буде опублікована %(go_live_date)s, без подальших "
+"змін."
+
 #: apps/course_metadata/templates/course_metadata/email/reviewed.html:28
 #: apps/course_metadata/templates/course_metadata/email/reviewed.txt:16
 msgid "The course run about page is now published."
 msgstr "Сторінку \"Про курс\" опубліковано."
 
+#: apps/course_metadata/templates/course_metadata/email/reviewed.txt:6
+#, python-format
+msgid ""
+"The %(course_run_number)s course run of %(course_name)s has been reviewed "
+"and approved by %(platform_name)s."
+msgstr ""
+"Проведення %(course_run_number)s циклу курсу %(course_name)s було "
+"переглянуто та затверджено %(platform_name)s."
+
 #: apps/course_metadata/templates/course_metadata/email/reviewed.txt:21
 #, python-format
 msgid "View the course run in Publisher: %(course_page_url)s"
 msgstr "Переглянути курс у Publisher: %(course_page_url)s"
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.html:8
+#, python-format
+msgid ""
+"\n"
+"        Course '%(course_name)s' has been successfully reviewed by edX and is now published on %(course_publish_date)s. To see live course, go here: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
+msgstr ""
+"\n"
+"        Курс %(course_name)s успішно перевірено edX і опубліковано %(course_publish_date)s. Щоб переглянути живий курс, перейдіть сюди:<a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
 
 #: apps/course_metadata/templates/course_metadata/email/watchers_course_url.html:12
 #, python-format
@@ -2269,6 +2471,10 @@ msgstr ""
 "Курс \"%(course_name)s\" був успішно перевірений edX і тепер готовий до публікації. Курс буде опубліковано %(course_publish_date)s.\n"
 "Щоб перейти до попереднього перегляду сторінки про курс, перейдіть сюди: %(course_preview_url)s\n"
 
+#: apps/course_metadata/utils.py:390
+msgid "Special characters not allowed in Course Number."
+msgstr "Спеціальні символи не допускаються в номері курсу."
+
 #: apps/course_metadata/validators.py:30
 #, python-brace-format
 msgid "Invalid HTML received: {0}"
@@ -2278,21 +2484,81 @@ msgstr "Отримано недійсний HTML: {0}"
 msgid "Invalid HTML received"
 msgstr "Отримано недійсний HTML"
 
+#: apps/course_metadata/validators.py:35 apps/course_metadata/validators.py:46
+#, python-brace-format
+msgid "{0} tag is not allowed"
+msgstr "Тег {0} заборонено"
+
+#: apps/course_metadata/validators.py:42
+#, python-brace-format
+msgid "{0} attribute is not allowed on the {1} tag"
+msgstr "Атрибут {0} не дозволяється в тегу {1}"
+
+#: apps/course_metadata/views.py:38
+msgid "Update excluded course runs"
+msgstr "Оновити виключені цикли курсів"
+
 #: apps/course_metadata/views.py:45
 msgid "The program was changed successfully."
 msgstr "Програму успішно змінено."
+
+#: apps/course_metadata/views.py:127
+msgid "The refresh program skills task triggered successfully."
+msgstr "Завдання оновлення навичок у рамках програми успішно запущено."
+
+#: apps/course_metadata/views.py:206
+msgid "The refresh course skills task triggered successfully."
+msgstr "Завдання оновлення навичок у курсу програми успішно запущено."
 
 #: apps/course_metadata/views.py:306
 msgid "The course skills were updated successfully."
 msgstr "Навички курсу успішно оновлено."
 
+#: apps/edx_elasticsearch_dsl_extensions/exceptions.py:17
+msgid ""
+"Request could not be completed due to an incorrect ElasticSearch query "
+"parameters"
+msgstr ""
+"Запит не вдалося виконати через неправильні параметри запиту ElasticSearch"
+
 #: apps/ietf_language_tags/models.py:34
 msgid "Name for translation"
 msgstr "Назва для перекладу"
 
+#: apps/ietf_language_tags/models.py:38
+msgid "LanguageTag model translations"
+msgstr "Переклади моделі LanguageTag"
+
 #: apps/learner_pathway/choices.py:7
 msgid "Inactive"
 msgstr "Неактивовано"
+
+#: apps/learner_pathway/models.py:84
+msgid "Title of the learner pathway."
+msgstr "Заголовок навчального плану слухача."
+
+#: apps/learner_pathway/models.py:87
+msgid "Course/Program associated pathways also appear in search results"
+msgstr ""
+"Навчальні плани, пов’язані з курсом/програмою, також відображаються в "
+"результатах пошуку"
+
+#: apps/learner_pathway/models.py:90
+msgid "The active/inactive status of this Pathway."
+msgstr "Активний/неактивний статус цього навчального плану."
+
+#: apps/learner_pathway/models.py:118
+msgid "Learner Pathway"
+msgstr "Варіанти проходження навчання"
+
+#: apps/learner_pathway/models.py:119
+msgid "Learner Pathways"
+msgstr "Варіанти проходження навчання"
+
+#: apps/learner_pathway/models.py:165
+msgid "Minimum number of nodes to complete this step of the pathway"
+msgstr ""
+"Мінімальна кількість вузлів для завершення цього кроку навчального плану"
 
 #: apps/learner_pathway/models.py:169
 msgid "Learner Pathway Step"
@@ -2325,6 +2591,25 @@ msgstr "Роль організації"
 #: apps/taxonomy_support/management/commands/update_course_recommendations.py:19
 msgid "Update the course recommendations based on skills."
 msgstr "Оновіть рекомендації курсу на основі навичок."
+
+#: apps/taxonomy_support/management/commands/update_course_recommendations.py:41
+msgid ""
+"Use arguments from the UpdateCourseRecommendationsConfig model instead of "
+"the command line."
+msgstr ""
+"Використовуйте параметри з моделі UpdateCourseRecommendationsConfig замість "
+"командного рядка."
+
+#: apps/taxonomy_support/models.py:24
+msgid "The original course, whose recommendation is stored here."
+msgstr "Оригінальний курс, рекомендація якого зберігається тут."
+
+#: apps/taxonomy_support/models.py:29
+msgid ""
+"This is the course recommended after learner completes the original course."
+msgstr ""
+"Це курс, рекомендований до проходження після того, як слухач завершить "
+"початковий курс."
 
 #: apps/taxonomy_support/models.py:32
 msgid "Ratio of number of common skills and total skill count."
@@ -2366,3 +2651,7 @@ msgstr "Додає рекомендації для курсів, створен�
 #: apps/taxonomy_support/providers.py:198
 msgid "No partner object found!"
 msgstr "Об'єкт партнера не знайдено!"
+
+#: urls.py:32
+msgid "Discovery Service Administration"
+msgstr "Адміністрування пошукової служби"
