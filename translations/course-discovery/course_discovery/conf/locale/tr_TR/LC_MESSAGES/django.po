@@ -5,18 +5,15 @@
 # 
 # Translators:
 # Translators:
-# Nathan Robertson, 2024
-# Brian Smith, 2024
-# Ali Işıngör <ali@artistanbul.io>, 2025
-# edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2025
+# Brian Smith, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-24 00:28+0000\n"
-"PO-Revision-Date: 2023-01-26 15:39+0000\n"
-"Last-Translator: edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2025\n"
+"POT-Creation-Date: 2025-04-25 00:29+0000\n"
+"PO-Revision-Date: 2025-07-23 17:30+0000\n"
+"Last-Translator: Brian Smith, 2025\n"
 "Language-Team: Turkish (Turkey) (https://app.transifex.com/open-edx/teams/6205/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -546,9 +543,41 @@ msgstr "demo"
 msgid "other"
 msgstr "diğer"
 
+#: apps/course_metadata/choices.py:54
+msgid "Course Create"
+msgstr "Ders Oluştur"
+
+#: apps/course_metadata/choices.py:56
+msgid "Course Rerun"
+msgstr "Ders Yeniden Yayını"
+
+#: apps/course_metadata/choices.py:64
+msgid "Pending"
+msgstr "Askıda"
+
 #: apps/course_metadata/choices.py:65 apps/course_metadata/choices.py:76
 msgid "Verified"
 msgstr "Onaylandı"
+
+#: apps/course_metadata/choices.py:66
+msgid "Processing"
+msgstr "İşleniyor"
+
+#: apps/course_metadata/choices.py:67
+msgid "Completed"
+msgstr "Tamamlanmış"
+
+#: apps/course_metadata/choices.py:68
+msgid "Failed"
+msgstr "Başarısız"
+
+#: apps/course_metadata/choices.py:69
+msgid "Partially Completed"
+msgstr "Kısmen Tamamlandı"
+
+#: apps/course_metadata/choices.py:70
+msgid "Errored"
+msgstr "Hatalı"
 
 #: apps/course_metadata/choices.py:74
 msgid "Honor"
@@ -621,6 +650,11 @@ msgstr "Özel B2B Kurumsal"
 #: apps/course_metadata/choices.py:115
 msgid "Custom B2C"
 msgstr "Özel B2C"
+
+#: apps/course_metadata/data_loaders/course_type.py:101
+#, python-brace-format
+msgid "Could not convert course {key} ({id}) to type {type}"
+msgstr "{key} ( {id} ) dersi {type} türüne dönüştürülemedi"
 
 #: apps/course_metadata/emails.py:37
 #, python-brace-format
@@ -740,6 +774,11 @@ msgstr ""
 msgid "Missing required arguments"
 msgstr "Gerekli bağımsız değişkenler eksik"
 
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:10
+msgid "Backpopulate new-style CourseType and CourseRunType where possible."
+msgstr ""
+"Mümkün olduğunda yeni-stil CourseType ve CourseRunType'ı yeniden doldurun."
+
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:15
 msgid "CODE"
 msgstr "KOD"
@@ -765,10 +804,26 @@ msgstr "UUID"
 msgid "KEY"
 msgstr "ANAHTAR"
 
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:35
+msgid ""
+"CourseType/CourseRunType mismatches to allow. Specify like course-type-"
+"slug:run-type-slug."
+msgstr ""
+"DersTürü/DersYayınıTürü uyumsuzluklarına izin verilecek. Course-type-"
+"slug:run-type-slug gibi belirtin."
+
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:41
 #: apps/course_metadata/management/commands/delete_person_dups.py:38
 msgid "Actually commit the changes to the database."
 msgstr "Lütfen değişiklikleri veritabanına kaydedin."
+
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:46
+msgid ""
+"Use arguments from the BackpopulateCourseTypeConfig model instead of the "
+"command line."
+msgstr ""
+"Komut satırı yerine BackpopulateCourseTypeConfig modelindeki bağımsız "
+"değişkenleri kullanın."
 
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:64
 msgid "You must specify --partner"
@@ -796,9 +851,21 @@ msgstr "course_metadata içindeki mükerrer kişileri sil."
 msgid "PERSON"
 msgstr "KİŞİ"
 
+#: apps/course_metadata/management/commands/delete_person_dups.py:28
+msgid "People to delete, in UUID:TARGET_UUID form."
+msgstr "UUID:TARGET_UUID biçiminde silinecek kişiler."
+
 #: apps/course_metadata/management/commands/delete_person_dups.py:32
 msgid "PARTNER"
 msgstr "İŞ ORTAĞI"
+
+#: apps/course_metadata/management/commands/delete_person_dups.py:43
+msgid ""
+"Use arguments from the DeletePersonDupsConfig model instead of the command "
+"line."
+msgstr ""
+"Komut satırı yerine DeletePersonDupsConfig modelindeki bağımsız değişkenleri"
+" kullanın."
 
 #: apps/course_metadata/management/commands/delete_person_dups.py:85
 msgid "Deleting"
@@ -868,9 +935,24 @@ msgstr "Geçersiz argümanlar"
 msgid "Cannot remove active url_slug {url_slug}"
 msgstr "Etkin url_slug {url_slug} kaldırılamıyor"
 
+#: apps/course_metadata/management/commands/remove_redirects_from_courses.py:60
+#, python-brace-format
+msgid "Path /course/{url_slug} not in use, nothing to delete"
+msgstr "/ders/{url_slug} yolu kullanılmıyor, silinecek bir şey yok"
+
+#: apps/course_metadata/management/commands/remove_redirects_from_courses.py:65
+#, python-brace-format
+msgid "Path {url_path} not in use, nothing to delete"
+msgstr "{url_path} yolu kullanılmıyor, silinecek bir şey yok"
+
 #: apps/course_metadata/management/commands/unpublish_inactive_runs.py:42
 msgid "One or more courses failed to unpublish."
 msgstr "Bir ya da birden fazla dersin yayını kaldırılamadı."
+
+#: apps/course_metadata/management/commands/unpublish_inactive_runs.py:48
+#, python-brace-format
+msgid "Successfully unpublished runs in course {key}"
+msgstr "{key} dersinde başarıyla yayından kaldırılan çalıştırmalar"
 
 #: apps/course_metadata/models.py:238
 msgid ""
@@ -1692,6 +1774,10 @@ msgstr "Bu dönem için son tarih geçerlidir (örn. Bahar 2019"
 msgid "Describes the deadline (e.g. Early Admission Deadline)"
 msgstr "Son tarihi açıklar (örn. Erken Kabul Son Tarihi)"
 
+#: apps/course_metadata/models.py:4224
+msgid "The date after which the deadline expires (e.g. January 1, 2019)"
+msgstr "Son teslim tarihinin sona ereceği tarih (örn. 1 Ocak 2019)"
+
 #: apps/course_metadata/models.py:4228
 msgid "The time after which the deadline expires (e.g. 11:59 PM EST)."
 msgstr "Son teslim tarihinin sona erdiği saat (ör. 23:59 EST)."
@@ -1788,6 +1874,34 @@ msgstr "Yayınlanan tüm ders URL bilgilerinden yönlendirmeler ekleyin"
 msgid "Course uuids"
 msgstr "Ders kullanıcı kimlikleri"
 
+#: apps/course_metadata/models.py:4825
+msgid "User who uploaded the file"
+msgstr "Dosyayı yükleyen kullanıcı"
+
+#: apps/course_metadata/models.py:4830
+msgid "Summary of the task"
+msgstr "Görevin özeti"
+
+#: apps/course_metadata/models.py:4833
+msgid "Task Type"
+msgstr "Görev Türü"
+
+#: apps/course_metadata/models.py:4836
+msgid "Type of Bulk Task to be performed"
+msgstr "Gerçekleştirilecek Yığın İş Türü"
+
+#: apps/course_metadata/models.py:4839
+msgid "Status"
+msgstr "Durum"
+
+#: apps/course_metadata/models.py:4842
+msgid "Status of the Bulk Task"
+msgstr "Yığın İşin Durumu"
+
+#: apps/course_metadata/models.py:4850
+msgid "Identifier of the celery task associated with this bulk task"
+msgstr "Bu yığın işle ilişkili celery görevinin tanımlayıcısı"
+
 #: apps/course_metadata/salesforce.py:78
 msgid "Attempted to query Salesforce with no client for partner={}"
 msgstr "Partner={} için istemci olmadan Salesforce'u sorgulamaya çalışıldı"
@@ -1828,6 +1942,15 @@ msgstr "Ders Becerilerini Güncelle"
 msgid "Refresh Program Skills"
 msgstr "Program Becerilerini Güncelle"
 
+#: apps/course_metadata/templates/course_metadata/email/comment.html:7
+#, python-format
+msgid ""
+"%(user_name)s made the following comment on %(course_name)s on %(date)s at "
+"%(time)s"
+msgstr ""
+"%(user_name)s %(time)s adresinde %(course_name)s üzerinde %(date)s hakkında "
+"aşağıdaki yorumu yaptı"
+
 #: apps/course_metadata/templates/course_metadata/email/comment.html:19
 #: apps/course_metadata/templates/course_metadata/email/comment.txt:9
 msgid "View comment in Publisher"
@@ -1837,6 +1960,15 @@ msgstr "Yorumu Publisher içinde göster"
 #: apps/course_metadata/templates/course_metadata/email/comment.txt:11
 msgid "The edX team"
 msgstr "edX ekibi"
+
+#: apps/course_metadata/templates/course_metadata/email/comment.txt:3
+#, python-format
+msgid ""
+"%(user_name)s made the following comment on %(course_name)s %(date)s at "
+"%(time)s"
+msgstr ""
+"%(user_name)s %(time)s adresinde %(course_name)s %(date)s hakkında aşağıdaki"
+" yorumu yaptı"
 
 #: apps/course_metadata/templates/course_metadata/email/go_live.html:9
 #: apps/course_metadata/templates/course_metadata/email/go_live.txt:3
@@ -1891,6 +2023,25 @@ msgstr ""
 "Not: Bu e-posta adresi yanıtları kabul etmiyor. Soru veya yorumlarınız için "
 "lütfen Proje Koordinatörünüz ile iletişime geçin:"
 
+#: apps/course_metadata/templates/course_metadata/email/internal_review.html:20
+#, python-brace-format
+msgid ""
+"This is a good time to {link_start}{studio_url}{link_middle}review this "
+"course run in Studio{link_end}."
+msgstr ""
+"Bu, {link_start}{studio_url}{link_middle}Studio'da yayınlanan "
+"dersi{link_end} incelemek için iyi bir zaman."
+
+#: apps/course_metadata/templates/course_metadata/email/internal_review.html:27
+#, python-brace-format
+msgid ""
+"Visit the {link_start}{restricted_admin_url}{link_middle}restricted course "
+"admin page{link_end} to set embargo rules for this course, as needed."
+msgstr ""
+"Gerektiğinde bu derse yönelik ambargo kurallarını ayarlamak için "
+"{link_start}{restricted_admin_url}{link_middle}sınırlı ders yönetici "
+"sayfasını{link_end} ziyaret edin."
+
 #: apps/course_metadata/templates/course_metadata/email/internal_review.txt:6
 #, python-format
 msgid "%(org_name)s has submitted %(course_key)s for review."
@@ -1911,10 +2062,36 @@ msgstr "Studio sayfası: %(studio_url)s"
 msgid "Restricted Course admin: %(restricted_admin_url)s"
 msgstr "Kısıtlanmış Ders admini: %(restricted_admin_url)s"
 
+#: apps/course_metadata/templates/course_metadata/email/legal_review.txt:6
+#, python-format
+msgid "%(org_name)s has submitted %(course_name)s for review."
+msgstr "%(org_name)s kurumu %(course_name)s dersini incelemeye gönderdi."
+
+#: apps/course_metadata/templates/course_metadata/email/legal_review.txt:11
+msgid "View this course run in Publisher above to determine OFAC status."
+msgstr ""
+"OFAC durumunu belirlemek için yukarıdaki Yayımcı'da çalıştırılan bu dersi "
+"görüntüleyin."
+
+#: apps/course_metadata/templates/course_metadata/email/reviewed.html:22
+#: apps/course_metadata/templates/course_metadata/email/reviewed.txt:12
+#, python-format
+msgid ""
+"The course run about page will be published on %(go_live_date)s, pending no "
+"further edits."
+msgstr ""
+"Ders Yayını hakkında sayfası %(go_live_date)s adresinde yayınlanacak ve "
+"başka düzenleme yapılmaması beklenecektir."
+
 #: apps/course_metadata/templates/course_metadata/email/reviewed.html:28
 #: apps/course_metadata/templates/course_metadata/email/reviewed.txt:16
 msgid "The course run about page is now published."
 msgstr "Ders yayını hakkında sayfası şimdi yayınlandı."
+
+#: apps/course_metadata/templates/course_metadata/email/reviewed.txt:21
+#, python-format
+msgid "View the course run in Publisher: %(course_page_url)s"
+msgstr "Publisher içindeki bu ders yayınını görüntüle: %(course_page_url)s"
 
 #: apps/course_metadata/utils.py:390
 msgid "Special characters not allowed in Course Number."
@@ -1933,6 +2110,11 @@ msgstr "Geçersiz HTML alındı"
 #, python-brace-format
 msgid "{0} tag is not allowed"
 msgstr "{0} etiketine izin verilmiyor"
+
+#: apps/course_metadata/validators.py:42
+#, python-brace-format
+msgid "{0} attribute is not allowed on the {1} tag"
+msgstr "{1} etiketinde {0} özelliğine izin verilmiyor"
 
 #: apps/course_metadata/views.py:38
 msgid "Update excluded course runs"
@@ -2028,6 +2210,14 @@ msgstr "Kurumdaki Rol"
 #: apps/taxonomy_support/management/commands/update_course_recommendations.py:19
 msgid "Update the course recommendations based on skills."
 msgstr "Ders önerilerini becerilere göre güncelleyin."
+
+#: apps/taxonomy_support/management/commands/update_course_recommendations.py:41
+msgid ""
+"Use arguments from the UpdateCourseRecommendationsConfig model instead of "
+"the command line."
+msgstr ""
+"Komut satırı yerine UpdateCourseRecommendationsConfig modelindeki bağımsız "
+"değişkenleri kullanın."
 
 #: apps/taxonomy_support/models.py:24
 msgid "The original course, whose recommendation is stored here."
