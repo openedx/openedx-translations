@@ -41,6 +41,10 @@ msgstr "開始の準備ができました"
 msgid "Started"
 msgstr "開始しました"
 
+#: admin.py:396
+msgid "Ready To Submit"
+msgstr "提出の準備ができました"
+
 #: admin.py:397
 msgid "Declined"
 msgstr "辞退しました"
@@ -220,6 +224,16 @@ msgid ""
 msgstr ""
 "\n"
 "    オンライン監督ソフトウェアのセットアップと本人確認の手順が案内されます。\n"
+"  "
+
+#: templates/onboarding_exam/error.html:4
+msgid ""
+"\n"
+"    Error: There was a problem with your onboarding session\n"
+"  "
+msgstr ""
+"\n"
+"    エラー: オンボーディングセッションに問題が発生しました。\n"
 "  "
 
 #: templates/onboarding_exam/error.html:13
@@ -429,6 +443,16 @@ msgstr ""
 "      期限が過ぎたため、この試験を受けることはできません。\n"
 "    "
 
+#: templates/proctored_exam/failed-prerequisites.html:9
+msgid ""
+"\n"
+"    You did not satisfy the requirements for taking this exam with proctoring.\n"
+"    "
+msgstr ""
+"\n"
+"    この試験を監督付きで受けるための要件を満たしていません。\n"
+"    "
+
 #: templates/proctored_exam/failed-prerequisites.html:14
 msgid ""
 "\n"
@@ -495,6 +519,16 @@ msgid ""
 msgstr ""
 "\n"
 "        試験コードを選択し、Control + C（Windows）またはCommand + C（Mac）を使ってコピーしてください。\n"
+"      "
+
+#: templates/proctored_exam/instructions.html:64
+msgid ""
+"\n"
+"        Start your system check now. A new window will open for this step and you will verify your identity.\n"
+"      "
+msgstr ""
+"\n"
+"        システムチェックを今すぐ開始してください。このステップのために新しいウィンドウが開き、あなたの身元を確認します。\n"
 "      "
 
 #: templates/proctored_exam/instructions.html:75
@@ -681,6 +715,27 @@ msgstr ""
 "        あなたの監督セッションはレビューされましたが、すべての要件を満たしていませんでした。\n"
 "      "
 
+#: templates/proctored_exam/rejected.html:13
+#, python-format
+msgid ""
+"\n"
+"        If you have questions about the status of your proctoring session results, contact %(platform_name)s Support.\n"
+"      "
+msgstr ""
+"\n"
+"        ご自身の監督セッション結果の状況について質問がある場合は、%(platform_name)sサポートにお問い合わせください。\n"
+"      "
+
+#: templates/proctored_exam/rejected.html:23
+msgid ""
+"\n"
+"        If you have concerns about your proctoring session results, contact your course team.\n"
+"      "
+msgstr ""
+"\n"
+"        プロクタリングセッションの結果について懸念がある場合は、コースチームに連絡してください。\n"
+"      "
+
 #: templates/proctored_exam/submitted.html:4
 msgid ""
 "\n"
@@ -701,6 +756,12 @@ msgid ""
 "that you want to quit the application."
 msgstr "プロクタリングソフトウェアのウィンドウがまだ開いている場合は、今すぐ閉じて、アプリケーションを終了することを確認してください。"
 
+#: templates/proctored_exam/submitted.html:13
+msgid ""
+"Proctoring results are usually available within 5 business days after you "
+"submit your exam."
+msgstr "試験監督の結果は、通常、試験を提出してから5営業日以内に利用可能です。"
+
 #: templates/proctored_exam/submitted.html:19
 #, python-format
 msgid ""
@@ -711,6 +772,20 @@ msgstr ""
 "\n"
 "      試験監督付き試験の結果の状況について質問がある場合は、%(platform_name)sサポートにお問い合わせください。\n"
 "    "
+
+#: templates/proctored_exam/visit_exam_content.html:5
+msgid ""
+"\n"
+"      To view your exam questions and responses, select <strong>View my exam</strong>. The exam's review status is shown in the left navigation pane.\n"
+"    "
+msgstr ""
+"\n"
+"      試験の質問と回答を確認するには、<strong>試験を表示</strong>を選択してください。試験のレビュー状況は左のナビゲーションペインに表示されます。\n"
+"    "
+
+#: templates/proctored_exam/visit_exam_content.html:11
+msgid "View my exam"
+msgstr "試験を表示"
 
 #: templates/timed_exam/entrance.html:4
 #, python-format
@@ -738,6 +813,10 @@ msgstr "選択した後 "
 #: templates/timed_exam/entrance.html:17
 msgid " to complete and submit the exam."
 msgstr " 試験を完了して提出するために。"
+
+#: templates/timed_exam/footer.html:3
+msgid "Can I request additional time to complete my exam?"
+msgstr "試験を完了するための追加時間をリクエストできますか？"
 
 #: templates/timed_exam/ready_to_submit.html:14
 msgid ""
@@ -808,6 +887,14 @@ msgstr "模擬試験"
 #: views.py:152
 msgid "could not determine the course_id"
 msgstr "コースIDを特定できませんでした"
+
+#: views.py:161 views.py:676
+msgid "Must be a Staff User to Perform this request."
+msgstr "このリクエストを実行するには、スタッフユーザーである必要があります。"
+
+#: views.py:664
+msgid "Missing required query parameter course_id"
+msgstr "必須のクエリパラメータcourse_idがありません"
 
 #: views.py:694 views.py:875
 msgid "There is no onboarding exam related to this course id."
