@@ -69,6 +69,10 @@ msgstr "認証済み"
 msgid "Error"
 msgstr "エラー"
 
+#: admin.py:407
+msgid "Onboarding Missing"
+msgstr "オンボーディングがありません"
+
 #: admin.py:408
 msgid "Onboarding Failed"
 msgstr "オンボーディングに失敗しました"
@@ -81,6 +85,11 @@ msgstr "オンボーディング保留中"
 msgid "Onboarding Expired"
 msgstr "オンボーディングの有効期限が切れました"
 
+#: api.py:824 views.py:1297
+#, python-brace-format
+msgid "you have {remaining_time} remaining"
+msgstr "残り時間は{remaining_time}です"
+
 #: api.py:1654
 msgid "your course"
 msgstr "あなたのコース"
@@ -89,6 +98,10 @@ msgstr "あなたのコース"
 #, python-brace-format
 msgid "Proctoring Results For {course_name} {exam_name}"
 msgstr "{course_name} {exam_name} の監督結果"
+
+#: api.py:2243
+msgid "Proctored Option Available"
+msgstr "監督付きオプション利用可能"
 
 #: api.py:2248
 msgid "Taking As Open Exam"
@@ -161,6 +174,25 @@ msgstr ""
 "        あなたの監督付き試験「%(exam_name)s」が\n"
 "        <a href=\"%(course_url)s\">%(course_name)s</a>でレビューされ、\n"
 "        すべての監督要件を満たしました。\n"
+"    "
+
+#: templates/emails/proctoring_attempt_submitted_email.html:12
+#, python-format
+msgid ""
+"\n"
+"        Your proctored exam \"%(exam_name)s\" in\n"
+"        <a href=\"%(course_url)s\">%(course_name)s</a> was submitted\n"
+"        successfully and will now be reviewed to ensure all exam\n"
+"        rules were followed. You should receive an email with your exam\n"
+"        status within 5 business days. Final grades may take longer.\n"
+"    "
+msgstr ""
+"\n"
+"        あなたの監督付き試験「%(exam_name)s」が\n"
+"        <a href=\"%(course_url)s\">%(course_name)s</a>で正常に提出されました。\n"
+"        現在、試験のすべてのルールが守られているか確認するためにレビューが行われています。\n"
+"        試験のステータスについては、5営業日以内にメールでお知らせします。\n"
+"        最終成績の通知にはさらに時間がかかる場合があります。\n"
 "    "
 
 #: templates/emails/proctoring_attempt_unsatisfactory_email.html:12
@@ -363,6 +395,16 @@ msgstr ""
 "          オンライン監督ソフトウェアの設定手順と本人確認の方法について案内されます。\n"
 "        "
 
+#: templates/practice_exam/error.html:5
+msgid ""
+"\n"
+"        There was a problem with your practice proctoring session\n"
+"      "
+msgstr ""
+"\n"
+"        あなたの模擬試験監督セッションに問題が発生しました\n"
+"      "
+
 #: templates/practice_exam/error.html:13
 msgid ""
 "\n"
@@ -463,6 +505,16 @@ msgstr ""
 "    次の必須条件を満たしていませんでした：\n"
 "    "
 
+#: templates/proctored_exam/failed-prerequisites.html:32
+msgid ""
+"\n"
+"        Due to unsatisfied prerequisites, you can only take this exam without proctoring.\n"
+"      "
+msgstr ""
+"\n"
+"        前提条件が満たされていないため、この試験は監督なしでのみ受けることができます。\n"
+"      "
+
 #: templates/proctored_exam/inactive_account.html:4
 msgid ""
 "\n"
@@ -560,6 +612,16 @@ msgstr ""
 "      この監督付き試験を受ける前に、オンボーディング試験を完了する必要があります。\n"
 "    "
 
+#: templates/proctored_exam/onboarding_error.html:11
+msgid ""
+"\n"
+"      Please complete an onboarding exam before attempting this exam.\n"
+"    "
+msgstr ""
+"\n"
+"      この試験を受ける前に、オンボーディング試験を完了してください。\n"
+"    "
+
 #: templates/proctored_exam/onboarding_error.html:17
 #: templates/proctored_exam/onboarding_error.html:32
 msgid "Navigate to onboarding exam"
@@ -647,6 +709,20 @@ msgstr ""
 "        &#8226; 「試験を終了」をクリックする前に時間が切れた場合、送信済みの回答のみが採点されます。\n"
 "      "
 
+#: templates/proctored_exam/ready_to_start.html:23
+msgid ""
+"\n"
+"         You must adhere to the following rules while you complete this exam.\n"
+"         <strong>If you violate these rules, you will receive a score of 0 on the exam, and you will not be eligible for academic course credit.\n"
+"         </strong></br>\n"
+"      "
+msgstr ""
+"\n"
+"         この試験を完了する際には、以下のルールを遵守しなければなりません。\n"
+"         <strong>これらのルールに違反した場合、試験のスコアは0となり、学術コースの単位を取得する資格を失います。\n"
+"         </strong></br>\n"
+"      "
+
 #: templates/proctored_exam/ready_to_start.html:29
 #, python-format
 msgid ""
@@ -690,6 +766,12 @@ msgstr ""
 "\n"
 "      あなたの監督付き試験を終了してもよろしいですか？\n"
 "    "
+
+#: templates/proctored_exam/ready_to_submit.html:10
+msgid ""
+"Make sure that you have selected \"Submit\" for each answer before you "
+"submit your exam."
+msgstr "試験を提出する前に、各回答に対して「提出」を選択したことを確認してください。"
 
 #: templates/proctored_exam/ready_to_submit.html:12
 msgid ""
@@ -921,6 +1003,10 @@ msgstr "残り時間は1分未満です。"
 #: views.py:1758
 msgid "Enter a valid username or email"
 msgstr "有効なユーザー名またはメールアドレスを入力してください"
+
+#: views.py:1758
+msgid "user_info"
+msgstr "ユーザー情報"
 
 #: views.py:1771
 msgid "Enter a valid positive value number"
