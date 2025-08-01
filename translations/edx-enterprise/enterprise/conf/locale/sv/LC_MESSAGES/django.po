@@ -157,6 +157,17 @@ msgstr ""
 "företagskund.</li><li>course_title: Kursens titel. Tillgänglig när typen av "
 "samtycke är kurs.</li></ul>"
 
+#: consent/models.py:352
+msgid "Text of decline link"
+msgstr "Text för avböjningslänk"
+
+#: consent/models.py:367
+msgid ""
+"Heading text of dialog box which appears when user decline to provide "
+"consent"
+msgstr ""
+"Rubriktext för dialogruta som visas när användaren avböjer att ge samtycke"
+
 #: consent/models.py:374
 msgid "Text of decline button on confirmation dialog box"
 msgstr "Text för avböjningsknapp i bekräftelsedialogruta"
@@ -164,6 +175,10 @@ msgstr "Text för avböjningsknapp i bekräftelsedialogruta"
 #: consent/models.py:378
 msgid "Text of abort decline link on confirmation dialog box"
 msgstr "Text för avbryt länk på bekräftelsedialogruta"
+
+#: consent/models.py:393
+msgid "Specifies whether data sharing consent page is published."
+msgstr "Anger om sidan för samtycke till datadelning är publicerad."
 
 #: integrated_channels/canvas/models.py:112
 msgid ""
@@ -199,6 +214,11 @@ msgid ""
 msgstr ""
 "Det maximala antalet dataobjekt som ska överföras till den integrerade "
 "kanalen med varje begäran."
+
+#: integrated_channels/canvas/models.py:253
+msgid ""
+"The total amount of points that the learner could score on the subsection."
+msgstr "Det totala antalet poäng som läraren kan få på delavsnittet."
 
 #: integrated_channels/canvas/models.py:326
 msgid ""
@@ -303,6 +323,18 @@ msgstr "Företagskund {uuid} hittades inte eller är inte aktiv"
 msgid "Invalid integrated channel: {channel}"
 msgstr "Ogiltig integrerad kanal: {channel}"
 
+#: integrated_channels/integrated_channel/management/commands/cleanup_duplicate_assignment_records.py:25
+msgid ""
+"\n"
+"    Verify and remove any duplicated assignments transmitted to the IntegratedChannel(s) configured for the given\n"
+"     EnterpriseCustomer.\n"
+"    "
+msgstr ""
+"\n"
+"    Verifiera och ta bort eventuella duplicerade uppgifter som överförts till de IntegratedChannel(s) som är konfigurerade för den angivna\n"
+"     EnterpriseCustomer.\n"
+"    "
+
 #: integrated_channels/integrated_channel/management/commands/cleanup_duplicate_assignment_records.py:39
 #: integrated_channels/integrated_channel/management/commands/transmit_learner_data.py:37
 #: integrated_channels/integrated_channel/management/commands/transmit_subsection_learner_data.py:37
@@ -353,6 +385,20 @@ msgstr ""
 #: integrated_channels/integrated_channel/management/commands/reset_sapsf_learner_transmissions.py:31
 msgid "Start date and time in YYYY-MM-DDTHH:MM:SSZ format."
 msgstr "Startdatum och tid i formatet ÅÅÅÅ-MM-DDTHH:MM:SSZ."
+
+#: integrated_channels/integrated_channel/management/commands/reset_sapsf_learner_transmissions.py:38
+msgid "End date and time in YYYY-MM-DDTHH:MM:SSZ format."
+msgstr "Slutdatum och tid i formatet ÅÅÅÅ-MM-DDTHH:MM:SSZ."
+
+#: integrated_channels/integrated_channel/management/commands/transmit_subsection_learner_data.py:23
+msgid ""
+"\n"
+"    Transmit Enterprise learner assessment level reporting data for the given EnterpriseCustomer.\n"
+"    "
+msgstr ""
+"\n"
+"    Överför rapporteringsdata för bedömningsnivå för Enterprise-lärande för den angivna EnterpriseCustomer.\n"
+"    "
 
 #: integrated_channels/integrated_channel/models.py:115
 msgid "A configuration nickname."
@@ -459,6 +505,14 @@ msgstr "Maximala betygspoäng för kurserna. Standard: 100"
 msgid "The name for the grade assigment created for the grade integration."
 msgstr "Namnet på betygsuppgiften skapad för betygsintegrationen."
 
+#: integrated_channels/moodle/models.py:182
+msgid ""
+"When set to True, the configured customer will receive learner data "
+"transmissions, for incomplete courses as well"
+msgstr ""
+"När den är inställd på True kommer den konfigurerade kunden att ta emot "
+"överföringar av lärardata, även för ofullständiga kurser."
+
 #: integrated_channels/sap_success_factors/exporters/content_metadata.py:228
 msgid "Enrollment Closed"
 msgstr "Inskrivningen är stängd"
@@ -526,6 +580,12 @@ msgid ""
 "Preview the HTML template rendered in the context of a course enrollment."
 msgstr ""
 "Förhandsgranska HTML-mallen som visas i samband med en kursregistrering."
+
+#: enterprise/admin/__init__.py:724
+msgid ""
+"Preview the HTML template rendered in the context of a program enrollment."
+msgstr ""
+"Förhandsgranska HTML-mallen som visas i samband med en programregistrering."
 
 #: enterprise/admin/forms.py:52
 msgid "To add a single learner, enter an email address or username."
@@ -624,6 +684,10 @@ msgstr "Ange en e-postadress eller användarnamn."
 msgid "Course"
 msgstr "Kurs"
 
+#: enterprise/admin/forms.py:316
+msgid "Enter the course run key."
+msgstr "Ange kursnyckeln."
+
 #: enterprise/admin/forms.py:436
 msgid "Preview"
 msgstr "Förhandsgranska"
@@ -698,6 +762,13 @@ msgid ""
 msgstr ""
 "Vänligen välj ett annat datumintervall. Det finns en annan avisering "
 "schemalagd under detta datumintervall."
+
+#: enterprise/admin/views.py:478
+#, python-brace-format
+msgid "{count} new learner was added to {enterprise_customer_name}."
+msgid_plural "{count} new learners were added to {enterprise_customer_name}."
+msgstr[0] "{count} ny lärande lades till {enterprise_customer_name}."
+msgstr[1] "{count} nya elever lades till {enterprise_customer_name}."
 
 #: enterprise/admin/views.py:492
 #, python-brace-format
@@ -907,6 +978,19 @@ msgstr ""
 "För att få en ecommerce_api_client måste detta paket installeras i en Open "
 "edX-miljö."
 
+#: enterprise/config/models.py:41
+msgid ""
+"Specifies which user role assignments to update.  If unspecified, will "
+"update for all roles."
+msgstr ""
+"Anger vilka användarrolltilldelningar som ska uppdateras. Om inget anges, "
+"uppdateras alla roller."
+
+#: enterprise/config/models.py:45
+msgid "Number of user role asssignments to update in each batch of updates."
+msgstr ""
+"Antal användarrollstilldelningar att uppdatera i varje uppdateringsbatch."
+
 #: enterprise/config/models.py:55
 msgid ""
 "If set, no updates or creates will occur; will instead iterate over the "
@@ -1011,6 +1095,14 @@ msgstr ""
 msgid "Enter the organization name"
 msgstr "Ange organisationsnamnet"
 
+#: enterprise/forms.py:20
+msgid ""
+"Have an account through your company, school, or organization? Enter your "
+"organization’s name below to sign in."
+msgstr ""
+"Har du ett konto genom ditt företag, skola eller organisation? Ange din "
+"organisations namn nedan för att logga in."
+
 #: enterprise/forms.py:23
 msgid ""
 "The attempt to login with this organization name was not successful. Please "
@@ -1022,6 +1114,10 @@ msgstr ""
 #: enterprise/forms.py:60
 msgid "Enterprise not found"
 msgstr "Företag hittades inte"
+
+#: enterprise/forms.py:64
+msgid "Wrong Enterprise"
+msgstr "Fel företag"
 
 #: enterprise/management/commands/migrate_enterprise_catalogs.py:30
 msgid "Username of a user authorized to access the Enterprise Catalog API."
@@ -1053,6 +1149,19 @@ msgstr ""
 "kontakta din utbildningsansvarige på {enterprise_customer_name}, eller "
 "kontakta {link_start}{platform_name} support{link_end}.{span_end}"
 
+#: enterprise/messages.py:55
+#, python-brace-format
+msgid ""
+"{strong_start}We could not gather price information for "
+"{em_start}{item}{em_end}.{strong_end} {span_start}If you continue to have "
+"these issues, please contact {link_start}{platform_name} "
+"support{link_end}.{span_end}"
+msgstr ""
+"{strong_start}Vi kunde inte samla in prisinformation för "
+"{em_start}{item}{em_end}.{strong_end} {span_start}Om du fortsätter att ha "
+"dessa problem, vänligen kontakta {link_start}{platform_name} "
+"support{link_end}.{span_end}"
+
 #: enterprise/messages.py:85
 #, python-brace-format
 msgid ""
@@ -1076,6 +1185,14 @@ msgstr ""
 "utbildningsadministratör med följande felkod så kan de hjälpa "
 "dig.{span_end}{span_start}Felkod: "
 "{error_code}{span_end}{span_start}Användarnamn: {username}{span_end}"
+
+#: enterprise/models.py:147
+msgid "Enterprise Customer Type"
+msgstr "Företagskundtyp"
+
+#: enterprise/models.py:148
+msgid "Enterprise Customer Types"
+msgstr "Företagskundtyper"
 
 #: enterprise/models.py:215 enterprise/models.py:3376
 msgid "Enterprise Customer"
@@ -1118,6 +1235,14 @@ msgid ""
 msgstr ""
 "Tillåter elever som registrerar sig via lärplattformar att välja "
 "granskningsspåret."
+
+#: enterprise/models.py:295
+msgid ""
+"Enables transmission of audit enrollment data from learning platform "
+"learners."
+msgstr ""
+"Möjliggör överföring av data om granskad kursregistrering från "
+"lärplattformens användare."
 
 #: enterprise/models.py:303
 msgid ""
@@ -1242,6 +1367,13 @@ msgstr ""
 "Om markerad, kommer sökningen att ersättas med en akademi på "
 "företagslärarportalen."
 
+#: enterprise/models.py:439
+msgid ""
+"If checked, videos will be displayed in the search results on the learner "
+"portal."
+msgstr ""
+"Om markerad, kommer videor att visas i sökresultaten på lärarportalen."
+
 #: enterprise/models.py:445
 msgid ""
 "Automatically enabled. Displays advanced analytics page on the administrator"
@@ -1341,6 +1473,10 @@ msgstr ""
 msgid "Enterprise Customer Learner"
 msgstr "Enterprise-kundens lärande"
 
+#: enterprise/models.py:1104
+msgid "Enterprise Customer Learners"
+msgstr "Enterprise-kundens lärande"
+
 #: enterprise/models.py:1716
 msgid "Logo images must be in .png format."
 msgstr "Logotyper måste vara i .png-format."
@@ -1352,6 +1488,10 @@ msgstr "Varumärkeskonfiguration"
 #: enterprise/models.py:1744
 msgid "Branding Configurations"
 msgstr "Brandingkonfigurationer"
+
+#: enterprise/models.py:1826
+msgid "Specifies whether this is default provider for enterprise customer."
+msgstr "Anger om detta är standardleverantören för företagskunder."
 
 #: enterprise/models.py:1921
 msgid "The enterprise learner to which this entitlement is attached."
@@ -1368,6 +1508,10 @@ msgid ""
 msgstr ""
 "Anger om en användare har markerat den här kursen som sparad för senare i "
 "lärarportalen."
+
+#: enterprise/models.py:2353
+msgid "The course enrollment the associated subsidy is for."
+msgstr "Kursanmälan som det associerade bidraget gäller för."
 
 #: enterprise/models.py:2360
 msgid ""
@@ -1431,6 +1575,10 @@ msgstr ""
 "content_filter anger att 'kurs'-innehållstyper ska inkluderas i katalogen, "
 "kommer inte executive-education-2u-kurstyper att uteslutas från innehållet i"
 " den associerade katalogen."
+
+#: enterprise/models.py:2815
+msgid "Enterprise Catalog Query"
+msgstr "Företagskatalogfråga"
 
 #: enterprise/models.py:2929
 msgid ""
@@ -1643,6 +1791,10 @@ msgstr "Leveransmetod kan inte uppdateras"
 msgid "Day of week must be set if the frequency is weekly."
 msgstr "Veckodag måste anges om frekvensen är veckovis."
 
+#: enterprise/models.py:3622
+msgid "Day of month must be set if the frequency is monthly."
+msgstr "Dag i månaden måste anges om frekvensen är månadsvis."
+
 #: enterprise/models.py:3625
 msgid "Frequency must be set to either daily, weekly, or monthly."
 msgstr ""
@@ -1722,6 +1874,14 @@ msgstr ""
 msgid "Admin Notification"
 msgstr "Adminmeddelande"
 
+#: enterprise/models.py:4056
+msgid "Admin Notifications"
+msgstr "Adminmeddelanden"
+
+#: enterprise/models.py:4094
+msgid "Admin Notification Read"
+msgstr "Adminavisering läst"
+
 #: enterprise/models.py:4128 enterprise/models.py:4232
 #: enterprise/models.py:4377
 msgid "The enterprise that can be linked using this key."
@@ -1734,6 +1894,14 @@ msgstr "Antalet gånger denna nyckel kan användas för att länka en elev."
 #: enterprise/models.py:4146
 msgid "The key will no longer be valid after this date."
 msgstr "Nyckeln kommer inte längre att vara giltig efter detta datum."
+
+#: enterprise/models.py:4155
+msgid ""
+"Specifies if the key is active. Once deactivated, the key is no longer valid"
+" and cannot be reactivated."
+msgstr ""
+"Anger om nyckeln är aktiv. När den väl har avaktiverats är nyckeln inte "
+"längre giltig och kan inte återaktiveras."
 
 #: enterprise/models.py:4236
 msgid "ChatGPT prompt."
@@ -1767,6 +1935,10 @@ msgstr "Identitetsleverantören som integrerats med av SSO-orkestratorn."
 #: enterprise/models.py:4404
 msgid "The metadata url of the identity provider."
 msgstr "Metadata-url:en för identitetsleverantören."
+
+#: enterprise/models.py:4412
+msgid "The metadata xml of the identity provider."
+msgstr "Metadata-xml:en för identitetsleverantören."
 
 #: enterprise/models.py:4430
 msgid ""
@@ -1803,12 +1975,23 @@ msgid ""
 msgstr ""
 "Datum och tid när orkestratorn stötte på ett fel under konfigurationen."
 
+#: enterprise/models.py:4517
+msgid ""
+"Whether admin has indicated the service provider metadata was uploaded."
+msgstr ""
+"Huruvida administratören har angett att tjänsteleverantörens metadata har "
+"laddats upp."
+
 #: enterprise/models.py:4527 enterprise/models.py:4563
 msgid ""
 "SAP specific configuration: the timeout interval for the OData API in "
 "seconds."
 msgstr ""
 "SAP-specifik konfiguration: timeoutintervallet för OData API:et i sekunder."
+
+#: enterprise/models.py:4537
+msgid "SAP specific configuration: the root url of the OData API."
+msgstr "SAP-specifik konfiguration: rot-url för OData API."
 
 #: enterprise/models.py:4546
 msgid "SAP specific configuration: the company id of the OData API."
@@ -1843,9 +2026,17 @@ msgstr "Fältet är låst eftersom konfigurationen redan har skickats in."
 msgid "Record has already been submitted for configuration."
 msgstr "Posten har redan skickats in för konfiguration."
 
+#: enterprise/models.py:4700
+msgid "Specifies enterprise group name."
+msgstr "Anger företagsgruppens namn."
+
 #: enterprise/models.py:4715
 msgid "The type of enterprise group"
 msgstr "Typ av företagsgrupp"
+
+#: enterprise/models.py:4721
+msgid "Enterprise Group"
+msgstr "Företagsgrupp"
 
 #: enterprise/models.py:4722
 msgid "Enterprise Groups"
@@ -1859,9 +2050,25 @@ msgstr ""
 "Ögonblicket då medlemskapsregistret skrivs med en Enterprise Customer User-"
 "post."
 
+#: enterprise/models.py:4860
+msgid ""
+"The last time the membership action was in an error state. Null means the "
+"membership is not errored."
+msgstr ""
+"Den senaste gången medlemskapsåtgärden var i ett felaktigt tillstånd. Null "
+"betyder att medlemskapet inte är felaktigt."
+
 #: enterprise/models.py:4935
 msgid "Title summarizing the onboarding flow."
 msgstr "Titel som sammanfattar introduktionsflödet."
+
+#: enterprise/models.py:4941
+msgid ""
+"Specifies whether this flow is active and shown to admin users in the "
+"onboarding tour."
+msgstr ""
+"Anger om detta flöde är aktivt och visas för administratörer i "
+"introduktionsturen."
 
 #: enterprise/templates/enterprise/_data_sharing_decline_modal.html:7
 #: enterprise/views.py:1612 enterprise/views.py:2114
@@ -1924,6 +2131,18 @@ msgstr "Överför kursmetadata"
 msgid "Continue"
 msgstr "Fortsätt"
 
+#: enterprise/utils.py:148
+msgid ""
+"Either \"Email or Username\" or \"CSV bulk upload\" must be specified, but "
+"both were."
+msgstr ""
+"Antingen \"E-post eller användarnamn\" eller \"CSV-massuppladdning\" måste "
+"anges, men båda var det."
+
+#: enterprise/utils.py:151
+msgid "Error: Learners could not be added. Correct the following errors."
+msgstr "Fel: Deltagare kunde inte läggas till. Korrigera följande fel."
+
 #: enterprise/utils.py:153
 #, python-brace-format
 msgid ""
@@ -1974,6 +2193,18 @@ msgid ""
 msgstr ""
 "Förväntade en CSV-fil med [{expected_columns}] kolumner, men hittade "
 "istället [{actual_columns}] kolumner."
+
+#: enterprise/utils.py:173
+msgid "Reason field is required but was not filled."
+msgstr "Orsaksfältet är obligatoriskt men har inte fyllts i."
+
+#: enterprise/utils.py:176
+msgid ""
+"Either \"Email or Username\" or \"CSV bulk upload\" must be specified, but "
+"neither were."
+msgstr ""
+"Antingen \"E-post eller användarnamn\" eller \"CSV-massuppladdning\" måste "
+"anges, men inget av dem var det."
 
 #: enterprise/utils.py:179
 #, python-brace-format
@@ -2115,6 +2346,10 @@ msgstr ""
 #, python-brace-format
 msgid "My {platform_name} username"
 msgstr "Mitt {platform_name} användarnamn"
+
+#: enterprise/views.py:396
+msgid "My country or region of residence"
+msgstr "Mitt land eller region där jag bor"
 
 #: enterprise/views.py:398
 msgid ""
@@ -2324,6 +2559,10 @@ msgstr "Bekräfta din kurs"
 msgid "View Course Details"
 msgstr "Visa kursdetaljer"
 
+#: enterprise/views.py:1606
+msgid "Please select one:"
+msgstr "Vänligen välj ett:"
+
 #: enterprise/views.py:1607 enterprise/views.py:2108
 msgid "Price"
 msgstr "Pris"
@@ -2391,6 +2630,10 @@ msgstr "inskrivna"
 msgid "already enrolled, must pay for certificate"
 msgstr "redan registrerad, måste betala för certifikat"
 
+#: enterprise/views.py:2102
+msgid "Real Career Impact"
+msgstr "Verklig karriärpåverkan"
+
 #: enterprise/views.py:2104
 msgid "See More"
 msgstr "Se mer"
@@ -2442,6 +2685,11 @@ msgstr "Kredit- och certifikatberättigad"
 #: enterprise/views.py:2139
 msgid "Self-paced; courses can be taken in any order"
 msgstr "Självstudier; kurser kan tas i valfri ordning"
+
+#: enterprise/views.py:2141
+#, python-brace-format
+msgid "{purchase_action} for"
+msgstr "{purchase_action} för"
 
 #: enterprise_learner_portal/api/v1/serializers.py:40
 msgid ""
