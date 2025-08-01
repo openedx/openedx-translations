@@ -26,6 +26,12 @@ msgstr ""
 msgid "No user with the username [{username}] exists."
 msgstr "ユーザー名「[{username}]」のユーザーは存在しません。"
 
+#: apps/api/filters.py:50
+msgid ""
+"Only staff users are permitted to filter by username. Remove the username "
+"parameter."
+msgstr "スタッフユーザーのみがユーザー名でフィルタリングすることが許可されています。ユーザー名パラメータを削除してください。"
+
 #: apps/api/serializers.py:850
 msgid "Number of courses contained in this catalog"
 msgstr "このカタログに含まれるコースの数"
@@ -46,6 +52,14 @@ msgstr "コースが実施される言語"
 msgid "Course cannot be changed for an existing course run"
 msgstr "既存のコース実施に対してコースを変更することはできません"
 
+#: apps/api/serializers.py:1157
+msgid "Minimum effort cannot be greater than Maximum effort"
+msgstr "最小努力は最大努力を超えることはできません"
+
+#: apps/api/serializers.py:1159
+msgid "Minimum effort and Maximum effort cannot be the same"
+msgstr "最小努力と最大努力は同じにできません。"
+
 #: apps/api/serializers.py:1205
 msgid "Dictionary mapping course run IDs to boolean values"
 msgstr "コース実行IDをブール値にマッピングする辞書"
@@ -53,6 +67,22 @@ msgstr "コース実行IDをブール値にマッピングする辞書"
 #: apps/api/serializers.py:1775
 msgid "Dictionary mapping course IDs to boolean values"
 msgstr "コースIDをブール値にマッピングする辞書"
+
+#: apps/api/serializers.py:2242
+msgid "Languages that course runs in this program are offered in."
+msgstr "このプログラムで提供されるコースの言語。"
+
+#: apps/api/serializers.py:2246
+msgid ""
+"Languages that course runs in this program have available transcripts in."
+msgstr "このプログラムでコースが提供される言語には、利用可能な文字起こしがあります。"
+
+#: apps/api/utils.py:343
+#, python-brace-format
+msgid ""
+"An error occurred while setting the course run image for [{key}] in studio. "
+"All other fields were successfully saved in Studio."
+msgstr "[{key}] のコース実行画像をスタジオで設定中にエラーが発生しました。他のすべてのフィールドはスタジオで正常に保存されました。"
 
 #: apps/api/v1/exceptions.py:13
 msgid "Specifying both editable=1 and a q parameter is not supported."
@@ -69,6 +99,10 @@ msgstr "コース実行データの設定に失敗しました: {}"
 #: apps/api/v1/views/course_runs.py:328
 msgid "Can only update status, ofac restrictions, and ofac comment"
 msgstr "ステータス、OFAC制限、およびOFACコメントのみ更新可能です。"
+
+#: apps/api/v1/views/course_runs.py:369
+msgid "Course run is in review. Editing disabled."
+msgstr "コースの実施がレビュー中です。編集は無効です。"
 
 #: apps/api/v1/views/course_runs.py:376
 msgid "Invalid parameter"
@@ -311,6 +345,11 @@ msgstr "コース実施除外を編集"
 msgid "(save and continue editing to create a link)"
 msgstr "（保存して編集を続けるとリンクが作成されます）"
 
+#: apps/course_metadata/admin.py:1036
+#, python-format
+msgid "Successfully %(status)s %(count)d %(items)s."
+msgstr "正常に%(status)s%(count)d件の%(items)s。"
+
 #: apps/course_metadata/algolia_models.py:54
 msgid "Certificates"
 msgstr "証明書"
@@ -346,6 +385,10 @@ msgstr "サブスクリプションで利用可能"
 msgid "Unpublished"
 msgstr "未公開"
 
+#: apps/course_metadata/choices.py:7
+msgid "Awaiting Review from Legal"
+msgstr "法務部のレビュー待ち"
+
 #: apps/course_metadata/choices.py:8
 msgid "Awaiting Internal Review"
 msgstr "内部レビュー待ち"
@@ -358,6 +401,13 @@ msgstr "確認済み"
 #: apps/course_metadata/choices.py:101
 msgid "Published"
 msgstr "公開済み"
+
+#. Translators: Instructor-paced refers to course runs that operate on a
+#. schedule set by the instructor,
+#. similar to a normal university course.
+#: apps/course_metadata/choices.py:30
+msgid "Instructor-paced"
+msgstr "インストラクター主導"
 
 #. Translators: Self-paced refers to course runs that operate on the student's
 #. schedule.
@@ -393,9 +443,17 @@ msgstr "その他"
 msgid "Course Create"
 msgstr "コース作成"
 
+#: apps/course_metadata/choices.py:55
+msgid "Course Partial Update"
+msgstr "コース部分更新"
+
 #: apps/course_metadata/choices.py:56
 msgid "Course Rerun"
 msgstr "コース再実施"
+
+#: apps/course_metadata/choices.py:57
+msgid "Course Run Partial Update"
+msgstr "コース実行部分更新"
 
 #: apps/course_metadata/choices.py:64
 msgid "Pending"
@@ -420,6 +478,10 @@ msgstr "失敗しました"
 #: apps/course_metadata/choices.py:69
 msgid "Partially Completed"
 msgstr "部分完了"
+
+#: apps/course_metadata/choices.py:70
+msgid "Errored"
+msgstr "エラーが発生しました"
 
 #: apps/course_metadata/choices.py:77
 msgid "Professional"
@@ -641,6 +703,21 @@ msgstr "UUID"
 msgid "Course to backpopulate."
 msgstr "バックポピュレートするコース。"
 
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:27
+msgid "KEY"
+msgstr "キー"
+
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:29
+msgid "Organization to backpopulate."
+msgstr "バックポピュレートする組織。"
+
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:35
+msgid ""
+"CourseType/CourseRunType mismatches to allow. Specify like course-type-"
+"slug:run-type-slug."
+msgstr ""
+"許可するCourseType/CourseRunTypeの不一致。course-type-slug:run-type-slugのように指定します。"
+
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:41
 #: apps/course_metadata/management/commands/delete_person_dups.py:38
 msgid "Actually commit the changes to the database."
@@ -769,9 +846,24 @@ msgstr "アクティブなurl_slug {url_slug} を削除できません"
 msgid "Path /course/{url_slug} not in use, nothing to delete"
 msgstr "コースのパス /course/{url_slug} は使用されていないため、削除するものはありません。"
 
+#: apps/course_metadata/management/commands/remove_redirects_from_courses.py:65
+#, python-brace-format
+msgid "Path {url_path} not in use, nothing to delete"
+msgstr "使用されていないパス {url_path}、削除するものはありません。"
+
 #: apps/course_metadata/management/commands/unpublish_inactive_runs.py:42
 msgid "One or more courses failed to unpublish."
 msgstr "1つ以上のコースの非公開化に失敗しました。"
+
+#: apps/course_metadata/management/commands/unpublish_inactive_runs.py:48
+#, python-brace-format
+msgid "Successfully unpublished runs in course {key}"
+msgstr "コース {key} の実行が正常に非公開になりました"
+
+#: apps/course_metadata/management/commands/unpublish_inactive_runs.py:51
+#, python-brace-format
+msgid "Failed to unpublish runs in course {key}"
+msgstr "コース {key} の実行を非公開にすることに失敗しました"
 
 #: apps/course_metadata/models.py:238
 msgid ""
@@ -779,9 +871,19 @@ msgid ""
 "underscore or hyphen. This key will be used in the course's course key."
 msgstr "スペースやピリオド、アンダースコア、ハイフン以外の特殊文字は使用しないでください。このキーはコースのコースキーで使用されます。"
 
+#: apps/course_metadata/models.py:243
+msgid "If populated, this field will overwrite name in platform."
+msgstr "プラットフォーム上の名前を上書きします。"
+
 #: apps/course_metadata/models.py:248
 msgid "Spanish Description"
 msgstr "スペイン語の説明"
+
+#: apps/course_metadata/models.py:249
+msgid ""
+"For seo, this field allows for alternate spanish description to be manually "
+"inputted"
+msgstr "SEOのため、このフィールドではスペイン語の代替説明を手動で入力できます。"
 
 #: apps/course_metadata/models.py:274 apps/course_metadata/models.py:1489
 #: apps/course_metadata/models.py:2325
@@ -867,6 +969,10 @@ msgstr "プログラムタイプモデルの翻訳"
 msgid "This mode requires ID verification."
 msgstr "このモードではID確認が必要です。"
 
+#: apps/course_metadata/models.py:573
+msgid "Completion can grant credit toward an organization’s degree."
+msgstr "組織の学位に対する単位を取得できる場合があります。"
+
 #: apps/course_metadata/models.py:577
 msgid ""
 "Certificate type granted if this mode is eligible for a certificate, or "
@@ -889,6 +995,10 @@ msgid ""
 "this course type in Publisher."
 msgstr "すべての組織を許可するには空白のままにします。それ以外の場合、Publisherでこのコースタイプを表示できる組織を指定します。"
 
+#: apps/course_metadata/models.py:731
+msgid "Subject model translations"
+msgstr "科目モデルの翻訳"
+
 #: apps/course_metadata/models.py:778
 msgid "Topic model translations"
 msgstr "トピックモデルの翻訳"
@@ -896,6 +1006,12 @@ msgstr "トピックモデルの翻訳"
 #: apps/course_metadata/models.py:837
 msgid "SEO Meta tags for Products"
 msgstr "製品のSEOメタタグ"
+
+#: apps/course_metadata/models.py:867
+msgid ""
+"The ID of the Taxi Form (by 2U) that would be rendered in place of the "
+"hubspot capture form"
+msgstr "タクシーフォーム（2Uによる）のIDは、ハブスポットキャプチャフォームの代わりに表示されます。"
 
 #: apps/course_metadata/models.py:873
 msgid ""
@@ -942,6 +1058,14 @@ msgstr "人々"
 msgid ""
 "Add the collaborator image, please make sure its dimensions are 200x100px"
 msgstr "コラボレーターの画像を追加してください。サイズは200x100pxであることを確認してください。"
+
+#: apps/course_metadata/models.py:1277
+msgid "International Value Per Lead"
+msgstr "リードあたりの国際価値"
+
+#: apps/course_metadata/models.py:1283
+msgid "U.S. Value Per Click"
+msgstr "米国のクリック単価"
 
 #: apps/course_metadata/models.py:1328
 msgid "Latitude"
@@ -1052,6 +1176,13 @@ msgid ""
 msgstr ""
 "コースのこの実施に特化した短い説明。この値を空白のままにすると、親コースのshort_description属性がデフォルトで使用されます。"
 
+#: apps/course_metadata/models.py:2264
+msgid ""
+"Full description specific for this run of a course. Leave this value blank "
+"to default to the parent course's full_description attribute."
+msgstr ""
+"コースのこの実施に特化した完全な説明。この値を空白のままにすると、親コースのfull_description属性がデフォルトで使用されます。"
+
 #: apps/course_metadata/models.py:2275
 msgid "Estimated number of weeks needed to complete this course run."
 msgstr "このコースの実施に必要な推定週数。"
@@ -1067,6 +1198,12 @@ msgstr ""
 #: apps/course_metadata/models.py:2289
 msgid "Total number of learners who have enrolled in this course run"
 msgstr "このコースに登録した学習者の総数"
+
+#: apps/course_metadata/models.py:2293
+msgid ""
+"Total number of learners who have enrolled in this course run in the last 6 "
+"months"
+msgstr "過去6か月間にこのコースに登録した学習者の総数"
 
 #: apps/course_metadata/models.py:2306
 msgid ""
@@ -1112,6 +1249,10 @@ msgid ""
 " to your project coordinator for additional help if necessary."
 msgstr "レビュー後の座席タイプの変更はサポートされていません。必要に応じてプロジェクトコーディネーターにお問い合わせください。"
 
+#: apps/course_metadata/models.py:3104
+msgid "Change careers"
+msgstr "キャリアチェンジ"
+
 #: apps/course_metadata/models.py:3106
 msgid "Learn valuable skills"
 msgstr "貴重なスキルを学ぶ"
@@ -1132,6 +1273,10 @@ msgstr "このプログラムのユーザー向け表示タイトル。"
 msgid "A brief, descriptive subtitle for the Program."
 msgstr "プログラムの簡潔で説明的なサブタイトル。"
 
+#: apps/course_metadata/models.py:3314
+msgid "A brief hook for the marketing website"
+msgstr "マーケティングウェブサイトのための簡潔なフック"
+
 #: apps/course_metadata/models.py:3317
 msgid "The lifecycle status of this Program."
 msgstr "このプログラムのライフサイクルステータス。"
@@ -1148,9 +1293,19 @@ msgid ""
 " complete a course run belonging to this program."
 msgstr "このフィールドは非推奨になりました（ECOM-6021）。このプログラムに属するコース実施を完了するのに必要な推定週数。"
 
+#: apps/course_metadata/models.py:3370
+msgid "DEPRECATED: Use the card image field"
+msgstr "非推奨: カード画像フィールドを使用してください"
+
 #: apps/course_metadata/models.py:3393
 msgid "Allow courses in this program to be purchased in a single transaction"
 msgstr "このプログラムのコースを一括で購入できるようにする"
+
+#: apps/course_metadata/models.py:3397
+msgid ""
+"Hide program on marketing site landing and search pages. This program MAY "
+"have a detail page."
+msgstr "マーケティングサイトのランディングページと検索ページでプログラムを非表示にします。このプログラムには詳細ページがある場合があります。"
 
 #: apps/course_metadata/models.py:3400
 msgid "Total number of learners who have enrolled in courses this program"
@@ -1182,6 +1337,18 @@ msgstr "このプログラムに特化した組織のショートコードエイ
 #: apps/course_metadata/models.py:3425
 msgid "A field to override Organization logo specific for this program."
 msgstr "このプログラム専用の組織ロゴを上書きするためのフィールド。"
+
+#: apps/course_metadata/models.py:3429
+msgid ""
+"Primary subject field specific for this program. Useful field in case there "
+"are no courses associated with this program."
+msgstr "プログラムに特化した主要な科目分野。このプログラムに関連するコースがない場合に便利なフィールドです。"
+
+#: apps/course_metadata/models.py:3434
+msgid ""
+"Level type specific for this program. Useful field in case there are no "
+"courses associated with this program."
+msgstr "このプログラムに特化したレベルタイプ。このプログラムに関連するコースがない場合に便利なフィールドです。"
 
 #: apps/course_metadata/models.py:3439
 msgid ""
@@ -1373,6 +1540,10 @@ msgid ""
 msgstr ""
 "パートナー{partner_key}とコースパートナー{course_partner_key}が一致しないため、URLリダイレクト{url_path}を保存できません。"
 
+#: apps/course_metadata/models.py:4523
+msgid "It expects the data will be provided in a csv file format "
+msgstr "データはcsvファイル形式で提供されることを期待しています。 "
+
 #: apps/course_metadata/models.py:4535
 msgid "A csv file containing uuid of the courses to be archived"
 msgstr "コースのアーカイブ用UUIDを含むCSVファイル"
@@ -1479,6 +1650,11 @@ msgstr "ホーム"
 msgid "Course Skills"
 msgstr "コーススキル"
 
+#: apps/course_metadata/templates/admin/course_metadata/refresh_program_skills.html:22
+#: apps/course_metadata/templates/admin/course_metadata/refresh_program_skills.html:32
+msgid "Refresh Program Skills"
+msgstr "プログラムスキルを更新する"
+
 #: apps/course_metadata/templates/course_metadata/email/comment.html:7
 #, python-format
 msgid ""
@@ -1524,6 +1700,11 @@ msgid ""
 msgstr ""
 "%(course_name)sの%(course_run_number)sコースの「About」ページが公開されました。これ以上の対応は必要ありません。"
 
+#: apps/course_metadata/templates/course_metadata/email/go_live.html:24
+#, python-brace-format
+msgid "{link_start}{preview_url}{link_middle}View this About page.{link_end}"
+msgstr "{link_start}{preview_url}{link_middle}この「概要」ページを表示します。{link_end}"
+
 #: apps/course_metadata/templates/course_metadata/email/go_live.html:33
 #: apps/course_metadata/templates/course_metadata/email/legal_review.html:23
 #: apps/course_metadata/templates/course_metadata/email/reviewed.html:38
@@ -1563,6 +1744,11 @@ msgid ""
 msgstr ""
 "{link_start}{restricted_admin_url}{link_middle}制限付きコース管理ページ{link_end}にアクセスして、必要に応じてこのコースのエンバーゴルールを設定してください。"
 
+#: apps/course_metadata/templates/course_metadata/email/internal_review.txt:6
+#, python-format
+msgid "%(org_name)s has submitted %(course_key)s for review."
+msgstr "%(org_name)sが%(course_key)sをレビューのために提出しました。"
+
 #: apps/course_metadata/templates/course_metadata/email/internal_review.txt:10
 #, python-format
 msgid "Publisher page: %(course_page_url)s"
@@ -1586,6 +1772,11 @@ msgid ""
 "Publisher{link_end} to determine OFAC status."
 msgstr ""
 "{org_name}が{course_name}をレビューのために提出しました。{link_start}{course_page_url}{link_middle}Publisherでこのコースの実行を表示{link_end}して、OFACステータスを確認してください。"
+
+#: apps/course_metadata/templates/course_metadata/email/legal_review.txt:6
+#, python-format
+msgid "%(org_name)s has submitted %(course_name)s for review."
+msgstr "%(org_name)sが%(course_name)sをレビューのために提出しました。"
 
 #: apps/course_metadata/templates/course_metadata/email/legal_review.txt:11
 msgid "View this course run in Publisher above to determine OFAC status."
@@ -1627,6 +1818,19 @@ msgid ""
 msgstr ""
 "\n"
 "        コース「%(course_name)s」はedXによって正常にレビューされ、%(course_publish_date)sに公開されました。ライブコースを見るには、こちらにアクセスしてください: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.html:12
+#, python-format
+msgid ""
+"\n"
+"        Course '%(course_name)s' has been successfully reviewed by edX and is now ready for publication. The course will be published on %(course_publish_date)s.\n"
+"        To see a preview of the Course About Page, go here: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
+msgstr ""
+"\n"
+"        コース「%(course_name)s」はedXによって正常にレビューされ、公開の準備が整いました。コースは%(course_publish_date)sに公開されます。  \n"
+"コースの概要ページのプレビューを見るには、こちらにアクセスしてください: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
 "    "
 
 #: apps/course_metadata/templates/course_metadata/email/watchers_course_url.txt:8
@@ -1689,6 +1893,10 @@ msgid ""
 "parameters"
 msgstr "リクエストは、ElasticSearchのクエリパラメータが正しくないため完了できませんでした。"
 
+#: apps/ietf_language_tags/models.py:34
+msgid "Name for translation"
+msgstr "翻訳用の名前"
+
 #: apps/ietf_language_tags/models.py:38
 msgid "LanguageTag model translations"
 msgstr "言語タグモデルの翻訳"
@@ -1700,6 +1908,10 @@ msgstr "非アクティブ"
 #: apps/learner_pathway/models.py:84
 msgid "Title of the learner pathway."
 msgstr "学習者パスウェイのタイトル。"
+
+#: apps/learner_pathway/models.py:87
+msgid "Course/Program associated pathways also appear in search results"
+msgstr "コース/プログラムに関連するパスウェイも検索結果に表示されます"
 
 #: apps/learner_pathway/models.py:90
 msgid "The active/inactive status of this Pathway."
@@ -1747,6 +1959,10 @@ msgid ""
 "the command line."
 msgstr "UpdateCourseRecommendationsConfigモデルの引数をコマンドラインの代わりに使用してください。"
 
+#: apps/taxonomy_support/models.py:24
+msgid "The original course, whose recommendation is stored here."
+msgstr "元のコースの推薦がここに保存されています。"
+
 #: apps/taxonomy_support/models.py:29
 msgid ""
 "This is the course recommended after learner completes the original course."
@@ -1769,6 +1985,10 @@ msgstr "共通科目数と総科目数の比率。"
 msgid ""
 "Count of common subjects between the original course and recommended course."
 msgstr "元のコースと推奨コースの間の共通科目の数。"
+
+#: apps/taxonomy_support/models.py:46
+msgid "Course Recommendation"
+msgstr "コースの推薦"
 
 #: apps/taxonomy_support/models.py:54
 msgid "Adds recommendations for all published courses"
