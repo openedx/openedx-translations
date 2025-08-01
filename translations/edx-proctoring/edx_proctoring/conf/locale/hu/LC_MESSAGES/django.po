@@ -127,6 +127,10 @@ msgstr "Gyakorló vizsga sikertelen"
 msgid "Timed Exam"
 msgstr "Időzített vizsga"
 
+#: api.py:2888
+msgid "Onboarding status question"
+msgstr "Beillesztési állapot kérdés"
+
 #: models.py:418
 msgid "Ready to Resume"
 msgstr "Készen áll a folytatásra"
@@ -138,6 +142,20 @@ msgstr "Folytatva"
 #: models.py:524
 msgid "Additional Time (minutes)"
 msgstr "További idő (perc)"
+
+#: models.py:525
+msgid "Review Policy Exception"
+msgstr "Felülvizsgálati szabályzat kivétel"
+
+#: templates/common/waiting_banner.html:3
+msgid ""
+"\n"
+"        The result will be visible after <strong id=\"wait_deadline\"> Loading... </strong>\n"
+"    "
+msgstr ""
+"\n"
+"        Az eredmény látható lesz <strong id=\"wait_deadline\"> Betöltés... </strong> után\n"
+"    "
 
 #: templates/emails/proctoring_attempt_satisfactory_email.html:12
 #, python-format
@@ -220,6 +238,16 @@ msgstr ""
 "    Ön végig lesz vezetve az online felügyeleti szoftver beállításán és a személyazonosság ellenőrzésén.\n"
 "  "
 
+#: templates/onboarding_exam/error.html:4
+msgid ""
+"\n"
+"    Error: There was a problem with your onboarding session\n"
+"  "
+msgstr ""
+"\n"
+"    Hiba: Probléma merült fel az onboarding folyamat során.\n"
+"  "
+
 #: templates/onboarding_exam/error.html:13
 msgid ""
 "\n"
@@ -247,6 +275,36 @@ msgstr ""
 #: templates/practice_exam/submitted.html:19
 msgid "Resetting Onboarding Exam"
 msgstr "Az onboarding vizsga visszaállítása"
+
+#: templates/onboarding_exam/submitted.html:4
+msgid ""
+"\n"
+"    You have submitted this onboarding exam\n"
+"  "
+msgstr ""
+"\n"
+"    Ön benyújtotta ezt a bevezető vizsgát.\n"
+"  "
+
+#: templates/onboarding_exam/submitted.html:19
+#, python-format
+msgid ""
+"\n"
+"      Once your profile has been reviewed, you will receive an email\n"
+"      with review results. The email will come from\n"
+"      <a href=\"mailto:%(learner_notification_from_email)s\">\n"
+"        %(learner_notification_from_email)s\n"
+"      </a>,\n"
+"      so make sure this email has been added to your inbox filter.\n"
+"    "
+msgstr ""
+"\n"
+"      Miután a profilját átnézték, e-mailt fog kapni az értékelés eredményeivel. Az e-mail a következő címről érkezik:  \n"
+"<a href=\"mailto:%(learner_notification_from_email)s\">  \n"
+"%(learner_notification_from_email)s  \n"
+"</a>,  \n"
+"így győződjön meg róla, hogy ez az e-mail hozzá lett adva a bejövő levelek szűrőjéhez.\n"
+"    "
 
 #: templates/onboarding_exam/submitted.html:29
 msgid ""
@@ -332,6 +390,16 @@ msgstr ""
 "Újra megpróbálhatja ezt a gyakorló vizsgát, ha problémái voltak az online felügyelői szoftver beállításával.\n"
 "      "
 
+#: templates/practice_exam/submitted.html:5
+msgid ""
+"\n"
+"        You have submitted this practice proctored exam\n"
+"      "
+msgstr ""
+"\n"
+"        Ön benyújtotta ezt a gyakorló felügyelt vizsgát.\n"
+"      "
+
 #: templates/practice_exam/submitted.html:13
 msgid ""
 "\n"
@@ -401,6 +469,17 @@ msgstr ""
 "\n"
 "        Ön végig lesz vezetve az online felügyeleti szoftver beállításának és személyazonossága igazolásának lépésein.</br>\n"
 "      "
+
+#: templates/proctored_exam/error.html:4
+#: templates/proctored_exam/error_wrong_browser.html:4
+msgid ""
+"\n"
+"      Error with proctored exam\n"
+"    "
+msgstr ""
+"\n"
+"      Hiba a felügyelt vizsgával\n"
+"    "
 
 #: templates/proctored_exam/error_modal.html:7
 msgid "Close"
@@ -708,6 +787,33 @@ msgstr ""
 "        Ahhoz, hogy jogosult legyél a kurzushoz kapcsolódó kreditre vagy programtanúsítványra, át kell menned a vizsga felügyeleti ellenőrzésén.\n"
 "    "
 
+#: templates/proctored_exam/ready_to_start.html:10
+#, python-format
+msgid ""
+"\n"
+"        &#8226; You have %(total_time)s to complete this exam. </br>\n"
+"        &#8226; Once you start the exam, you cannot stop the timer. </br>\n"
+"        &#8226; For all question types, you must click \"submit\" to complete your answer. </br>\n"
+"        &#8226; If time expires before you click \"End My Exam\", only your submitted answers will be graded.\n"
+"      "
+msgstr ""
+"\n"
+"        &#8226; Önnek %(total_time)s áll rendelkezésére a vizsga befejezéséhez. </br>  \n"
+"        &#8226; Miután elkezdi a vizsgát, nem állíthatja le az időzítőt. </br>  \n"
+"        &#8226; Minden kérdéstípusnál kattintania kell a \"beküldés\" gombra a válasz befejezéséhez. </br>  \n"
+"        &#8226; Ha lejár az idő, mielőtt a \"Befejezem a vizsgámat\" gombra kattintana, csak a beküldött válaszai lesznek értékelve.\n"
+"      "
+
+#: templates/proctored_exam/ready_to_start.html:18
+msgid ""
+"\n"
+"      Proctored Exam Rules\n"
+"    "
+msgstr ""
+"\n"
+"      Felügyelt vizsga szabályai\n"
+"    "
+
 #: templates/proctored_exam/ready_to_start.html:23
 msgid ""
 "\n"
@@ -801,6 +907,16 @@ msgstr ""
 "\n"
 "        Ha aggályai vannak a felügyeleti vizsga eredményeivel kapcsolatban, vegye fel a kapcsolatot a kurzus csapatával.\n"
 "      "
+
+#: templates/proctored_exam/submitted.html:4
+msgid ""
+"\n"
+"      You have submitted this proctored exam for review\n"
+"    "
+msgstr ""
+"\n"
+"      Ön benyújtotta ezt a felügyelt vizsgát felülvizsgálatra.\n"
+"    "
 
 #: templates/proctored_exam/submitted.html:9
 msgid "Your recorded data should now be uploaded for review."
