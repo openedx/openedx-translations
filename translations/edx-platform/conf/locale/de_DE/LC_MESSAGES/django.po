@@ -24,6 +24,7 @@
 # 
 # Translators:
 # Brian Smith, 2025
+# Eden Huthmacher, 2025
 # 
 #, fuzzy
 msgid ""
@@ -32,7 +33,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-23 00:32+0000\n"
 "PO-Revision-Date: 2024-12-18 13:44+0000\n"
-"Last-Translator: Brian Smith, 2025\n"
+"Last-Translator: Eden Huthmacher, 2025\n"
 "Language-Team: German (Germany) (https://app.transifex.com/open-edx/teams/6205/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -836,9 +837,58 @@ msgstr ""
 "Optionale Notizen über den Benutzer (z.B. Warum der Kurserstellungs-Zugang "
 "abgelehnt wurde)"
 
+#: cms/djangoapps/maintenance/views.py:35
+#: cms/templates/maintenance/_force_publish_course.html:24
+msgid "Force Publish Course"
+msgstr "Kursveröffentlichung erzwingen"
+
+#: cms/djangoapps/maintenance/views.py:38
+msgid ""
+"Sometimes the draft and published branches of a course can get out of sync. "
+"Force publish course command resets the published branch of a course to "
+"point to the draft branch, effectively force publishing the course. This "
+"view dry runs the force publish command"
+msgstr ""
+"Manchmal können der Entwurf und die veröffentlichten Zweige eines Kurses "
+"nicht mehr synchronisiert werden. Der Befehl zur erzwungenen "
+"Veröffentlichung des Kurses setzt den veröffentlichten Zweig eines Kurses "
+"zurück, um auf den Entwurfszweig zu verweisen und die Veröffentlichung des "
+"Kurses effektiv zu erzwingen. Diese Ansicht führt den Befehl "
+"Veröffentlichung erzwingen probeweise aus."
+
+#: cms/djangoapps/maintenance/views.py:45
+msgid "Edit Announcements"
+msgstr "Ankündigungen bearbeiten"
+
+#: cms/djangoapps/maintenance/views.py:48
+msgid ""
+"This view shows the announcement editor to create or alter announcements "
+"that are shown on the rightside of the dashboard."
+msgstr ""
+"Diese Ansicht zeigt den Ankündigungseditor zum Erstellen oder Ändern von "
+"Ankündigungen, die auf der rechten Seite der 'Meine Kurse' Übersicht "
+"angezeigt werden."
+
+#: cms/djangoapps/maintenance/views.py:56
+msgid "Please provide course id."
+msgstr "Bitte geben Sie die Kurs-ID an."
+
 #: cms/djangoapps/maintenance/views.py:57
 msgid "Invalid course key."
 msgstr "Ungültiger Kursschlüssel."
+
+#: cms/djangoapps/maintenance/views.py:58
+msgid "No matching course found."
+msgstr "Kein passender Kurs gefunden."
+
+#: cms/djangoapps/maintenance/views.py:199
+msgid "Force publishing course is not supported with old mongo courses."
+msgstr ""
+"Kursveröffentlichung erzwingen wird bei alten Mongokursen nicht unterstützt."
+
+#: cms/djangoapps/maintenance/views.py:213
+msgid "Course is already in published state."
+msgstr "Kurs ist bereits veröffentlicht."
 
 #: cms/djangoapps/models/settings/course_metadata.py:225
 #, python-brace-format
@@ -1017,6 +1067,11 @@ msgstr "Kostenlos"
 msgid ""
 "The time period before a course ends in which a course mode will expire"
 msgstr "Die Zeitspanne bevor ein Kurs endet in der die Teilnahmeart ausläuft"
+
+#: common/djangoapps/course_modes/views.py:209
+#, python-brace-format
+msgid "Congratulations!  You are now enrolled in {course_name}"
+msgstr "Gratulation! Du bist nun eingeschrieben für {course_name}"
 
 #: common/djangoapps/course_modes/views.py:308
 msgid "Enrollment is closed"
@@ -3862,6 +3917,14 @@ msgstr ""
 "gestartet. Den Status der Erstellung können Sie im Abschnitt \"Offene "
 "Aufgaben\" einsehen."
 
+#: lms/djangoapps/instructor/views/api.py:3303
+msgid ""
+"Please select one or more certificate statuses that require certificate "
+"regeneration."
+msgstr ""
+"Bitte wählen Sie einen oder mehrere Zertifikat-Status, welche eine "
+"Zertifikat-Generierung benötigen."
+
 #: lms/djangoapps/instructor/views/api.py:3317
 msgid "Please select certificate statuses from the list only."
 msgstr "Bitte wählen Sie nur Zertifikatsstati aus der Liste aus."
@@ -6230,6 +6293,19 @@ msgid "Configuration may not be specified at more than one level at once."
 msgstr ""
 "Die Konfiguration darf nicht auf mehr als einer Ebene gleichzeitig "
 "festgelegt werden."
+
+#: openedx/core/djangoapps/content_libraries/api.py:846
+#, python-brace-format
+msgid ""
+"Block type \"{block_type}\" is not compatible with library type "
+"\"{library_type}\"."
+msgstr ""
+"Komponententyp \"{block_type}\" ist nicht mit dem Bibliothekstyp "
+"\"{library_type}\" kompatibel."
+
+#: openedx/core/djangoapps/content_libraries/constants.py:11
+msgid "Complex"
+msgstr "Komplex"
 
 #: openedx/core/djangoapps/content_libraries/models.py:209
 msgid "Administer users and author content"
@@ -15837,15 +15913,33 @@ msgstr ""
 msgid "{platform_name} {studio_name}: Task Status Update"
 msgstr "{platform_name} {studio_name}: Aktualisierung des Aufgabenstatus"
 
+#: cms/templates/maintenance/_announcement_delete.html:8
+#: cms/templates/maintenance/_announcement_delete.html:11
+msgid "Delete Announcement"
+msgstr "Ankündigung löschen"
+
+#: cms/templates/maintenance/_announcement_delete.html:22
+msgid "Are you sure you want to delete this Announcement?"
+msgstr "Sind Sie sicher, dass Sie diese Ankündigung löschen wollen?"
+
 #: cms/templates/maintenance/_announcement_delete.html:35
 msgid "Confirm"
 msgstr "Bestätigen"
+
+#: cms/templates/maintenance/_announcement_edit.html:8
+#: cms/templates/maintenance/_announcement_edit.html:11
+msgid "Edit Announcement"
+msgstr "Ankündigung bearbeiten"
 
 #: cms/templates/maintenance/_announcement_edit.html:26
 #: lms/templates/problem.html:37 lms/templates/problem.html:38
 #: lms/templates/word_cloud.html:40
 msgid "Save"
 msgstr "Speichern"
+
+#: cms/templates/maintenance/_announcement_index.html:42
+msgid "Create New"
+msgstr "Neu erstellen"
 
 #: cms/templates/maintenance/_announcement_index.html:47
 msgid "previous"
@@ -15855,12 +15949,29 @@ msgstr "Vorherige"
 msgid "next"
 msgstr "Nächste"
 
+#: cms/templates/maintenance/_force_publish_course.html:12
+msgid "Required data to force publish course."
+msgstr "Benötigte Daten um die Kursveröffentlichung zu erzwingen."
+
+#: cms/templates/maintenance/_force_publish_course.html:17
+msgid "course-v1:edX+DemoX+Demo_Course"
+msgstr "course-v1:edX+DemoX+Demo_Course"
+
 #: cms/templates/maintenance/_force_publish_course.html:27
 #: lms/templates/problem.html:45
 #: openedx/core/djangoapps/dark_lang/templates/dark_lang/preview-language-fragment.html:33
 #: openedx/core/djangoapps/theming/templates/theming/theming-admin-fragment.html:41
 msgid "Reset"
 msgstr "Zurücksetzen"
+
+#: cms/templates/maintenance/_force_publish_course.html:28
+msgid "Reset values"
+msgstr "Werte zurücksetzen"
+
+#: cms/templates/maintenance/base.html:14
+#: cms/templates/maintenance/index.html:8
+msgid "Maintenance Dashboard"
+msgstr "Wartungsübersichtsseite"
 
 #: cms/templates/registration/activation_complete.html:22
 msgid "Thanks for activating your account."
@@ -18591,6 +18702,140 @@ msgstr ""
 #: lms/templates/certificates/url_unsupported.html:9
 msgid "URL Not Supported"
 msgstr "Nicht unterstützte URL"
+
+#: lms/templates/course_modes/_upgrade_button.html:17
+#: lms/templates/course_modes/choose.html:134
+msgid "Pursue a Verified Certificate"
+msgstr "Streben Sie ein verifiziertes Zertifikat an"
+
+#: lms/templates/course_modes/choose.html:12
+msgid "Enroll In {course_name} | Choose Your Track"
+msgstr "Einschreiben in {course_name} | Wählen Sie einen Modus"
+
+#: lms/templates/course_modes/choose.html:93
+msgid "Pursue Academic Credit with a Verified Certificate"
+msgstr "Verdiene akademische Punkte mit einem verifizierten Zertifikat"
+
+#: lms/templates/course_modes/choose.html:97
+msgid ""
+"Become eligible for academic credit and highlight your new skills and "
+"knowledge with a verified certificate. Use this valuable credential to "
+"qualify for academic credit, advance your career, or strengthen your school "
+"applications."
+msgstr ""
+"Werden Sie berechtigt für akademische Credits und heben Sie Ihre neuen "
+"Fähigkeiten und Kenntnisse mit einem verifizierten Zertifikat hervor. Nutzen"
+" Sie diese wertvolle Qualifikation, um sich für akademische Credits zu "
+"qualifizieren, Ihre Karriere voranzutreiben oder Ihre Bewerbungschancen zu "
+"verstärken."
+
+#: lms/templates/course_modes/choose.html:102
+#: lms/templates/course_modes/choose.html:144
+msgid "Benefits of the Verified Track"
+msgstr "Vorteile des verifizierten Modus"
+
+#: lms/templates/course_modes/choose.html:104
+#: lms/templates/course_modes/choose.html:116
+msgid ""
+"{b_start}Eligible for credit:{b_end} Receive academic credit after "
+"successfully completing the course"
+msgstr ""
+"{b_start}Berechtigt für akademische Punkte:{b_end} Erhalte akademische "
+"Punkte nach erfolgreichem Abschluss des Kurses"
+
+#: lms/templates/course_modes/choose.html:106
+#: lms/templates/course_modes/choose.html:147
+msgid ""
+"{b_start}Unlimited Course Access: {b_end}Learn at your own pace, and access "
+"materials anytime to brush up on what you've learned."
+msgstr ""
+"{b_start}Uneingeschränkter Kurszugang: {b_end}Lernen Sie in Ihrem eigenen "
+"Tempo und greifen Sie jederzeit auf Materialien zu, um das Gelernte "
+"aufzufrischen."
+
+#: lms/templates/course_modes/choose.html:109
+#: lms/templates/course_modes/choose.html:150
+msgid ""
+"{b_start}Graded Assignments: {b_end}Build your skills through graded "
+"assignments and projects."
+msgstr ""
+"{b_start}Benotete Aufgaben: {b_end}Bauen Sie Ihre Fähigkeiten durch benotete"
+" Aufgaben und Projekte aus."
+
+#: lms/templates/course_modes/choose.html:114
+#: lms/templates/course_modes/choose.html:155
+msgid "Benefits of a Verified Certificate"
+msgstr "Vorteile eines verifizierten Zertifikates"
+
+#: lms/templates/course_modes/choose.html:117
+msgid ""
+"{b_start}Official:{b_end} Receive an instructor-signed certificate with the "
+"institution's logo"
+msgstr ""
+"{b_start}Offiziell:{b_end} Erhalte ein vom Kursleiter unterschriebenes "
+"Zertifikat mit dem Logo der Institution"
+
+#: lms/templates/course_modes/choose.html:139
+msgid ""
+"Highlight your new knowledge and skills with a verified certificate. Use "
+"this valuable credential to improve your job prospects and advance your "
+"career, or highlight your certificate in school applications."
+msgstr ""
+"Betone dein neues Wissen und deine neuen Fähigkeiten mit einem verifizierten"
+" Zertifikat. Benutze diese wertvolle Qualifikation um deine Jobaussichten "
+"und deine Karriere voran zu bringen oder verbessere deine Bewerbungschancen."
+
+#: lms/templates/course_modes/choose.html:157
+msgid ""
+"{b_start}Official: {b_end}Receive an instructor-signed certificate with the "
+"institution's logo"
+msgstr ""
+"{b_start}Offiziell:{b_end} Erhalte ein vom Kursleiter unterschriebenes "
+"Zertifikat mit dem Logo der Institution"
+
+#: lms/templates/course_modes/choose.html:158
+msgid ""
+"{b_start}Easily shareable: {b_end}Add the certificate to your CV or resumé, "
+"or post it directly on LinkedIn"
+msgstr ""
+"{b_start}Einfach teilbar: {b_end}Fügen Sie das Zertifikat Ihrem Lebenslauf "
+"oder Lebenslauf hinzu oder posten Sie es direkt auf LinkedIn"
+
+#: lms/templates/course_modes/choose.html:184
+#: lms/templates/course_modes/choose.html:192
+#: lms/templates/course_modes/choose.html:221
+msgid "Audit This Course"
+msgstr "Diesen Kurs als Gasthörer belegen"
+
+#: lms/templates/course_modes/choose.html:208
+msgid ""
+"Audit this course for free and have access to course materials and "
+"discussions forums. {b_start}This track does not include graded assignments,"
+" or unlimited course access.{b_end}"
+msgstr ""
+"Auditieren Sie diesen Kurs kostenlos und haben Sie Zugriff auf "
+"Kursmaterialien und Diskussionsforen. {b_start}Dieser Modus enthält keine "
+"benoteten Aufgaben oder unbegrenzten Kurszugang.{b_end}"
+
+#: lms/templates/course_modes/choose.html:210
+msgid ""
+"Audit this course for free and have access to course materials and "
+"discussions forums. {b_start}This track does not include graded "
+"assignments.{b_end}"
+msgstr ""
+"Besuchen Sie diesen Kurs kostenlos als Gasthörer und haben Sie Zugriff auf "
+"Kursmaterialien und Diskussionsforen. {b_start}Dieser Modus enthält keine "
+"ausgewerteten Aufgaben.{b_end}"
+
+#: lms/templates/course_modes/choose.html:212
+msgid ""
+"Audit this course for free and have access to course materials and "
+"discussions forums. {b_start}This track does not include unlimited course "
+"access.{b_end}"
+msgstr ""
+"Sie können diesen Kurs kostenlos besuchen und haben Zugang zu "
+"Kursmaterialien und Diskussionsforen. {b_start} Dieser Track beinhaltet "
+"keinen unbegrenzten Kurszugang. {b_end}"
 
 #: lms/templates/courseware/accordion.html:13
 msgid "{chapter} current chapter"
