@@ -64,6 +64,14 @@ msgstr "الإعدادات المُمكِن إعادة استِخدامها"
 msgid "Display Name"
 msgstr "الاسم الظاهِر"
 
+#: lti_xblock.py:264
+msgid ""
+"Enter the name that students see for this component. Analytics reports may "
+"also use the display name to identify this component."
+msgstr ""
+"أدخِل الاسم الذي يراه الطلاب لهذا المُكَوِّن. قد تَستخدِم تقارير التحليلات "
+"أيضاً الاسم الظاهر لتعريف هذا المُكَوِّن."
+
 #: lti_xblock.py:268
 msgid "LTI Consumer"
 msgstr "مستخدم LTI"
@@ -72,17 +80,53 @@ msgstr "مستخدم LTI"
 msgid "LTI Application Information"
 msgstr "معلومات تطبيق ’LTI‘"
 
+#: lti_xblock.py:273
+msgid ""
+"Enter a description of the third party application. If requesting username "
+"and/or email, use this text box to inform users why their username and/or "
+"email will be forwarded to a third party application."
+msgstr ""
+"أدخِل وصفاً لتطبيق الجهة الخارجية. وفي حال طلب اسم المُستخدِم و/أو البريد "
+"الإلكتروني، فاستَخدِم هذا الصندوق النصّي لإعلام المُستخدِمين عن سبب إرسال "
+"اسم المُستخدِم و/أو البريد الإلكتروني الخاص بهم إلى تطبيق لجهة خارجية."
+
 #: lti_xblock.py:281
 msgid "Configuration Type"
 msgstr "نَوْع الإعداد"
+
+#: lti_xblock.py:286
+msgid ""
+"Select 'Configuration on block' to configure a new LTI Tool. If the support "
+"staff provided you with a pre-configured LTI reusable Tool ID, "
+"select'Reusable Configuration' and enter it in the text field below."
+msgstr ""
+"اختَر \"إعدادات الكُتلة\" لإعداد أداة LTI جديدة. إذا زودك فريق الدعم "
+"بمُعَرَّف أداة LTI قابلة لإعادة الاستخدام تم إعدادها مُسبقاً، فاختَر "
+"\"الإعدادات القابلة لإعادة الاستخدام\" وأدخِله في الحقل النصّي أدناه."
 
 #: lti_xblock.py:293
 msgid "LTI Version"
 msgstr "إصدار LTI"
 
+#: lti_xblock.py:301
+msgid ""
+"Select the LTI version that your tool supports.<br />The XBlock LTI Consumer"
+" fully supports LTI 1.1.1, LTI 1.3 and LTI Advantage features."
+msgstr ""
+"حَدِّد إصدار LTI الذي تدعمه أداتك.<br /> يدعم XBlock LTI Consumer ميزات LTI "
+"1.1.1 وLTI 1.3 وLTI Advantage بالكامل."
+
 #: lti_xblock.py:308
 msgid "LTI Reusable Configuration ID"
 msgstr "معرف اعدادات LTI القابل لإعادة الاستخدام"
+
+#: lti_xblock.py:310
+msgid ""
+"Enter the reusable LTI external configuration ID provided by the support "
+"staff."
+msgstr ""
+"أدخِل مُعَرَّف إعدادات LTI الخارجية الممكن إعادة استخدامها التي زودك بها "
+"فريق الدعم."
 
 #: lti_xblock.py:315
 msgid "Tool Launch URL"
@@ -199,6 +243,22 @@ msgid ""
 msgstr ""
 "يُرجى اختيار \"نعم\" إذا كان هذا المُكَوِّن سوف يَتلقّى النتيجة الرقمية مِن "
 "نظام LTI الخارجي."
+
+#: lti_xblock.py:532
+msgid ""
+"Enter the number of points possible for this component.  The default value "
+"is 1.0.  This setting is only used when Scored is set to True."
+msgstr ""
+"أدخِل عدد الدرجات المُمكِنة لهذا المُكَوِّن. العدد الافتراضي هو 1.0. "
+"يُستَخدَم هذا الإعداد فقط عندما يتم تعيين 'Scored' على \"نعم\"."
+
+#: lti_xblock.py:541
+msgid ""
+"The score kept in the xblock KVS -- duplicate of the published score in "
+"django DB"
+msgstr ""
+"حُفِظَت النتيجة في xblock KVS -- وهي نُسخة مطابقة للنتيجة المنشورة في قاعدة "
+"بيانات django"
 
 #: lti_xblock.py:546
 msgid "Comment as returned from grader, LTI2.0 spec"
@@ -361,6 +421,29 @@ msgstr "معرف العميل الذي تستخدمه أداة LTI"
 #: models.py:256
 msgid "LTI Configuration stores on XBlock needs a block location set."
 msgstr "تحتاج مخازِن إعدادات LTI في XBlock إلى تعيين مَوقِع الكُتلة."
+
+#: models.py:261
+msgid ""
+"LTI Configuration using reusable configuration needs a external ID in "
+"\"x:y\" format."
+msgstr ""
+"تحتاج إعدادات LTI التي تَستخدِم إعدادات ممكن إعادة استخدامها إلى مُعَرَّف "
+"خارجي بنَسَق \"x:y\"."
+
+#: models.py:268
+msgid ""
+"LTI Configuration stored on the model for LTI 1.3 must have a value for one "
+"of lti_1p3_tool_public_key or lti_1p3_tool_keyset_url."
+msgstr ""
+"يَجِب أنْ تحتوي إعدادات LTI المُخزنة في إصدار LTI 1.3 إمّا على "
+"lti_1p3_tool_public_key أو lti_1p3_tool_keyset_url."
+
+#: models.py:275
+msgid ""
+"CONFIG_ON_XBLOCK and CONFIG_EXTERNAL are not supported for LTI 1.3 "
+"Proctoring Services."
+msgstr ""
+"CONFIG_ON_XBLOCK و CONFIG_EXTERNAL ليسا مدعومين لخدمات مُراقَبة LTI 1.3."
 
 #: models.py:283
 msgid "Invalid LTI configuration."
