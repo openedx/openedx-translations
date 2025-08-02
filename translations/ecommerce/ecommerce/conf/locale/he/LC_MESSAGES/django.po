@@ -4,9 +4,9 @@
 # EdX Team <info@edx.org>, 2024.
 # 
 # Translators:
-# Eden Huthmacher, 2024
 # Omar Al-Ithawi <i@omardo.com>, 2025
 # edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2025
+# Eden Huthmacher, 2025
 # 
 msgid ""
 msgstr ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: openedx-translation@googlegroups.com\n"
 "POT-Creation-Date: 2023-06-13 08:00+0000\n"
 "PO-Revision-Date: 2024-05-09 18:48+0000\n"
-"Last-Translator: edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2025\n"
+"Last-Translator: Eden Huthmacher, 2025\n"
 "Language-Team: Hebrew (https://app.transifex.com/open-edx/teams/6205/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,6 +33,18 @@ msgstr "הרשאות"
 #: core/admin.py:28
 msgid "Important dates"
 msgstr "תאריכים חשובים"
+
+#. Translators: "Waffle" is the name of a third-party library. It should not
+#. be translated
+#: core/admin.py:35
+#, python-brace-format
+msgid ""
+"User administration has been disabled due to the load on the database. This "
+"functionality can be restored by activating the {switch_name} Waffle switch."
+" Be careful when re-activating this switch!"
+msgstr ""
+"ניהול משתמש הושבת עקב העומס על מסד הנתונים. ניתן לשחזר פונקציונליות זו על "
+"ידי הפעלת מתג הוופל {switch_name} . היזהר בעת הפעלה מחדש של מתג זה!"
 
 #: core/models.py:41
 msgid "LMS base url for custom site/microsite"
@@ -127,9 +139,89 @@ msgstr "צרף שם קובץ עוגיה"
 msgid "Name of cookie storing affiliate data."
 msgstr "שם קובץ עוגיה המאחסן נתוני UTM."
 
+#: core/models.py:132
+msgid "[Deprecated] US Treasury SDN API URL"
+msgstr "[הוצא משימוש] כתובת ה-API של משרד האוצר האמריקאי SDN"
+
+#: core/models.py:137
+msgid "[Deprecated] US Treasury SDN API key"
+msgstr "[הוצא משימוש] מפתח API SDN של משרד האוצר האמריקאי"
+
+#: core/models.py:149
+msgid ""
+"Require users to activate their account before allowing them to redeem a "
+"coupon."
+msgstr "דרוש מהמשתמשים להפעיל את חשבונם לפני שהם מאפשרים להם לממש קופון."
+
+#: core/models.py:154
+msgid "This script will be loaded on every page."
+msgstr "סקריפט זה ייטען בכל עמוד."
+
+#: core/models.py:159
+msgid "Base Cookie Domain"
+msgstr "דומיין בסיס עוגיות"
+
+#: core/models.py:160
+msgid "Base cookie domain used to share cookies across services."
+msgstr "תחום העוגיות הבסיסי המשמש לשיתוף קובצי Cookie בין שירותים."
+
+#: core/models.py:167
+msgid "Enable embargo check at checkout."
+msgstr "אפשר בדיקת אמברגו בקופה."
+
+#: core/models.py:171
+msgid "Discovery API URL"
+msgstr "כתובת ה-API של Discovery"
+
+#. Translators: Do not translate "Apple Pay"
+#: core/models.py:177
+msgid "Enable Apple Pay"
+msgstr "אפשר את Apple Pay"
+
+#: core/models.py:187
+msgid "Hubspot Portal Secret Key"
+msgstr "מפתח סודי של פורטל Hubspot"
+
+#: core/models.py:188
+msgid "Secret key for Hubspot portal authentication"
+msgstr "מפתח סודי לאימות פורטל Hubspot"
+
+#: core/models.py:193
+msgid "Enable Microfrontend for Basket Page"
+msgstr "אפשר Microfrontend עבור Basket Page"
+
+#: core/models.py:194
+msgid ""
+"Use the microfrontend implementation of the basket page instead of the "
+"server-side template"
+msgstr "השתמש ביישום המיקרו-חזית של דף הסל במקום בתבנית בצד השרת"
+
+#: core/models.py:199
+msgid "Payment Microfrontend URL"
+msgstr "כתובת של Microfrontend לתשלום"
+
+#: core/models.py:200
+msgid ""
+"URL for the Payment Microfrontend (used if Enable Microfrontend for Basket "
+"Page is set)"
+msgstr ""
+"כתובת עבור ה-Microfrontend לתשלום (משמשת אם אפשר Microfrontend עבור דף סל)"
+
+#: core/models.py:446
+msgid "last name"
+msgstr "שם משפחה"
+
+#: core/models.py:449
+msgid "first name"
+msgstr "שם פרטי"
+
 #: core/models.py:450
 msgid "Full Name"
 msgstr "שם מלא"
+
+#: core/models.py:456
+msgid "LMS user id"
+msgstr "מזהה משתמש של LMS"
 
 #: core/models.py:710 extensions/basket/models.py:130
 #: templates/oscar/dashboard/offers/offer_detail.html:62
@@ -139,6 +231,10 @@ msgstr "שם מלא"
 #: templates/oscar/dashboard/orders/order_detail.html:42
 msgid "Name"
 msgstr "שם"
+
+#: core/models.py:712 extensions/offer/models.py:582
+msgid "EnterpriseCustomer UUID"
+msgstr "UUID של לקוח ארגוני"
 
 #: coupons/views.py:81
 msgid "This coupon code is not yet valid."
@@ -165,6 +261,16 @@ msgstr "קוד קופון זה אינו חוקי."
 msgid "The voucher is not applicable to your current basket."
 msgstr "השובר אינו רלוונטי לסל הנוכחי שלך."
 
+#: coupons/views.py:137
+msgid "Welcome to edX"
+msgstr "ברוכים הבאים ל-edX"
+
+#: coupons/views.py:138
+msgid ""
+"Please choose from the courses selected by your organization to start "
+"learning."
+msgstr "אנא בחר מתוך הקורסים שנבחרו על ידי הארגון שלך כדי להתחיל ללמוד."
+
 #: coupons/views.py:168
 msgid "Code not provided."
 msgstr "הקוד לא סופק."
@@ -180,6 +286,29 @@ msgstr "המוצר אינו קיים."
 #: coupons/views.py:195
 msgid "You are not eligible to use this coupon."
 msgstr "אינך זכאי להשתמש בשובר זה."
+
+#: coupons/views.py:218
+msgid ""
+"This coupon is not valid for purchasing a program. Try using this on an "
+"individual course in the program. If you need assistance, contact edX "
+"support."
+msgstr ""
+"קופון זה אינו תקף לרכישת תוכנית. נסה להשתמש בזה בקורס בודד בתוכנית. אם אתה "
+"זקוק לסיוע, פנה לתמיכה של edX."
+
+#: coupons/views.py:265
+#, python-brace-format
+msgid "You have already purchased {course} seat."
+msgstr "כבר רכשת מושב {course} ."
+
+#: coupons/views.py:289
+#, python-brace-format
+msgid "A discount has been applied, courtesy of {enterprise_customer_name}."
+msgstr "הוחל הנחה, באדיבות {enterprise_customer_name}."
+
+#: coupons/views.py:299
+msgid "This coupon code is not valid for this course. Try a different course."
+msgstr "קוד קופון זה אינו תקף להקורס הזה. נסה קורס אחר."
 
 #: courses/models.py:33 extensions/basket/models.py:20
 #: extensions/offer/models.py:238 extensions/payment/models.py:68
@@ -245,14 +374,185 @@ msgstr ""
 "אירעה שגיאה. לא יכולנו לאשר שהמוסד שבחרת מציע את נקודות הזכות עבור קורס זה. "
 "נסה שוב את העסקה."
 
+#: enterprise/benefits.py:24
+#, python-format
+msgid "%d%% enterprise discount"
+msgstr "%d %% הנחה ארגונית"
+
+#: enterprise/benefits.py:36
+#, python-brace-format
+msgid "{value} fixed-price enterprise discount"
+msgstr "{value} הנחה ארגונית במחיר קבוע"
+
 #: enterprise/benefits.py:45 extensions/payment/models.py:86
 #: invoice/models.py:25 programs/constants.py:15
 msgid "Percentage"
 msgstr "אחוז"
 
+#: enterprise/conditions.py:216
+#, python-brace-format
+msgid ""
+"This coupon has been made available through {new_enterprise}. To redeem this"
+" coupon, you must first logout. When you log back in, please select "
+"{new_enterprise} as your enterprise and try again."
+msgstr ""
+"קופון זה הפך לזמין דרך {new_enterprise} . כדי לממש קופון זה, תחילה עליך "
+"להתנתק. כאשר אתה מתחבר שוב, אנא בחר {new_enterprise} כארגון שלך ונסה שוב."
+
+#: enterprise/forms.py:38
+#: enterprise/templates/enterprise/enterpriseoffer_list.html:30
+msgid "Enterprise Customer UUID"
+msgstr "UUID של לקוח ארגוני"
+
+#: enterprise/forms.py:39
+#: enterprise/templates/enterprise/enterpriseoffer_list.html:31
+msgid "Enterprise Customer Catalog UUID"
+msgstr "UUID של קטלוג לקוחות ארגוני"
+
+#: enterprise/forms.py:40 programs/forms.py:23
+msgid "Discount Type"
+msgstr "סוג הנחה"
+
+#: enterprise/forms.py:42 programs/forms.py:25
+msgid "Discount Value"
+msgstr "ערך הנחה"
+
+#: enterprise/forms.py:45
+msgid "Contract Discount Type"
+msgstr "סוג הנחה בחוזה"
+
+#: enterprise/forms.py:48
+msgid "Contract Discount"
+msgstr "הנחה בחוזה"
+
+#: enterprise/forms.py:51
+msgid "Prepaid Invoice Amount"
+msgstr "סכום חשבונית משולמת מראש"
+
+#: enterprise/forms.py:55
+msgid "Salesforce Opportunity Line Item"
+msgstr "פריט הזדמנות של Salesforce"
+
+#: enterprise/forms.py:58
+msgid "Emails Addresses"
+msgstr "כתובות מיילים"
+
+#: enterprise/forms.py:59
+msgid "Comma separated emails which will receive the offer usage alerts"
+msgstr "הודעות דוא\"ל מופרדות בפסיק שיקבלו את התראות השימוש בהצעה"
+
+#: enterprise/forms.py:64
+msgid "Frequency for offer usage emails"
+msgstr "תדירות הודעות דוא\"ל לשימוש בהצעות"
+
+#: enterprise/forms.py:79
+msgid "The maximum number of enrollments that can redeem this offer."
+msgstr "המספר המרבי של הרשמות שיכולות לממש את המבצע הזה."
+
+#: enterprise/forms.py:81
+msgid ""
+"The maximum number of enrollments, by a user, that can redeem this offer."
+msgstr "המספר המרבי של הרשמות, על ידי משתמש, שיכול לממש את המבצע הזה."
+
 #: enterprise/forms.py:86 programs/forms.py:36
 msgid "End Date"
 msgstr "תאריך סיום"
+
+#: enterprise/forms.py:88
+msgid "Bookings Limit"
+msgstr "מגבלת הזמנות"
+
+#: enterprise/forms.py:90
+msgid "Per User Bookings Limit"
+msgstr "מגבלת הזמנות למשתמש"
+
+#: enterprise/forms.py:152 enterprise/forms.py:220
+#, python-brace-format
+msgid ""
+"Ensure new value must be greater than or equal to "
+"consumed({offer_enrollments}) value."
+msgstr ""
+"ודא שהערך החדש חייב להיות גדול או שווה לערך הנצרך ( {offer_enrollments} )."
+
+#: enterprise/forms.py:166
+msgid ""
+"Salesforce Opportunity ID must be 18 alphanumeric characters and begin with "
+"006."
+msgstr ""
+"מזהה ההזדמנות של Salesforce חייב להיות באורך 18 תווים אלפאנומריים ולהתחיל "
+"ב-006."
+
+#: enterprise/forms.py:176
+msgid ""
+"The Salesforce Opportunity Line Item must be 18 alphanumeric characters and "
+"begin with '00k'."
+msgstr ""
+"פריט ההזדמנות של Salesforce חייב להיות בן 18 תווים אלפאנומריים ולהתחיל "
+"ב-&#39;00k&#39;."
+
+#: enterprise/forms.py:184 enterprise/forms.py:232
+msgid "Ensure this value is greater than or equal to 0."
+msgstr "ודא שערך זה גדול או שווה ל-0."
+
+#: enterprise/forms.py:191 enterprise/forms.py:248
+#, python-brace-format
+msgid ""
+"Ensure new value must be greater than or equal to "
+"consumed({consumed_discount:.2f}) value."
+msgstr ""
+"ודא שהערך החדש חייב להיות גדול או שווה לערך הנצרך ({consumed_discount:.2f})."
+
+#: enterprise/forms.py:265
+#, python-brace-format
+msgid "Given email address {email} is not a valid email."
+msgstr "כתובת הדוא\"ל שניתנה {email} אינה דוא\"ל חוקי."
+
+#: enterprise/forms.py:290
+msgid "An offer already exists for this Enterprise & Catalog combination."
+msgstr "כבר קיימת הצעה עבור שילוב זה של Enterprise וקטלוג."
+
+#: enterprise/forms.py:293 enterprise/forms.py:302 programs/forms.py:73
+msgid "Percentage discounts cannot be greater than 100%."
+msgstr "אחוז ההנחות לא יכול להיות גדול מ-100%."
+
+#: enterprise/forms.py:296 programs/forms.py:76
+msgid "A start date must be specified when specifying an end date."
+msgstr "יש לציין תאריך התחלה בעת ציון תאריך סיום."
+
+#: enterprise/forms.py:299 programs/forms.py:79
+msgid "The start date must occur before the end date."
+msgstr "תאריך ההתחלה חייב להיות לפני תאריך הסיום."
+
+#: enterprise/forms.py:307
+msgid "More than 2 digits after the decimal not allowed for absolute value."
+msgstr "יותר מ-2 ספרות אחרי העשרוני אסור לערך מוחלט."
+
+#: enterprise/forms.py:312
+msgid "This field is required when contract discount type is absolute."
+msgstr "שדה זה נדרש כאשר סוג הנחה בחוזה הוא מוחלט."
+
+#: enterprise/forms.py:337
+msgid "Discount of type {} provided by {} for {}."
+msgstr "הנחה מסוג {} מסופקת על ידי {} עבור {}."
+
+#: enterprise/templates/enterprise/enterpriseoffer_form.html:9
+#, python-format
+msgid "Edit Enterprise Offer: %(enterprise_customer_name)s"
+msgstr "ערוך הצעה ארגונית: %(enterprise_customer_name)s"
+
+#: enterprise/templates/enterprise/enterpriseoffer_form.html:14
+#: enterprise/templates/enterprise/enterpriseoffer_form.html:47
+#: enterprise/templates/enterprise/enterpriseoffer_form.html:60
+#: enterprise/templates/enterprise/enterpriseoffer_list.html:20
+msgid "Create Enterprise Offer"
+msgstr "צור הצעה ארגונית"
+
+#: enterprise/templates/enterprise/enterpriseoffer_form.html:30
+#: enterprise/templates/enterprise/enterpriseoffer_list.html:6
+#: enterprise/templates/enterprise/enterpriseoffer_list.html:17
+#: templates/edx/partials/_administration_menu.html:14
+msgid "Enterprise Offers"
+msgstr "הצעות ארגוניות"
 
 #: enterprise/templates/enterprise/enterpriseoffer_form.html:34
 #: programs/templates/programs/programoffer_form.html:34
@@ -270,6 +570,10 @@ msgstr "תאריך סיום"
 msgid "Edit"
 msgstr "ערכו"
 
+#: enterprise/templates/enterprise/enterpriseoffer_form.html:45
+msgid "Edit Enterprise Offer"
+msgstr "ערוך הצעה ארגונית"
+
 #: enterprise/templates/enterprise/enterpriseoffer_form.html:62
 #: programs/templates/programs/programoffer_form.html:62
 #: templates/oscar/dashboard/catalogue/category_form.html:104
@@ -277,6 +581,14 @@ msgstr "ערכו"
 #: templates/oscar/dashboard/partials/refund_action_modal.html:20
 msgid "Cancel"
 msgstr "ביטול"
+
+#: enterprise/templates/enterprise/enterpriseoffer_list.html:26
+msgid "Current enterprise offers"
+msgstr "הצעות ארגוניות עדכניות"
+
+#: enterprise/templates/enterprise/enterpriseoffer_list.html:29
+msgid "Enterprise Customer Name"
+msgstr "שם לקוח ארגוני"
 
 #: enterprise/templates/enterprise/enterpriseoffer_list.html:32
 #: programs/templates/programs/programoffer_list.html:31
@@ -296,6 +608,25 @@ msgstr "התחל"
 msgid "End"
 msgstr "סיים"
 
+#: enterprise/templates/enterprise/enterpriseoffer_list.html:64
+#, python-format
+msgid ""
+"\n"
+"                %(platform_name)s Enterprise Offer Administration Tool\n"
+"              "
+msgstr ""
+"\n"
+"                %(platform_name)s כלי ניהול הצעות ארגוניות\n"
+"              "
+
+#: enterprise/views.py:39
+msgid "Enterprise offer updated!"
+msgstr "ההצעה הארגונית עודכנה!"
+
+#: enterprise/views.py:62
+msgid "Enterprise offer created!"
+msgstr "הצעה ארגונית נוצרה!"
+
 #: extensions/api/exceptions.py:9
 msgid "You can't check out with an empty basket."
 msgstr "לא ניתן להתנתק עם סל ריק."
@@ -314,6 +645,11 @@ msgstr "לא מצאנו את אחד מהמוצרים שאתה מחפש."
 msgid "One of the products you're trying to order is unavailable."
 msgstr "אחד מהמוצרים שאתה מנסה להזמין אינו זמין."
 
+#: extensions/api/exceptions.py:21
+msgid ""
+"We couldn't find enough information about you to perform the calculation."
+msgstr "לא מצאנו מספיק מידע עליך כדי לבצע את החישוב."
+
 #: extensions/api/serializers.py:263
 msgid "INACTIVE"
 msgstr "לא פעיל"
@@ -322,9 +658,17 @@ msgstr "לא פעיל"
 msgid "ACTIVE"
 msgstr "פעיל"
 
+#: extensions/api/serializers.py:705
+msgid "Products must have a certificate type."
+msgstr "מוצרים חייבים להיות בעלי סוג תעודה."
+
 #: extensions/api/serializers.py:708 extensions/api/serializers.py:753
 msgid "Products must have a price."
 msgstr "חייב להיות מחיר למוצרים."
+
+#: extensions/api/serializers.py:715
+msgid "You need to provide a course UUID to create Course Entitlements."
+msgstr "עליך לספק UUID לקורס כדי ליצור הרשאות לקורס."
 
 #: extensions/api/serializers.py:749
 msgid "Products must indicate whether ID verification is required."
@@ -353,6 +697,34 @@ msgstr "קוד הרשמה"
 msgid "Discount code"
 msgstr "קוד הנחה"
 
+#: extensions/api/serializers.py:2115
+msgid "New coupon voucher assignment Failure. Error: {}"
+msgstr "הקצאת מטלה לשובר קופון כישלון. שגיאה: {}"
+
+#: extensions/api/v2/views/baskets.py:445 extensions/basket/views.py:460
+#: extensions/iap/api/v1/views.py:131
+msgid "No SKUs provided."
+msgstr "לא סופקו מק\"ט."
+
+#: extensions/api/v2/views/baskets.py:456 extensions/basket/views.py:467
+#, python-brace-format
+msgid "Products with SKU(s) [{skus}] do not exist."
+msgstr "מוצרים עם מק\"ט [ {skus} ] אינם קיימים."
+
+#: extensions/api/v2/views/baskets.py:467
+msgid "Provide username or is_anonymous query param, but not both"
+msgstr "ספק שם משתמש או פרמטר השאילתה is_anonymous, אך לא את שניהם"
+
+#: extensions/api/v2/views/products.py:54
+#, python-brace-format
+msgid "Product API only supports {http_method} for {product_class} products."
+msgstr "API של המוצר תומך רק {http_method} עבור מוצרי {product_class} ."
+
+#: extensions/api/v2/views/products.py:69
+#, python-brace-format
+msgid "Missing or bad value for: [{name}]."
+msgstr "ערך חסר או רע עבור: [{name}]."
+
 #: extensions/basket/models.py:119
 #, python-brace-format
 msgid "{id} - {status} basket (owner: {owner}, lines: {num_lines})"
@@ -371,6 +743,12 @@ msgstr "סוג מאפיין"
 msgid "Text Attribute"
 msgstr "מאפיין טקסט"
 
+#: extensions/basket/utils.py:155
+msgid ""
+"Due to export controls, we cannot allow you to access this course at this "
+"time."
+msgstr "בשל בקרות הייצוא, איננו יכולים לאפשר לך לגשת לקורס הזה בשלב זה."
+
 #: extensions/basket/utils.py:245
 msgid "Click here to just purchase an enrollment for yourself"
 msgstr "לחץ כאן על מנת לרכוש הרשמה עבור עצמך בלבד"
@@ -384,10 +762,38 @@ msgstr "לחץ כאן על מנת לרכוש מושבים מרובים בקור�
 msgid "Coupon code '{code}' has expired."
 msgstr "פג תוקפו של קוד השובר '{code}'."
 
+#: extensions/basket/utils.py:508
+#, python-brace-format
+msgid "Coupon code '{code}' is not available. {msg}"
+msgstr "קופון &#39;{code}&#39; אינו זמין. {msg}"
+
 #: extensions/basket/utils.py:582
 #, python-brace-format
 msgid "Coupon code '{code}' added to basket."
 msgstr "קוד השובר '{code}' נוסף לסל."
+
+#: extensions/basket/views.py:312
+msgid ""
+"After you complete your order you will be automatically enrolled in the "
+"verified track of the course."
+msgstr "לאחר שתשלים את ההזמנה שלך תירשם אוטומטית למסלול המאומת של הקורס."
+
+#: extensions/basket/views.py:439
+msgid "You have already purchased these products"
+msgstr "כבר רכשת את המוצרים האלה"
+
+#: extensions/basket/views.py:484
+msgid "No product is available to buy."
+msgstr "אין מוצר זמין לקנייה."
+
+#: extensions/basket/views.py:902
+msgid "quantity successfully updated"
+msgstr "הכמות עודכנה בהצלחה"
+
+#: extensions/basket/views.py:921
+msgid ""
+"Your basket couldn't be updated. Please correct any validation errors below."
+msgstr "לא ניתן היה לעדכן את הסל שלך. אנא תקן שגיאות אימות למטה."
 
 #: extensions/basket/views.py:975
 #, python-brace-format
@@ -462,9 +868,77 @@ msgstr "סטטוס"
 msgid "Failed to retrieve enrollment data."
 msgstr "אחזור נתוני ההרשמה נכשל."
 
+#: extensions/iap/models.py:14
+msgid ""
+"Number of times to retry failing IAP client actions (e.g., payment creation,"
+" payment execution)"
+msgstr ""
+"מספר הפעמים כדי לנסות שוב פעולות נכשלות של לקוח IAP (למשל, יצירת תשלום, "
+"ביצוע תשלום)"
+
+#: extensions/iap/models.py:21
+msgid "Past number of days to fetch Android refunds for."
+msgstr "מספר הימים האחרונים לאחזר עבור Android החזרים."
+
+#: extensions/iap/models.py:27
+msgid "mobile team email"
+msgstr "דוא\"ל של צוות נייד"
+
+#: extensions/iap/models.py:42
+msgid "Original Transaction ID"
+msgstr "מזהה עסקה מקורי"
+
+#: extensions/offer/constants.py:32
+msgid "Day 3"
+msgstr "יום 3"
+
+#: extensions/offer/constants.py:33
+msgid "Day 10"
+msgstr "יום 10"
+
+#: extensions/offer/constants.py:34
+msgid "Day 19"
+msgstr "יום 19"
+
 #: extensions/offer/constants.py:40
 msgid "Assign"
 msgstr "לְהַקְצוֹת"
+
+#: extensions/offer/constants.py:42
+msgid "Revoke"
+msgstr "לְבַטֵל"
+
+#: extensions/offer/models.py:447
+msgid "Course Catalog ID from the Discovery Service."
+msgstr "מזהה קטלוג קורס משירות Discovery."
+
+#: extensions/offer/models.py:458
+msgid "UUID for an EnterpriseCustomerCatalog from the Enterprise Service."
+msgstr "UUID עבור EnterpriseCustomerCatalog משירות Enterprise."
+
+#: extensions/offer/models.py:590
+msgid "EnterpriseCustomer Name"
+msgstr "שם לקוח ארגוני"
+
+#: extensions/offer/models.py:615
+msgid "Code has been redeemed by user."
+msgstr "הקוד מומש על ידי המשתמש."
+
+#: extensions/offer/models.py:616
+msgid "Email to user bounced."
+msgstr "דוא\"ל למשתמש הוחזר."
+
+#: extensions/offer/models.py:617
+msgid "Code has been revoked for this user."
+msgstr "הקוד בוטל עבור משתמש זה."
+
+#: extensions/offer/models.py:883
+msgid "Email has been sent."
+msgstr "דוא\"ל נשלח."
+
+#: extensions/offer/models.py:884
+msgid "This user should receive email"
+msgstr "משתמש זה אמור לקבל אימייל"
 
 #: extensions/offer/utils.py:97
 #, python-brace-format
@@ -475,6 +949,18 @@ msgstr "{benefit_value}%"
 #, python-brace-format
 msgid "${benefit_value}"
 msgstr "${benefit_value}"
+
+#. Translators: "Waffle" is the name of a third-party library. It should not
+#. be translated
+#: extensions/order/admin.py:35
+#, python-brace-format
+msgid ""
+"Order administration has been disabled due to the load on the database. This"
+" functionality can be restored by activating the {switch_name} Waffle "
+"switch. Be careful when re-activating this switch!"
+msgstr ""
+"ניהול ההזמנות הושבת עקב העומס על מסד הנתונים. ניתן לשחזר פונקציונליות זו על "
+"ידי הפעלה של מתג הוופל {switch_name} . היזהר בעת הפעלה מחדש של מתג זה!"
 
 #: extensions/order/models.py:39 extensions/payment/models.py:26
 msgid "Payment Processor"
@@ -502,9 +988,17 @@ msgstr "אמריקן אקספרס"
 msgid "Discover"
 msgstr "מצא"
 
+#: extensions/payment/constants.py:24
+msgid "JCB"
+msgstr "JCB"
+
 #: extensions/payment/constants.py:28
 msgid "MasterCard"
 msgstr "מסטרכארד"
+
+#: extensions/payment/constants.py:34
+msgid "UnionPay"
+msgstr "UnionPay"
 
 #: extensions/payment/constants.py:42
 msgid "Visa"
@@ -569,6 +1063,18 @@ msgid ""
 msgstr ""
 "מספר פעמים שנכשלו פעולות לקוח בפייפל (לדוגמה, יצירת תשלום, ביצוע תשלום)"
 
+#: extensions/payment/models.py:112
+msgid "More than 10 digits before the decimal not allowed for fixed value."
+msgstr "יותר מ-10 ספרות לפני העשרוני אסור לערך קבוע."
+
+#: extensions/payment/models.py:118
+msgid "More than 2 digits after the decimal not allowed for fixed value."
+msgstr "יותר מ-2 ספרות אחרי העשרוני אסור לערך קבוע."
+
+#: extensions/payment/models.py:126
+msgid "Percentage greater than 100 not allowed."
+msgstr "אחוז גבוה מ-100 אסור."
+
 #. Translators: This is a string placed in the middle of a truncated string
 #. to indicate that truncation has occurred. For example, if a title may only
 #. be at most 11 characters long, "A Very Long Title" (17 characters) would be
@@ -576,6 +1082,22 @@ msgstr ""
 #: extensions/payment/utils.py:77
 msgid "..."
 msgstr "..."
+
+#: extensions/payment/views/cybersource.py:368
+msgid "transaction declined"
+msgstr "העסקה נדחתה"
+
+#. Translators: "Waffle" is the name of a third-party library. It should not
+#. be translated
+#: extensions/refund/admin.py:36
+#, python-brace-format
+msgid ""
+"Refund administration has been disabled due to the load on the database. "
+"This functionality can be restored by activating the {switch_name} Waffle "
+"switch. Be careful when re-activating this switch!"
+msgstr ""
+"ניהול ההחזרים הושבת עקב העומס על מסד הנתונים. ניתן לשחזר פונקציונליות זו על "
+"ידי הפעלת מתג הוופל {switch_name} . היזהר בעת הפעלה מחדש של מתג זה!"
 
 #: extensions/refund/models.py:67
 msgid "Order"
@@ -626,6 +1148,11 @@ msgstr "כמות"
 msgid "Catalog Query"
 msgstr "שאילתת קטלוג"
 
+#: extensions/voucher/utils.py:55 extensions/voucher/utils.py:285
+#: extensions/voucher/utils.py:340
+msgid "Redeemed For Course IDs"
+msgstr "מומש עבור מזהי קורס"
+
 #: extensions/voucher/utils.py:57 extensions/voucher/utils.py:284
 #: extensions/voucher/utils.py:331 extensions/voucher/utils.py:339
 msgid "Redeemed For Course ID"
@@ -668,6 +1195,10 @@ msgstr "{percentage} %"
 #: templates/oscar/dashboard/offers/offer_detail.html:117
 msgid "Code"
 msgstr "קוד"
+
+#: extensions/voucher/utils.py:171
+msgid "This row applies to all vouchers"
+msgstr "שורה זו חלה על כל השוברים"
 
 #: extensions/voucher/utils.py:172 extensions/voucher/utils.py:275
 #: templates/oscar/dashboard/catalogue/product_update.html:126
@@ -797,6 +1328,10 @@ msgstr "שולם מראש"
 msgid "Postpaid"
 msgstr "ישולם בעתיד"
 
+#: invoice/models.py:20
+msgid "Bulk purchase"
+msgstr "רכישה בכמות גדולה"
+
 #: invoice/models.py:21
 msgid "Not applicable"
 msgstr "לא ישים"
@@ -804,6 +1339,80 @@ msgstr "לא ישים"
 #: invoice/models.py:26
 msgid "Fixed"
 msgstr "תוקן"
+
+#: management/templates/management/index.html:26
+msgid "Refund Transactions"
+msgstr "עסקאות החזר"
+
+#: programs/benefits.py:27
+#, python-brace-format
+msgid "{value}% program discount"
+msgstr "{value} % הנחה בתוכנית"
+
+#: programs/benefits.py:44
+#, python-brace-format
+msgid "{value} fixed-price program discount"
+msgstr "{value} הנחה בתוכנית במחיר קבוע"
+
+#: programs/forms.py:70
+msgid "An offer already exists for this program."
+msgstr "כבר קיימת הצעה לתוכנית זו."
+
+#: programs/forms.py:90
+#, python-brace-format
+msgid "{current_date} Discount for the {program_title} {program_type} Program"
+msgstr "{current_date} הנחה לתוכנית {program_title} {program_type}"
+
+#: programs/templates/programs/programoffer_form.html:9
+#, python-format
+msgid "Edit Program Offer: %(program_title)s"
+msgstr "ערוך הצעת תוכנית: %(program_title)s"
+
+#: programs/templates/programs/programoffer_form.html:14
+#: programs/templates/programs/programoffer_form.html:47
+#: programs/templates/programs/programoffer_form.html:60
+#: programs/templates/programs/programoffer_list.html:20
+msgid "Create Program Offer"
+msgstr "צור הצעת תוכנית"
+
+#: programs/templates/programs/programoffer_form.html:30
+#: programs/templates/programs/programoffer_list.html:6
+#: programs/templates/programs/programoffer_list.html:17
+#: templates/edx/partials/_administration_menu.html:11
+msgid "Program Offers"
+msgstr "הצעות תוכנית"
+
+#: programs/templates/programs/programoffer_form.html:45
+msgid "Edit Program Offer"
+msgstr "ערוך את הצעת התוכנית"
+
+#: programs/templates/programs/programoffer_form.html:76
+#: programs/templates/programs/programoffer_list.html:60
+#, python-format
+msgid ""
+"\n"
+"                %(platform_name)s Program Offer Administration Tool\n"
+"              "
+msgstr ""
+"\n"
+"                %(platform_name)s כלי ניהול הצעות תוכנית\n"
+"              "
+
+#: programs/templates/programs/programoffer_list.html:26
+msgid "Current program offers"
+msgstr "הצעות תוכנית עדכניות"
+
+#: programs/templates/programs/programoffer_list.html:29
+msgid "Program Title"
+msgstr "כותרת התוכנית"
+
+#: programs/views.py:38
+msgid "Program offer updated!"
+msgstr "הצעת התוכנית עודכנה!"
+
+#: programs/views.py:61
+msgid "Program offer created!"
+msgstr "הצעה לתוכנית נוצרה!"
 
 #: referrals/models.py:26
 msgid "Affiliate ID"
@@ -928,6 +1537,10 @@ msgstr "תלושים"
 msgid "Reports"
 msgstr "דוחות"
 
+#: templates/base.html:10
+msgid "Build"
+msgstr "לִבנוֹת"
+
 #: templates/coupons/_offer_error.html:4 templates/coupons/offer.html:5
 #: templates/edx/email_confirmation_required.html:4
 msgid "Redeem"
@@ -985,6 +1598,17 @@ msgstr "קיים סיכוי גבוה, פי 12, שתשלים את הקורס אם
 msgid "Courses"
 msgstr "קורסים"
 
+#: templates/courses/course_app.html:27
+#, python-format
+msgid ""
+"\n"
+"                                %(platform_name)s Course Administration Tool\n"
+"                            "
+msgstr ""
+"\n"
+"                                %(platform_name)s כלי ניהול קורסים\n"
+"                            "
+
 #: templates/courses/menu_options.html:8
 msgid "Student Dashboard"
 msgstr "לוח הבקרה של הסטודנטים"
@@ -1001,9 +1625,42 @@ msgstr "לוח בקרה של מסחר אלקטרוני"
 msgid "Sign Out"
 msgstr "התנתק"
 
+#: templates/edx/checkout/receipt.html:13
+#, python-format
+msgid "Receipt for %(order_number)s"
+msgstr "קבלה עבור %(order_number)s"
+
 #: templates/edx/checkout/receipt.html:43
 msgid "Thank you for your order!"
 msgstr "תודה על ההזמנה!"
+
+#: templates/edx/checkout/receipt.html:53
+#, python-brace-format
+msgid ""
+"Your order is complete. You will receive a confirmation message and your "
+"enrollment code(s) at {link_start}{email}{link_end}. If you need a receipt, "
+"you can print this page."
+msgstr ""
+"ההזמנה שלך הושלמה. תקבל הודעת אישור ואת קודי ההרשמה שלך בכתובת "
+"{link_start}{email}{link_end}. אם אתה צריך קבלה, אתה יכול להדפיס את הדף הזה."
+
+#: templates/edx/checkout/receipt.html:60
+#, python-brace-format
+msgid ""
+"Your order is complete. If you need a receipt, you can print this page. "
+"{next_start} Next Steps:{next_end} 1. Check your inbox for an order "
+"confirmation email from Get Smarter.{next_line} 2: Follow the instructions "
+"in the email to complete your registration."
+msgstr ""
+"ההזמנה שלך הושלמה. אם אתה צריך קבלה, אתה יכול להדפיס את הדף הזה. "
+"{next_start} השלבים הבאים: {next_end} 1. בדוק בתיבת הדואר הנכנס שלך אימייל "
+"לאישור הזמנה מ-Get Smarter. {next_line} 2: עקוב אחר ההוראות בדוא\"ל כדי "
+"להשלים את ההרשמה שלך."
+
+#: templates/edx/checkout/receipt.html:68
+msgid ""
+"Your order is complete. If you need a receipt, you can print this page."
+msgstr "ההזמנה שלך הושלמה. אם אתה צריך קבלה, אתה יכול להדפיס את הדף הזה."
 
 #: templates/edx/checkout/receipt.html:87
 msgid "Order Number:"
@@ -1045,9 +1702,41 @@ msgstr "תיאור:"
 msgid "Item Price:"
 msgstr "מחיר פריט:"
 
+#: templates/edx/checkout/receipt.html:152
+#, python-format
+msgid "Discount of type %(type)s provided by %(enterprise_name)s"
+msgstr "הנחה מסוג %(type)s מסופקת על ידי %(enterprise_name)s"
+
+#: templates/edx/checkout/receipt.html:157
+msgid "Discount for your first upgrade"
+msgstr "הנחה עבור השדרוג הראשון שלך"
+
+#: templates/edx/checkout/receipt.html:160
+#, python-format
+msgid "Discount of type %(type)s is provided."
+msgstr "ניתנת הנחה מסוג %(type)s ."
+
 #: templates/edx/checkout/receipt.html:194
 msgid "Get Your Course Credit"
 msgstr "קבל את נקודות הקורס שלך"
+
+#: templates/edx/checkout/receipt.html:196
+#, python-brace-format
+msgid ""
+"To receive academic credit for this course, you must apply for credit at the"
+" organization that offers the credit. You can find a link to the "
+"organization’s website on your "
+"{link_start}{lms_dashboard_url}{link_middle}dashboard{link_end}, next to the"
+" course name."
+msgstr ""
+"כדי לקבל קרדיט אקדמי על הקורס הזה, יש להגיש בקשה לזיכוי בארגון המעניק את "
+"הקרדיט. תוכל למצוא קישור לאתר הארגון ב- "
+"{link_start}{lms_dashboard_url}{link_middle}לוח המחוונים שלך{link_end}, ליד "
+"שם הקורס."
+
+#: templates/edx/checkout/receipt.html:213
+msgid "Find more courses"
+msgstr "מצא קורסים נוספים"
 
 #: templates/edx/checkout/receipt_not_found.html:7
 msgid "Order Not Found"
@@ -1161,6 +1850,10 @@ msgstr "אם אתם זקוקים לעזרה, צרו קשר עם צוות התמ�
 msgid "Coupons"
 msgstr "קופונים"
 
+#: templates/edx/partials/_administration_menu.html:8
+msgid "Enterprise Coupons"
+msgstr "קופונים ארגוניים"
+
 #: templates/edx/partials/_base_navbar.html:10
 msgid "Toggle navigation"
 msgstr "החליפו ניווט"
@@ -1178,9 +1871,33 @@ msgstr "החליפו את הרשימה הנפתחת"
 msgid "Login"
 msgstr "כניסה"
 
+#: templates/edx/partials/_staff_navbar.html:9
+msgid "E-Commerce Course Administration"
+msgstr "ניהול קורס מסחר אלקטרוני"
+
+#: templates/edx/partials/_staff_navbar.html:14
+msgid "E-Commerce Coupon Administration"
+msgstr "ניהול קופון למסחר אלקטרוני"
+
+#: templates/edx/partials/_staff_navbar.html:19
+msgid "E-Commerce Program Offers Administration"
+msgstr "תוכנית מסחר אלקטרוני מציעה ניהול"
+
 #: templates/oscar/basket/basket.html:48
 msgid "Your basket is empty"
 msgstr "הסל שלך ריק"
+
+#: templates/oscar/basket/messages/new_total.html:7
+msgid "Your basket is now empty"
+msgstr "הסל שלך ריק כעת"
+
+#: templates/oscar/basket/messages/new_total.html:27
+msgid "View basket"
+msgstr "צפה בסל"
+
+#: templates/oscar/basket/messages/new_total.html:28
+msgid "Checkout now"
+msgstr "בדוק עכשיו"
 
 #: templates/oscar/basket/partials/add_voucher_form.html:11
 msgid "Applying..."
@@ -1189,6 +1906,10 @@ msgstr "מחיל..."
 #: templates/oscar/basket/partials/add_voucher_form.html:16
 msgid "Apply"
 msgstr "החל"
+
+#: templates/oscar/basket/partials/client_side_checkout_basket.html:17
+msgid "Your purchase contains the following"
+msgstr "הרכישה שלך מכילה את הדברים הבאים"
 
 #: templates/oscar/basket/partials/client_side_checkout_basket.html:36
 #: templates/oscar/basket/partials/hosted_checkout_basket.html:57
@@ -1243,6 +1964,10 @@ msgstr "אבטח"
 #: templates/oscar/basket/partials/client_side_checkout_basket.html:219
 msgid "Security Code (required)"
 msgstr "קוד אבטחה (חובה)"
+
+#: templates/oscar/basket/partials/client_side_checkout_basket.html:223
+msgid "Help with CVV"
+msgstr "עזרה עם CVV"
 
 #: templates/oscar/basket/partials/client_side_checkout_basket.html:233
 msgid "Expiration (required)"
@@ -1304,6 +2029,28 @@ msgstr "שגיאת יציאה"
 msgid "Payment Failed"
 msgstr "התשלום נכשל"
 
+#: templates/oscar/checkout/payment_error.html:18
+#, python-brace-format
+msgid ""
+"An error occurred while processing your payment. {strong_start}You have not "
+"been charged.{strong_end}"
+msgstr ""
+"אירעה שגיאה במהלך עיבוד התשלום שלך. {strong_start} לא חויבת. {strong_end}"
+
+#: templates/oscar/checkout/payment_error.html:25
+#, python-brace-format
+msgid ""
+"Please wait a few minutes and then try again. For help, check our "
+"{start_link}Help Center{end_link}."
+msgstr ""
+"המתן מספר דקות ולאחר מכן נסה שוב. לקבלת עזרה, בדוק את מרכז העזרה "
+"{start_link} שלנו {end_link} ."
+
+#: templates/oscar/checkout/payment_error.html:32
+#, python-brace-format
+msgid "To try again, return to your {start_link}dashboard{end_link}."
+msgstr "כדי לנסות שוב, חזור ללוח המחוונים {start_link} {end_link} שלך."
+
 #: templates/oscar/checkout/sdn_failure.html:35
 #, python-brace-format
 msgid ""
@@ -1327,6 +2074,16 @@ msgstr "זכויות יוצרים © %(year)s %(platform_name)s. כל הזכוי
 #, python-format
 msgid "Hi %(full_name)s,"
 msgstr "שלום %(full_name)s,"
+
+#: templates/oscar/communication/emails/commtype_course_purchased_body.html:11
+#: templates/oscar/communication/emails/commtype_course_purchased_body.txt:6
+#, python-format
+msgid ""
+"Thank you for purchasing %(course_title)s. A charge will appear on your "
+"credit or debit card statement with a company name of \"%(platform_name)s\"."
+msgstr ""
+"תודה שרכשת את %(course_title)s . חיוב יופיע בפירוט כרטיס האשראי או החיוב שלך"
+" עם שם החברה \"%(platform_name)s\"."
 
 #: templates/oscar/communication/emails/commtype_course_purchased_body.html:13
 #: templates/oscar/communication/emails/commtype_course_purchased_body.txt:8
@@ -1494,9 +2251,53 @@ msgstr ""
 msgid "Order Receipt"
 msgstr "קבלה על הזמנה"
 
+#: templates/oscar/communication/emails/commtype_order_with_csv_body.html:14
+msgid "For Business"
+msgstr "לעסקים"
+
+#: templates/oscar/communication/emails/commtype_order_with_csv_body.html:34
+#: templates/oscar/communication/emails/commtype_order_with_csv_body.txt:9
+msgid "Distribute one code per learner before the expiration date."
+msgstr "חלקו קוד אחד לכל לומד לפני תאריך התפוגה."
+
+#: templates/oscar/communication/emails/commtype_order_with_csv_body.html:50
+#: templates/oscar/communication/emails/commtype_order_with_csv_body.txt:16
+msgid "Thank You"
+msgstr "תודה"
+
+#: templates/oscar/communication/emails/commtype_order_with_csv_body.html:64
+#: templates/oscar/communication/emails/commtype_order_with_csv_body.txt:21
+msgid "You are responsible for distributing codes to your learners."
+msgstr "אתה אחראי להפצת קודים ללומדים שלך."
+
+#: templates/oscar/communication/emails/commtype_order_with_csv_body.html:68
+#: templates/oscar/communication/emails/commtype_order_with_csv_body.txt:25
+msgid "All sales final. No refunds."
+msgstr "כל המכירות סופיות. אין החזרות."
+
 #: templates/oscar/communication/emails/commtype_order_with_csv_body.txt:2
 msgid "Order confirmation for: "
 msgstr "אישור הזמנה עבור:"
+
+#: templates/oscar/communication/emails/commtype_order_with_csv_body.txt:8
+#, python-format
+msgid ""
+"Please visit %(download_csv_link)s to download and save the enrollment code "
+"file."
+msgstr "אנא בקר %(download_csv_link)s כדי להוריד ולשמור את קובץ קוד ההרשמה."
+
+#: templates/oscar/communication/emails/commtype_order_with_csv_body.txt:13
+#, python-format
+msgid ""
+"To view your payment information, log in to see your Order History, under "
+"Account Settings at %(order_history_url)s."
+msgstr ""
+"כדי לצפות בפרטי התשלום שלך, היכנס כדי לראות את היסטוריית ההזמנות שלך, תחת "
+"הגדרות חשבון בכתובת %(order_history_url)s ."
+
+#: templates/oscar/communication/emails/commtype_order_with_csv_body.txt:14
+msgid "For more information and assistance, contact info@edx.org."
+msgstr "למידע נוסף וסיוע, צור קשר עם info@edx.org."
 
 #: templates/oscar/communication/emails/commtype_order_with_csv_subject.txt:2
 #, python-format
@@ -1507,6 +2308,16 @@ msgstr "%(partner_name)s: אישור הזמנה: [%(order_number)s]"
 #: templates/oscar/dashboard/catalogue/product_update.html:61
 msgid "Sections"
 msgstr "פרקים"
+
+#: templates/oscar/dashboard/catalogue/category_form.html:43
+#: templates/oscar/dashboard/catalogue/category_form.html:62
+msgid "Category details"
+msgstr "פרטי קטגוריה"
+
+#: templates/oscar/dashboard/catalogue/category_form.html:48
+#: templates/oscar/dashboard/catalogue/category_form.html:82
+msgid "Search engine optimisation"
+msgstr "אופטימיזציה למנועי חיפוש"
 
 #: templates/oscar/dashboard/catalogue/category_form.html:106
 #: templates/oscar/dashboard/catalogue/product_update.html:324
@@ -1702,15 +2513,108 @@ msgstr "סך כל המוצרים"
 msgid "Active Vouchers"
 msgstr "תלושים פעילים"
 
+#: templates/oscar/dashboard/offers/offer_detail.html:6
+#, python-format
+msgid ""
+"\n"
+"        %(name)s | Offers\n"
+"    "
+msgstr ""
+"\n"
+"        %(name)s | הצעות\n"
+"    "
+
+#: templates/oscar/dashboard/offers/offer_detail.html:26
+msgid "Reinstating..."
+msgstr "הֲשָׁבָה..."
+
+#: templates/oscar/dashboard/offers/offer_detail.html:26
+msgid "Reinstate offer"
+msgstr "החזר את ההצעה"
+
+#: templates/oscar/dashboard/offers/offer_detail.html:28
+msgid "Suspending..."
+msgstr "משעה..."
+
+#: templates/oscar/dashboard/offers/offer_detail.html:28
+msgid "Suspend offer"
+msgstr "השעה את ההצעה"
+
+#: templates/oscar/dashboard/offers/offer_detail.html:31
+msgid "Delete offer"
+msgstr "מחק את ההצעה"
+
+#: templates/oscar/dashboard/offers/offer_detail.html:44
+msgid "Offer currently available"
+msgstr "המבצע זמין כרגע"
+
+#: templates/oscar/dashboard/offers/offer_detail.html:46
+msgid "Offer not available due to restrictions!"
+msgstr "המבצע לא זמין עקב הגבלות!"
+
+#: templates/oscar/dashboard/offers/offer_detail.html:49
+msgid "Total cost:"
+msgstr "עלות כוללת:"
+
+#: templates/oscar/dashboard/offers/offer_detail.html:50
+msgid "Number of orders:"
+msgstr "מספר ההזמנות:"
+
+#: templates/oscar/dashboard/offers/offer_detail.html:51
+msgid "Number of uses:"
+msgstr "מספר שימושים:"
+
+#: templates/oscar/dashboard/offers/offer_detail.html:56
+msgid "Date created:"
+msgstr "תאריך יצירה:"
+
+#: templates/oscar/dashboard/offers/offer_detail.html:57
+msgid "Offer details"
+msgstr "פרטי ההצעה"
+
+#: templates/oscar/dashboard/offers/offer_detail.html:75
+#: templates/oscar/dashboard/offers/summary.html:20
+msgid "Incentive"
+msgstr "תַמרִיץ"
+
+#: templates/oscar/dashboard/offers/offer_detail.html:85
+#: templates/oscar/dashboard/offers/summary.html:31
+msgid "Restrictions"
+msgstr "הגבלות"
+
+#: templates/oscar/dashboard/offers/offer_detail.html:110
+msgid "Attached vouchers"
+msgstr "מצורפים שוברים"
+
+#: templates/oscar/dashboard/offers/offer_detail.html:142
+msgid "No vouchers are attached to this offer."
+msgstr "לא מצורפים שוברים להצעה זו."
+
+#: templates/oscar/dashboard/offers/offer_detail.html:150
+msgid "Export to CSV"
+msgstr "ייצוא ל-CSV"
+
+#: templates/oscar/dashboard/offers/offer_detail.html:151
+msgid "Orders that used this offer"
+msgstr "הזמנות שהשתמשו בהצעה זו"
+
 #: templates/oscar/dashboard/offers/offer_detail.html:155
 #: templates/oscar/dashboard/orders/order_list.html:94
 msgid "Order number"
 msgstr "מספר הזמנה"
 
+#: templates/oscar/dashboard/offers/offer_detail.html:156
+msgid "Order date"
+msgstr "תאריך הזמנה"
+
 #: templates/oscar/dashboard/offers/offer_detail.html:157
 #: templates/oscar/dashboard/orders/order_detail.html:277
 msgid "Order total"
 msgstr "סך כל הזמנה"
+
+#: templates/oscar/dashboard/offers/summary.html:4
+msgid "Offer summary"
+msgstr "סיכום ההצעה"
 
 #: templates/oscar/dashboard/orders/line_detail.html:6
 #, python-format
@@ -1850,6 +2754,10 @@ msgstr "מידע לקוח"
 msgid "Email address"
 msgstr "כתובת דואר אלקטרוני"
 
+#: templates/oscar/dashboard/orders/order_detail.html:36
+msgid "Customer checked out as a guest."
+msgstr "הלקוח עזב כאורח."
+
 #: templates/oscar/dashboard/orders/order_detail.html:50
 #: templates/oscar/dashboard/refunds/refund_detail.html:61
 msgid "Customer has deleted their account."
@@ -1962,6 +2870,11 @@ msgstr "סך כל המשלוח (כולל הנחות)"
 msgid "Shipping total"
 msgstr "סך כל המשלוח"
 
+#: templates/oscar/dashboard/orders/order_detail.html:266
+#, python-format
+msgid "Surcharge %(name)s"
+msgstr "תוספת %(name)s"
+
 #: templates/oscar/dashboard/orders/order_detail.html:294
 msgid "With selected lines"
 msgstr "עם שורות נבחרות"
@@ -1999,6 +2912,10 @@ msgstr "צרו אירוע תשלום"
 msgid "with amount"
 msgstr "כולל סכום"
 
+#: templates/oscar/dashboard/orders/order_detail.html:358
+msgid "Create  Refund"
+msgstr "צור החזר"
+
 #: templates/oscar/dashboard/orders/order_detail.html:364
 msgid "Go!"
 msgstr "קדימה!"
@@ -2017,6 +2934,10 @@ msgstr "שנה סטטוס"
 #: templates/oscar/dashboard/orders/order_list.html:153
 msgid "This order can't have its status changed."
 msgstr "לא ניתן לשנות את סטטוס הזמנה זו."
+
+#: templates/oscar/dashboard/orders/order_detail.html:398
+msgid "To"
+msgstr "ל"
 
 #: templates/oscar/dashboard/orders/order_detail.html:424
 msgid "Shipping Events"
@@ -2171,6 +3092,16 @@ msgstr "חיפוש"
 msgid "Advanced Search"
 msgstr "חיפוש מתקדם"
 
+#: templates/oscar/dashboard/orders/order_list.html:78
+#: templates/oscar/dashboard/orders/order_list.html:164
+msgid "Order Search Results"
+msgstr "הזמנת תוצאות חיפוש"
+
+#: templates/oscar/dashboard/orders/order_list.html:80
+#: templates/oscar/dashboard/orders/order_list.html:166
+msgid "All Orders"
+msgstr "כל ההזמנות"
+
 #: templates/oscar/dashboard/orders/order_list.html:85
 msgid "Download selected orders as a CSV"
 msgstr "הורד הזמנות נבחרות כקובץ CSV"
@@ -2187,11 +3118,23 @@ msgstr "סך הכל כולל מיסים"
 msgid "Number of items"
 msgstr "מספר הפריטים"
 
+#: templates/oscar/dashboard/orders/order_list.html:98
+msgid "Customer"
+msgstr "צרכן"
+
+#: templates/oscar/dashboard/orders/order_list.html:99
+msgid "Shipping address"
+msgstr "כתובת למשלוח"
+
 #: templates/oscar/dashboard/orders/order_list.html:119
 #: templates/oscar/dashboard/refunds/refund_list.html:79
 #: templates/oscar/dashboard/refunds/refund_list.html:86
 msgid "Deleted"
 msgstr "נמחק"
+
+#: templates/oscar/dashboard/orders/order_list.html:148
+msgid "Changing..."
+msgstr "מִשְׁתַנֶה..."
 
 #: templates/oscar/dashboard/orders/order_list.html:169
 msgid "No orders found."
@@ -2427,3 +3370,7 @@ msgstr "התאריך שבו נוצר"
 #: templates/oscar/dashboard/users/detail.html:234
 msgid "This customer has not written any reviews yet."
 msgstr "לקוח זה לא כתב עדיין אף ביקורת."
+
+#: urls.py:45
+msgid "E-Commerce Service Administration"
+msgstr "מינהל שירות מסחר אלקטרוני"
