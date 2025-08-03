@@ -24,6 +24,7 @@
 # 
 # Translators:
 # Brian Smith, 2025
+# Eden Huthmacher, 2025
 # 
 #, fuzzy
 msgid ""
@@ -32,7 +33,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-10-23 00:32+0000\n"
 "PO-Revision-Date: 2024-12-18 13:44+0000\n"
-"Last-Translator: Brian Smith, 2025\n"
+"Last-Translator: Eden Huthmacher, 2025\n"
 "Language-Team: Hebrew (https://app.transifex.com/open-edx/teams/6205/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -331,6 +332,10 @@ msgstr "{platform_name} רמות תמיכה:"
 msgid "Discussion"
 msgstr "דיון"
 
+#: cms/djangoapps/contentstore/views/component.py:263
+msgid "Legacy Library"
+msgstr "ספריית מורשת"
+
 #: cms/djangoapps/contentstore/views/component.py:299
 msgid "Blank"
 msgstr "ריק"
@@ -452,6 +457,10 @@ msgstr "נתוני סרטון וידאו נכנס ריקים."
 msgid "Can't find item by locator."
 msgstr "לא ניתן לאתר פריט באמצעות מאתר."
 
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:654
+msgid "Transcripts are not yet supported in content libraries."
+msgstr "תמלולים עדיין אינם נתמכים בספריות תוכן."
+
 #: cms/djangoapps/contentstore/views/user.py:98
 msgid "Insufficient permissions"
 msgstr "הרשאות לא מספיקות"
@@ -527,9 +536,25 @@ msgid ""
 msgstr ""
 "הערות אופציונליות אודות משתמש זה (לדוגמה, מדוע נשללה גישה ליצירת קורס)"
 
+#: cms/djangoapps/maintenance/views.py:45
+msgid "Edit Announcements"
+msgstr "ערוך הכרזות"
+
+#: cms/djangoapps/maintenance/views.py:56
+msgid "Please provide course id."
+msgstr "אנא ספק מזהה קורס."
+
 #: cms/djangoapps/maintenance/views.py:57
 msgid "Invalid course key."
 msgstr "מפתח הקורס אינו תקף."
+
+#: cms/djangoapps/maintenance/views.py:58
+msgid "No matching course found."
+msgstr "לא נמצא קורס תואם."
+
+#: cms/djangoapps/maintenance/views.py:199
+msgid "Force publishing course is not supported with old mongo courses."
+msgstr "אילוץ פרסום הקורס אינו נתמך בקורסי Mongo קודמים."
 
 #: cms/djangoapps/models/settings/course_metadata.py:225
 #, python-brace-format
@@ -539,6 +564,30 @@ msgstr "פורמט לא תקין עבור שדה  '{name}'. {detailed_message}"
 #: cms/lib/xblock/tagging/tagging.py:21
 msgid "Dictionary with the available tags"
 msgstr "מילון עם התגיות הזמינות"
+
+#: cms/lib/xblock/upstream_sync.py:67
+msgid "Content is not linked to a Content Library."
+msgstr "תוכן אינו מקושר לספריית תוכן."
+
+#: cms/lib/xblock/upstream_sync.py:137
+msgid "Cannot update content because it does not belong to a course."
+msgstr "לא ניתן לעדכן את תוכן מכיוון שהוא אינו שייך לקורס."
+
+#: cms/lib/xblock/upstream_sync.py:139
+msgid "Updating content with children is not yet supported."
+msgstr "עדכון תוכן עם ילדים עדיין לא נתמך."
+
+#: cms/lib/xblock/upstream_sync.py:143
+msgid "Reference to linked library item is malformed"
+msgstr "הפניה לפריט ספרייה מקושר פגומה"
+
+#: cms/lib/xblock/upstream_sync.py:164
+msgid "Linked library item was not found in the system"
+msgstr "פריט הספרייה המקושר לא נמצא בתוך המערכת"
+
+#: cms/lib/xblock/upstream_sync.py:222
+msgid "Linked library item could not be loaded: {}"
+msgstr "לא ניתן לטעון את הפריט בספרייה המקושרת: {}"
 
 #: common/djangoapps/course_modes/admin.py:40
 #: common/djangoapps/course_modes/models.py:60
@@ -667,6 +716,11 @@ msgstr "חינם"
 msgid ""
 "The time period before a course ends in which a course mode will expire"
 msgstr "פרק הזמן לפני תום הקורס שבו יפוג תוקפו של מצב קורס"
+
+#: common/djangoapps/course_modes/views.py:209
+#, python-brace-format
+msgid "Congratulations!  You are now enrolled in {course_name}"
+msgstr "ברכות!  אתה כעת רשום ב-{course_name}"
 
 #: common/djangoapps/course_modes/views.py:308
 msgid "Enrollment is closed"
@@ -2306,6 +2360,16 @@ msgstr "התקדמות"
 msgid "Textbooks"
 msgstr "ספרי לימוד"
 
+#: lms/djangoapps/courseware/plugins.py:271
+msgid "Flexible Peer Grading for ORAs"
+msgstr "ציון גמיש על ידי עמיתים עבור ORAs"
+
+#: lms/djangoapps/courseware/plugins.py:272
+msgid ""
+"Course level settings for Flexible Peer Grading Open Response Assessments."
+msgstr ""
+"הגדרות רמת הקורס עבור הערכות תגובה פתוחה עם ציונים גמישים על ידי עמיתים."
+
 #: lms/djangoapps/courseware/tabs.py:36
 #: lms/djangoapps/courseware/views/views.py:2198
 #: openedx/features/course_experience/__init__.py:94 xmodule/tabs.py:490
@@ -2407,6 +2471,22 @@ msgstr "תעודה נוצרה."
 msgid "Certificate is being created."
 msgstr "התעודה נוצרת."
 
+#: lms/djangoapps/courseware/views/views.py:2011
+msgid ""
+"We plan to use this information to evaluate your application for financial assistance and to further develop our financial assistance program. \n"
+"Please note that while assistance is available in most courses that offer verified certificates, a few courses and programs are not eligible. You must complete a separate application for each course you take. You may be approved for financial assistance five (5) times each year (based on 12-month period from you first approval). \n"
+"To apply for financial assistance: \n"
+"1. Enroll in the audit track for an eligible course that offers Verified Certificates. \n"
+"2. Complete this application. \n"
+"3. Check your email, please allow 4 weeks for your application to be processed."
+msgstr ""
+"אנו מתכננים להשתמש במידע זה כדי להעריך את בקשתך לסיוע כספי וכדי להמשיך ולפתח את תוכנית הסיוע הכספי שלנו. \n"
+"לידיעתך, אף שהסיוע זמין ברוב הקורסים המציעים תעודות מאומתות, כמה קורסים ותוכניות אינם זכאים. עליך למלא בקשה נפרדת עבור כל קורס שאתה לוקח. אתה עשוי להיות זכאי לסיוע כספי חמש (5) פעמים בשנה (בהתבסס על תקופה של 12 חודשים מהאישור הראשון שלך). \n"
+"כדי להגיש בקשה לסיוע כספי: \n"
+"1. הירשם למסלול האזנה עבור קורס זכאי המציע תעודות מאומתות. \n"
+"2. מלא את טופס הבקשה זה. \n"
+"3. בדוק את הדוא\"ל שלך, אנא המתן 4 שבועות עד שהבקשה תטופל."
+
 #: lms/djangoapps/courseware/views/views.py:2205
 msgid ""
 "Select the course for which you want to earn a verified certificate. If the "
@@ -2445,6 +2525,15 @@ msgstr "שגיאה בהעלאת קובץ. אנא צור קשר עם מנהל ה�
 #: lms/djangoapps/discussion/django_comment_client/base/views.py:1095
 msgid "Good"
 msgstr "טוב"
+
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/responsenotification/push/body.txt:2
+#, python-format
+msgid ""
+"%(comment_username)s replied to %(thread_title)s: "
+"%(comment_body|truncatechars:200)s"
+msgstr ""
+"%(comment_username)s השיב ל- %(thread_title)s: "
+"%(comment_body|truncatechars:200)s"
 
 #: lms/djangoapps/edxnotes/helpers.py:116
 #: lms/djangoapps/edxnotes/helpers.py:147
@@ -2656,6 +2745,10 @@ msgstr "מודול אינו קיים"
 #: lms/djangoapps/instructor/views/api.py:1914
 msgid "An error occurred while deleting the score."
 msgstr "אירעה שגיאה במהלך מחיקת הציון."
+
+#: lms/djangoapps/instructor/views/api.py:1924
+msgid "An error occurred while attempting to reset for all students."
+msgstr "אירעה שגיאה בעת ניסיון לאפס את ההגדרות עבור כל התלמידים."
 
 #: lms/djangoapps/instructor/views/api.py:1961
 #: lms/djangoapps/instructor/views/api.py:2181
@@ -2909,6 +3002,14 @@ msgstr "הושלם"
 #: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
 msgid "Incomplete"
 msgstr "לא הושלם"
+
+#: lms/djangoapps/instructor/views/serializer.py:17
+msgid "Role name"
+msgstr "תפקיד שם"
+
+#: lms/djangoapps/instructor/views/serializer.py:24
+msgid "Invalid role name."
+msgstr "שם תפקיד לא חוקי."
 
 #: lms/djangoapps/instructor/views/tools.py:79
 #, python-brace-format
@@ -3459,9 +3560,31 @@ msgstr "הוזמנת כבוחן בטא לקורס %(course_name)s"
 msgid "Dear %(full_name)s,"
 msgstr "%(full_name)s יקר/ה,"
 
+#: lms/templates/instructor/edx_ace/addbetatester/push/body.txt:4
+#, python-format
+msgid ""
+"You have been invited to be a beta tester for %(course_name)s at "
+"%(site_name)s."
+msgstr "הוזמנת להיות בודק בטא עבור %(course_name)s בכתובת %(site_name)s."
+
+#: lms/templates/instructor/edx_ace/addbetatester/push/title.txt:3
+#, python-format
+msgid ""
+"You have been invited to a beta test for %(course_name)s at %(site_name)s."
+msgstr "הוזמנת לבדיקת בטא של %(course_name)s בכתובת %(site_name)s."
+
 #: lms/templates/instructor/edx_ace/allowedenroll/email/body.txt:1
 msgid "Dear student,"
 msgstr "סטודנט/ית יקר/ה,"
+
+#: lms/templates/instructor/edx_ace/allowedenroll/push/body.txt:3
+#, python-format
+msgid ""
+"You have been enrolled in %(course_name)s at %(site_name)s. This course will"
+" now appear on your %(site_name)s dashboard."
+msgstr ""
+"אתה רשום כעת ב-%(course_name)s ב-%(site_name)s. הקורס הזה יופיע כעת בלוח "
+"הבקרה של %(site_name)s."
 
 #: lms/templates/instructor/edx_ace/allowedunenroll/email/body.txt:1
 msgid "Dear Student,"
@@ -3477,6 +3600,15 @@ msgstr ""
 "המייל נשלח אוטומטי מהאתר %(site_name)s ל %(full_name)s.\n"
 "למידע נוסף ניתן לפנות לתמיכה במייל: Campus@mail.gov.il"
 
+#: lms/templates/instructor/edx_ace/enrolledunenroll/push/body.txt:4
+#, python-format
+msgid ""
+"You have been unenrolled from %(course_name)s at %(site_name)s. This course "
+"will no longer appear on your %(site_name)s dashboard."
+msgstr ""
+"ההרשמה שלך ל- %(course_name)s בכתובת %(site_name)s בוטלה. הקורס הזה לא יופיע"
+" עוד ב- %(site_name)s לוח בקרה."
+
 #: lms/templates/instructor/edx_ace/enrollenrolled/email/body.html:21
 #: lms/templates/instructor/edx_ace/enrollenrolled/email/body.txt:3
 #, python-format
@@ -3487,6 +3619,21 @@ msgid ""
 msgstr ""
 "התקבלה עבורך הרשאה לצפיה ולמידה בקורס %(course_name)s ב %(site_name)s. אשר "
 "יופיע בדף 'הקורסים שלי' בתוך אתר %(site_name)s."
+
+#: lms/templates/instructor/edx_ace/enrollenrolled/push/body.txt:4
+#, python-format
+msgid "You have been invited to join %(course_name)s at %(site_name)s."
+msgstr "הוזמנת להצטרף ל- %(course_name)s בכתובת %(site_name)s."
+
+#: lms/templates/instructor/edx_ace/removebetatester/push/body.txt:4
+#, python-format
+msgid ""
+"You have been removed as a beta tester for %(course_name)s at %(site_name)s."
+" This course will remain on your dashboard, but you will no longer be part "
+"of the beta testing group."
+msgstr ""
+"הוסרת כבוחן בטא עבור %(course_name)s בכתובת %(site_name)s. הקורס הזה יישאר "
+"בלוח הבקרה שלך, אך לא תהיה עוד חלק מקבוצת בדיקת הבטא."
 
 #: lms/templates/logout.html:5
 msgid "Signed Out"
@@ -4104,6 +4251,22 @@ msgid ""
 msgstr ""
 "המספר המקסימלי של רשומות בתגובה מחולקת לדפים עבור בקשה אחת לשירות הקטלוג."
 
+#: openedx/core/djangoapps/content_libraries/api.py:846
+#, python-brace-format
+msgid ""
+"Block type \"{block_type}\" is not compatible with library type "
+"\"{library_type}\"."
+msgstr "סוג המקטע „{block_type}” אינו תואם את סוג הספרייה „{library_type}”."
+
+#: openedx/core/djangoapps/content_libraries/constants.py:11
+msgid "Complex"
+msgstr "מורכב"
+
+#: openedx/core/djangoapps/content_libraries/models.py:482
+msgid ""
+"The usage key string of the resource serving the content of this launch."
+msgstr "מחרוזת מפתח השימוש של המשאב המשרת את התוכן של הפעלת זה."
+
 #: openedx/core/djangoapps/cors_csrf/models.py:21
 msgid ""
 "List of domains that are allowed to make cross-domain requests to this site."
@@ -4350,11 +4513,52 @@ msgstr "רשימה לבנה {country} עבור {course} "
 msgid "Blacklist {country} for {course}"
 msgstr "רשימה שחורה {country} עבור {course} "
 
+#: openedx/core/djangoapps/notifications/admin.py:71
+msgid ""
+"Search by username, course_id. Specify fields with username: or course_id: prefixes. If no prefix is specified, search will be done on username. \n"
+"Examples: \n"
+" - testuser (default username search) \n"
+" - username:testuser (username keyword search) \n"
+" - course_id:course-v1:edX+DemoX+Demo_Course (course_id keyword search) \n"
+" - username:testuser, course_id:course-v1:edX+DemoX+Demo_Course (combined keyword search) \n"
+msgstr ""
+"חפש על ידי שם משתמש , מזהה קורס. ציין שדות עם קידומת שם משתמש: או מזהה קורס:. אם לא צוינה קידומת, החיפוש יבוצע ב- שם משתמש. \n"
+"דוגמאות: \n"
+" - testuser (חיפוש ברירת מחדל ב- שם משתמש ) \n"
+" - שם משתמש:testuser (חיפוש מילת מפתח ב-שם משתמש ) \n"
+" - מזהה קורס:course-v1:edX+DemoX+Demo_Course (חיפוש מילת מפתח מזהה קורס) \n"
+" - שם משתמש:testuser, מזהה קורס:course-v1:edX+DemoX+Demo_Course (חיפוש מילות מפתח משולב) \n"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:167
+#, python-brace-format
+msgid ""
+"<{p}>Your response has been endorsed on the post "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr "<{p}>תגובתך אושרה ב- פוסט <{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:185
+#, python-brace-format
+msgid "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
+msgstr "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:221
+#, python-brace-format
+msgid ""
+"<{p}>You have received {points_earned} out of {points_possible} on your "
+"assessment: <{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>בבדיקה שלך התקבלת {points_earned} מתוך {points_possible}: "
+"<{strong}>{ora_name}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/email_notifications.py:19
 #: xmodule/capa_block.py:223 xmodule/capa_block.py:241
 #: xmodule/capa_block.py:280
 msgid "Never"
 msgstr "לעולם לא"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:5
+msgid "Email Digest Preferences Updated"
+msgstr "העדפות סיכום דוא\"ל עודכנו"
 
 #: openedx/core/djangoapps/profile_images/images.py:98
 #, python-brace-format
@@ -4424,6 +4628,10 @@ msgid ""
 msgstr ""
 "נראה כי {email_address} שייך לחשבון קיים. נסה שוב עם כתובת דואר אלקטרוני אחרת.\n"
 "*במקרה של הקמת משתמש דרך פייסבוק/גוגל/הזדהות משרד החינוך יש להתחבר לחשבון הקיים ולבצע את החיבור מתוך החשבון."
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:64
+msgid "This email is already associated with an existing account"
+msgstr "זה הדוא\"ל כבר מקושר לחשבון קיים"
 
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:72
 #, python-brace-format
@@ -4818,6 +5026,10 @@ msgstr "רישיון מגדיר כיצד ניתן לשתף ולעשות שימו
 #: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:15
 msgid "Home"
 msgstr "בית"
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:121
+msgid "The deadline to complete this assignment has passed."
+msgstr "המועד האחרון להשלמת המטלה חלף."
 
 #: xmodule/annotatable_block.py:44
 msgid "XML data for the annotation"
@@ -6394,6 +6606,12 @@ msgstr ""
 "שם תת קטגוריה עבור הדיון. השם הזה מופיע בחלונית השמאלית של פורום הדיונים של "
 "הקורס. "
 
+#. Translators: "Homework Average = 0%"
+#: xmodule/graders.py:433
+#, python-brace-format
+msgid "{section_type} Average = {percent:.2%}"
+msgstr "{section_type} ממוצע = {percent:.2%}"
+
 #: xmodule/html_block.py:63
 msgid "Source code for LaTeX documents. This feature is not well-supported."
 msgstr "קוד מקור עבור מסמכי LaTeX. תכונה זו אינה נתמכת היטב."
@@ -6443,6 +6661,10 @@ msgstr "רשימת פריטים שעודכנו בקורס "
 #: xmodule/item_bank_block.py:64 xmodule/library_content_block.py:94
 msgid "Count"
 msgstr "ספירה"
+
+#: xmodule/item_bank_block.py:475 xmodule/item_bank_block.py:487
+msgid "Edit the problem bank configuration."
+msgstr "ערוך את הגדרת בנק הבעיות."
 
 #: xmodule/library_content_block.py:51
 msgid "Any Type"
@@ -10759,6 +10981,24 @@ msgstr ""
 msgid "Expand or Collapse"
 msgstr "הרחב או כווץ"
 
+#: cms/templates/studio_xblock_wrapper.html:116
+#: cms/templates/studio_xblock_wrapper.html:119
+msgid "Sourced from a library - but the upstream link is broken/invalid."
+msgstr "מקור: ספרייה - אך הקישור המקורי שבור/לא תקף."
+
+#: cms/templates/studio_xblock_wrapper.html:122
+#: cms/templates/studio_xblock_wrapper.html:125
+msgid "Sourced from a library."
+msgstr "מקור: ספרייה."
+
+#: cms/templates/studio_xblock_wrapper.html:143
+msgid "Update available - click to sync"
+msgstr "עדכון זמין - לחץ כדי לסנכרן"
+
+#: cms/templates/studio_xblock_wrapper.html:146
+msgid "Update available"
+msgstr "עדכון זמין"
+
 #: cms/templates/studio_xblock_wrapper.html:218
 #: lms/templates/instructor/instructor_dashboard_2/certificates.html:169
 #: lms/templates/module-error.html:20
@@ -10872,15 +11112,33 @@ msgstr ""
 msgid "{platform_name} {studio_name}: Task Status Update"
 msgstr "{platform_name} {studio_name}: עדכון סטטוס המשימה"
 
+#: cms/templates/maintenance/_announcement_delete.html:8
+#: cms/templates/maintenance/_announcement_delete.html:11
+msgid "Delete Announcement"
+msgstr "מחק הכרזה"
+
+#: cms/templates/maintenance/_announcement_delete.html:22
+msgid "Are you sure you want to delete this Announcement?"
+msgstr "האם אתה בטוח שברצונך למחוק את ההכרזה הזו?"
+
 #: cms/templates/maintenance/_announcement_delete.html:35
 msgid "Confirm"
 msgstr "אישור"
+
+#: cms/templates/maintenance/_announcement_edit.html:8
+#: cms/templates/maintenance/_announcement_edit.html:11
+msgid "Edit Announcement"
+msgstr "ערוך הכרזה"
 
 #: cms/templates/maintenance/_announcement_edit.html:26
 #: lms/templates/problem.html:37 lms/templates/problem.html:38
 #: lms/templates/word_cloud.html:40
 msgid "Save"
 msgstr "שמור"
+
+#: cms/templates/maintenance/_announcement_index.html:42
+msgid "Create New"
+msgstr "צור חדש"
 
 #: cms/templates/maintenance/_announcement_index.html:47
 msgid "previous"
@@ -10890,12 +11148,25 @@ msgstr "הקודם"
 msgid "next"
 msgstr "הבא"
 
+#: cms/templates/maintenance/_force_publish_course.html:17
+msgid "course-v1:edX+DemoX+Demo_Course"
+msgstr "course-v1:edX+DemoX+Demo_Course"
+
 #: cms/templates/maintenance/_force_publish_course.html:27
 #: lms/templates/problem.html:45
 #: openedx/core/djangoapps/dark_lang/templates/dark_lang/preview-language-fragment.html:33
 #: openedx/core/djangoapps/theming/templates/theming/theming-admin-fragment.html:41
 msgid "Reset"
 msgstr "אתחל"
+
+#: cms/templates/maintenance/_force_publish_course.html:28
+msgid "Reset values"
+msgstr "אפס ערכים"
+
+#: cms/templates/maintenance/base.html:14
+#: cms/templates/maintenance/index.html:8
+msgid "Maintenance Dashboard"
+msgstr "לוח בקרה של התחזוקה"
 
 #: cms/templates/registration/activation_complete.html:22
 msgid "Thanks for activating your account."
@@ -12741,6 +13012,101 @@ msgid ""
 "technical support."
 msgstr "אם כל המידע נכון והבעיה ממשיכה, צור קשר עם התמיכה הטכנית."
 
+#: lms/templates/course_modes/choose.html:93
+msgid "Pursue Academic Credit with a Verified Certificate"
+msgstr "השג נקודות זכות אקדמיות עם תעודה מאומתת"
+
+#: lms/templates/course_modes/choose.html:102
+#: lms/templates/course_modes/choose.html:144
+msgid "Benefits of the Verified Track"
+msgstr "היתרונות של המסלול המאומת"
+
+#: lms/templates/course_modes/choose.html:104
+#: lms/templates/course_modes/choose.html:116
+msgid ""
+"{b_start}Eligible for credit:{b_end} Receive academic credit after "
+"successfully completing the course"
+msgstr ""
+"{b_start}זכאי לנקודת זכות{b_end}: קבל נקודת זכות אקדמית עבור השלמה בהצלחה של"
+" הקורס."
+
+#: lms/templates/course_modes/choose.html:106
+#: lms/templates/course_modes/choose.html:147
+msgid ""
+"{b_start}Unlimited Course Access: {b_end}Learn at your own pace, and access "
+"materials anytime to brush up on what you've learned."
+msgstr ""
+"{b_start}גישה בלתי מוגבלת לקורסים: {b_end}למדו בקצב שלכם, וגשו לחומרים בכל "
+"עת כדי לרענן את מה שלמדתם."
+
+#: lms/templates/course_modes/choose.html:114
+#: lms/templates/course_modes/choose.html:155
+msgid "Benefits of a Verified Certificate"
+msgstr "יתרונותיה של תעודה מאומתת"
+
+#: lms/templates/course_modes/choose.html:117
+msgid ""
+"{b_start}Official:{b_end} Receive an instructor-signed certificate with the "
+"institution's logo"
+msgstr "{b_start}רשמי:{b_end} קבל תעודה חתומה בידי מדריך עם סמל המוסד"
+
+#: lms/templates/course_modes/choose.html:118
+msgid ""
+"{b_start}Easily shareable:{b_end} Add the certificate to your CV or resumé, "
+"or post it directly on LinkedIn"
+msgstr ""
+"{b_start}קל לשיתוף:{b_end} הוסף את התעודה לקורות חייך או פוסט אותה ישירות "
+"ב-LinkedIn"
+
+#: lms/templates/course_modes/choose.html:139
+msgid ""
+"Highlight your new knowledge and skills with a verified certificate. Use "
+"this valuable credential to improve your job prospects and advance your "
+"career, or highlight your certificate in school applications."
+msgstr ""
+"הדגש את הידע והכישורים החדשים באמצעות תעודת אימות. השתמש בהרשאה יקרת ערך זו "
+"על מנת לשפר את סיכוייך למצוא עבודה, לקדם את הקריירה שלך או להדגיש את התעודה "
+"בהגשותיך לבתי הספר."
+
+#: lms/templates/course_modes/choose.html:157
+msgid ""
+"{b_start}Official: {b_end}Receive an instructor-signed certificate with the "
+"institution's logo"
+msgstr "{b_start}רשמי:{b_end} קבל תעודה חתומה בידי מדריך עם סמל המוסד"
+
+#: lms/templates/course_modes/choose.html:158
+msgid ""
+"{b_start}Easily shareable: {b_end}Add the certificate to your CV or resumé, "
+"or post it directly on LinkedIn"
+msgstr ""
+"{b_start}קל לשיתוף: {b_end}הוסף את התעודה לקורות חייך או פוסט אותה ישירות "
+"ב-LinkedIn"
+
+#: lms/templates/course_modes/choose.html:159
+msgid ""
+"{b_start}Motivating: {b_end}Give yourself an additional incentive to "
+"complete the course"
+msgstr "{b_start}מעודד הנעה: {b_end}הענק לעצמך תמריץ נוסף להשלים את הקורס"
+
+#: lms/templates/course_modes/choose.html:186
+msgid ""
+"Audit this course for free and have complete access to all the course "
+"material, activities, tests, and forums."
+msgstr ""
+"האזן את הקורס הזה בחינם ותוכל לגשת לכל חומרי הקורס, הפעילויות, המבחנים "
+"והפורומים."
+
+#: lms/templates/course_modes/choose.html:214
+msgid ""
+"Audit this course for free and have complete access to all the course "
+"material, activities, tests, and forums.  {b_start}Please note that this "
+"track does not offer a certificate for learners who earn a passing "
+"grade.{b_end}"
+msgstr ""
+"האזן לקורס הזה בחינם ותוכל לגשת לכל חומרי הקורס, הפעילויות, המבחנים "
+"והפורומים.  {b_start}שים לב שמסלול זה אינו מציע תעודה לתלמידים שיקבלו ציון "
+"עובר.{b_end}"
+
 #: lms/templates/courseware/accordion.html:13
 msgid "{chapter} current chapter"
 msgstr "{chapter} פרק נוכחי"
@@ -13760,6 +14126,16 @@ msgid ""
 msgstr ""
 "edX מחויבת להקל עליך לקחת קורסים באיכות גבוהה ממוסדות מובילים ללא קשר למצבך "
 "הכספי, להרוויח תעודה מאומתת ולשתף את הצלחתך עם אחרים."
+
+#. Translators: This string will not be used in Open edX installations. Do not
+#. translate the name "Anant".
+#: lms/templates/financial-assistance/financial-assistance.html:39
+msgid "Sincerely,"
+msgstr "בכבוד רב,"
+
+#: lms/templates/financial-assistance/financial-assistance.html:40
+msgid "Anant"
+msgstr "אננט"
 
 #: lms/templates/financial-assistance/financial-assistance.html:47
 msgid "Apply for Financial Assistance"
