@@ -18,7 +18,7 @@ fi
 list_transifex_commits_with_failed_checks() {
     # List the Transifex bot pull requests which have failed the tests
     # Print their head-commit hashes
-    gh pr list -L"${MAX_PULL_REQUESTS_TO_RESTART:-1000}" \
+    gh pr list -L"${MAX_PULL_REQUESTS:-1000}" \
 	     --search "is:open Updates for file translations/ Transifex Event" \
 	     --json=number,headRefName,headRefOid --jq='.[].headRefOid'
 }
@@ -33,6 +33,6 @@ retry_commit_workflow() {
 }
 
 
-for pull_request_number in $(list_transifex_commits_with_failed_checks); do
-    retry_commit_workflow $pull_request_number;
+for pull_request_commit_sha in $(list_transifex_commits_with_failed_checks); do
+    retry_commit_workflow $pull_request_commit_sha;
 done
