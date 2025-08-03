@@ -26,8 +26,8 @@
 # Omar Al-Ithawi <i@omardo.com>, 2024
 # Wu SiMin, 2024
 # Lu Luo Heng, 2024
-# Brian Smith, 2024
 # edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2025
+# Brian Smith, 2025
 # 
 #, fuzzy
 msgid ""
@@ -36,7 +36,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-08-03 04:14+0000\n"
 "PO-Revision-Date: 2023-11-20 11:35+0000\n"
-"Last-Translator: edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2025\n"
+"Last-Translator: Brian Smith, 2025\n"
 "Language-Team: Chinese (Hong Kong) (https://app.transifex.com/open-edx/teams/6205/zh_HK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4679,6 +4679,13 @@ msgstr "課程沒有有效的入學考試章節。"
 msgid "All Students"
 msgstr "全體學生"
 
+#: lms/djangoapps/instructor/views/api.py:2243
+#, python-brace-format
+msgid ""
+"User {user_id} does not have permission to override scores for problem "
+"{problem_to_reset}."
+msgstr "用戶 {user_id} 沒有權限覆蓋問題 {problem_to_reset} 的分數。"
+
 #: lms/djangoapps/instructor/views/api.py:2320
 msgid "Cannot rescore with all_students and unique_student_identifier."
 msgstr "無法使用 all_students 和 unique_student_identifier 重新評分。"
@@ -5040,6 +5047,10 @@ msgstr "角色名稱"
 #: lms/djangoapps/instructor/views/serializer.py:99
 msgid "Invalid role name."
 msgstr "角色名稱無效。"
+
+#: lms/djangoapps/instructor/views/serializer.py:508
+msgid "The overriding score to set."
+msgstr "設定要覆蓋的分數。"
 
 #: lms/djangoapps/instructor/views/tools.py:79
 #, python-brace-format
@@ -8029,10 +8040,9 @@ msgid ""
 "<{strong}>{author_name}</{strong}> response in a post you’re following "
 "<{strong}>{post_title}</{strong}></{p}>"
 msgstr ""
-"&lt; {p} &gt;&lt; {strong} &gt; {replier_name} </ {strong} &gt; 評論了 &lt; "
-"<span class='notranslate'>{strong} &gt; {author_name} </ {strong} &gt; "
-"在您關注的貼文中回覆 &lt; <span class='notranslate'>{strong} &gt; {post_title} </<span"
-" class='notranslate'> {strong} &gt; </<span class='notranslate'> {p} &gt;"
+"<{p}><{strong}>{replier_name}</{strong}> 評論了 "
+"<{strong}>{author_name}</{strong}> 在您關注的貼文中回覆 "
+"<{strong}>{post_title}</{strong}></{p}>"
 
 #: openedx/core/djangoapps/notifications/base_notification.py:135
 #, python-brace-format
@@ -8048,26 +8058,20 @@ msgid ""
 "<{p}><{strong}>{replier_name}'s</{strong}> response has been endorsed in "
 "your post <{strong}>{post_title}</{strong}></{p}>"
 msgstr ""
-"&lt; {p} &gt;&lt; {strong} &gt; {replier_name}的</ {strong} &gt; "
-"回覆已在您的帖子中得到認可 &lt; <span class='notranslate'>{strong} &gt; {post_title} "
-"</<span class='notranslate'> {strong} &gt; </<span class='notranslate'> {p} "
-"&gt;"
+"<{p}><{strong}>{replier_name}的</{strong}> 回覆已在您的帖子中得到認可 "
+"<{strong}>{post_title}</{strong}></{p}>"
 
 #: openedx/core/djangoapps/notifications/base_notification.py:167
 #, python-brace-format
 msgid ""
 "<{p}>Your response has been endorsed on the post "
 "<{strong}>{post_title}</{strong}></{p}>"
-msgstr ""
-"&lt; {p} &gt;您的回覆已在帖子 &lt; {strong} &gt; {post_title}上得到認可</<span "
-"class='notranslate'> {strong} &gt; </<span class='notranslate'> {p} &gt;"
+msgstr "<{p}>您的回覆已在帖子 <{strong}>{post_title}</{strong}></{p}>"
 
 #: openedx/core/djangoapps/notifications/base_notification.py:185
 #, python-brace-format
 msgid "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
-msgstr ""
-"&lt; {p} &gt;&lt; {strong} &gt; {course_update_content} </<span "
-"class='notranslate'> {strong} &gt; </<span class='notranslate'> {p} &gt;"
+msgstr "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
 
 #: openedx/core/djangoapps/notifications/base_notification.py:223
 #, python-brace-format
@@ -8075,9 +8079,8 @@ msgid ""
 "<{p}>You have received {points_earned} out of {points_possible} on your "
 "assessment: <{strong}>{ora_name}</{strong}></{p}>"
 msgstr ""
-"&lt; {p} &gt;您的評估已從{points_possible}收到{points_earned} ：&lt; {strong} &gt; "
-"{ora_name} </<span class='notranslate'> {strong} &gt; </<span "
-"class='notranslate'> {p} &gt;"
+"<{p}>您的評估已從{points_possible}收到{points_earned} "
+"：<{strong}>{ora_name}</{strong}></{p}>"
 
 #: openedx/core/djangoapps/notifications/base_notification.py:276
 msgid ""
@@ -11666,7 +11669,7 @@ msgstr "最低{drop_count} {section_type}分的科目會被退課。"
 #: xmodule/graders.py:433
 #, python-brace-format
 msgid "{section_type} Average = {percent:.2%}"
-msgstr "{section_type} 平均值 = {百分比:.2%}"
+msgstr "{section_type} 平均值 = {percent:.2%}"
 
 #. Translators: Avg is short for Average
 #: xmodule/graders.py:438
