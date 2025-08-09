@@ -22,11 +22,16 @@ translations_scripts_requirements:  ## Installs the requirements file
 	pip install -q -r requirements/translations.txt
 
 fix_transifex_resource_names:  ## Runs the script on the TRANSIFEX_PROJECT_SLUG project
-	python scripts/fix_transifex_resource_names.py
+	python scripts/fix_transifex_resource_names.py --tx-project-slug=$(TRANSIFEX_PROJECT_SLUG)
 
-fix_transifex_resource_names_dry_run:  ## Runs the script in --dry-run mode on the TRANSIFEX_PROJECT_SLUG project
-	python scripts/fix_transifex_resource_names.py --dry-run
+fix_dry_run_transifex_resource_names:  ## Runs the script in --dry-run mode on the TRANSIFEX_PROJECT_SLUG project
+	python scripts/fix_transifex_resource_names.py --dry-run --tx-project-slug=$(TRANSIFEX_PROJECT_SLUG)
 
+fix_force_suffix_transifex_resource_names:  ## Runs the script on the TRANSIFEX_PROJECT_SLUG project with --force-suffix
+	python scripts/fix_transifex_resource_names.py --force-suffix --tx-project-slug=$(TRANSIFEX_PROJECT_SLUG)
+
+fix_force_suffix_dry_run_transifex_resource_names:  ## Runs the script in --dry-run mode on the TRANSIFEX_PROJECT_SLUG project with --force-suffix
+	python scripts/fix_transifex_resource_names.py --force-suffix --dry-run --tx-project-slug=$(TRANSIFEX_PROJECT_SLUG)
 
 test_requirements:  ## Installs test.txt requirements
 	pip install -q -r requirements/test.txt

@@ -1,8 +1,7 @@
 """
-Set the openedx-translations to readable resource names and slugs:
+Set the Transifex projects resources to have readable resource names and slugs:
 
 Run via `$ make fix_transifex_resource_names`.
-
 
 Transifex sets resource slug names and slugs to a long name which makes it unreadable by translators .e.g.
  - "translations..frontend-app-something..src-i18n-transifex-input--main"
@@ -16,48 +15,68 @@ This script infer the resource name in two ways:
  - ["github#repository:openedx/openedx-translations#branch:main#path:translations/my-xblock/openassessment/conf/locale/en/LC_MESSAGES/djangojs.po"]
    would result in "my-xblock-js" as resource name.
 
+
 Slugs are even worse, sometimes they're also the lengthy while other times they're just hashes e.g.
  - "b8933764bdb3063ca09d6aa20341102f"
 
-This script updates slugs to be like names.
+Slug deduplication: Slugs are used by internal Transifex applications, so this script adds a random suffix to avoid slug collisions across projects.
 
 Transifex Python API docs: https://github.com/transifex/transifex-python/blob/devel/transifex/api/README.md
 """
 
+import argparse
 import configparser
 import re
 import sys
+import random
+import string
 from os import getenv
 from os.path import expanduser
 
 from slugify import slugify
 from transifex.api import transifex_api
 
+# Use random suffix to avoid slug collisions across projects
+# See the AI Transifex translations postmortem for more details:
+#   - https://github.com/openedx/openedx-translations/issues/41695
+RESOURCE_SLUG_REGEXP = re.compile(r'^[a-z0-9-]*-r[0-9]{6}$')
 
-def is_dry_run():
-    """
-    Check if the script is running in debug mode.
-    """
-    return '--dry-run' in sys.argv
+# Slugs are just hashes (e.g. "b8933764bdb3063ca09d6aa20341102f") should be made readable
+RESOURCE_SLUG_IS_JUST_HASH_REGEXP = re.compile(r'^[a-z0-9]{32}$')
 
 
-def get_transifex_project_slug():
+def parse_arguments():
     """
-    Get Transifex project slug e.g. openedx-translations or openedx-translations-<release-name>.
+    Parse command line arguments.
     """
-    slug = getenv('TRANSIFEX_PROJECT_SLUG')
-    if not slug:
-        raise RuntimeError(
-            'Error: Cannot determine Transifex project slug. Set `TRANSIFEX_PROJECT_SLUG` environment variable to '
-            '"openedx-translations" or "openedx-translations-<release-name>". '
+    parser = argparse.ArgumentParser(
+        description=f'Update Transifex resource names and slugs to be more readable. \n {__doc__}',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument(
+        '--dry-run',
+        action='store_true',
+        help='Run in dry-run mode without making any changes'
+    )
+    parser.add_argument(
+        '--force-suffix',
+        action='store_true',
+        help='Force suffix to be added to the resource Transifex slug'
+    )
+    parser.add_argument(
+        '--tx-project-slug',
+        dest='tx_project_slug',
+        required=True,
+        help=(
+            'Transifex project slug e.g. "openedx-translations" or "openedx-translations-<release-name>"'
             'List of Open edX releases are available in the following page: '
             'https://openedx.atlassian.net/wiki/spaces/OEPM/pages/4191191044/Open+edX+Releases+Homepage'
-        )
+        ),
+    )
+    return parser.parse_args()
 
-    return slug
 
-
-def get_transifex_project():
+def get_transifex_project(tx_project_slug):
     """
     Get the translations project object from Transifex.
     """
@@ -76,10 +95,17 @@ def get_transifex_project():
     transifex_api.setup(auth=transifex_api_token)
 
     openedx_org = transifex_api.Organization.get(slug='open-edx')
-    return openedx_org.fetch('projects').get(slug=get_transifex_project_slug())
+    return openedx_org.fetch('projects').get(slug=tx_project_slug)
 
 
-def get_repo_slug_from_resource(resource):
+def generate_short_random_suffix(length=6):
+    return ''.join(random.choice(string.digits) for i in range(length))
+
+
+def get_repo_name_from_resource(resource):
+    """
+    Get a human-readable resource name from the resource categories and file path.
+    """
     if resource.categories:
         github_repo_categories = [
             category for category in resource.categories if 'github#repository' in category
@@ -113,15 +139,39 @@ def get_repo_slug_from_resource(resource):
                     return new_name
 
 
-def main(argv):
-    if '--help' in argv:
-        # Print help document.
-        print(__doc__)
-        return
+def get_repo_slug_from_resource(resource):
+    """
+    Get a unique human-readable resource slug from the resource name and categories.
+    """
+    clean_non_unique_current_name = None
+    if resource.slug == resource.name.lower():
+        if not RESOURCE_SLUG_REGEXP.match(resource.name):
+            # Resource has a clean name, but not unique
+            clean_non_unique_current_name = resource.name
 
-    print(f'Updating "{get_transifex_project_slug()}" project resource and slug names:')
+    new_name = get_repo_name_from_resource(resource)
+    if new_name:
+        if RESOURCE_SLUG_REGEXP.match(new_name):
+            return new_name
+        else:
+            return f'{new_name}-r{generate_short_random_suffix()}'
+    elif clean_non_unique_current_name:
+        return f'{clean_non_unique_current_name}-r{generate_short_random_suffix()}'
 
-    openedx_translations_proj = get_transifex_project()
+
+def main():
+    args = parse_arguments()
+
+    try:
+        project_slug = args.tx_project_slug
+        print(f'Updating "{project_slug}" project resource and slug names:')
+        if args.dry_run:
+            print('Running in dry-run mode. No changes will be made.')
+    except Exception as e:
+        print(f'Error: {e}', file=sys.stderr)
+        return 1
+
+    openedx_translations_proj = get_transifex_project(project_slug)
     for resource in openedx_translations_proj.fetch('resources'):
         print('------------')
         print('Updating:')
@@ -130,32 +180,39 @@ def main(argv):
         print('Resource name:', resource.name)
         print('Resource categories:', ', '.join(resource.categories))
 
-        new_name = get_repo_slug_from_resource(resource)
+        new_name = get_repo_name_from_resource(resource)
         new_slug = get_repo_slug_from_resource(resource)
 
         if resource.name.startswith('translations..'):
             if new_name and resource.name != new_name:
                 resource.name = new_name
-                if is_dry_run():
-                    print(f'\n### Saving new name "{new_name}" (dry-run) ###', '\n')
+                if args.dry_run:
+                    print(f'\n### Would save new name "{new_name}" (dry-run) ###', '\n')
                 else:
                     print(f'\n### Saving new name "{new_name}" ###', '\n')
                     resource.save('name')
             else:
                 print(f'Error: Unrecognized slug pattern or categories to infer resource resource name from.')
 
-        if re.match('^[a-z0-9]{32}$', resource.slug) or resource.slug.startswith('translations-'):
-            if new_slug and resource.slug != new_slug:
-                resource.slug = new_slug
-                if is_dry_run():
-                    print(f'\n### Saving new slug "{new_slug}" (dry-run) ###', '\n')
-                else:
-                    print(f'\n### Saving new slug "{new_slug}" ###', '\n')
-                    try:
-                        resource.save('slug')
-                    except Exception as e:
-                        # Slug is unique, so if it already exists, we get an error.
-                        print(f'Error: {e}')
+        force_slug = not RESOURCE_SLUG_REGEXP.match(resource.slug) and args.force_suffix
+        if (
+            RESOURCE_SLUG_IS_JUST_HASH_REGEXP.match(resource.slug)
+            or resource.slug.startswith('translations-')
+            or force_slug
+        ):
+            if new_slug:
+                force_slug_note = ' (force suffix)' if force_slug else ''
+                if resource.slug != new_slug:
+                    resource.slug = new_slug
+                    if args.dry_run:
+                        print(f'\n### Would save new slug "{new_slug}"{force_slug_note} (dry-run) ###', '\n')
+                    else:
+                        print(f'\n### Saving new slug "{new_slug}"{force_slug_note} ###', '\n')
+                        try:
+                            resource.save('slug')
+                        except Exception as e:
+                            # Slug is unique, so if it already exists, we get an error.
+                            print(f'Error: {e}')
             else:
                 print(f'Error: Unrecognized slug pattern or categories to infer resource slug from.')
 
@@ -164,4 +221,5 @@ def main(argv):
 
 
 if __name__ == '__main__':
-    main(sys.argv[1:])
+    main()
+
