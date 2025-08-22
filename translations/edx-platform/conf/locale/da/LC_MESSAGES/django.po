@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-08-19 00:42+0000\n"
+"POT-Creation-Date: 2025-08-22 00:39+0000\n"
 "PO-Revision-Date: 2023-11-20 11:35+0000\n"
 "Last-Translator: Brian Smith, 2025\n"
 "Language-Team: Danish (https://app.transifex.com/open-edx/teams/6205/da/)\n"
@@ -45,8 +45,8 @@ msgstr ""
 #: cms/djangoapps/contentstore/helpers.py:212
 #: lms/djangoapps/instructor/views/tools.py:241
 #: lms/djangoapps/instructor/views/tools.py:253 xmodule/unit_block.py:41
-#: lms/templates/ccx/schedule.html:94 lms/templates/seq_block.html:89
-#: lms/templates/seq_block.html:97
+#: lms/templates/ccx/schedule.html:94 lms/templates/seq_block.html:106
+#: lms/templates/seq_block.html:114
 msgid "Unit"
 msgstr "Enhed"
 
@@ -54,6 +54,14 @@ msgstr "Enhed"
 #: cms/djangoapps/contentstore/views/component.py:283
 msgid "Problem"
 msgstr "Opgave"
+
+#: cms/djangoapps/contentstore/models.py:180
+msgid "The component must be published to access `published_at`"
+msgstr "Komponenten skal offentliggøres for at få adgang til `published_at`"
+
+#: cms/djangoapps/contentstore/models.py:351
+msgid "The container must be published to access `published_at`"
+msgstr "Beholderen skal offentliggøres for at få adgang til `published_at`"
 
 #. #-#-#-#-#  django.po (0.1a)  #-#-#-#-#
 #. Translators: This is listed as the duration for a video that has not
@@ -65,7 +73,7 @@ msgstr "Opgave"
 msgid "Pending"
 msgstr "Afventer"
 
-#: cms/djangoapps/contentstore/models.py:538 lms/templates/seq_block.html:76
+#: cms/djangoapps/contentstore/models.py:538 lms/templates/seq_block.html:93
 #: lms/templates/vert_module.html:28
 msgid "Completed"
 msgstr "Fuldført"
@@ -169,6 +177,10 @@ msgstr "Ugyldige data"
 #, python-brace-format
 msgid "Invalid data ({details})"
 msgstr "Ugyldige data ( {details} )"
+
+#: cms/lib/xblock/upstream_sync.py:257
+msgid "Linked `upstream_key` is not a valid key"
+msgstr "Den tilknyttede `upstream_key` er ikke en gyldig nøgle"
 
 #: cms/templates/admin/base_site.html:4 lms/templates/admin/base_site.html:3
 msgid "Django site admin"
@@ -2727,23 +2739,23 @@ msgstr ""
 msgid "Course is full"
 msgstr "Kurset er overtegnet"
 
-#: lms/djangoapps/course_home_api/outline/views.py:640
+#: lms/djangoapps/course_home_api/outline/views.py:654
 msgid "'course_id' is required."
 msgstr "'course_id' er påkrævet."
 
-#: lms/djangoapps/course_home_api/outline/views.py:644
+#: lms/djangoapps/course_home_api/outline/views.py:658
 msgid "Only 'course_id' is expected."
 msgstr "Kun 'course_id' forventes."
 
-#: lms/djangoapps/course_home_api/outline/views.py:650
+#: lms/djangoapps/course_home_api/outline/views.py:664
 msgid "Welcome message successfully dismissed."
 msgstr "Velkomstbeskeden blev afvist."
 
-#: lms/djangoapps/course_home_api/outline/views.py:680
+#: lms/djangoapps/course_home_api/outline/views.py:694
 msgid "Your course goal has been successfully set."
 msgstr "Dit kursusmål er blevet sat."
 
-#: lms/djangoapps/course_home_api/outline/views.py:681
+#: lms/djangoapps/course_home_api/outline/views.py:695
 msgid "Course goal updated successfully."
 msgstr "Kursusmål blev opdateret."
 
@@ -6723,7 +6735,7 @@ msgstr "Standardgruppe"
 msgid "You cannot create two cohorts with the same name"
 msgstr "Du kan ikke danne to grupper med det samme navn"
 
-#: openedx/core/djangoapps/course_groups/cohorts.py:549
+#: openedx/core/djangoapps/course_groups/cohorts.py:553
 msgid ""
 "There must be one cohort to which students can automatically be assigned."
 msgstr ""
@@ -13738,7 +13750,7 @@ msgstr ""
 "igen snart!"
 
 #: lms/templates/_gated_content.html:11 lms/templates/_gated_content.html:15
-#: lms/templates/seq_block.html:43 lms/templates/seq_block.html:110
+#: lms/templates/seq_block.html:60 lms/templates/seq_block.html:130
 msgid "Content Locked"
 msgstr "Indhold låst"
 
@@ -13767,7 +13779,7 @@ msgstr "Støttede diskussioner"
 msgid "Hide Annotations"
 msgstr "Skjul bemærkninger"
 
-#: lms/templates/bookmark_button.html:13 lms/templates/seq_block.html:82
+#: lms/templates/bookmark_button.html:13 lms/templates/seq_block.html:99
 msgid "Bookmarked"
 msgstr "Bogmærke"
 
@@ -14354,23 +14366,23 @@ msgstr ""
 "Din sekundære e-mail er blevet aktiveret. Besøg {link_start}dashboard "
 "{link_end} for kurser."
 
-#: lms/templates/seq_block.html:18
+#: lms/templates/seq_block.html:35
 msgid "Important!"
 msgstr "Vigtig!"
 
 #. Translators: A button for showing the Previous Unit
-#: lms/templates/seq_block.html:32 lms/templates/seq_block.html:140
+#: lms/templates/seq_block.html:49 lms/templates/seq_block.html:160
 msgctxt "unit"
 msgid "Previous"
 msgstr "Tidligere"
 
 #. Translators: A button for showing the Next Unit
-#: lms/templates/seq_block.html:36 lms/templates/seq_block.html:144
+#: lms/templates/seq_block.html:53 lms/templates/seq_block.html:164
 msgctxt "unit"
 msgid "Next"
 msgstr "Næste"
 
-#: lms/templates/seq_block.html:39
+#: lms/templates/seq_block.html:56
 msgid "Sequence"
 msgstr "Sekvens"
 
