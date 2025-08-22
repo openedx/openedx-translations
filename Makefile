@@ -2,8 +2,8 @@
 validate_translation_files test_requirements test fix_transifex_resource_names_dry_run \
 retry_merge_transifex_bot_pull_requests
 
-# Default project to work on. Override to release project e.g. `openedx-translations-redwood` when cutting a release.
-export TRANSIFEX_PROJECT_SLUG := openedx-translations
+# Default release/project to work on. Override to release project e.g. `zebrawood` when cutting a release.
+export RELEASE := main
 
 piptools:
 	pip install -q -r requirements/pip_tools.txt
@@ -21,12 +21,17 @@ upgrade: piptools  ## update the requirements/*.txt files with the latest packag
 translations_scripts_requirements:  ## Installs the requirements file
 	pip install -q -r requirements/translations.txt
 
-fix_transifex_resource_names:  ## Runs the script on the TRANSIFEX_PROJECT_SLUG project
-	python scripts/fix_transifex_resource_names.py
+fix_transifex_resource_names:  ## Runs the script on the RELEASE project
+	python scripts/fix_transifex_resource_names.py --release=$(RELEASE)
 
-fix_transifex_resource_names_dry_run:  ## Runs the script in --dry-run mode on the TRANSIFEX_PROJECT_SLUG project
-	python scripts/fix_transifex_resource_names.py --dry-run
+fix_dry_run_transifex_resource_names:  ## Runs the script in --dry-run mode on the RELEASE project
+	python scripts/fix_transifex_resource_names.py --dry-run --release=$(RELEASE)
 
+fix_force_suffix_transifex_resource_names:  ## Runs the script on the RELEASE project with --force-suffix
+	python scripts/fix_transifex_resource_names.py --force-suffix --release=$(RELEASE)
+
+fix_force_suffix_dry_run_transifex_resource_names:  ## Runs the script in --dry-run mode on the RELEASE project with --force-suffix
+	python scripts/fix_transifex_resource_names.py --force-suffix --dry-run --release=$(RELEASE)
 
 test_requirements:  ## Installs test.txt requirements
 	pip install -q -r requirements/test.txt
