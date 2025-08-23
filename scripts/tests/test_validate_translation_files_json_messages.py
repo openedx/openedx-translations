@@ -27,22 +27,23 @@ def raise_exceptions_during_testing(monkeypatch):
     monkeypatch.setattr(validate_translation_files_module, 'format_exception', mock_format_exception)
 
 
-def _validate_spanish_message(key, en_message, es_message):
+def _validate_message(key, source, translation, target_locale='es'):
     """
-    Validates a Spanish message against English source.
+    Validates one message against English source.
 
     Args:
         key: The message key/id
-        en_message: English source message
-        es_message: Spanish translated message
+        source: English source message
+        translation: Spanish translated message
+        target_locale: The locale to be validated for.
 
     Returns:
         ValidationResult: Result of validation with is_valid and output
     """
     return validate_json_translation_messages(
-        en_messages={key: en_message},
-        target_locale='es',
-        target_messages={key: es_message},
+        en_messages={key: source},
+        target_locale=target_locale,
+        target_messages={key: translation},
     )
 
 
@@ -58,13 +59,13 @@ def test_valid_json_message():
 
 def test_missing_variables_in_translation():
     """Test that missing variables in translation are detected."""
-    result = _validate_spanish_message(
+    result = _validate_message(
         key="welcome",
-        en_message="Hello {username}, welcome to {appName}!",
-        es_message="¡Hola, bienvenido!"  # Missing both {username} and {appName}
+        source="Hello {username}, welcome to {appName}!",
+        translation="¡Hola, bienvenido!"  # Missing both {username} and {appName}
     )
 
-    assert not result.is_valid
+    assert not result.is_valid, f"Should be invalid: {result.output}"
     assert "Placeholder validation failed for 'es' -> 'welcome'" in result.output
     assert "source has ['appName', 'username']" in result.output
     assert "target has []" in result.output
@@ -72,13 +73,13 @@ def test_missing_variables_in_translation():
 
 def test_extra_variables_in_translation():
     """Test that extra variables in translation are detected."""
-    result = _validate_spanish_message(
+    result = _validate_message(
         key="simple_message",
-        en_message="Welcome to our app!",
-        es_message="¡Benvenuto {appType} app!",  # Added extra {appType}
+        source="Welcome to our app!",
+        translation="¡Benvenuto {appType} app!",  # Added extra {appType}
     )
 
-    assert not result.is_valid
+    assert not result.is_valid, f"Should be invalid: {result.output}"
     assert "Placeholder validation failed for 'es' -> 'simple_message'" in result.output
     assert "source has []" in result.output
     assert "target has ['appType']" in result.output
@@ -86,13 +87,13 @@ def test_extra_variables_in_translation():
 
 def test_case_sensitive_variable_names():
     """Test that variable names are case-sensitive."""
-    result = _validate_spanish_message(
+    result = _validate_message(
         key="profile",
-        en_message="Hello {UserName}!",
-        es_message="¡Hola {username}!",  # Changed case: UserName → username
+        source="Hello {UserName}!",
+        translation="¡Hola {username}!",  # Changed case: UserName → username
     )
 
-    assert not result.is_valid
+    assert not result.is_valid, f"Should be invalid: {result.output}"
     assert "Placeholder validation failed for 'es' -> 'profile'" in result.output
     assert "source has ['UserName']" in result.output
     assert "target has ['username']" in result.output
@@ -100,10 +101,10 @@ def test_case_sensitive_variable_names():
 
 def test_valid_variables_with_complex_message():
     """Test that correctly translated variables in complex messages are valid."""
-    result = _validate_spanish_message(
+    result = _validate_message(
         key="complex",
-        en_message="Hi {name}, you have {count, plural, one {# message} other {# messages}} from {sender}",
-        es_message="¡Hola {name}, you have {count, plural, one {# message} other {# messages}} en {sender}",
+        source="Hi {name}, you have {count, plural, one {# message} other {# messages}} from {sender}",
+        translation="¡Hola {name}, you have {count, plural, one {# message} other {# messages}} en {sender}",
     )
 
     assert result.is_valid, f"Should be valid: {result.output}"
@@ -111,13 +112,13 @@ def test_valid_variables_with_complex_message():
 
 def test_missing_plural_hash_sign():
     """Test that missing # are spotted as invalid."""
-    result = _validate_spanish_message(
+    result = _validate_message(
         key="complex",
-        en_message="Hi {name}, you have {count, plural, one {# message} other {# messages}} from {sender}",
-        es_message="¡Hola {name}, you have {count, plural, one {one message} other {several messages}} en {sender}",
+        source="Hi {name}, you have {count, plural, one {# message} other {# messages}} from {sender}",
+        translation="¡Hola {name}, you have {count, plural, one {one message} other {several messages}} en {sender}",
     )
 
-    assert not result.is_valid, f"Should be valid: {result.output}"
+    assert not result.is_valid, f"Should be invalid: {result.output}"
     assert "source has ['#', 'count', 'name', 'sender']" in result.output
     assert "target has ['count', 'name', 'sender', 'several']" in result.output
 
@@ -127,8 +128,26 @@ def test_mixed_invalid_subtle_translation_issues():
     Throws parsing errors when using the ICU parser.
     """
     with pytest.raises(icu.ICUError, match='Syntax error in format pattern'):
-        _validate_spanish_message(
+        _validate_message(
             key="invalid_msg",
-            en_message="Remove member{memberCount, plural, one {} other {s}}?",
-            es_message="Vai noņemt dalībnieku{memberCount, daudzskaitlī, vēl vienu {} citu {s}}?"  # Causes parsing errors
+            source="Remove member{memberCount, plural, one {} other {s}}?",
+            # Causes parsing errors
+            translation="Vai noņemt dalībnieku{memberCount, daudzskaitlī, vēl vienu {} citu {s}}?"
         )
+
+
+def test_valid_polish_singular_icu_message():
+    """
+    Ensure valid plurals accounting for cases where `one room` is used instead of `# room`.
+
+    This is useful in cases the number placeholder (#) is not needed.
+    """
+    result = _validate_message(
+        key="valid_plurals",
+        target_locale='pl',
+        source="You have booked {bookedRooms, plural, one {one room}, other {# rooms}} for {stayDate, date, medium}",
+        translation=(
+            "Zarezerwowałeś {bookedRooms, plural, one {jeden pokój}, few {# pokoje}, other {# pokoi}} na {stayDate, date, medium}"  # noqa
+        )
+    )
+    assert result.is_valid, f"Should be valid: {result.output}"
