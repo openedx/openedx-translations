@@ -136,7 +136,7 @@ def test_mixed_invalid_subtle_translation_issues():
         )
 
 
-def test_valid_singular_icu_message():
+def test_valid_complex_plural_icu_message():
     """
     Ensure valid plurals accounting for cases where `one room` is used instead of `# room`.
 
