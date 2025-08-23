@@ -96,7 +96,6 @@ def _extract_placeholder_names_from_pattern(message):
 
     # Iterate through pattern parts to find arguments
     for i in range(pattern.countParts()):
-        part = pattern.getPart(i)
         part_type = pattern.getPartType(i)
 
         # ARG_START indicates the beginning of an argument/placeholder
