@@ -148,6 +148,20 @@ def test_valid_omitting_of_hash_sign_in_singular_form():
     assert result.is_valid, f"Should be valid: {result.output}"
 
 
+def test_valid_hash_sign_configuration():
+    """
+    Another acceptable form of omitting a # sign in singular form.
+
+    This is to ensure the validation is not too strict.
+    """
+    result = _validate_message(
+        key="valid_plurals",
+        source="Hello normal # sign.",
+        translation="Hola # sign.",
+    )
+    assert result.is_valid, f"Should be valid: {result.output}"
+
+
 def test_mixed_invalid_subtle_translation_issues():
     """
     Throws parsing errors when using the ICU parser.

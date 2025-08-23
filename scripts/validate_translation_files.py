@@ -119,7 +119,8 @@ def _extract_placeholder_names_from_pattern(message):
     # in the plural formats.
     # This prevents a more creative use of the plurals, but catches errors in which # are complete
     # forgotten.
-    if '#' in message:
+    if '#' in message and 'other' in message and ('plural' in message or 'selectordinal' in message):
+        # This check isn't very strict, but it's okay'ish
         placeholders.add('#')
 
     return placeholders
@@ -184,11 +185,6 @@ def validate_json_translation_messages(
         placeholder_valid, placeholder_error = validate_placeholders(en_message, target_message)
         if not placeholder_valid:
             errors.append(f"Placeholder validation failed for '{target_locale}' -> '{key}': '{en_message}' '{target_message}' {placeholder_error}")
-
-        # # Validate plural rules
-        # TODO: Needs validate_plurals
-        # if not validate_plurals(en_message, target_message):
-        #     errors.append(f"Invalid plural use in '{key}' between '{en_message}' and '{target_message}'")
 
     return ValidationResult(
         is_valid=not errors,
