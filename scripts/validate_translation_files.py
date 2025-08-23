@@ -121,12 +121,41 @@ def _simple_validate_placeholders(source_message, target_message):
     """
     Simple first-pass placeholder validation using regex.
     """
-    # ICU MessageFormat placeholder patterns - extract just the argument name/number
-    # This handles both named args {username} and numbered args {0}
-    icu_placeholder_pattern = re.compile(r'\{([^},\s]+)(?:[^}]*)?\}')
+    def extract_top_level_placeholders(message):
+        """Extract only top-level placeholders, not nested braces inside ICU expressions."""
+        placeholders = set()
+        brace_depth = 0
+        i = 0
+        
+        while i < len(message):
+            if message[i] == '{':
+                if brace_depth == 0:
+                    # This is a top-level opening brace, extract the placeholder name
+                    start = i + 1
+                    # Find the placeholder name (everything until comma, space, or closing brace)
+                    name_end = start
+                    while name_end < len(message) and message[name_end] not in ',} \t\n':
+                        name_end += 1
+                    
+                    if name_end > start:
+                        placeholder_name = message[start:name_end]
+                        # Only add if it's not empty and looks like a real placeholder
+                        if placeholder_name and not placeholder_name.isspace():
+                            placeholders.add(placeholder_name)
+                
+                brace_depth += 1
+            elif message[i] == '}':
+                brace_depth -= 1
+            elif message[i] == '#':
+                # The # character is a special placeholder in ICU MessageFormat
+                placeholders.add('#')
+            
+            i += 1
+        
+        return placeholders
 
-    source_placeholders = set(icu_placeholder_pattern.findall(source_message))
-    target_placeholders = set(icu_placeholder_pattern.findall(target_message))
+    source_placeholders = extract_top_level_placeholders(source_message)
+    target_placeholders = extract_top_level_placeholders(target_message)
 
     if source_placeholders != target_placeholders:
         return False, (

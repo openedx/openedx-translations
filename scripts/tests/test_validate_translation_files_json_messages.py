@@ -120,7 +120,7 @@ def test_missing_plural_hash_sign():
 
     assert not result.is_valid, f"Should be invalid: {result.output}"
     assert "source has ['#', 'count', 'name', 'sender']" in result.output
-    assert "target has ['count', 'name', 'sender', 'several']" in result.output
+    assert "target has ['count', 'name', 'sender']" in result.output
 
 
 def test_mixed_invalid_subtle_translation_issues():
@@ -141,6 +141,11 @@ def test_valid_complex_plural_icu_message():
     Ensure valid plurals accounting for cases where `one room` is used instead of `# room`.
 
     This is useful in cases the number placeholder (#) is not needed.
+
+    The example here is the formatjs official library translation, so hopefully it's correct:
+
+      - https://github.com/formatjs/formatjs/blob/42cab4fc3e0093964b15af927b03bad57e7bc74b/website/lang/strings_en-US.json#L2
+      - https://github.com/formatjs/formatjs/blob/42cab4fc3e0093964b15af927b03bad57e7bc74b/website/lang/strings_es-AR.json#L2
     """
     result = _validate_message(
         key="valid_plurals",
