@@ -161,6 +161,20 @@ def test_mixed_invalid_subtle_translation_issues():
         )
 
 
+def test_empty_translation():
+    """
+    Empty messages are okay, they should default to the source message.
+
+    Transifex pulls empty strings if the `onlyreviewed` mode is used, which is the mode Open edX uses.
+    """
+    result = _validate_message(
+        key="invalid_msg",
+        source="Hello {name}",
+        translation=""
+    )
+    assert result.is_valid, f"Should be valid: {result.output}"
+
+
 def test_valid_complex_plural_icu_message():
     """
     Ensure valid plurals accounting for cases where `one room` is used instead of `# room`.

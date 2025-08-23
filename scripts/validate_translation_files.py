@@ -164,6 +164,10 @@ def validate_json_translation_messages(
             continue
 
         target_message = target_messages[key]
+        if not target_message:
+            # Empty messages are okay, they should default to the source message.
+            # Transifex pulls empty strings if the `onlyreviewed` mode is used, which is the mode Open edX uses.
+            continue
 
         # Validate source message
         en_valid, en_error = validate_icu_message(en_message, 'en')
