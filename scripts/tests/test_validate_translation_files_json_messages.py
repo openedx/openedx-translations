@@ -110,8 +110,19 @@ def test_valid_variables_with_complex_message():
     assert result.is_valid, f"Should be valid: {result.output}"
 
 
-def test_missing_plural_hash_sign():
-    """Test that missing # are spotted as invalid."""
+def test_strict_missing_plural_hash_sign_check():
+    """
+    Test that missing # are spotted as invalid.
+
+    The translated message here is practically valid in ICU format, but due to the fact that translators
+    might completely forget the #.
+
+    This strict check is a good rule of thumb to teach translators to use #
+    at least once in the "other" format.
+
+    Without this check, we risk introducing bugs that are not caught until the apps are deployed and are
+    very hard to check for.
+    """
     result = _validate_message(
         key="complex",
         source="Hi {name}, you have {count, plural, one {# message} other {# messages}} from {sender}",
@@ -121,6 +132,20 @@ def test_missing_plural_hash_sign():
     assert not result.is_valid, f"Should be invalid: {result.output}"
     assert "source has ['#', 'count', 'name', 'sender']" in result.output
     assert "target has ['count', 'name', 'sender']" in result.output
+
+
+def test_valid_omitting_of_hash_sign_in_singular_form():
+    """
+    The more acceptable form of omitting a # sign in singular form.
+
+    This is to ensure the validation is not too strict.
+    """
+    result = _validate_message(
+        key="valid_plurals",
+        source="Hi {name}, you have {count, plural, one {# message} other {# messages}} from {sender}",
+        translation="¡Hola {name}, you have {count, plural, one {one message} other {# messages}} en {sender}",
+    )
+    assert result.is_valid, f"Should be valid: {result.output}"
 
 
 def test_mixed_invalid_subtle_translation_issues():

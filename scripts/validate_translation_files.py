@@ -114,55 +114,15 @@ def _extract_placeholder_names_from_pattern(message):
                     arg_number = str(next_part.getValue())
                     placeholders.add(arg_number)
 
+    # Also check for # symbols which are special placeholders in ICU MessageFormat
+    # We're being a bit too strict here and require that # is used at least once (usually in `other` plural form)
+    # in the plural formats.
+    # This prevents a more creative use of the plurals, but catches errors in which # are complete
+    # forgotten.
+    if '#' in message:
+        placeholders.add('#')
+
     return placeholders
-
-
-def _simple_validate_placeholders(source_message, target_message):
-    """
-    Simple first-pass placeholder validation using regex.
-    """
-    def extract_top_level_placeholders(message):
-        """Extract only top-level placeholders, not nested braces inside ICU expressions."""
-        placeholders = set()
-        brace_depth = 0
-        i = 0
-        
-        while i < len(message):
-            if message[i] == '{':
-                if brace_depth == 0:
-                    # This is a top-level opening brace, extract the placeholder name
-                    start = i + 1
-                    # Find the placeholder name (everything until comma, space, or closing brace)
-                    name_end = start
-                    while name_end < len(message) and message[name_end] not in ',} \t\n':
-                        name_end += 1
-                    
-                    if name_end > start:
-                        placeholder_name = message[start:name_end]
-                        # Only add if it's not empty and looks like a real placeholder
-                        if placeholder_name and not placeholder_name.isspace():
-                            placeholders.add(placeholder_name)
-                
-                brace_depth += 1
-            elif message[i] == '}':
-                brace_depth -= 1
-            elif message[i] == '#':
-                # The # character is a special placeholder in ICU MessageFormat
-                placeholders.add('#')
-            
-            i += 1
-        
-        return placeholders
-
-    source_placeholders = extract_top_level_placeholders(source_message)
-    target_placeholders = extract_top_level_placeholders(target_message)
-
-    if source_placeholders != target_placeholders:
-        return False, (
-            f"Placeholder mismatch: source has {sorted(source_placeholders)}, target has {sorted(target_placeholders)}"
-        )
-
-    return True, None
 
 
 def validate_placeholders(source_message, target_message):
@@ -170,15 +130,6 @@ def validate_placeholders(source_message, target_message):
     Validate placeholders using PyICU MessagePattern.
     """
     try:
-        is_first_pass_valid, simple_validation_error = _simple_validate_placeholders(
-            source_message,
-            target_message,
-        )
-
-        if not is_first_pass_valid:
-            # Fail quickly, if first pass catches errors to avoid any potential errors using PyICU
-            return is_first_pass_valid, simple_validation_error
-
         source_placeholders = _extract_placeholder_names_from_pattern(source_message)
         target_placeholders = _extract_placeholder_names_from_pattern(target_message)
 
