@@ -136,7 +136,7 @@ def test_mixed_invalid_subtle_translation_issues():
         )
 
 
-def test_valid_polish_singular_icu_message():
+def test_valid_singular_icu_message():
     """
     Ensure valid plurals accounting for cases where `one room` is used instead of `# room`.
 
@@ -144,10 +144,7 @@ def test_valid_polish_singular_icu_message():
     """
     result = _validate_message(
         key="valid_plurals",
-        target_locale='pl',
-        source="You have booked {bookedRooms, plural, one {one room}, other {# rooms}} for {stayDate, date, medium}",
-        translation=(
-            "Zarezerwowałeś {bookedRooms, plural, one {jeden pokój}, few {# pokoje}, other {# pokoi}} na {stayDate, date, medium}"  # noqa
-        )
+        source="{name} took {numPhotos, plural, =0 {no photos} =1 {one photo} other {# photos}} on {takenDate, date, long}.",  # noqa
+        translation="El {takenDate, date, long}, {name} {numPhotos, plural, =0 {no} other {} } sacó {numPhotos, plural, =0 {ninguna foto.} =1 {una foto.} other {# fotos.}}"  # noqa
     )
     assert result.is_valid, f"Should be valid: {result.output}"
