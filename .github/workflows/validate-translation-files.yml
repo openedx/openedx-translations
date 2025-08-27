@@ -1,6 +1,6 @@
-# Validate the po files to ensure translation files are compilable.
+# Validate the translation files to ensure translation files are compilable.
 
-name: Validate translation PO files
+name: Validate translation files
 
 on:
   - pull_request
@@ -12,27 +12,28 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      # Define .po filepaths, so we can skip this action unless a .po
-      # file has been modified in this diff
+      # Define translation filepaths, so we can skip this action unless a
+      # translation file has been modified in this diff
       - uses: dorny/paths-filter@v3
         id: filter
         with:
+          list-files: shell
           filters: |
-            pofiles:
-              - '**.po'
+            changedtranslations:
+              - 'translations/**'
 
       # Clones the openedx-translations repo
       - name: clone openedx/openedx-translations
-        if: steps.filter.outputs.pofiles == 'true'
+        if: steps.filter.outputs.changedtranslations == 'true'
         uses: actions/checkout@v5
 
       - name: Install gettext
-        if: steps.filter.outputs.pofiles == 'true'
+        if: steps.filter.outputs.changedtranslations == 'true'
         run: |
           sudo apt install -y gettext
 
       - name: setup python
-        if: steps.filter.outputs.pofiles == 'true'
+        if: steps.filter.outputs.changedtranslations == 'true'
         uses: actions/setup-python@v5
         id: setup_python
         with:
@@ -42,17 +43,17 @@ jobs:
             requirements/translations.txt
 
       - name: Install requirements
-        if: steps.filter.outputs.pofiles == 'true'
+        if: steps.filter.outputs.changedtranslations == 'true'
         run: |
           python --version
           make translations_scripts_requirements
 
       - name: Validate translation files
         id: validate_translation_files
-        if: steps.filter.outputs.pofiles == 'true'
+        if: steps.filter.outputs.changedtranslations == 'true'
         run: |
           has_validation_errors=0
-          python scripts/validate_translation_files.py 2>validation_errors.txt || has_validation_errors=1
+          python scripts/validate_translation_files.py ${{ steps.filter.outputs.changedtranslations_files }} 2>validation_errors.txt || has_validation_errors=1
           cat validation_errors.txt
 
           {

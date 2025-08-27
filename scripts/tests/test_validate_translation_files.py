@@ -18,16 +18,19 @@ def test_get_translation_files():
     Ensure `get_translation_files` skips the source translation files and non-po files.
     """
     mock_translations_dir = os.path.join(SCRIPT_DIR, 'mock_translations_dir')
-    po_files_sorted = sorted(get_translation_files(mock_translations_dir))
-    relative_po_files = [
-        os.path.relpath(po_file, SCRIPT_DIR)
-        for po_file in po_files_sorted
+    files_sorted = sorted(get_translation_files(mock_translations_dir))
+    relative_files = [
+        os.path.relpath(f, mock_translations_dir)
+        for f in files_sorted
     ]
 
-    assert relative_po_files == [
-        'mock_translations_dir/demo-xblock/conf/locale/ar/LC_MESSAGES/django.po',
-        'mock_translations_dir/demo-xblock/conf/locale/de_DE/LC_MESSAGES/django.po',
-        'mock_translations_dir/demo-xblock/conf/locale/hi/LC_MESSAGES/django.po',
+    assert relative_files == [
+        'demo-microfrontend/src/i18n/messages/ar.json',
+        'demo-microfrontend/src/i18n/messages/es.json',
+        'demo-microfrontend/src/i18n/messages/fr.json',
+        'demo-xblock/conf/locale/ar/LC_MESSAGES/django.po',
+        'demo-xblock/conf/locale/de_DE/LC_MESSAGES/django.po',
+        'demo-xblock/conf/locale/hi/LC_MESSAGES/django.po',
     ]
 
 
@@ -42,11 +45,15 @@ def test_main_on_invalid_files(capsys):
     assert 'VALID:' in out, 'Valid files should be printed in stdout'
     assert 'de_DE/LC_MESSAGES/django.po' in out, 'German translation file should be found valid'
     assert 'ar/LC_MESSAGES/django.po' in out, 'Arabic translation file should be found valid'
+    assert 'messages/ar.json' in out, 'Arabic json translation file should be found valid'
+    assert 'messages/es.json' in out, 'Spanish json translation file should be found valid'
     assert 'hi/LC_MESSAGES/django.po' not in out, 'Invalid file should be printed in stderr'
     assert 'en/LC_MESSAGES/django.po' not in out, 'Source file should not be validated'
 
-    assert re.match(r'INVALID: .*hi/LC_MESSAGES/django.po', err)
+    assert re.search(r'INVALID: .*messages/fr.json', err), 'French should be found invalid'
+    assert re.search(r'INVALID: .*locale/hi/LC_MESSAGES/django.po', err)
     assert '\'msgstr\' is not a valid Python brace format string, unlike \'msgid\'' in err
+    assert 'ICUError' in err, 'Catch parsing errors'
     assert 'FAILURE: Some translations are invalid.' in err
 
     assert exit_code == 1, 'Should fail due to invalid hi/LC_MESSAGES/django.po file'
