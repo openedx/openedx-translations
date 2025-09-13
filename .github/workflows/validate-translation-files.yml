@@ -6,11 +6,14 @@ on:
   - pull_request
 
 jobs:
-  validate-po-files:
+  validate-translation-files:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: write
+    strategy:
+      matrix:
+        file-type: [po, json]
     steps:
       # Define translation filepaths, so we can skip this action unless a
       # translation file has been modified in this diff
@@ -20,17 +23,18 @@ jobs:
           list-files: shell
           filters: |
             changedtranslations:
-              - 'translations/**'
+              - 'translations/**/*.${{ matrix.file-type }}'
 
       # Clones the openedx-translations repo
       - name: clone openedx/openedx-translations
         if: steps.filter.outputs.changedtranslations == 'true'
         uses: actions/checkout@v5
 
-      - name: Install gettext
-        if: steps.filter.outputs.changedtranslations == 'true'
+      - name: Install msgfmt from gettext for po-file validation
+        if: steps.filter.outputs.changedtranslations == 'true' && matrix.file-type == 'po'
         run: |
-          sudo apt install -y gettext
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends gettext
 
       - name: setup python
         if: steps.filter.outputs.changedtranslations == 'true'
@@ -42,18 +46,29 @@ jobs:
           cache-dependency-path: |
             requirements/translations.txt
 
-      - name: Install requirements
+      - name: Install python requirements
         if: steps.filter.outputs.changedtranslations == 'true'
         run: |
           python --version
           make translations_scripts_requirements
 
-      - name: Validate translation files
+      - name: Setup node
+        if: steps.filter.outputs.changedtranslations == 'true' && matrix.file-type == 'json'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install nodejs requirements
+        if: steps.filter.outputs.changedtranslations == 'true' && matrix.file-type == 'json'
+        run: |
+          npm clean-install
+
+      - name: Validate ${{ matrix.file-type }} translation files
         id: validate_translation_files
         if: steps.filter.outputs.changedtranslations == 'true'
         run: |
           has_validation_errors=0
-          python scripts/validate_translation_files.py ${{ steps.filter.outputs.changedtranslations_files }} 2>validation_errors.txt || has_validation_errors=1
+          python scripts/validate_translation_files.py --types ${{ matrix.file-type }} ${{ steps.filter.outputs.changedtranslations_files }} 2>validation_errors.txt || has_validation_errors=1
           cat validation_errors.txt
 
           {
@@ -70,13 +85,15 @@ jobs:
         if: ${{ always() && !github.event.pull_request.head.repo.fork }}
         uses: mshick/add-pr-comment@b8f338c590a895d50bcbfa6c5859251edc8952fc
         with:
+          # enable multiple sticky comments depending on file types.
+          message-id: 'validate-translation-files-${{ matrix.file-type }}'
           message: |
-            :white_check_mark: All translation files are valid.
+            :white_check_mark: All `.${{ matrix.file-type }}` translation files are valid.
 
             This comment has been posted by the `validate-translation-files.yml` GitHub Actions workflow.
 
           message-failure: |
-            :warning: There are errors in the translation files:
+            :warning: There are errors in the `.${{ matrix.file-type }}` translation files:
 
             ```
             ${{ steps.validate_translation_files.outputs.VALIDATION_ERRORS || 'No errors were reported.' }}
