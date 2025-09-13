@@ -62,12 +62,14 @@ def _is_valid_translation_file(file_path, allowed_types=None):
     """
     file_str = str(file_path)
 
-    if ((allowed_types and 'po' in allowed_types)
-        and file_str.endswith('.po') and '/en/LC_MESSAGES/' not in file_str):
-        return True
-    if ((allowed_types and 'json' in allowed_types)
-        and file_str.endswith('.json') and not file_str.endswith('transifex_input.json')):
-        return True
+    if file_str.endswith('.po') and '/en/LC_MESSAGES/' not in file_str:
+        if not allowed_types or 'po' in allowed_types:
+            return True
+
+    if file_str.endswith('.json') and not file_str.endswith('transifex_input.json'):
+        if not allowed_types or 'json' in allowed_types:
+            return True
+
     return False
 
 
