@@ -56,7 +56,7 @@ def test_main_on_invalid_files(capsys):
     assert re.search(r'INVALID: .*messages/fr.json', err), 'French should be found invalid'
     assert re.search(r'INVALID: .*locale/hi/LC_MESSAGES/django.po', err)
     assert '\'msgstr\' is not a valid Python brace format string, unlike \'msgid\'' in err
-    assert 'ICUError' in err, 'Catch parsing errors'
+    assert 'welcome_message: Different number of variables: [username, count] vs []' in err, 'Catch invalid placeholders'
     assert 'FAILURE: Some translations are invalid.' in err
 
     assert exit_code == 1, 'Should fail due to invalid hi/LC_MESSAGES/django.po file'
@@ -86,22 +86,22 @@ class MockArgs:
 def test_parse_types_argument_valid_types():
     """Test parse_types_argument with valid type combinations"""
     parser = ArgumentParser()
-    
+
     # Test single valid type
     args = MockArgs('json')
     result = parse_types_argument(parser, args)
     assert result == ['json']
-    
+
     # Test multiple valid types
     args = MockArgs('json,po')
     result = parse_types_argument(parser, args)
     assert result == ['json', 'po']
-    
+
     # Test with spaces
     args = MockArgs('json, po')
     result = parse_types_argument(parser, args)
     assert result == ['json', 'po']
-    
+
     # Test reversed order
     args = MockArgs('po,json')
     result = parse_types_argument(parser, args)
@@ -111,17 +111,17 @@ def test_parse_types_argument_valid_types():
 def test_parse_types_argument_invalid_types():
     """Test parse_types_argument with invalid types raises SystemExit"""
     parser = ArgumentParser()
-    
+
     # Test invalid type
     args = MockArgs('invalid')
     with pytest.raises(SystemExit):
         parse_types_argument(parser, args)
-    
+
     # Test mix of valid and invalid types
     args = MockArgs('json,invalid')
     with pytest.raises(SystemExit):
         parse_types_argument(parser, args)
-    
+
     # Test multiple invalid types
     args = MockArgs('invalid1,invalid2')
     with pytest.raises(SystemExit):
@@ -131,22 +131,22 @@ def test_parse_types_argument_invalid_types():
 def test_parse_types_argument_empty_and_whitespace():
     """Test parse_types_argument handles empty strings and whitespace"""
     parser = ArgumentParser()
-    
+
     # Test empty string
     args = MockArgs('')
     result = parse_types_argument(parser, args)
     assert result == []
-    
+
     # Test whitespace only
     args = MockArgs('   ')
     result = parse_types_argument(parser, args)
     assert result == []
-    
+
     # Test comma only
     args = MockArgs(',')
     result = parse_types_argument(parser, args)
     assert result == []
-    
+
     # Test mixed empty elements
     args = MockArgs('json, , po')
     result = parse_types_argument(parser, args)

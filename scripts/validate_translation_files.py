@@ -12,8 +12,9 @@ import sys
 import textwrap
 import traceback
 import json
+import shutil
+import os
 
-import icu
 import i18n.validate
 import re
 
@@ -82,139 +83,42 @@ def validate_translation_file(translation_file, error_missing_keys=False):
         raise RuntimeError(f'File not supported: {translation_file}')
 
 
-def validate_icu_message(message, locale):
-    """Validate ICU MessageFormat string"""
-    try:
-        # Create MessageFormat object
-        _fmt = icu.MessageFormat(message, icu.Locale(locale))
-        return True, None
-    except Exception as e:
-        return False, format_exception(e)
-
-
-def _extract_placeholder_names_from_pattern(message):
-    """
-    Extract placeholder names from a message using PyICU MessagePattern.
-    """
-    pattern = icu.MessagePattern(message)
-    placeholders = set()
-
-    # Iterate through pattern parts to find arguments
-    for i in range(pattern.countParts()):
-        part_type = pattern.getPartType(i)
-
-        # ARG_START indicates the beginning of an argument/placeholder
-        if part_type == icu.UMessagePatternPartType.ARG_START:
-            # The next part should contain the argument name
-            if i + 1 < pattern.countParts():
-                next_part = pattern.getPart(i + 1)
-                next_part_type = pattern.getPartType(i + 1)
-
-                if next_part_type == icu.UMessagePatternPartType.ARG_NAME:
-                    arg_name = pattern.getSubstring(next_part)
-                    placeholders.add(arg_name)
-                elif next_part_type == icu.UMessagePatternPartType.ARG_NUMBER:
-                    # Handle numbered arguments like {0}, {1}
-                    arg_number = str(next_part.getValue())
-                    placeholders.add(arg_number)
-
-    # Also check for # symbols which are special placeholders in ICU MessageFormat
-    # We're being a bit too strict here and require that # is used at least once (usually in `other` plural form)
-    # in the plural formats.
-    # This prevents a more creative use of the plurals, but catches errors in which # are complete
-    # forgotten.
-    if '#' in message and 'other' in message and ('plural' in message or 'selectordinal' in message):
-        # This check isn't very strict, but it's okay'ish
-        placeholders.add('#')
-
-    return placeholders
-
-
-def validate_placeholders(source_message, target_message):
-    """
-    Validate placeholders using PyICU MessagePattern.
-    """
-    try:
-        source_placeholders = _extract_placeholder_names_from_pattern(source_message)
-        target_placeholders = _extract_placeholder_names_from_pattern(target_message)
-
-        if not source_placeholders and not target_placeholders:
-            return True, None  # Neither has placeholders, so no placeholder issues
-
-        if source_placeholders != target_placeholders:
-            return False, (
-                f"Placeholder mismatch: source has {sorted(source_placeholders)}, target has {sorted(target_placeholders)}"
-            )
-
-        return True, None
-    except Exception as e:  # noqa
-        return False, f'Error occurred while parsing the message "{format_exception(e)}"'
-
-
-def validate_json_translation_messages(
-    en_messages,
-    target_locale,
-    target_messages,
-    error_missing_keys=False,
-):
-    """
-    Validate parsed JSON translations according to ICU format.
-    """
-    errors = []
-
-    for key, en_message in en_messages.items():
-        if key not in target_messages:
-            if error_missing_keys:
-                errors.append(f"Missing key: '{target_locale}' -> '{key}' for message '{en_message}'")
-            continue
-
-        target_message = target_messages[key]
-        if not target_message:
-            # Empty messages are okay, they should default to the source message.
-            # Transifex pulls empty strings if the `onlyreviewed` mode is used, which is the mode Open edX uses.
-            continue
-
-        # Validate source message
-        en_valid, en_error = validate_icu_message(en_message, 'en')
-        if not en_valid:
-            errors.append(f"Invalid source message '{target_locale}' -> '{key}': '{en_message}' '{target_message}' {en_error}")
-            continue
-
-        # Validate target message
-        target_valid, target_error = validate_icu_message(target_message, target_locale)
-        if not target_valid:
-            errors.append(f"Invalid target message '{target_locale}' -> '{key}': '{en_message}' '{target_message}' {target_error}")
-
-        # Additional placeholder validation
-        placeholder_valid, placeholder_error = validate_placeholders(en_message, target_message)
-        if not placeholder_valid:
-            errors.append(f"Placeholder validation failed for '{target_locale}' -> '{key}': '{en_message}' '{target_message}' {placeholder_error}")
-
-    return ValidationResult(
-        is_valid=not errors,
-        output='\n'.join(errors),
-    )
-
-
 def validate_json_translation_file(translation_file, error_missing_keys=False):
-    """Validate translation file against source"""
+    """
+    Validate translation file against source.
+    """
     en_file = translation_file.dirname() / '../transifex_input.json'
+    required_temp_en_file_path = translation_file.dirname() / 'en.json'
 
     if en_file.exists():
-        # Gets 'ar' from 'ar.json'
-        target_locale = str(translation_file.basename()).replace('.json', '')
-        with open(en_file, 'r', encoding='utf-8') as f:
-            en_messages = json.load(f)
+        # Creates a .git-ignored temp. file to allow @formatjs/cli command to run
+        shutil.copyfile(en_file, required_temp_en_file_path)
 
-        with open(translation_file, 'r', encoding='utf-8') as f:
-            target_messages = json.load(f)
+        is_valid = True
+        output = ""
 
-        return validate_json_translation_messages(
-            en_messages=en_messages,
-            target_locale=target_locale,
-            target_messages=target_messages,
-            error_missing_keys=error_missing_keys,
+        completed_process = subprocess.run(
+            ['npx', '@formatjs/cli', 'verify', '--structural-equality',
+                                               '--source-locale=en', 'en.json', translation_file.basename()],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            cwd=translation_file.dirname(),
         )
+
+        os.unlink(required_temp_en_file_path)
+
+        if completed_process.returncode != 0:
+            is_valid = False
+
+        verify_stdout = completed_process.stdout.decode(encoding='utf-8', errors='replace')
+        verify_stderr = completed_process.stderr.decode(encoding='utf-8', errors='replace')
+        output += f'{verify_stdout}\n{verify_stderr}'.strip() + '\n'
+
+        return ValidationResult(
+            is_valid=is_valid,
+            output=output,
+        )
+
 
     return ValidationResult(
         is_valid=False,
