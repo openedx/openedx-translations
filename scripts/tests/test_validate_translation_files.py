@@ -4,10 +4,13 @@ Tests for the validate_translation_files.py script.
 
 import os.path
 import re
+import pytest
+from argparse import ArgumentParser
 
 from ..validate_translation_files import (
     get_translation_files,
     validate_translation_files,
+    parse_types_argument,
 )
 
 SCRIPT_DIR = os.path.dirname(__file__)
@@ -72,3 +75,79 @@ def test_main_on_valid_files(capsys):
     assert 'SUCCESS: All translation files are valid.' in out
     assert not err.strip(), 'The stderr should be empty'
     assert exit_code == 0, 'Should succeed due in validating the ar/LC_MESSAGES/django.po file'
+
+
+class MockArgs:
+    """Mock args class for testing parse_types_argument"""
+    def __init__(self, types):
+        self.types = types
+
+
+def test_parse_types_argument_valid_types():
+    """Test parse_types_argument with valid type combinations"""
+    parser = ArgumentParser()
+    
+    # Test single valid type
+    args = MockArgs('json')
+    result = parse_types_argument(parser, args)
+    assert result == ['json']
+    
+    # Test multiple valid types
+    args = MockArgs('json,po')
+    result = parse_types_argument(parser, args)
+    assert result == ['json', 'po']
+    
+    # Test with spaces
+    args = MockArgs('json, po')
+    result = parse_types_argument(parser, args)
+    assert result == ['json', 'po']
+    
+    # Test reversed order
+    args = MockArgs('po,json')
+    result = parse_types_argument(parser, args)
+    assert result == ['po', 'json']
+
+
+def test_parse_types_argument_invalid_types():
+    """Test parse_types_argument with invalid types raises SystemExit"""
+    parser = ArgumentParser()
+    
+    # Test invalid type
+    args = MockArgs('invalid')
+    with pytest.raises(SystemExit):
+        parse_types_argument(parser, args)
+    
+    # Test mix of valid and invalid types
+    args = MockArgs('json,invalid')
+    with pytest.raises(SystemExit):
+        parse_types_argument(parser, args)
+    
+    # Test multiple invalid types
+    args = MockArgs('invalid1,invalid2')
+    with pytest.raises(SystemExit):
+        parse_types_argument(parser, args)
+
+
+def test_parse_types_argument_empty_and_whitespace():
+    """Test parse_types_argument handles empty strings and whitespace"""
+    parser = ArgumentParser()
+    
+    # Test empty string
+    args = MockArgs('')
+    result = parse_types_argument(parser, args)
+    assert result == []
+    
+    # Test whitespace only
+    args = MockArgs('   ')
+    result = parse_types_argument(parser, args)
+    assert result == []
+    
+    # Test comma only
+    args = MockArgs(',')
+    result = parse_types_argument(parser, args)
+    assert result == []
+    
+    # Test mixed empty elements
+    args = MockArgs('json, , po')
+    result = parse_types_argument(parser, args)
+    assert result == ['json', 'po']

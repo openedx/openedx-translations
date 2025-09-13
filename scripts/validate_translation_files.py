@@ -32,7 +32,7 @@ def format_exception(e):
     return f'{e} {traceback.format_exc()}'
 
 
-def get_translation_files(translation_directory, specific_files: List = None) -> List[Path]:
+def get_translation_files(translation_directory, specific_files: List = None, allowed_types=None) -> List[Path]:
     """
     List all translations '*.po' and '.json' files in the specified directory.
     If specific_files is provided, only return files that match those paths.
@@ -45,25 +45,28 @@ def get_translation_files(translation_directory, specific_files: List = None) ->
         for file_path in specific_files:
             file_path = Path(file_path)
 
-            if file_path.exists() and _is_valid_translation_file(file_path):
+            if file_path.exists() and _is_valid_translation_file(file_path, allowed_types):
                 translation_files.append(file_path)
     else:
         # Original behavior - walk all files
         for file_ in translations_dir.walkfiles():
-            if _is_valid_translation_file(file_):
+            if _is_valid_translation_file(file_, allowed_types):
                 translation_files.append(file_)
 
     return translation_files
 
 
-def _is_valid_translation_file(file_path):
+def _is_valid_translation_file(file_path, allowed_types=None):
     """
     Check if a file is a valid translation file.
     """
     file_str = str(file_path)
-    if file_str.endswith('.po') and '/en/LC_MESSAGES/' not in file_str:
+
+    if ((allowed_types and 'po' in allowed_types)
+        and file_str.endswith('.po') and '/en/LC_MESSAGES/' not in file_str):
         return True
-    if file_str.endswith('.json') and not file_str.endswith('transifex_input.json'):
+    if ((allowed_types and 'json' in allowed_types)
+        and file_str.endswith('.json') and not file_str.endswith('transifex_input.json')):
         return True
     return False
 
@@ -272,6 +275,7 @@ def validate_translation_files(
     translations_dir='translations',
     error_missing_keys=False,
     specific_files=None,
+    allowed_types=None,
 ):
     """
     Run GNU gettext `msgfmt` and print errors to stderr.
@@ -285,7 +289,7 @@ def validate_translation_files(
 
     invalid_lines = []
 
-    translation_files = get_translation_files(translations_dir, specific_files)
+    translation_files = get_translation_files(translations_dir, specific_files, allowed_types)
     for f in translation_files:
         result = validate_translation_file(f, error_missing_keys)
 
@@ -314,6 +318,22 @@ def validate_translation_files(
     return exit_code
 
 
+def parse_types_argument(parser, args) -> List[str]:
+    """
+    Parse allowed types from comma-separated string.
+    """
+    # import pdb; pdb.set_trace()
+    allowed_types = [t.strip() for t in args.types.split(',') if t.strip()]
+
+    # Validate allowed types
+    valid_types = {'json', 'po'}
+    invalid_types = set(allowed_types) - valid_types
+    if invalid_types:
+        parser.error(f"Invalid file types: {', '.join(invalid_types)}. Valid types are: {', '.join(valid_types)}")
+
+    return allowed_types
+
+
 def main():  # pragma: no cover
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--dir', action='store', type=str, default='translations',
@@ -323,13 +343,19 @@ def main():  # pragma: no cover
                             'Treat missing keys in translation files as errors (default: False). '
                             'Right now only JSON files are supported for this check. '
                         ))
+    parser.add_argument('--types', action='store', type=str, default='',
+                        help='Comma-separated list of file types to validate (default: json,po). Valid types: json, po')
     parser.add_argument('files', nargs='*',
                         help='Test the provided specific files only.')
     args = parser.parse_args()
+
+    types_list = parse_types_argument(parser, args)
+
     sys.exit(validate_translation_files(
         translations_dir=args.dir,
         error_missing_keys=args.error_missing_keys,
         specific_files=args.files if args.files else None,
+        allowed_types=types_list,
     ))
 
 
