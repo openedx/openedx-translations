@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-02 00:32+0000\n"
+"POT-Creation-Date: 2025-09-17 00:31+0000\n"
 "PO-Revision-Date: 2023-01-26 15:39+0000\n"
 "Last-Translator: Brian Smith, 2025\n"
 "Language-Team: Afrikaans (South Africa) (https://app.transifex.com/open-edx/teams/6205/af_ZA/)\n"
@@ -92,7 +92,7 @@ msgid ""
 msgstr ""
 "Tale wat kursus in hierdie program loop, het beskikbare transkripsies in."
 
-#: apps/api/utils.py:343
+#: apps/api/utils.py:346
 #, python-brace-format
 msgid ""
 "An error occurred while setting the course run image for [{key}] in studio. "
@@ -127,6 +127,15 @@ msgstr "Kon nie kursusloopdata stel nie: {}"
 #: apps/api/v1/views/course_runs.py:328
 msgid "Can only update status, ofac restrictions, and ofac comment"
 msgstr "Kan slegs status, ofac-beperkings en ofac-kommentaar opdateer"
+
+#: apps/api/v1/views/course_runs.py:363
+#, python-brace-format
+msgid ""
+"The course run type '{course_run_type}' is not valid for this course type "
+"'{course_type}'."
+msgstr ""
+"Die kursustipe &#39;{course_run_type}&#39; is nie geldig vir hierdie "
+"kursustipe &#39;{course_type}&#39; nie."
 
 #: apps/api/v1/views/course_runs.py:381
 msgid "Course run is in review. Editing disabled."
@@ -550,9 +559,49 @@ msgstr "demo"
 msgid "other"
 msgstr "ander"
 
+#: apps/course_metadata/choices.py:54
+msgid "Course Create"
+msgstr "Kursus Skep"
+
+#: apps/course_metadata/choices.py:55
+msgid "Partial Update"
+msgstr "Gedeeltelike Opdatering"
+
+#: apps/course_metadata/choices.py:56
+msgid "Course Rerun"
+msgstr "Kursus Herloop"
+
+#: apps/course_metadata/choices.py:57
+msgid "Course Editor Update"
+msgstr "Kursusredakteur-opdatering"
+
+#: apps/course_metadata/choices.py:64
+msgid "Pending"
+msgstr "Hangende"
+
 #: apps/course_metadata/choices.py:65 apps/course_metadata/choices.py:76
 msgid "Verified"
 msgstr "Geverifieer"
+
+#: apps/course_metadata/choices.py:66
+msgid "Processing"
+msgstr "Verwerking"
+
+#: apps/course_metadata/choices.py:67
+msgid "Completed"
+msgstr "Voltooi"
+
+#: apps/course_metadata/choices.py:68
+msgid "Failed"
+msgstr "Misluk"
+
+#: apps/course_metadata/choices.py:69
+msgid "Partially Completed"
+msgstr "Gedeeltelik voltooi"
+
+#: apps/course_metadata/choices.py:70
+msgid "Errored"
+msgstr "Fout"
 
 #: apps/course_metadata/choices.py:74
 msgid "Honor"
@@ -2010,6 +2059,36 @@ msgstr "Voeg herleidings van alle gepubliseerde kursus-url-slakke by"
 msgid "Course uuids"
 msgstr "Kursus uuids"
 
+#: apps/course_metadata/models.py:5042
+msgid "User who uploaded the file"
+msgstr "Gebruiker wat die lêer opgelaai het"
+
+#: apps/course_metadata/models.py:5047
+msgid "Summary of the task"
+msgstr "Opsomming van die taak"
+
+#: apps/course_metadata/models.py:5050
+msgid "Task Type"
+msgstr "Tipe taak"
+
+#: apps/course_metadata/models.py:5053
+msgid "Type of Bulk Task to be performed"
+msgstr "Tipe grootmaattaak wat uitgevoer moet word"
+
+#: apps/course_metadata/models.py:5056
+msgid "Status"
+msgstr "Status"
+
+#: apps/course_metadata/models.py:5059
+msgid "Status of the Bulk Task"
+msgstr "Status van die grootmaattaak"
+
+#: apps/course_metadata/models.py:5067
+msgid "Identifier of the celery task associated with this bulk task"
+msgstr ""
+"Identifiseerder van die selderytaak wat met hierdie grootmaattaak "
+"geassosieer word"
+
 #: apps/course_metadata/salesforce.py:78
 msgid "Attempted to query Salesforce with no client for partner={}"
 msgstr ""
@@ -2078,6 +2157,130 @@ msgid ""
 msgstr ""
 "%(user_name)s het die volgende opmerking gemaak oor %(course_name)s %(date)s"
 " by %(time)s"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:7
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:3
+#: apps/course_metadata/templates/course_metadata/email/go_live.html:9
+#: apps/course_metadata/templates/course_metadata/email/go_live.txt:3
+msgid "Hi Course Team,"
+msgstr "Hallo Kursusspan,"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:12
+#, python-format
+msgid ""
+"\n"
+"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
+"        "
+msgstr ""
+"\n"
+"Hierdie is &#39;n outomatiese herinnering dat die kursus &quot; %(course_name)s &quot; (Kursussleutel: %(course_key)s ) geskeduleer is om te eindig in %(days)s op %(course_end_date)s .\n"
+"        "
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:16
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:16
+msgid ""
+"To ensure uninterrupted learner access and enrollment, please take one of "
+"the following actions:"
+msgstr ""
+"Om ononderbroke leerdertoegang en inskrywing te verseker, neem asseblief een"
+" van die volgende aksies:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:19
+#, python-format
+msgid ""
+"\n"
+"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
+"        "
+msgstr ""
+"\n"
+"Hierdie is &#39;n outomatiese herinnering dat die kursus &quot; %(course_name)s &quot; (Kursussleutel: %(course_key)s ) amptelik geëindig het op %(course_end_date)s .\n"
+"        "
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:23
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:18
+msgid ""
+"If this was intentional, no action is needed. However, if this course was "
+"meant to remain available, you have two options to restore access:"
+msgstr ""
+"Indien dit doelbewus was, is geen aksie nodig nie. Indien hierdie kursus "
+"egter bedoel was om beskikbaar te bly, het jy twee opsies om toegang te "
+"herstel:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:29
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:21
+msgid ""
+"Extend the current course run’s end date if the same course is meant to "
+"remain available."
+msgstr ""
+"Verleng die einddatum van die huidige kursus indien dieselfde kursus bedoel "
+"is om beskikbaar te bly."
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:31
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:22
+msgid ""
+"Create a new course run if you are planning to offer this course again with "
+"updated content, pacing, or a new cohort of learners."
+msgstr ""
+"Skep &#39;n nuwe kursusaanbod as jy van plan is om hierdie kursus weer aan "
+"te bied met opgedateerde inhoud, tempo of &#39;n nuwe kohort leerders."
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:32
+msgid "Visit the Course in Publisher"
+msgstr "Besoek die kursus in Publisher"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:37
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:25
+msgid "You can review and modify the course end settings here:"
+msgstr "Jy kan die kursuseindinstellings hier hersien en wysig:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:41
+#, python-format
+msgid ""
+"\n"
+"        If no action is taken, the course will no longer be available for enrollment or access by learners on \n"
+"        <a href=\"%(partner_marketing_site_url)s\">%(partner_marketing_site_url)s</a> after the end date.\n"
+"        "
+msgstr ""
+"\n"
+"Indien geen aksie geneem word nie, sal die kursus nie meer beskikbaar wees vir inskrywing of toegang deur leerders nie.\n"
+" <a href=\"%(partner_marketing_site_url)s\">%(partner_marketing_site_url)s</a> na die einddatum.\n"
+"        "
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:47
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:34
+msgid "Thanks"
+msgstr "Dankie"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:6
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"Hierdie is &#39;n outomatiese herinnering dat die kursus &quot; %(course_name)s &quot; (Kursussleutel: %(course_key)s ) geskeduleer is om te eindig in %(days)s op %(course_end_date)s .\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:10
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"Hierdie is &#39;n outomatiese herinnering dat die kursus &quot; %(course_name)s &quot; (Kursussleutel: %(course_key)s ) amptelik geëindig het op %(course_end_date)s .\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:23
+msgid "Visit the Course in Publisher:"
+msgstr "Besoek die kursus in Publisher:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:29
+#, python-format
+msgid ""
+"\n"
+"If no action is taken, the course will no longer be available for enrollment or access by learners on %(partner_marketing_site_url)s after the end date.\n"
+msgstr ""
+"\n"
+"Indien geen aksie geneem word nie, sal die kursus nie meer beskikbaar wees vir inskrywing of toegang deur leerders op %(partner_marketing_site_url)s na die einddatum nie.\n"
 
 #: apps/course_metadata/templates/course_metadata/email/go_live.html:17
 #: apps/course_metadata/templates/course_metadata/email/go_live.txt:7
