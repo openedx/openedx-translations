@@ -26,6 +26,7 @@
 # Omar Al-Ithawi <i@omardo.com>, 2024
 # edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2025
 # Brian Smith, 2025
+# Joel Edwards, 2025
 # 
 #, fuzzy
 msgid ""
@@ -34,7 +35,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-09-18 00:40+0000\n"
 "PO-Revision-Date: 2023-11-20 11:35+0000\n"
-"Last-Translator: Brian Smith, 2025\n"
+"Last-Translator: Joel Edwards, 2025\n"
 "Language-Team: Afrikaans (South Africa) (https://app.transifex.com/open-edx/teams/6205/af_ZA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -335,10 +336,35 @@ msgstr ""
 "Stroomop blokgebruiksleutel, hierdie waarde kan nie nul en nuttig wees om "
 "stroomop biblioteekblokke op te spoor wat nog nie bestaan nie"
 
+#: cms/djangoapps/contentstore/models.py:157
+msgid "Component Link"
+msgstr "Komponent skakel"
+
+#: cms/djangoapps/contentstore/models.py:158
+msgid "Component Links"
+msgstr "Komponent skakels"
+
 #: cms/djangoapps/contentstore/models.py:184
 msgid "The component must be published to access `published_at`"
 msgstr ""
 "Die komponent moet gepubliseer word om toegang tot `published_at` te verkry."
+
+#: cms/djangoapps/contentstore/models.py:321
+msgid ""
+"Upstream block key (e.g. lct:...), this value cannot be null and is useful "
+"to track upstream library blocks that do not exist yet or were deleted."
+msgstr ""
+"Stroomop bloksleutel (bv. lct:...), hierdie waarde kan nie nul wees nie en "
+"is nuttig om stroomop biblioteekblokke op te spoor wat nog nie bestaan nie "
+"of wat uitgevee is."
+
+#: cms/djangoapps/contentstore/models.py:328
+msgid "Container Link"
+msgstr "Houerskakel"
+
+#: cms/djangoapps/contentstore/models.py:329
+msgid "Container Links"
+msgstr "Houerskakels"
 
 #: cms/djangoapps/contentstore/models.py:355
 msgid "The container must be published to access `published_at`"
@@ -1194,6 +1220,11 @@ msgstr "Woordeboek met die beskikbare etikette"
 msgid "Content is not linked to a Content Library."
 msgstr "Inhoud is nie aan &#39;n inhoudbiblioteek gekoppel nie."
 
+#: cms/lib/xblock/upstream_sync.py:244
+msgid "Downstream is not an XBlock or is missing required UpstreamSyncMixin"
+msgstr ""
+"Stroomaf is nie &#39;n XBlock nie of ontbreek die vereiste UpstreamSyncMixin"
+
 #: cms/lib/xblock/upstream_sync.py:248
 msgid "Cannot update content because it does not belong to a course."
 msgstr ""
@@ -1203,9 +1234,34 @@ msgstr ""
 msgid "Reference to linked library item is malformed"
 msgstr "Verwysing na gekoppelde biblioteekitem is verkeerd gevorm"
 
+#: cms/lib/xblock/upstream_sync.py:264
+msgid ""
+"Updating content with children is not yet supported unless the upstream is a"
+" container."
+msgstr ""
+"Die opdatering van inhoud met kinders word nog nie gesteun nie, tensy die "
+"stroomop &#39;n houer is."
+
+#: cms/lib/xblock/upstream_sync.py:270
+msgid "Linked upstream library block was not found in the system"
+msgstr "Gekoppelde stroomop-biblioteekblok is nie in die stelsel gevind nie"
+
+#: cms/lib/xblock/upstream_sync.py:277
+msgid "Linked upstream library container was not found in the system"
+msgstr "Gekoppelde stroomop-biblioteekhouer is nie in die stelsel gevind nie"
+
 #: cms/lib/xblock/upstream_sync.py:281
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "Gekoppelde `upstream_key` is nie 'n geldige sleutel nie"
+
+#: cms/lib/xblock/upstream_sync.py:290
+#, python-brace-format
+msgid ""
+"Content type mismatch: {downstream_id} ({downstream_type}) cannot be linked "
+"to {upstream_id}."
+msgstr ""
+"Inhoudtipe verskil: {downstream_id} ( {downstream_type} ) kan nie aan "
+"{upstream_id} gekoppel word nie."
 
 #: cms/lib/xblock/upstream_sync_block.py:108
 msgid "Linked library item could not be loaded: {}"
@@ -3853,6 +3909,65 @@ msgstr "Tydige eksamen"
 msgid "Exam"
 msgstr "Eksamen"
 
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:33
+msgid "There’s still time to reach your goal"
+msgstr "Daar is nog tyd om jou doelwit te bereik"
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:41
+#, python-format
+msgid ""
+"\n"
+"            You’re almost there, %(user_name)s!\n"
+"        "
+msgstr ""
+"\n"
+"Jy is amper daar, %(user_name)s !\n"
+"        "
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:49
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"                    You set a goal of learning {start_bold}%(days_per_week)s time a week in %(course_name)s{end_bold}. Now it’s up to you to make those goals a reality.\n"
+"                    "
+msgid_plural ""
+"\n"
+"                    You set a goal of learning {start_bold}%(days_per_week)s times a week in %(course_name)s{end_bold}. Now it’s up to you to make those goals a reality.\n"
+"                "
+msgstr[0] ""
+"\n"
+"Jy het &#39;n doelwit gestel om {start_bold} %(days_per_week)s keer per week in %(course_name)s {end_bold} te leer. Nou is dit aan jou om daardie doelwitte &#39;n werklikheid te maak.\n"
+"                    "
+msgstr[1] ""
+"\n"
+"Jy het &#39;n doelwit gestel om {start_bold} %(days_per_week)s keer per week in %(course_name)s {end_bold} te leer. Nou is dit aan jou om daardie doelwitte &#39;n werklikheid te maak.\n"
+"                "
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:79
+msgid ""
+"\n"
+"                        Jump back in\n"
+"                    "
+msgstr ""
+"\n"
+"Spring terug in\n"
+"                    "
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:98
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:117
+msgid "Remember: the best goal is one that you can stick to. "
+msgstr "Onthou: die beste doelwit is een waarby jy kan hou. "
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:99
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:118
+msgid "You can always"
+msgstr "Jy kan altyd"
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:101
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:120
+msgid "if you need to."
+msgstr "as jy moet."
+
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:144
 msgid ""
 "\n"
@@ -3862,6 +3977,16 @@ msgstr ""
 "\n"
 "Teken uit op doelherinnering-e-posse vir hierdie kursus\n"
 "                        "
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:158
+msgid ""
+"\n"
+"                                Unsubscribe from goal reminder emails for this course\n"
+"                                "
+msgstr ""
+"\n"
+"Kanselleer intekening van doelwitherinnering-e-posse vir hierdie kursus\n"
+"                                "
 
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.txt:2
 msgid "You're almost there!"
@@ -3947,6 +4072,11 @@ msgstr "Laai die iOS-toepassing af in die Apple Store"
 #: themes/red-theme/lms/templates/ace_common/edx_ace/common/base_body.html:153
 msgid "Download the Android app on the Google Play Store"
 msgstr "Laai die Android-toepassing af in die Google Play Winkel"
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/footer.html:174
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/footer.html:174
+msgid "edX is the trusted platform for education and learning"
+msgstr "edX is die betroubare platform vir onderwys en leer"
 
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/footer.html:180
 #: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/base_body.html:240
@@ -4517,6 +4647,10 @@ msgid ""
 msgstr ""
 "Nadat hierdie kursus amptelik geëindig het, sal jy &#39;n e-poskennisgewing "
 "saam met jou sertifikaat ontvang."
+
+#: lms/djangoapps/courseware/views/views.py:244
+msgid "Your certificate will be available after the indicated date"
+msgstr "Jou sertifikaat sal beskikbaar wees na die aangeduide datum"
 
 #: lms/djangoapps/courseware/views/views.py:255
 msgid "Your certificate is available"
@@ -5094,6 +5228,10 @@ msgstr "Taal"
 msgid "Location"
 msgstr "Ligging"
 
+#: lms/djangoapps/instructor/views/api.py:1509
+msgid "Birth Year"
+msgstr "Geboortejaar"
+
 #. #-#-#-#-#  django.po (0.1a)  #-#-#-#-#
 #. Translators: This label appears above a dropdown menu used to select
 #. the user's gender.
@@ -5168,6 +5306,11 @@ msgstr "Land"
 #: lms/djangoapps/instructor_task/api_helper.py:111
 msgid "enrollment"
 msgstr "inskrywing"
+
+#: lms/djangoapps/instructor/views/api.py:1622
+#: lms/djangoapps/instructor_task/api_helper.py:117
+msgid "inactive enrollment"
+msgstr "onaktiewe inskrywing"
 
 #: lms/djangoapps/instructor/views/api.py:1652
 msgid "The file must contain a 'cohort' column containing cohort names."
@@ -5247,6 +5390,15 @@ msgstr "Kursus het geen geldige toelatingseksamenafdeling nie."
 #: lms/djangoapps/instructor/views/api.py:2343
 msgid "All Students"
 msgstr "Alle Studente"
+
+#: lms/djangoapps/instructor/views/api.py:2253
+#, python-brace-format
+msgid ""
+"User {user_id} does not have permission to override scores for problem "
+"{problem_to_reset}."
+msgstr ""
+"Gebruiker {user_id} het nie toestemming om punte vir probleem "
+"{problem_to_reset} te oorskryf nie."
 
 #: lms/djangoapps/instructor/views/api.py:2330
 msgid "Cannot rescore with all_students and unique_student_identifier."
@@ -5354,6 +5506,19 @@ msgstr "graad"
 #: lms/djangoapps/instructor_task/api_helper.py:108
 msgid "problem grade"
 msgstr "probleem graad"
+
+#: lms/djangoapps/instructor/views/api.py:3204
+msgid "All fields must be filled out"
+msgstr "Alle velde moet ingevul word"
+
+#: lms/djangoapps/instructor/views/api.py:3210
+#, python-brace-format
+msgid "Could not find student matching identifier: {student}"
+msgstr "Kon nie student-ooreenstemmende identifiseerder vind nie: {student}"
+
+#: lms/djangoapps/instructor/views/api.py:3219
+msgid "The extension due date and time format is incorrect"
+msgstr "Die verlengingsdatum en -tydformaat is verkeerd"
 
 #: lms/djangoapps/instructor/views/api.py:3230
 #, python-brace-format
@@ -5660,6 +5825,32 @@ msgstr "Rolnaam"
 msgid "Invalid role name."
 msgstr "Ongeldige rolnaam."
 
+#: lms/djangoapps/instructor/views/serializer.py:344
+msgid "The URL name of the problem to reset."
+msgstr "Die URL-naam van die probleem om terug te stel."
+
+#: lms/djangoapps/instructor/views/serializer.py:346
+#: lms/djangoapps/instructor/views/serializer.py:567
+msgid "Problem URL name cannot be blank."
+msgstr "Probleem URL-naam kan nie leeg wees nie."
+
+#: lms/djangoapps/instructor/views/serializer.py:351
+msgid "Whether to reset the problem for all students."
+msgstr "Of die probleem vir alle studente herstel moet word."
+
+#: lms/djangoapps/instructor/views/serializer.py:361
+#: lms/djangoapps/instructor/views/serializer.py:508
+msgid "unique student identifier."
+msgstr "unieke student-identifiseerder."
+
+#: lms/djangoapps/instructor/views/serializer.py:496
+msgid "Whether to reset for all students."
+msgstr "Of dit vir alle studente teruggestel moet word."
+
+#: lms/djangoapps/instructor/views/serializer.py:501
+msgid "Whether to delete entrance exam state for the student."
+msgstr "Of die toelatingseksamenstaat vir die student uitgevee moet word."
+
 #: lms/djangoapps/instructor/views/serializer.py:535
 msgid "all_students and unique_student_identifier are mutually exclusive."
 msgstr ""
@@ -5668,6 +5859,14 @@ msgstr ""
 #: lms/djangoapps/instructor/views/serializer.py:539
 msgid "all_students and delete_module are mutually exclusive."
 msgstr "all_students en delete_module sluit mekaar uit."
+
+#: lms/djangoapps/instructor/views/serializer.py:543
+msgid ""
+"You must provide either unique_student_identifier or set all_students to "
+"True."
+msgstr ""
+"Jy moet óf 'n unieke_student_identifiseerder verskaf óf alle_studente op "
+"Waar stel."
 
 #: lms/djangoapps/instructor/views/serializer.py:565
 msgid "The URL name of the problem to override the score for."
@@ -8979,6 +9178,26 @@ msgstr ""
 msgid "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
 msgstr "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:202
+#, python-brace-format
+msgid ""
+"<{p}>You have a new open response submission awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"&lt; {p} &gt;Jy het &#39;n nuwe oop antwoord indiening wat wag vir "
+"hersiening vir &lt; {strong} &gt; {ora_name} </<span class='notranslate'> "
+"{strong} &gt; </<span class='notranslate'> {p} &gt;"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:204
+#, python-brace-format
+msgid ""
+"<{p}>You have multiple submissions awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"&lt; {p} &gt;Jy het veelvuldige voorleggings wat op hersiening wag vir &lt; "
+"{strong} &gt; {ora_name} </<span class='notranslate'> {strong} &gt; </<span "
+"class='notranslate'> {p} &gt;"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:223
 #, python-brace-format
 msgid ""
@@ -8987,6 +9206,13 @@ msgid ""
 msgstr ""
 "<{p}>Jy het {points_earned} uit {points_possible} op jou aanslag ontvang: "
 "<{strong}>{ora_name}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:243
+#, python-brace-format
+msgid "<{p}>Your instructor posted <{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"&lt; {p} &gt;Jou instrukteur het geplaas &lt; {strong} &gt; {post_title} </>"
+" {strong} &gt; </> {p} &gt;"
 
 #: openedx/core/djangoapps/notifications/base_notification.py:256
 msgid ""
@@ -9005,6 +9231,23 @@ msgstr ""
 msgid "Notifications for submission grading."
 msgstr "Kennisgewings vir indieningsgradering."
 
+#: openedx/core/djangoapps/notifications/email/tasks.py:144
+msgid "New Course Update"
+msgstr "Nuwe Kursusopdatering"
+
+#: openedx/core/djangoapps/notifications/email/tasks.py:152
+msgid ""
+"You are receiving this email because you are enrolled in the edX course "
+msgstr "Jy ontvang hierdie e-pos omdat jy ingeskryf is vir die edX-kursus "
+
+#: openedx/core/djangoapps/notifications/email/utils.py:136
+msgid "Total Notifications"
+msgstr "Totale kennisgewings"
+
+#: openedx/core/djangoapps/notifications/email/utils.py:212
+msgid "Today"
+msgstr "Vandag"
+
 #: openedx/core/djangoapps/notifications/email/utils.py:441
 #: openedx/features/course_experience/plugins.py:34
 #: cms/templates/widgets/header.html:115 cms/templates/widgets/header.html:120
@@ -9013,6 +9256,22 @@ msgstr "Kennisgewings vir indieningsgradering."
 #: openedx/features/course_experience/templates/course_experience/course-updates-fragment.html:25
 msgid "Updates"
 msgstr "Opdaterings"
+
+#: openedx/core/djangoapps/notifications/email/utils.py:442
+msgid "Grades"
+msgstr "Grade"
+
+#: openedx/core/djangoapps/notifications/email/utils.py:463
+msgid "discussion"
+msgstr "bespreking"
+
+#: openedx/core/djangoapps/notifications/email/utils.py:464
+msgid "update"
+msgstr "opdatering"
+
+#: openedx/core/djangoapps/notifications/email/utils.py:465
+msgid "assessment"
+msgstr "assessering"
 
 #: openedx/core/djangoapps/notifications/email_notifications.py:16
 msgid "Daily"
@@ -9032,12 +9291,33 @@ msgstr "Onmiddellik"
 msgid "Never"
 msgstr "Nooit nie"
 
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_content.html:15
+msgid "View all"
+msgstr "Bekyk alles"
+
 #: openedx/core/djangoapps/notifications/templates/notifications/digest_content.html:50
 #: openedx/core/djangoapps/notifications/templates/notifications/immediate_email_content.html:27
 #: wiki/templates/wiki/includes/article_menu.html:49
 #: lms/templates/wiki/includes/article_menu.html:13
 msgid "View"
 msgstr "Beskou"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_content.html:63
+msgid "more"
+msgstr "meer"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:38
+msgid ""
+"You are receiving this email because you have subscribed to email digest"
+msgstr "Jy ontvang hierdie e-pos omdat jy ingeteken het op e-posversameling"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:43
+msgid "Notification Settings"
+msgstr "Kennisgewinginstellings"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:46
+msgid "Unsubscribe from email digest for learning activity"
+msgstr "Kanselleer intekening op e-possamevatting vir leeraktiwiteit"
 
 #: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:12
 #: openedx/core/djangoapps/notifications/templates/notifications/immediate_email_content.html:8
@@ -9047,6 +9327,24 @@ msgstr "Beskou"
 #: lms/templates/bulk_email/unsubscribe_success.html:18
 msgid "Unsubscribe"
 msgstr "Teken uit"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:25
+msgid "Weekly Notifications Digest"
+msgstr "Weeklikse Kennisgewingsopsomming"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:27
+msgid "Daily Notifications Digest"
+msgstr "Daaglikse kennisgewingsopsomming"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/body.txt:4
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/subject.txt:4
+msgid "Weekly Notifications Digest for the Week of"
+msgstr "Weeklikse kennisgewingsopsomming vir die week van"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/body.txt:6
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/subject.txt:6
+msgid "Daily Notifications Digest for"
+msgstr "Daaglikse kennisgewingsopsomming vir"
 
 #: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:5
 msgid "Email Digest Preferences Updated"
@@ -9261,6 +9559,41 @@ msgstr " Deur %(filter_title)s "
 #, python-format
 msgid "Welcome to week %(week_num)s of %(course_name)s!"
 msgstr "Welkom by week %(week_num)s van %(course_name)s !"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:22
+#, python-format
+msgid ""
+"This is a routed Account Activation email for %(routed_profile_name)s "
+"(%(routed_user_email)s): %(routed_profile_name)s"
+msgstr ""
+"Hierdie is &#39;n gerigte rekeningaktiverings-e-pos vir "
+"%(routed_profile_name)s ( %(routed_user_email)s ): %(routed_profile_name)s"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:36
+msgid "Welcome to edX. It’s time for your next career move"
+msgstr "Welkom by edX. Dis tyd vir jou volgende loopbaanstap."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:62
+msgid "Resume your course "
+msgstr "Hervat jou kursus "
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:82
+msgid "Your focused attention will pay off in the end!"
+msgstr "Jou gefokusde aandag sal uiteindelik vrugte afwerp!"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:84
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:101
+msgid ""
+"With self-paced courses, you learn on your own schedule. It’s a good idea to"
+" spend time with the course each week and check in with your goals often."
+msgstr ""
+"Met kursusse wat jy op jou eie tempo volg, leer jy volgens jou eie skedule. "
+"Dis &#39;n goeie idee om elke week tyd aan die kursus te spandeer en gereeld"
+" jou doelwitte na te gaan."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:100
+msgid "Your focused attention will pay off in the end! "
+msgstr "Jou gefokusde aandag sal uiteindelik vrugte afwerp! "
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.txt:4
 #, python-format
@@ -11681,6 +12014,14 @@ msgstr ""
 "sleutel vir jou kursus te bekom, of om &#39;n probleem aan te meld, kontak "
 "asseblief moocsupport@mathworks.com"
 
+#: xmodule/capa_block.py:344
+msgid ""
+"Indicates if the problem was edited using the Markdown editor in the "
+"Authoring MFE."
+msgstr ""
+"Dui aan of die probleem geredigeer is deur die Markdown-redigeerder in die "
+"Authoring MFE te gebruik."
+
 #: xmodule/capa_block.py:435
 msgid ""
 "We're sorry, there was an error with processing your request. Please try "
@@ -12693,6 +13034,18 @@ msgstr "Spesifiseer die taal van jou kursus."
 #: xmodule/course_block.py:840
 msgid "Teams Configuration"
 msgstr "Spannekonfigurasie"
+
+#: xmodule/course_block.py:843
+msgid ""
+"Configure team sets, limit team sizes, and set visibility settings using "
+"JSON. See <a target=\"&#95;blank\" "
+"href=\"https://docs.openedx.org/en/latest/educators/references/advanced_features/teams_configuration_options.html>teams"
+" configuration documentation</a> for help and examples."
+msgstr ""
+"Konfigureer spanstelle, beperk spangroottes en stel sigbaarheidsinstellings "
+"met behulp van JSON. Sien <a target=\"&#95;blank\" "
+"href=\"https://docs.openedx.org/en/latest/educators/references/advanced_features/teams_configuration_options.html>spankonfigurasiedokumentasie"
+" </a>vir hulp en voorbeelde."
 
 #: xmodule/course_block.py:852
 msgid "Enable Proctored Exams"
@@ -19689,6 +20042,10 @@ msgstr "Invoer"
 msgid "Export"
 msgstr "Uitvoer"
 
+#: cms/templates/widgets/header.html:267
+msgid "Course Optimizer"
+msgstr "Kursus optimeerder"
+
 #: cms/templates/widgets/header.html:285
 msgid "Current Library:"
 msgstr "Huidige biblioteek:"
@@ -19798,6 +20155,10 @@ msgstr "Versteek {studio_name} Hulp"
 #, python-brace-format
 msgid "{studio_name} Documentation"
 msgstr "{studio_name} Dokumentasie"
+
+#: cms/templates/widgets/sock_links.html:14
+msgid "Access edx.org documentation on http://docs.edx.org"
+msgstr "Gaan na edx.org-dokumentasie op http://docs.edx.org"
 
 #: cms/templates/widgets/sock_links.html:15
 msgid "edX Documentation"
@@ -22018,6 +22379,17 @@ msgid ""
 msgstr ""
 "Gebruik die pyltjie sleutels om die wenke te navigeer of gebruik die oortjie"
 " sleutel om terug te keer na die sakrekenaar"
+
+#: lms/templates/calculator/toggle_calculator.html:27
+#, python-brace-format
+msgid ""
+"For detailed information, see {math_link_start}Entering Mathematical and "
+"Scientific Expressions{math_link_end} in the {guide_link_start}Open edX "
+"Guide for Students{guide_link_end}."
+msgstr ""
+"Vir gedetailleerde inligting, sien {math_link_start} Invoer van wiskundige "
+"en wetenskaplike uitdrukkings {math_link_end} in die {guide_link_start} Oop "
+"edX-gids vir studente {guide_link_end} ."
 
 #: lms/templates/calculator/toggle_calculator.html:36
 msgid "Tips"
@@ -24742,6 +25114,19 @@ msgstr ""
 msgid "Download a CSV of learners who can enroll"
 msgstr "Laai &#39;n CSV af van leerders wat kan inskryf"
 
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:40
+msgid ""
+"Click to generate a CSV file that lists learners who are enrolled in the "
+"course but have not yet activated their account."
+msgstr ""
+"Klik om &#39;n CSV-lêer te genereer wat leerders lys wat vir die kursus "
+"ingeskryf is, maar nog nie hul rekening geaktiveer het nie."
+
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:42
+msgid "Download a CSV of learners who have not activated their account"
+msgstr ""
+"Laai &#39;n CSV af van leerders wat nie hul rekening geaktiveer het nie"
+
 #: lms/templates/instructor/instructor_dashboard_2/data_download.html:44
 msgid "Click to download a CSV of anonymized student IDs:"
 msgstr "Klik om &#39;n CSV van geanonimiseerde studente-ID&#39;s af te laai:"
@@ -26059,6 +26444,14 @@ msgid ""
 msgstr ""
 "Klik om &#39;n CSV-lêer te genereer wat leerders lys wat vir die kursus kan "
 "inskryf, maar dit nog nie gedoen het nie."
+
+#: lms/templates/instructor/instructor_dashboard_2/data_download_2/reports.html:102
+msgid ""
+"Click to generate a CSV file                 that lists learners who are "
+"enrolled in the course but have not yet activated their account."
+msgstr ""
+"Klik om &#39;n CSV-lêer te genereer wat leerders lys wat vir die kursus "
+"ingeskryf is, maar nog nie hul rekening geaktiveer het nie."
 
 #: lms/templates/instructor/instructor_dashboard_2/data_download_2/reports.html:105
 msgid ""
