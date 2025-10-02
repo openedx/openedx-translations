@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-proctoring\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-28 00:45+0000\n"
+"POT-Creation-Date: 2025-10-02 00:42+0000\n"
 "PO-Revision-Date: 2023-05-10 00:48+0000\n"
 "Last-Translator: Eden Huthmacher, 2025\n"
 "Language-Team: Azerbaijani (https://app.transifex.com/open-edx/teams/6205/az/)\n"
@@ -53,6 +53,10 @@ msgstr "Yaradıldı"
 msgid "Download Software Clicked"
 msgstr "Klikləyərək proqrram təminatını yükləyin"
 
+#: admin.py:394
+msgid "Ready To Start"
+msgstr "Başlamağa Hazır"
+
 #: admin.py:395
 msgid "Started"
 msgstr "Başladı"
@@ -89,6 +93,22 @@ msgstr "Rədd edildi"
 msgid "Error"
 msgstr "Xəta"
 
+#: admin.py:407
+msgid "Onboarding Missing"
+msgstr "Onboarding çatışmır"
+
+#: admin.py:408
+msgid "Onboarding Failed"
+msgstr "Onboarding uğursuz oldu"
+
+#: admin.py:409
+msgid "Onboarding Pending"
+msgstr "Onboarding Gözlənilir"
+
+#: admin.py:410
+msgid "Onboarding Expired"
+msgstr "Onboarding müddəti bitib"
+
 #: api.py:824 views.py:1297
 #, python-brace-format
 msgid "you have {remaining_time} remaining"
@@ -97,6 +117,19 @@ msgstr "sizin {remaining_time} qalır"
 #: api.py:1654
 msgid "your course"
 msgstr "sizin kursunuz"
+
+#: api.py:1745
+#, python-brace-format
+msgid "Proctoring Results For {course_name} {exam_name}"
+msgstr "{course_name} {exam_name} üçün Proktorinq Nəticələri"
+
+#: api.py:2238
+msgid "Taking As Proctored Exam"
+msgstr "Nəzarətli imtahan kimi götürür"
+
+#: api.py:2243
+msgid "Proctored Option Available"
+msgstr "Müşahidə olunan seçim mövcuddur"
 
 #: api.py:2248
 msgid "Taking As Open Exam"
@@ -134,6 +167,10 @@ msgstr "Sınaq imtahanı uğursuz oldu"
 msgid "Timed Exam"
 msgstr "Vaxtlı imtahan"
 
+#: api.py:2888
+msgid "Onboarding status question"
+msgstr "Onboarding status sualı"
+
 #: models.py:391
 msgid "Taking as Proctored"
 msgstr "Nəzarətli kimi götürür"
@@ -141,6 +178,14 @@ msgstr "Nəzarətli kimi götürür"
 #: models.py:395
 msgid "Is Sample Attempt"
 msgstr "nümunə cəhddir"
+
+#: models.py:413
+msgid "Is Resumable"
+msgstr "Yenidən başlamaq mümkündürmü?"
+
+#: models.py:418
+msgid "Ready to Resume"
+msgstr "Hazırdır davam etsin"
 
 #: models.py:421
 msgid "Resumed"
@@ -150,6 +195,10 @@ msgstr "Bərpa edildi"
 msgid "Additional Time (minutes)"
 msgstr "Əlavə vaxt (dəqiqə)"
 
+#: models.py:525
+msgid "Review Policy Exception"
+msgstr "Siyasət istisnasını nəzərdən keçirin"
+
 #: templates/common/waiting_banner.html:3
 msgid ""
 "\n"
@@ -158,6 +207,48 @@ msgid ""
 msgstr ""
 "\n"
 "        Nəticə <strong id=\"wait_deadline\"> Yüklənir... </strong> sonra görünəcək.\n"
+"    "
+
+#: templates/emails/proctoring_attempt_satisfactory_email.html:5
+#: templates/emails/proctoring_attempt_submitted_email.html:5
+#: templates/emails/proctoring_attempt_unsatisfactory_email.html:5
+msgid ""
+"\n"
+"        Hello,\n"
+"    "
+msgstr ""
+"\n"
+"        Salam,\n"
+"    "
+
+#: templates/emails/proctoring_attempt_satisfactory_email.html:12
+#, python-format
+msgid ""
+"\n"
+"        Your proctored exam \"%(exam_name)s\" in\n"
+"        <a href=\"%(course_url)s\">%(course_name)s</a> was reviewed and you\n"
+"        met all proctoring requirements.\n"
+"    "
+msgstr ""
+"\n"
+"        ```\n"
+"        Sizin \"%(exam_name)s\" adlı nəzarət olunan imtahanınız\n"
+"        <a href=\"%(course_url)s\">%(course_name)s</a> kursunda nəzərdən keçirildi və siz bütün nəzarət tələblərinə cavab verdiniz.\n"
+"```\n"
+"    "
+
+#: templates/emails/proctoring_attempt_satisfactory_email.html:21
+#, python-format
+msgid ""
+"\n"
+"    If you have any questions about your results, you can reach out at \n"
+"        <a href=\"%(contact_url)s\">\n"
+"            %(contact_url_text)s\n"
+"        </a>.\n"
+"    "
+msgstr ""
+"\n"
+"    Əgər nəticələrinizlə bağlı hər hansı sualınız varsa, siz <a href=\"%(contact_url)s\"> %(contact_url_text)s </a> vasitəsilə əlaqə saxlaya bilərsiniz.\n"
 "    "
 
 #: templates/emails/proctoring_attempt_submitted_email.html:12
@@ -179,6 +270,107 @@ msgstr ""
 "        Yekun qiymətlər daha uzun çəkə bilər.\n"
 "    "
 
+#: templates/emails/proctoring_attempt_unsatisfactory_email.html:12
+#, python-format
+msgid ""
+"\n"
+"        Your proctored exam \"%(exam_name)s\" in\n"
+"        <a href=\"%(course_url)s\">%(course_name)s</a> was reviewed and the\n"
+"        course team has identified one or more violations of the proctored exam rules. Examples\n"
+"        of issues that may result in a rules violation include browsing\n"
+"        the internet, blurry or missing photo identification, using a phone,\n"
+"        or getting help from another person. As a result of the identified issue(s),\n"
+"        you did not successfully meet the proctored exam requirements.\n"
+"    "
+msgstr ""
+"\n"
+"        Nəzarət olunan \"%(exam_name)s\" imtahanınız\n"
+"        <a href=\"%(course_url)s\">%(course_name)s</a> kursunda nəzərdən keçirildi və\n"
+"        kurs komandası nəzarət olunan imtahan qaydalarının bir və ya bir neçə pozuntusunu müəyyən etdi. Qaydaların pozulmasına səbəb ola biləcək məsələlərə internetdə gəzmək,\n"
+"        bulanıq və ya itkin fotoşəkil identifikasiyası, telefon istifadə etmək\n"
+"        və ya başqa bir şəxsdən kömək almaq daxildir. Məlum olan məsələlər nəticəsində,\n"
+"        siz nəzarət olunan imtahan tələblərinə uğurla cavab vermədiniz.\n"
+"    "
+
+#: templates/emails/proctoring_attempt_unsatisfactory_email.html:25
+#, python-format
+msgid ""
+"\n"
+"        To appeal your proctored exam results, please reach out with any relevant information\n"
+"        about your exam at \n"
+"        <a href=\"%(contact_url)s\">\n"
+"            %(contact_url_text)s\n"
+"        </a>.\n"
+"    "
+msgstr ""
+"\n"
+"        Zəhmət olmasa, nəzarət olunan imtahan nəticələrinizi apellyasiya etmək üçün imtahanınızla bağlı hər hansı müvafiq məlumatı \n"
+"<a href=\"%(contact_url)s\">\n"
+"    %(contact_url_text)s\n"
+"</a> ünvanına göndərin.\n"
+"    "
+
+#: templates/onboarding_exam/entrance.html:5
+msgid ""
+"\n"
+"    Proctoring onboarding exam\n"
+"  "
+msgstr ""
+"\n"
+"    Proktorinqə hazırlıq imtahanı\n"
+"  "
+
+#: templates/onboarding_exam/entrance.html:12
+msgid ""
+"\n"
+"      Why this is important to you:\n"
+"    "
+msgstr ""
+"\n"
+"      Niyə bu sizin üçün vacibdir:\n"
+"    "
+
+#: templates/onboarding_exam/entrance.html:18
+msgid ""
+"\n"
+"        Establish your identity with the proctoring system to take a proctored exam\n"
+"      "
+msgstr ""
+"\n"
+"        Şəxsiyyətinizi təsdiqləmək üçün proktorinq sistemindən istifadə edərək nəzarətli imtahan verin\n"
+"      "
+
+#: templates/onboarding_exam/entrance.html:23
+msgid ""
+"\n"
+"        Create your onboarding profile for faster access in the future\n"
+"      "
+msgstr ""
+"\n"
+"        Profilinizi yaradın ki, gələcəkdə daha sürətli daxil ola biləsiniz\n"
+"      "
+
+#: templates/onboarding_exam/entrance.html:28
+msgid ""
+"\n"
+"        Practice taking a proctored test\n"
+"      "
+msgstr ""
+"\n"
+"        Proktorlu imtahan verməyi məşq edin\n"
+"      "
+
+#: templates/onboarding_exam/entrance.html:34
+#, python-format
+msgid ""
+"\n"
+"      Proctoring for this course is provided via %(provider_name)s.  Onboarding review, including identity verification, can take 2+ business days.\n"
+"    "
+msgstr ""
+"\n"
+"      Bu kurs üçün nəzarət %(provider_name)s vasitəsilə təmin edilir. Şəxsiyyətin təsdiqi daxil olmaqla, qeydiyyatın yoxlanılması 2 və ya daha çox iş günü çəkə bilər.\n"
+"    "
+
 #: templates/onboarding_exam/entrance.html:40
 #, python-format
 msgid ""
@@ -194,6 +386,26 @@ msgstr ""
 "        Bu e-poçtun gələnlər qutusu filtrinizə əlavə edildiyinə əmin olun.\n"
 "      "
 
+#: templates/onboarding_exam/entrance.html:49
+#, python-format
+msgid ""
+"\n"
+"        Please contact\n"
+"        <a href=\"mailto:%(integration_specific_email)s\">%(integration_specific_email)s</a>\n"
+"        if you have questions.\n"
+"      "
+msgstr ""
+"\n"
+"        ```\n"
+"        \n"
+"Zəhmət olmasa suallarınız varsa, <a href=\"mailto:%(integration_specific_email)s\">%(integration_specific_email)s</a> ünvanına müraciət edin.\n"
+"```\n"
+"      "
+
+#: templates/onboarding_exam/entrance.html:58
+msgid "Continue to onboarding"
+msgstr "Onboardinqa davam edin"
+
 #: templates/onboarding_exam/entrance.html:62
 msgid ""
 "\n"
@@ -202,6 +414,28 @@ msgid ""
 msgstr ""
 "\n"
 "    Sizə onlayn nəzarət proqramının qurulması və şəxsiyyətin təsdiqlənməsi prosesində rəhbərlik ediləcək.\n"
+"  "
+
+#: templates/onboarding_exam/error.html:4
+msgid ""
+"\n"
+"    Error: There was a problem with your onboarding session\n"
+"  "
+msgstr ""
+"\n"
+"    Xəta: Onboarding sessiyanızla bağlı problem yarandı\n"
+"  "
+
+#: templates/onboarding_exam/error.html:13
+msgid ""
+"\n"
+"    Your proctoring session ended before you completed this onboarding exam.\n"
+"    You should retry this onboarding exam.\n"
+"  "
+msgstr ""
+"\n"
+"    Sizin nəzarət sessiyanız bu tanışlıq imtahanını tamamlamadan bitdi.  \n"
+"Bu tanışlıq imtahanını yenidən cəhd etməlisiniz.\n"
 "  "
 
 #: templates/onboarding_exam/ready_to_submit.html:6
@@ -224,6 +458,23 @@ msgstr ""
 "\n"
 "    Sizin uyğunlaşma sessiyanız nəzərdən keçirildi, lakin bütün tələblərə cavab vermədi.\n"
 "  "
+
+#: templates/onboarding_exam/rejected.html:12
+#, python-format
+msgid ""
+"\n"
+"      Please contact\n"
+"      <a href=\"mailto:%(integration_specific_email)s\">\n"
+"        %(integration_specific_email)s\n"
+"      </a> if you have questions. You may retake this onboarding exam by clicking \"Retry my exam\".\n"
+"    "
+msgstr ""
+"\n"
+"      Zəhmət olmasa suallarınız varsa\n"
+"<a href=\"mailto:%(integration_specific_email)s\">\n"
+"  %(integration_specific_email)s\n"
+"</a> ilə əlaqə saxlayın. Bu tanışlıq imtahanını \"İmtahanımı təkrar et\" düyməsini basaraq yenidən verə bilərsiniz.\n"
+"    "
 
 #: templates/onboarding_exam/rejected.html:20
 #: templates/onboarding_exam/submitted.html:47
@@ -294,6 +545,50 @@ msgstr ""
 "      Əgər artıq başqa bir kurs vasitəsilə təsdiqlənmiş onboarding profiliniz varsa, bu təqdimat nəzərdən keçirilməyəcək. Siz proktorinq tələblərinə uyğunluğunuzu yoxlamaq üçün bu imtahanı istənilən vaxt təkrar edə bilərsiniz.\n"
 "    "
 
+#: templates/onboarding_exam/submitted.html:36
+msgid ""
+"\n"
+"      If you have made an error in this submission you may restart the onboarding process. \n"
+"      Your current submission will be removed and will not receive a review.\n"
+"    "
+msgstr ""
+"\n"
+"      Əgər bu təqdimatda səhv etmisinizsə, onboarding prosesinə yenidən başlaya bilərsiniz.  \n"
+"Cari təqdimatınız silinəcək və nəzərdən keçirilməyəcək.\n"
+"    "
+
+#: templates/onboarding_exam/submitted.html:41
+msgid "I understand and want to reset this onboarding exam."
+msgstr "Bu uyğunlaşma imtahanını sıfırlamaq istəyirəm və bunu başa düşürəm."
+
+#: templates/onboarding_exam/submitted.html:53
+#: templates/onboarding_exam/verified.html:16
+#, python-format
+msgid ""
+"\n"
+"      Please contact\n"
+"      <a href=\"mailto:%(integration_specific_email)s\">\n"
+"        %(integration_specific_email)s\n"
+"      </a> if you have questions.\n"
+"    "
+msgstr ""
+"\n"
+"      Zəhmət olmasa suallarınız varsa,  \n"
+"<a href=\"mailto:%(integration_specific_email)s\">  \n"
+"%(integration_specific_email)s  \n"
+"</a> ilə əlaqə saxlayın.\n"
+"    "
+
+#: templates/onboarding_exam/verified.html:4
+msgid ""
+"\n"
+"    Your onboarding profile was reviewed successfully\n"
+"  "
+msgstr ""
+"\n"
+"    Onboarding profiliniz uğurla nəzərdən keçirildi\n"
+"  "
+
 #: templates/onboarding_exam/verified.html:11
 msgid ""
 "\n"
@@ -303,6 +598,18 @@ msgstr ""
 "\n"
 "      Profiliniz yaradılıb və bu kursda nəzarətli imtahanlar verməyə hazırsınız.\n"
 "    "
+
+#: templates/practice_exam/entrance.html:5
+msgid ""
+"\n"
+"        Try a proctored exam\n"
+"      "
+msgstr ""
+"\n"
+"        ```\n"
+"        Nəzarətli imtahana cəhd edin\n"
+"```\n"
+"      "
 
 #: templates/practice_exam/entrance.html:12
 msgid ""
@@ -331,6 +638,20 @@ msgstr ""
 "          Sizə onlayn nəzarət proqramını qurmaq və şəxsiyyətinizi təsdiqləmək üçün addımlar göstəriləcək.\n"
 "        "
 
+#: templates/practice_exam/error.html:5
+msgid ""
+"\n"
+"        There was a problem with your practice proctoring session\n"
+"      "
+msgstr ""
+"\n"
+"        ```\n"
+"        \n"
+"Sizin nəzarətli sınaq sessiyanızla əlaqədar problem var idi\n"
+"      \n"
+"```\n"
+"      "
+
 #: templates/practice_exam/error.html:13
 msgid ""
 "\n"
@@ -341,6 +662,18 @@ msgstr ""
 "      Sizin nəzarətli sınaq nəticələriniz: <b class=\"failure\"> Qeyri-kafi </b>\n"
 "    "
 
+#: templates/practice_exam/error.html:21
+msgid ""
+"\n"
+"        Your proctoring session ended before you completed this practice exam.\n"
+"        You can retry this practice exam if you had problems setting up the online proctoring software.\n"
+"      "
+msgstr ""
+"\n"
+"        Siz bu sınaq imtahanını bitirmədən öncə nəzarətli sessiyanız başa çatdı.  \n"
+"Siz bu sınaq imtahanını yenidən edə bilərsiniz, əgər onlayın nəzarət proqram təminatını tənzimləmədə problemləriniz oldusa.\n"
+"      "
+
 #: templates/practice_exam/submitted.html:5
 msgid ""
 "\n"
@@ -349,6 +682,30 @@ msgid ""
 msgstr ""
 "\n"
 "        Siz bu nəzarətli sınaq imtahanını göndərmisiniz\n"
+"      "
+
+#: templates/practice_exam/submitted.html:13
+msgid ""
+"\n"
+"        Practice exams do not affect your grade.\n"
+"        You have completed this practice exam and can continue with your course work.\n"
+"      "
+msgstr ""
+"\n"
+"        Təcrübə imtahanları qiymətinizə təsir etmir.  \n"
+"Siz bu təcrübə imtahanını tamamlamısınız və kurs işinizə davam edə bilərsiniz.\n"
+"      "
+
+#: templates/proctored_exam/confirm-decline.html:5
+msgid ""
+"\n"
+"        Are you sure you want to take this exam without proctoring?\n"
+"      "
+msgstr ""
+"\n"
+"        ```\n"
+"Siz bu imtahanı nəzarətsiz götürmək istədiyinizdən əminsinizmi?\n"
+"```\n"
 "      "
 
 #: templates/proctored_exam/confirm-decline.html:10
@@ -393,6 +750,11 @@ msgstr ""
 "\n"
 "    "
 
+#: templates/proctored_exam/entrance.html:15
+#: templates/proctored_exam/ready_to_resume.html:19
+msgid "Continue to my proctored exam."
+msgstr "Proktorlu imtahana davam et."
+
 #: templates/proctored_exam/entrance.html:18
 #: templates/proctored_exam/ready_to_resume.html:22
 msgid ""
@@ -414,6 +776,33 @@ msgstr ""
 "\n"
 "      Nəzarətli imtahanda xəta\n"
 "    "
+
+#: templates/proctored_exam/error.html:11
+#, python-format
+msgid ""
+"\n"
+"        A system error has occurred with your proctored exam. Please reach out to your course \n"
+"        team at <a href=\"mailto:%(proctoring_escalation_email)s\">%(proctoring_escalation_email)s</a> \n"
+"        for assistance, and return to the exam once you receive further instructions.\n"
+"      "
+msgstr ""
+"\n"
+"        Sizin nəzarət olunan imtahanınızda sistem xətası baş verib. Yardım üçün kurs komandanıza <a href=\"mailto:%(proctoring_escalation_email)s\">%(proctoring_escalation_email)s</a> ünvanına müraciət edin və əlavə təlimatlar aldıqdan sonra imtahana qayıdın.\n"
+"      "
+
+#: templates/proctored_exam/error.html:17
+#, python-format
+msgid ""
+"\n"
+"        A system error has occurred with your proctored exam. Please reach out to \n"
+"        <a href=\"%(link_urls.contact_us)s\" target=\"_blank\">%(platform_name)s Support</a> for \n"
+"        assistance, and return to the exam once you receive further instructions.\n"
+"      "
+msgstr ""
+"\n"
+"        Proktorlu imtahanınızda sistem xətası baş verib. Yardım üçün \n"
+"        <a href=\"%(link_urls.contact_us)s\" target=\"_blank\">%(platform_name)s Dəstək</a> ilə əlaqə saxlayın və əlavə təlimatlar aldıqdan sonra imtahana qayıdın.\n"
+"      "
 
 #: templates/proctored_exam/error_modal.html:7
 msgid "Close"
@@ -446,6 +835,18 @@ msgstr ""
 msgid "End My Exam"
 msgstr "İmtahanımı Bitir"
 
+#: templates/proctored_exam/expired.html:4 templates/timed_exam/expired.html:4
+msgid ""
+"\n"
+"      The due date for this exam has passed\n"
+"    "
+msgstr ""
+"\n"
+"      ```\n"
+"      Bu imtahanın son tarixi keçib\n"
+"```\n"
+"    "
+
 #: templates/proctored_exam/expired.html:9 templates/timed_exam/expired.html:9
 msgid ""
 "\n"
@@ -454,6 +855,16 @@ msgid ""
 msgstr ""
 "\n"
 "      Son tarix keçdiyi üçün siz daha bu imtahanı götürə bilməzsiniz.\n"
+"    "
+
+#: templates/proctored_exam/failed-prerequisites.html:9
+msgid ""
+"\n"
+"    You did not satisfy the requirements for taking this exam with proctoring.\n"
+"    "
+msgstr ""
+"\n"
+"    Siz bu imtahanı nəzarətçi ilə vermək üçün tələbləri ödəmədiniz.\n"
 "    "
 
 #: templates/proctored_exam/failed-prerequisites.html:14
@@ -520,6 +931,32 @@ msgstr ""
 "      hesabınızı aktivləşdirməlisiniz.\n"
 "    "
 
+#: templates/proctored_exam/inactive_account.html:16
+#, python-format
+msgid ""
+"\n"
+"      Please check your registered email's Inbox and Spam folders for an activation email from\n"
+"      %(platform_name)s.\n"
+"    "
+msgstr ""
+"\n"
+"      Zəhmət olmasa, qeydiyyatdan keçmiş e-poçt ünvanınızın Gələnlər və Spam qovluqlarını %(platform_name)s-dən gələn aktivasiya e-poçtu üçün yoxlayın.\n"
+"    "
+
+#: templates/proctored_exam/inactive_account.html:21
+#, python-format
+msgid ""
+"\n"
+"        If you cannot find this email, you can <a href=\"%(reset_link)s\" target=\"_blank\">reset your password</a> to\n"
+"        activate your account.\n"
+"      "
+msgstr ""
+"\n"
+"        ```\n"
+"Əgər bu e-poçtu tapa bilmirsinizsə, hesabınızı aktivləşdirmək üçün <a href=\"%(reset_link)s\" target=\"_blank\">şifrənizi sıfırlaya bilərsiniz</a>.\n"
+"```\n"
+"      "
+
 #: templates/proctored_exam/inactive_account.html:26
 msgid ""
 "\n"
@@ -543,6 +980,30 @@ msgstr ""
 "      %(platform_name)s Support</a>.\n"
 "    "
 
+#: templates/proctored_exam/instructions.html:6
+msgid ""
+"\n"
+"      Set up and start your proctored exam\n"
+"    "
+msgstr ""
+"\n"
+"      Müşahidə olunan imtahanınızı qurun və başlayın\n"
+"    "
+
+#: templates/proctored_exam/instructions.html:12
+msgid ""
+"\n"
+"          Note: As part of the proctored exam setup, you will be asked\n"
+"          to verify your identity. Before you begin, make sure you are\n"
+"          on a computer with a webcam, and that you have a valid form\n"
+"          of photo identification such as a driver’s license or\n"
+"          passport.\n"
+"        "
+msgstr ""
+"\n"
+"          Qeyd: Nəzarət olunan imtahanın qurulması çərçivəsində şəxsiyyətinizi təsdiqləməyiniz xahiş olunacaq. Başlamazdan əvvəl, veb kamerası olan bir kompüterdə olduğunuzdan və sürücülük vəsiqəsi və ya pasport kimi etibarlı bir fotoşəkilli şəxsiyyət vəsiqənizin olduğundan əmin olun.\n"
+"        "
+
 #: templates/proctored_exam/instructions.html:27
 #, python-format
 msgid ""
@@ -562,6 +1023,16 @@ msgstr "Sistem yoxlamasını başladın"
 #: templates/proctored_exam/instructions.html:36
 msgid "Start Exam"
 msgstr "İmtahana Başla"
+
+#: templates/proctored_exam/instructions.html:40
+msgid ""
+"\n"
+"          Step 1\n"
+"        "
+msgstr ""
+"\n"
+"          Addım 1\n"
+"        "
 
 #: templates/proctored_exam/instructions.html:45
 msgid ""
@@ -587,6 +1058,16 @@ msgstr ""
 "        İmtahan kodunu seçin, sonra onu Control + C (Windows) və ya Command + C (Mac) ilə kopyalayın.\n"
 "      "
 
+#: templates/proctored_exam/instructions.html:59
+msgid ""
+"\n"
+"          Step 2\n"
+"        "
+msgstr ""
+"\n"
+"          Addım 2\n"
+"        "
+
 #: templates/proctored_exam/instructions.html:64
 msgid ""
 "\n"
@@ -597,11 +1078,35 @@ msgstr ""
 "        İndi sistem yoxlamanıza başlayın. Bu addım üçün yeni bir pəncərə açılacaq və siz şəxsiyyətinizi təsdiqləyəcəksiniz.\n"
 "      "
 
+#: templates/proctored_exam/instructions.html:69
+msgid ""
+"\n"
+"        Make sure you:\n"
+"      "
+msgstr ""
+"\n"
+"        Əmin olun ki, siz:\n"
+"      "
+
+#: templates/proctored_exam/instructions.html:74
+msgid "Have a computer with a functioning webcam"
+msgstr "Kamerası işləyən bir kompüterə sahib olun"
+
 #: templates/proctored_exam/instructions.html:75
 msgid "Have your valid photo ID (e.g. driver's license or passport) ready"
 msgstr ""
 "Etibarlı fotoşəxsiyyət vəsiqənizi (məsələn, sürücülük vəsiqəsi və ya "
 "pasport) hazır saxlayın"
+
+#: templates/proctored_exam/instructions.html:81
+msgid ""
+"\n"
+"          Step 3\n"
+"        "
+msgstr ""
+"\n"
+"          Addım 3\n"
+"        "
 
 #: templates/proctored_exam/instructions.html:86
 msgid ""
@@ -663,6 +1168,20 @@ msgstr ""
 "      Sizin işə qəbul imtahanınız bütün tələbləri keçə bilmədi.\n"
 "    "
 
+#: templates/proctored_exam/onboarding_error.html:38
+#, python-format
+msgid ""
+"\n"
+"      Proctoring for your exam is provided via %(provider_name)s.\n"
+"      If you have questions about the status of your onboarding exam, contact\n"
+"      <a href=\"mailto:%(integration_specific_email)s\">%(integration_specific_email)s</a>.\n"
+"    "
+msgstr ""
+"\n"
+"      Proktorinq xidməti imtahanınız üçün %(provider_name)s vasitəsilə təmin edilir.  \n"
+"Əgər imtahanınıza hazırlıq prosesinin vəziyyəti ilə bağlı suallarınız varsa, <a href=\"mailto:%(integration_specific_email)s\">%(integration_specific_email)s</a> ünvanına müraciət edin.\n"
+"    "
+
 #: templates/proctored_exam/pending-prerequisites.html:9
 msgid ""
 "\n"
@@ -693,6 +1212,10 @@ msgstr ""
 "    Siz bu imtahanı yalnız bütün ilkin şərtlər uğurla tamamlandıqdan sonra nəzarət altında verə bilərsiniz.\n"
 "    "
 
+#: templates/proctored_exam/proctoring_launch_callback.html:164
+msgid " Your Proctoring Session Has Started "
+msgstr " Proktorinq Sessiyanız Başladı "
+
 #: templates/proctored_exam/proctoring_launch_callback.html:165
 #, python-format
 msgid ""
@@ -714,6 +1237,21 @@ msgstr ""
 "            İmtahanı bitirmədən öncə bu pəncərəni bağlamayın. Əgər siz pəncərəni bağlasanız, sizin nəzarət sessiyanız bitəcək və siz nəzarətli imtahanı uğurla tamamlaya bilməyəcəksiniz.\n"
 "          "
 
+#: templates/proctored_exam/proctoring_launch_callback.html:173
+#, python-format
+msgid ""
+"\n"
+"            Return to the %(platform_name)s course window to start your exam. When you have finished your exam and\n"
+"            have marked it as complete, you can close this window to end the proctoring session\n"
+"            and upload your proctoring session data for review.\n"
+"          "
+msgstr ""
+"\n"
+"            İmtahana başlamaq üçün %(platform_name)s kurs pəncərəsinə qayıdın. İmtahanınızı bitirdikdə\n"
+"və onu bitmiş olaraq işarələdikdə siz nəzarət sessiyasını bitirmək üçün bu pəncərəni bağlaya bilərsiniz\n"
+"və nəzarət sessiyası datanızı baxış üçün yükləyin.\n"
+"          "
+
 #: templates/proctored_exam/ready_to_resume.html:4
 msgid ""
 "\n"
@@ -722,6 +1260,19 @@ msgid ""
 msgstr ""
 "\n"
 "      Sizin imtahanınız davam etməyə hazırdır.\n"
+"    "
+
+#: templates/proctored_exam/ready_to_resume.html:9
+#, python-format
+msgid ""
+"\n"
+"        You will have %(total_time)s to complete your exam.\n"
+"    "
+msgstr ""
+"\n"
+"        ```\n"
+"        Sizin imtahanı tamamlamaq üçün %(total_time)s vaxtınız olacaq.\n"
+"```\n"
 "    "
 
 #: templates/proctored_exam/ready_to_resume.html:14
@@ -733,6 +1284,33 @@ msgstr ""
 "\n"
 "        Bu kursla əlaqəli kredit və ya proqram sertifikatına uyğun olmaq üçün bu imtahanın nəzarət yoxlamasından keçməlisiniz.\n"
 "    "
+
+#: templates/proctored_exam/ready_to_start.html:5
+msgid ""
+"\n"
+"      Important\n"
+"    "
+msgstr ""
+"\n"
+"      Vacibdir\n"
+"    "
+
+#: templates/proctored_exam/ready_to_start.html:10
+#, python-format
+msgid ""
+"\n"
+"        &#8226; You have %(total_time)s to complete this exam. </br>\n"
+"        &#8226; Once you start the exam, you cannot stop the timer. </br>\n"
+"        &#8226; For all question types, you must click \"submit\" to complete your answer. </br>\n"
+"        &#8226; If time expires before you click \"End My Exam\", only your submitted answers will be graded.\n"
+"      "
+msgstr ""
+"\n"
+"        &#8226; Bu imtahanı tamamlamaq üçün %(total_time)s vaxtınız var. </br> \n"
+"&#8226; İmtahana başladıqdan sonra taymeri dayandıra bilməzsiniz. </br> \n"
+"&#8226; Bütün sual növləri üçün cavabınızı tamamlamaq üçün \"submit\" düyməsini basmalısınız. </br> \n"
+"&#8226; Vaxt bitməmiş \"End My Exam\" düyməsini basmasanız, yalnız təqdim etdiyiniz cavablar qiymətləndiriləcək.\n"
+"      "
 
 #: templates/proctored_exam/ready_to_start.html:18
 msgid ""
@@ -837,6 +1415,30 @@ msgstr "Bəli, nəzarət olunan imtahanımı bitir"
 msgid "Ending Exam"
 msgstr "İmtahanı Bitirmək"
 
+#: templates/proctored_exam/ready_to_submit.html:21
+msgid ""
+"\n"
+"        No, I'd like to continue working\n"
+"      "
+msgstr ""
+"\n"
+"        ```\n"
+"        \n"
+"Xeyr, işləməyə davam etmək istərdim\n"
+"      \n"
+"```\n"
+"      "
+
+#: templates/proctored_exam/rejected.html:5
+msgid ""
+"\n"
+"        Your proctoring session was reviewed, but did not pass all requirements\n"
+"      "
+msgstr ""
+"\n"
+"        Proktorinq sessiyanız nəzərdən keçirildi, lakin bütün tələblərə cavab vermədi.\n"
+"      "
+
 #: templates/proctored_exam/rejected.html:13
 #, python-format
 msgid ""
@@ -927,6 +1529,17 @@ msgstr ""
 msgid "View my exam"
 msgstr "İmtahanıma baxın"
 
+#: templates/timed_exam/entrance.html:4
+#, python-format
+msgid ""
+"\n"
+"    %(exam_name)s is a Timed Exam (%(total_time)s)\n"
+"    "
+msgstr ""
+"\n"
+"    %(exam_name)svaxtlı imtahandır (%(total_time)s)\n"
+"    "
+
 #: templates/timed_exam/entrance.html:9
 msgid "This exam has a time limit associated with it."
 msgstr "Bu imtahan ilə əlaqəli bir müddət məhdudiyyəti var."
@@ -937,9 +1550,17 @@ msgstr ""
 "Bu imtahandan keçmək üçün siz icazə verilən vaxt ərzində tapşırıqları "
 "tamamlamalısınız."
 
+#: templates/timed_exam/entrance.html:13
+msgid "After you select "
+msgstr "seçdikdən sonra "
+
 #: templates/timed_exam/entrance.html:15
 msgid "I am ready to start this timed exam,"
 msgstr "Mən bu vaxtlı imtahana başlamağa hazıram,"
+
+#: templates/timed_exam/entrance.html:17
+msgid "you will have "
+msgstr "Sizin olacaq "
 
 #: templates/timed_exam/entrance.html:17
 msgid " to complete and submit the exam."
@@ -958,6 +1579,20 @@ msgstr ""
 #: templates/timed_exam/footer.html:3
 msgid "Can I request additional time to complete my exam?"
 msgstr "Mən imtahanımı tamamlamaq üçün əlavə vaxt istəyə bilərəmmi?"
+
+#: templates/timed_exam/footer.html:4
+msgid ""
+"\n"
+"      If you have disabilities,\n"
+"      you might be eligible for an additional time allowance on timed exams.\n"
+"      Ask your course team for information about additional time allowances.\n"
+"    "
+msgstr ""
+"\n"
+"      Əgər əlilliyiniz varsa,  \n"
+"vaxtla məhdudlaşdırılmış imtahanlarda əlavə vaxt üçün uyğun ola bilərsiniz.  \n"
+"Əlavə vaxt imkanları haqqında məlumat üçün kurs komandanıza müraciət edin.\n"
+"    "
 
 #: templates/timed_exam/ready_to_submit.html:4
 msgid ""
@@ -979,6 +1614,16 @@ msgstr ""
 "      İmtahanınızı təqdim etmədən öncə hər bir tapşırıq üçün \"Submit\" seçdiyinizdən əmin olun.\n"
 "    "
 
+#: templates/timed_exam/ready_to_submit.html:14
+msgid ""
+"\n"
+"      After you submit your exam, your exam will be graded.\n"
+"    "
+msgstr ""
+"\n"
+"      Siz imtahanınızı göndərdikdən sonra sizin imtahanınız qiymətləndiriləcək.\n"
+"    "
+
 #: templates/timed_exam/ready_to_submit.html:19
 msgid ""
 "\n"
@@ -998,6 +1643,17 @@ msgstr ""
 "\n"
 "        Xeyr, işləməyə davam etmək istərdim.\n"
 "      "
+
+#: templates/timed_exam/submitted.html:6
+msgid ""
+"\n"
+"                The time allotted for this exam has expired. Your exam has been submitted and any work you completed\n"
+"                will be graded.\n"
+"            "
+msgstr ""
+"\n"
+"                Bu imtahan üçün ayrılmış vaxt bitib. Sizin imtahannız göndərilib və tammaladığınız işlər qiymətləndiriləcək.\n"
+"            "
 
 #: templates/timed_exam/submitted.html:11
 msgid ""
@@ -1057,13 +1713,25 @@ msgstr "nəzarət olunan imtahan"
 msgid "a timed exam"
 msgstr "vaxtlı imtahan"
 
+#: utils.py:348
+msgid "an onboarding exam"
+msgstr "giriş imtahanı"
+
 #: utils.py:350
 msgid "a practice exam"
 msgstr "təcrübə imtahanı"
 
+#: views.py:152
+msgid "could not determine the course_id"
+msgstr "course_id müəyyənləşdirə bilmədi"
+
 #: views.py:161 views.py:676
 msgid "Must be a Staff User to Perform this request."
 msgstr "Bu müraciəti icra etmək üçün siz Heyət istifadəçisi olmalısınız."
+
+#: views.py:664
+msgid "Missing required query parameter course_id"
+msgstr "Tələb olunan sorğu parametri course_id çatışmır"
 
 #: views.py:694 views.py:875
 msgid "There is no onboarding exam related to this course id."
@@ -1085,9 +1753,29 @@ msgstr ""
 "Onboarding xidməti müvəqqəti olaraq əlçatan deyil. Zəhmət olmasa, bir az "
 "sonra yenidən cəhd edin."
 
+#: views.py:1303
+msgid "you have less than a minute remaining"
+msgstr "Bir dəqiqədən az vaxtınız qalıb"
+
 #: views.py:1758
 msgid "Enter a valid username or email"
 msgstr "Düzgün istifadəçi adı və ya e-poçt daxil edin"
+
+#: views.py:1758
+msgid "user_info"
+msgstr "istifadəçi_məlumatı"
+
+#: views.py:1771
+msgid "Enter a valid positive value number"
+msgstr "Düzgün müsbət dəyərli bir rəqəm daxil edin"
+
+#: views.py:1771
+msgid "allowance_value"
+msgstr "güzəşt dəyəri"
+
+#: views.py:1858
+msgid "Cannot update attempt review status"
+msgstr "Cəhdin nəzərdən keçirilmə statusunu yeniləmək mümkün deyil"
 
 #: views.py:2158
 #, python-brace-format
@@ -1098,3 +1786,8 @@ msgstr "Kursda {course_id} üçün imtahan yoxdur."
 #, python-brace-format
 msgid "No proctored exams in course {course_id}"
 msgstr "Kursda {course_id} nəzarətli imtahan yoxdur"
+
+#: views.py:2191
+#, python-brace-format
+msgid "No instructor dashboard for {proctor_service}"
+msgstr "{proctor_service} üçün təlimatçı paneli yoxdur"
