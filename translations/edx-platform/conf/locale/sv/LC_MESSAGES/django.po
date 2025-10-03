@@ -32,7 +32,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-09-18 00:40+0000\n"
+"POT-Creation-Date: 2025-09-19 00:44+0000\n"
 "PO-Revision-Date: 2023-11-20 11:35+0000\n"
 "Last-Translator: Brian Smith, 2025\n"
 "Language-Team: Swedish (https://app.transifex.com/open-edx/teams/6205/sv/)\n"
@@ -65,6 +65,10 @@ msgstr "Alla kursöversiktsregenereringar har begärts."
 #: cms/djangoapps/contentstore/admin.py:60
 msgid "Regenerate *all* course outlines"
 msgstr "Återskapa *alla* kurskonturer"
+
+#: cms/djangoapps/contentstore/asset_storage_handlers.py:551
+msgid "Upload completed"
+msgstr "Uppladdning färdigt"
 
 #: cms/djangoapps/contentstore/asset_storage_handlers.py:595
 #, python-brace-format
@@ -237,6 +241,14 @@ msgstr ""
 "Det går inte att överföra ändringar. Detta beror vanligtvis på att det inte "
 "går att kontakta det fjärrlagrade arkivet."
 
+#: cms/djangoapps/contentstore/git_export_utils.py:52
+msgid "Bad course location provided"
+msgstr "Dålig plats för kurs tillhandahållet"
+
+#: cms/djangoapps/contentstore/git_export_utils.py:53
+msgid "Missing branch on fresh clone"
+msgstr "Bransch som saknas i en fräsch klon"
+
 #: cms/djangoapps/contentstore/helpers.py:205
 msgid "Vertical"
 msgstr "Vertikal"
@@ -270,6 +282,11 @@ msgstr "Problem"
 msgid "Library Content"
 msgstr "Bibliotekets innehåll"
 
+#: cms/djangoapps/contentstore/helpers.py:224
+#: cms/djangoapps/contentstore/views/component.py:288
+msgid "Problem Bank"
+msgstr "Problembank"
+
 #: cms/djangoapps/contentstore/management/commands/git_export.py:33
 msgid ""
 "Take the specified course and attempt to export it to a git repository\n"
@@ -301,6 +318,10 @@ msgstr ""
 #: cms/djangoapps/contentstore/management/commands/recreate_upstream_links.py:62
 msgid "Recreate links even for completely processed courses."
 msgstr "Återskapa länkar även för helt bearbetade kurser."
+
+#: cms/djangoapps/contentstore/management/commands/recreate_upstream_links.py:67
+msgid "Delete all and create links for given course(s)."
+msgstr "Radera alla och skapa länkar för angivna kurs(er)."
 
 #: cms/djangoapps/contentstore/models.py:96
 msgid "Upstream context key i.e., learning_package/library key"
@@ -469,6 +490,18 @@ msgstr ""
 "Det finns ett problem med den här transkriptionsfilen. Försök att ladda upp "
 "en annan fil."
 
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:233
+#: xmodule/video_block/video_handlers.py:463
+#, python-brace-format
+msgid "A transcript with the \"{language_code}\" language code already exists."
+msgstr "En översättning märkt \"{language_code}\" existerar redan."
+
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:237
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:221
+#: xmodule/video_block/video_handlers.py:467
+msgid "A transcript file is required."
+msgstr "En översättningsfil krävs."
+
 #: cms/djangoapps/contentstore/utils.py:865
 #: cms/templates/visibility_editor.html:113
 msgid "Deleted Group"
@@ -572,6 +605,11 @@ msgstr "Okänd"
 msgid "Transcription in Progress"
 msgstr "Transkription pågår"
 
+#. Translators: This is the status for a video whose transcription is complete
+#: cms/djangoapps/contentstore/video_storage_handlers.py:145
+msgid "Transcript Ready"
+msgstr "Transkript klar"
+
 #. Translators: This is the status for a video whose transcription job was
 #. failed for some languages
 #: cms/djangoapps/contentstore/video_storage_handlers.py:147
@@ -605,6 +643,10 @@ msgstr "namn"
 #: cms/djangoapps/contentstore/video_storage_handlers.py:517
 msgid "Duration"
 msgstr "Varaktighet"
+
+#: cms/djangoapps/contentstore/video_storage_handlers.py:518
+msgid "Date Added"
+msgstr "Tillagt vid datum"
 
 #: cms/djangoapps/contentstore/video_storage_handlers.py:519
 #: xmodule/video_block/video_xfields.py:196
@@ -696,6 +738,11 @@ msgstr "Certifikatdict {0} saknar värdenyckel '{1}'"
 #, python-brace-format
 msgid "PermissionDenied: Failed in authenticating {user}"
 msgstr "PermissionDenied: Det gick inte att autentisera {user}"
+
+#: cms/djangoapps/contentstore/views/component.py:277
+#, python-brace-format
+msgid "{platform_name} Support Levels:"
+msgstr "Supportnivåer för {platform_name}:"
 
 #. #-#-#-#-#  django.po (0.1a)  #-#-#-#-#
 #. Translators: 'Discussion' refers to the tab in the courseware that leads to
@@ -831,6 +878,10 @@ msgstr "Inträdesprov - Underavdelning"
 msgid "Completed Course Entrance Exam"
 msgstr "Avslutat inträdesprov för kurs"
 
+#: cms/djangoapps/contentstore/views/export_git.py:47
+msgid "Course successfully exported to git repository"
+msgstr "Kursen har blivit exporterad till git repo"
+
 #: cms/djangoapps/contentstore/views/import_export.py:150
 #, python-brace-format
 msgid ""
@@ -919,6 +970,10 @@ msgstr "Video ID behövs."
 #: cms/djangoapps/contentstore/views/transcripts_ajax.py:561
 msgid "Incoming video data is empty."
 msgstr "Inkommande videodata är tom."
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:524
+msgid "Can't find item by locator."
+msgstr "Kan inte hitta föremålet efter lokalisering."
 
 #: cms/djangoapps/contentstore/views/transcripts_ajax.py:610
 #: cms/djangoapps/contentstore/views/transcripts_ajax.py:664
@@ -1059,6 +1114,10 @@ msgstr "%"
 msgid "{section_or_subsection} \"{display_name}\""
 msgstr "{section_or_subsection} \"{display_name}\""
 
+#: cms/djangoapps/course_creators/models.py:40
+msgid "unrequested"
+msgstr "obegärd"
+
 #: cms/djangoapps/course_creators/models.py:41
 msgid "pending"
 msgstr "Avvaktande"
@@ -1179,6 +1238,10 @@ msgstr ""
 "Innehållstypen matchar inte: {downstream_id} ({downstream_type}) kan inte "
 "länkas till {upstream_id}."
 
+#: cms/lib/xblock/upstream_sync_block.py:108
+msgid "Linked library item could not be loaded: {}"
+msgstr "Det länkade biblioteksobjektet kunde inte laddas: {}"
+
 #: cms/templates/admin/base_site.html:4 lms/templates/admin/base_site.html:3
 msgid "Django site admin"
 msgstr "Django-webbplatsadministratör"
@@ -1214,6 +1277,15 @@ msgstr "Läge"
 msgid "Verification Deadline"
 msgstr "Verifieringsfrist"
 
+#: common/djangoapps/course_modes/admin.py:51
+msgid ""
+"OPTIONAL: After this date/time, users will no longer be able to submit "
+"photos for verification.  This appies ONLY to modes that require "
+"verification."
+msgstr ""
+"VALFRITT: Efter detta datum/klockslag kan användarna inte längre skicka in "
+"foton för verifiering. Detta gäller ENDAST för lägen som kräver verifiering."
+
 #: common/djangoapps/course_modes/helpers.py:42
 msgid "You're enrolled as a verified student"
 msgstr "Du är inskriven som en verifierad student"
@@ -1222,6 +1294,10 @@ msgstr "Du är inskriven som en verifierad student"
 #: lms/templates/instructor/instructor_dashboard_2/course_info.html:16
 msgid "Verified"
 msgstr "Verifierad"
+
+#: common/djangoapps/course_modes/helpers.py:45
+msgid "ID Verified Ribbon/Badge"
+msgstr "ID Verifierat Ribbon/Badge"
 
 #: common/djangoapps/course_modes/helpers.py:47
 msgid "You're enrolled as an honor code student"
@@ -1276,6 +1352,10 @@ msgstr ""
 " i det här läget. Lämna detta tomt om användarna kan registrera sig i det "
 "här läget tills inskrivningen stängs för kursen."
 
+#: common/djangoapps/course_modes/models.py:94
+msgid "Lock upgrade deadline date"
+msgstr "Sista datum för låsning av uppgradering"
+
 #: common/djangoapps/course_modes/models.py:96
 msgid ""
 "OPTIONAL: Set to True to lock in the explicitly defined upgrade deadline "
@@ -1324,6 +1404,13 @@ msgstr ""
 "Detta är bulk SKU (lagringsenhet) i det här läget i den externa "
 "e-handelstjänsten."
 
+#: common/djangoapps/course_modes/models.py:249
+msgid ""
+"Professional education modes are not allowed to have expiration_datetime "
+"set."
+msgstr ""
+"Professionella utbildningslägen får inte ha expiration_datetime inställt."
+
 #: common/djangoapps/course_modes/models.py:258
 #, python-brace-format
 msgid ""
@@ -1370,6 +1457,20 @@ msgstr "Ogiltigt belopp valt."
 #: common/djangoapps/course_modes/views.py:323
 msgid "No selected price or selected price is too low."
 msgstr "Inget valt pris eller valt pris är för lågt."
+
+#: common/djangoapps/student/admin.py:319
+#, python-format
+msgid "Successfully reverted %(count)d selected history entry."
+msgid_plural "Successfully reverted %(count)d selected history entries."
+msgstr[0] "Lyckades återställa %(count)d vald historikpost."
+msgstr[1] "Lyckades återställa %(count)d valda historikposter."
+
+#: common/djangoapps/student/admin.py:349
+#, python-format
+msgid "Successfully deleted %(count)d selected history entry."
+msgid_plural "Successfully deleted %(count)d selected history entries."
+msgstr[0] "Framgångsrikt raderat %(count)d vald historikpost."
+msgstr[1] "Framgångsrikt raderat %(count)d valda historikposter."
 
 #: common/djangoapps/student/admin.py:520
 msgid "User profile"
@@ -1452,6 +1553,10 @@ msgstr ""
 msgid "Disabled Account"
 msgstr "Inaktiverat konto"
 
+#: common/djangoapps/student/models/course_enrollment.py:1656
+msgid "Namespace of enrollment attribute"
+msgstr "Namnområde för inskrivningsattribut"
+
 #: common/djangoapps/student/models/course_enrollment.py:1660
 msgid "Name of the enrollment attribute"
 msgstr "Namnet på registreringsattributet"
@@ -1522,6 +1627,10 @@ msgstr "Högskoleexamen"
 msgid "Secondary/high school"
 msgstr "Gymnasium"
 
+#: common/djangoapps/student/models/user.py:482
+msgid "Junior secondary/junior high/middle school"
+msgstr "Yngre sekundär/junior high/mellanstadieskola"
+
 #: common/djangoapps/student/models/user.py:483
 msgid "Elementary/primary school"
 msgstr "Grundskola / grundskola"
@@ -1566,6 +1675,11 @@ msgstr ""
 #, python-brace-format
 msgid "{platform_name} Certificate for {course_name}"
 msgstr "{platform_name} Certifikat för {course_name}"
+
+#: common/djangoapps/student/models/user.py:1506
+#: common/djangoapps/student/models/user.py:1538
+msgid "The ISO 639-1 language code for this language."
+msgstr "ISO 639-1-språkkoden för detta språk."
 
 #: common/djangoapps/student/models/user.py:1569
 msgid "Name of the UTM cookie"
@@ -1621,6 +1735,10 @@ msgstr "Lägga till en anledning"
 #: common/djangoapps/student/views/dashboard.py:143
 msgid " and "
 msgstr " och "
+
+#: common/djangoapps/student/views/dashboard.py:286
+msgid "Photos are mismatched"
+msgstr "Bilderna är felmatchade"
 
 #: common/djangoapps/student/views/dashboard.py:287
 msgid "Name missing from ID photo"
@@ -1705,6 +1823,10 @@ msgstr "Det gick inte att anmäla sig"
 msgid "Unenrollment is currently disabled"
 msgstr "Avregistrering är för närvarande inaktiverad"
 
+#: common/djangoapps/student/views/management.py:454
+msgid "You are not enrolled in this course"
+msgstr "Du är inte registrerad på den här kursen"
+
 #: common/djangoapps/student/views/management.py:458
 msgid "Your certificate prevents you from unenrolling from this course"
 msgstr "Ditt certifikat hindrar dig från att avregistrera dig från kursen"
@@ -1724,6 +1846,14 @@ msgstr "Välj ett alternativ"
 #: common/djangoapps/student/views/management.py:524
 msgid "User with username {} does not exist"
 msgstr "Användare med användarnamn {} existerar inte"
+
+#: common/djangoapps/student/views/management.py:532
+msgid "Successfully disabled {}'s account"
+msgstr "Avaktiverat {}:s konto"
+
+#: common/djangoapps/student/views/management.py:536
+msgid "Successfully reenabled {}'s account"
+msgstr "Lyckades återaktivera {}:s konto"
 
 #: common/djangoapps/student/views/management.py:539
 msgid "Unexpected account status"
@@ -1790,6 +1920,14 @@ msgstr ""
 "Det gick inte att skicka aktiveringslänk via e-post. Vänligen försök igen "
 "senare."
 
+#: common/djangoapps/third_party_auth/admin.py:73
+msgid "Deleted the selected configuration(s)."
+msgstr "Raderade den valda konfigurationen(erna)."
+
+#: common/djangoapps/third_party_auth/admin.py:93
+msgid "Delete the selected configuration"
+msgstr "Radera den valda konfigurationen"
+
 #: common/djangoapps/third_party_auth/middleware.py:45
 msgid "Unable to connect with the external provider, please try again"
 msgstr "Kan inte kontakta utgivaren. Var god försök senare."
@@ -1806,6 +1944,14 @@ msgstr ""
 "Sekundära leverantörer visas mindre framträdande, i en separat lista över "
 "\"Institution\" inloggningsleverantörer."
 
+#: common/djangoapps/third_party_auth/models.py:158
+msgid ""
+"optional. If this provider is an Organization, this attribute can be used "
+"reference users in that Organization"
+msgstr ""
+"frivillig. Om denna leverantör är en organisation kan detta attribut "
+"användas som referensanvändare i den organisationen"
+
 #: common/djangoapps/third_party_auth/models.py:167
 msgid "The Site that this provider configuration belongs to."
 msgstr "Webbplatsen som den här leverantörskonfigurationen tillhör."
@@ -1821,6 +1967,15 @@ msgstr ""
 "att bekräfta deras uppgifter (namn, e-post, etc.) under "
 "registreringsprocessen. Välj bara det här alternativet för betrodda "
 "leverantörer som är kända för att ge exakt användarinformation."
+
+#: common/djangoapps/third_party_auth/models.py:190
+#: common/djangoapps/third_party_auth/models.py:737
+msgid ""
+"If this option is selected, users will not be required to confirm their "
+"email, and their account will be activated immediately upon registration."
+msgstr ""
+"Om det här alternativet väljs, kommer användarna inte att behöva bekräfta "
+"sin e-post, och deras konto blir aktiverat omedelbart vid registrering."
 
 #: common/djangoapps/third_party_auth/models.py:203
 msgid ""
@@ -1893,6 +2048,14 @@ msgstr "Ett smeknamn för konfigurationen."
 #: lms/templates/student_account/finish_auth.html:16
 msgid "Please wait"
 msgstr "Vänta"
+
+#. Translators: the translation for "LONG_DATE_FORMAT" must be a format
+#. string for formatting dates in a long form.  For example, the
+#. American English form is "%A, %B %d %Y".
+#. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:145
+msgid "LONG_DATE_FORMAT"
+msgstr "LONG_DATE_FORMAT"
 
 #. Translators: the translation for "DATE_TIME_FORMAT" must be a format
 #. string for formatting dates with times.  For example, the American
@@ -1997,6 +2160,46 @@ msgctxt "abbreviated weekday name"
 msgid "Mon"
 msgstr "mån"
 
+#. Translators: this is an abbreviated weekday name that will be used when
+#. displaying dates, as in "Wed Feb 12, 2014". It is used for the %a
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:313
+msgctxt "abbreviated weekday name"
+msgid "Wed"
+msgstr "ons"
+
+#. Translators: this is an abbreviated weekday name that will be used when
+#. displaying dates, as in "Thu Feb 13, 2014". It is used for the %a
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:317
+msgctxt "abbreviated weekday name"
+msgid "Thu"
+msgstr "tors"
+
+#. Translators: this is an abbreviated weekday name that will be used when
+#. displaying dates, as in "Fri Feb 14, 2014". It is used for the %a
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:321
+msgctxt "abbreviated weekday name"
+msgid "Fri"
+msgstr "fre"
+
+#. Translators: this is an abbreviated weekday name that will be used when
+#. displaying dates, as in "Sat Feb 15, 2014". It is used for the %a
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:325
+msgctxt "abbreviated weekday name"
+msgid "Sat"
+msgstr "lör"
+
+#. Translators: this is an abbreviated weekday name that will be used when
+#. displaying dates, as in "Sun Feb 16, 2014". It is used for the %a
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:329
+msgctxt "abbreviated weekday name"
+msgid "Sun"
+msgstr "sön"
+
 #. Translators: this is an abbreviated month name that will be used when
 #. displaying dates, as in "Jan 10, 2014". It is used for the %b
 #. directive in date-time formats. See http://strftime.org for details.
@@ -2030,12 +2233,28 @@ msgid "Apr"
 msgstr "April"
 
 #. Translators: this is an abbreviated month name that will be used when
+#. displaying dates, as in "May 10, 2014". It is used for the %b
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:352
+msgctxt "abbreviated month name"
+msgid "May"
+msgstr "Maj"
+
+#. Translators: this is an abbreviated month name that will be used when
 #. displaying dates, as in "Jun 10, 2014". It is used for the %b
 #. directive in date-time formats. See http://strftime.org for details.
 #: common/djangoapps/util/date_utils.py:356
 msgctxt "abbreviated month name"
 msgid "Jun"
 msgstr "Juni"
+
+#. Translators: this is an abbreviated month name that will be used when
+#. displaying dates, as in "Jul 10, 2014". It is used for the %b
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:360
+msgctxt "abbreviated month name"
+msgid "Jul"
+msgstr "Juli"
 
 #. Translators: this is an abbreviated month name that will be used when
 #. displaying dates, as in "Aug 10, 2014". It is used for the %b
@@ -2134,6 +2353,14 @@ msgid "August"
 msgstr "augusti"
 
 #. Translators: this is a month name that will be used when displaying
+#. dates, as in "September 10, 2014". It is used for the %B directive in
+#. date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:419
+msgctxt "month name"
+msgid "September"
+msgstr "september"
+
+#. Translators: this is a month name that will be used when displaying
 #. dates, as in "October 10, 2014". It is used for the %B directive in
 #. date-time formats. See http://strftime.org for details.
 #: common/djangoapps/util/date_utils.py:423
@@ -2174,6 +2401,11 @@ msgstr "Maximal filstorlek för uppladdning är {file_size} byte."
 #, python-brace-format
 msgid "Course {course_id} requires {prerequisite_course_id}"
 msgstr "Kursen {course_id} kräver {prerequisite_course_id}"
+
+#: common/djangoapps/util/milestones_helpers.py:67
+#: openedx/core/lib/gating/api.py:191
+msgid "System defined milestone"
+msgstr "Milstolpe definierad av systemet"
 
 #: common/djangoapps/util/password_policy_validators.py:68
 #, python-brace-format
@@ -2402,6 +2634,10 @@ msgstr ""
 "alltid skapas i Studio. Icke-stödja XBlock / mallkombinationer kräver "
 "inloggning av kursförfattare."
 
+#: common/djangoapps/xblock_django/models.py:27
+msgid "show deprecation messaging in Studio"
+msgstr "visa avstämningsmeddelanden i Studio"
+
 #: common/djangoapps/xblock_django/models.py:66
 msgid "Provisionally Supported"
 msgstr "Provisoriskt stödd"
@@ -2516,6 +2752,11 @@ msgstr ""
 "Om du behöver hjälp, använd vårt webbformulär på %(support_url)s eller maila"
 " %(support_email)s."
 
+#: common/templates/student/edx_ace/accountactivation/email/subject.txt:3
+#, python-format
+msgid "Action Required: Activate your %(platform_name)s account"
+msgstr "Åtgärd krävs: Aktivera ditt %(platform_name)s konto"
+
 #: common/templates/student/edx_ace/accountrecovery/email/body.html:10
 #: common/templates/student/edx_ace/accountrecovery/email/body.html:39
 msgid "Create Password"
@@ -2578,6 +2819,10 @@ msgstr "Teamet %(platform_name)s"
 msgid "Password creation on %(platform_name)s"
 msgstr "Skapa lösenord på %(platform_name)s"
 
+#: common/templates/student/edx_ace/emailchange/email/body.html:10
+msgid "Email Change"
+msgstr "Ändring av e-postadress"
+
 #: common/templates/student/edx_ace/emailchange/email/body.html:14
 #: common/templates/student/edx_ace/emailchange/email/body.txt:2
 #, python-format
@@ -2611,6 +2856,12 @@ msgstr ""
 msgid "Request to change %(platform_name)s account e-mail"
 msgstr "Begäran om att ändra %(platform_name)s konto-e-post"
 
+#: common/templates/student/edx_ace/emailchangeconfirmation/email/body.html:11
+#: common/templates/student/edx_ace/emailchangeconfirmation/email/subject.txt:3
+#, python-format
+msgid "Email Change Confirmation for %(platform_name)s"
+msgstr "Bekräftelse på e-poständring för %(platform_name)s"
+
 #: common/templates/student/edx_ace/emailchangeconfirmation/email/body.html:16
 #: common/templates/student/edx_ace/emailchangeconfirmation/email/body.txt:2
 #, python-format
@@ -2634,6 +2885,20 @@ msgid ""
 msgstr ""
 "Vi behåller en logg av gamla e-postmeddelanden, så om den här förfrågan var "
 "oavsiktlig kan vi undersöka."
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.html:12
+#, python-format
+msgid ""
+"\n"
+"                    Proctoring requirements for %(course_name)s\n"
+"                "
+msgstr ""
+"\n"
+"                    ```\n"
+"                    \n"
+"Proctoring-krav för %(course_name)s\n"
+"```\n"
+"                "
 
 #: common/templates/student/edx_ace/proctoringrequirements/email/body.html:20
 #, python-format
@@ -2888,6 +3153,19 @@ msgstr "Media Kit"
 msgid "Donate"
 msgstr "Donera"
 
+#: lms/djangoapps/branding/api.py:286 lms/djangoapps/branding/api.py:362
+#: lms/templates/footer.html:18 lms/templates/footer.html:92
+#: lms/templates/static_templates/about.html:5
+#: lms/templates/static_templates/about.html:10
+#: themes/red-theme/lms/templates/footer.html:20
+#: themes/red-theme/lms/templates/footer.html:24
+#: themes/stanford-style/lms/templates/footer.html:15
+#: themes/stanford-style/lms/templates/static_templates/about.html:9
+#: themes/stanford-style/lms/templates/static_templates/about.html:41
+#: themes/stanford-style/lms/templates/static_templates/about.html:58
+msgid "About"
+msgstr "Om"
+
 #: lms/djangoapps/branding/api.py:289 lms/djangoapps/branding/api.py:365
 #, python-brace-format
 msgid "{platform_name} for Business"
@@ -2970,6 +3248,10 @@ msgstr "Open edX"
 msgid "Cookie Policy"
 msgstr "Cookiepolicy"
 
+#: lms/djangoapps/branding/api.py:395
+msgid "Your Privacy Choices"
+msgstr "Dina integritetsval"
+
 #: lms/djangoapps/branding/api.py:408
 msgid "Trademark Policy"
 msgstr "Varumärkespolicy"
@@ -2983,6 +3265,12 @@ msgstr "Hämta mobilappen {platform_name} från Apples App Store"
 #, python-brace-format
 msgid "Download the {platform_name} mobile app from Google Play"
 msgstr "Ladda ner mobilappen {platform_name} från Google Play"
+
+#. Translators: Bulk email from address e.g. ("Physics 101" Course Staff)
+#: lms/djangoapps/bulk_email/tasks.py:399
+#, python-brace-format
+msgid "\"{course_title}\" Course Staff"
+msgstr "\"&quot;{course_title}&quot; Kursansvarig\""
 
 #: lms/djangoapps/ccx/plugins.py:22
 msgid "CCX Coach"
@@ -3095,6 +3383,10 @@ msgstr "Anledningen till att ett fel inträffade under certifikatgenerering."
 msgid "The download URL for the generated certificate."
 msgstr "Nedladdningsadressen för det genererade certifikatet."
 
+#: lms/djangoapps/certificates/models.py:1137
+msgid "Name of template."
+msgstr "Namn på mall."
+
 #: lms/djangoapps/certificates/models.py:1143
 msgid "Description and/or admin notes."
 msgstr "Beskrivning och / eller admin noteringar."
@@ -3123,6 +3415,14 @@ msgstr "Beskrivning av tillgången."
 msgid "Asset file. It could be an image or css file."
 msgstr "Asset-fil. Det kan vara en bild eller en css-fil."
 
+#: lms/djangoapps/certificates/models.py:1227
+msgid ""
+"Asset's unique slug. We can reference the asset in templates using this "
+"value."
+msgstr ""
+"Assets unika slug. Vi kan hänvisa tillgången i mallar som använder det här "
+"värdet."
+
 #: lms/djangoapps/certificates/views/support.py:94
 msgid "user is not given."
 msgstr "Användaren ges inte."
@@ -3136,6 +3436,11 @@ msgstr "Användaren '{user}' existerar inte"
 #, python-brace-format
 msgid "Course id '{course_id}' is not valid"
 msgstr "Kursens id '{course_id}' är inte giltigt"
+
+#: lms/djangoapps/certificates/views/support.py:118
+#, python-brace-format
+msgid "The course does not exist against the given key '{course_key}'"
+msgstr "Kursen existerar inte mot den angivna nyckeln &#39;{course_key}&#39;"
 
 #: lms/djangoapps/certificates/views/support.py:144
 #, python-brace-format
@@ -3301,6 +3606,21 @@ msgstr "Om {platform_name} Certifikat"
 msgid "How {platform_name} Validates Student Certificates"
 msgstr "Hur {platform_name} Validerar studentcertifikat"
 
+#. Translators:  This text describes the validation mechanism for a
+#. certificate file (known as GPG security)
+#: lms/djangoapps/certificates/views/webview.py:215
+#, python-brace-format
+msgid ""
+"Certificates issued by {platform_name} are signed by a gpg key so that they "
+"can be validated independently by anyone with the {platform_name} public "
+"key. For independent verification, {platform_name} uses what is called a "
+"\"detached signature\"&quot;\"."
+msgstr ""
+"Certifikat utfärdade av {platform_name} är signerade med en gpg-nyckel så "
+"att de kan valideras oberoende av vem som helst med {platform_name}s "
+"offentliga nyckel. För oberoende verifiering använder {platform_name} det "
+"som kallas en \"detached signature\"&quot;\"."
+
 #: lms/djangoapps/certificates/views/webview.py:221
 msgid "Validate this certificate for yourself"
 msgstr "Validera detta certifikat själv"
@@ -3376,6 +3696,13 @@ msgstr ""
 #, python-brace-format
 msgid "More Information About {user_name}'s Certificate:"
 msgstr "Mer information om {user_name}s certifikat:"
+
+#. Translators: This line is displayed to a user who has completed a course
+#. and achieved a certification
+#: lms/djangoapps/certificates/views/webview.py:328
+#, python-brace-format
+msgid "{fullname}, you earned a certificate!"
+msgstr "{fullname}, du tjänade ett certifikat!"
 
 #. Translators: This line congratulates the user and instructs them to share
 #. their accomplishment on social networks
@@ -3515,6 +3842,16 @@ msgstr "du kan alltid"
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:120
 msgid "if you need to."
 msgstr "om du behöver det."
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:158
+msgid ""
+"\n"
+"                                Unsubscribe from goal reminder emails for this course\n"
+"                                "
+msgstr ""
+"\n"
+"                                Avsluta prenumerationen på mål-påminnelsemail för den här kursen\n"
+"                                "
 
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.txt:2
 msgid "You're almost there!"
@@ -3683,6 +4020,10 @@ msgstr "'course_id' krävs."
 msgid "Only 'course_id' is expected."
 msgstr "Endast 'course_id' förväntas."
 
+#: lms/djangoapps/course_home_api/outline/views.py:664
+msgid "Welcome message successfully dismissed."
+msgstr "Välkomstmeddelande avfärdat."
+
 #: lms/djangoapps/course_home_api/outline/views.py:694
 msgid "Your course goal has been successfully set."
 msgstr "Ditt kursmål har ställts in."
@@ -3783,6 +4124,10 @@ msgstr "Ekonomiskt bistånd"
 msgid "Assignment"
 msgstr "Uppdrag"
 
+#: lms/djangoapps/courseware/courses.py:739
+msgid "Open Response Assessment"
+msgstr "Bedömning av öppna svar"
+
 #: lms/djangoapps/courseware/courses.py:762
 msgid ""
 "This Open Response Assessment's due dates are set by your instructor and "
@@ -3802,6 +4147,20 @@ msgstr "Peer Assessment"
 #: lms/djangoapps/courseware/courses.py:777
 msgid "Staff Assessment"
 msgstr "Personalbedömning"
+
+#: lms/djangoapps/courseware/courses.py:779
+msgid "Submission"
+msgstr "Inlämning"
+
+#. Translators: 'absolute' is a date such as "Jan 01,
+#. 2020". 'relative' is a fuzzy description of the time until
+#. 'absolute'. For example, 'absolute' might be "Jan 01, 2020",
+#. and if today were December 5th, 2020, 'relative' would be "1
+#. month".
+#: lms/djangoapps/courseware/date_summary.py:132
+#, python-brace-format
+msgid "{relative} ago - {absolute}"
+msgstr "{relative} ago - {absolute}"
 
 #: lms/djangoapps/courseware/date_summary.py:132
 #, python-brace-format
@@ -3854,10 +4213,22 @@ msgstr "Du förlorar all tillgång till denna kurs, inklusive dina framsteg."
 msgid "Audit Access Expires"
 msgstr "Granskningsåtkomsten löper ut"
 
+#: lms/djangoapps/courseware/date_summary.py:420
+msgid "Certificate Available"
+msgstr "Certifikat tillgängligt"
+
+#: lms/djangoapps/courseware/date_summary.py:432
+msgid "Day certificates will become available for passing verified learners."
+msgstr "Dagcertifikat kommer att bli tillgängliga för godkända elever."
+
 #: lms/djangoapps/courseware/date_summary.py:457
 #: lms/djangoapps/courseware/date_summary.py:486
 msgid "Upgrade to Verified Certificate"
 msgstr "Uppgradera till verifierat certifikat"
+
+#: lms/djangoapps/courseware/date_summary.py:488
+msgid "Verification Upgrade Deadline"
+msgstr "Verifiering Uppgradera Deadline"
 
 #: lms/djangoapps/courseware/date_summary.py:500
 msgid ""
@@ -3949,6 +4320,22 @@ msgstr ""
 msgid ""
 "Number of days a learner has to upgrade after content is made available"
 msgstr "Antal dagar en elev måste uppgradera efter innehållet är tillgängligt"
+
+#: lms/djangoapps/courseware/models.py:509
+msgid "Disable the dynamic upgrade deadline for this course run."
+msgstr "Inaktivera uppgraderingstiden för den här kursomgången."
+
+#: lms/djangoapps/courseware/models.py:536
+msgid "Disable the dynamic upgrade deadline for this organization."
+msgstr "Inaktivera uppgraderingstiden för den här organisationen."
+
+#: lms/djangoapps/courseware/models.py:563
+msgid "Internal API Base URL"
+msgstr "Intern API Bas URL"
+
+#: lms/djangoapps/courseware/models.py:564
+msgid "Financial Assistance Backend API Base URL."
+msgstr "Financial Assistance Backend API Bas URL."
 
 #: lms/djangoapps/courseware/models.py:572
 msgid ""
@@ -4186,6 +4573,11 @@ msgstr "Användare finns inte."
 msgid "Invalid location."
 msgstr "Ogiltigt läge."
 
+#: lms/djangoapps/courseware/views/views.py:1261
+#, python-brace-format
+msgid "User {username} has never accessed problem {location}"
+msgstr "Användaren {username} har aldrig åtkomst till problem {location}"
+
 #: lms/djangoapps/courseware/views/views.py:1458
 #, python-brace-format
 msgid "You must be signed in to {platform_name} to create a certificate."
@@ -4266,6 +4658,13 @@ msgstr ""
 msgid "Title can't be empty"
 msgstr "Titel kan inte vara tomt"
 
+#: lms/djangoapps/discussion/django_comment_client/base/views.py:560
+#: lms/djangoapps/discussion/django_comment_client/base/views.py:625
+#: lms/djangoapps/discussion/django_comment_client/base/views.py:667
+#: lms/djangoapps/discussion/django_comment_client/base/views.py:750
+msgid "Body can't be empty"
+msgstr "Kroppen kan inte vara tom"
+
 #: lms/djangoapps/discussion/django_comment_client/base/views.py:642
 msgid "Topic doesn't exist"
 msgstr "Ämne existerar inte"
@@ -4308,6 +4707,19 @@ msgstr "%(comment_username)s kommenterade på %(thread_title)s:"
 #, python-format
 msgid "Comment to %(thread_title)s"
 msgstr "Kommentera på %(thread_title)s"
+
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.html:12
+#, python-format
+msgid ""
+"\n"
+"                        %(course_name)s: Reported content awaits review\n"
+"                    "
+msgstr ""
+"\n"
+"                        ```\n"
+"%(course_name)s: Rapporterat innehåll väntar på granskning\n"
+"```\n"
+"                    "
 
 #: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.html:24
 #: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.txt:18
@@ -4376,6 +4788,11 @@ msgstr "Felaktiga data mottagna från anteckningar api."
 msgid "No endpoint was provided for EdxNotes."
 msgstr "Ingen slutpunkt angavs för EdxNotes."
 
+#: lms/djangoapps/edxnotes/plugins.py:27 lms/djangoapps/edxnotes/plugins.py:57
+#: lms/templates/edxnotes/edxnotes.html:27
+msgid "Notes"
+msgstr "Anteckningar"
+
 #: lms/djangoapps/edxnotes/plugins.py:58
 msgid ""
 "Allow learners to highlight passages and make notes right in the course."
@@ -4388,6 +4805,11 @@ msgid ""
 msgstr ""
 "Kan inte åsidosätta betyget under avsnitt: underavsnitt är inte tillgängligt"
 " för målinlärare."
+
+#: lms/djangoapps/instructor/services.py:127
+#, python-brace-format
+msgid "Proctored Exam Review: {review_status}"
+msgstr "Proctored Exam Review: {review_status}"
 
 #: lms/djangoapps/instructor/services.py:129
 #, python-brace-format
@@ -4410,6 +4832,13 @@ msgid ""
 msgstr ""
 "Rapporten {report_type} skapas. För att visa status för rapporten, se "
 "Väntande uppgifter nedan."
+
+#: lms/djangoapps/instructor/views/api.py:173
+msgid ""
+"Found a conflict with given identifier. Please try an alternative identifier"
+msgstr ""
+"Det uppstod ett problem med den angiven nyckeln. Försök med en anna "
+"inställning."
 
 #: lms/djangoapps/instructor/views/api.py:364
 #: lms/djangoapps/instructor/views/api.py:3839
@@ -4505,6 +4934,17 @@ msgstr "Filen är inte bifogad."
 msgid "Username {user} already exists."
 msgstr "Användarnamnet {user} finns redan."
 
+#: lms/djangoapps/instructor/views/api.py:748
+#, python-brace-format
+msgid ""
+"Error '{error}' while sending email to new user (user email={email}). "
+"Without the email student would not be able to login. Please contact support"
+" for further information."
+msgstr ""
+"Fel \"{error}\" när du skickar e-post till ny användare (användar "
+"email={email}). Utan e-poststudenten skulle inte kunna logga in. Vänligen "
+"kontakta support för ytterligare information."
+
 #: lms/djangoapps/instructor/views/api.py:1147
 msgid ""
 "A usage key location for a section or a problem. If the location is a block "
@@ -4584,6 +5024,10 @@ msgstr "Typ av certifikat"
 #: lms/djangoapps/instructor/views/api.py:1428
 msgid "Total Certificates Issued"
 msgstr "Totala certifikat utgivna"
+
+#: lms/djangoapps/instructor/views/api.py:1429
+msgid "Date Report Run"
+msgstr "Datumrapport Kör"
 
 #: lms/djangoapps/instructor/views/api.py:1479
 #: lms/djangoapps/instructor_task/api_helper.py:110
@@ -4668,6 +5112,10 @@ msgstr "Inskrivningsläge"
 msgid "Last Login"
 msgstr "Senaste inloggning"
 
+#: lms/djangoapps/instructor/views/api.py:1516
+msgid "Date Joined"
+msgstr "Datum gick med"
+
 #: lms/djangoapps/instructor/views/api.py:1517
 msgid "External User Key"
 msgstr "Extern användarnyckel"
@@ -4720,6 +5168,16 @@ msgstr ""
 "Filen måste innehålla en kolumn \"användarnamn\", en kolumn \"e-post\" eller"
 " båda."
 
+#: lms/djangoapps/instructor/views/api.py:1757
+#: lms/djangoapps/instructor_task/api_helper.py:113
+msgid "survey"
+msgstr "undersökning"
+
+#: lms/djangoapps/instructor/views/api.py:1782
+#: lms/djangoapps/instructor_task/api_helper.py:114
+msgid "proctored exam results"
+msgstr "resultat från övervakade prov"
+
 #: lms/djangoapps/instructor/views/api.py:1812
 msgid "Anonymized User IDs"
 msgstr "Anonymiserade användar-ID"
@@ -4755,6 +5213,11 @@ msgstr "Ett fel uppstod när du tog bort poängen."
 #: lms/djangoapps/instructor/views/api.py:2017
 msgid "An error occurred while attempting to reset for all students."
 msgstr "Ett fel inträffade när vi försökte återställa för alla studenter."
+
+#: lms/djangoapps/instructor/views/api.py:2077
+#: lms/djangoapps/instructor/views/api.py:2316
+msgid "Course has no entrance exam section."
+msgstr "Kursen har ingen ingångsexamenavdelning."
 
 #: lms/djangoapps/instructor/views/api.py:2088
 msgid "Requires instructor access."
@@ -4872,6 +5335,11 @@ msgstr "ORA sammanfattning"
 msgid "Attachments archive is being created."
 msgstr "Bilagor arkiv skapas."
 
+#: lms/djangoapps/instructor/views/api.py:2909
+#: lms/djangoapps/instructor_task/api_helper.py:116
+msgid "grade"
+msgstr "betyg"
+
 #: lms/djangoapps/instructor/views/api.py:2937
 #: lms/djangoapps/instructor_task/api_helper.py:108
 msgid "problem grade"
@@ -4885,6 +5353,10 @@ msgstr "Alla fält måste fyllas i"
 #, python-brace-format
 msgid "Could not find student matching identifier: {student}"
 msgstr "Det gick inte att hitta student som matchar identifieraren: {student}"
+
+#: lms/djangoapps/instructor/views/api.py:3219
+msgid "The extension due date and time format is incorrect"
+msgstr "Förlängningens förfallodatum och tidsformat är felaktigt"
 
 #: lms/djangoapps/instructor/views/api.py:3230
 #, python-brace-format
@@ -4962,6 +5434,13 @@ msgstr ""
 "Student {user} finns redan på listan för ogiltigförklarade certifikat och "
 "kan inte läggas till på undantagslistan för certifikat."
 
+#: lms/djangoapps/instructor/views/api.py:3641
+#, python-brace-format
+msgid "Student (username/email={user}) already in certificate exception list."
+msgstr ""
+"Student (användarnamn / email = {user}) finns redan i certifikats "
+"undantagslista."
+
 #: lms/djangoapps/instructor/views/api.py:3677
 #, python-brace-format
 msgid ""
@@ -4987,10 +5466,19 @@ msgid ""
 msgstr ""
 "{user} existerar inte i LMS. Kontrollera din stavning och försök igen."
 
+#: lms/djangoapps/instructor/views/api.py:3770
+msgid "Invalid data, generate_for must be \"new\" or \"all\"."
+msgstr "Ogiltiga data, generate_for måste vara \"nya\" eller \"alla\"."
+
 #: lms/djangoapps/instructor/views/api.py:3778
 msgid "Certificate generation started for students on the allowlist."
 msgstr ""
 "Certifikatsgenerering har påbörjats för studenter på tillåtelselistan."
+
+#: lms/djangoapps/instructor/views/api.py:3831
+#, python-brace-format
+msgid "user \"{user}\" in row# {row}"
+msgstr "Användare &quot;{user}&quot; i rad # {row}"
 
 #: lms/djangoapps/instructor/views/api.py:3882
 #, python-brace-format
@@ -5081,6 +5569,15 @@ msgstr "Kurscertifikat"
 msgid "Please Enter the numeric value for the course price"
 msgstr "Vänligen ange det numeriska värdet för kurspriset"
 
+#: lms/djangoapps/instructor/views/instructor_dashboard.py:428
+#, python-brace-format
+msgid "CourseMode with the mode slug({mode_slug}) DoesNotExist"
+msgstr "CourseMode med läget slug({mode_slug}) existerar inte"
+
+#: lms/djangoapps/instructor/views/instructor_dashboard.py:440
+msgid "CourseMode price updated successfully"
+msgstr "CourseMode-pris uppdaterat framgångsrikt"
+
 #: lms/djangoapps/instructor/views/instructor_dashboard.py:449
 msgid "Course Info"
 msgstr "Kursinformation"
@@ -5108,6 +5605,10 @@ msgstr "Diskussioner"
 msgid "Student Admin"
 msgstr "Studentadministratör"
 
+#: lms/djangoapps/instructor/views/instructor_dashboard.py:616
+msgid "Extensions"
+msgstr "Förlängningar"
+
 #: lms/djangoapps/instructor/views/instructor_dashboard.py:641
 msgid "Data Download"
 msgstr "Data nedladdning"
@@ -5120,12 +5621,28 @@ msgstr "Analytics"
 msgid "Open Responses"
 msgstr "Öppna svar"
 
+#. Translators: number sent refers to the number of emails sent
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:80
+msgid "0 sent"
+msgstr "0 skickade"
+
 #: lms/djangoapps/instructor/views/instructor_task_helpers.py:90
 #, python-brace-format
 msgid "{num_emails} sent"
 msgid_plural "{num_emails} sent"
 msgstr[0] "{num_emails} skickade"
 msgstr[1] "{num_emails} skickade"
+
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:99
+#, python-brace-format
+msgid "{num_emails} failed"
+msgid_plural "{num_emails} failed"
+msgstr[0] "{num_emails} misslyckades"
+msgstr[1] "{num_emails} misslyckades"
+
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
+msgid "Complete"
+msgstr "Avslutad"
 
 #: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
 msgid "Incomplete"
@@ -5145,6 +5662,11 @@ msgstr "Ogiltigt rollnamn."
 msgid "The URL name of the problem to reset."
 msgstr "URL-namnet på problemet som ska återställas."
 
+#: lms/djangoapps/instructor/views/serializer.py:346
+#: lms/djangoapps/instructor/views/serializer.py:567
+msgid "Problem URL name cannot be blank."
+msgstr "Problem-URL-namnet kan inte vara tomt."
+
 #: lms/djangoapps/instructor/views/serializer.py:351
 msgid "Whether to reset the problem for all students."
 msgstr "Om problemet ska återställas för alla studenter."
@@ -5153,6 +5675,14 @@ msgstr "Om problemet ska återställas för alla studenter."
 #: lms/djangoapps/instructor/views/serializer.py:508
 msgid "unique student identifier."
 msgstr "unik studentidentifierare."
+
+#: lms/djangoapps/instructor/views/serializer.py:496
+msgid "Whether to reset for all students."
+msgstr "Om det ska återställas för alla studenter."
+
+#: lms/djangoapps/instructor/views/serializer.py:535
+msgid "all_students and unique_student_identifier are mutually exclusive."
+msgstr "all_students och unique_student_identifier utesluter varandra."
 
 #: lms/djangoapps/instructor/views/serializer.py:539
 msgid "all_students and delete_module are mutually exclusive."
@@ -5174,6 +5704,13 @@ msgstr "URL-namnet på problemet för att åsidosätta poängen för."
 msgid "The overriding score to set."
 msgstr "Den överordnade poängen att ställa in."
 
+#: lms/djangoapps/instructor/views/tools.py:79
+#, python-brace-format
+msgid "Could not find student matching identifier: {student_identifier}"
+msgstr ""
+"Det gick inte att hitta studentidentifieringsidentifierare: "
+"{student_identifier}"
+
 #: lms/djangoapps/instructor/views/tools.py:93
 msgid "Unable to parse date: "
 msgstr "Det gick inte att analysera datum: "
@@ -5182,6 +5719,10 @@ msgstr "Det gick inte att analysera datum: "
 #, python-brace-format
 msgid "Couldn't find module for url: {0}"
 msgstr "Det gick inte att hitta modulen för url: {0}"
+
+#: lms/djangoapps/instructor/views/tools.py:171
+msgid "Could not find student enrollment in the course."
+msgstr "Kunde inte hitta studentens registrering i kursen."
 
 #: lms/djangoapps/instructor/views/tools.py:199
 #, python-brace-format
@@ -5244,6 +5785,10 @@ msgstr ""
 "Väntande uppgifter nedan. Du kommer att kunna ladda ner rapporten när den är"
 " klar."
 
+#: lms/djangoapps/instructor_task/api_helper.py:359
+msgid "This component cannot be rescored."
+msgstr "Den här komponenten kan inte räddas."
+
 #: lms/djangoapps/instructor_task/api_helper.py:374
 msgid "This component does not support score override."
 msgstr "Denna komponent stöder inte poängöverstyrning."
@@ -5297,6 +5842,18 @@ msgstr "raderade"
 #: lms/djangoapps/instructor_task/tasks.py:166
 msgid "emailed"
 msgstr "mejlades"
+
+#. Translators: This is a past-tense verb that is inserted into task progress
+#. messages as {action}.
+#: lms/djangoapps/instructor_task/tasks.py:194
+msgid "graded"
+msgstr "betygsatt"
+
+#. Translators: This is a past-tense phrase that is inserted into task
+#. progress messages as {action}.
+#: lms/djangoapps/instructor_task/tasks.py:212
+msgid "problem distribution graded"
+msgstr "problemdistribution graderad"
 
 #. Translators: This is a past-tense verb that is inserted into task progress
 #. messages as {action}.
@@ -5372,11 +5929,54 @@ msgid "Progress: {action} {succeeded} of {attempted} so far"
 msgstr "Framsteg: {action} {succeeded} av {attempted} hittills"
 
 #. Translators: {action} is a past-tense verb that is localized separately.
+#. {student} is a student identifier.  # lint-amnesty, pylint: disable=line-
+#. too-long
+#: lms/djangoapps/instructor_task/views.py:161
+#, python-brace-format
+msgid "Unable to find submission to be {action} for student '{student}'"
+msgstr ""
+"Det gick inte att hitta inlämning som ska {action} för student '{student}'"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#. {student} is a student identifier.  # lint-amnesty, pylint: disable=line-
+#. too-long
+#: lms/djangoapps/instructor_task/views.py:164
+#, python-brace-format
+msgid "Problem failed to be {action} for student '{student}'"
+msgstr "Problemet misslyckades med att vara {action} för studentens {student}"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#. {student} is a student identifier.
+#: lms/djangoapps/instructor_task/views.py:174
+#, python-brace-format
+msgid ""
+"Unable to find entrance exam submission to be {action} for student "
+"'{student}'"
+msgstr ""
+"Det gick inte att hitta inlämningsexamen för att vara {action} för "
+"studentens {student}"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
 #. {student} is a student identifier.
 #: lms/djangoapps/instructor_task/views.py:179
 #, python-brace-format
 msgid "Entrance exam successfully {action} for student '{student}'"
 msgstr "Entréprov framgångsrikt {action} för student \"{student}\""
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#: lms/djangoapps/instructor_task/views.py:184
+#, python-brace-format
+msgid "Unable to find any students with submissions to be {action}"
+msgstr "Det gick inte att hitta några elever med inlagor att vara {action}"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#. {attempted} is a count.
+#: lms/djangoapps/instructor_task/views.py:187
+#, python-brace-format
+msgid "Problem failed to be {action} for any of {attempted} students"
+msgstr ""
+"Problemet misslyckades med att vara {action} för någon av {attempted} "
+"studenter"
 
 #. Translators: {action} is a past-tense verb that is localized separately.
 #. {attempted} is a count.
@@ -5392,6 +5992,21 @@ msgstr "Problem med framgång {action} för {attempted} studenter"
 #, python-brace-format
 msgid "Problem {action} for {succeeded} of {attempted} students"
 msgstr "Problem {action} för {succeeded} av {attempted} studenter"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#: lms/djangoapps/instructor_task/views.py:199
+#, python-brace-format
+msgid "Unable to find any recipients to be {action}"
+msgstr "Det gick inte att hitta några mottagare att vara {action}"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#. {attempted} is a count.
+#: lms/djangoapps/instructor_task/views.py:202
+#, python-brace-format
+msgid "Message failed to be {action} for any of {attempted} recipients "
+msgstr ""
+"Meddelandet misslyckades med att vara {action} för någon av {attempted} "
+"mottagare "
 
 #. Translators: {action} is a past-tense verb that is localized separately.
 #. {attempted} is a count.
@@ -5444,6 +6059,14 @@ msgstr "Program"
 msgid "Program Details"
 msgstr "Programdetaljer"
 
+#: lms/djangoapps/lms_xblock/mixin.py:23
+msgid ""
+"This component's access settings refer to deleted or invalid group "
+"configurations."
+msgstr ""
+"Den här komponentens åtkomstinställningar avser slagna eller ogiltiga "
+"gruppkonfigurationer."
+
 #: lms/djangoapps/lms_xblock/mixin.py:26
 msgid ""
 "This unit's access settings refer to deleted or invalid group "
@@ -5487,6 +6110,10 @@ msgstr ""
 #: lms/djangoapps/lms_xblock/mixin.py:67
 msgid "Course Chrome"
 msgstr "Kurs Chrome"
+
+#: lms/djangoapps/lms_xblock/mixin.py:79
+msgid "Default Tab"
+msgstr "Standardflik"
 
 #: lms/djangoapps/lms_xblock/mixin.py:80
 msgid ""
@@ -5643,6 +6270,10 @@ msgstr "Oanvändbar"
 msgid "User Enabled Successfully"
 msgstr "Användaren har aktiverats"
 
+#: lms/djangoapps/support/views/manage_user.py:94
+msgid "User Disabled Successfully"
+msgstr "Användaren har inaktiverats"
+
 #: lms/djangoapps/survey/utils.py:20
 msgid "You must complete a survey"
 msgstr "Du måste fylla i en enkät"
@@ -5654,6 +6285,15 @@ msgstr "Valfritt språk som teamet använder som ISO 639-1-kod."
 #: lms/djangoapps/teams/plugins.py:54
 msgid "Leverage teams to allow learners to connect by topic of interest."
 msgstr "Utnyttja team för att låta eleverna ansluta efter ämne av intresse."
+
+#: lms/djangoapps/teams/views.py:417
+msgid "course_id must be provided"
+msgstr "course_id måste anges"
+
+#: lms/djangoapps/teams/views.py:427 lms/djangoapps/teams/views.py:1007
+#, python-brace-format
+msgid "The supplied course id {course_id} is not valid."
+msgstr "Den medföljande course_id {course_id} är inte giltig."
 
 #: lms/djangoapps/teams/views.py:443
 msgid "text_search and order_by cannot be provided together"
@@ -5722,6 +6362,10 @@ msgstr "Team-id är obligatoriskt."
 msgid "This team is already full."
 msgstr "Det här laget är redan fullt."
 
+#: lms/djangoapps/teams/views.py:1479
+msgid "You can't join an instructor managed team."
+msgstr "Du kan inte gå med i ett team som hanteras av instruktörer."
+
 #: lms/djangoapps/teams/views.py:1497
 #, python-brace-format
 msgid "The user {username} is already a member of a team in this teamset."
@@ -5747,6 +6391,10 @@ msgstr "Visa befintlig användartur"
 #: lms/djangoapps/user_tours/models.py:20
 msgid "Show new user tour"
 msgstr "Visa ny användartur"
+
+#: lms/djangoapps/user_tours/models.py:21
+msgid "Do not show user tour"
+msgstr "Visa inte användarrundtur"
 
 #: lms/djangoapps/verify_student/api.py:42
 #, python-brace-format
@@ -5802,12 +6450,20 @@ msgstr "Det valda priset är inte ett giltigt nummer."
 msgid "This course doesn't support paid certificates"
 msgstr "Kursen stöder inte köpta kurscertifikat"
 
+#: lms/djangoapps/verify_student/views.py:794
+msgid "No selected price or selected price is below minimum."
+msgstr "Ingen vald pris eller valt pris är under minimum."
+
 #: lms/djangoapps/verify_student/views.py:913
 msgid ""
 "Photo ID image is required if the user does not have an initial verification"
 " attempt."
 msgstr ""
 "Foto ID-bild krävs om användaren inte har ett första verifieringsförsök."
+
+#: lms/djangoapps/verify_student/views.py:918
+msgid "Missing required parameter face_image"
+msgstr "Saknas krävs parameter face_image"
 
 #: lms/djangoapps/verify_student/views.py:941
 msgid "Image data is in an unsupported format."
@@ -5883,6 +6539,10 @@ msgstr ""
 #: lms/templates/bulk_email/edx_ace/bulkemail/email/body.html:33
 msgid "here"
 msgstr "här"
+
+#: lms/templates/bulk_email/edx_ace/bulkemail/email/body.html:34
+msgid "unsubscribe"
+msgstr "säga upp prenumerationen"
 
 #: lms/templates/bulk_email/edx_ace/bulkemail/email/body.txt:7
 #, python-format
@@ -6245,6 +6905,17 @@ msgstr ""
 "Du har blivit avregistrerad från kursen %(course_name)s. Vänligen bortse "
 "från den tidigare skickade inbjudan."
 
+#: lms/templates/instructor/edx_ace/enrolledunenroll/email/body.html:12
+#, python-format
+msgid ""
+"\n"
+"                    You have been unenrolled from %(course_name)s\n"
+"                "
+msgstr ""
+"\n"
+"                    Du har avregistrerats från %(course_name)s\n"
+"                "
+
 #: lms/templates/instructor/edx_ace/enrolledunenroll/email/body.html:21
 #: lms/templates/instructor/edx_ace/enrolledunenroll/email/body.txt:3
 #, python-format
@@ -6306,6 +6977,10 @@ msgstr ""
 "kurspersonalen. Den här kursen kommer nu att visas på din %(site_name)s "
 "instrumentpanel."
 
+#: lms/templates/instructor/edx_ace/enrollenrolled/email/body.html:27
+msgid "Access the Course Materials Now"
+msgstr "Åtkomst till kursmaterialet nu"
+
 #: lms/templates/instructor/edx_ace/enrollenrolled/push/body.txt:4
 #, python-format
 msgid "You have been invited to join %(course_name)s at %(site_name)s."
@@ -6362,6 +7037,13 @@ msgstr ""
 "Du har tagits bort som betatestare för %(course_name)s på %(site_name)s. Den"
 " här kursen kommer att finnas kvar på din instrumentpanel, men du kommer "
 "inte längre att vara en del av betatestgruppen."
+
+#: lms/templates/instructor/edx_ace/removebetatester/push/title.txt:3
+#, python-format
+msgid ""
+"You have been removed as a beta tester for %(course_name)s at %(site_name)s."
+msgstr ""
+"Du har tagits bort som betatestare för %(course_name)s på %(site_name)s"
 
 #: lms/templates/logout.html:5
 msgid "Signed Out"
@@ -6491,6 +7173,11 @@ msgstr ""
 "Du kommer att kunna försöka igen med den här kursen och få ett verifierat "
 "certifikat vid framgångsrikt slutförande."
 
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:31
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:6
+msgid "Best,"
+msgstr "Vänliga hälsningar,"
+
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:2
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:2
 #: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.txt:2
@@ -6508,6 +7195,16 @@ msgstr "ID-verifiering godkänd"
 #, python-format
 msgid "Your %(platform_name)s ID verification photos have been approved."
 msgstr "Dina %(platform_name)s ID-verifieringsfoton har godkänts."
+
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:23
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:4
+#, python-format
+msgid ""
+"Your approval status remains valid for two years, and it will expire "
+"%(expiration_datetime)s."
+msgstr ""
+"Din godkännandestatus förblir giltig i två år och den kommer att upphöra "
+"%(expiration_datetime)s."
 
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:29
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:6
@@ -6660,6 +7357,14 @@ msgstr "Radera"
 #: lms/templates/wiki/delete.html:11 wiki/templates/wiki/delete.html:10
 msgid "You cannot delete a root article."
 msgstr "Du kan inte ta bort en rotartikel."
+
+#: lms/templates/wiki/delete.html:17 wiki/templates/wiki/delete.html:16
+msgid ""
+"You cannot delete this article because you do not have permission to delete "
+"articles with children. Try to remove the children manually one-by-one."
+msgstr ""
+"Du kan inte radera den här artikeln eftersom du inte har behörighet att "
+"radera artiklar med barn. Försök att ta bort barnen manuellt en-för-en."
 
 #: lms/templates/wiki/delete.html:25 wiki/templates/wiki/delete.html:24
 msgid "Articles that will be deleted"
@@ -6837,6 +7542,14 @@ msgstr ""
 msgid "Markdown: Basics"
 msgstr "Markdown: Grunderna"
 
+#: lms/templates/wiki/includes/cheatsheet.html:19
+msgid "Quick Markdown Syntax Guide"
+msgstr "Snabbguide för Markdown-syntax"
+
+#: lms/templates/wiki/includes/cheatsheet.html:20
+msgid "Miniature Markdown Guide"
+msgstr "Miniatyr Markdown Guide"
+
 #: lms/templates/wiki/includes/cheatsheet.html:22
 #: wiki/plugins/help/templates/wiki/plugins/help/sidebar.html:3
 msgid ""
@@ -6890,6 +7603,10 @@ msgstr "*betoning* eller _betoning_"
 msgid "**strong** or __strong__"
 msgstr "**stark** eller __stark__"
 
+#: lms/templates/wiki/includes/cheatsheet.html:52
+msgid "Unordered List"
+msgstr "Oordnad lista"
+
 #: lms/templates/wiki/includes/cheatsheet.html:53
 msgid "Sub Item 1"
 msgstr "Del 1"
@@ -6897,6 +7614,10 @@ msgstr "Del 1"
 #: lms/templates/wiki/includes/cheatsheet.html:54
 msgid "Sub Item 2"
 msgstr "Del 2"
+
+#: lms/templates/wiki/includes/cheatsheet.html:56
+msgid "Ordered"
+msgstr "Beordnade"
 
 #: lms/templates/wiki/includes/cheatsheet.html:57
 msgid "List"
@@ -6924,6 +7645,11 @@ msgstr "Bilagor"
 #: wiki/plugins/attachments/templates/wiki/plugins/attachments/index.html:83
 msgid "Upload new file"
 msgstr "Ladda upp ny fil"
+
+#: lms/templates/wiki/plugins/attachments/index.html:16
+#: wiki/plugins/attachments/templates/wiki/plugins/attachments/index.html:106
+msgid "Search and add file"
+msgstr "Sök och lägga till fil"
 
 #: lms/templates/wiki/plugins/attachments/index.html:22
 msgid "Upload File"
@@ -6966,6 +7692,12 @@ msgid ""
 msgstr ""
 "Följande filer är tillgängliga för den här artikeln. Kopiera markdown-taggen"
 " för att direkt hänvisa till en fil från artikeltexten."
+
+#: lms/templates/wiki/plugins/attachments/index.html:84
+#: wiki/plugins/attachments/templates/wiki/plugins/attachments/index.html:26
+#: wiki/plugins/images/templates/wiki/plugins/images/index.html:19
+msgid "Markdown tag"
+msgstr "Markdown tagg"
 
 #: lms/templates/wiki/plugins/attachments/index.html:85
 #: wiki/plugins/attachments/templates/wiki/plugins/attachments/index.html:27
@@ -7198,6 +7930,10 @@ msgstr "Ett fel har uppstått. Var god försök igen."
 msgid "No data provided."
 msgstr "Inga uppgifter lämnas."
 
+#: openedx/core/djangoapps/bookmarks/views.py:224
+msgid "Parameter usage_id not provided."
+msgstr "Parameter usage_id inte tillhandahållen."
+
 #: openedx/core/djangoapps/bookmarks/views.py:229
 #: openedx/core/djangoapps/bookmarks/views.py:310
 #, python-brace-format
@@ -7240,6 +7976,10 @@ msgid ""
 msgstr ""
 "Specificeras i sekunder. Aktivera cachning av API-svar genom att ställa in "
 "detta till ett värde som är större än 0."
+
+#: openedx/core/djangoapps/catalog/models.py:39
+msgid "Long Term Cache Time To Live"
+msgstr "Cacheintställning"
 
 #: openedx/core/djangoapps/catalog/models.py:42
 msgid ""
@@ -7453,6 +8193,10 @@ msgstr "Uppgiften är klar, men vissa block kunde inte importeras."
 msgid "Task finished successfully."
 msgstr "Uppgiften slutfördes."
 
+#: openedx/core/djangoapps/content_libraries/models.py:262
+msgid "state"
+msgstr "stat"
+
 #: openedx/core/djangoapps/content_libraries/models.py:263
 msgid "The state of the block import task."
 msgstr "Tillståndet för blockimportuppgiften."
@@ -7481,6 +8225,10 @@ msgstr "öppen edx-användare"
 #: openedx/core/djangoapps/content_libraries/models.py:358
 msgid "lti platform identifier"
 msgstr "lti-plattformsidentifierare"
+
+#: openedx/core/djangoapps/content_libraries/models.py:359
+msgid "The LTI platform identifier to which this profile belongs to."
+msgstr "Den LTI-plattformsidentifierare som denna profil tillhör."
 
 #: openedx/core/djangoapps/content_libraries/models.py:365
 msgid "client identifier"
@@ -7635,6 +8383,15 @@ msgstr "LTI-leverantör"
 msgid "The LTI provider's id"
 msgstr "LTI-leverantörens id"
 
+#: openedx/core/djangoapps/course_live/models.py:38
+msgid "True, if LTI credential are provided by Org globally"
+msgstr "Sant, om LTI-referenser tillhandahålls av organisationen globalt"
+
+#: openedx/core/djangoapps/course_live/plugins.py:25
+#: openedx/core/djangoapps/course_live/tab.py:47
+msgid "Live"
+msgstr "Live"
+
 #: openedx/core/djangoapps/course_live/plugins.py:26
 msgid "Enable in-platform video conferencing by configuring live"
 msgstr "Aktivera videokonferenser på plattformen genom att konfigurera live"
@@ -7647,6 +8404,10 @@ msgstr "Användaruppgifter"
 msgid "Internal Service URL"
 msgstr "Interntjänstadress"
 
+#: openedx/core/djangoapps/credentials/models.py:41
+msgid "Public Service URL"
+msgstr "Offentlig tjänste-URL"
+
 #: openedx/core/djangoapps/credentials/models.py:46
 msgid "Enable Learner Issuance"
 msgstr "Aktivera utfärdande för elever"
@@ -7654,6 +8415,10 @@ msgstr "Aktivera utfärdande för elever"
 #: openedx/core/djangoapps/credentials/models.py:49
 msgid "Enable issuance of credentials via Credential Service."
 msgstr "Aktivera utfärdande av intyg via Credential Service."
+
+#: openedx/core/djangoapps/credentials/models.py:53
+msgid "Enable Authoring of Credential in Studio"
+msgstr "Aktivera behörighetsbehörighet i Studio"
 
 #: openedx/core/djangoapps/credentials/models.py:56
 msgid "Enable authoring of Credential Service credentials in Studio."
@@ -7798,6 +8563,10 @@ msgstr "Språk ej angivet"
 msgid "Language set to {preview_language}"
 msgstr "Språk som är inställt på {preview_language}"
 
+#: openedx/core/djangoapps/dark_lang/views.py:108
+msgid "Language reset to the default"
+msgstr "Språket återställdes till standardinställningen"
+
 #: openedx/core/djangoapps/debug/views.py:50
 msgid "This is a test message"
 msgstr "Detta är ett testmeddelande"
@@ -7919,6 +8688,10 @@ msgstr ""
 "Användningsnyckel för diskussionsämne i sammanhanget. Ställ in på null för "
 "ämnen på kursnivå."
 
+#: openedx/core/djangoapps/discussions/models.py:582
+msgid "Title for discussion topic."
+msgstr "Titel för diskussionsämne."
+
 #: openedx/core/djangoapps/discussions/models.py:589
 msgid "Group for divided discussions."
 msgstr "Grupp för delade diskussioner."
@@ -7989,6 +8762,14 @@ msgstr ""
 "Meddelandet som ska visas när en användare är blockerad från att få tillgång"
 " till en kurs."
 
+#: openedx/core/djangoapps/embargo/models.py:157
+msgid ""
+"Allow users who enrolled in an allowed country to access restricted courses "
+"from excluded countries."
+msgstr ""
+"Tillåt användare som är inskrivna i ett tillåtet land för att få tillgång "
+"till begränsade kurser från uteslutna länder."
+
 #: openedx/core/djangoapps/embargo/models.py:380
 msgid "Two character ISO country code."
 msgstr "Två tecken ISO landskod."
@@ -8026,6 +8807,10 @@ msgstr "Svartlista {country} för {course}"
 #: openedx/core/djangoapps/notifications/admin.py:16
 msgid "Notification App"
 msgstr "Notifikationsapp"
+
+#: openedx/core/djangoapps/notifications/admin.py:37
+msgid "Notification Type"
+msgstr "Meddelandetyp"
 
 #: openedx/core/djangoapps/notifications/admin.py:71
 msgid ""
@@ -8146,6 +8931,11 @@ msgstr ""
 "<{p}>Ditt svar har blivit godkänt i inlägget "
 "<{strong}>{post_title}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:185
+#, python-brace-format
+msgid "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
+msgstr "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:202
 #, python-brace-format
 msgid ""
@@ -8192,6 +8982,10 @@ msgid "Notifications for new announcements and updates from the course team."
 msgstr ""
 "Meddelanden om nya tillkännagivanden och uppdateringar från kursteamet."
 
+#: openedx/core/djangoapps/notifications/base_notification.py:275
+msgid "Notifications for submission grading."
+msgstr "Notiser för inlämningsbedömning."
+
 #: openedx/core/djangoapps/notifications/email/tasks.py:144
 msgid "New Course Update"
 msgstr "Ny kursuppdatering"
@@ -8230,6 +9024,10 @@ msgstr "diskussion"
 #: openedx/core/djangoapps/notifications/email/utils.py:464
 msgid "update"
 msgstr "Uppdatera"
+
+#: openedx/core/djangoapps/notifications/email/utils.py:465
+msgid "assessment"
+msgstr "bedömning"
 
 #: openedx/core/djangoapps/notifications/email_notifications.py:16
 msgid "Daily"
@@ -8274,6 +9072,42 @@ msgstr ""
 #: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:43
 msgid "Notification Settings"
 msgstr "Aviseringsinställningar"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:46
+msgid "Unsubscribe from email digest for learning activity"
+msgstr ""
+"Avsluta prenumerationen på e-postsammanfattning för lärandeaktiviteter"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:12
+#: openedx/core/djangoapps/notifications/templates/notifications/immediate_email_content.html:8
+#: lms/templates/bulk_email/confirm_unsubscribe.html:11
+#: lms/templates/bulk_email/confirm_unsubscribe.html:17
+#: lms/templates/bulk_email/unsubscribe_success.html:12
+#: lms/templates/bulk_email/unsubscribe_success.html:18
+msgid "Unsubscribe"
+msgstr "Avsluta prenumeration"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:25
+msgid "Weekly Notifications Digest"
+msgstr "Veckovis notifikationssammanfattning"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:27
+msgid "Daily Notifications Digest"
+msgstr "Dagliga notiser sammanfattning"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/body.txt:4
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/subject.txt:4
+msgid "Weekly Notifications Digest for the Week of"
+msgstr "Veckovis notifikationssammanfattning för veckan som börjar"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/body.txt:6
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/subject.txt:6
+msgid "Daily Notifications Digest for"
+msgstr "Daglig notifikationssammanfattning för"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:5
+msgid "Email Digest Preferences Updated"
+msgstr "E-postsammanfattningens inställningar uppdaterade"
 
 #: openedx/core/djangoapps/notifications/views.py:174
 msgid "Invalid app name."
@@ -8370,6 +9204,18 @@ msgid ""
 msgstr ""
 "Innehållsrubriken för denna fil matchar inte fildata. Filen kan vara skadad."
 
+#: openedx/core/djangoapps/profile_images/images.py:133
+msgid ""
+"The file name extension for this file does not match the file data. The file"
+" may be corrupted."
+msgstr ""
+"Filnamnstillägget för den här filen matchar inte fildata. Filen kan vara "
+"skadad."
+
+#: openedx/core/djangoapps/profile_images/images.py:242
+msgid "bytes"
+msgstr "bitgrupper"
+
 #: openedx/core/djangoapps/profile_images/images.py:242
 msgid "KB"
 msgstr "KB"
@@ -8381,6 +9227,12 @@ msgstr "MB"
 #: openedx/core/djangoapps/profile_images/views.py:136
 msgid "No file provided for profile image"
 msgstr "Ingen fil tillhandahållen för profilbild"
+
+#: openedx/core/djangoapps/programs/models.py:25
+msgid "Path used to construct URLs to programs marketing pages (e.g., \"/foo\")."
+msgstr ""
+"Ban brukade konstruera webbadresser till programmarknadsföringssidor (t.ex. "
+"&quot;/ foo&quot;)."
 
 #: openedx/core/djangoapps/programs/models.py:41
 msgid "Program UUID"
@@ -8422,6 +9274,11 @@ msgstr "Erfarenhet"
 msgid "Course ID"
 msgstr "Kursens ID"
 
+#: openedx/core/djangoapps/schedules/apps.py:12
+#: openedx/core/djangoapps/schedules/models.py:47
+msgid "Schedules"
+msgstr "scheman"
+
 #: openedx/core/djangoapps/schedules/models.py:23
 msgid "Indicates if this schedule is actively used"
 msgstr "Indikerar om detta schema används aktivt"
@@ -8434,6 +9291,13 @@ msgstr "Datum detta schema trädde i kraft"
 msgid "Deadline by which the learner must upgrade to a verified seat"
 msgstr ""
 "Tidsfrist genom vilken eleven måste uppgradera till ett verifierat säte"
+
+#: openedx/core/djangoapps/schedules/models.py:46
+#: lms/templates/ccx/coach_dashboard.html:63
+#: lms/templates/ccx/coach_dashboard.html:75
+#: lms/templates/ccx/schedule.html:33
+msgid "Schedule"
+msgstr "Schema"
 
 #: openedx/core/djangoapps/schedules/templates/dropdown_filter.html:3
 #, python-format
@@ -8749,6 +9613,11 @@ msgid "Upgrade to earn a verified certificate in %(first_course_name)s"
 msgstr ""
 "Uppgradera för att få ett Verifierat Certifikat på %(first_course_name)s"
 
+#: openedx/core/djangoapps/theming/views.py:78
+#, python-brace-format
+msgid "Site theme changed to {site_theme}"
+msgstr "Webbplats temat ändrats till {site_theme}"
+
 #: openedx/core/djangoapps/theming/views.py:83
 #, python-brace-format
 msgid "Theme {site_theme} does not exist"
@@ -8979,6 +9848,12 @@ msgstr "Framgång"
 msgid "Actions"
 msgstr "Handlingar"
 
+#: openedx/core/djangoapps/user_api/preferences/api.py:253
+#, python-brace-format
+msgid "Delete failed for user preference '{preference_key}'."
+msgstr ""
+"Radera misslyckades för användarinställningar &quot;{preference_key}&quot;."
+
 #: openedx/core/djangoapps/user_api/preferences/api.py:402
 #, python-brace-format
 msgid "Preference '{preference_key}' cannot be set to an empty value."
@@ -9014,6 +9889,13 @@ msgstr ""
 msgid "Value '{preference_value}' is not a valid time zone selection."
 msgstr "Värdet '{preference_value}' är inte ett giltigt tidszonsval."
 
+#: openedx/core/djangoapps/user_api/preferences/api.py:451
+#, python-brace-format
+msgid "Save failed for user preference '{key}' with value '{value}'."
+msgstr ""
+"Spara misslyckades för användarinställningar &#39;{key}&#39; med värdet "
+"&#39;{value}&#39;."
+
 #: openedx/core/djangoapps/user_api/preferences/views.py:118
 msgid "No data provided for user preference update"
 msgstr "Inga uppgifter lämnas för användarpreferensuppdatering"
@@ -9028,11 +9910,28 @@ msgstr ""
 "Vi har tagit emot din begäran att radera ditt användarkonto på "
 "%(platform_name)s. Vad synd att du har valt att lämna oss!"
 
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.html:24
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.txt:11
+msgid ""
+"Your account will be deleted shortly. Account deletion, including removal "
+"from email lists, may take a few weeks to fully process through our system. "
+"If you want to opt-out of emails before then, please unsubscribe from the "
+"footer of any email."
+msgstr ""
+"Ditt användarkonto kommer att raderas inom kort. Radering av din data och "
+"inställningar, inklusive borttagning från t. ex. mailinglistor, kan ta upp "
+"till några veckor. Om du vill avstå från e-postmeddelanden snabbare, kan du "
+"avbryta prenumerationen genom att klicka på länken i sidfoten."
+
 #: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.html:38
 #: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.txt:19
 #, python-format
 msgid "Best, %(platform_name)s"
 msgstr "Bästa, %(platform_name)s"
+
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/subject.txt:4
+msgid "Your Account Has Been Queued For Deletion"
+msgstr "Ditt konto kommer att raderas."
 
 #. Translators: This label appears above a dropdown menu used to select
 #. the user's highest completed level of education.
@@ -9228,6 +10127,14 @@ msgstr "Hej %(name)s, "
 msgid "Password reset completed on %(platform_name)s"
 msgstr "Lösenordsåterställning slutförd på %(platform_name)s"
 
+#: openedx/core/djangoapps/user_authn/views/auto_auth.py:96
+msgid "Superuser creation not allowed"
+msgstr "Det är inte tillåtet att skapa s.k. Superusers"
+
+#: openedx/core/djangoapps/user_authn/views/auto_auth.py:115
+msgid "Account modification not allowed."
+msgstr "Det är inte tillåtet att editera/ändra kontot"
+
 #: openedx/core/djangoapps/user_authn/views/auto_auth.py:125
 #: openedx/core/djangoapps/user_authn/views/register.py:713
 msgid "Account creation not allowed."
@@ -9277,6 +10184,19 @@ msgstr ""
 #: openedx/core/djangoapps/user_authn/views/login.py:243
 msgid "Too many failed login attempts. Try again later."
 msgstr "För många misslyckade inloggningsförsök. Försök igen senare."
+
+#: openedx/core/djangoapps/user_authn/views/login.py:285
+#, python-brace-format
+msgid ""
+"Email or password is incorrect.{li_start}You have {remaining_attempts} more "
+"sign-in attempts before your account is temporarily "
+"locked.{li_end}{li_start}If you've forgotten your password, click "
+"{link_start}here{link_end} to reset.{li_end}"
+msgstr ""
+"E-postadressen eller lösenordet är felaktigt.{li_start}Du har "
+"{remaining_attempts} fler inloggningsförsök innan ditt konto tillfälligt "
+"låses.{li_end}{li_start}Om du har glömt ditt lösenord klickar du "
+"{link_start}här{link_end} för att återställa .{li_end}"
 
 #: openedx/core/djangoapps/user_authn/views/login.py:393
 #, python-brace-format
@@ -9335,6 +10255,10 @@ msgstr "Lösenordsåterställning misslyckades"
 msgid "Error in resetting your password."
 msgstr "Det uppstod ett fel när lösenordet skulle återställas."
 
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:445
+msgid "Error in resetting your password. Please try again."
+msgstr "Ett fel på att återställa ditt lösenord. Var god försök igen."
+
 #: openedx/core/djangoapps/user_authn/views/password_reset.py:470
 #, python-brace-format
 msgid ""
@@ -9359,6 +10283,11 @@ msgid ""
 msgstr ""
 "Ett fel har uppstått. Testa att uppdatera sidan eller kontrollera din "
 "internetanslutning."
+
+#: openedx/core/djangoapps/user_authn/views/register.py:186
+#, python-brace-format
+msgid "Registration using {provider} has timed out."
+msgstr "Registrering med {provider} har tagits ut."
 
 #: openedx/core/djangoapps/user_authn/views/register.py:329
 msgid "An access_token is required when passing value ({}) for provider."
@@ -9428,6 +10357,10 @@ msgstr "En stad krävs"
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:203
 msgid "A country is required"
 msgstr "Ett land är obligatoriskt"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:211
+msgid "To enroll, you must follow the honor code."
+msgstr "För att anmäla måste du följa eskoden."
 
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:219
 msgid "You are missing one or more required fields"
@@ -9518,6 +10451,16 @@ msgid ""
 msgstr ""
 "Jag godkänner {platform_name} "
 "{terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end}"
+
+#. Translators: "Terms of Service" is a legal document users must agree to
+#. in order to register a new account.
+#. Translators: "Terms of service" is a legal document users must agree to
+#. in order to register a new account.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1034
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1098
+#, python-brace-format
+msgid "You must agree to the {platform_name} {terms_of_service}"
+msgstr "Du måste godkänna {platform_name} {terms_of_service}"
 
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:1045
 #, python-brace-format
@@ -9642,6 +10585,11 @@ msgstr "Teamgrupp: {team_set_name}"
 msgid "Partition for segmenting users by team-set"
 msgstr "Partition för att segmentera användare efter team-set"
 
+#: openedx/features/calendar_sync/ics.py:36
+#, python-brace-format
+msgid "{assignment} is due for {course}."
+msgstr "{assignment} ska till {course}."
+
 #: openedx/features/calendar_sync/plugins.py:21
 msgid "Calendar Sync"
 msgstr "Kalendersynkronisering"
@@ -9734,6 +10682,18 @@ msgstr ""
 #: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:10
 msgid "Graded assessments are available to Verified Track learners."
 msgstr "Betygsatta bedömningar är tillgängliga för Verified Track-elever."
+
+#: openedx/features/content_type_gating/partitions.py:119
+msgid ""
+"Graded assessments are available to Verified Track learners. Upgrade to "
+"Unlock."
+msgstr ""
+"Betygsatta bedömningar är tillgängliga för Verified Track-elever. Uppgradera"
+" för att låsa upp."
+
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:3
+msgid "Content available only to verified track learners"
+msgstr "Innehåll endast tillgängligt för verifierade spårlärare"
 
 #: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:7
 msgid "Verified Track Access"
@@ -9891,6 +10851,15 @@ msgstr ""
 msgid "Enrollment in {course_title} was not complete."
 msgstr "Registreringen till {course_title} var inte slutförd."
 
+#: openedx/features/enterprise_support/api.py:1008
+#, python-brace-format
+msgid ""
+"If you have concerns about sharing your data, please contact your "
+"administrator at {enterprise_customer_name}."
+msgstr ""
+"Om du har problem med att dela dina data, vänligen kontakta din "
+"administratör på {enterprise_customer_name}."
+
 #: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:15
 msgid "Home"
 msgstr "Hem"
@@ -10027,6 +10996,10 @@ msgstr "felaktig"
 msgid "partially correct"
 msgstr "delvis rätt"
 
+#: xmodule/capa/inputtypes.py:92
+msgid "incomplete"
+msgstr "Ofullständig"
+
 #: xmodule/capa/inputtypes.py:93 xmodule/capa/inputtypes.py:94
 msgid "unanswered"
 msgstr "obesvarad"
@@ -10074,6 +11047,13 @@ msgstr "ChoiceGroup: oväntad tagg {tag_name}"
 #: xmodule/capa/inputtypes.py:514 xmodule/capa/inputtypes.py:1697
 msgid "Answer received."
 msgstr "Svar mottaget."
+
+#. Translators: '<choice>' and '<compoundhint>' are tag names and should not
+#. be translated.
+#: xmodule/capa/inputtypes.py:550
+#, python-brace-format
+msgid "Expected a <choice> or <compoundhint> tag; got {given_tag} instead"
+msgstr "<choice> eller <compoundhint> taggen förväntades, inte {given_tag}"
 
 #: xmodule/capa/inputtypes.py:734
 msgid ""
@@ -10144,6 +11124,12 @@ msgstr "Ursäkta, kunde inte tolka formeln"
 msgid "{input_type}: unexpected tag {tag_name}"
 msgstr "{input_type}: oväntad tag {tag_name}"
 
+#. Translators: a "tag" is an XML element, such as "<b>" in HTML
+#: xmodule/capa/inputtypes.py:1760
+#, python-brace-format
+msgid "Expected a {expected_tag} tag; got {given_tag} instead"
+msgstr "Förväntade en {expected_tag} tagg; fick {given_tag} istället"
+
 #. Translators: index here could be 1,2,3 and so on
 #: xmodule/capa/responsetypes.py:258
 #, python-brace-format
@@ -10154,6 +11140,10 @@ msgstr "Fråga {index}"
 msgid "Correct:"
 msgstr "Rätt:"
 
+#: xmodule/capa/responsetypes.py:363
+msgid "Incorrect:"
+msgstr "Felaktig"
+
 #: xmodule/capa/responsetypes.py:407 xmodule/capa_block.py:788
 #: xmodule/capa_block.py:804
 msgid "Answer"
@@ -10163,6 +11153,10 @@ msgstr "Svar"
 #, python-brace-format
 msgid "Error {err} in evaluating hint function {hintfn}."
 msgstr "Fel {err} vid utvärdering av tipsfunktion {hintfn}."
+
+#: xmodule/capa/responsetypes.py:490
+msgid "(Source code line unavailable)"
+msgstr "(Rad för källkod ej tillgänglig)"
 
 #: xmodule/capa/responsetypes.py:491
 #, python-brace-format
@@ -10211,6 +11205,15 @@ msgstr "Rullgardinsmeny"
 msgid "Numerical Input"
 msgstr "Numerisk inmatning"
 
+#: xmodule/capa/responsetypes.py:1536 xmodule/capa/responsetypes.py:1568
+msgid "There was a problem with the staff answer to this problem."
+msgstr "Det var ett problem med personalen svar på detta problem."
+
+#: xmodule/capa/responsetypes.py:1592
+#, python-brace-format
+msgid "Could not interpret '{student_answer}' as a number."
+msgstr "Kunde inte tolka &quot;{student_answer}&quot; som ett nummer."
+
 #: xmodule/capa/responsetypes.py:1614
 #, python-brace-format
 msgid "Factorial function evaluated outside its domain:'{student_answer}'"
@@ -10219,6 +11222,17 @@ msgstr "Faktoriell funktion utvärderad utanför dess domän: '{student_answer}'
 #: xmodule/capa/responsetypes.py:1652
 msgid "You may not use complex numbers in range tolerance problems"
 msgstr "Du får inte använda komplexa tal inom toleransproblem"
+
+#. Translators: This is an error message for a math problem. If the instructor
+#. provided a
+#. boundary (end limit) for a variable that is a complex number (a + bi), this
+#. message displays.
+#: xmodule/capa/responsetypes.py:1660
+msgid ""
+"There was a problem with the staff answer to this problem: complex boundary."
+msgstr ""
+"Det var ett problem med personalen svar på det här problemet: komplicerad "
+"gräns."
 
 #. Translators: This is an error message for a math problem. If the instructor
 #. did not
@@ -10258,9 +11272,18 @@ msgstr "fel"
 msgid "Custom Evaluated Script"
 msgstr "Anpassad utvärderad Script"
 
+#: xmodule/capa/responsetypes.py:2187
+#, python-brace-format
+msgid "error getting student answer from {student_answers}"
+msgstr "fel att få student svar från {student_answers}"
+
 #: xmodule/capa/responsetypes.py:2211
 msgid "No answer entered!"
 msgstr "Inget svar inmatat!"
+
+#: xmodule/capa/responsetypes.py:2438
+msgid "CustomResponse: check function returned an invalid dictionary!"
+msgstr "CustomResponse: checkfunktionen returnerade en ogiltig ordlista!"
 
 #: xmodule/capa/responsetypes.py:2531
 msgid "Symbolic Math Input"
@@ -10303,6 +11326,10 @@ msgstr "Ogiltigt svar från bedömaren. Vänligen kontakta kursens personal."
 msgid "External Grader"
 msgstr "Extern grader"
 
+#: xmodule/capa/responsetypes.py:3032
+msgid "Math Expression Input"
+msgstr "Inmatning av matematiskt uttryck"
+
 #: xmodule/capa/responsetypes.py:3131
 #, python-brace-format
 msgid ""
@@ -10311,6 +11338,24 @@ msgid ""
 msgstr ""
 "Faktoriell funktion är inte tillåten som svar på detta problem. "
 "Tillhandahållet svar var: {bad_input}"
+
+#: xmodule/capa/responsetypes.py:3138
+#, python-brace-format
+msgid "Invalid input: Could not parse '{bad_input}' as a formula."
+msgstr ""
+"Ogiltig inmatning: Kunde inte analysera &quot;{bad_input}&quot; som en "
+"formel."
+
+#: xmodule/capa/responsetypes.py:3146
+#, python-brace-format
+msgid "Invalid input: Could not parse '{bad_input}' as a formula"
+msgstr ""
+"Ogiltig inmatning: Kunde inte analysera &quot;{bad_input}&quot; som en "
+"formel"
+
+#: xmodule/capa/responsetypes.py:3253
+msgid "Circuit Schematic Builder"
+msgstr "Circuit Schematical Builder"
 
 #. Translators: 'SchematicResponse' is a problem type and should not be
 #. translated.
@@ -10350,6 +11395,11 @@ msgstr "Svaret är inte föreskrivet för {input_type}"
 #: xmodule/capa/responsetypes.py:3879
 msgid "The Staff answer could not be interpreted as a number."
 msgstr "Personalsvaret kunde inte tolkas som ett nummer."
+
+#: xmodule/capa/responsetypes.py:3893
+#, python-brace-format
+msgid "Could not interpret '{given_answer}' as a number."
+msgstr "Kunde inte tolka &quot;{given_answer}&quot; som ett nummer."
 
 #: xmodule/capa/safe_exec/remote_exec.py:121
 msgid ""
@@ -10421,6 +11471,14 @@ msgstr "Mängd tid efter förfallodagen att inlämnanden kommer att accepteras"
 msgid "Show Results"
 msgstr "Visa resultat"
 
+#: xmodule/capa_block.py:218
+msgid ""
+"Defines when to show whether a learner's answer to the problem is correct. "
+"Configured on the subsection."
+msgstr ""
+"Definierar när det ska visas om en elevs svar på problemet är korrekt. "
+"Konfigureras på underavsnittet."
+
 #: xmodule/capa_block.py:223 xmodule/capa_block.py:235
 #: xmodule/capa_block.py:279
 msgid "Always"
@@ -10434,9 +11492,21 @@ msgstr "Gått över tiden"
 msgid "Show Answer"
 msgstr "Visa svar"
 
+#: xmodule/capa_block.py:230
+msgid ""
+"Defines when to show the answer to the problem. A default value can be set "
+"in Advanced Settings."
+msgstr ""
+"Definierar när svaret på problemet ska visas. Ett standardvärde kan ställas "
+"in i Avancerade Inställningar."
+
 #: xmodule/capa_block.py:236
 msgid "Answered"
 msgstr "svarade"
+
+#: xmodule/capa_block.py:237
+msgid "Attempted or Past Due"
+msgstr "Försökt eller förfallna"
 
 #: xmodule/capa_block.py:238
 msgid "Closed"
@@ -10477,6 +11547,10 @@ msgid ""
 msgstr ""
 "Antal gånger eleven måste försöka svara på frågan innan knappen Visa svar "
 "visas."
+
+#: xmodule/capa_block.py:259
+msgid "Whether to force the save button to appear on the page"
+msgstr "Om du vill tvinga spara knappen för att visas på sidan"
 
 #: xmodule/capa_block.py:265
 msgid ""
@@ -10546,6 +11620,10 @@ msgstr "Huruvida svaren har sparats sedan senaste inlämning"
 msgid "Whether the student has answered the problem"
 msgstr "Huruvida studenten har svarat på problemet"
 
+#: xmodule/capa_block.py:310
+msgid "Random seed for this student"
+msgstr "Slumptal för denna student"
+
 #: xmodule/capa_block.py:311
 msgid "Last submission time"
 msgstr "Senaste inlämningstid"
@@ -10553,6 +11631,14 @@ msgstr "Senaste inlämningstid"
 #: xmodule/capa_block.py:313
 msgid "Timer Between Attempts"
 msgstr "Timer mellan försök"
+
+#: xmodule/capa_block.py:314
+msgid ""
+"Seconds a student must wait between submissions for a problem with multiple "
+"attempts."
+msgstr ""
+"Sekunder en elev måste vänta mellan inlämningar för ett problem med flera "
+"försök."
 
 #: xmodule/capa_block.py:318
 msgid "Problem Weight"
@@ -10682,6 +11768,13 @@ msgid ""
 msgstr ""
 "Dina svar sparades tidigare. Klicka på '{button_name}' för att betygsätta "
 "dem."
+
+#: xmodule/capa_block.py:1393
+#, python-brace-format
+msgid "Incorrect ({progress} point)"
+msgid_plural "Incorrect ({progress} points)"
+msgstr[0] "Fel ({progress} poäng)"
+msgstr[1] "Fel ({progress} poäng)"
 
 #: xmodule/capa_block.py:1402
 #, python-brace-format
@@ -10903,6 +11996,10 @@ msgstr "Starttid när detta block är synligt"
 msgid "Date that this class ends"
 msgstr "Datum då den här klassen slutar"
 
+#: xmodule/course_block.py:350
+msgid "Date that certificates become available to learners"
+msgstr "Datum då certifikat blir tillgängligt för eleverna"
+
 #: xmodule/course_block.py:354
 msgid "Cosmetic Course Display Price"
 msgstr "Visa pris"
@@ -10943,6 +12040,14 @@ msgstr "Förkunskapskursnyckel om denna kurs har en förkunskapskurs"
 msgid "Grading policy definition for this class"
 msgstr "Klassificeringspolicydefinition för denna klass"
 
+#: xmodule/course_block.py:383
+msgid ""
+"Enter true or false. When true, students can see the calculator in the "
+"course."
+msgstr ""
+"Ange sant eller felaktigt. När det är sant kan eleverna se räknaren i "
+"kursen."
+
 #: xmodule/course_block.py:388
 msgid "Enter the name of the course as it should appear in the course list."
 msgstr "Ange kursens namn som det ska visas i kurslistan."
@@ -10955,6 +12060,12 @@ msgstr "Kursens visningsnamn"
 msgid "Course Editor"
 msgstr "Kursredaktör"
 
+#: xmodule/course_block.py:395 xmodule/modulestore/inheritance.py:64
+msgid "Enter the method by which this course is edited (\"XML\" or \"Studio\")."
+msgstr ""
+"Ange den metod genom vilken kursen redigeras (&quot;XML&quot; eller "
+"&quot;Studio&quot;)."
+
 #: xmodule/course_block.py:402
 msgid "Course Survey URL"
 msgstr "Kursundersökningsadress"
@@ -10966,6 +12077,10 @@ msgid ""
 msgstr ""
 "Ange webbadressen för kursundersökningen. Om din kurs inte har en "
 "undersökning, skriv null."
+
+#: xmodule/course_block.py:408
+msgid "Discussion Blackout Dates"
+msgstr "Diskussion Blackout Dates"
 
 #: xmodule/course_block.py:410
 msgid ""
@@ -11022,6 +12137,10 @@ msgstr "Diskussioner Plugin-inställningar"
 #: xmodule/course_block.py:436
 msgid "Settings for discussions plugins."
 msgstr "Inställningar för plugins för diskussioner."
+
+#: xmodule/course_block.py:444
+msgid "Course Announcement Date"
+msgstr "Datum för kursmeddelande"
 
 #: xmodule/course_block.py:445
 msgid "Enter the date to announce your course."
@@ -11081,9 +12200,19 @@ msgstr ""
 msgid "Course Not Graded"
 msgstr "Kursen är inte graderad"
 
+#: xmodule/course_block.py:479
+msgid "Enter true or false. If true, the course will not be graded."
+msgstr ""
+"Ange sant eller felaktigt. Om det är sant, kommer kursen inte att betygas."
+
 #: xmodule/course_block.py:484
 msgid "Disable Progress Graph"
 msgstr "Inaktivera framstegsgraf"
+
+#: xmodule/course_block.py:485
+msgid "Enter true or false. If true, students cannot view the progress graph."
+msgstr ""
+"Ange sant eller falskt. Om sant, kan studenterna inte se framstegsgrafen."
 
 #: xmodule/course_block.py:490
 msgid "PDF Textbooks"
@@ -11193,6 +12322,14 @@ msgstr "Avancerad modulista"
 msgid "Enter the names of the advanced modules to use in your course."
 msgstr "Ange namnen på de avancerade modulerna som ska användas i din kurs."
 
+#: xmodule/course_block.py:556
+msgid ""
+"True if timezones should be shown on dates in the course. Deprecated in "
+"favor of due_date_display_format."
+msgstr ""
+"Det är sant om tidszoner ska visas på datum i kursen. Utfärdad till förmån "
+"för due_date_display_format."
+
 #: xmodule/course_block.py:562
 msgid "Due Date Display Format"
 msgstr "Visningsformat för förfallodatum"
@@ -11216,6 +12353,10 @@ msgid "Enter the external login method students can use for the course."
 msgstr ""
 "Ange den externa inloggningsmetod som studenterna kan använda för kursen."
 
+#: xmodule/course_block.py:575
+msgid "Certificates Downloadable Before End"
+msgstr "Certifikat kan laddas ner före slutet"
+
 #: xmodule/course_block.py:577
 msgid ""
 "Enter true or false. If true, students can download certificates before the "
@@ -11235,6 +12376,10 @@ msgid ""
 msgstr ""
 "Detta fält, tillsammans med certificate_available_date, avgör när en "
 "användare kan se sitt certifikat för kursen"
+
+#: xmodule/course_block.py:595
+msgid "Course About Page Image"
+msgstr "Kurs Om-sida Bild"
 
 #: xmodule/course_block.py:597
 msgid ""
@@ -11303,6 +12448,10 @@ msgstr "Certifikatnamn (Long)"
 #: xmodule/course_block.py:647
 msgid "Certificate Web/HTML View Enabled"
 msgstr "Certificate Web / HTML View Enabled"
+
+#: xmodule/course_block.py:648
+msgid "If true, certificate Web/HTML views are enabled for the course."
+msgstr "Om sant är certifikat Web / HTML-visningar aktiverade för kursen."
 
 #. Translators: This field is the container for course-specific certificate
 #. configuration values
@@ -11376,6 +12525,10 @@ msgstr ""
 "åsidosätter den organisation som du angav när du skapade kursen. För att "
 "använda den organisation som du angav när du skapade kursen anger du null."
 
+#: xmodule/course_block.py:719
+msgid "Course Number Display String"
+msgstr "Kurvnummer Display String"
+
 #: xmodule/course_block.py:721
 msgid ""
 "Enter the course number that you want to appear in the course. This setting "
@@ -11429,6 +12582,10 @@ msgstr ""
 "Namnet på SurveyForm för att visas som en förundersökningsundersökning till "
 "användaren."
 
+#: xmodule/course_block.py:764
+msgid "Pre-Course Survey Required"
+msgstr "Obligatorisk förundersökning"
+
 #: xmodule/course_block.py:766
 msgid ""
 "Specify whether students must complete a survey before they can view your "
@@ -11471,6 +12628,10 @@ msgstr ""
 "kursinnehåll. Observera att du måste aktivera Entréprov för att denna "
 "kursinställning ska träda i kraft."
 
+#: xmodule/course_block.py:806
+msgid "Entrance Exam Minimum Score (%)"
+msgstr "Minsta poäng på inträdesprov (%)"
+
 #: xmodule/course_block.py:808
 msgid ""
 "Specify a minimum percentage score for an entrance exam before students can "
@@ -11480,6 +12641,10 @@ msgstr ""
 "Ange ett lägsta procenttal för en tentamen innan studenterna kan se ditt "
 "kursinnehåll. Observera att du måste aktivera Entréprov för att "
 "kursinställningen ska träda i kraft."
+
+#: xmodule/course_block.py:816
+msgid "Entrance Exam ID"
+msgstr "Entré Exam ID"
 
 #: xmodule/course_block.py:817
 msgid "Content block identifier (location) of entrance exam."
@@ -11513,6 +12678,18 @@ msgstr "Ange språket för din kurs."
 #: xmodule/course_block.py:840
 msgid "Teams Configuration"
 msgstr "Lagkonfiguration"
+
+#: xmodule/course_block.py:843
+msgid ""
+"Configure team sets, limit team sizes, and set visibility settings using "
+"JSON. See <a target=\"&#95;blank\" "
+"href=\"https://docs.openedx.org/en/latest/educators/references/advanced_features/teams_configuration_options.html>teams"
+" configuration documentation</a> for help and examples."
+msgstr ""
+"Konfigurera teamuppsättningar, begränsa teamstorlekar och ställ in "
+"synlighetsinställningar med JSON. Se <a target=\"&#95;blank\" "
+"href=\"https://docs.openedx.org/en/latest/educators/references/advanced_features/teams_configuration_options.html>teams"
+" konfigurationsdokumentation</a> för hjälp och exempel."
 
 #: xmodule/course_block.py:852
 msgid "Enable Proctored Exams"
@@ -11555,6 +12732,10 @@ msgstr ""
 "e-postadress som ska kontaktas av supportteamet när det finns upptrappningar"
 " (t.ex. överklaganden, försenade recensioner etc.)."
 
+#: xmodule/course_block.py:891
+msgid "Allow Opting Out of Proctored Exams"
+msgstr "Tillåt att välja bort provisoriska tentor"
+
 #: xmodule/course_block.py:903
 msgid "Create Zendesk Tickets For Suspicious Proctored Exam Attempts"
 msgstr "Skapa Zendesk-biljetter för misstänkta Proctored Exam-försök"
@@ -11584,6 +12765,32 @@ msgstr ""
 #: xmodule/course_block.py:924
 msgid "Minimum Grade for Credit"
 msgstr "Minsta betyg för kredit"
+
+#: xmodule/course_block.py:926
+msgid ""
+"The minimum grade that a learner must earn to receive credit in the course, "
+"as a decimal between 0.0 and 1.0. For example, for 75%, enter 0.75."
+msgstr ""
+"Minsta betyg som en elev måste tjäna för att ta emot kredit i kursen, som "
+"ett decimal mellan 0,0 och 1,0. Till exempel, för 75%, mata in 0.75."
+
+#: xmodule/course_block.py:934 xmodule/modulestore/inheritance.py:233
+msgid "Self Paced"
+msgstr "Självstudier"
+
+#: xmodule/course_block.py:936 xmodule/modulestore/inheritance.py:235
+msgid ""
+"Set this to \"true\" to mark this course as self-paced. Self-paced courses "
+"do not have due dates for assignments, and students can progress through the"
+" course at any rate before the course ends."
+msgstr ""
+"Ange detta till \"true\" för att markera kursen som självaktiv. Självfyllda "
+"kurser har inte förfallodatum för uppdrag, och eleverna kan gå vidare genom "
+"kursen i alla fall innan kursen slutar."
+
+#: xmodule/course_block.py:945
+msgid "Enable Subsection Prerequisites"
+msgstr "Aktivera förutsättningar för underavsnitt"
 
 #: xmodule/course_block.py:947
 msgid ""
@@ -11619,6 +12826,10 @@ msgstr ""
 "in på ett av tre värden: 'privat' (standardsynlighet, endast tillåtet för "
 "inskrivna studenter), 'public_outline' (tillåt åtkomst till kursöversikt) "
 "och 'public' (tillåt åtkomst till både disposition och kursinnehåll)."
+
+#: xmodule/course_block.py:981
+msgid "Video Sharing Options"
+msgstr "Alternativ för videodelning"
 
 #: xmodule/course_block.py:983
 msgid ""
@@ -11762,25 +12973,25 @@ msgstr "Genererad"
 
 #. Translators: "Homework 1 - Unreleased - 0% (?/?)" The section has not been
 #. released for viewing.
-#: xmodule/graders.py:402
+#: xmodule/graders.py:403
 #, python-brace-format
 msgid "{section_type} {index} Unreleased - 0% (?/?)"
 msgstr "{section_type} {index} Opublicerat - 0% (?/?)"
 
-#: xmodule/graders.py:415
+#: xmodule/graders.py:417
 #, python-brace-format
 msgid "The lowest {drop_count} {section_type} scores are dropped."
 msgstr ""
 "De lägsta {drop_count} {section_type} resultaten tas inte med i beräkningen."
 
 #. Translators: "Homework Average = 0%"
-#: xmodule/graders.py:433
+#: xmodule/graders.py:436
 #, python-brace-format
 msgid "{section_type} Average = {percent:.2%}"
 msgstr "{section_type} Medel = {percent:.2%}"
 
 #. Translators: Avg is short for Average
-#: xmodule/graders.py:438
+#: xmodule/graders.py:441
 #, python-brace-format
 msgid "{short_label} Avg"
 msgstr "{short_label} Medel"
@@ -11829,6 +13040,18 @@ msgstr "Visuell"
 msgid "Raw"
 msgstr "Rå"
 
+#: xmodule/html_block.py:413
+msgid "Hide Page From Learners"
+msgstr "Dölj sida från elever"
+
+#: xmodule/html_block.py:414
+msgid ""
+"If you select this option, only course team members with the Staff or Admin "
+"role see this page."
+msgstr ""
+"Om du väljer det här alternativet, ser bara kursteammedlemmar med personalen"
+" eller administratörsrollen på den här sidan."
+
 #: xmodule/html_block.py:424
 msgid "HTML for the additional pages"
 msgstr "HTML för de ytterligare sidorna"
@@ -11848,6 +13071,14 @@ msgid ""
 msgstr ""
 "Ange antalet komponenter som ska visas för varje student. Ställ in det på -1"
 " för att visa alla komponenter."
+
+#: xmodule/item_bank_block.py:81
+msgid ""
+"Determines whether a 'Reset Problems' button is shown, so users may reset "
+"their answers and reshuffle selected items."
+msgstr ""
+"Avgör om en knapp för \"Återställ problem\" visas, så att användare kan "
+"återställa sina svar och blanda om valda objekt."
 
 #: xmodule/item_bank_block.py:474
 #, python-brace-format
@@ -12130,6 +13361,10 @@ msgstr "Begär användarens användarnamn"
 msgid "Select True to request the user's username."
 msgstr "Välj True för att begära användarens användarnamn."
 
+#: xmodule/lti_block.py:239
+msgid "Request user's email"
+msgstr "Begär användarens email"
+
 #. Translators: This is used to request the user's email for a third party
 #. service.
 #: xmodule/lti_block.py:241
@@ -12189,6 +13424,14 @@ msgstr "Förfallodatum"
 #: xmodule/modulestore/inheritance.py:53 xmodule/seq_block.py:84
 msgid "Number of Relative Weeks Due By"
 msgstr "Antal relativa veckor som ska betalas in"
+
+#: xmodule/modulestore/inheritance.py:54 xmodule/seq_block.py:85
+msgid ""
+"Enter the number of weeks the problems are due by relative to the learner's "
+"enrollment date"
+msgstr ""
+"Ange antalet veckor som problemen ska betalas av i förhållande till elevens "
+"inskrivningsdatum"
 
 #: xmodule/modulestore/inheritance.py:70
 msgid "GIT URL"
@@ -12340,6 +13583,10 @@ msgstr ""
 "Ange sant eller falskt. Om sant, kommer videobuffring att användas för "
 "HTML5-videor."
 
+#: xmodule/modulestore/inheritance.py:174
+msgid "Enable video auto-advance"
+msgstr "Aktivera automatisk videouppspelning"
+
 #: xmodule/modulestore/inheritance.py:182
 msgid "Video Pre-Roll"
 msgstr "Video Pre-Roll"
@@ -12360,6 +13607,18 @@ msgstr ""
 #: xmodule/modulestore/inheritance.py:201
 msgid "Show Reset Button for Problems"
 msgstr "Visa återställningsknapp för problem"
+
+#: xmodule/modulestore/inheritance.py:203
+msgid ""
+"Enter true or false. If true, problems in the course default to always "
+"displaying a 'Reset' button. You can override this in each problem's "
+"settings. All existing problems are affected when this course-wide setting "
+"is changed."
+msgstr ""
+"Ange sant eller felaktigt. Om det är sant, är det normalt att problemen i "
+"kursen alltid visar en &quot;Återställ&quot; -knapp. Du kan åsidosätta detta"
+" i inställningarna för varje problem. Alla befintliga problem påverkas när "
+"den här kursövergripande inställningen ändras."
 
 #: xmodule/modulestore/inheritance.py:211
 msgid "Enable Student Notes"
@@ -12413,9 +13672,18 @@ msgstr "Fel vid läsning av {}. Kontrollera filen för XML-fel."
 msgid "Failed to import block: {} at location: {}"
 msgstr "Det gick inte att importera block: {} på plats: {}"
 
+#: xmodule/partitions/enrollment_track_partition_generator.py:38
+#: cms/templates/group_configurations.html:86
+msgid "Enrollment Track Groups"
+msgstr "Inskrivningsspårgrupper"
+
 #: xmodule/partitions/enrollment_track_partition_generator.py:39
 msgid "Partition for segmenting users by enrollment track"
 msgstr "Partition för att segmentera användare efter inskrivningsspår"
+
+#: xmodule/poll_block.py:57
+msgid "Whether this student has voted on the poll"
+msgstr "Huruvida den här studenten har röstat om omröstningen"
 
 #: xmodule/poll_block.py:62
 msgid "Student answer"
@@ -12498,6 +13766,26 @@ msgstr ""
 msgid "Software Secure Review Rules"
 msgstr "Programvara Säker granskningsregler"
 
+#: xmodule/seq_block.py:182
+msgid ""
+"This setting indicates what rules the proctoring team should follow when "
+"viewing the videos."
+msgstr ""
+"Den här inställningen indikerar vilka regler procuringteamet ska följa när "
+"videoklippet visas."
+
+#: xmodule/seq_block.py:189
+msgid "Is Practice Exam"
+msgstr "Är praktik tentamen"
+
+#: xmodule/seq_block.py:191
+msgid ""
+"This setting indicates whether this exam is for testing purposes only. "
+"Practice exams are not verified."
+msgstr ""
+"Den här inställningen anger huruvida den här provningen endast är avsett för"
+" test. Övningsexamen är inte verifierade."
+
 #: xmodule/seq_block.py:198
 msgid "Is Onboarding Exam"
 msgstr "Är Onboarding Exam"
@@ -12574,6 +13862,10 @@ msgstr ""
 #: xmodule/split_test_block.py:98
 msgid "Group Configuration"
 msgstr "Gruppkonfiguration"
+
+#: xmodule/split_test_block.py:109
+msgid "Which child block students in a particular group_id should see"
+msgstr "Vilket barnblock som elever i ett visst group_id ska se"
 
 #: xmodule/split_test_block.py:295
 #, python-brace-format
@@ -12744,6 +14036,15 @@ msgstr ""
 msgid "We support only SubRip (*.srt) transcripts format."
 msgstr "Vi stöder bara SubRip (* .srt) transkriptformat."
 
+#: xmodule/video_block/transcripts_utils.py:314
+#, python-brace-format
+msgid ""
+"Something wrong with SubRip transcripts file during parsing. Inner message "
+"is {error_message}"
+msgstr ""
+"Något är fel med SubRip-transkriptfilen under parsning. Intern meddelande är"
+" {error_message}"
+
 #: xmodule/video_block/transcripts_utils.py:319
 msgid "Something wrong with SubRip transcripts file during parsing."
 msgstr "Något gick fel med SubRip-transkriptfilen under parsning."
@@ -12877,6 +14178,10 @@ msgstr ""
 "låta eleverna hämta dessa videoklipp ställer du in Video Download Allowed to"
 " True."
 
+#: xmodule/video_block/video_xfields.py:93
+msgid "Video File URLs"
+msgstr "Videofil-URL:er"
+
 #: xmodule/video_block/video_xfields.py:97
 msgid ""
 "By default, students can download an .srt or .txt transcript when you set "
@@ -12968,6 +14273,10 @@ msgstr "Transcript-filformat för nedladdning av användare."
 msgid "SubRip (.srt) file"
 msgstr "SubRip (.srt) fil"
 
+#: xmodule/video_block/video_xfields.py:149
+msgid "Text (.txt) file"
+msgstr "Text (.txt) fil"
+
 #: xmodule/video_block/video_xfields.py:154
 msgid "The last speed that the user specified for the video."
 msgstr "Den sista hastigheten som användaren angav för videon."
@@ -12975,6 +14284,14 @@ msgstr "Den sista hastigheten som användaren angav för videon."
 #: xmodule/video_block/video_xfields.py:158
 msgid "The default speed for the video."
 msgstr "Standardhastigheten för videon."
+
+#: xmodule/video_block/video_xfields.py:163
+msgid ""
+"Specify whether to advance automatically to the next unit when the video "
+"ends."
+msgstr ""
+"Ange om du vill aktivera automatisk framspelning till videoklipp in "
+"efterföljande avsnitt."
 
 #: xmodule/video_block/video_xfields.py:172
 msgid "Specify whether YouTube is available for the user."
@@ -13022,6 +14339,10 @@ msgstr ""
 msgid "Date of the last view of the bumper"
 msgstr "Datum för den senaste visningen av stötfångaren"
 
+#: xmodule/video_block/video_xfields.py:205
+msgid "Do not show bumper again"
+msgstr "Visa inte stötfångaren igen"
+
 #: xmodule/video_block/video_xfields.py:210
 msgid "Specify whether the video can be accessed publicly by learners."
 msgstr "Ange om videon kan nås offentligt av eleverna."
@@ -13045,6 +14366,16 @@ msgstr "Miniatyr"
 msgid "Instructions"
 msgstr "Instruktioner"
 
+#: xmodule/word_cloud_block.py:70
+msgid ""
+"Add instructions to help learners understand how to use the word cloud. "
+"Clear instructions are important, especially for learners who have "
+"accessibility requirements."
+msgstr ""
+"Lägga till instruktioner för att hjälpa eleverna att förstå hur man använder"
+" ordet moln. Tydliga instruktioner är viktiga, särskilt för elever som har "
+"tillgänglighetskrav."
+
 #: xmodule/word_cloud_block.py:74
 msgid "Inputs"
 msgstr "ingångar"
@@ -13054,6 +14385,10 @@ msgid ""
 "The number of text boxes available for learners to add words and sentences."
 msgstr ""
 "Antalet textrutor tillgängliga för eleverna att lägga till ord och meningar."
+
+#: xmodule/word_cloud_block.py:81
+msgid "Maximum Words"
+msgstr "Maximalord"
 
 #: xmodule/word_cloud_block.py:82
 msgid "The maximum number of words displayed in the generated word cloud."
@@ -13078,6 +14413,10 @@ msgstr "Student svar."
 #: xmodule/word_cloud_block.py:106
 msgid "All possible words from all learners."
 msgstr "Alla möjliga ord från alla elever."
+
+#: xmodule/word_cloud_block.py:110
+msgid "Top num_top_words words for word cloud."
+msgstr "Top num_top_words ord för ord moln."
 
 #: xmodule/x_module.py:728
 #, python-brace-format
@@ -13212,6 +14551,10 @@ msgstr ""
 msgid "Lock article"
 msgstr "Lås artikel"
 
+#: wiki/forms.py:264
+msgid "Deny all users access to edit this article."
+msgstr "Neka alla användare att redigera den här artikeln."
+
 #: wiki/forms.py:267
 msgid "Permissions"
 msgstr "Behörigheter"
@@ -13223,6 +14566,10 @@ msgstr "Ägare"
 #: wiki/forms.py:272
 msgid "Enter the username of the owner."
 msgstr "Skriv ägarens användarnamn."
+
+#: wiki/forms.py:273
+msgid "(none)"
+msgstr "(inget)"
 
 #: wiki/forms.py:278
 msgid "Inherit permissions"
@@ -13325,6 +14672,10 @@ msgstr "andras skrivbehörighet"
 #, python-format
 msgid "Article without content (%(id)d)"
 msgstr "Artikel utan innehåll (%(id)d)"
+
+#: wiki/models/article.py:205
+msgid "content type"
+msgstr "innehållstyp"
 
 #: wiki/models/article.py:207
 msgid "object ID"
@@ -13542,6 +14893,11 @@ msgstr "Denna artikel är inte längre relaterad till filen %s."
 
 #: wiki/plugins/attachments/wiki_plugin.py:35
 #, python-format
+msgid "A file was changed: %s"
+msgstr "En fil ändrades: %s"
+
+#: wiki/plugins/attachments/wiki_plugin.py:35
+#, python-format
 msgid "A file was deleted: %s"
 msgstr "En fil togs bort: %s"
 
@@ -13558,6 +14914,10 @@ msgstr ""
 #: wiki/plugins/attachments/templates/wiki/plugins/attachments/delete.html:30
 msgid "Delete it!"
 msgstr "Radera det!"
+
+#: wiki/plugins/attachments/templates/wiki/plugins/attachments/delete.html:36
+msgid "Remove"
+msgstr "ta bort"
 
 #: wiki/plugins/attachments/templates/wiki/plugins/attachments/delete.html:40
 msgid ""
@@ -13591,6 +14951,11 @@ msgstr "Användare"
 #: wiki/plugins/attachments/templates/wiki/plugins/attachments/search.html:21
 msgid "File"
 msgstr "Fil"
+
+#: wiki/plugins/attachments/templates/wiki/plugins/attachments/history.html:16
+#: wiki/plugins/attachments/templates/wiki/plugins/attachments/search.html:26
+msgid "Action"
+msgstr "Åtgärd"
 
 #: wiki/plugins/attachments/templates/wiki/plugins/attachments/history.html:27
 #: wiki/plugins/attachments/templates/wiki/plugins/attachments/search.html:32
@@ -13657,6 +15022,10 @@ msgstr "Din sökning gav inga resultat"
 msgid "Help"
 msgstr "Hjälp"
 
+#: wiki/plugins/help/templates/wiki/plugins/help/sidebar.html:1
+msgid "Adding new articles"
+msgstr "Lägga till nya artiklar"
+
 #: wiki/plugins/help/templates/wiki/plugins/help/sidebar.html:6
 #: wiki/plugins/links/templates/wiki/plugins/links/sidebar.html:19
 msgid "An external link"
@@ -13681,6 +15050,15 @@ msgstr "Typografi"
 #: wiki/plugins/help/templates/wiki/plugins/help/sidebar.html:30
 msgid "Lists"
 msgstr "Listor"
+
+#: wiki/plugins/images/forms.py:16
+#, python-format
+msgid ""
+"New image %s was successfully uploaded. You can use it by selecting it from "
+"the list of available images."
+msgstr ""
+"Den nya bilden %s har laddats upp. Du kan använda den genom att ställa in "
+"den på listan av tillgängliga bilder."
 
 #: wiki/plugins/images/forms.py:59
 msgid "Are you sure?"
@@ -13774,6 +15152,10 @@ msgstr "Återställ bilden"
 msgid "Remove image"
 msgstr "Ta bort bild"
 
+#: wiki/plugins/images/templates/wiki/plugins/images/index.html:51
+msgid "Completely delete"
+msgstr "Radera helt"
+
 #: wiki/plugins/images/templates/wiki/plugins/images/index.html:84
 msgid "Revert to this version"
 msgstr "Återgå till denna version"
@@ -13782,6 +15164,11 @@ msgstr "Återgå till denna version"
 msgid "There are no images for this article."
 msgstr "Det finns inga bilder för den här artikeln."
 
+#: wiki/plugins/images/templates/wiki/plugins/images/purge.html:4
+#: wiki/templates/wiki/deleted.html:39
+msgid "Purge deletion"
+msgstr "Radera permanent"
+
 #: wiki/plugins/images/templates/wiki/plugins/images/purge.html:13
 msgid "Purge image: Completely remove image file and all revisions."
 msgstr "Rensa bild: Ta helt bort bildfilen och alla ändringar."
@@ -13789,6 +15176,14 @@ msgstr "Rensa bild: Ta helt bort bildfilen och alla ändringar."
 #: wiki/plugins/images/templates/wiki/plugins/images/purge.html:24
 msgid "Remove it completely!"
 msgstr "Ta bort helt!"
+
+#: wiki/plugins/images/templates/wiki/plugins/images/render.html:14
+msgid "Image not found"
+msgstr "Bild hittades inte"
+
+#: wiki/plugins/images/templates/wiki/plugins/images/revision_add.html:4
+msgid "Replace image"
+msgstr "Byt bild"
 
 #: wiki/plugins/images/templates/wiki/plugins/images/revision_add.html:13
 msgid "Choose an image file to replace current image."
@@ -13874,6 +15269,10 @@ msgstr ""
 #: wiki/plugins/notifications/forms.py:13
 msgid "Notifications"
 msgstr "Meddelanden"
+
+#: wiki/plugins/notifications/forms.py:17
+msgid "When this article is edited"
+msgstr "När denna artikel redigerades"
 
 #: wiki/plugins/notifications/forms.py:18
 msgid "Also receive emails about article edits"
@@ -14146,6 +15545,10 @@ msgstr "olåst"
 msgid "You are now sign up... and now you can sign in!"
 msgstr "Du har nu registrerat dig, och kan logga in!"
 
+#: wiki/views/accounts.py:33
+msgid "You are no longer logged in. Bye bye!"
+msgstr "Du är inte längre inloggad."
+
 #: wiki/views/accounts.py:58
 msgid "You are now logged in! Have fun!"
 msgstr "Du är nu inloggad! Ha kul!"
@@ -14171,6 +15574,11 @@ msgstr ""
 "Den här artikeln kan inte raderas eftersom den har underartiklar eller är en"
 " rotartikel."
 
+#: wiki/views/article.py:186
+msgid ""
+"This article together with all its contents are now completely gone! Thanks!"
+msgstr "Denna artikel tillsammans med allt innehåll är nu borttagen."
+
 #: wiki/views/article.py:193
 #, python-format
 msgid ""
@@ -14184,9 +15592,18 @@ msgstr ""
 msgid "Your changes were saved."
 msgstr "Dina ändringar har sparats."
 
+#: wiki/views/article.py:299
+msgid "A new revision of the article was successfully added."
+msgstr "En ny revision av artikeln har lagts till."
+
 #: wiki/views/article.py:356
 msgid "Restoring article"
 msgstr "Återställ artikel"
+
+#: wiki/views/article.py:358
+#, python-format
+msgid "The article \"%s\" and its children are now restored."
+msgstr "Artikeln \"%s\" och dess barn har nu återställts."
 
 #: wiki/views/article.py:542
 #, python-format
@@ -14359,6 +15776,18 @@ msgstr ""
 msgid "Issuing Certificates to Learners"
 msgstr "Utfärda certifikat till elever"
 
+#: cms/templates/certificates.html:98
+#, python-brace-format
+msgid ""
+"To begin issuing course certificates, a course team member with either the "
+"Staff or Admin role selects {em_start}Activate{em_end}. Only course team "
+"members with these roles can edit or delete an activated certificate."
+msgstr ""
+"För att börja utfärda kursbevis väljer en kursmedlem med antingen personal- "
+"eller administratörsrollen {em_start} aktiverar {em_end}. Endast "
+"kursteamemedlemmar med dessa roller kan redigera eller ta bort ett aktiverat"
+" certifikat."
+
 #: cms/templates/certificates.html:99
 #, python-brace-format
 msgid ""
@@ -14468,6 +15897,10 @@ msgstr "Sidåtgärder"
 #: cms/templates/container.html:188
 msgid "Open the courseware in the LMS"
 msgstr "Öppna kursmaterialet i LMS"
+
+#: cms/templates/container.html:189
+msgid "View Live Version"
+msgstr "Visa Live Version"
 
 #: cms/templates/container.html:193
 msgid "Preview the courseware in the LMS"
@@ -14767,6 +16200,10 @@ msgstr "Du måste radera eller ersätta följande komponenter."
 msgid "Unsupported Components"
 msgstr "Komponenter som inte stöds"
 
+#: cms/templates/course_outline.html:126
+msgid "Deprecated Component"
+msgstr "Utskriven komponent"
+
 #: cms/templates/course_outline.html:144
 msgid "Unsupported Advance Modules"
 msgstr "Unsupported Advance Modules"
@@ -14820,6 +16257,10 @@ msgstr "Indexera"
 #: cms/templates/course_outline.html:225
 msgid "Collapse All Sections"
 msgstr "Dölj alla avsnitt"
+
+#: cms/templates/course_outline.html:226
+msgid "Expand All Sections"
+msgstr "Expandera alla sektioner"
 
 #: cms/templates/course_outline.html:231
 msgid "Click to open the courseware in the LMS in a new tab"
@@ -15029,6 +16470,19 @@ msgstr ""
 "Sidor visas i kursens översta navigeringsfält. Standardsidorna (Hem, Kurs, "
 "Diskussion, Wiki och Framsteg) följs av läroböcker och anpassade sidor."
 
+#: cms/templates/edit-tabs.html:210 cms/templates/howitworks.html:185
+#: cms/templates/howitworks.html:198 cms/templates/howitworks.html:211
+msgid "close modal"
+msgstr "stäng modal"
+
+#: cms/templates/error.html:14
+msgid "Internal Server Error"
+msgstr "Internt serverfel"
+
+#: cms/templates/error.html:21
+msgid "The Page You Requested Page Cannot be Found"
+msgstr "Sidan du begärde sidan kan inte hittas"
+
 #: cms/templates/error.html:22
 #, python-brace-format
 msgid ""
@@ -15057,6 +16511,10 @@ msgstr ""
 #: cms/templates/error.html:31
 msgid "Back to dashboard"
 msgstr "Tillbaka till Dashboard"
+
+#: cms/templates/export.html:22 cms/templates/export.html:46
+msgid "Library Export"
+msgstr "Bibliotek Export"
 
 #: cms/templates/export.html:24 cms/templates/export.html:48
 msgid "Course Export"
@@ -15370,6 +16828,10 @@ msgstr ""
 msgid "Export Failed"
 msgstr "Export misslyckades"
 
+#: cms/templates/export_git.html:55
+msgid "Export Succeeded"
+msgstr "Exportera lyckades"
+
 #: cms/templates/export_git.html:63
 msgid "Your course:"
 msgstr "Din kurs:"
@@ -15607,6 +17069,19 @@ msgstr ""
 msgid "Simple, Fast, and Incremental Publishing. With Friends."
 msgstr "Enkel, snabb och inkrementell publicering. Med vänner."
 
+#: cms/templates/howitworks.html:129
+#, python-brace-format
+msgid ""
+"{studio_name} works like web applications you already know, yet understands "
+"how you build curriculum. Instant publishing to the web when you want it, "
+"incremental release when it makes sense. And with co-authors, you can have a"
+" whole team building a course, together."
+msgstr ""
+"{studio_name} fungerar som webbapplikationer du redan vet, men förstår hur "
+"du bygger läroplan. Omedelbar publicering till webben när du vill ha det, "
+"inkrementell release när det är vettigt. Och med medförfattare kan du ha en "
+"hel gruppbyggnad en kurs tillsammans."
+
 #: cms/templates/howitworks.html:133
 msgid "Instant Changes"
 msgstr "Omedelbara ändringar"
@@ -15637,6 +17112,14 @@ msgstr ""
 #: cms/templates/howitworks.html:147
 msgid "Work in Teams"
 msgstr "Arbeta i lag"
+
+#: cms/templates/howitworks.html:148
+msgid ""
+"Co-authors have full access to all the same authoring tools. Make your "
+"course better through a team effort."
+msgstr ""
+"Medförfattare har full tillgång till alla samma författarverktyg. Gör din "
+"kurs bättre genom en lagarbete."
 
 #: cms/templates/howitworks.html:161
 #, python-brace-format
@@ -15958,6 +17441,10 @@ msgstr "{studio_name} Hem"
 msgid "New Course"
 msgstr "Ny kurs"
 
+#: cms/templates/index.html:38
+msgid "Email staff to create course"
+msgstr "E-posta personalen för att skapa kurs"
+
 #: cms/templates/index.html:42
 msgid "New Library"
 msgstr "Nytt bibliotek"
@@ -16104,6 +17591,15 @@ msgstr "Kurskörning:"
 msgid "This course run is currently being created."
 msgstr "Kursutbudet skapas för närvarande."
 
+#. Translators: This is a status message, used to inform the user of
+#. what the system is doing. This status means that the user has
+#. requested to re-run an existing course, and the system is currently
+#. in the process of duplicating and configuring the existing course
+#. so that it can be re-run.
+#: cms/templates/index.html:262
+msgid "Configuring as re-run"
+msgstr "Konfigurera som åter körning"
+
 #: cms/templates/index.html:268
 #, python-brace-format
 msgid ""
@@ -16190,9 +17686,31 @@ msgstr ""
 " att utvärdera din förfrågan och ge dig feedback inom 24 timmar under "
 "arbetsveckan."
 
+#: cms/templates/index.html:424 cms/templates/index.html:449
+#: cms/templates/index.html:477
+msgid "Your Course Creator Request Status:"
+msgstr "Din begäran om kursupphovsrör:"
+
 #: cms/templates/index.html:428
 msgid "Request the Ability to Create Courses"
 msgstr "Be om förmåga att skapa kurser"
+
+#: cms/templates/index.html:438 cms/templates/index.html:466
+msgid "Your Course Creator Request Status"
+msgstr "Din kurs Creator Request Status"
+
+#: cms/templates/index.html:443
+#, python-brace-format
+msgid ""
+"{studio_name} is a hosted solution for our xConsortium partners and selected"
+" guests. Courses for which you are a team member appear above for you to "
+"edit, while course creator privileges are granted by {platform_name}. Our "
+"team is has completed evaluating your request."
+msgstr ""
+"{studio_name} är en värdlösning för våra xConsortium-partners och utvalda "
+"gäster. Kurser där du är en lagmedlem visas ovan för att du ska redigera, "
+"medan kursens skaparbehörighet beviljas av {platform_name}. Vårt team har "
+"slutfört utvärderingen av din förfrågan."
 
 #: cms/templates/index.html:452 cms/templates/index.html:480
 msgid "Your Course Creator request is:"
@@ -16376,6 +17894,14 @@ msgstr "Lägga till komponent"
 msgid "Adding content to your library"
 msgstr "Lägga till innehåll i ditt bibliotek"
 
+#: cms/templates/library.html:91
+msgid ""
+"Add components to your library for use in courses, using Add New Component "
+"at the bottom of this page."
+msgstr ""
+"Lägga till komponenter i ditt bibliotek för användning i kurser genom att "
+"använda Lägga till ny komponent längst ner på denna sida."
+
 #: cms/templates/library.html:92
 msgid ""
 "Components are listed in the order in which they are added, with the most "
@@ -16424,6 +17950,10 @@ msgstr "Ny lagmedlem"
 msgid "Add a User to Your Course's Team"
 msgstr "Lägga till en användare i ditt kursteam"
 
+#: cms/templates/manage_users.html:54 cms/templates/manage_users_lib.html:55
+msgid "New Team Member Information"
+msgstr "Information om ny teammedlem"
+
 #: cms/templates/manage_users.html:58 cms/templates/manage_users_lib.html:59
 msgid "User's Email Address"
 msgstr "Användarens e-postadress"
@@ -16460,6 +17990,10 @@ msgstr ""
 #: cms/templates/manage_users.html:91
 msgid "Add a New Team Member"
 msgstr "Lägga till en ny lagmedlem"
+
+#: cms/templates/manage_users.html:100
+msgid "Course Team Roles"
+msgstr "Kursens rollroller"
 
 #: cms/templates/manage_users.html:101
 msgid ""
@@ -16585,6 +18119,10 @@ msgstr "Schema och detaljer"
 msgid "Basic Information"
 msgstr "Grundläggande information"
 
+#: cms/templates/settings.html:67
+msgid "The nuts and bolts of your course"
+msgstr "Grunderna i din kurs"
+
 #: cms/templates/settings.html:73 cms/templates/settings.html:79
 #: cms/templates/settings.html:85 cms/templates/settings.html:153
 #: cms/templates/settings.html:164 cms/templates/settings.html:175
@@ -16675,6 +18213,10 @@ msgstr "ID-verifiering"
 #, python-brace-format
 msgid "In-Course Reverification {number}"
 msgstr "In-Course Reverification {number}"
+
+#: cms/templates/settings.html:192
+msgid "Course Pacing"
+msgstr "Kurspacing"
 
 #: cms/templates/settings.html:193
 msgid "Set the pacing for this course"
@@ -16795,6 +18337,10 @@ msgid ""
 msgstr ""
 "Elever med godkända betyg kan få tillgång till sitt certifikat efter det "
 "datum du har satt har löpt ut."
+
+#: cms/templates/settings.html:292
+msgid "Certificates Available Date"
+msgstr "Certifikat Tillgänglig Datum"
 
 #: cms/templates/settings.html:303
 msgid "Enrollment Start Date"
@@ -17021,6 +18567,12 @@ msgstr ""
 "Din kurs har för närvarande inte en miniatyrbild för video. Var god ladda "
 "upp ett (JPEG- eller PNG-format och minsta föreslagna dimensioner är 375px "
 "breda med 200px långa)"
+
+#. Translators: This is the placeholder text for a field that requests the URL
+#. for a course video thumbnail image
+#: cms/templates/settings.html:548
+msgid "Your video thumbnail image URL"
+msgstr "Din bildminnebilds webbadress"
 
 #: cms/templates/settings.html:549
 msgid ""
@@ -17264,6 +18816,10 @@ msgstr "Kreditberättigande"
 msgid "Settings for course credit eligibility"
 msgstr "Inställningar för behörighet för kurskredit"
 
+#: cms/templates/settings_graders.html:103
+msgid "Minimum Credit-Eligible Grade:"
+msgstr "Minsta betyg för att vara berättigad till poäng:"
+
 #: cms/templates/settings_graders.html:106
 msgid "Must be greater than or equal to the course passing grade"
 msgstr "Måste vara större än eller lika med kursens godkänd kurs"
@@ -17272,13 +18828,25 @@ msgstr "Måste vara större än eller lika med kursens godkänd kurs"
 msgid "Grading Rules & Policies"
 msgstr "Betygsregler och -policyer"
 
+#: cms/templates/settings_graders.html:116
+msgid "Deadlines, requirements, and logistics around grading student work"
+msgstr "Tidsfrister, krav och logistik kring betygsarbetande"
+
 #: cms/templates/settings_graders.html:121
 msgid "Grace Period on Deadline:"
 msgstr "Grace Period vid deadline:"
 
+#: cms/templates/settings_graders.html:123
+msgid "Leeway on due dates"
+msgstr "Leeway på förfallodagen"
+
 #: cms/templates/settings_graders.html:131
 msgid "Assignment Types"
 msgstr "Uppgiftstyper"
+
+#: cms/templates/settings_graders.html:132
+msgid "Categories and labels for any exercises that are gradable"
+msgstr "Kategorier och etiketter för övningar som är gradvisa"
 
 #: cms/templates/settings_graders.html:141
 msgid "New Assignment Type"
@@ -17317,6 +18885,11 @@ msgstr ""
 msgid "Importing components"
 msgstr "Importera komponenter"
 
+#: cms/templates/studio_xblock_wrapper.html:100
+#: cms/templates/studio_xblock_wrapper.html:102
+msgid "Expand or Collapse"
+msgstr "Expand eller Collapse"
+
 #: cms/templates/studio_xblock_wrapper.html:110
 msgid "Select this problem"
 msgstr "Välj det här problemet"
@@ -17325,6 +18898,14 @@ msgstr "Välj det här problemet"
 #: cms/templates/studio_xblock_wrapper.html:120
 msgid "Sourced from a library - but the upstream link is broken/invalid."
 msgstr "Hämtad från ett bibliotek - men länken uppströms är trasig/ogiltig."
+
+#: cms/templates/studio_xblock_wrapper.html:123
+msgid ""
+"Sourced from a library - but has been modified locally.Sourced from a "
+"library."
+msgstr ""
+"Hämtad från ett bibliotek - men har modifierats lokalt. Hämtad från ett "
+"bibliotek."
 
 #: cms/templates/studio_xblock_wrapper.html:127
 msgid "Sourced from a library - but has been modified locally."
@@ -17370,6 +18951,10 @@ msgstr "Detta block innehåller flera komponenter."
 #: cms/templates/textbooks.html:78
 msgid "New Textbook"
 msgstr "Ny lärobok"
+
+#: cms/templates/textbooks.html:90
+msgid "Why should I break my textbook into chapters?"
+msgstr "Varför ska jag bryta min lärobok i kapitlen?"
 
 #: cms/templates/textbooks.html:91
 msgid ""
@@ -17506,6 +19091,11 @@ msgstr "Alla elever och personal"
 msgid "Select one or more groups:"
 msgstr "Välj en eller flera grupper:"
 
+#: cms/templates/emails/course_creator_admin_subject.txt:2
+#, python-brace-format
+msgid "{email} has requested {studio_name} course creator privileges on edge"
+msgstr "{email} har begärt {studio_name} kursskapare privilegier på kanten"
+
 #: cms/templates/emails/course_creator_admin_user_pending.txt:2
 #, python-brace-format
 msgid ""
@@ -17588,6 +19178,10 @@ msgstr ""
 msgid "Here are some validations we found with your course content."
 msgstr "Här är några valideringar vi hittade med ditt kursinnehåll."
 
+#: cms/templates/emails/user_task_complete_email.txt:24
+msgid "Errors: "
+msgstr "Fel: "
+
 #: cms/templates/emails/user_task_complete_email.txt:31
 msgid "Warnings: "
 msgstr "Varningar: "
@@ -17647,6 +19241,10 @@ msgstr "Underhållspanel"
 msgid "Thanks for activating your account."
 msgstr "Tack för att du aktiverat ditt konto."
 
+#: cms/templates/registration/activation_complete.html:24
+msgid "This account has already been activated."
+msgstr "Detta konto har redan blivit aktiverat."
+
 #: cms/templates/registration/activation_complete.html:28
 #, python-brace-format
 msgid "Visit your {link_start}dashboard{link_end} to see your courses."
@@ -17697,6 +19295,10 @@ msgid ""
 msgstr ""
 "Kontakta din kontaktperson för supportteamet om du har ytterligare frågor "
 "eller funderingar."
+
+#: cms/templates/widgets/footer.html:21
+msgid "Policies"
+msgstr "Riktlinjer"
 
 #: cms/templates/widgets/footer.html:35
 msgid "Accessibility Accommodation Request"
@@ -17752,6 +19354,10 @@ msgstr "Importera"
 #: cms/templates/widgets/header.html:318
 msgid "Export"
 msgstr "Exportera"
+
+#: cms/templates/widgets/header.html:267
+msgid "Course Optimizer"
+msgstr "Kursoptimerare"
 
 #: cms/templates/widgets/header.html:285
 msgid "Current Library:"
@@ -17830,6 +19436,11 @@ msgstr "Lägg in ett dropdown-svar"
 #: cms/templates/widgets/problem-edit.html:156
 msgid "Explanation"
 msgstr "Förklaring"
+
+#: cms/templates/widgets/problem-edit.html:68
+#: cms/templates/widgets/problem-edit.html:155
+msgid "Add an explanation for this question"
+msgstr "Lägga till en förklaring till denna fråga"
 
 #: cms/templates/widgets/problem-edit.html:75
 msgid "Advanced Editor"
@@ -18039,9 +19650,26 @@ msgstr ""
 msgid "Content Locked"
 msgstr "Innehållet är för närvarande stängt"
 
+#: lms/templates/_gated_content.html:19
+#, python-brace-format
+msgid ""
+"You must complete the prerequisites for '{prereq_section_name}' to access "
+"this content."
+msgstr ""
+"Du måste uppfylla förkunskapskraven för '{prereq_section_name}' innan du kan"
+" komma åt den här innahållet."
+
+#: lms/templates/_gated_content.html:22
+msgid "Go to Prerequisite Section"
+msgstr "Gå till förkunskapsavsnittet"
+
 #: lms/templates/annotatable.html:14
 msgid "Collapse Instructions"
 msgstr "Dölj instruktioner"
+
+#: lms/templates/annotatable.html:24
+msgid "Guided Discussion"
+msgstr "Guidat diskussionsforum"
 
 #: lms/templates/annotatable.html:25
 msgid "Hide Annotations"
@@ -18051,6 +19679,10 @@ msgstr "Dölj anteckningar"
 msgid "Bookmarked"
 msgstr "bokmärkt"
 
+#: lms/templates/bookmark_button.html:13
+msgid "Bookmark this page"
+msgstr "Bokmärk den här sidan"
+
 #: lms/templates/conditional_block.html:21
 msgid "You do not have access to this dependency block."
 msgstr "Du har inte tillgång till detta beroendeblock."
@@ -18058,6 +19690,11 @@ msgstr "Du har inte tillgång till detta beroendeblock."
 #: lms/templates/course.html:13
 msgid "LEARN MORE"
 msgstr "LÄS MER"
+
+#: lms/templates/course.html:29 lms/templates/course.html:39
+#: lms/templates/course.html:41
+msgid "Starts"
+msgstr "startar"
 
 #: lms/templates/course.html:31
 #, python-brace-format
@@ -18216,9 +19853,17 @@ msgstr "Lägga till nya elever"
 msgid "Existing students:"
 msgstr "Befintliga studenter:"
 
+#: lms/templates/enroll_students.html:20
+msgid "New students added: "
+msgstr "Nya studenter tillade: "
+
 #: lms/templates/enroll_students.html:23
 msgid "Students rejected: "
 msgstr "Studenter avvisade: "
+
+#: lms/templates/enroll_students.html:26
+msgid "Debug: "
+msgstr "debug: "
 
 #: lms/templates/extauth_failure.html:8 lms/templates/extauth_failure.html:11
 msgid "External Authentication failed"
@@ -18407,9 +20052,17 @@ msgstr "Namn:"
 msgid "Choose an action:"
 msgstr "Välj en åtgärd:"
 
+#: lms/templates/manage_user_standing.html:25
+msgid "View Profile"
+msgstr "Visa profil"
+
 #: lms/templates/manage_user_standing.html:28
 msgid "Disable Account"
 msgstr "Inaktivera konto"
+
+#: lms/templates/manage_user_standing.html:31
+msgid "Reenable Account"
+msgstr "Återaktivera konto"
 
 #: lms/templates/manage_user_standing.html:34
 msgid "Remove Profile Image"
@@ -18422,6 +20075,11 @@ msgstr "Studenter vars konton har blivit inaktiverade"
 #: lms/templates/manage_user_standing.html:44
 msgid "(reload your page to refresh)"
 msgstr "(ladda om sidan för att uppdatera)"
+
+#: lms/templates/manage_user_standing.html:91
+#: lms/templates/manage_user_standing.html:103
+msgid "working"
+msgstr "arbetar"
 
 #: lms/templates/courseware/courseware-error.html:24
 #: lms/templates/module-error.html:10
@@ -18463,6 +20121,15 @@ msgstr "Personal"
 msgid "Learner"
 msgstr "Elev"
 
+#: lms/templates/preview_menu.html:63
+msgid "Specific learner"
+msgstr "Särskild elev"
+
+#: lms/templates/preview_menu.html:68
+#, python-brace-format
+msgid "Learner in {content_group}"
+msgstr "Lärare i {content_group}"
+
 #: lms/templates/preview_menu.html:75
 msgid "Username or email:"
 msgstr "Användarnamn eller e-mail:"
@@ -18483,6 +20150,10 @@ msgstr "Visa i Studio"
 #: lms/templates/preview_menu.html:135
 msgid "View in Insights"
 msgstr "Visa i Insikter"
+
+#: lms/templates/problem.html:32
+msgid "Hint"
+msgstr "Antydan"
 
 #: lms/templates/problem.html:39
 msgid "Save your answer"
@@ -18649,6 +20320,10 @@ msgstr "Klistra in som ny enhet"
 msgid "Sign Up for {platform_name}"
 msgstr "Registrera dig för {platform_name}"
 
+#: lms/templates/signup_modal.html:42 lms/templates/signup_modal.html:64
+msgid "e.g. yourname@domain.com"
+msgstr "t.ex. yourname@domain.com"
+
 #: lms/templates/signup_modal.html:48 lms/templates/signup_modal.html:60
 msgid "e.g. yourname (shown on forums)"
 msgstr "t.ex. dittnamn (visas på forum)"
@@ -18679,6 +20354,13 @@ msgstr "Ed. Avslutad"
 #, python-brace-format
 msgid "Goals in signing up for {platform_name}"
 msgstr "Mål när du registrerar dig för {platform_name}"
+
+#: lms/templates/signup_modal.html:136
+#: themes/stanford-style/lms/templates/register-form.html:246
+#: themes/stanford-style/lms/templates/register-shib.html:164
+#, python-brace-format
+msgid "I agree to the {link_start}Terms of Service{link_end}"
+msgstr "Jag godkänner {link_start} användarvillkor {link_end}"
 
 #: lms/templates/signup_modal.html:144
 #: themes/stanford-style/lms/templates/register-form.html:260
@@ -18742,6 +20424,10 @@ msgstr "Kommentar"
 msgid "Tag"
 msgstr "Märka"
 
+#: lms/templates/staff_problem_info.html:46
+msgid "Optional tag (eg \"done\" or \"broken\"):"
+msgstr "Valfri tagg (t.ex. &quot;gjort&quot; eller &quot;bruten&quot;):"
+
 #: lms/templates/staff_problem_info.html:47
 msgid "tag"
 msgstr "märka"
@@ -18761,6 +20447,22 @@ msgstr "Poäng (endast för åsidosättning)"
 #: lms/templates/staff_problem_info.html:81
 msgid "Reset Learner's Attempts to Zero"
 msgstr "Återställ elevens försök till noll"
+
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:120
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:176
+#: lms/templates/staff_problem_info.html:84
+msgid "Delete Learner's State"
+msgstr "Radera elevens status"
+
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:93
+#: lms/templates/staff_problem_info.html:87
+msgid "Rescore Learner's Submission"
+msgstr "Ombedöm inlämning från deltagare"
+
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:94
+#: lms/templates/staff_problem_info.html:89
+msgid "Rescore Only If Score Improves"
+msgstr "Rescore Only Om poäng förbättras"
 
 #: lms/templates/staff_problem_info.html:93
 msgid "Override Score"
@@ -19022,6 +20724,10 @@ msgstr "{platform_name} API Access Request"
 msgid "Request API Access"
 msgstr "Begär API-åtkomst"
 
+#: lms/templates/api_admin/status.html:12
+msgid "API Access Request Status"
+msgstr "Status för API-åtkomstförfrågan"
+
 #. Translators: "platform_name" is the name of this Open edX installation.
 #: lms/templates/api_admin/status.html:21
 #, python-brace-format
@@ -19057,6 +20763,10 @@ msgid ""
 msgstr ""
 "Din förfrågan om åtkomst till {platform_name} Course Catalog API har "
 "godkänts."
+
+#: lms/templates/api_admin/status.html:39
+msgid "Application Name"
+msgstr "applikationsnamn"
 
 #: lms/templates/api_admin/status.html:40
 msgid "API Client ID"
@@ -19218,6 +20928,16 @@ msgstr ""
 "skrapning eller liknande tekniker för att aggregera eller på annat sätt "
 "skapa permanenta kopior av API-innehåll;"
 
+#: lms/templates/api_admin/terms_of_service.html:34
+msgid ""
+"violating, misappropriating or infringing any copyright, trademark rights, "
+"rights of privacy or publicity, confidential information or any other right "
+"of any third party;"
+msgstr ""
+"kränker, missfördelar eller kränker upphovsrätt, varumärkesrättigheter, "
+"integritetsskydd eller publicitet, konfidentiell information eller annan "
+"rättighet från tredje part."
+
 #: lms/templates/api_admin/terms_of_service.html:35
 msgid "altering or editing any content or graphics in the API Content;"
 msgstr "ändra eller redigera innehåll eller grafik i API-innehållet"
@@ -19371,6 +21091,28 @@ msgstr ""
 "Harvard och de andra enheterna som tillhandahåller information, API-innehåll"
 " eller tjänster för API:erna, kursinstruktörerna och deras personal."
 
+#: lms/templates/api_admin/terms_of_service.html:56
+#, python-brace-format
+msgid ""
+"To the extent that you submit any content to {platform_name} in connection "
+"with your use of the APIs or any API Content, you hereby grant to "
+"{platform_name} a worldwide, non-exclusive, transferable, assignable, sub "
+"licensable, fully paid-up, royalty-free, perpetual, irrevocable right and "
+"license to host, transfer, display, perform, reproduce, modify, distribute, "
+"re-distribute, relicense and otherwise use, make available and exploit such "
+"content, in whole or in part, in any form and in any media formats and "
+"through any media channels (now known or hereafter developed)."
+msgstr ""
+"I den utsträckning du skickar in något innehåll till {platform_name} i "
+"samband med din användning av API:erna eller något API-innehåll, ger du "
+"härmed {platform_name} en världsomspännande, icke-exklusiv, överförbar, "
+"tilldelningsbar, underlicensierbar, fullt betald, royaltyfri, evig, "
+"oåterkallelig rätt och licens att vara värd för, överföra, visa, framföra, "
+"reproducera, modifiera, distribuera, omdistribuera, återlicensiera och på "
+"annat sätt använda, tillgängliggöra och utnyttja sådant innehåll, helt eller"
+" delvis, i vilken form som helst och i alla medieformat och genom alla "
+"mediekanaler (nu kända eller som utvecklas i framtiden)."
+
 #: lms/templates/api_admin/terms_of_service.html:58
 msgid "Privacy"
 msgstr "Integritet"
@@ -19392,6 +21134,10 @@ msgstr ""
 "dina slutanvändare vilken användarinformation du samlar in och hur du kan "
 "använda och dela sådan information (inklusive för reklam) med "
 "{platform_name} och andra tredje parter."
+
+#: lms/templates/api_admin/terms_of_service.html:62
+msgid "Right to Charge"
+msgstr "Rätt till avgift"
 
 #: lms/templates/api_admin/terms_of_service.html:64
 #, python-brace-format
@@ -19515,6 +21261,25 @@ msgstr ""
 "GARANTI OM NOGGRANNHETEN, FULLSTÄNDIGHETEN, AKTUALITETEN ELLER KVALITETEN PÅ"
 " APIS ELLER NÅGOT API-INNEHÅLL, ELLER ATT NÅGOT SÄRSKILT API-INNEHÅLL "
 "FORTSÄTTER ATT GÖRAS TILLGÄNGLIGT."
+
+#: lms/templates/api_admin/terms_of_service.html:84
+#, python-brace-format
+msgid ""
+"USE OF THE APIS, AND THE API CONTENT AND ANY SERVICES OBTAINED FROM OR "
+"THROUGH THE APIS, IS AT YOUR OWN RISK. YOUR ACCESS TO OR DOWNLOAD OF "
+"INFORMATION, MATERIALS OR DATA THROUGH THE APIS IS AT YOUR OWN DISCRETION "
+"AND RISK, AND YOU WILL BE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR PROPERTY"
+" (INCLUDING YOUR COMPUTER SYSTEM) OR LOSS OF DATA THAT RESULTS FROM THE "
+"DOWNLOAD OR USE OF SUCH INFORMATION, MATERIALS OR DATA, UNLESS OTHERWISE "
+"EXPRESSLY PROVIDED FOR IN THE {platform_name} PRIVACY POLICY."
+msgstr ""
+"ANVÄNDNING AV APIS, OCH API-INNEHÅLLET OCH ALLA TJÄNSTER SOM ERHÅLLS FRÅN "
+"ELLER GENOM APIS, ÄR PÅ DIN EGEN RISK. DIN TILLGÅNG TILL ELLER NEDLADDNING "
+"AV INFORMATION, MATERIAL ELLER DATA GENOM API:EN ÄR PÅ DITT EGEN VAL OCH "
+"RISK, OCH DU KOMMER ENDA ANSVARIG FÖR ALLA SKADA PÅ DIN EGENDOM (INKLUSIVE "
+"DITT DATORSYSTEM) ELLER DIN DATALOSS ELLER RESULTAT ANVÄNDNING AV SÅDAN "
+"INFORMATION, MATERIAL ELLER DATA, OM INTE ANNAT SÅ UTTRYCKLIGEN FÖRESKRIVS I"
+" {platform_name} SEKRETESSPOLICY."
 
 #: lms/templates/api_admin/terms_of_service.html:92
 #, python-brace-format
@@ -19781,6 +21546,10 @@ msgstr "Öppna Kalkylator"
 msgid "Enter equation"
 msgstr "Ange ekvation"
 
+#: lms/templates/calculator/toggle_calculator.html:18
+msgid "Calculator Input Field"
+msgstr "Inmatningsfält för kalkylator"
+
 #: lms/templates/calculator/toggle_calculator.html:21
 msgid "Hints"
 msgstr "Tips"
@@ -19803,6 +21572,10 @@ msgstr ""
 "För detaljerad information, se {math_link_start}Inmatning av matematiska och"
 " vetenskapliga uttryck{math_link_end} i {guide_link_start}Open edX Guide för"
 " studenter{guide_link_end}."
+
+#: lms/templates/calculator/toggle_calculator.html:36
+msgid "Tips"
+msgstr "tips"
 
 #: lms/templates/calculator/toggle_calculator.html:38
 msgid ""
@@ -19844,9 +21617,21 @@ msgstr "Typ"
 msgid "Examples"
 msgstr "exempel"
 
+#: lms/templates/calculator/toggle_calculator.html:54
+msgid "Numbers"
+msgstr "Tal"
+
 #: lms/templates/calculator/toggle_calculator.html:56
 msgid "Integers"
 msgstr "heltal"
+
+#: lms/templates/calculator/toggle_calculator.html:57
+msgid "Fractions"
+msgstr "fraktioner"
+
+#: lms/templates/calculator/toggle_calculator.html:58
+msgid "Decimals"
+msgstr "decimaler"
 
 #. Translators: This refers to mathematical operators such as `plus`, `minus`,
 #. `division` and others.
@@ -19874,6 +21659,13 @@ msgstr "|| (parallella motstånd)"
 #: lms/templates/calculator/toggle_calculator.html:86
 msgid "Constants"
 msgstr "Konstanter"
+
+#. Translators: This refers to symbols that appear at the end of a number,
+#. such
+#. as the percent sign (%)
+#: lms/templates/calculator/toggle_calculator.html:95
+msgid "Affixes"
+msgstr "affix"
 
 #: lms/templates/calculator/toggle_calculator.html:96
 msgid "Percent sign (%)"
@@ -20004,6 +21796,12 @@ msgstr ""
 "användare som inte har registrerat sig för {platform_name} inte att vara "
 "inskrivna, men kommer att få registrera sig när de har skapat ett konto."
 
+#: lms/templates/ccx/enrollment.html:37
+#: lms/templates/instructor/instructor_dashboard_2/membership.html:34
+msgid "Checking this box has no effect if 'Unenroll' is selected."
+msgstr ""
+"Kryssning av denna ruta har ingen effekt om &#39;Unenroll&#39; är vald."
+
 #: lms/templates/ccx/enrollment.html:44
 #: lms/templates/instructor/instructor_dashboard_2/membership.html:43
 #: lms/templates/instructor/instructor_dashboard_2/membership.html:80
@@ -20029,9 +21827,21 @@ msgctxt "someone"
 msgid "Enroll"
 msgstr "Skriva in"
 
+#: lms/templates/ccx/enrollment.html:71
+msgid "Student List Management"
+msgstr "Hantering av studentlistor"
+
+#: lms/templates/ccx/enrollment.html:73
+msgid "CCX student list management response message"
+msgstr "CCX studentlistahantering svarmeddelande"
+
 #: lms/templates/ccx/enrollment.html:85 lms/templates/ccx/enrollment.html:93
 msgid "Revoke access"
 msgstr "Återkalla åtkomst"
+
+#: lms/templates/ccx/grading_policy.html:10
+msgid "WARNING"
+msgstr "VARNING"
 
 #: lms/templates/ccx/grading_policy.html:12
 msgid ""
@@ -20087,6 +21897,12 @@ msgstr "Planera en enhet"
 #: lms/templates/ccx/schedule.html:100
 msgid "Start Date"
 msgstr "Startdatum"
+
+#. Translators: This explains to people using a screen reader how to interpret
+#. the format of YYYY-MM-DD
+#: lms/templates/ccx/schedule.html:103 lms/templates/ccx/schedule.html:118
+msgid "format four digit year dash two digit month dash two digit day"
+msgstr "format fyrsiffrigt år streck tvåsiffrig månad streck tvåsiffrig dag"
 
 #: lms/templates/ccx/schedule.html:106 lms/templates/ccx/schedule.html:121
 msgid "yyyy-mm-dd"
@@ -20150,6 +21966,11 @@ msgstr "Dela på Twitter"
 #: lms/templates/certificates/_accomplishment-banner.html:66
 msgid "Tweet this Accomplishment. Pop up window."
 msgstr "Tweet detta resultat. Pop-up fönster."
+
+#: lms/templates/certificates/_accomplishment-banner.html:71
+#: lms/templates/certificates/_accomplishment-banner.html:73
+msgid "Add to LinkedIn Profile"
+msgstr "Lägga till på LinkedIn profil"
 
 #: lms/templates/certificates/_accomplishment-banner.html:80
 msgid "Add to Mozilla Backpack"
@@ -20219,6 +22040,10 @@ msgstr ""
 #: lms/templates/certificates/server-error.html:17
 msgid "The institution's logo."
 msgstr "Institutionens logotyp."
+
+#: lms/templates/certificates/server-error.html:18
+msgid "The institution that is linked to the course."
+msgstr "Institutionen som är kopplad till kursen."
 
 #: lms/templates/certificates/server-error.html:19
 msgid "The course information in the Course Administration tool."
@@ -20331,6 +22156,10 @@ msgstr ""
 "Få {start_bold}tillfällig åtkomst{end_bold} till kursmaterialet, inklusive "
 "videor och läsningar"
 
+#: lms/templates/course_modes/fbe.html:62
+msgid "Access expires and all progress will be lost on"
+msgstr "Åtkomsten upphör och alla framsteg kommer att gå förlorade den"
+
 #: lms/templates/course_modes/fbe.html:64
 msgid "Access expires and all progress will be lost"
 msgstr "Åtkomsten upphör och alla framsteg kommer att gå förlorade"
@@ -20356,6 +22185,10 @@ msgid ""
 msgstr ""
 "Studier visar att de som väljer det här alternativet är {start_bold}mer "
 "engagerade och motiverade{end_bold} att slutföra sina kurser"
+
+#: lms/templates/course_modes/track_selection.html:151
+msgid "Access this course"
+msgstr "Tillgång till denna kurs"
 
 #: lms/templates/course_modes/unfbe.html:34
 msgid "Get access to the course material, including videos and readings"
@@ -20509,6 +22342,10 @@ msgstr "Kursverktyg"
 msgid "Courseware"
 msgstr "Kursmaterial"
 
+#: lms/templates/courseware/gradebook.html:44
+msgid "Gradebook"
+msgstr "Betygsammanställning"
+
 #: lms/templates/courseware/gradebook.html:51
 msgid "Search students"
 msgstr "Sök studenter"
@@ -20598,6 +22435,10 @@ msgstr "Vanliga frågor"
 msgid "Job Outlook"
 msgstr "Job Outlook"
 
+#: lms/templates/courseware/program_marketing.html:180
+msgid "Real Career Impact"
+msgstr "Verklig karriärpåverkan"
+
 #: lms/templates/courseware/program_marketing.html:199
 msgid "What You'll Learn"
 msgstr "Vad du kommer att lära dig"
@@ -20684,6 +22525,11 @@ msgstr "Se certifikat"
 msgid "Opens in a new browser window"
 msgstr "Öppnas i ett nytt webbläsarfönster"
 
+#: lms/templates/courseware/progress.html:87
+#: lms/templates/dashboard/_dashboard_certificate_information.html:97
+msgid "Request Certificate"
+msgstr "Begär certifikat"
+
 #: lms/templates/courseware/progress.html:102
 msgid "Requirements for Course Credit"
 msgstr "Krav för kurspoäng"
@@ -20712,9 +22558,17 @@ msgstr "{student_name}, du har ännu inte uppfyllt kraven på kredit."
 msgid "Information about course credit requirements"
 msgstr "Information om kurskreditkrav"
 
+#: lms/templates/courseware/progress.html:127
+msgid "display_name"
+msgstr "DISPLAY_NAME"
+
 #: lms/templates/courseware/progress.html:135
 msgid "Verification Submitted"
 msgstr "Verifiering inskickad"
+
+#: lms/templates/courseware/progress.html:138
+msgid "Verification Failed"
+msgstr "Verifieringen misslyckades"
 
 #: lms/templates/courseware/progress.html:141
 msgid "Verification Declined"
@@ -20959,10 +22813,18 @@ msgstr ""
 msgid "Your {cert_name_short} is Generating"
 msgstr "Din {cert_name_short} genererar"
 
+#: lms/templates/dashboard/_dashboard_certificate_information.html:103
+msgid "This link will open the certificate web view"
+msgstr "Den här länken öppnar certifikatvyn på webben"
+
 #: lms/templates/dashboard/_dashboard_certificate_information.html:104
 #, python-brace-format
 msgid "View my {cert_name_short}"
 msgstr "Visa min {cert_name_short}"
+
+#: lms/templates/dashboard/_dashboard_certificate_information.html:112
+msgid "Complete our course feedback survey"
+msgstr "Fyll i vår kursundersökning"
 
 #: lms/templates/dashboard/_dashboard_certificate_information.html:123
 msgid "Add Certificate to LinkedIn Profile"
@@ -21274,6 +23136,11 @@ msgstr "Innehållet var inte tillgängligt när jag ville börja"
 msgid "Can we contact you via email for follow up?"
 msgstr "Kan vi kontakta dig via e-post för uppföljning?"
 
+#: lms/templates/dashboard/_entitlement_reason_survey.html:138
+#: lms/templates/dashboard/_reason_survey.html:24
+msgid "You are unenrolled from"
+msgstr "Du är avregistrerad från"
+
 #: lms/templates/dashboard/_entitlement_reason_survey.html:142
 #: lms/templates/dashboard/_reason_survey.html:28
 msgid "Return To Dashboard"
@@ -21334,6 +23201,10 @@ msgstr "Annat"
 #: lms/templates/debug/run_python_form.html:16
 msgid "Results:"
 msgstr "Resultat:"
+
+#: lms/templates/discussion/_discussion_inline.html:27
+msgid "Topic:"
+msgstr "Ämne:"
 
 #: lms/templates/discussion/_discussion_inline.html:36
 msgid "Show Discussion"
@@ -21399,6 +23270,12 @@ msgstr "Olästa inlägg"
 #: lms/templates/discussion/_thread_list_template.html:16
 msgid "Unanswered posts"
 msgstr "Obesvarade inlägg"
+
+#. Translators: This is a menu option for showing only forum threads flagged
+#. for abuse
+#: lms/templates/discussion/_thread_list_template.html:20
+msgid "Flagged"
+msgstr "flaggade"
 
 #. Translators: This labels a group menu in forum navigation
 #: lms/templates/discussion/_thread_list_template.html:26
@@ -21499,12 +23376,30 @@ msgstr "Tack för ditt köp av "
 msgid "Your payment was successful."
 msgstr "Din betalning var framgångsrik."
 
+#: lms/templates/emails/business_order_confirmation_email.txt:12
+#: lms/templates/emails/order_confirmation_email.txt:8
+#, python-brace-format
+msgid ""
+"If you have billing questions, please read the FAQ ({faq_url}) or contact "
+"{billing_email}."
+msgstr ""
+"Om du har faktureringsfrågor läs du vanliga frågor ({faq_url}) eller "
+"kontakta {billing_email}."
+
 #: lms/templates/emails/business_order_confirmation_email.txt:14
 #: lms/templates/emails/order_confirmation_email.txt:10
 #, python-brace-format
 msgid "If you have billing questions, please contact {billing_email}."
 msgstr ""
 "Om du har några faktureringsfrågor, vänligen kontakta {billing_email}."
+
+#: lms/templates/emails/business_order_confirmation_email.txt:19
+#, python-brace-format
+msgid ""
+"{order_placed_by} placed an order and mentioned your name as the "
+"Organization contact."
+msgstr ""
+"{order_placed_by} beställde och nämnde ditt namn som organisationskontakt."
 
 #: lms/templates/emails/business_order_confirmation_email.txt:23
 #, python-brace-format
@@ -21626,6 +23521,14 @@ msgstr ""
 "(2) När du har registrerat dig, kopiera inlösnings-URL:en och klistra in den"
 " i din webbläsare."
 
+#: lms/templates/emails/business_order_confirmation_email.txt:96
+msgid ""
+"(3) On the enrollment confirmation page, Click the 'Activate Enrollment "
+"Code' button. This will show the enrollment confirmation."
+msgstr ""
+"(3) På sidan för bekräftelse av inskrivning, klicka på knappen Aktivera "
+"registreringskod. Detta kommer att visa inskrivningsbekräftelsen."
+
 #: lms/templates/emails/business_order_confirmation_email.txt:97
 #, python-brace-format
 msgid ""
@@ -21668,6 +23571,10 @@ msgstr "Fotot på dig:"
 #: lms/templates/emails/failed_verification_email.txt:17
 msgid "The photo of your ID:"
 msgstr "Fotot på ditt ID:"
+
+#: lms/templates/emails/failed_verification_email.txt:25
+msgid "Other Reasons:"
+msgstr "Andra orsaker:"
 
 #: lms/templates/emails/failed_verification_email.txt:34
 #, python-brace-format
@@ -21873,6 +23780,17 @@ msgid "Dear edX Learner,"
 msgstr "Kära edX Learner,"
 
 #. Translators: This string will not be used in Open edX installations.
+#: lms/templates/financial-assistance/financial-assistance.html:28
+msgid ""
+"EdX Financial Assistance is a program we created to give learners in all "
+"financial circumstances a chance to earn a Verified Certificate upon "
+"successful completion of an edX course."
+msgstr ""
+"EdX Financial Assistance är ett program vi skapade för att ge studenter i "
+"alla ekonomiska situationer en chans att få ett verifierat certifikat efter "
+"framgångsrik slutförande av en edX-kurs."
+
+#. Translators: This string will not be used in Open edX installations.
 #: lms/templates/financial-assistance/financial-assistance.html:31
 msgid ""
 "If you are interested in working toward a Verified Certificate, but cannot "
@@ -22066,6 +23984,13 @@ msgstr ""
 msgid "Generate Certificates"
 msgstr "Generera certifikat"
 
+#: lms/templates/instructor/instructor_dashboard_2/certificates.html:89
+msgid ""
+"Course certificate generation requires an activated web certificate "
+"configuration."
+msgstr ""
+"Kurslicensgenerering kräver ett aktiverat webbcertifikatkonfiguration."
+
 #: lms/templates/instructor/instructor_dashboard_2/certificates.html:93
 msgid ""
 "When you are ready to generate certificates for your course, click Generate "
@@ -22106,6 +24031,10 @@ msgstr ""
 "För att regenerera certifikat för din kurs väljer du de elever som kommer "
 "att få regenererade certifikat och klicka på Regenerera certifikat."
 
+#: lms/templates/instructor/instructor_dashboard_2/certificates.html:123
+msgid "Choose learner types for regeneration"
+msgstr "Välj lärartyper för regenerering"
+
 #: lms/templates/instructor/instructor_dashboard_2/certificates.html:127
 #, python-brace-format
 msgid ""
@@ -22126,6 +24055,11 @@ msgstr "Regenerera för elever med revisionsbevis. ({count})"
 #, python-brace-format
 msgid "Regenerate for learners with audit not passing state. ({count})"
 msgstr "Regenerera för elever med revisionsbevis som inte godkänts. ({count})"
+
+#: lms/templates/instructor/instructor_dashboard_2/certificates.html:151
+#, python-brace-format
+msgid "Regenerate for learners in an error state. ({count})"
+msgstr "Regenerera för elever i ett felaktigt tillstånd. ({count})"
 
 #: lms/templates/instructor/instructor_dashboard_2/certificates.html:162
 msgid "Certificate Generation History"
@@ -22168,6 +24102,10 @@ msgstr ""
 msgid "Audit"
 msgstr "Granska"
 
+#: lms/templates/instructor/instructor_dashboard_2/course_info.html:22
+msgid "Honor"
+msgstr "Förtroende"
+
 #: lms/templates/instructor/instructor_dashboard_2/course_info.html:25
 msgid "Professional"
 msgstr "Professionell"
@@ -22183,6 +24121,10 @@ msgstr "Obetald Executive Education"
 #: lms/templates/instructor/instructor_dashboard_2/course_info.html:39
 msgid "Paid Executive Education"
 msgstr "Betald Executive Education"
+
+#: lms/templates/instructor/instructor_dashboard_2/course_info.html:49
+msgid "Unpaid Bootcamp"
+msgstr "Obetald Bootcamp"
 
 #: lms/templates/instructor/instructor_dashboard_2/course_info.html:54
 msgid "Paid Bootcamp"
@@ -22229,6 +24171,10 @@ msgstr "Har kursen slutat?"
 #: lms/templates/instructor/instructor_dashboard_2/course_info.html:127
 msgid "Number of sections:"
 msgstr "Antal sektioner:"
+
+#: lms/templates/instructor/instructor_dashboard_2/course_info.html:132
+msgid "Grade Cutoffs:"
+msgstr "Betygsgränser:"
 
 #: lms/templates/instructor/instructor_dashboard_2/course_info.html:159
 msgid "Course Warnings"
@@ -22317,6 +24263,10 @@ msgstr ""
 "Klicka för att skapa en CSV-fil som listar elever som är registrerade i "
 "kursen men ännu inte har aktiverat sitt konto."
 
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:42
+msgid "Download a CSV of learners who have not activated their account"
+msgstr "Ladda ner en CSV-fil med elever som inte har aktiverat sina konton"
+
 #: lms/templates/instructor/instructor_dashboard_2/data_download.html:44
 msgid "Click to download a CSV of anonymized student IDs:"
 msgstr "Klicka för att ladda ner en CSV av anonymiserade student-ID:"
@@ -22354,6 +24304,11 @@ msgstr ""
 "problemet. Du väljer också ett avsnitt eller kapitel för att inkludera "
 "resultat av alla problem i det avsnittet eller kapitlet."
 
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:61
+#: lms/templates/instructor/instructor_dashboard_2/data_download_2/problem_report.html:42
+msgid "NOTE"
+msgstr "OBS!"
+
 #: lms/templates/instructor/instructor_dashboard_2/data_download.html:62
 #: lms/templates/instructor/instructor_dashboard_2/data_download_2/problem_report.html:43
 #, python-brace-format
@@ -22377,6 +24332,10 @@ msgstr "Klicka för att lista certifikat som utfärdas för denna kurs:"
 msgid "View Certificates Issued"
 msgstr "Visa certifikat som utfärdats"
 
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:87
+msgid "Download CSV of Certificates Issued"
+msgstr "Hämta CSV av certifikat utfärdat"
+
 #: lms/templates/instructor/instructor_dashboard_2/data_download.html:94
 msgid ""
 "For smaller courses, click to list profile information for enrolled students"
@@ -22384,6 +24343,10 @@ msgid ""
 msgstr ""
 "För mindre kurser, klicka för att lista profilinformation för inskrivna "
 "studenter direkt på denna sida:"
+
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:95
+msgid "List enrolled students' profile information"
+msgstr "Lista inskrivna studenters profilinformation"
 
 #: lms/templates/instructor/instructor_dashboard_2/data_download.html:100
 #: lms/templates/instructor/instructor_dashboard_2/data_download_2/grading.html:25
@@ -22396,6 +24359,10 @@ msgstr ""
 #: lms/templates/instructor/instructor_dashboard_2/data_download.html:102
 msgid "Generate Grade Report"
 msgstr "Generera betygsrapport"
+
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:103
+msgid "Generate Problem Grade Report"
+msgstr "Generera problemrapportsbetyg"
 
 #: lms/templates/instructor/instructor_dashboard_2/data_download.html:104
 msgid "Generate ORA Data Report"
@@ -22670,6 +24637,10 @@ msgstr "Kontaktpersonen som ska få fakturan"
 msgid "Organization Billing Address"
 msgstr "Organisations faktureringsadress"
 
+#: lms/templates/instructor/instructor_dashboard_2/generate_registarion_codes_modal.html:73
+msgid "Address Line 1"
+msgstr "Adress Linje 1"
+
 #: lms/templates/instructor/instructor_dashboard_2/generate_registarion_codes_modal.html:78
 msgid "Address Line 2"
 msgstr "Adress Linje 2"
@@ -22681,6 +24652,10 @@ msgstr "Adressrad 3"
 #: lms/templates/instructor/instructor_dashboard_2/generate_registarion_codes_modal.html:93
 msgid "State/Province"
 msgstr "stat/provins"
+
+#: lms/templates/instructor/instructor_dashboard_2/generate_registarion_codes_modal.html:98
+msgid "Zip"
+msgstr "Postnummer"
 
 #: lms/templates/instructor/instructor_dashboard_2/generate_registarion_codes_modal.html:109
 msgid "Unit Price"
@@ -22736,6 +24711,11 @@ msgstr "Instruktörens instrumentpanel"
 msgid "View Course in Studio"
 msgstr "Visa kurs i Studio"
 
+#: lms/templates/instructor/instructor_dashboard_2/invalidate_registration_code_modal.html:5
+#: lms/templates/instructor/instructor_dashboard_2/invalidate_registration_code_modal.html:17
+msgid "Enrollment Code Status"
+msgstr "Status för registreringskod"
+
 #: lms/templates/instructor/instructor_dashboard_2/invalidate_registration_code_modal.html:22
 msgid "Change the status of an enrollment code."
 msgstr "Ändra status för en inskrivningskod."
@@ -22764,6 +24744,13 @@ msgstr ""
 "Du kommer inte få meddelande om e-postmeddelanden som studsar, så snälla "
 "dubbelkontrollera stavningen."
 
+#: lms/templates/instructor/instructor_dashboard_2/membership.html:18
+msgid ""
+"Enter the reason why the students are to be manually enrolled or unenrolled."
+msgstr ""
+"Ange anledningen till att eleverna ska vara inskrivna eller avskrivna "
+"manuellt."
+
 #: lms/templates/instructor/instructor_dashboard_2/membership.html:19
 msgid ""
 "This cannot be left blank and will be recorded and presented in Enrollment "
@@ -22771,6 +24758,18 @@ msgid ""
 msgstr ""
 "Detta kan inte lämnas tomt och kommer att registreras och presenteras i "
 "registreringsrapporter."
+
+#: lms/templates/instructor/instructor_dashboard_2/membership.html:20
+msgid "Therefore, please give enough detail to account for this action."
+msgstr ""
+"Var god och ge tillräckligt med detaljer för att ta reda på den här "
+"åtgärden."
+
+#: lms/templates/instructor/instructor_dashboard_2/membership.html:21
+#: lms/templates/support/feature_based_enrollments.html:41
+#: lms/templates/support/feature_based_enrollments.html:44
+msgid "Reason"
+msgstr "Anledning"
 
 #: lms/templates/instructor/instructor_dashboard_2/membership.html:64
 msgid "Register/Enroll Students"
@@ -22822,6 +24821,12 @@ msgstr ""
 "Om det här alternativet är {em_start} markerat {em_end}, kommer användare "
 "som inte har anmält sig till din kurs automatiskt att anmälas."
 
+#: lms/templates/instructor/instructor_dashboard_2/membership.html:114
+msgid "Checking this box has no effect if 'Remove beta testers' is selected."
+msgstr ""
+"Kryssning av den här rutan har ingen effekt om &#39;Ta bort beta-"
+"testare&#39; är vald."
+
 #: lms/templates/instructor/instructor_dashboard_2/membership.html:133
 msgid "Add beta testers"
 msgstr "Lägga till beta-testare"
@@ -22829,6 +24834,12 @@ msgstr "Lägga till beta-testare"
 #: lms/templates/instructor/instructor_dashboard_2/membership.html:134
 msgid "Remove beta testers"
 msgstr "Ta bort beta-testare"
+
+#. Translators: an "Administration List" is a list, such as Course Staff, that
+#. users can be added to.
+#: lms/templates/instructor/instructor_dashboard_2/membership.html:145
+msgid "Course Team Management"
+msgstr "Kursgruppshantering"
 
 #: lms/templates/instructor/instructor_dashboard_2/membership.html:153
 msgid "Getting available lists..."
@@ -22870,6 +24881,10 @@ msgstr ""
 "inte tillgång till din kurs i Studio. Alla användare som ännu inte är "
 "registrerade i kursen kommer automatiskt att registreras när de läggs till "
 "som Begränsad personal."
+
+#: lms/templates/instructor/instructor_dashboard_2/membership.html:193
+msgid "Add Limited Staff"
+msgstr "Lägga till begränsad personal"
 
 #: lms/templates/instructor/instructor_dashboard_2/membership.html:199
 msgid "Admin"
@@ -22953,9 +24968,29 @@ msgstr ""
 " som ännu inte är registrerade i kursen kommer automatiskt att registreras "
 "när de läggs till som kursdataforskare."
 
+#: lms/templates/instructor/instructor_dashboard_2/membership.html:248
+msgid "Add Course Data Researcher"
+msgstr "Lägga till Course Data Researcher"
+
 #: lms/templates/instructor/instructor_dashboard_2/membership.html:256
 msgid "Discussion Moderators"
 msgstr "Diskussionsmoderatorer"
+
+#: lms/templates/instructor/instructor_dashboard_2/membership.html:258
+msgid ""
+"Discussion Moderators can edit or delete any post, clear misuse flags, close"
+" and re-open threads, endorse responses, and see posts from all groups. "
+"Their posts are marked as 'staff'. They cannot manage course team membership"
+" by adding or removing discussion moderation roles. Any users not yet "
+"enrolled in the course will be automatically enrolled when added as "
+"Discussion Moderator"
+msgstr ""
+"Diskussionsmodulatorer kan redigera eller ta bort alla inlägg, radera "
+"missbruksflaggor, stänga och öppna om tråden, godkänna svar och se inlägg "
+"från alla grupper. Deras inlägg är märkta som 'personal'. De kan inte "
+"hantera kursgruppsmedlemskap genom att lägga till eller ta bort diskussions "
+"modereringsroller. Alla användare som ännu inte är inskrivna i kursen kommer"
+" automatiskt att bli inskrivna när de läggs till som diskussionsmodulatorer."
 
 #: lms/templates/instructor/instructor_dashboard_2/membership.html:265
 msgid "Add Moderator"
@@ -22982,6 +25017,10 @@ msgstr ""
 "elever i deras grupp. Deras inlägg är märkta som 'Community TA'. Alla "
 "användare som ännu inte är inskrivna i kursen kommer automatiskt att bli "
 "inskrivna när de läggs till som Gruppgemenskaps-TA."
+
+#: lms/templates/instructor/instructor_dashboard_2/membership.html:279
+msgid "Add Group Community TA"
+msgstr "Lägga till gruppen gemenskap TA"
 
 #: lms/templates/instructor/instructor_dashboard_2/membership.html:286
 msgid ""
@@ -23151,6 +25190,10 @@ msgstr "Visa e-postuppgiftshistorik"
 msgid "Set Course Mode Price"
 msgstr "Ställ in kurslägespris"
 
+#: lms/templates/instructor/instructor_dashboard_2/set_course_mode_price_modal.html:24
+msgid "Please enter Course Mode detail below"
+msgstr "Vänligen ange kurslägesdetaljer nedan"
+
 #: lms/templates/instructor/instructor_dashboard_2/set_course_mode_price_modal.html:34
 msgid "Course Price"
 msgstr "Kurspris"
@@ -23272,6 +25315,12 @@ msgstr ""
 msgid "Reset Attempts to Zero"
 msgstr "Återställ försök till noll"
 
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:89
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:159
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:215
+msgid "Rescore"
+msgstr "rescore"
+
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html:101
 msgid "Score Override"
 msgstr "Poäng Åsidosätt"
@@ -23337,6 +25386,14 @@ msgstr "Låt eleven ta provet igen."
 msgid "Allow Skip"
 msgstr "Tillåt Hoppa över"
 
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:153
+msgid "Waive the requirement for the learner to take the exam."
+msgstr "Avstå från att studenten ska ta tentan."
+
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:155
+msgid "Let Learner Skip Entrance Exam"
+msgstr "Låt elev gå över entré examen"
+
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html:161
 msgid ""
 "Rescore any responses that have been submitted. The 'Rescore All Problems "
@@ -23350,6 +25407,14 @@ msgstr ""
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html:165
 msgid "Rescore All Problems"
 msgstr "Rätta alla problem"
+
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:166
+msgid "Rescore All Problems Only If Score Improves"
+msgstr "Rescore alla problem endast om poäng förbättras"
+
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:171
+msgid "Entrance Exam History"
+msgstr "Historik för inträdesprov"
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html:173
 msgid ""
@@ -23374,6 +25439,23 @@ msgstr "Justera alla inskrivna elevernas betyg för ett visst problem"
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html:210
 msgid "Allows all learners to work on the problem again."
 msgstr "Tillåter alla elever att arbeta på problemet igen."
+
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:216
+msgid ""
+"Rescore submitted responses. The 'Rescore Only If Scores Improve' option "
+"updates a learner's score only if it improves in the learner's favor."
+msgstr ""
+"Rescore inlämnade svar. Endast alternativet \"Rescore Only If Scores "
+"Improve\" uppdaterar en elevs poäng endast om den förbättras i elevens "
+"favor."
+
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:219
+msgid "Rescore All Learners' Submissions"
+msgstr "Rescore All Learners Inlägg"
+
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:220
+msgid "Rescore Only If Scores Improve"
+msgstr "Rescore Only Om poäng förbättras"
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html:225
 msgid "Show the status for the tasks that you submitted for this problem."
@@ -23515,6 +25597,10 @@ msgstr ""
 "Denna modul är endast tillgänglig för användare som är inloggade på "
 "{platform}. Logga in och uppdatera sidan för att ladda innehållet."
 
+#: lms/templates/lti_provider/user-auth-error.html:21
+msgid "NOTE:"
+msgstr "OBS:"
+
 #: lms/templates/lti_provider/user-auth-error.html:23
 #, python-brace-format
 msgid ""
@@ -23534,6 +25620,15 @@ msgstr "Vänligen välj ditt önskade språk"
 #: lms/templates/modal/_modal-settings-language.html:52
 msgid "Save Language Settings"
 msgstr "Spara språkinställningar"
+
+#: lms/templates/modal/_modal-settings-language.html:58
+#, python-brace-format
+msgid ""
+"Don't see your preferred language? {link_start}Volunteer to become a "
+"translator!{link_end}"
+msgstr ""
+"Hittar du inte ditt föredragna språk? {link_start} Volontär att bli "
+"översättare! {link_end}"
 
 #: lms/templates/navigation/navbar-not-authenticated.html:33
 msgid "Explore Courses"
@@ -23713,9 +25808,17 @@ msgstr "Håll flagga"
 msgid "Go Back"
 msgstr "Gå tillbaka"
 
+#: lms/templates/registration/account_activation_sidebar_notice.html:8
+msgid "Account Activation Info"
+msgstr "Kontoinaktiveringsinformation"
+
 #: lms/templates/registration/password_reset_complete.html:13
 msgid "Your Password Reset is Complete"
 msgstr "Din lösenordsåterställning är klar"
+
+#: lms/templates/registration/password_reset_complete.html:33
+msgid "Password Reset Complete"
+msgstr "Lösenord Återställ Komplett"
 
 #: lms/templates/registration/password_reset_complete.html:35
 #, python-brace-format
@@ -23982,6 +26085,15 @@ msgstr "Starta kursen"
 msgid "Have questions?"
 msgstr "Har du frågor?"
 
+#: lms/templates/verify_student/_verification_help.html:11
+#, python-brace-format
+msgid ""
+"Please read {a_start}our FAQs to view common questions about our "
+"certificates{a_end}."
+msgstr ""
+"Läs {a_start} våra vanliga frågor för att visa vanliga frågor om våra "
+"certifikat {a_end}."
+
 #: lms/templates/verify_student/incourse_reverify.html:11
 #, python-brace-format
 msgid "Re-Verify for {course_name}"
@@ -24116,6 +26228,10 @@ msgstr "Förhandsgranska tema"
 #: openedx/core/lib/license/templates/license.html:28
 msgid "All Rights Reserved"
 msgstr "Alla rättigheter förbehållna"
+
+#: openedx/core/lib/license/templates/license.html:33
+msgid "Attribution"
+msgstr "Tillskrivning"
 
 #: openedx/core/lib/license/templates/license.html:33
 msgid "Noncommercial"
@@ -24253,6 +26369,10 @@ msgstr "Välkommen {username}"
 #: themes/stanford-style/lms/templates/register-form.html:119
 msgid "Enter a Public Display Name:"
 msgstr "Ange ett offentligt visningsnamn:"
+
+#: themes/stanford-style/lms/templates/register-form.html:134
+msgid "Public Display Name"
+msgstr "Offentligt visningsnamn"
 
 #: themes/stanford-style/lms/templates/register-form.html:155
 msgid "Additional Personal Information"
