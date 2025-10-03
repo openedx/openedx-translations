@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-02 00:28+0000\n"
+"POT-Creation-Date: 2025-10-03 00:30+0000\n"
 "PO-Revision-Date: 2023-01-26 15:39+0000\n"
 "Last-Translator: Brian Smith, 2025\n"
 "Language-Team: Tibetan (https://app.transifex.com/open-edx/teams/6205/bo/)\n"
@@ -556,6 +556,14 @@ msgstr "གཞན།"
 msgid "Course Create"
 msgstr "སློབ་ཚན། བཟོ་སྐྲུན་"
 
+#: apps/course_metadata/choices.py:56
+msgid "Course Rerun"
+msgstr "སློབ་ཚན་ཁྲིད་དུས་སྐྱར་འདོད།"
+
+#: apps/course_metadata/choices.py:57
+msgid "Course Editor Update"
+msgstr "སློབ་ཚན་ཞུན་དག་གསར་བརྗེ།"
+
 #: apps/course_metadata/choices.py:64
 msgid "Pending"
 msgstr "སྒུག་བཞིན་པ།"
@@ -568,9 +576,21 @@ msgstr "ཁུངས་སྐྱེལ་བྱས་ཟིན་པ།"
 msgid "Processing"
 msgstr "བརྒྱུད་རིམ་འགྲོ་བཞིན་པ།"
 
+#: apps/course_metadata/choices.py:67
+msgid "Completed"
+msgstr "ཆ་ཚང་གྲུབ་ཟིན།"
+
+#: apps/course_metadata/choices.py:68
+msgid "Failed"
+msgstr "ཡར་འཇུག་བྱེད་ཐུབ་མ་སོང་།"
+
 #: apps/course_metadata/choices.py:69
 msgid "Partially Completed"
 msgstr "གྲུབ་ཆ་རེ་གྲུབ་ཟིན་པ།"
+
+#: apps/course_metadata/choices.py:70
+msgid "Errored"
+msgstr "ནོར་འཁྲུལ་བྱུང་།"
 
 #: apps/course_metadata/choices.py:74
 msgid "Honor"
@@ -1649,13 +1669,29 @@ msgstr "Url ཡི་བརྒྱུད་ལམ།"
 msgid "Course uuids"
 msgstr "སློབ་ཚན་གྱི་ uuids"
 
+#: apps/course_metadata/models.py:5044
+msgid "User who uploaded the file"
+msgstr "ཡིག་ཆ་འདི་ཕུལ་མཁན་གྱི་བུད་མེད་"
+
+#: apps/course_metadata/models.py:5049
+msgid "Summary of the task"
+msgstr "ལས་ཀའི་བརྗོད་དོན།"
+
 #: apps/course_metadata/models.py:5052
 msgid "Task Type"
 msgstr "ལས་འགན་གྱི་རིགས།"
 
+#: apps/course_metadata/models.py:5055
+msgid "Type of Bulk Task to be performed"
+msgstr "མང་མཐུད་ལས་ཀྱི་དོན་ལུ་བྱ་རྒྱུའི་དབྱེ་བ་"
+
 #: apps/course_metadata/models.py:5058
 msgid "Status"
 msgstr "གནས་བབས།"
+
+#: apps/course_metadata/models.py:5061
+msgid "Status of the Bulk Task"
+msgstr "སྒྲིག་སྟངས་ཆ་སྙོམས་ཀྱི་གནས་ཚད།"
 
 #: apps/course_metadata/templates/admin/course_metadata/course_run.html:24
 msgid "Cancel"
@@ -1693,6 +1729,43 @@ msgstr "ལས་རིམ་གྱི་ལག་རྩལ་ཁག་བསྐ
 #: apps/course_metadata/templates/course_metadata/email/comment.txt:11
 msgid "The edX team"
 msgstr "edX ཡི་ཚོགས་ཆུང་།"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:16
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:16
+msgid ""
+"To ensure uninterrupted learner access and enrollment, please take one of "
+"the following actions:"
+msgstr ""
+"ལས་སློབ་མ་རྣམས་ཀྱི་འཛུལ་སྤྱོད་དང་ཐོ་འགོད་མ་ཆད་པར་བརྟེན་ནས། "
+"གལ་ཏེ་འོག་གི་གདམ་ཁ་གཅིག་བྱེད་དགོས།"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:29
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:21
+msgid ""
+"Extend the current course run’s end date if the same course is meant to "
+"remain available."
+msgstr ""
+"སློབ་ཚན་འདི་དེ་དགོས་པ་ཡིན་ན་ནང་དོན་གཅིག་གི་སློབ་ཚན་འདིའི་མཇུག་སྐར་ཚེས་རིང་བསྒྱུར་བྱེད།"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:31
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:22
+msgid ""
+"Create a new course run if you are planning to offer this course again with "
+"updated content, pacing, or a new cohort of learners."
+msgstr ""
+"སློབ་ཚན་གསར་པ་ཞིག་བཟོ་བཏུབ་ནི་ཡིན་པ་ཅིན་ "
+"ཁྱེད་ཀྱིས་སློབ་ཚན་འདི་ཡང་དག་གསར་བཅོས་ཡོད་པའི་དོན་དང་ དུས་ཚོད་གཞི་བཙུགས་དང་ "
+"སློབ་ཕྲུག་སྡེ་ཚན་གསར་པ་དང་ལྡན་པར་སྤྱིར་བཏང་བྱེད་དགོས།"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:32
+msgid "Visit the Course in Publisher"
+msgstr "སློབ་ཚན་སྒྲིག་ལམ་ནང་འཛུལ།"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:37
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:25
+msgid "You can review and modify the course end settings here:"
+msgstr ""
+"ཁྱེད་རང་ནི་སློབ་ཚན་མཇུག་སྒྲིག་སྟངས་འདི་ལ་ལྟ་ཞིབ་དང་བཟོ་བཅོས་བྱས་ཆོག་པ་རེད།"
 
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.html:47
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:34
