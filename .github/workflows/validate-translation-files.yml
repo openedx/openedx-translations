@@ -34,8 +34,7 @@ jobs:
       - name: Install msgfmt from gettext for po-file validation
         if: steps.filter.outputs.changedtranslations == 'true' && matrix.file-type == 'po'
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends gettext
+          sudo apt install -y gettext
 
       - name: setup python
         if: steps.filter.outputs.changedtranslations == 'true'
