@@ -11,12 +11,10 @@ import subprocess
 import sys
 import textwrap
 import traceback
-import json
 import shutil
 import os
 
 import i18n.validate
-import re
 
 
 @dataclass
@@ -78,7 +76,7 @@ def validate_translation_file(translation_file, error_missing_keys=False):
     if translation_file.endswith('.po'):
         return validate_po_translation_file(translation_file)
     elif translation_file.endswith('.json'):
-        return validate_json_translation_file(translation_file, error_missing_keys)
+        return validate_json_translation_file(translation_file)
     else:
         raise RuntimeError(f'File not supported: {translation_file}')
 
@@ -90,7 +88,7 @@ def validate_json_translation_file(translation_file, error_missing_keys=False):
     en_file = translation_file.dirname() / '../transifex_input.json'
     required_temp_en_file_path = translation_file.dirname() / 'en.json'
 
-    formatjs_bin = Path('node_modules/.bin/formatjs').realpath()
+    formatjs_bin = (Path(__file__).parent.parent / 'node_modules/.bin/formatjs').realpath()
 
     if en_file.exists():
         # Creates a .git-ignored temp. file to allow @formatjs/cli command to run
@@ -99,9 +97,14 @@ def validate_json_translation_file(translation_file, error_missing_keys=False):
         is_valid = True
         output = ""
 
+        extra_args = []
+        if error_missing_keys:
+            extra_args.append('--missing-keys')
+
         completed_process = subprocess.run(
             [formatjs_bin, 'verify', '--structural-equality',
-                                                  '--source-locale=en', 'en.json', translation_file.basename()],
+                                           *extra_args,
+                                           '--source-locale=en', 'en.json', translation_file.basename()],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             cwd=translation_file.dirname(),
