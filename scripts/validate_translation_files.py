@@ -1,5 +1,5 @@
 """
-Validate translation files using GNU gettext `msgfmt` command.
+Validate translation files of different types.
 """
 from typing import List
 
@@ -90,6 +90,8 @@ def validate_json_translation_file(translation_file, error_missing_keys=False):
     en_file = translation_file.dirname() / '../transifex_input.json'
     required_temp_en_file_path = translation_file.dirname() / 'en.json'
 
+    formatjs_bin = Path('node_modules/.bin/formatjs').realpath()
+
     if en_file.exists():
         # Creates a .git-ignored temp. file to allow @formatjs/cli command to run
         shutil.copyfile(en_file, required_temp_en_file_path)
@@ -98,8 +100,8 @@ def validate_json_translation_file(translation_file, error_missing_keys=False):
         output = ""
 
         completed_process = subprocess.run(
-            ['npx', '@formatjs/cli', 'verify', '--structural-equality',
-                                               '--source-locale=en', 'en.json', translation_file.basename()],
+            [formatjs_bin, 'verify', '--structural-equality',
+                                                  '--source-locale=en', 'en.json', translation_file.basename()],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             cwd=translation_file.dirname(),
