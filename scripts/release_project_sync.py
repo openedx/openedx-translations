@@ -73,7 +73,7 @@ class Command:
         if not tx_api_token:
             raise Exception(
                 'Error: No auth token found. '
-                'Set transifex API token via TX_API_TOKEN environment variable or via the ~/.transifexrc file.'
+                'Set transifex API token via TRANSIFEX_API_TOKEN environment variable or via the ~/.transifexrc file.'
             )
 
         try:
@@ -93,6 +93,18 @@ class Command:
         except (DoesNotExist, JsonApiException) as error:
             print(f'Error: Resource not found: {resource_id}. Error: {error}')
             raise
+
+    def get_resources_by_name(self, project):
+        """
+        Build a mapping of resource names to resource objects.
+
+        This allows matching resources across projects by their stable 'name' attribute
+        rather than their 'slug' which may include project-specific suffixes like '-main-r1234'.
+
+        Uses lowercase keys for case-insensitive matching to handle cases where
+        resource names differ in capitalization between projects (e.g., "AudioXBlock" vs "audioxblock").
+        """
+        return {r.name.lower(): r for r in project.fetch('resources')}
 
     def get_translations(self, lang_id, resource):
         """
@@ -309,25 +321,29 @@ class Command:
             print('no missing release project languages to add')
 
         main_resources = main_project.fetch('resources')
+        # Build a mapping of resource names to resource objects for efficient lookup
+        release_resources_by_name = self.get_resources_by_name(release_project)
+
         pairs_list = []
         print('Verifying sync plan...')
         for main_resource in main_resources:
             if self.resource:
-                if self.resource.lower() != main_resource.slug.lower():
-                    # Limit to a specific language if specified
+                # Allow users to specify the resource name
+                if self.resource.lower() != main_resource.name.lower():
+                    # Limit to a specific resource if specified
                     continue
 
-            try:
-                release_resource = self.get_resource(release_project, main_resource.slug)
-            except (DoesNotExist, JsonApiException) as error:
-                print(
-                    f'NOTICE: Skipping resource {main_resource.slug} because it does not exist in '
-                    f'"{release_project.slug}". \nError details: "{error}"'
-                )
-            else:
+            # Match resources by name (case-insensitive)
+            if main_resource.name.lower() in release_resources_by_name:
+                release_resource = release_resources_by_name[main_resource.name.lower()]
                 print(f'Planning to sync "{main_resource.id}" --> "{release_resource.id}"')
                 pairs_list.append(
                     [main_resource, release_resource]
+                )
+            else:
+                print(
+                    f'NOTICE: Skipping resource "{main_resource.name}" (slug: {main_resource.slug}) '
+                    f'because it does not exist in "{release_project.slug}".'
                 )
 
         for main_resource, release_resource in pairs_list:
@@ -347,7 +363,7 @@ def main():  # pragma: no cover
     ## TODO: Override older translations
 
     parser.add_argument('--resource', default='', dest='resource',
-                        help='Resource slug e.g. "AudioXBlock" or "frontend-app-learning". '
+                        help='Resource name e.g. "AudioXBlock" or "frontend-app-learning". '
                              'Leave empty to sync all resources.')
     parser.add_argument('--language', default='', dest='language',
                         help='Language code e.g. "ar" or "zh_CN". Leave empty to sync all languages.')
