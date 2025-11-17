@@ -354,6 +354,13 @@ msgstr "Тип вкладки"
 msgid "Default name for the tab displayed to users"
 msgstr "Назва вкладки за замовчуванням, що відображається користувачам"
 
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:33
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:37
+msgid "Name of the tab displayed to users. Overrides title."
+msgstr ""
+"Назва вкладки, що буде відображатись для користувачів. Показується замість "
+"заголовку."
+
 #: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:74
 msgid "ID of tab to update"
 msgstr "ID вкладки, яку потрібно оновити"
@@ -365,6 +372,12 @@ msgstr "Місцезнаходження (користувацький ключ)
 #: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:89
 msgid "Need to supply either a valid tab_id or a tab_location."
 msgstr "Потрібно надати правильний параметр tab_id чи tab_location."
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:100
+msgid "True to hide the tab, and False to show it."
+msgstr ""
+"\"True\" (істина), щоб приховати вкладку, та \"False\" (хиба), щоб показати "
+"її."
 
 #: cms/djangoapps/contentstore/rest_api/v0/views/tabs.py:117
 msgid "Change the visibility of tabs in a course."
@@ -2201,6 +2214,26 @@ msgstr "Закрити"
 msgid "Account activation"
 msgstr "Активація облікового запису"
 
+#: common/templates/student/edx_ace/accountactivation/email/body.html:42
+#: common/templates/student/edx_ace/accountactivation/email/body.txt:6
+#, python-format
+msgid "Enjoy learning with %(platform_name)s."
+msgstr "Приємного навчання з %(platform_name)s."
+
+#: common/templates/student/edx_ace/accountactivation/email/body.txt:8
+#, python-format
+msgid ""
+"If you need help, please use our web form at %(support_url)s or email "
+"%(support_email)s."
+msgstr ""
+"Якщо Вам потрібна допомога, можете використати форму %(support_url)s або "
+"написати нам на електронну пошту %(support_email)s."
+
+#: common/templates/student/edx_ace/accountactivation/email/subject.txt:3
+#, python-format
+msgid "Action Required: Activate your %(platform_name)s account"
+msgstr "Необхідна дія: Активуйте свій обліковий запис на %(platform_name)s "
+
 #: common/templates/student/edx_ace/accountrecovery/email/body.html:10
 #: common/templates/student/edx_ace/accountrecovery/email/body.html:39
 msgid "Create Password"
@@ -2340,6 +2373,25 @@ msgstr ""
 #: lms/templates/emails/photo_submission_confirmation.txt:11
 msgid "Thank you,"
 msgstr "Дякуємо,"
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.html:63
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.txt:12
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:34
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:7
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:32
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:7
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:41
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.txt:13
+#: lms/templates/verify_student/edx_ace/verificationsubmitted/email/body.html:35
+#: lms/templates/verify_student/edx_ace/verificationsubmitted/email/body.txt:8
+#, python-format
+msgid "The %(platform_name)s Team "
+msgstr "Команда %(platform_name)s"
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.txt:1
+#, python-format
+msgid "Hello %(full_name)s"
+msgstr "Вітаємо, %(full_name)s"
 
 #: common/templates/student/edx_ace/proctoringrequirements/email/body.txt:7
 msgid ""
@@ -3150,6 +3202,14 @@ msgstr "Курс заповнений"
 #: lms/djangoapps/course_home_api/outline/views.py:635
 msgid "'course_id' is required."
 msgstr "'course_id' обов’язковий."
+
+#: lms/djangoapps/course_home_api/outline/views.py:639
+msgid "Only 'course_id' is expected."
+msgstr "Очікується тільки 'course_id'."
+
+#: lms/djangoapps/course_home_api/outline/views.py:645
+msgid "Welcome message successfully dismissed."
+msgstr "Вітальне повідомлення успішно відхилено."
 
 #: lms/djangoapps/course_wiki/plugins/course_app.py:31
 #: lms/djangoapps/course_wiki/tab.py:19
@@ -3981,6 +4041,14 @@ msgstr "Цілі"
 msgid "Enrollment Mode"
 msgstr "Режим запису на курс"
 
+#: lms/djangoapps/instructor/views/api.py:1513
+msgid "Last Login"
+msgstr "Останній вхід"
+
+#: lms/djangoapps/instructor/views/api.py:1514
+msgid "Date Joined"
+msgstr "Дата приєднання"
+
 #: lms/djangoapps/instructor/views/api.py:1521
 msgid "Cohort"
 msgstr "Когорта"
@@ -4094,10 +4162,18 @@ msgid "Cannot rescore with all_students and unique_student_identifier."
 msgstr ""
 "Неможливо перезарахувати бали з all_students і unique_student_identifier."
 
+#: lms/djangoapps/instructor/views/api.py:2581
+msgid "Name of report."
+msgstr "Назва звіту."
+
 #: lms/djangoapps/instructor/views/api.py:2724
 #: lms/djangoapps/instructor_task/api_helper.py:115
 msgid "ORA data"
 msgstr "Дані ORA"
+
+#: lms/djangoapps/instructor/views/api.py:2766
+msgid "Attachments archive is being created."
+msgstr "Створюється архів прикріплених файлів."
 
 #: lms/djangoapps/instructor/views/api.py:2781
 #: lms/djangoapps/instructor_task/api_helper.py:116
@@ -4335,6 +4411,15 @@ msgstr "Відповіді у вільній формі"
 msgid "0 sent"
 msgstr "відправлених: 0"
 
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:90
+#, python-brace-format
+msgid "{num_emails} sent"
+msgid_plural "{num_emails} sent"
+msgstr[0] "{num_emails} надіслано"
+msgstr[1] "{num_emails} надіслано"
+msgstr[2] "{num_emails} надіслано"
+msgstr[3] "{num_emails} надіслано"
+
 #: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
 msgid "Complete"
 msgstr "Завершено"
@@ -4342,6 +4427,18 @@ msgstr "Завершено"
 #: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
 msgid "Incomplete"
 msgstr "Незавершено"
+
+#: lms/djangoapps/instructor/views/serializer.py:20
+msgid "Role name"
+msgstr "Назва ролі"
+
+#: lms/djangoapps/instructor/views/serializer.py:27
+msgid "Invalid role name."
+msgstr "Неправильна назва ролі."
+
+#: lms/djangoapps/instructor/views/serializer.py:258
+msgid "unique student identifier."
+msgstr "унікальний ідентифікатор студента."
 
 #: lms/djangoapps/instructor/views/tools.py:79
 #, python-brace-format
@@ -4434,6 +4531,10 @@ msgstr "Результати повинні бути між 0 і значенн�
 msgid "Not all problems in entrance exam support re-scoring."
 msgstr "Не всі завдання у вступному випробуванні підтримують перездачу."
 
+#: lms/djangoapps/instructor_task/models.py:115
+msgid "An error has occurred. Task was not created."
+msgstr "Сталася помилка. Завдання не створено."
+
 #. Translators: This is a past-tense verb that is inserted into task progress
 #. messages as {action}.
 #: lms/djangoapps/instructor_task/tasks.py:78
@@ -4497,6 +4598,18 @@ msgstr "створено сертифікатів"
 #: lms/djangoapps/instructor_task/tasks.py:295
 msgid "cohorted"
 msgstr "розподілено по групах"
+
+#. Translators: This is a past-tense verb that is inserted into task progress
+#. messages as {action}.
+#. An example of such a message is: "Progress: {action} {succeeded} of
+#. {attempted} so far"
+#: lms/djangoapps/instructor_task/tasks.py:308
+msgid "generate_anonymized_id"
+msgstr "generate_anonymized_id"
+
+#: lms/djangoapps/instructor_task/tasks.py:331
+msgid "compressed"
+msgstr "стиснуто"
 
 #: lms/djangoapps/instructor_task/views.py:106
 #: lms/djangoapps/instructor_task/views.py:111
@@ -4851,6 +4964,10 @@ msgstr "Користувача Ввімкнено Успішно"
 msgid "User Disabled Successfully"
 msgstr "Обліковий запис заблоковане успiшно"
 
+#: lms/djangoapps/survey/utils.py:20
+msgid "You must complete a survey"
+msgstr "Ви повинні заповнити опитування"
+
 #: lms/djangoapps/teams/models.py:141
 msgid "Optional language the team uses as ISO 639-1 code."
 msgstr "Код додаткової мови команди за стандартом ISO 639-1."
@@ -4859,6 +4976,12 @@ msgstr "Код додаткової мови команди за стандар�
 #: lms/djangoapps/teams/templates/teams/teams.html:16
 msgid "Teams"
 msgstr "Команди"
+
+#: lms/djangoapps/teams/plugins.py:54
+msgid "Leverage teams to allow learners to connect by topic of interest."
+msgstr ""
+"Використовуйте команди, щоб дати можливість студентам об’єднуватися за "
+"цікавою темою."
 
 #: lms/djangoapps/teams/views.py:417
 msgid "course_id must be provided"
@@ -5071,6 +5194,31 @@ msgstr "Ви дійсно бажаєте скасувати вилучення �
 msgid "Submit"
 msgstr "Надіслати"
 
+#: lms/templates/bulk_email/edx_ace/bulkemail/email/body.html:33
+msgid "here"
+msgstr "тут"
+
+#: lms/templates/bulk_email/edx_ace/bulkemail/email/body.txt:7
+#, python-format
+msgid "This email was automatically sent from %(platform_name)s."
+msgstr ""
+"Це повідомлення електронної пошти було автоматично надіслано "
+"з%(platform_name)s ."
+
+#: lms/templates/bulk_email/edx_ace/bulkemail/email/body.txt:9
+#, python-format
+msgid ""
+"To stop receiving email like this, update your course email settings here "
+"%(email_settings_url)s"
+msgstr ""
+"Щоб більше не отримувати такі електронні листи, оновіть налаштування "
+"електронної пошти обраного курсу тут %(email_settings_url)s."
+
+#: lms/templates/bulk_email/edx_ace/bulkemail/email/body.txt:10
+#, python-format
+msgid "To unsubscribe click here %(unsubscribe_link)s"
+msgstr "Щоб скусувати підписку, натисніть тут %(unsubscribe_link)s"
+
 #: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.html:12
 #: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.txt:1
 #, python-format
@@ -5103,6 +5251,10 @@ msgstr "пароль: %(password)s"
 msgid "It is recommended that you change your password."
 msgstr "Рекомендується Вам змінити свій пароль."
 
+#: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.html:48
+msgid "You may access your course."
+msgstr "Ви можете отримати доступ до свого курсу."
+
 #: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.html:56
 #: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.txt:13
 #, python-format
@@ -5117,6 +5269,11 @@ msgid ""
 msgstr ""
 "Щоб приступити, будь ласка, відвідайте  https://%(site_name)s. Дані про "
 "реєстрацію для вашого аккаунту наступні."
+
+#: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.txt:11
+#, python-format
+msgid "You may access your course at: %(course_url)s."
+msgstr "Ви можете отримати доступ до свого курсу за адресою: %(course_url)s."
 
 #: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/subject.txt:3
 #: lms/templates/instructor/edx_ace/enrollenrolled/email/subject.txt:3
@@ -5154,6 +5311,15 @@ msgstr ""
 #, python-format
 msgid "Visit %(course_name)s"
 msgstr "Відвідати %(course_name)s"
+
+#: lms/templates/instructor/edx_ace/addbetatester/email/body.html:54
+#, python-format
+msgid ""
+"Visit %(site_name)s\n"
+"                "
+msgstr ""
+"Відвідати %(site_name)s\n"
+"                "
 
 #: lms/templates/instructor/edx_ace/addbetatester/email/body.html:63
 #: lms/templates/instructor/edx_ace/addbetatester/email/body.txt:12
@@ -5405,6 +5571,12 @@ msgstr ""
 msgid "Access the Course Materials Now"
 msgstr "Доступ до Матеріалів Курсу Наразі"
 
+#: lms/templates/instructor/edx_ace/enrollenrolled/push/body.txt:4
+#, python-format
+msgid "You have been invited to join %(course_name)s at %(site_name)s."
+msgstr ""
+"Вас запросили приєднатися до %(course_name)s за адресою %(site_name)s."
+
 #: lms/templates/instructor/edx_ace/removebetatester/email/body.html:12
 #, python-format
 msgid ""
@@ -5515,6 +5687,15 @@ msgstr "Помилка"
 #, python-format
 msgid "Hello %(full_name)s,"
 msgstr "Здрастуйте %(full_name)s,"
+
+#: lms/templates/verify_student/edx_ace/verificationsubmitted/email/body.html:32
+#: lms/templates/verify_student/edx_ace/verificationsubmitted/email/body.txt:7
+msgid "Best regards,"
+msgstr "З найкращими побажаннями,"
+
+#: lms/templates/verify_student/edx_ace/verificationsubmitted/email/subject.txt:3
+msgid "Thank you for submitting your photos!"
+msgstr "Дякуємо, що надіслали свої світлини!"
 
 #: lms/templates/wiki/article.html:30
 msgid "Last modified:"
@@ -5994,6 +6175,10 @@ msgstr "Перейти на домашню сторінку %(platform_name)s"
 msgid "Courses"
 msgstr "Курси"
 
+#: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/base_body.html:108
+msgid "My Account"
+msgstr "Мій обліковий запис"
+
 #: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/base_body.html:156
 #: themes/red-theme/lms/templates/ace_common/edx_ace/common/base_body.html:100
 #, python-format
@@ -6033,6 +6218,15 @@ msgstr "Завантажте iOS додаток у Apple Store"
 #: themes/red-theme/lms/templates/ace_common/edx_ace/common/base_body.html:153
 msgid "Download the Android app on the Google Play Store"
 msgstr "Завантажте Android додаток у Google Play Store"
+
+#: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/base_body.html:233
+msgid "Our mailing address is:"
+msgstr "Адреса нашої електронної пошти:"
+
+#: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/base_head.html:7
+#, python-format
+msgid "%(platform_name)s Email"
+msgstr "Електронна пошта %(platform_name)s"
 
 #: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/upsell_cta.html:7
 #: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/upsell_cta.txt:4
@@ -6229,10 +6423,54 @@ msgstr ""
 msgid "Enabled"
 msgstr "Включено"
 
+#: openedx/core/djangoapps/config_model_utils/models.py:102
+#: cms/templates/course-create-rerun.html:104 cms/templates/index.html:114
+#: cms/templates/settings.html:84
+msgid "Course Run"
+msgstr "Запуск курсу"
+
 #: openedx/core/djangoapps/config_model_utils/models.py:344
 msgid "Configuration may not be specified at more than one level at once."
 msgstr ""
 "Конфігурація не може бути вказана одночасно на більш ніж одному рівні."
+
+#: openedx/core/djangoapps/content/learning_sequences/admin.py:26
+msgid "Error Status"
+msgstr "Статус помилок"
+
+#: openedx/core/djangoapps/content_libraries/constants.py:15
+msgid "All Rights Reserved."
+msgstr "Всі права захищені."
+
+#: openedx/core/djangoapps/content_libraries/models.py:202
+msgid "Author content"
+msgstr "Авторський контент"
+
+#: openedx/core/djangoapps/content_libraries/models.py:203
+msgid "Read-only"
+msgstr "Лише для читання"
+
+#: openedx/core/djangoapps/content_libraries/models.py:253
+msgid "Task is running."
+msgstr "Завдання виконується."
+
+#: openedx/core/djangoapps/content_libraries/models.py:275
+msgid "course ID"
+msgstr "ID курсу"
+
+#: openedx/core/djangoapps/content_staging/data.py:17
+#: cms/templates/certificates.html:82 cms/templates/container.html:232
+#: cms/templates/container_chromeless.html:159
+#: cms/templates/course_outline.html:293
+#: cms/templates/group_configurations.html:60
+#: cms/templates/group_configurations.html:76 cms/templates/library.html:84
+#: cms/templates/manage_users.html:76 cms/templates/manage_users_lib.html:77
+#: lms/templates/courseware/courses.html:49
+#: lms/templates/edxnotes/edxnotes.html:64
+#: lms/templates/instructor/instructor_dashboard_2/certificates.html:198
+#: lms/templates/instructor/instructor_dashboard_2/certificates.html:212
+msgid "Loading"
+msgstr "Завантаження"
 
 #: openedx/core/djangoapps/cors_csrf/models.py:21
 msgid ""
@@ -6260,6 +6498,11 @@ msgstr ""
 #: openedx/core/djangoapps/course_groups/views.py:204
 msgid "A cohort with the same name already exists."
 msgstr "Група з такою назвою вже існує."
+
+#: openedx/core/djangoapps/course_live/plugins.py:25
+#: openedx/core/djangoapps/course_live/tab.py:47
+msgid "Live"
+msgstr "Наживо"
 
 #: openedx/core/djangoapps/credentials/apps.py:18
 msgid "Credentials"
@@ -6529,11 +6772,43 @@ msgstr "Занести до білого списку країну {country} д�
 msgid "Blacklist {country} for {course}"
 msgstr "Занести до чорного списку країну {country}  для курсу {course}"
 
+#: openedx/core/djangoapps/notifications/admin.py:16
+msgid "Notification App"
+msgstr "Додаток для отримання сповіщень"
+
+#: openedx/core/djangoapps/notifications/admin.py:37
+msgid "Notification Type"
+msgstr "Типи сповіщення"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:16
+msgid "Daily"
+msgstr "Щодня"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:17
+msgid "Weekly"
+msgstr "Щотижня"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:18
+msgid "Immediately"
+msgstr "Негайно"
+
 #: openedx/core/djangoapps/notifications/email_notifications.py:19
 #: xmodule/capa_block.py:224 xmodule/capa_block.py:242
 #: xmodule/capa_block.py:281
 msgid "Never"
 msgstr "Ніколи"
+
+#: openedx/core/djangoapps/notifications/views.py:380
+msgid "Invalid app name."
+msgstr "Недійсна назва застосунку."
+
+#: openedx/core/djangoapps/notifications/views.py:429
+msgid "Notification marked read."
+msgstr "Сповіщення відмічено як прочитане."
+
+#: openedx/core/djangoapps/notifications/views.py:441
+msgid "Notifications marked read."
+msgstr "Сповіщення відмічено як прочитані."
 
 #: openedx/core/djangoapps/oauth_dispatch/models.py:81
 msgid ""
@@ -6926,6 +7201,10 @@ msgstr ""
 "Здається {username} вже використовується. Спробуйте ще раз з іншим іменем "
 "користувача."
 
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:75
+msgid "It looks like this username is already taken"
+msgstr "Вказане ім’я користувача вже зайняте."
+
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:80
 #, python-brace-format
 msgid "Username must be between {min} and {max} characters long."
@@ -6936,6 +7215,10 @@ msgstr "Iм'я користувача повинно мати довжину в�
 msgid "Enter a valid email address that contains at least {min} characters."
 msgstr ""
 "Введіть дійсну адресу електронної пошти, що містить не менше {min} символів."
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:99
+msgid "The email addresses do not match"
+msgstr "Електронні адреси не збігаються"
 
 #: openedx/core/djangoapps/user_api/accounts/api.py:206
 #, python-brace-format
@@ -7424,6 +7707,12 @@ msgstr ""
 "Ім'я, за яким Вас будуть ідентифікувати на курсах. Його неможливо змінити "
 "пізніше."
 
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:702
+#, python-brace-format
+msgid "I agree that {platform_name} may send me marketing messages."
+msgstr ""
+"Я надаю згоду на отримання маркетингових повідомлень від {platform_name}."
+
 #. Translators: This label appears above a dropdown menu on the registration
 #. form used to select the country in which the user lives.
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:967
@@ -7502,6 +7791,14 @@ msgstr "Примусово"
 #: openedx/core/djangoapps/waffle_utils/models.py:91
 msgid "Force Off"
 msgstr "Непримусово"
+
+#: openedx/core/djangoapps/xblock/runtime/mixin.py:65
+msgid ""
+"This content is only accessible to registered learners. Sign in or register "
+"to view it."
+msgstr ""
+"Цей контент доступний лише для зареєстрованих учнів. Увійдіть або "
+"зареєструйтесь, щоб переглянути його."
 
 #: openedx/core/lib/api/view_utils.py:161
 msgid "This value is invalid."
@@ -7633,6 +7930,15 @@ msgstr ""
 "{sronly_span_open} для збереження доступу до минулого "
 "{expiration_date}{span_close}{a_close}"
 
+#: openedx/features/course_experience/api/v1/views.py:64
+msgid "'course_key' is required."
+msgstr "'course_key' обов'язковий."
+
+#: openedx/features/course_experience/api/v1/views.py:98
+#: openedx/features/course_experience/api/v1/views.py:101
+msgid "View all dates"
+msgstr "Переглянути всі дати"
+
 #: openedx/features/course_experience/plugins.py:34
 #: cms/templates/widgets/header.html:115 cms/templates/widgets/header.html:120
 #: lms/templates/api_admin/terms_of_service.html:66
@@ -7640,6 +7946,10 @@ msgstr ""
 #: openedx/features/course_experience/templates/course_experience/course-updates-fragment.html:25
 msgid "Updates"
 msgstr "Оновлення"
+
+#: openedx/features/enterprise_support/admin/forms.py:13
+msgid "CSV File"
+msgstr "CSV файл"
 
 #: openedx/features/enterprise_support/api.py:1004
 #, python-brace-format
@@ -7687,6 +7997,10 @@ msgstr ""
 msgid "Continue"
 msgstr "Продовжити"
 
+#: openedx/features/personalized_learner_schedules/call_to_action.py:155
+msgid "Try again (unlimited attempts)"
+msgstr "Спробуйте ще раз (кількість спроб не обмежено)"
+
 #: themes/red-theme/lms/templates/ace_common/edx_ace/common/base_body.html:70
 #: cms/templates/widgets/header.html:386
 msgid "Sign In"
@@ -7718,6 +8032,10 @@ msgstr "Анотація"
 #: xmodule/capa/capa_problem.py:513
 msgid "Cannot rescore problems with possible file submissions"
 msgstr "Неможливо переоцінити задачі з можливими завантаженими файлами"
+
+#: xmodule/capa/capa_problem.py:612
+msgid "Question {}"
+msgstr "Запитання {}"
 
 #: xmodule/capa/capa_problem.py:747 xmodule/capa_block.py:1398
 msgid "Incorrect"
@@ -8504,6 +8822,33 @@ msgid ""
 "remaining."
 msgstr ""
 "Зачекайте принаймні {wait_secs} між спробами. Залишилося {remaining_secs}."
+
+#: xmodule/capa_block.py:2010
+#, python-brace-format
+msgid "{num_hour} hour"
+msgid_plural "{num_hour} hours"
+msgstr[0] "{num_hour} година"
+msgstr[1] "{num_hour} годин"
+msgstr[2] "{num_hour} годин"
+msgstr[3] "{num_hour} годин"
+
+#: xmodule/capa_block.py:2015
+#, python-brace-format
+msgid "{num_minute} minute"
+msgid_plural "{num_minute} minutes"
+msgstr[0] "{num_minute} хвилина"
+msgstr[1] "{num_minute} хвилин"
+msgstr[2] "{num_minute} хвилин"
+msgstr[3] "{num_minute} хвилин"
+
+#: xmodule/capa_block.py:2021
+#, python-brace-format
+msgid "{num_second} second"
+msgid_plural "{num_second} seconds"
+msgstr[0] "{num_second} секунда"
+msgstr[1] "{num_second} секунд"
+msgstr[2] "{num_second} секунд"
+msgstr[3] "{num_second} секунд"
 
 #: xmodule/capa_block.py:2141
 msgid "Problem needs to be reset prior to save."
@@ -11942,6 +12287,11 @@ msgstr ""
 "Виникла помилка в {studio_name}, і не вдалося завантажити сторінку. Будь "
 "ласка, спробуйте ще раз через кілька хвилин."
 
+#: cms/templates/asset_index.html:10 cms/templates/asset_index.html:28
+#: cms/templates/widgets/header.html:135 cms/templates/widgets/header.html:140
+msgid "Files"
+msgstr "Файли"
+
 #: cms/templates/asset_index.html:27 cms/templates/course_info.html:39
 #: cms/templates/course_outline.html:204 cms/templates/edit-tabs.html:44
 #: cms/templates/edit-tabs.html:60 cms/templates/textbooks.html:53
@@ -12021,6 +12371,14 @@ msgstr "Створити копію цього компонента"
 #: cms/templates/studio_xblock_wrapper.html:211
 msgid "Drag to reorder"
 msgstr "Перетягніть, щоб змінити порядок "
+
+#: cms/templates/container.html:244
+msgid "Editing components"
+msgstr "Редагування компонентів"
+
+#: cms/templates/container.html:249
+msgid "Reorganizing components"
+msgstr "Реорганізвція компонентів"
 
 #: cms/templates/container.html:262
 msgid "Unit Location"
@@ -12112,6 +12470,27 @@ msgstr ""
 "курсу; створіть команду курсу; перегляньте оновлення курсу та інші датовані "
 "матеріали; і збережіть обговорення та вікі."
 
+#: cms/templates/course_outline.html:81
+msgid " Learn more"
+msgstr "Дізнатися більше"
+
+#: cms/templates/course_outline.html:87
+msgid "Share feedback"
+msgstr "Надіслати відгук"
+
+#: cms/templates/course_outline.html:111
+#: cms/templates/widgets/deprecated-course-key-warning.html:34
+msgid "Warning"
+msgstr "Попередження"
+
+#: cms/templates/course_outline.html:114
+msgid "This course uses features that are no longer supported."
+msgstr "Цей курс використовує функції, які більше не підтримуються."
+
+#: cms/templates/course_outline.html:118
+msgid "You must delete or replace the following components."
+msgstr "Ви маєте видалити або замінити такі компоненти."
+
 #: cms/templates/course_outline.html:212
 msgid "Click to add a new section"
 msgstr "Клацніть, щоб додатки новий розділ"
@@ -12123,6 +12502,10 @@ msgstr "Новий розділ"
 #: cms/templates/course_outline.html:225
 msgid "Collapse All Sections"
 msgstr "Згорнути усі розділи"
+
+#: cms/templates/course_outline.html:231 cms/templates/edit-tabs.html:73
+msgid "View Live"
+msgstr "Дивитись наживо"
 
 #: cms/templates/course_outline.html:298
 msgid "Creating your course organization"
@@ -12205,6 +12588,10 @@ msgstr ""
 "сторінки, вони можуть переглядати сторінку, навіть якщо вони не "
 "зареєстровані або не увійшли до вашого курсу."
 
+#: cms/templates/edit-tabs.html:132
+msgid "Show this page"
+msgstr "Показати цю сторінку"
+
 #: cms/templates/edit-tabs.html:164
 msgid "You can add additional custom pages to your course."
 msgstr "Ви можете додати додаткові власні сторінки до свого курсу."
@@ -12270,6 +12657,18 @@ msgstr "Експорт контенту курсу"
 msgid "Course Export Status"
 msgstr "Статус експорту курсу"
 
+#: cms/templates/export.html:122
+msgid "Preparing"
+msgstr "Підготовка"
+
+#: cms/templates/export.html:126
+msgid "Preparing to start the export"
+msgstr "Підготовка до експорту"
+
+#: cms/templates/export.html:137
+msgid "Exporting"
+msgstr "Експортування"
+
 #: cms/templates/export.html:192
 #, python-brace-format
 msgid "Data {em_start}exported with{em_end} your course:"
@@ -12318,6 +12717,10 @@ msgstr "Дані команди курсу"
 #: cms/templates/export.html:216
 msgid "Forum/discussion Data"
 msgstr "Публікації з форуму/обговорень "
+
+#: cms/templates/export.html:226
+msgid "Why export a library?"
+msgstr "Навіщо експортувати бібліотеку?"
 
 #: cms/templates/export.html:233 cms/templates/export.html:267
 msgid "Opening the downloaded file"
@@ -12369,6 +12772,10 @@ msgstr "Експорт курсу в Git"
 #: cms/templates/export_git.html:35
 msgid "Export Course to Git:"
 msgstr "Експорт курсу в Git:"
+
+#: cms/templates/export_git.html:63
+msgid "Your course:"
+msgstr "Ваш курс:"
 
 #: cms/templates/group_configurations.html:67
 #: cms/templates/group_configurations.html:106
@@ -13726,6 +14133,13 @@ msgstr "тип"
 #: lms/templates/user_dropdown.html:24 lms/templates/user_dropdown.html:46
 msgid "Dashboard for:"
 msgstr "Панель управління для:"
+
+#: lms/templates/bulk_email/confirm_unsubscribe.html:11
+#: lms/templates/bulk_email/confirm_unsubscribe.html:17
+#: lms/templates/bulk_email/unsubscribe_success.html:12
+#: lms/templates/bulk_email/unsubscribe_success.html:18
+msgid "Unsubscribe"
+msgstr "Скасувати підписку"
 
 #: lms/templates/calculator/toggle_calculator.html:50
 msgid "Type"
