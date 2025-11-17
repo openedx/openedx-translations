@@ -168,6 +168,10 @@ msgstr ""
 msgid "Show title"
 msgstr "Başlığı göstər"
 
+#: drag_and_drop_v2.py:120
+msgid "Display the title to the learner?"
+msgstr "Başlığı öyrənciyə göstərmək?"
+
 #: drag_and_drop_v2.py:127
 msgid "Problem text"
 msgstr "Problemin mətni"
@@ -197,6 +201,10 @@ msgstr ""
 "Problemin cavabını nə vaxt göstərmək lazım olduğunu müəyyən edir. Standart "
 "dəyər Genişləndirilmiş Parametrlərdə təyin edilə bilər. Xüsusi dəyəri geri "
 "qaytarmaq üçün 'Standart' seçimini seçin."
+
+#: drag_and_drop_v2.py:149
+msgid "Default"
+msgstr "Susmaya görə"
 
 #: drag_and_drop_v2.py:150
 msgid "Always"
@@ -306,6 +314,10 @@ msgstr ""
 "Öyrəncinin hədəf şəkil üzərinə buraxdığı elementlərin cari mövqeləri "
 "haqqında məlumat."
 
+#: drag_and_drop_v2.py:217
+msgid "Number of attempts learner used"
+msgstr "Öyrəncinin istifadə etdiyi cəhdlərin sayı"
+
 #: drag_and_drop_v2.py:224
 msgid "Indicates whether a learner has completed the problem at least once"
 msgstr ""
@@ -347,13 +359,25 @@ msgstr "Cavab mövcud deyil"
 msgid "do_attempt handler should only be called for assessment mode"
 msgstr "do_attempt handler yalnız qiymətləndirmə rejimi üçün çağırılmalıdır"
 
+#: drag_and_drop_v2.py:794 drag_and_drop_v2.py:912
+msgid "Max number of attempts reached"
+msgstr "Cəhdlərin maksimal sayı çatdı"
+
 #: drag_and_drop_v2.py:799
 msgid "Submission deadline has passed."
 msgstr "Təqdimetmə müddəti bitmişdir."
 
+#: templates/html/drag_and_drop.html:4
+msgid "Loading drag and drop problem."
+msgstr "Sürüşdür və burax problemini yükləyir."
+
 #: templates/html/drag_and_drop_edit.html:10
 msgid "Basic Settings"
 msgstr "Əsas Parametrlər"
+
+#: templates/html/drag_and_drop_edit.html:53
+msgid "(inherited from Advanced Settings)"
+msgstr "(Ətraflı Parametrlərdən miras alınmış)"
 
 #: templates/html/drag_and_drop_edit.html:90
 msgid "Introductory feedback"
@@ -379,12 +403,28 @@ msgstr "Fon Şəkli"
 msgid "Provide custom image"
 msgstr "Xüsusi şəkil təmin edin"
 
+#: templates/html/drag_and_drop_edit.html:121
+msgid "Generate image automatically"
+msgstr "Şəkili avtomatik yarat"
+
+#: templates/html/drag_and_drop_edit.html:126
+msgid "Background URL"
+msgstr "Fon URL-u"
+
+#: templates/html/drag_and_drop_edit.html:133
+msgid "Change background"
+msgstr "Fon rəngini dəyişdir"
+
 #: templates/html/drag_and_drop_edit.html:135
 msgid ""
 "For example, 'http://example.com/background.png' or "
 "'/static/background.png'."
 msgstr ""
 "Məsələn, 'http://example.com/background.png' və ya '/static/background.png'."
+
+#: templates/html/drag_and_drop_edit.html:140
+msgid "Zone Layout"
+msgstr "Zona Düzeni"
 
 #: templates/html/drag_and_drop_edit.html:142
 msgid "Number of columns"
@@ -402,9 +442,17 @@ msgstr "Sütunların və sətirlərin sayı."
 msgid "Zone Size"
 msgstr "Zona Ölçüsü"
 
+#: templates/html/drag_and_drop_edit.html:163
+msgid "Zone width"
+msgstr "Zona eni"
+
 #: templates/html/drag_and_drop_edit.html:171
 msgid "Zone height"
 msgstr "Zona hündürlüyü"
+
+#: templates/html/drag_and_drop_edit.html:178
+msgid "Size of a single zone in pixels."
+msgstr "Bir zonanın ölçüsü piksellərlə."
 
 #: templates/html/drag_and_drop_edit.html:181
 msgid "Generate image and zones"
@@ -418,6 +466,10 @@ msgstr "Fon təsviri"
 msgid "Zone labels"
 msgstr "Zona etiketləri"
 
+#: templates/html/drag_and_drop_edit.html:202
+msgid "Display label names on the image"
+msgstr "Etiket adlarını şəkil üzərində göstər"
+
 #: templates/html/drag_and_drop_edit.html:206
 msgid "Zone borders"
 msgstr "Zona sərhədləri"
@@ -426,6 +478,10 @@ msgstr "Zona sərhədləri"
 msgid "Display zone borders on the image"
 msgstr "Zona sərhədlərini şəkil üzərində göstər"
 
+#: templates/html/drag_and_drop_edit.html:215
+msgid "Display zone borders when dragging an item"
+msgstr "Zona sərhədlərini əşyanı sürükləyərkən göstər"
+
 #: templates/html/drag_and_drop_edit.html:220
 msgid "Zone definitions"
 msgstr "Zona tərifləri"
@@ -433,6 +489,10 @@ msgstr "Zona tərifləri"
 #: templates/html/drag_and_drop_edit.html:226
 msgid "Add a zone"
 msgstr "Zona əlavə et"
+
+#: templates/html/drag_and_drop_edit.html:240
+msgid "Items"
+msgstr "Elementlər"
 
 #: templates/html/drag_and_drop_edit.html:274
 msgid "Item definitions"
@@ -478,6 +538,13 @@ msgid_plural "Misplaced {misplaced_count} items"
 msgstr[0] "Səhv yerləşdirilmiş {misplaced_count} element"
 msgstr[1] "Səhv yerləşdirilmiş {misplaced_count} elementlər"
 
+#: utils.py:163
+#, python-brace-format
+msgid "Did not place {missing_count} required item"
+msgid_plural "Did not place {missing_count} required items"
+msgstr[0] "Tələb olunan {missing_count} elementi yerləşdirmədi"
+msgstr[1] "Tələb olunan {missing_count} elementi yerləşdirmədi"
+
 #: public/js/drag_and_drop.js:48 public/js/drag_and_drop.js:399
 msgid "Submitting"
 msgstr "Göndərilir"
@@ -509,6 +576,10 @@ msgstr "Burada heç bir əşya yerləşdirilməyib"
 #: public/js/drag_and_drop.js:265
 msgid "Items placed here: "
 msgstr "Buraya yerləşdirilən elementlər: "
+
+#: public/js/drag_and_drop.js:297
+msgid ", dropzone"
+msgstr ", düşmə zonası"
 
 #: public/js/drag_and_drop.js:300
 msgid "droppable"
@@ -544,6 +615,14 @@ msgstr ""
 "zonalarından ibarətdir. İstifadəçilər klaviaturaları ilə sürüklənə bilən "
 "elementi seçməli və sonra onu buraxmaq üçün uyğun buraxma zonasına "
 "keçməlidirlər."
+
+#: public/js/drag_and_drop.js:365
+msgid ""
+"You can complete this problem using only your keyboard by following the "
+"guidance below:"
+msgstr ""
+"Bu problemi yalnız klaviaturanızdan istifadə edərək aşağıdakı təlimatlara "
+"əməl etməklə tamamlaya bilərsiniz:"
 
 #: public/js/drag_and_drop.js:367
 msgid ""
@@ -583,6 +662,10 @@ msgstr ""
 "prosesi bütün sürüklənə bilən elementlər müvafiq düşmə zonalarına "
 "yerləşdirilənə qədər təkrarlayın."
 
+#: public/js/drag_and_drop.js:389
+msgid "You have used {used} of {total} attempts."
+msgstr "{used} cəhdin {total} cəhdini istifadə etmisiniz."
+
 #: public/js/drag_and_drop.js:412
 msgid "Submit"
 msgstr "Təqdim edin"
@@ -590,6 +673,10 @@ msgstr "Təqdim edin"
 #: public/js/drag_and_drop.js:453
 msgid "Show Answer"
 msgstr "Qısa cavab"
+
+#: public/js/drag_and_drop.js:466
+msgid "Go to Beginning"
+msgstr "Başlanğıca get"
 
 #: public/js/drag_and_drop.js:472
 msgid "Reset"
