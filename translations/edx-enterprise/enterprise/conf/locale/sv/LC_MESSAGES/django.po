@@ -54,6 +54,14 @@ msgstr "Namnet på användaren vars samtyckesstatus lagras."
 msgid "Whether consent is granted."
 msgstr "Huruvida samtycke har beviljats."
 
+#: consent/models.py:243
+msgid "Data Sharing Consent Record"
+msgstr "Samtyckesregister för datadelning"
+
+#: consent/models.py:244
+msgid "Data Sharing Consent Records"
+msgstr "Samtyckesregister för datadelning"
+
 #: consent/models.py:252
 msgid "Course key for which data sharing consent is granted."
 msgstr "Kursnyckel för vilken samtycke till datadelning har beviljats."
@@ -157,6 +165,18 @@ msgstr ""
 " kan vara tillgängliga:<br /><ul><li>enterprise_customer_name: Namn på "
 "företagskund.</li><li>course_title: Kursens titel. Tillgänglig när typen av "
 "samtycke är kurs.</li></ul>"
+
+#: consent/models.py:329
+msgid "Title of page"
+msgstr "Sidans titel"
+
+#: consent/models.py:344
+msgid "Text next to agreement check mark"
+msgstr "Text bredvid avtalets kryssruta"
+
+#: consent/models.py:348
+msgid "Text of agree button"
+msgstr "Text för godkänn-knapp"
 
 #: consent/models.py:352
 msgid "Text of decline link"
@@ -324,6 +344,16 @@ msgstr "Företagskund {uuid} hittades inte eller är inte aktiv"
 msgid "Invalid integrated channel: {channel}"
 msgstr "Ogiltig integrerad kanal: {channel}"
 
+#: integrated_channels/integrated_channel/management/commands/backfill_missing_csod_foreign_keys.py:24
+msgid ""
+"\n"
+"    Backfill missing audit record foreign keys for Cornerstone.\n"
+"    "
+msgstr ""
+"\n"
+"    Fyll i saknade främmande nycklar för granskningsposter för Cornerstone.\n"
+"    "
+
 #: integrated_channels/integrated_channel/management/commands/cleanup_duplicate_assignment_records.py:25
 msgid ""
 "\n"
@@ -457,6 +487,11 @@ msgstr ""
 "När den är inställd på True kommer den konfigurerade kunden inte längre att "
 "ta emot överföringar av lärardata, varken schemalagda eller signalbaserade."
 
+#: integrated_channels/integrated_channel/models.py:537
+#: integrated_channels/integrated_channel/models.py:713
+msgid "Data pertaining to the transmissions API request response."
+msgstr "Data som rör transmissions-API:ets begäranssvar."
+
 #: integrated_channels/moodle/admin/__init__.py:31
 msgid "Cannot set both a Username/Password and Token"
 msgstr "Kan inte ställa in både ett användarnamn/lösenord och en token"
@@ -465,6 +500,10 @@ msgstr "Kan inte ställa in både ett användarnamn/lösenord och en token"
 msgid "Must set both a Username and Password, not just one"
 msgstr ""
 "Måste ange både ett användarnamn och ett lösenord, inte bara ett av dem"
+
+#: integrated_channels/moodle/models.py:38
+msgid "The base URL used for API requests to Moodle"
+msgstr "Bas-URL:en som används för API-förfrågningar till Moodle"
 
 #: integrated_channels/moodle/models.py:46
 msgid "The short name for the Moodle webservice."
@@ -514,6 +553,12 @@ msgstr ""
 "När den är inställd på True kommer den konfigurerade kunden att ta emot "
 "överföringar av lärardata, även för ofullständiga kurser."
 
+#: integrated_channels/sap_success_factors/exporters/content_metadata.py:223
+#: integrated_channels/sap_success_factors/exporters/content_metadata.py:298
+#: enterprise/views.py:1604
+msgid "Starts"
+msgstr "startar"
+
 #: integrated_channels/sap_success_factors/exporters/content_metadata.py:228
 msgid "Enrollment Closed"
 msgstr "Inskrivningen är stängd"
@@ -534,6 +579,10 @@ msgstr ""
 msgid "Base URL of success factors API."
 msgstr "Bas-URL för SuccessFactors API."
 
+#: integrated_channels/sap_success_factors/models.py:131
+msgid "Success factors user identifier."
+msgstr "Användaridentifierare för framgångsfaktorer."
+
 #: integrated_channels/sap_success_factors/models.py:140
 msgid ""
 "The encrypted OAuth client secret. It will be encrypted when stored in the "
@@ -549,6 +598,10 @@ msgstr "Typ av SAP-användare (admin eller användare)."
 #: integrated_channels/sap_success_factors/models.py:179
 msgid "A comma-separated list of additional locales."
 msgstr "En kommaseparerad lista över ytterligare språkversioner."
+
+#: integrated_channels/sap_success_factors/models.py:183
+msgid "Transmit Total Hours"
+msgstr "Överför totala timmar"
 
 #: integrated_channels/sap_success_factors/models.py:184
 msgid "Include totalHours in the transmitted completion data"
@@ -640,6 +693,14 @@ msgstr "Professionell utbildning"
 #: enterprise/admin/forms.py:77 enterprise/api/v1/serializers.py:1630
 msgid "Professional Education (no ID)"
 msgstr "Professionell utbildning (ingen ID)"
+
+#: enterprise/admin/forms.py:78 enterprise/api/v1/serializers.py:1631
+msgid "Credit"
+msgstr "Poäng"
+
+#: enterprise/admin/forms.py:79 enterprise/api/v1/serializers.py:1632
+msgid "Honor"
+msgstr "Förtroende"
 
 #: enterprise/admin/forms.py:80 enterprise/api/v1/serializers.py:1633
 msgid "Unpaid Executive Education"
@@ -1021,6 +1082,15 @@ msgstr ""
 "För att logga in och få tillgång till specialerbjudanden måste du samtycka "
 "till att dela dina kursdata med {enterprise_customer_name}."
 
+#: enterprise/constants.py:22
+#, python-brace-format
+msgid ""
+"If you do not consent to share your course data, that information may be "
+"shared with {enterprise_customer_name}."
+msgstr ""
+"Om du inte samtycker till att dela dina kursdata, kan den informationen "
+"delas med {enterprise_customer_name}."
+
 #: enterprise/constants.py:25
 #, python-brace-format
 msgid "Welcome to {platform_name}."
@@ -1126,6 +1196,10 @@ msgstr ""
 "Användarnamn för en användare som är auktoriserad att få åtkomst till "
 "Enterprise Catalog API."
 
+#: enterprise/management/commands/migrate_enterprise_catalogs.py:36
+msgid "Comma separated list of uuids of enterprise catalogs to migrate."
+msgstr "Kommaseparerad lista med uuids för företagskataloger att migrera."
+
 #: enterprise/management/commands/update_config_last_errored_at.py:64
 msgid ""
 "\n"
@@ -1195,6 +1269,10 @@ msgstr "Företagskundtyp"
 #: enterprise/models.py:148
 msgid "Enterprise Customer Types"
 msgstr "Företagskundtyper"
+
+#: enterprise/models.py:155
+msgid "Specifies enterprise customer type."
+msgstr "Anger företagskundtyp."
 
 #: enterprise/models.py:215 enterprise/models.py:3376
 msgid "Enterprise Customer"
@@ -1495,6 +1573,11 @@ msgstr "Brandingkonfigurationer"
 msgid "Specifies whether this is default provider for enterprise customer."
 msgstr "Anger om detta är standardleverantören för företagskunder."
 
+#: enterprise/models.py:1911
+msgid ""
+"The UUID of the course (not course run) in which the learner is entitled."
+msgstr "Kursens UUID (inte kursomgång) där deltagaren har rättighet."
+
 #: enterprise/models.py:1921
 msgid "The enterprise learner to which this entitlement is attached."
 msgstr "Den företagslärande som denna rättighet är kopplad till."
@@ -1503,6 +1586,10 @@ msgstr "Den företagslärande som denna rättighet är kopplad till."
 msgid "The enterprise learner to which this enrollment is attached."
 msgstr "Den företagslärande som denna registrering är kopplad till."
 
+#: enterprise/models.py:2051
+msgid "The ID of the course in which the learner was enrolled."
+msgstr "Kursens ID där deltagaren var inskriven."
+
 #: enterprise/models.py:2058
 msgid ""
 "Specifies whether a user marked this course as saved for later in the "
@@ -1510,6 +1597,16 @@ msgid ""
 msgstr ""
 "Anger om en användare har markerat den här kursen som sparad för senare i "
 "lärarportalen."
+
+#: enterprise/models.py:2084
+msgid ""
+"Specifies when an enterprise course enrollment's course enrollment object "
+"was unenrolled."
+msgstr "Anger när ett företagskursregistrerings objekt avregistrerades."
+
+#: enterprise/models.py:2342
+msgid "The course entitlement the associated subsidy is for."
+msgstr "Kursberättigandet som det tillhörande bidraget gäller för."
 
 #: enterprise/models.py:2353
 msgid "The course enrollment the associated subsidy is for."
@@ -1581,6 +1678,10 @@ msgstr ""
 #: enterprise/models.py:2815
 msgid "Enterprise Catalog Query"
 msgstr "Företagskatalogfråga"
+
+#: enterprise/models.py:2816
+msgid "Enterprise Catalog Queries"
+msgstr "Företagskatalogfrågor"
 
 #: enterprise/models.py:2929
 msgid ""
@@ -1701,6 +1802,10 @@ msgstr ""
 "Frekvensintervallet (dagligen, veckovis eller månadsvis) som rapporten ska "
 "skickas."
 
+#: enterprise/models.py:3435
+msgid "Day of Month"
+msgstr "Månadens dag"
+
 #: enterprise/models.py:3436
 msgid ""
 "The day of the month to send the report. This field is required and only "
@@ -1720,6 +1825,10 @@ msgid ""
 msgstr ""
 "Dagen i veckan då rapporten ska skickas. Detta fält är obligatoriskt och "
 "endast giltigt när frekvensen är veckovis."
+
+#: enterprise/models.py:3449
+msgid "Hour of Day"
+msgstr "Timme på dagen"
 
 #: enterprise/models.py:3450
 msgid ""
@@ -1884,6 +1993,10 @@ msgstr "Adminmeddelanden"
 msgid "Admin Notification Read"
 msgstr "Adminavisering läst"
 
+#: enterprise/models.py:4095
+msgid "Admin Notifications Read"
+msgstr "Administratörsaviseringar lästa"
+
 #: enterprise/models.py:4128 enterprise/models.py:4232
 #: enterprise/models.py:4377
 msgid "The enterprise that can be linked using this key."
@@ -1913,6 +2026,10 @@ msgstr "ChatGPT-prompt."
 msgid "ChatGPT response."
 msgstr "ChatGPT-svar."
 
+#: enterprise/models.py:4239
+msgid "Prompt type."
+msgstr "Typ av prompt."
+
 #: enterprise/models.py:4243
 msgid "ChatGPT Response"
 msgstr "ChatGPT-svar"
@@ -1920,6 +2037,14 @@ msgstr "ChatGPT-svar"
 #: enterprise/models.py:4244
 msgid "ChatGPT Responses"
 msgstr "ChatGPT-svar"
+
+#: enterprise/models.py:4354
+msgid "Enterprise Customer SSO Configuration"
+msgstr "Konfiguration av SSO för företagskunder"
+
+#: enterprise/models.py:4355
+msgid "Enterprise Customer SSO Configurations"
+msgstr "SSO-konfigurationer för företagskunder"
 
 #: enterprise/models.py:4364
 msgid "The display name of the SSO configuration."
@@ -1941,6 +2066,10 @@ msgstr "Metadata-url:en för identitetsleverantören."
 #: enterprise/models.py:4412
 msgid "The metadata xml of the identity provider."
 msgstr "Metadata-xml:en för identitetsleverantören."
+
+#: enterprise/models.py:4421
+msgid "The entity id of the identity provider."
+msgstr "Enhets-ID för identitetsleverantören."
 
 #: enterprise/models.py:4430
 msgid ""
@@ -2052,6 +2181,18 @@ msgstr ""
 "Ögonblicket då medlemskapsregistret skrivs med en Enterprise Customer User-"
 "post."
 
+#: enterprise/models.py:4845
+msgid "Current status of the membership record"
+msgstr "Aktuell status för medlemskapsregistret"
+
+#: enterprise/models.py:4852
+msgid ""
+"The moment at which the membership record was revoked by an Enterprise "
+"admin."
+msgstr ""
+"Ögonblicket då medlemskapsregistret återkallades av en "
+"företagsadministratör."
+
 #: enterprise/models.py:4860
 msgid ""
 "The last time the membership action was in an error state. Null means the "
@@ -2059,6 +2200,10 @@ msgid ""
 msgstr ""
 "Den senaste gången medlemskapsåtgärden var i ett felaktigt tillstånd. Null "
 "betyder att medlemskapet inte är felaktigt."
+
+#: enterprise/models.py:4866
+msgid "Enterprise Group Memberships"
+msgstr "Företagsgruppmedlemskap"
 
 #: enterprise/models.py:4935
 msgid "Title summarizing the onboarding flow."
@@ -2117,6 +2262,14 @@ msgstr "Länkad datum"
 #: enterprise/templates/enterprise/admin/manage_learners.html:141
 msgid "Enroll"
 msgstr "Skriva in"
+
+#: enterprise/templates/enterprise/admin/manage_learners.html:139
+msgid "Learner Email"
+msgstr "Lärarens e-postadress"
+
+#: enterprise/templates/enterprise/admin/manage_learners.html:162
+msgid "Link learners"
+msgstr "Länka elever"
 
 #: enterprise/templates/enterprise/admin/setup_auth_org_id.html:46
 msgid "Cancel"
@@ -2315,6 +2468,10 @@ msgstr ""
 msgid "Decline and go back"
 msgstr "Avböj och gå tillbaka"
 
+#: enterprise/views.py:374
+msgid "Data Sharing Policy"
+msgstr "Policy för datadelning"
+
 #: enterprise/views.py:376
 #, python-brace-format
 msgid ""
@@ -2501,6 +2658,10 @@ msgstr ""
 #, python-brace-format
 msgid "your enrollment in this {item}"
 msgstr "ditt deltagande i denna {item}"
+
+#: enterprise/views.py:616
+msgid "your learning progress"
+msgstr "ditt lärande framsteg"
 
 #: enterprise/views.py:617
 msgid "course completion"
