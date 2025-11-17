@@ -8484,6 +8484,10 @@ msgstr ""
 msgid "The '{field_name}' field cannot be edited."
 msgstr "'{field_name}' フィールドは編集できません。"
 
+#: openedx/core/djangoapps/user_api/accounts/api.py:436
+msgid "Full name can't be longer than 255 symbols"
+msgstr "氏名は255文字を超えることはできません。"
+
 #: openedx/core/djangoapps/user_api/accounts/api.py:438
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:109
 msgid "Enter a valid name"
@@ -8531,6 +8535,12 @@ msgstr "成功"
 msgid "Actions"
 msgstr "アクション"
 
+#: openedx/core/djangoapps/user_api/models.py:437
+msgid ""
+"Comma separated file that have username and user_email of the users that "
+"needs to be retired"
+msgstr "ユーザー名とユーザーのメールアドレスが含まれたカンマ区切りのファイルで、退職が必要なユーザーの情報です。"
+
 #: openedx/core/djangoapps/user_api/preferences/api.py:253
 #, python-brace-format
 msgid "Delete failed for user preference '{preference_key}'."
@@ -8552,6 +8562,14 @@ msgid ""
 "Value '{preference_value}' is not valid for user preference "
 "'{preference_key}'."
 msgstr "ユーザー設定「{preference_key}」に対する値「{preference_value}」は無効です。"
+
+#: openedx/core/djangoapps/user_api/preferences/api.py:433
+#, python-brace-format
+msgid ""
+"Value '{preference_value}' not valid for preference '{preference_key}': Not "
+"in timezone set."
+msgstr ""
+"プリファレンス「{preference_key}」に対する値「{preference_value}」は無効です: タイムゾーンセットに含まれていません。"
 
 #: openedx/core/djangoapps/user_api/preferences/api.py:434
 #, python-brace-format
@@ -8590,6 +8608,15 @@ msgstr "このメールは情報提供のみを目的としています。この
 #, python-format
 msgid "Best, %(platform_name)s"
 msgstr "よろしくお願いいたします, %(platform_name)s"
+
+#. Translators: This label appears above a dropdown menu used to select
+#. the user's highest completed level of education.
+#. Translators: This label appears above a dropdown menu on the registration
+#. form used to select the user's highest completed level of education.
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:94
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:629
+msgid "Highest level of education completed"
+msgstr "最終学歴を修了したレベル"
 
 #. #-#-#-#-#  django.po (0.1a)  #-#-#-#-#
 #. Translators: This label appears above a dropdown menu on the form
@@ -8651,6 +8678,24 @@ msgstr "会社"
 msgid "Title"
 msgstr "タイトル"
 
+#. Translators: This label appears above a field which allows the
+#. user to input the First Name
+#. Translators: This label appears above a field on the registration form
+#. which allows the user to input the First Name
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:226
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:933
+msgid "First Name"
+msgstr "名（ファーストネーム）"
+
+#. Translators: This label appears above a field which allows the
+#. user to input the Last Name
+#. Translators: This label appears above a field on the registration form
+#. which allows the user to input the First Name
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:242
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:950
+msgid "Last Name"
+msgstr "姓 (Last Name)"
+
 #. #-#-#-#-#  django.po (0.1a)  #-#-#-#-#
 #. Translators: This label appears above a field
 #. meant to hold the user's mailing address.
@@ -8679,6 +8724,14 @@ msgid ""
 "You're receiving this e-mail because you requested a password reset for your"
 " user account at %(platform_name)s."
 msgstr "あなたは、%(platform_name)sでのユーザーアカウントのパスワードリセットをリクエストしたため、このメールを受け取っています。"
+
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:22
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.txt:5
+#, python-format
+msgid ""
+"However, there is currently no user account associated with your email "
+"address: %(email_address)s."
+msgstr "ただし、現在、あなたのメールアドレス: %(email_address)s に関連付けられたユーザーアカウントはありません。"
 
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:28
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.txt:7
@@ -9008,6 +9061,12 @@ msgstr "居住国または地域"
 msgid "The country or region where you live."
 msgstr "あなたが住んでいる国または地域。"
 
+#. Translators: This is a legal document users must agree to
+#. in order to register a new account.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1016
+msgid "Terms of Service and Honor Code"
+msgstr "利用規約と名誉規定"
+
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:1022
 #, python-brace-format
 msgid ""
@@ -9055,6 +9114,11 @@ msgstr "アカウントを作成"
 #, python-brace-format
 msgid "{header_open}{title}{header_close}{body}"
 msgstr "{header_open}{title}{header_close}{body}"
+
+#: openedx/core/djangoapps/util/user_messages.py:241
+#, python-brace-format
+msgid "{header_open}{title}{header_close}"
+msgstr "{header_open}{title}{header_close}"
 
 #: openedx/core/djangoapps/util/user_messages.py:256
 #: cms/templates/course_outline.html:61 cms/templates/course_outline.html:99
@@ -9131,6 +9195,10 @@ msgstr "ライセンスは、このブロックの内容をどのように共有
 msgid "Team Group: {team_set_name}"
 msgstr "チームグループ: {team_set_name}"
 
+#: openedx/core/lib/teams_config.py:387
+msgid "Partition for segmenting users by team-set"
+msgstr "チームセットによるユーザーのセグメント化のためのパーティション"
+
 #: openedx/features/calendar_sync/ics.py:36
 #, python-brace-format
 msgid "{assignment} is due for {course}."
@@ -9152,6 +9220,15 @@ msgstr "カレンダー更新を購読する"
 #, python-brace-format
 msgid "Sync {course} to your calendar"
 msgstr "{course}をカレンダーに同期する"
+
+#: openedx/features/calendar_sync/utils.py:17
+#, python-brace-format
+msgid ""
+"Sticking to a schedule is the best way to ensure that you successfully "
+"complete your self-paced course. This schedule for {course} will help you "
+"stay on track!"
+msgstr ""
+"スケジュールを守ることは、自己ペースで進めるコースを成功裏に完了するための最良の方法です。この{course}のスケジュールは、あなたが軌道に乗るのを助けます！"
 
 #: openedx/features/calendar_sync/utils.py:20
 msgid ""
@@ -9205,6 +9282,11 @@ msgstr "enabledがTrueの場合、enabled_as_ofを設定する必要がありま
 msgid "Partition for segmenting users by access to gated content types"
 msgstr "ユーザーをゲートコンテンツタイプへのアクセスでセグメント化するためのパーティション"
 
+#: openedx/features/content_type_gating/partitions.py:117
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:10
+msgid "Graded assessments are available to Verified Track learners."
+msgstr "認定トラックの学習者は、採点された評価を利用できます。"
+
 #: openedx/features/content_type_gating/partitions.py:119
 msgid ""
 "Graded assessments are available to Verified Track learners. Upgrade to "
@@ -9222,6 +9304,11 @@ msgstr "認証トラックアクセス"
 #: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:15
 msgid "Upgrade to unlock"
 msgstr "アップグレードしてアンロック"
+
+#: openedx/features/course_duration_limits/access.py:32
+#, python-brace-format
+msgid "Access expired on {expiration_date}"
+msgstr "アクセスは{expiration_date}に期限切れになりました。"
 
 #: openedx/features/course_duration_limits/access.py:35
 #, python-brace-format
@@ -9250,6 +9337,16 @@ msgstr ""
 "{strong_open}監査アクセスの有効期限 "
 "{expiration_date}{strong_close}{line_break}このコースへのアクセスは、進捗を含めて{expiration_date}に失われます。"
 
+#: openedx/features/course_duration_limits/access.py:167
+#, python-brace-format
+msgid ""
+"{line_break}Upgrade by {upgrade_deadline} to get unlimited access to the "
+"course as long as it exists on the site. {a_open}Upgrade "
+"now{sronly_span_open} to retain access past "
+"{expiration_date}{span_close}{a_close}"
+msgstr ""
+"{line_break}このサイトにコースが存在する限り、無制限のアクセスを得るために{upgrade_deadline}までにアップグレードしてください。{a_open}今すぐアップグレードして、{expiration_date}以降もアクセスを維持してください{span_close}{a_close}"
+
 #: openedx/features/course_experience/api/v1/views.py:64
 msgid "'course_key' is required."
 msgstr "「course_key」が必要です。"
@@ -9258,6 +9355,11 @@ msgstr "「course_key」が必要です。"
 #: openedx/features/course_experience/api/v1/views.py:101
 msgid "View all dates"
 msgstr "すべての日付を表示"
+
+#: openedx/features/course_experience/api/v1/views.py:99
+msgid ""
+"Your due dates have been successfully shifted to help you stay on track."
+msgstr "締切日が正常に変更され、予定通りに進めるようになりました。"
 
 #: openedx/features/course_experience/api/v1/views.py:102
 msgid "Deadlines successfully reset."
@@ -9375,6 +9477,12 @@ msgid ""
 "learning!"
 msgstr "{platform_name}にご参加いただきありがとうございます。学習を始める前に、あと少しのステップがあります！"
 
+#: openedx/features/enterprise_support/utils.py:205
+#: lms/templates/course_modes/track_selection.html:156
+#: lms/templates/peer_grading/peer_grading_problem.html:68
+msgid "Continue"
+msgstr "続行"
+
 #: openedx/features/personalized_learner_schedules/call_to_action.py:121
 msgid "The deadline to complete this assignment has passed."
 msgstr "この課題を完了するための締め切りは過ぎました。"
@@ -9386,6 +9494,12 @@ msgid ""
 "progress you’ve made when you shift your due dates."
 msgstr ""
 "スケジュールを更新して、期限が過ぎた課題を未来に移動させることで、自分の進捗を維持できます。心配しないでください—期限を変更しても、これまでの進捗が失われることはありません。"
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:145
+#, python-brace-format
+msgid "Try again ({attempts} attempt remaining)"
+msgid_plural "Try again ({attempts} attempts remaining)"
+msgstr[0] "再試行してください（残り{attempts}回）"
 
 #: openedx/features/personalized_learner_schedules/call_to_action.py:150
 #, python-brace-format
@@ -9401,6 +9515,14 @@ msgstr "この問題に対して、無制限の試行のうち{attempts}回を�
 #: cms/templates/widgets/header.html:386
 msgid "Sign In"
 msgstr "サインイン"
+
+#: themes/red-theme/lms/templates/ace_common/edx_ace/common/base_body.html:176
+msgid "Our mailing address is"
+msgstr "私たちの郵送先住所は"
+
+#: xmodule/annotatable_block.py:48
+msgid "XML data for the annotation"
+msgstr "アノテーション用のXMLデータ"
 
 #: xmodule/annotatable_block.py:70 xmodule/capa_block.py:179
 #: xmodule/conditional_block.py:89 xmodule/discussion_block.py:50
@@ -9479,6 +9601,14 @@ msgstr "この回答は部分的に正しいです。"
 msgid "This answer is being processed."
 msgstr "この回答は処理中です。"
 
+#: xmodule/capa/inputtypes.py:107
+msgid "Not yet answered."
+msgstr "未回答"
+
+#: xmodule/capa/inputtypes.py:453 wiki/forms.py:162
+msgid "Select an option"
+msgstr "オプションを選択"
+
 #. Translators: 'ChoiceGroup' is an input type and should not be translated.
 #: xmodule/capa/inputtypes.py:502
 #, python-brace-format
@@ -9488,6 +9618,13 @@ msgstr "ChoiceGroup: 予期しないタグ {tag_name}"
 #: xmodule/capa/inputtypes.py:514 xmodule/capa/inputtypes.py:1697
 msgid "Answer received."
 msgstr "回答を受け取りました。"
+
+#. Translators: '<choice>' and '<compoundhint>' are tag names and should not
+#. be translated.
+#: xmodule/capa/inputtypes.py:550
+#, python-brace-format
+msgid "Expected a <choice> or <compoundhint> tag; got {given_tag} instead"
+msgstr "<choice> または <compoundhint> タグが予期されましたが、代わりに {given_tag} が取得されました。"
 
 #: xmodule/capa/inputtypes.py:734
 msgid ""
@@ -9576,6 +9713,10 @@ msgstr "回答"
 msgid "Error {err} in evaluating hint function {hintfn}."
 msgstr "ヒント関数 {hintfn} の評価中にエラー {err} が発生しました。"
 
+#: xmodule/capa/responsetypes.py:490
+msgid "(Source code line unavailable)"
+msgstr "(ソースコード行は利用できません)"
+
 #: xmodule/capa/responsetypes.py:491
 #, python-brace-format
 msgid "See XML source line {sourcenum}."
@@ -9587,6 +9728,13 @@ msgstr "XMLソース行{sourcenum}を参照してください。"
 #: cms/templates/widgets/problem-edit.html:109
 msgid "Checkboxes"
 msgstr "チェックボックス"
+
+#: xmodule/capa/responsetypes.py:985
+#: cms/templates/widgets/problem-edit.html:26
+#: cms/templates/widgets/problem-edit.html:30
+#: cms/templates/widgets/problem-edit.html:98
+msgid "Multiple Choice"
+msgstr "選択式"
 
 #. Translators: 'shuffle' and 'answer-pool' are attribute names and should not
 #. be translated.
@@ -9604,6 +9752,10 @@ msgstr "answer-poolの値は整数である必要があります"
 #: xmodule/capa/responsetypes.py:1366
 msgid "Choicegroup must include at least 1 correct and 1 incorrect choice"
 msgstr "選択グループには、少なくとも1つの正しい選択肢と1つの誤った選択肢を含める必要があります。"
+
+#: xmodule/capa/responsetypes.py:1390
+msgid "True/False Choice"
+msgstr "真/偽の選択肢"
 
 #: xmodule/capa/responsetypes.py:1424
 #: cms/templates/widgets/problem-edit.html:58
@@ -9689,6 +9841,10 @@ msgstr "カスタム評価スクリプト"
 msgid "error getting student answer from {student_answers}"
 msgstr "{student_answers}から学生の回答を取得する際のエラー"
 
+#: xmodule/capa/responsetypes.py:2208
+msgid "No answer entered!"
+msgstr "回答が入力されていません！"
+
 #: xmodule/capa/responsetypes.py:2432
 msgid "CustomResponse: check function returned an invalid dictionary!"
 msgstr "CustomResponse: チェック関数が無効な辞書を返しました！"
@@ -9760,6 +9916,10 @@ msgstr "回路図作成ツール"
 msgid "Error in evaluating SchematicResponse. The error was: {error_msg}"
 msgstr "SchematicResponseの評価中にエラーが発生しました。エラー内容: {error_msg}"
 
+#: xmodule/capa/responsetypes.py:3325
+msgid "Image Mapped Input"
+msgstr "画像マッピング入力"
+
 #: xmodule/capa/responsetypes.py:3350
 #, python-brace-format
 msgid "error grading {image_input_id} (input={user_input})"
@@ -9770,6 +9930,10 @@ msgstr "{image_input_id} の採点エラー (入力={user_input})"
 #, python-brace-format
 msgid "Error in problem specification! Cannot parse rectangle in {sr_coords}"
 msgstr "問題の仕様にエラーがあります！{sr_coords} 内の長方形を解析できません。"
+
+#: xmodule/capa/responsetypes.py:3444
+msgid "Annotation Input"
+msgstr "注釈入力"
 
 #: xmodule/capa/responsetypes.py:3571
 msgid "Checkboxes With Text Input"
@@ -9842,6 +10006,10 @@ msgstr "平均スコア"
 msgid "Date that this problem is due by"
 msgstr "この問題の締切日"
 
+#: xmodule/capa_block.py:213
+msgid "Amount of time after the due date that submissions will be accepted"
+msgstr "期限後に提出が受け付けられる時間の長さ"
+
 #: xmodule/capa_block.py:217 xmodule/modulestore/inheritance.py:103
 msgid "Show Results"
 msgstr "結果を表示"
@@ -9891,6 +10059,10 @@ msgstr "完了"
 msgid "Correct or Past Due"
 msgstr "正解または期限切れ"
 
+#: xmodule/capa_block.py:243
+msgid "After Some Number of Attempts"
+msgstr "試行回数の後"
+
 #: xmodule/capa_block.py:244
 msgid "After All Attempts"
 msgstr "すべての試行後"
@@ -9898,6 +10070,10 @@ msgstr "すべての試行後"
 #: xmodule/capa_block.py:245
 msgid "After All Attempts or Correct"
 msgstr "すべての試行または正解後"
+
+#: xmodule/capa_block.py:246
+msgid "Attempted"
+msgstr "試行済み"
 
 #: xmodule/capa_block.py:250
 msgid "Show Answer: Number of Attempts"
@@ -9932,6 +10108,14 @@ msgstr ""
 #: xmodule/capa_block.py:280
 msgid "On Reset"
 msgstr "リセット時に"
+
+#: xmodule/capa_block.py:282
+msgid "Per Student"
+msgstr "学生ごとに"
+
+#: xmodule/capa_block.py:286
+msgid "XML data for the problem"
+msgstr "問題のXMLデータ"
 
 #: xmodule/capa_block.py:291
 msgid "Dictionary with the correctness of current student answers"
@@ -9976,6 +10160,10 @@ msgstr "この学生のためのランダムシード"
 #: xmodule/capa_block.py:311
 msgid "Last submission time"
 msgstr "最終提出時間"
+
+#: xmodule/capa_block.py:313
+msgid "Timer Between Attempts"
+msgstr "試行間の時間"
 
 #: xmodule/capa_block.py:318
 msgid "Problem Weight"
@@ -10027,6 +10215,12 @@ msgid ""
 "reloading your page and trying again."
 msgstr "申し訳ありませんが、リクエストの処理中にエラーが発生しました。ページを再読み込みして、もう一度お試しください。"
 
+#: xmodule/capa_block.py:440
+msgid ""
+"The state of this problem has changed since you loaded this page. Please "
+"refresh your page."
+msgstr "この問題の状態は、このページを読み込んでから変更されました。ページを更新してください。"
+
 #: xmodule/capa_block.py:786 xmodule/capa_block.py:802
 msgid "Answer ID"
 msgstr "回答ID"
@@ -10034,6 +10228,10 @@ msgstr "回答ID"
 #: xmodule/capa_block.py:787 xmodule/capa_block.py:803
 msgid "Question"
 msgstr "質問"
+
+#: xmodule/capa_block.py:791
+msgid "Correct Answer"
+msgstr "正しい答え"
 
 #: xmodule/capa_block.py:1037
 msgid "Submitting"
@@ -10115,6 +10313,11 @@ msgstr "問題は終了しました。"
 msgid "Problem must be reset before it can be submitted again."
 msgstr "問題は再提出する前にリセットする必要があります。"
 
+#: xmodule/capa_block.py:1818
+#, python-brace-format
+msgid "You must wait at least {wait} seconds between submissions."
+msgstr "提出の間に少なくとも{wait}秒待つ必要があります。"
+
 #: xmodule/capa_block.py:1827
 #, python-brace-format
 msgid ""
@@ -10171,6 +10374,10 @@ msgstr "回答を提出してからリセットを選択してください。"
 msgid "Problem's definition does not support rescoring."
 msgstr "問題の定義は再採点をサポートしていません。"
 
+#: xmodule/capa_block.py:2256
+msgid "Problem must be answered before it can be graded again."
+msgstr "問題は再評価される前に回答されなければなりません。"
+
 #: xmodule/conditional_block.py:91
 msgid "Conditional"
 msgstr "条件付き"
@@ -10183,9 +10390,19 @@ msgstr "ソースコンポーネント"
 msgid "Conditional Attribute"
 msgstr "条件付き属性"
 
+#: xmodule/conditional_block.py:109
+msgid ""
+"The attribute of the source components that determines whether a learner is "
+"shown the content of this conditional block."
+msgstr "ソースコンポーネントの属性で、この条件付きブロックの内容を学習者に表示するかどうかを決定します。"
+
 #: xmodule/conditional_block.py:118
 msgid "Conditional Value"
 msgstr "条件値"
+
+#: xmodule/conditional_block.py:126
+msgid "Blocked Content Message"
+msgstr "コンテンツがブロックされました"
 
 #: xmodule/conditional_block.py:127
 #, python-brace-format
@@ -10196,6 +10413,11 @@ msgid ""
 "'You must complete {link} before you can access this unit'."
 msgstr ""
 "学習者に表示されるメッセージは、この条件付きブロックのコンテンツを表示するためのすべての条件が満たされていない場合に表示されます。メッセージの中に{link}を含めて、学習者に必要なユニットへの直接リンクを提供してください。例えば、「このユニットにアクセスする前に{link}を完了する必要があります」といった形です。"
+
+#: xmodule/conditional_block.py:131
+#, python-brace-format
+msgid "You must complete {link} before you can access this unit."
+msgstr "{link}を完了しないと、このユニットにアクセスできません。"
 
 #: xmodule/conditional_block.py:376
 msgid "This component has no source components configured yet."
@@ -10244,6 +10466,10 @@ msgstr "このクラスが終了する日付"
 msgid "Date that certificates become available to learners"
 msgstr "学習者が証明書を利用できる日付"
 
+#: xmodule/course_block.py:354
+msgid "Cosmetic Course Display Price"
+msgstr "コース表示価格（参考）"
+
 #: xmodule/course_block.py:356
 msgid ""
 "The cost displayed to students for enrolling in the course. If a paid course"
@@ -10266,6 +10492,10 @@ msgstr ""
 #: xmodule/course_block.py:372
 msgid "Pre-Requisite Courses"
 msgstr "必修前提条件コース"
+
+#: xmodule/course_block.py:373
+msgid "Pre-Requisite Course key if this course has a pre-requisite course"
+msgstr "このコースに前提条件のコースがある場合の前提条件コースキー"
 
 #: xmodule/course_block.py:377
 msgid "Grading policy definition for this class"
@@ -10411,6 +10641,10 @@ msgid ""
 "Enter the unique identifier for your course's video files provided by "
 "{platform_name}."
 msgstr "{platform_name} によって提供されたコースのビデオファイルの一意の識別子を入力してください。"
+
+#: xmodule/course_block.py:478
+msgid "Course Not Graded"
+msgstr "コースは採点されません"
 
 #: xmodule/course_block.py:479
 msgid "Enter true or false. If true, the course will not be graded."
@@ -10655,6 +10889,10 @@ msgstr "コースは、異なる番号を持っていても、同じCSSクラス
 msgid "Discussion Forum External Link"
 msgstr "ディスカッションフォーラム外部リンク"
 
+#: xmodule/course_block.py:693
+msgid "Allows specification of an external link to replace discussion forums."
+msgstr "ディスカッションフォーラムを置き換えるための外部リンクを指定できます。"
+
 #: xmodule/course_block.py:702
 msgid "Hide Progress Tab"
 msgstr "進捗タブを非表示"
@@ -10717,9 +10955,21 @@ msgstr "招待制"
 msgid "Whether to restrict enrollment to invitation by the course staff."
 msgstr "コーススタッフによる招待のみで登録を制限するかどうか。"
 
+#: xmodule/course_block.py:756
+msgid "Pre-Course Survey Name"
+msgstr "事前コース調査名"
+
 #: xmodule/course_block.py:764
 msgid "Pre-Course Survey Required"
 msgstr "コース前アンケート必須"
+
+#: xmodule/course_block.py:766
+msgid ""
+"Specify whether students must complete a survey before they can view your "
+"course content. If you set this value to true, you must add a name for the "
+"survey to the Course Survey Name setting above."
+msgstr ""
+"学生がコース内容を閲覧する前にアンケートを完了する必要があるかどうかを指定します。この値を「true」に設定した場合、上記の「コースアンケート名」設定にアンケートの名前を追加する必要があります。"
 
 #: xmodule/course_block.py:775
 msgid "Course Visibility In Catalog"
@@ -10736,6 +10986,10 @@ msgid ""
 msgstr ""
 "コースカタログにコースを表示するためのアクセス権限を定義します。これは3つの値のいずれかに設定できます：「both」（カタログに表示し、概要ページへのアクセスを許可）、"
 " 「about」（概要ページへのアクセスのみを許可）、 「none」（カタログに表示せず、概要ページへのアクセスも許可しない）。"
+
+#: xmodule/course_block.py:793
+msgid "Entrance Exam Enabled"
+msgstr "入学試験有効化"
 
 #: xmodule/course_block.py:795
 msgid ""
@@ -10784,6 +11038,10 @@ msgstr "コース言語"
 msgid "Specify the language of your course."
 msgstr "コースの言語を指定してください。"
 
+#: xmodule/course_block.py:840
+msgid "Teams Configuration"
+msgstr "チーム設定"
+
 #: xmodule/course_block.py:843
 msgid ""
 "Configure team sets, limit team sizes, and set visibility settings using "
@@ -10823,6 +11081,14 @@ msgstr ""
 msgid "Proctortrack Exam Escalation Contact"
 msgstr "プロクタートラック試験エスカレーション連絡先"
 
+#: xmodule/course_block.py:881
+msgid ""
+"Required if 'proctortrack' is selected as your proctoring provider. Enter an"
+" email address to be contacted by the support team whenever there are "
+"escalations (e.g. appeals, delayed reviews, etc.)."
+msgstr ""
+"'proctortrack'を監督プロバイダーとして選択した場合に必要です。エスカレーション（例：異議申し立て、レビューの遅延など）が発生した際にサポートチームから連絡を受けるためのメールアドレスを入力してください。"
+
 #: xmodule/course_block.py:893
 msgid ""
 "Enter true or false. If this value is true, learners can choose to take "
@@ -10853,6 +11119,10 @@ msgid ""
 "Proctored Exams is set to true."
 msgstr ""
 "真または偽を入力してください。この値が真の場合、コースで時間制限付き試験が有効になります。この設定に関係なく、プロクター試験が有効に設定されている場合、時間制限付き試験は有効になります。"
+
+#: xmodule/course_block.py:924
+msgid "Minimum Grade for Credit"
+msgstr "単位取得のための最低成績"
 
 #: xmodule/course_block.py:926
 msgid ""
@@ -10910,6 +11180,10 @@ msgid ""
 msgstr ""
 "コースのビデオ共有オプションを指定します。これは「all-on」、「all-off」、「per-"
 "video」の3つの値のいずれかに設定できます。「per-video」がデフォルトです。"
+
+#: xmodule/course_block.py:997
+msgid "Force Flexible Grading for Peer ORAs"
+msgstr "ピア評価の柔軟な採点を強制する"
 
 #: xmodule/course_block.py:998
 msgid ""
@@ -10998,6 +11272,10 @@ msgstr "一般"
 msgid "Category"
 msgstr "カテゴリー"
 
+#: xmodule/discussion_block.py:56
+msgid "Week 1"
+msgstr "第1週"
+
 #: xmodule/discussion_block.py:58
 msgid ""
 "A category name for the discussion. This name appears in the left pane of "
@@ -11067,6 +11345,14 @@ msgstr "このブロックに表示するHTMLコンテンツ"
 msgid "Source code for LaTeX documents. This feature is not well-supported."
 msgstr "LaTeXドキュメントのソースコード。この機能は十分にサポートされていません。"
 
+#: xmodule/html_block.py:75
+msgid ""
+"Select Visual to enter content and have the editor automatically create the "
+"HTML. Select Raw to edit HTML directly. If you change this setting, you must"
+" save the component and then re-open it for editing."
+msgstr ""
+"ビジュアルを選択してコンテンツを入力し、エディターにHTMLを自動作成させます。生を選択してHTMLを直接編集します。この設定を変更した場合、コンポーネントを保存してから再度開いて編集する必要があります。"
+
 #: xmodule/html_block.py:78
 msgid "Editor"
 msgstr "エディター"
@@ -11074,6 +11360,10 @@ msgstr "エディター"
 #: xmodule/html_block.py:81
 msgid "Visual"
 msgstr "ビジュアル"
+
+#: xmodule/html_block.py:82
+msgid "Raw"
+msgstr "生データ"
 
 #: xmodule/html_block.py:399
 msgid "Hide Page From Learners"
@@ -11304,6 +11594,10 @@ msgid ""
 "external LTI system."
 msgstr "外部LTIシステムから数値スコアを受け取る場合は「True」を選択してください。"
 
+#: xmodule/lti_block.py:198
+msgid "Weight"
+msgstr "重み"
+
 #: xmodule/lti_block.py:200
 msgid ""
 "Enter the number of points possible for this component.  The default value "
@@ -11383,6 +11677,10 @@ msgstr "LTIパスポートを解析できませんでした: {lti_passport}。�
 #: xmodule/modulestore/inheritance.py:48
 msgid "Enter the default date by which problems are due."
 msgstr "問題の提出期限となるデフォルトの日付を入力してください。"
+
+#: xmodule/modulestore/inheritance.py:53 xmodule/seq_block.py:84
+msgid "Number of Relative Weeks Due By"
+msgstr "相対的な週数の締切日"
 
 #: xmodule/modulestore/inheritance.py:54 xmodule/seq_block.py:85
 msgid ""
@@ -11600,6 +11898,11 @@ msgstr "{}の読み取り中にエラーが発生しました。XMLエラーが�
 msgid "Failed to import block: {} at location: {}"
 msgstr "ブロックのインポートに失敗しました: {} 場所: {}"
 
+#: xmodule/partitions/enrollment_track_partition_generator.py:38
+#: cms/templates/group_configurations.html:86
+msgid "Enrollment Track Groups"
+msgstr "登録トラックグループ"
+
 #: xmodule/partitions/enrollment_track_partition_generator.py:39
 msgid "Partition for segmenting users by enrollment track"
 msgstr "登録トラックによるユーザーのセグメント化のためのパーティション"
@@ -11615,6 +11918,10 @@ msgstr "学生の回答"
 #: xmodule/poll_block.py:67
 msgid "Poll answers from all students"
 msgstr "すべての学生からの投票回答"
+
+#: xmodule/poll_block.py:73
+msgid "Poll answers from xml"
+msgstr "XMLからの投票回答"
 
 #: xmodule/poll_block.py:79
 msgid "Poll question"
@@ -11664,9 +11971,17 @@ msgid ""
 "this courseware component."
 msgstr "学生がこのコースウェアコンポーネントを視聴または操作するために利用できる分数。"
 
+#: xmodule/seq_block.py:171
+msgid "Is Proctoring Enabled"
+msgstr "プロクタリングが有効かどうか"
+
 #: xmodule/seq_block.py:173
 msgid "This setting indicates whether this exam is a proctored exam."
 msgstr "この設定は、この試験が監督付き試験であるかどうかを示します。"
+
+#: xmodule/seq_block.py:180
+msgid "Software Secure Review Rules"
+msgstr "ソフトウェアセキュアレビュールール"
 
 #: xmodule/seq_block.py:182
 msgid ""
@@ -11692,6 +12007,12 @@ msgstr "オンボーディング試験"
 msgid "This setting indicates whether this exam is an onboarding exam."
 msgstr "この設定は、この試験がオンボーディング試験であるかどうかを示します。"
 
+#: xmodule/seq_block.py:358 xmodule/seq_block.py:450
+msgid ""
+"This subsection is unlocked for learners when they meet the prerequisite "
+"requirements."
+msgstr "学習者が必要条件を満たすと、このサブセクションがアンロックされます。"
+
 #: xmodule/seq_block.py:502
 msgid "This exam is hidden from the learner."
 msgstr "この試験は学習者から非表示になっています。"
@@ -11706,6 +12027,12 @@ msgid ""
 "Because the due date has passed, this assignment is hidden from the learner."
 msgstr "期限が過ぎたため、この課題は学習者から非表示になっています。"
 
+#: xmodule/seq_block.py:557
+msgid ""
+"This section is a prerequisite. You must complete this section in order to "
+"unlock additional content."
+msgstr "このセクションは必須です。このセクションを完了することで、追加のコンテンツがアンロックされます。"
+
 #: xmodule/seq_block.py:984
 msgid ""
 "A list summarizing what students should look forward to in this section."
@@ -11715,6 +12042,10 @@ msgstr "学生がこのセクションで期待すべきことを要約したリ
 #, python-brace-format
 msgid "Group ID {group_id}"
 msgstr "グループID {group_id}"
+
+#: xmodule/split_test_block.py:79
+msgid "Not Selected"
+msgstr "未選択"
 
 #: xmodule/split_test_block.py:83
 msgid "The display name for this component. (Not shown to learners)"
@@ -11771,6 +12102,10 @@ msgid ""
 "The experiment does not contain all of the groups in the configuration."
 msgstr "構成内のすべてのグループが実験に含まれていません。"
 
+#: xmodule/split_test_block.py:668
+msgid "Add Missing Groups"
+msgstr "不足しているグループを追加"
+
 #: xmodule/split_test_block.py:675
 msgid ""
 "The experiment has an inactive group. Move content into active groups, then "
@@ -11802,6 +12137,13 @@ msgstr "{link_start}編集{link_end}を押して、表示される数やその�
 #: xmodule/templates/item_bank/author_view.html:44
 msgid "You have not selected any components yet."
 msgstr "まだコンポーネントが選択されていません。"
+
+#: xmodule/templates/item_bank/author_view_add.html:11
+#, python-brace-format
+msgid ""
+"{button_start}Add components{button_end} from a content library to this "
+"problem bank."
+msgstr "{button_start}コンポーネントを追加{button_end}して、この問題バンクにコンテンツライブラリから追加します。"
 
 #: xmodule/vertical_block.py:45
 msgid "Enable in-context discussions for the Unit"
@@ -11924,9 +12266,17 @@ msgid ""
 "Optional, for older browsers: the YouTube ID for the 1.25x speed video."
 msgstr "古いブラウザ用のオプション: 1.25倍速動画のYouTube ID。"
 
+#: xmodule/video_block/video_xfields.py:47
+msgid "YouTube ID for 1.25x speed"
+msgstr "1.25倍速用のYouTube ID"
+
 #: xmodule/video_block/video_xfields.py:52
 msgid "Optional, for older browsers: the YouTube ID for the 1.5x speed video."
 msgstr "古いブラウザ用のオプション: 1.5倍速ビデオのYouTube ID。"
+
+#: xmodule/video_block/video_xfields.py:53
+msgid "YouTube ID for 1.5x speed"
+msgstr "1.5倍速用のYouTube ID"
 
 #: xmodule/video_block/video_xfields.py:59
 msgid ""
@@ -11962,6 +12312,10 @@ msgid ""
 msgstr ""
 "学生がedXビデオプレーヤーを使用できない場合やYouTubeにアクセスできない場合に備えて、このビデオのバージョンを異なる形式でダウンロードできるようにします。ビデオファイルURLフィールドには、少なくとも1つの非YouTube"
 " URLを追加する必要があります。"
+
+#: xmodule/video_block/video_xfields.py:83
+msgid "Video Download Allowed"
+msgstr "ビデオのダウンロードを許可"
 
 #: xmodule/video_block/video_xfields.py:88
 msgid ""
@@ -12007,6 +12361,10 @@ msgid ""
 msgstr ""
 "学生がタイムドトランスクリプトをダウンロードできるようにします。ファイルをダウンロードするリンクはビデオの下に表示されます。デフォルトでは、トランスクリプトは.srtまたは.txtファイルです。別の形式でダウンロード用のトランスクリプトを提供したい場合は、ハンドアウトアップロードフィールドを使用してファイルをアップロードしてください。"
 
+#: xmodule/video_block/video_xfields.py:110
+msgid "Download Transcript Allowed"
+msgstr "トランスクリプトのダウンロードを許可"
+
 #: xmodule/video_block/video_xfields.py:117
 msgid ""
 "The default transcript for the video, from the Default Timed Transcript "
@@ -12018,6 +12376,10 @@ msgstr ""
 #: xmodule/video_block/video_xfields.py:119
 msgid "Default Timed Transcript"
 msgstr "デフォルトのタイムドトランスクリプト"
+
+#: xmodule/video_block/video_xfields.py:124
+msgid "Specify whether the transcripts appear with the video by default."
+msgstr "トランスクリプトがデフォルトでビデオと一緒に表示されるかどうかを指定します。"
 
 #: xmodule/video_block/video_xfields.py:125
 msgid "Show Transcript"
@@ -12033,6 +12395,14 @@ msgstr "さまざまな言語での文字起こしを追加します。下をク
 msgid "Transcript Languages"
 msgstr "トランスクリプト言語"
 
+#: xmodule/video_block/video_xfields.py:138
+msgid "Preferred language for transcript."
+msgstr "トランスクリプトの優先言語。"
+
+#: xmodule/video_block/video_xfields.py:139
+msgid "Preferred language for transcript"
+msgstr "トランスクリプトの優先言語"
+
 #: xmodule/video_block/video_xfields.py:144
 msgid "Transcript file format to download by user."
 msgstr "ユーザーがダウンロードするためのトランスクリプトファイル形式。"
@@ -12046,6 +12416,10 @@ msgstr "SubRip (.srt) ファイル"
 #: xmodule/video_block/video_xfields.py:149
 msgid "Text (.txt) file"
 msgstr "テキスト (.txt) ファイル"
+
+#: xmodule/video_block/video_xfields.py:154
+msgid "The last speed that the user specified for the video."
+msgstr "ユーザーがビデオに指定した最後の速度。"
 
 #: xmodule/video_block/video_xfields.py:158
 msgid "The default speed for the video."
@@ -12147,6 +12521,10 @@ msgstr "生成されたワードクラウドに表示される単語の最大数
 msgid "Show Percents"
 msgstr "パーセントを表示"
 
+#: xmodule/word_cloud_block.py:89
+msgid "Statistics are shown for entered words near that word."
+msgstr "入力された単語の統計がその単語の近くに表示されます。"
+
 #: xmodule/word_cloud_block.py:96
 msgid "Whether this learner has posted words to the cloud."
 msgstr "この学習者が単語をクラウドに投稿したかどうか。"
@@ -12159,6 +12537,10 @@ msgstr "学生の回答。"
 msgid "All possible words from all learners."
 msgstr "すべての学習者からのすべての可能な単語。"
 
+#: xmodule/word_cloud_block.py:110
+msgid "Top num_top_words words for word cloud."
+msgstr "上位 num_top_words 語のワードクラウド用の単語。"
+
 #: xmodule/x_module.py:728
 #, python-brace-format
 msgid ""
@@ -12169,6 +12551,10 @@ msgstr "{display_name}は登録した学習者のみがアクセスできます�
 #: wiki/admin.py:77 wiki/models/article.py:28
 msgid "created"
 msgstr "作成"
+
+#: wiki/apps.py:7
+msgid "Wiki notifications"
+msgstr "ウィキ通知"
 
 #: wiki/apps.py:13
 msgid "Wiki images"
@@ -12251,9 +12637,26 @@ msgstr "削除された記事でスラッグ「%s」が既に存在します。"
 msgid "A slug named \"%s\" already exists."
 msgstr "スラッグ「%s」はすでに存在します。"
 
+#: wiki/forms.py:246
+msgid "Yes, I am sure"
+msgstr "はい、確かです。"
+
 #: wiki/forms.py:248 wiki/templates/wiki/deleted.html:46
 msgid "Purge"
 msgstr "パージ"
+
+#: wiki/forms.py:249
+msgid ""
+"Purge the article: Completely remove it (and all its contents) with no undo."
+" Purging is a good idea if you want to free the slug such that users can "
+"create new articles in its place."
+msgstr ""
+"記事を完全に削除します（内容も含めて）。元に戻すことはできません。スラッグを解放して、新しい記事を作成できるようにするには、削除が良い方法です。"
+
+#: wiki/forms.py:256 wiki/plugins/attachments/forms.py:24
+#: wiki/plugins/images/forms.py:64
+msgid "You are not sure enough!"
+msgstr "あなたは十分に確信が持てていません！"
 
 #: wiki/forms.py:258
 msgid "While you tried to delete this article, it was modified. TAKE CARE!"
@@ -12263,13 +12666,25 @@ msgstr "この記事を削除しようとした間に、内容が変更されま
 msgid "Lock article"
 msgstr "記事をロックする"
 
+#: wiki/forms.py:264
+msgid "Deny all users access to edit this article."
+msgstr "すべてのユーザーにこの記事の編集を禁止する。"
+
 #: wiki/forms.py:267
 msgid "Permissions"
 msgstr "権限"
 
+#: wiki/forms.py:271
+msgid "Owner"
+msgstr "所有者"
+
 #: wiki/forms.py:272
 msgid "Enter the username of the owner."
 msgstr "所有者のユーザー名を入力してください。"
+
+#: wiki/forms.py:273
+msgid "(none)"
+msgstr "（なし）"
 
 #: wiki/forms.py:278
 msgid "Inherit permissions"
@@ -12302,6 +12717,11 @@ msgstr "フィルター"
 #: wiki/core/plugins/base.py:46
 msgid "Settings for plugin"
 msgstr "プラグインの設定"
+
+#: wiki/models/article.py:23 wiki/models/pluginbase.py:158
+#: wiki/plugins/attachments/models.py:20
+msgid "current revision"
+msgstr "現在の改訂版"
 
 #: wiki/models/article.py:25
 msgid ""
@@ -12363,6 +12783,10 @@ msgstr "オブジェクトの記事"
 msgid "Articles for object"
 msgstr "オブジェクトの記事"
 
+#: wiki/models/article.py:219
+msgid "revision number"
+msgstr "改訂番号"
+
 #: wiki/models/article.py:225
 msgid "IP address"
 msgstr "IPアドレス"
@@ -12412,6 +12836,10 @@ msgstr "このプラグインに表示されているリビジョンです。ロ
 msgid "Cache lookup value for articles"
 msgstr "記事のキャッシュ検索値"
 
+#: wiki/models/urlpath.py:46
+msgid "slug"
+msgstr "スラッグ"
+
 #: wiki/models/urlpath.py:136
 msgid "(root)"
 msgstr "(ルート)"
@@ -12460,9 +12888,19 @@ msgstr "説明"
 msgid "A short summary of what the file contains"
 msgstr "ファイルの内容に関する簡単な概要"
 
+#: wiki/plugins/attachments/forms.py:19
+msgid "Yes I am sure..."
+msgstr "はい、確かです..."
+
 #: wiki/plugins/attachments/markdown_extensions.py:34
 msgid "Click to download file"
 msgstr "ファイルをダウンロードするにはクリックしてください"
+
+#: wiki/plugins/attachments/models.py:22
+msgid ""
+"The revision of this attachment currently in use (on all articles using the "
+"attachment)"
+msgstr "この添付ファイルの現在使用中の改訂版（添付ファイルを使用しているすべての記事に適用）"
 
 #: wiki/plugins/attachments/models.py:26
 msgid "original filename"
@@ -12497,6 +12935,12 @@ msgstr "%sが正常に追加されました。"
 #, python-format
 msgid "Your file could not be saved: %s"
 msgstr "ファイルを保存できませんでした: %s"
+
+#: wiki/plugins/attachments/views.py:52 wiki/plugins/attachments/views.py:119
+msgid ""
+"Your file could not be saved, probably because of a permission error on the "
+"web server."
+msgstr "ウェブサーバーの権限エラーが原因で、ファイルを保存できませんでした。"
 
 #: wiki/plugins/attachments/views.py:113
 #, python-format
@@ -12652,6 +13096,16 @@ msgstr "記事に追加"
 msgid "Your search did not return any results"
 msgstr "検索結果が見つかりませんでした。"
 
+#: wiki/plugins/help/wiki_plugin.py:13 cms/templates/widgets/header.html:362
+#: cms/templates/widgets/header.html:377
+#: lms/templates/header/navbar-authenticated.html:59
+#: lms/templates/navigation/bootstrap/navbar-authenticated.html:58
+#: lms/templates/navigation/navbar-authenticated.html:42
+#: lms/templates/static_templates/help.html:5
+#: lms/templates/static_templates/help.html:10
+msgid "Help"
+msgstr "ヘルプ"
+
 #: wiki/plugins/help/templates/wiki/plugins/help/sidebar.html:1
 msgid "Adding new articles"
 msgstr "新しい記事を追加"
@@ -12709,6 +13163,11 @@ msgstr "画像の改訂"
 msgid "image revisions"
 msgstr "画像の改訂"
 
+#: wiki/plugins/images/models.py:102
+#, python-format
+msgid "Image Revsion: %d"
+msgstr "画像リビジョン: %d"
+
 #: wiki/plugins/images/views.py:63
 #, python-format
 msgid "%s has been restored"
@@ -12739,6 +13198,12 @@ msgstr "画像"
 msgid "An image was added: %s"
 msgstr "画像が追加されました: %s"
 
+#: wiki/plugins/images/templates/wiki/plugins/images/index.html:7
+msgid ""
+"The following images are available for this article. Copy the markdown tag "
+"to directly refer to an image from the article text."
+msgstr "この記事には以下の画像が利用可能です。記事のテキストから直接画像を参照するには、マークダウンタグをコピーしてください。"
+
 #: wiki/plugins/images/templates/wiki/plugins/images/index.html:11
 msgid "Back to edit page"
 msgstr "編集ページに戻る"
@@ -12750,6 +13215,10 @@ msgstr "ファイルがありません"
 #: wiki/plugins/images/templates/wiki/plugins/images/index.html:34
 msgid "Upload new image"
 msgstr "新しい画像をアップロード"
+
+#: wiki/plugins/images/templates/wiki/plugins/images/index.html:39
+msgid "Restore image"
+msgstr "画像を復元"
 
 #: wiki/plugins/images/templates/wiki/plugins/images/index.html:44
 msgid "Remove image"
@@ -12767,6 +13236,11 @@ msgstr "このバージョンに戻す"
 msgid "There are no images for this article."
 msgstr "この記事には画像がありません。"
 
+#: wiki/plugins/images/templates/wiki/plugins/images/purge.html:4
+#: wiki/templates/wiki/deleted.html:39
+msgid "Purge deletion"
+msgstr "完全削除"
+
 #: wiki/plugins/images/templates/wiki/plugins/images/purge.html:13
 msgid "Purge image: Completely remove image file and all revisions."
 msgstr "画像を消去: 画像ファイルとすべてのリビジョンを完全に削除します。"
@@ -12782,6 +13256,10 @@ msgstr "画像が見つかりません"
 #: wiki/plugins/images/templates/wiki/plugins/images/revision_add.html:4
 msgid "Replace image"
 msgstr "画像を置き換える"
+
+#: wiki/plugins/images/templates/wiki/plugins/images/revision_add.html:13
+msgid "Choose an image file to replace current image."
+msgstr "現在の画像を置き換える画像ファイルを選択してください。"
 
 #: wiki/plugins/images/templates/wiki/plugins/images/sidebar.html:27
 msgid "Image id"
@@ -12880,6 +13358,11 @@ msgstr "%(user)s が %(article)s (%(type)s) を購読中"
 msgid "Article deleted: %s"
 msgstr "記事が削除されました: %s"
 
+#: wiki/plugins/notifications/models.py:43
+#, python-format
+msgid "Article modified: %s"
+msgstr "記事が変更されました: %s"
+
 #: wiki/plugins/notifications/models.py:46
 #, python-format
 msgid "New article created: %s"
@@ -12926,19 +13409,45 @@ msgstr "記事が削除されました"
 msgid "The article you were looking for has been deleted."
 msgstr "お探しの記事は削除されました。"
 
+#: wiki/templates/wiki/deleted.html:25
+msgid "You may restore this article and its children by clicking restore."
+msgstr "この記事とその子記事を復元するには、復元をクリックしてください。"
+
+#: wiki/templates/wiki/deleted.html:40
+msgid ""
+"You may remove this article and any children permanently and free their "
+"slugs by clicking the below button. This action cannot be undone."
+msgstr "この記事とその子記事を完全に削除し、スラッグを解放するには、以下のボタンをクリックしてください。この操作は元に戻せません。"
+
+#: wiki/templates/wiki/dir.html:16
+msgid "Up one level"
+msgstr "一つ上のレベル"
+
 #: wiki/templates/wiki/dir.html:21
 #: lms/templates/wiki/includes/breadcrumbs.html:37
 msgid "Add article"
 msgstr "記事を追加"
 
+#: wiki/templates/wiki/dir.html:28
+msgid "clear"
+msgstr "クリア"
+
 #: wiki/templates/wiki/dir.html:40 wiki/templates/wiki/dir.html:44
 msgid "article,articles"
 msgstr "記事、記事들"
+
+#: wiki/templates/wiki/dir.html:40
+msgid "matches,match"
+msgstr "一致,一致する"
 
 #: wiki/templates/wiki/dir.html:42
 #, python-format
 msgid "%(cnt)s %(articles_plur)s in this level %(match_plur)s your search."
 msgstr "%(cnt)s レベルの%(articles_plur)sが検索条件に%(match_plur)s。"
+
+#: wiki/templates/wiki/dir.html:44
+msgid "is,are"
+msgstr "は、です"
 
 #: wiki/templates/wiki/dir.html:46
 #, python-format
@@ -12964,6 +13473,10 @@ msgstr "改訂のプレビュー"
 #: wiki/templates/wiki/preview_inline.html:15
 msgid "Previewing merge between"
 msgstr "マージのプレビュー中"
+
+#: wiki/templates/wiki/preview_inline.html:17
+msgid "and"
+msgstr "と"
 
 #: wiki/templates/wiki/includes/article_menu.html:9
 #: wiki/templates/wiki/settings.html:4 cms/templates/certificates.html:56
@@ -13030,6 +13543,10 @@ msgstr ""
 "この機能を使用するには、<a href=\"%(login_url)s\">ログイン</a>または<a "
 "href=\"%(signup_url)s\">サインアップ</a>が必要です。"
 
+#: wiki/templates/wiki/includes/anonymous_blocked.html:10
+msgid "You need to log in og sign up to use this function."
+msgstr "この機能を使用するには、ログインまたはサインアップが必要です。"
+
 #: wiki/templates/wiki/includes/article_menu.html:26
 #: lms/templates/wiki/includes/article_menu.html:31
 msgid "Changes"
@@ -13072,6 +13589,14 @@ msgstr "によって"
 #: wiki/templates/wiki/includes/revision_info.html:18
 msgid "restored"
 msgstr "復元されました"
+
+#: wiki/templates/wiki/includes/revision_info.html:24
+msgid "unlocked"
+msgstr "解除されました"
+
+#: wiki/views/accounts.py:26
+msgid "You are now sign up... and now you can sign in!"
+msgstr "サインアップが完了しました... これでサインインできます！"
 
 #: wiki/views/accounts.py:33
 msgid "You are no longer logged in. Bye bye!"
@@ -13183,6 +13708,11 @@ msgstr "ページが見つかりません"
 msgid "The page that you were looking for was not found."
 msgstr "お探しのページは見つかりませんでした。"
 
+#: cms/templates/404.html:20
+#, python-brace-format
+msgid "Go back to the {homepage}."
+msgstr "{ホームページ}に戻る。"
+
 #: cms/templates/500.html:8
 #, python-brace-format
 msgid "{studio_name} Server Error"
@@ -13199,6 +13729,12 @@ msgid ""
 "An error occurred in {studio_name} and the page could not be loaded. Please "
 "try again in a few moments."
 msgstr "{studio_name}でエラーが発生し、ページを読み込むことができませんでした。しばらくしてからもう一度お試しください。"
+
+#: cms/templates/500.html:31
+msgid ""
+"We've logged the error and our staff is currently working to resolve this "
+"error as soon as possible."
+msgstr "エラーを記録し、スタッフができるだけ早くこのエラーを解決するために作業しています。"
 
 #: cms/templates/accessibility.html:10
 msgid "Studio Accessibility Policy"
@@ -13249,6 +13785,13 @@ msgid ""
 msgstr ""
 "証明書を有効化する前に編集または削除するには、フォームの右上隅にカーソルを合わせ、{em_start}編集{em_end}または削除アイコンを選択します。"
 
+#: cms/templates/certificates.html:95
+#, python-brace-format
+msgid ""
+"To view a sample certificate, choose a course mode and select "
+"{em_start}Preview Certificate{em_end}."
+msgstr "サンプル証明書を表示するには、コースモードを選択し、{em_start}証明書をプレビュー{em_end}を選択してください。"
+
 #: cms/templates/certificates.html:97
 msgid "Issuing Certificates to Learners"
 msgstr "学習者への証明書の発行"
@@ -13271,12 +13814,24 @@ msgid ""
 msgstr ""
 "{em_start}コースが始まった後に証明書を削除しないでください{em_end}。すでに証明書を取得した学習者は、それにアクセスできなくなります。"
 
+#: cms/templates/certificates.html:100
+msgid "Learn more about certificates"
+msgstr "証明書について詳しく学ぶ"
+
 #: cms/templates/certificates.html:115
 #: cms/templates/group_configurations.html:126
 #: cms/templates/settings_advanced.html:146
 #: cms/templates/settings_graders.html:169
 msgid "Details & Schedule"
 msgstr "詳細とスケジュール"
+
+#: cms/templates/certificates.html:116
+#: cms/templates/group_configurations.html:127 cms/templates/settings.html:707
+#: cms/templates/settings_advanced.html:147
+#: cms/templates/settings_graders.html:50
+#: cms/templates/widgets/header.html:181 cms/templates/widgets/header.html:186
+msgid "Grading"
+msgstr "採点"
 
 #: cms/templates/certificates.html:117
 #: cms/templates/group_configurations.html:128
@@ -13402,6 +13957,10 @@ msgstr "コンポーネント内の{strong_start}編集{strong_end}アイコン�
 #: cms/templates/container.html:249
 msgid "Reorganizing components"
 msgstr "コンポーネントの再編成"
+
+#: cms/templates/container.html:250
+msgid "Drag components to new locations within this component."
+msgstr "このコンポーネント内でコンポーネントを新しい場所にドラッグします。"
 
 #: cms/templates/container.html:251
 msgid "For content experiments, you can drag components to other groups."
@@ -14146,6 +14705,10 @@ msgstr "コース内容と構成"
 msgid "Course dates"
 msgstr "コース日程"
 
+#: cms/templates/export.html:256 cms/templates/import.html:234
+msgid "Grading policy"
+msgstr "採点方針"
+
 #: cms/templates/export.html:257 cms/templates/import.html:235
 msgid "Any group configurations"
 msgstr "グループ設定"
@@ -14188,6 +14751,17 @@ msgstr "Gitにエクスポート"
 #: cms/templates/export_git.html:27
 msgid "About Export to Git"
 msgstr "Gitへのエクスポートについて"
+
+#: cms/templates/export_git.html:29
+msgid "Use this to export your course to its git repository."
+msgstr "この機能を使用して、コースをそのGitリポジトリにエクスポートします。"
+
+#: cms/templates/export_git.html:30
+msgid ""
+"This will then trigger an automatic update of the main LMS site and update "
+"the contents of your course visible there to students if automatic git "
+"imports are configured."
+msgstr "自動gitインポートが設定されている場合、これによりメインのLMSサイトが自動的に更新され、学生に見えるコースの内容が更新されます。"
 
 #: cms/templates/export_git.html:35
 msgid "Export Course to Git:"
@@ -14340,6 +14914,10 @@ msgid ""
 msgstr ""
 "{studio_name}は、コンテンツを整理するために、{strong_start}セクション{strong_end}と{strong_start}サブセクション{strong_end}のシンプルな階層を使用します。"
 
+#: cms/templates/howitworks.html:67
+msgid "Change Your Mind Anytime"
+msgstr "いつでも考えを変えられます"
+
 #: cms/templates/howitworks.html:68
 msgid ""
 "Draft your outline and build content anywhere. Simple drag and drop tools "
@@ -14371,6 +14949,10 @@ msgid ""
 "just a few clicks."
 msgstr ""
 "{studio_name}を使えば、学習を強化する方法でコンテンツを組み合わせることができます。ビデオ、ディスカッション、さまざまな演習を数クリックで挿入できます。"
+
+#: cms/templates/howitworks.html:99
+msgid "Create Learning Pathways"
+msgstr "学習の道筋を作る"
 
 #: cms/templates/howitworks.html:104
 msgid "Work Visually, Organize Quickly"
@@ -14448,6 +15030,11 @@ msgstr "共著者は、すべての同じ著作ツールに完全にアクセス
 msgid "Sign Up for {studio_name} Today!"
 msgstr "{studio_name}に今すぐサインアップしよう！"
 
+#: cms/templates/howitworks.html:166
+#, python-brace-format
+msgid "Sign Up & Start Making Your {platform_name} Course"
+msgstr "{platform_name}コースを作成するためにサインアップしよう"
+
 #: cms/templates/howitworks.html:169
 #, python-brace-format
 msgid "Already have a {studio_name} Account? Sign In"
@@ -14462,6 +15049,10 @@ msgid ""
 "Simple two-level outline to organize your course. Drag and drop, and see "
 "your course at a glance."
 msgstr "シンプルな2レベルのアウトラインでコースを整理。ドラッグ＆ドロップで、コースを一目で確認。"
+
+#: cms/templates/howitworks.html:190
+msgid "More than Just Lectures"
+msgstr "講義以上のもの"
 
 #: cms/templates/howitworks.html:193
 msgid ""
@@ -14557,9 +15148,17 @@ msgstr ""
 msgid "Select a .tar.gz File to Replace Your Library Content"
 msgstr "ライブラリの内容を置き換えるための.tar.gzファイルを選択してください"
 
+#: cms/templates/import.html:69
+msgid "Select a .tar.gz or .zip File to Replace Your Course Content"
+msgstr ".tar.gz または .zip ファイルを選択してコースコンテンツを置き換える"
+
 #: cms/templates/import.html:77
 msgid "Choose a File to Import"
 msgstr "インポートするファイルを選択"
+
+#: cms/templates/import.html:82
+msgid "File Chosen:"
+msgstr "ファイルが選択されました:"
 
 #: cms/templates/import.html:90
 msgid "Replace my library with the selected file"
@@ -14580,6 +15179,10 @@ msgstr "コースインポートのステータス"
 #: cms/templates/import.html:118
 msgid "Transferring your file to our servers"
 msgstr "ファイルをサーバーに転送しています"
+
+#: cms/templates/import.html:129
+msgid "Unpacking"
+msgstr "展開中"
 
 #: cms/templates/import.html:130
 msgid ""
@@ -14701,6 +15304,10 @@ msgstr "{studio_name} ホーム"
 #: cms/templates/index.html:36
 msgid "New Course"
 msgstr "新しいコース"
+
+#: cms/templates/index.html:38
+msgid "Email staff to create course"
+msgstr "スタッフにメールしてコースを作成する"
 
 #: cms/templates/index.html:42
 msgid "New Library"
@@ -15260,6 +15867,10 @@ msgstr "新しいユーザーを追加"
 msgid "Library Access Roles"
 msgstr "ライブラリーアクセスロール"
 
+#: cms/templates/manage_users_lib.html:102
+msgid "There are three access roles for libraries: User, Staff, and Admin."
+msgstr "ライブラリには3つのアクセスロールがあります：ユーザー、スタッフ、管理者。"
+
 #: cms/templates/manage_users_lib.html:103
 msgid ""
 "Library Users can view library content and can reference or use library "
@@ -15329,6 +15940,10 @@ msgstr ""
 #: cms/templates/settings.html:112
 msgid "Send a note to students via email"
 msgstr "学生にメールでメッセージを送信する"
+
+#: cms/templates/settings.html:114
+msgid "Invite your students"
+msgstr "生徒を招待する"
 
 #: cms/templates/settings.html:122
 #, python-brace-format
@@ -15410,8 +16025,16 @@ msgstr ""
 msgid "Course Schedule"
 msgstr "コーススケジュール"
 
+#: cms/templates/settings.html:218
+msgid "Dates that control when your course can be viewed"
+msgstr "コースが表示される日時を制御する日付"
+
 #: cms/templates/settings.html:224
 msgid "Course Start Date"
+msgstr "コース開始日"
+
+#: cms/templates/settings.html:227
+msgid "First day the course begins"
 msgstr "コース開始日"
 
 #: cms/templates/settings.html:231
@@ -15489,6 +16112,10 @@ msgstr "証明書の利用可能日"
 msgid "Enrollment Start Date"
 msgstr "登録開始日"
 
+#: cms/templates/settings.html:306
+msgid "First day students can enroll"
+msgstr "学生が登録できる初日"
+
 #: cms/templates/settings.html:310
 msgid "Enrollment Start Time"
 msgstr "登録開始時間"
@@ -15496,6 +16123,10 @@ msgstr "登録開始時間"
 #: cms/templates/settings.html:321
 msgid "Enrollment End Date"
 msgstr "登録終了日"
+
+#: cms/templates/settings.html:325
+msgid "Last day students can enroll."
+msgstr "学生が登録できる最終日。"
 
 #: cms/templates/settings.html:327 cms/templates/settings.html:348
 #, python-brace-format
@@ -15592,6 +16223,13 @@ msgstr "コース概要"
 #: cms/templates/settings.html:431
 msgid "HTML Code Editor"
 msgstr "HTMLコードエディター"
+
+#: cms/templates/settings.html:434
+#, python-brace-format
+msgid ""
+"Introductions, prerequisites, FAQs that are used on {a_link_start}your "
+"course summary page{a_link_end} (formatted in HTML)"
+msgstr "導入、前提条件、FAQは、{a_link_start}コース概要ページ{a_link_end}で使用されます（HTML形式）"
 
 #: cms/templates/settings.html:441
 msgid "Course About Sidebar HTML"
@@ -15712,6 +16350,11 @@ msgstr "このコースの学習成果を追加する"
 msgid "Add Learning Outcome"
 msgstr "学習成果を追加"
 
+#: cms/templates/settings.html:598
+#: lms/templates/courseware/program_marketing.html:348
+msgid "Instructors"
+msgstr "講師"
+
 #: cms/templates/settings.html:599
 msgid "Add details about the instructors for this course"
 msgstr "このコースの講師に関する詳細を追加してください"
@@ -15753,9 +16396,17 @@ msgstr "このコースを始める前に完了しなければならないコー
 msgid "set pre-requisite course"
 msgstr "前提条件コースを設定する"
 
+#: cms/templates/settings.html:648
+msgid "Require students to pass an exam before beginning the course."
+msgstr "コースを始める前に試験に合格することを学生に求める。"
+
 #: cms/templates/settings.html:656
 msgid "Grade Requirements"
 msgstr "成績要件"
+
+#: cms/templates/settings.html:657
+msgid " %"
+msgstr " ％"
 
 #: cms/templates/settings.html:672
 msgid "Course Content License"
@@ -15876,6 +16527,14 @@ msgstr "コースクレジットの適格性の設定"
 msgid "Must be greater than or equal to the course passing grade"
 msgstr "コースの合格基準以上でなければなりません"
 
+#: cms/templates/settings_graders.html:115
+msgid "Grading Rules & Policies"
+msgstr "採点規則と方針"
+
+#: cms/templates/settings_graders.html:116
+msgid "Deadlines, requirements, and logistics around grading student work"
+msgstr "学生の課題採点に関する締切、要件、物流"
+
 #: cms/templates/settings_graders.html:121
 msgid "Grace Period on Deadline:"
 msgstr "締切の猶予期間:"
@@ -15931,9 +16590,18 @@ msgstr "この問題を選択"
 msgid "Sourced from a library - but the upstream link is broken/invalid."
 msgstr "ライブラリから取得しましたが、上流のリンクが壊れているか無効です。"
 
+#: cms/templates/studio_xblock_wrapper.html:122
+#: cms/templates/studio_xblock_wrapper.html:125
+msgid "Sourced from a library."
+msgstr "図書館からの出典。"
+
 #: cms/templates/studio_xblock_wrapper.html:143
 msgid "Update available - click to sync"
 msgstr "更新があります - 同期するにはクリックしてください"
+
+#: cms/templates/studio_xblock_wrapper.html:146
+msgid "Update available"
+msgstr "更新があります"
 
 #: cms/templates/studio_xblock_wrapper.html:172
 msgid "Manage Access"
@@ -16022,6 +16690,18 @@ msgid ""
 "Access to this component is not restricted, but visibility might be affected"
 " by inherited settings."
 msgstr "このコンポーネントへのアクセスは制限されていませんが、継承された設定によって可視性が影響を受ける可能性があります。"
+
+#: cms/templates/visibility_editor.html:29
+msgid ""
+"You can restrict access to this unit to learners in specific enrollment "
+"tracks or content groups."
+msgstr "特定の登録トラックやコンテンツグループの学習者に対して、このユニットへのアクセスを制限できます。"
+
+#: cms/templates/visibility_editor.html:31
+msgid ""
+"You can restrict access to this component to learners in specific enrollment"
+" tracks or content groups."
+msgstr "特定の登録トラックやコンテンツグループの学習者に対して、このコンポーネントへのアクセスを制限できます。"
 
 #: cms/templates/visibility_editor.html:35
 msgid ""
@@ -16141,6 +16821,10 @@ msgid ""
 msgstr ""
 "あなたの{task_name}タスクは'{task_status}'ステータスで完了しました。タスクの詳細を確認するか、作成されたファイルをダウンロードするにはサインインしてください。"
 
+#: cms/templates/emails/user_task_complete_email.txt:21
+msgid "Here are some validations we found with your course content."
+msgstr "あなたのコース内容で見つかった検証結果を以下に示します。"
+
 #: cms/templates/emails/user_task_complete_email.txt:24
 msgid "Errors: "
 msgstr "エラー: "
@@ -16248,6 +16932,16 @@ msgstr "サポートは{expiration_date}に終了します。"
 #: cms/templates/widgets/deprecated-course-key-warning.html:37
 msgid "This course uses a legacy storage format."
 msgstr "このコースは旧式のストレージ形式を使用しています。"
+
+#: cms/templates/widgets/deprecated-course-key-warning.html:42
+msgid ""
+"Please reach out to your support team contact, if you have any additional "
+"questions or concerns."
+msgstr "ご不明な点やご質問がございましたら、サポートチームの担当者にお問い合わせください。"
+
+#: cms/templates/widgets/footer.html:21
+msgid "Policies"
+msgstr "方針"
 
 #: cms/templates/widgets/footer.html:35
 msgid "Accessibility Accommodation Request"
@@ -16379,6 +17073,12 @@ msgstr "数値で回答を入力してください"
 msgid "Insert a dropdown response"
 msgstr "ドロップダウン回答を挿入"
 
+#: cms/templates/widgets/problem-edit.html:66
+#: cms/templates/widgets/problem-edit.html:70
+#: cms/templates/widgets/problem-edit.html:156
+msgid "Explanation"
+msgstr "説明"
+
 #: cms/templates/widgets/problem-edit.html:68
 #: cms/templates/widgets/problem-edit.html:155
 msgid "Add an explanation for this question"
@@ -16387,6 +17087,10 @@ msgstr "この質問に対する説明を追加してください"
 #: cms/templates/widgets/problem-edit.html:75
 msgid "Advanced Editor"
 msgstr "高度なエディター"
+
+#: cms/templates/widgets/problem-edit.html:82
+msgid "Markdown Help"
+msgstr "マークダウンヘルプ"
 
 #: cms/templates/widgets/problem-edit.html:148
 msgid "Label"
@@ -16538,6 +17242,10 @@ msgstr "新しいトピックフォーム"
 #: lms/djangoapps/discussion/templates/discussion/discussion_board_fragment.html:57
 msgid "Discussion thread list"
 msgstr "ディスカッションスレッド一覧"
+
+#: lms/djangoapps/discussion/templates/discussion/discussion_private_fragment.html:10
+msgid "Private Discussion"
+msgstr "非公開ディスカッション"
 
 #: lms/djangoapps/discussion/templates/discussion/discussion_private_fragment.html:16
 msgid ""
