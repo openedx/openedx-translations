@@ -96,6 +96,10 @@ msgstr "Orta Bal {number}"
 msgid "Feedback {number}"
 msgstr "Rəy {number}"
 
+#: data.py:917
+msgid "Item ID"
+msgstr "Məhsul ID-si"
+
 #: data.py:918
 msgid "Submission ID"
 msgstr "Təqdimat ID-si"
@@ -136,6 +140,22 @@ msgstr "Qiymətləndirmə Balı Qazanıldı"
 #: data.py:969
 msgid "Assessment Scored At"
 msgstr "Qiymətləndirmə Vaxtı"
+
+#: data.py:970
+msgid "Date/Time Final Score Given"
+msgstr "Final balın verildiyi tarix/vaxt"
+
+#: data.py:971
+msgid "Final Score Earned"
+msgstr "Son Bal Toplandı"
+
+#: data.py:972
+msgid "Final Score Possible"
+msgstr "Mümkün Yekun Bal"
+
+#: data.py:973
+msgid "Feedback Statements Selected"
+msgstr "Seçilmiş Əlaqə Bəyanatları"
 
 #: data.py:974
 msgid "Feedback on Assessment"
@@ -309,6 +329,10 @@ msgstr ""
 msgid "Top Responses"
 msgstr "Ən Yaxşı Cavablar"
 
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:104
+msgid " (Disabled)"
+msgstr " (Deaktiv edilib)"
+
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:117
 msgid ""
 "Specify the number of top scoring responses to display after the learner has"
@@ -322,6 +346,14 @@ msgstr ""
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:122
 msgid "When Teams Enabled is set to true, Top Responses will be disabled."
 msgstr "Komandalar Aktivləşdirildikdə, Ən Yaxşı Cavablar deaktiv ediləcək."
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:129
+msgid "Teams Enabled"
+msgstr "Komandalar Aktivdir"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:141
+msgid "Select Team-Set"
+msgstr "Komanda Dəstini Seçin"
 
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:155
 msgid "Show Rubric During Response"
@@ -429,6 +461,10 @@ msgstr "Tez"
 msgid "Rubric"
 msgstr "Rubric"
 
+#: templates/legacy/edit/oa_edit_header_and_validation.html:22
+msgid "Schedule"
+msgstr "Cədvəl"
+
 #: templates/legacy/edit/oa_edit_header_and_validation.html:29
 msgid "Assessment steps"
 msgstr "Qiymətləndirmə addımları"
@@ -513,6 +549,14 @@ msgstr ""
 "Bu xüsusiyyət kurs səviyyəsindəki ayar vasitəsilə aktivləşdirilir. O, "
 "Səhifələr və Resurslar studiya səhifəsində Açıq Cavab Qiymətləndirmə "
 "Ayarları kartının altında tapıla bilər."
+
+#: templates/legacy/edit/oa_edit_peer_assessment.html:62
+msgid "Mean"
+msgstr "Orta qiymət"
+
+#: templates/legacy/edit/oa_edit_peer_assessment.html:63
+msgid "Median (default)"
+msgstr "Median (standart)"
 
 #: templates/legacy/edit/oa_edit_peer_assessment.html:66
 msgid ""
@@ -609,6 +653,10 @@ msgstr ""
 "Tələbələri qiymətləndirdikləri cavablara rəy yazmağa həvəsləndirin. Siz "
 "nümunə mətni öz mətninizlə əvəz edə bilərsiniz."
 
+#: templates/legacy/edit/oa_edit_rubric.html:49
+msgid "Default Feedback Text"
+msgstr "Standart Əlaqə Mətni"
+
 #: templates/legacy/edit/oa_edit_schedule.html:5
 msgid "Deadlines Configuration"
 msgstr "Son tarixlərin konfiqurasiyası"
@@ -624,6 +672,10 @@ msgstr "Son tarixləri əl ilə konfiqurasiya edin"
 #: templates/legacy/edit/oa_edit_schedule.html:18
 msgid "Match deadlines to the subsection due date"
 msgstr "Son tarixləri alt bölmənin təhvil tarixinə uyğunlaşdırın"
+
+#: templates/legacy/edit/oa_edit_schedule.html:22
+msgid "Match deadlines to the course end date"
+msgstr "Son tarixləri kursun bitmə tarixinə uyğunlaşdırın"
 
 #: templates/legacy/edit/oa_edit_schedule.html:25
 msgid "Learn more about open response date settings"
@@ -741,9 +793,17 @@ msgstr "Blok ID-si"
 msgid "No other Open Response Assessments found in course"
 msgstr "Kursda başqa Açıq Cavab Qiymətləndirmələri tapılmadı"
 
+#: templates/legacy/edit/oa_rubric_reuse.html:31
+msgid "Clone"
+msgstr "Klonla"
+
 #: templates/legacy/edit/oa_rubric_reuse.html:37
 msgid "Rubric Successfully Cloned from Block ID: "
 msgstr "Rubrik uğurla Blok ID-dən klonlandı: "
+
+#: templates/legacy/edit/oa_training_example.html:7
+msgid "Scored Response"
+msgstr "Qiymətləndirilmiş Cavab"
 
 #: templates/legacy/edit/oa_training_example.html:16
 msgid "Response Score"
@@ -793,6 +853,11 @@ msgstr[1] ""
 "                      %(assessment_title)s - %(points)s bal\n"
 "                  "
 
+#: templates/legacy/grade/oa_assessment_title.html:24
+#, python-format
+msgid "More information about %(name)s"
+msgstr "%(name)s haqqında daha çox məlumat"
+
 #: templates/legacy/grade/oa_grade_cancelled.html:14
 #: templates/legacy/grade/oa_grade_complete.html:15
 #: templates/legacy/grade/oa_grade_complete.html:26
@@ -802,9 +867,31 @@ msgstr[1] ""
 msgid "Your Grade"
 msgstr "Sizin qiymətiniz"
 
+#: templates/legacy/grade/oa_grade_cancelled.html:19
+#, python-format
+msgid ""
+"\n"
+"                                        %(points_earned)s out of %(points_possible)s\n"
+"                                    "
+msgstr ""
+"\n"
+"                                        %(points_possible)s-dan %(points_earned)s\n"
+"                                    "
+
 #: templates/legacy/grade/oa_grade_cancelled.html:38
 msgid "Your submission has been cancelled."
 msgstr "Sizin təqdimatınız ləğv edilib."
+
+#: templates/legacy/grade/oa_grade_complete.html:19
+#, python-format
+msgid ""
+"\n"
+"                                            %(points_earned)s out of %(points_possible)s\n"
+"                                        "
+msgstr ""
+"\n"
+"                                            %(points_possible)s-dan %(points_earned)s\n"
+"                                        "
 
 #: templates/legacy/grade/oa_grade_complete.html:38
 #: templates/legacy/response/oa_response.html:29
@@ -924,6 +1011,10 @@ msgstr "Həmyaşıd qiymətləndirmələrinə rəy göndərin"
 #: templates/legacy/grade/oa_grade_incomplete.html:16
 msgid "Not Completed"
 msgstr "Tamamlanmayıb"
+
+#: templates/legacy/grade/oa_grade_incomplete.html:33
+msgid "You have not completed all the steps of this problem."
+msgstr "Bu tapşırığın bütün mərhələlərin tamamlamamısınız."
 
 #: templates/legacy/grade/oa_grade_not_started.html:16
 msgid "Not Started"
@@ -1073,6 +1164,21 @@ msgstr ""
 "                                    Bu tapşırıq davam edir. %(start_strong)sÖzünü qiymətləndirmə mərhələsi tezliklə başa çatacaq.%(end_strong)s Siz hələ də %(start_link)sözünü qiymətləndirmə%(end_link)s mərhələsini tamamlamalısınız.\n"
 "                                "
 
+#: templates/legacy/message/oa_message_incomplete.html:24
+#, python-format
+msgid ""
+"\n"
+"                                    This assignment is in progress. You still need to complete the %(start_link)sself assessment%(end_link)s step.\n"
+"                                "
+msgstr ""
+"\n"
+"                                    ```\n"
+"                                    \n"
+"Bu tapşırıq davam edir. Siz %(start_link)sözünü qiymətləndirmə%(end_link)s mərhələsini bitirməlisiniz.\n"
+"                                \n"
+"```\n"
+"                                "
+
 #: templates/legacy/message/oa_message_incomplete.html:38
 #, python-format
 msgid ""
@@ -1199,6 +1305,10 @@ msgstr "Komanda yoldaşlarınız tərəfindən yüklənmiş fayllar:"
 msgid "View the files associated with this submission:"
 msgstr "Baxın, bu təqdimatla əlaqəli fayllar:"
 
+#: templates/legacy/oa_team_uploaded_files.html:32
+msgid "Uploaded by"
+msgstr "Yükləyən:"
+
 #: templates/legacy/oa_uploaded_file.html:16
 msgid "Files that were uploaded by you:"
 msgstr "Sizin tərəfinizdən yüklənmiş fayllar:"
@@ -1217,6 +1327,36 @@ msgstr ""
 #: templates/legacy/peer/oa_peer_assessment.html:36
 msgid "Assess Peers"
 msgstr "Həmyaşıdlarınızı qiymətləndirin"
+
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "available August 13th, 2014 00:00 UTC (in
+#. 5 days and 45 minutes)"
+#: templates/legacy/peer/oa_peer_assessment.html:44
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"            <span id=\"oa_step_deadline_peer\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+msgstr ""
+"\n"
+"            ```\n"
+"            <span id=\"oa_step_deadline_peer\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"```\n"
+"            "
+
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "due August 13th, 2014 00:00 UTC (in 5 days
+#. and 45 minutes)"
+#: templates/legacy/peer/oa_peer_assessment.html:51
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"            <span id=\"oa_step_deadline_peer\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+msgstr ""
+"\n"
+"            <span id=\"oa_step_deadline_peer\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
 
 #: templates/legacy/peer/oa_peer_assessment.html:61
 #, python-format
@@ -1358,6 +1498,34 @@ msgstr ""
 msgid "Your Team's Response"
 msgstr "Komandanızın Cavabı"
 
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "available August 13th, 2014 (in 5 days and
+#. 45 minutes)"
+#: templates/legacy/response/oa_response.html:39
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"            <span id=\"oa_step_deadline_response\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+msgstr ""
+"\n"
+"            <span id=\"oa_step_deadline_response\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "due August 13th, 2014 (in 5 days and 45
+#. minutes)"
+#: templates/legacy/response/oa_response.html:46
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"            <span id=\"oa_step_deadline_response\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+msgstr ""
+"\n"
+"            <span id=\"oa_step_deadline_response\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+
 #: templates/legacy/response/oa_response.html:54
 #: templates/legacy/self/oa_self_assessment.html:56
 msgid "In Progress"
@@ -1450,6 +1618,21 @@ msgstr "Siz komandasınız "
 msgid "Team Members: "
 msgstr "Komanda Üzvləri: "
 
+#: templates/legacy/response/oa_response.html:155
+#, python-format
+msgid ""
+"\n"
+"                                              %(team_members_with_external_submissions)s\n"
+"                                              have/has already submitted a response to this assignment with another team,\n"
+"                                              and will not be a part of your team's submission or assignment grade.\n"
+"                                          "
+msgstr ""
+"\n"
+"                                              %(team_members_with_external_submissions)s\n"
+"                                              artıq bu tapşırığa başqa bir komanda ilə cavab verib,\n"
+"                                              və sizin komandanızın təqdimatında və ya tapşırıq qiymətləndirməsində iştirak etməyəcək.\n"
+"                                          "
+
 #: templates/legacy/response/oa_response.html:171
 msgid "Team Response "
 msgstr "Komanda Cavabı "
@@ -1484,6 +1667,17 @@ msgstr "Cavabınızın Statusu"
 msgid "File Uploads "
 msgstr "Fayl Yükləmələri "
 
+#: templates/legacy/response/oa_response.html:253
+msgid ""
+"\n"
+"                                  Upload files and review files uploaded by you and your teammates below. Be sure to add\n"
+"                                  descriptions to your files to help your teammates identify them.\n"
+"                              "
+msgstr ""
+"\n"
+"                                  Faylları yükləyin və aşağıda sizin və komanda yoldaşlarınız tərəfindən yüklənmiş faylları nəzərdən keçirin. Komanda yoldaşlarınızın faylları tanımasına kömək etmək üçün fayllarınıza təsvirlər əlavə etməyi unutmayın.\n"
+"                              "
+
 #: templates/legacy/response/oa_response.html:261
 msgid "We could not upload files"
 msgstr "Faylları yükləyə bilmədik"
@@ -1491,6 +1685,10 @@ msgstr "Faylları yükləyə bilmədik"
 #: templates/legacy/response/oa_response.html:267
 msgid "We could not delete files"
 msgstr "Faylları silə bilmədik"
+
+#: templates/legacy/response/oa_response.html:274
+msgid "Select one or more files to upload for this submission."
+msgstr "Bir və ya bir neçə fayl seçin ki, bu təqdimat üçün yükləyəsiniz."
 
 #: templates/legacy/response/oa_response.html:276
 msgid "Select a file to upload for this submission."
@@ -1572,6 +1770,19 @@ msgstr ""
 "                                Təqdimatınız %(removed_by_username)s tərəfindən %(removed_datetime)s tarixində ləğv edilib\n"
 "                            "
 
+#: templates/legacy/response/oa_response_cancelled.html:41
+#, python-format
+msgid ""
+"\n"
+"                               Your submission was cancelled on %(removed_datetime)s\n"
+"                            "
+msgstr ""
+"\n"
+"                               ```\n"
+"                               Sizin göndərdiyiniz %(removed_datetime)s tarixində ləğv edildi\n"
+"```\n"
+"                            "
+
 #: templates/legacy/response/oa_response_closed.html:19
 #: templates/legacy/self/oa_self_closed.html:20
 #: templates/legacy/student_training/student_training_closed.html:17
@@ -1638,6 +1849,17 @@ msgstr ""
 "                        Siz %(start_tag)shəmyaşıd qiymətləndirmə%(end_tag)s mərhələsini tamamlamalısınız.\n"
 "                    "
 
+#: templates/legacy/response/oa_response_submitted.html:42
+#, python-format
+msgid ""
+"\n"
+"                        You still need to complete the %(start_tag)sself assessment%(end_tag)s step.\n"
+"                    "
+msgstr ""
+"\n"
+"                        Siz %(start_tag)sözünü qiymətləndirmə%(end_tag)s mərhələsini tamamlamalısınız.\n"
+"                    "
+
 #: templates/legacy/response/oa_response_submitted.html:63
 msgid "We could not reset your response"
 msgstr "Sizin cavabı sıfırlaya bilmədik"
@@ -1653,6 +1875,20 @@ msgstr "Xəta"
 #: templates/legacy/self/oa_self_assessment.html:33
 msgid "Assess Your Response"
 msgstr "Cavabınızı qiymətləndirin"
+
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "due August 13th, 2014 (in 5 days and 45
+#. minutes)"
+#: templates/legacy/self/oa_self_assessment.html:48
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"               <span id=\"oa_step_deadline_self\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"           "
+msgstr ""
+"\n"
+"               <span id=\"oa_step_deadline_self\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"           "
 
 #: templates/legacy/self/oa_self_assessment.html:88
 msgid "Submit your assessment"
@@ -1716,6 +1952,10 @@ msgstr "Bir komanda üzvünün istifadəçi adını və ya edX e-poçtunu daxil 
 msgid "Submit"
 msgstr "Təqdim edin"
 
+#: templates/legacy/staff_area/oa_staff_area.html:78
+msgid "Response total"
+msgstr "Cavabların cəmi"
+
 #: templates/legacy/staff_area/oa_staff_area.html:84
 msgid "Location"
 msgstr "Ünvan"
@@ -1728,6 +1968,10 @@ msgstr "Tələbə inkişafı"
 #: templates/legacy/staff_area/oa_staff_area.html:117
 msgid "Problem Step"
 msgstr "Tapşırıq mərhələsi"
+
+#: templates/legacy/staff_area/oa_staff_area.html:95
+msgid "Active Learners in Step"
+msgstr "Addımda Aktiv Öyrənənlər"
 
 #: templates/legacy/staff_area/oa_staff_area.html:113
 msgid "Dates"
@@ -1753,6 +1997,17 @@ msgstr "Bu komandaya tapşırıq rubrikasından istifadə edərək bir qiymət v
 #: templates/legacy/staff_area/oa_staff_grade_learners_assessment.html:16
 msgid "Give this learner a grade using the problem's rubric."
 msgstr "Tapşırıq rubrikasından istifadə edərək bu tələbəyə bir qiymət verin."
+
+#: templates/legacy/staff_area/oa_staff_grade_learners_assessment.html:26
+#, python-format
+msgid ""
+"\n"
+"                                        Response for: %(team_name)s with %(team_usernames)s\n"
+"                                    "
+msgstr ""
+"\n"
+"                                        Cavab: %(team_name)s ilə %(team_usernames)s\n"
+"                                    "
 
 #: templates/legacy/staff_area/oa_staff_grade_learners_assessment.html:34
 #: templates/legacy/staff_area/oa_staff_override_assessment.html:24
@@ -1828,9 +2083,38 @@ msgstr ""
 "                            Tələbənin təqdimatı %(removed_by_username)s tərəfindən %(removed_datetime)s tarixində çıxarıldı\n"
 "                        "
 
+#: templates/legacy/staff_area/oa_student_info.html:43
+#, python-format
+msgid ""
+"\n"
+"                            Learner submission removed on %(removed_datetime)s\n"
+"                        "
+msgstr ""
+"\n"
+"                            ```\n"
+"                            \n"
+"Tələbə təqdimatı %(removed_datetime)s tarixində çıxarıldı\n"
+"```\n"
+"                        "
+
+#: templates/legacy/staff_area/oa_student_info.html:50
+#, python-format
+msgid ""
+"\n"
+"                        Comments: %(comments)s\n"
+"                    "
+msgstr ""
+"\n"
+"                        Şərhlər: %(comments)s\n"
+"                    "
+
 #: templates/legacy/staff_area/oa_student_info.html:71
 msgid "Peer Assessments for This Learner"
 msgstr "Bu tələbə üçün həmyaşıd qiymətləndirmələri"
+
+#: templates/legacy/staff_area/oa_student_info.html:76
+msgid "Peer Assessments Completed by This Learner"
+msgstr "Bu tələbə həmyaşıd qiymətləndirmələrini tamaladı"
 
 #: templates/legacy/staff_area/oa_student_info.html:81
 msgid "Learner's Self Assessment"
@@ -1900,6 +2184,10 @@ msgstr "Tapşırıq başlamayıb."
 #: templates/legacy/staff_area/oa_student_info.html:181
 msgid "The problem has not been completed."
 msgstr "Tapşırıq tamamlanmayıb."
+
+#: templates/legacy/staff_area/oa_student_info.html:193
+msgid "Submit Assessment Grade Override"
+msgstr "Qiymətləndirmə Nəticəsini Dəyişdirin Təqdim Et"
 
 #: templates/legacy/staff_area/oa_student_info.html:204
 msgid "Unable to perform grade override"
@@ -1993,6 +2281,17 @@ msgstr "Mümkün olan xallar"
 #: templates/legacy/student_training/student_training.html:18
 msgid "Learn to Assess Responses"
 msgstr "Cavabları qiymətləndirməyi öyrənin"
+
+#: templates/legacy/student_training/student_training.html:27
+#, python-format
+msgid ""
+"\n"
+"                      In Progress (%(current_progress_num)s of %(training_available_num)s)\n"
+"                  "
+msgstr ""
+"\n"
+"                      Davam edir (%(training_available_num)s-dan %(current_progress_num)s-i)\n"
+"                  "
 
 #: templates/legacy/student_training/student_training.html:58
 #: templates/legacy/student_training/student_training.html:66
@@ -2168,6 +2467,10 @@ msgstr ""
 "Bu problemin qiyməti, Həmkar Qiymətləndirmələrinizin orta balı ilə müəyyən "
 "edilir."
 
+#: xblock/openassesment_template_mixin.py:66
+msgid "Peer Assessment Only"
+msgstr "Yalnız Həmkar Qiymətləndirməsi"
+
 #: xblock/openassesment_template_mixin.py:67
 msgid "Self Assessment Only"
 msgstr "Yalnız Öz Qiymətləndirmə"
@@ -2199,6 +2502,10 @@ msgstr "Yenidən qurmaq üçün təqdimat yoxdur."
 #: xblock/openassessmentblock.py:1383
 msgid "Submission reset successfully."
 msgstr "Təqdimat uğurla sıfırlandı."
+
+#: xblock/rubric_reuse_mixin.py:66
+msgid "Invalid block id."
+msgstr "Blok ID-si etibarsızdır."
 
 #: xblock/rubric_reuse_mixin.py:72
 #, python-brace-format
@@ -2282,6 +2589,16 @@ msgstr "Təqdimat tapılmadı"
 #: xblock/staff_area_mixin.py:725
 msgid "Submission for team assignment has no associated team submission"
 msgstr "Komanda tapşırığı üçün təqdimatla əlaqəli komanda təqdimatı yoxdur."
+
+#: xblock/staff_area_mixin.py:754
+msgid ""
+"The learner submission has been removed from peer assessment. The learner "
+"receives a grade of zero unless you delete the learner's state for the "
+"problem to allow them to resubmit a response."
+msgstr ""
+"Tələbənin təqdimatı həmyaşıd qiymətləndirməsindən çıxarıldı. Əgər siz "
+"tapşırıq üzrə tələbənin vəziyyətini yenidən cavab göndərməsinə icazə vermək "
+"üçün silmirsinizsə, tələbə qiymət alır."
 
 #: xblock/studio_mixin.py:247 xblock/studio_mixin.py:259
 msgid "Error updating XBlock configuration"
@@ -2401,10 +2718,24 @@ msgstr ""
 "Əgər heyət qiymətləndirilməsi yalnız mərhələ olarsa, \"required\" dəyər "
 "doğru olmalıdır."
 
+#: xblock/utils/validation.py:164
+msgid ""
+"The number of assessments cannot be changed after the problem has been "
+"released."
+msgstr "Tapşırıq yayımlandıqdan sonra onun sayı dəyişdirilə biməz."
+
 #: xblock/utils/validation.py:169
 msgid ""
 "The assessment type cannot be changed after the problem has been released."
 msgstr "Qiymətləndirmə növü tapşırıq yayımlandıqdan sonra dəyişdirilə bilməz."
+
+#: xblock/utils/validation.py:176
+msgid ""
+"The grading strategy for peer assessments cannot be changed after the "
+"problem has been released."
+msgstr ""
+"Peer qiymətləndirmələri üçün qiymətləndirmə strategiyası problem "
+"buraxıldıqdan sonra dəyişdirilə bilməz."
 
 #: xblock/utils/validation.py:200
 msgid "This rubric definition is not valid."
