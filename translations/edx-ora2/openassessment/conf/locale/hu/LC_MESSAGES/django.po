@@ -92,6 +92,10 @@ msgstr "Visszajelzés {number}"
 msgid "Item ID"
 msgstr "Tételazonosító"
 
+#: data.py:918
+msgid "Submission ID"
+msgstr "Beküldési azonosító"
+
 #: data.py:930
 msgid "Anonymized Student ID"
 msgstr "Anonimizált diákazonosító"
@@ -284,6 +288,10 @@ msgstr ""
 "lehetőséget, és adja meg a beillesztendő elfogadható fájlkiterjesztések "
 "teljes listáját."
 
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:91
+msgid "Allow LaTeX Responses"
+msgstr "Engedélyezze a LaTeX válaszokat"
+
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:97
 msgid "Specify whether learners can write LaTeX formatted strings"
 msgstr "Adja meg, hogy a tanulók írhatnak-e LaTeX formátumú karakterláncokat"
@@ -293,6 +301,10 @@ msgstr "Adja meg, hogy a tanulók írhatnak-e LaTeX formátumú karakterláncoka
 #: templates/legacy/leaderboard/oa_leaderboard_waiting.html:10
 msgid "Top Responses"
 msgstr "Legjobb válaszok"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:104
+msgid " (Disabled)"
+msgstr " (Kikapcsolva)"
 
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:117
 msgid ""
@@ -315,6 +327,10 @@ msgstr "Adja meg, hogy engedélyezettek-e a csapatbeadások ehhez a válaszhoz."
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:141
 msgid "Select Team-Set"
 msgstr "Válassza a csapatkészletet"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:155
+msgid "Show Rubric During Response"
+msgstr "Mutassa a rubrikát a válaszadás során"
 
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:162
 msgid ""
@@ -399,6 +415,10 @@ msgstr ""
 #: templates/legacy/edit/oa_edit_header_and_validation.html:3
 msgid "Open Response Assessment"
 msgstr "Nyílt válaszértékelés"
+
+#: templates/legacy/edit/oa_edit_header_and_validation.html:15
+msgid "Rubric"
+msgstr "Rubrika"
 
 #: templates/legacy/edit/oa_edit_header_and_validation.html:22
 msgid "Schedule"
@@ -542,6 +562,10 @@ msgstr ""
 " minta szöveget a saját szövegére. További információért lásd az ORA "
 "dokumentációt."
 
+#: templates/legacy/edit/oa_edit_rubric.html:29
+msgid "Add Criterion"
+msgstr "Kritérium hozzáadása"
+
 #: templates/legacy/edit/oa_edit_rubric.html:35
 msgid "Feedback for This Response"
 msgstr "Visszajelzés erre a válaszra"
@@ -578,6 +602,10 @@ msgstr "Határidők konfigurálása"
 #: templates/legacy/edit/oa_edit_schedule.html:9
 msgid "Select a deadline configuration option"
 msgstr "Válasszon egy határidő-konfigurációs lehetőséget"
+
+#: templates/legacy/edit/oa_edit_schedule.html:14
+msgid "Configure deadlines manually"
+msgstr "Határidők kézi beállítása"
 
 #: templates/legacy/edit/oa_edit_schedule.html:18
 msgid "Match deadlines to the subsection due date"
@@ -639,6 +667,10 @@ msgstr ""
 "A személyzet felmérése beállítja a végső jegyet a diákok számára, ha más "
 "lépésekkel együtt engedélyezett, bár önálló lépésként is használható."
 
+#: templates/legacy/edit/oa_edit_student_training.html:9
+msgid "Step: Learner Training"
+msgstr "Tanulói képzés lépése"
+
 #: templates/legacy/edit/oa_edit_student_training.html:14
 msgid ""
 "Learner Training is used to help students practice grading a simulated peer "
@@ -665,6 +697,10 @@ msgstr ""
 #: templates/legacy/edit/oa_edit_student_training.html:22
 msgid "View / Add Sample Responses"
 msgstr "Mintaválaszok megtekintése / hozzáadása"
+
+#: templates/legacy/edit/oa_rubric_reuse.html:4
+msgid "Clone Rubric"
+msgstr "Rubrika klónozása"
 
 #: templates/legacy/edit/oa_rubric_reuse.html:7
 msgid ""
@@ -724,10 +760,60 @@ msgstr ""
 "                %(start_tag)s%(title)s%(end_tag)s%(start_grade_tag)s - %(grade)s%(end_tag)s\n"
 "              "
 
+#: templates/legacy/grade/oa_assessment_title.html:7
+#, python-format
+msgid ""
+"\n"
+"                      %(assessment_title)s - %(points)s point\n"
+"                  "
+msgid_plural ""
+"\n"
+"                      %(assessment_title)s - %(points)s points\n"
+"                  "
+msgstr[0] ""
+"\n"
+"                      %(assessment_title)s - %(points)s pont\n"
+"                  "
+msgstr[1] ""
+"\n"
+"                      %(assessment_title)s - %(points)s pont\n"
+"                  "
+
 #: templates/legacy/grade/oa_assessment_title.html:24
 #, python-format
 msgid "More information about %(name)s"
 msgstr "További információ %(name)s-ről"
+
+#: templates/legacy/grade/oa_grade_cancelled.html:14
+#: templates/legacy/grade/oa_grade_complete.html:15
+#: templates/legacy/grade/oa_grade_complete.html:26
+#: templates/legacy/grade/oa_grade_incomplete.html:14
+#: templates/legacy/grade/oa_grade_not_started.html:14
+#: templates/legacy/grade/oa_grade_waiting.html:14
+msgid "Your Grade"
+msgstr "Az Ön osztályzata"
+
+#: templates/legacy/grade/oa_grade_cancelled.html:19
+#, python-format
+msgid ""
+"\n"
+"                                        %(points_earned)s out of %(points_possible)s\n"
+"                                    "
+msgstr ""
+"\n"
+"                                        %(points_earned)s a %(points_possible)s-ból\n"
+"                                    "
+
+#: templates/legacy/grade/oa_grade_complete.html:19
+#, python-format
+msgid ""
+"\n"
+"                                            %(points_earned)s out of %(points_possible)s\n"
+"                                        "
+msgstr ""
+"\n"
+"                                            %(points_earned)s a %(points_possible)s-ból\n"
+"                                        "
 
 #: templates/legacy/grade/oa_grade_complete.html:38
 #: templates/legacy/response/oa_response.html:29
@@ -781,6 +867,14 @@ msgstr "Adjon visszajelzést a társak értékeléseiről"
 msgid "Submitting Feedback"
 msgstr "Visszajelzés beküldése"
 
+#: templates/legacy/grade/oa_grade_complete.html:134
+msgid ""
+"Your feedback has been submitted. Course staff will be able to see this "
+"feedback when they review course records."
+msgstr ""
+"A visszajelzését elküldtük. A kurzus személyzete látni fogja ezt a "
+"visszajelzést, amikor átnézik a kurzus feljegyzéseit."
+
 #: templates/legacy/grade/oa_grade_complete.html:146
 msgid ""
 "Select the statements below that best reflect your experience with peer "
@@ -816,6 +910,10 @@ msgstr ""
 msgid "I feel the feedback I received was..."
 msgstr "Úgy érzem, a kapott visszajelzés..."
 
+#: templates/legacy/grade/oa_grade_complete.html:200
+msgid "We could not submit your feedback"
+msgstr "Nem tudtuk elküldeni a visszajelzését."
+
 #: templates/legacy/grade/oa_grade_incomplete.html:33
 msgid "You have not completed all the steps of this problem."
 msgstr "Nem fejezte be a probléma összes lépését."
@@ -842,6 +940,13 @@ msgstr ""
 "Elvégezte a feladat lépéseit, de néhány értékelés még hátravan a válaszával "
 "kapcsolatban. Amikor a válaszának értékelései elkészülnek, látni fogja az "
 "értékelők visszajelzéseit, és megkapja a végső osztályzatát."
+
+#: templates/legacy/instructor_dashboard/oa_grade_available_responses.html:15
+#: templates/legacy/staff_area/oa_staff_area.html:16
+#: templates/legacy/staff_area/oa_staff_area.html:18
+#: templates/legacy/staff_area/oa_staff_area.html:153
+msgid "Grade Available Responses"
+msgstr "Elérhető válaszok értékelése"
 
 #: templates/legacy/instructor_dashboard/oa_grade_available_responses.html:26
 msgid ""
@@ -1001,6 +1106,23 @@ msgstr ""
 msgid "Team membership is required to view this assignment"
 msgstr "A feladat megtekintéséhez csapattagság szükséges."
 
+#: templates/legacy/message/oa_message_no_team.html:7
+#, python-format
+msgid ""
+"\n"
+"            This is a team assignment for team-set \"%(teamset_name)s\".\n"
+"            You are currently not on a team in team-set \"%(teamset_name)s\".\n"
+"            You must be on a team in team-set \"%(teamset_name)s\" to access this team assignment.\n"
+"            "
+msgstr ""
+"\n"
+"            Ez egy csapatfeladat a(z) \"%(teamset_name)s\" csapatkészlethez.\n"
+"\n"
+"Jelenleg nem vagy tagja a(z) \"%(teamset_name)s\" csapatkészletnek.\n"
+"\n"
+"Ahhoz, hogy hozzáférj ehhez a csapatfeladathoz, tagja kell lenned a(z) \"%(teamset_name)s\" csapatkészletnek.\n"
+"            "
+
 #: templates/legacy/message/oa_message_open.html:11
 #, python-format
 msgid ""
@@ -1011,6 +1133,10 @@ msgstr ""
 "\n"
 "                    A feladat több lépésből áll. Az első lépésben válaszolsz a feladatra. A többi lépés a %(start_tag)sVálaszod%(end_tag)s mező alatt található.\n"
 "                "
+
+#: templates/legacy/message/oa_message_unavailable.html:4
+msgid "Instructions Unavailable"
+msgstr "Utasítások nem elérhetők"
 
 #: templates/legacy/message/oa_message_unavailable.html:6
 msgid "The instructions for this step could not be loaded."
@@ -1157,6 +1283,21 @@ msgstr ""
 msgid "Not Available"
 msgstr "Nem elérhető"
 
+#: templates/legacy/peer/oa_peer_waiting.html:20
+#, python-format
+msgid ""
+"\n"
+"          In Progress (%(review_number)s of %(num_must_grade)s)\n"
+"        "
+msgstr ""
+"\n"
+"          ```\n"
+"          \n"
+"Folyamatban (%(review_number)s a(z) %(num_must_grade)s közül)\n"
+"        \n"
+"```\n"
+"        "
+
 #: templates/legacy/response/oa_response.html:27
 msgid "Your Team's Response"
 msgstr "Csapatod válasza"
@@ -1230,6 +1371,10 @@ msgstr ""
 msgid "What will this assignment be graded on?"
 msgstr "Mire fogják értékelni ezt a feladatot?"
 
+#: templates/legacy/response/oa_response.html:134
+msgid "The prompt for this section"
+msgstr "A szakasz feladata"
+
 #: templates/legacy/response/oa_response.html:148
 msgid "You are on team "
 msgstr "Ön a csapat tagja "
@@ -1259,6 +1404,22 @@ msgstr "(Opcionális)"
 #: templates/legacy/response/oa_response.html:197
 msgid "Enter your response to the prompt above."
 msgstr "Írja be a választ a fenti kérdésre."
+
+#: templates/legacy/response/oa_response.html:211
+#, python-format
+msgid ""
+"\n"
+"                                      You are currently on Team %(team_name)s. Since you were on Team %(previous_team_name)s\n"
+"                                      when they submitted a response to this assignment, you are seeing Team %(previous_team_name)s’s\n"
+"                                      response and will receive the same grade for this assignment as your former teammates.\n"
+"                                      You will not be part of Team %(team_name)s’s submission for this assignment and will not\n"
+"                                      receive a grade for their submission.\n"
+"                                  "
+msgstr ""
+"\n"
+"                                      Jelenleg a(z) %(team_name)s csapat tagja vagy. Mivel a(z) %(previous_team_name)s csapat tagja voltál, amikor ők benyújtották a választ erre a feladatra, a(z) %(previous_team_name)s csapat válaszát látod, és ugyanazt az osztályzatot kapod erre a feladatra, mint korábbi csapattársaid.\n"
+"                                      Nem leszel része a(z) %(team_name)s csapat benyújtásának erre a feladatra, és nem kapsz osztályzatot az ő benyújtásukért.\n"
+"                                  "
 
 #: templates/legacy/response/oa_response.html:224
 msgid "We could not save your progress"
@@ -1400,6 +1561,10 @@ msgstr "A feltöltött fájljaid"
 msgid "We could not reset your response"
 msgstr "Nem tudtuk visszaállítani a válaszát"
 
+#: templates/legacy/response/oa_response_submitted.html:69
+msgid "Reset response and submit again"
+msgstr "Állítsa vissza a választ, és küldje be újra"
+
 #: templates/legacy/response/oa_response_team_already_submitted.html:15
 msgid "Error"
 msgstr "Hiba"
@@ -1426,6 +1591,11 @@ msgstr ""
 msgid "Staff Grade"
 msgstr "Dolgozói Értékelés"
 
+#: templates/legacy/staff_area/oa_staff_area.html:8
+#: templates/legacy/staff_area/oa_staff_area.html:35
+msgid "Manage Individual Learners"
+msgstr "Egyéni tanulók kezelése"
+
 #: templates/legacy/staff_area/oa_staff_area.html:10
 msgid "Manage Team Responses"
 msgstr "Csapatválaszok kezelése"
@@ -1434,6 +1604,10 @@ msgstr "Csapatválaszok kezelése"
 #: templates/legacy/staff_area/oa_staff_area.html:71
 msgid "View Assignment Statistics"
 msgstr "Feladatstatisztikák megtekintése"
+
+#: templates/legacy/staff_area/oa_staff_area.html:22
+msgid "Demo the new Grading Experience"
+msgstr "Próbálja ki az új osztályozási élményt"
 
 #: templates/legacy/staff_area/oa_staff_area.html:26
 msgid "View ORA in Studio"
@@ -1511,6 +1685,18 @@ msgstr ""
 "Adj ennek a tanulónak egy osztályzatot a feladat értékelési szempontjai "
 "alapján."
 
+#: templates/legacy/staff_area/oa_staff_grade_learners_assessment.html:30
+#: templates/legacy/staff_area/oa_staff_override_assessment.html:20
+#, python-format
+msgid ""
+"\n"
+"                                        Response for: %(student_username)s\n"
+"                                    "
+msgstr ""
+"\n"
+"                                        Válasz: %(student_username)s\n"
+"                                    "
+
 #: templates/legacy/staff_area/oa_staff_grade_learners_assessment.html:34
 #: templates/legacy/staff_area/oa_staff_override_assessment.html:24
 msgid "Learner Response"
@@ -1542,6 +1728,12 @@ msgstr ""
 "                %(ungraded)s Elérhető és %(in_progress)s Kivett\n"
 "            "
 
+#: templates/legacy/staff_area/oa_staff_override_assessment.html:7
+msgid "Override this learner's current grade using the problem's rubric."
+msgstr ""
+"Felülírja a tanuló jelenlegi osztályzatát a feladat értékelési szempontjai "
+"alapján."
+
 #: templates/legacy/staff_area/oa_staff_override_assessment.html:27
 msgid "Team Response"
 msgstr "Csapat válasza"
@@ -1550,6 +1742,17 @@ msgstr "Csapat válasza"
 #: templates/legacy/staff_area/oa_student_info.html:59
 msgid "The team's response to the prompt above"
 msgstr "A csapat válasza a fenti feladatra"
+
+#: templates/legacy/staff_area/oa_student_info.html:11
+#, python-format
+msgid ""
+"\n"
+"                    Viewing learner: %(learner)s\n"
+"                "
+msgstr ""
+"\n"
+"                    Tanuló megtekintése: %(learner)s\n"
+"                "
 
 #: templates/legacy/staff_area/oa_student_info.html:15
 #, python-format
@@ -1569,6 +1772,17 @@ msgstr "A tanuló válasza"
 #: templates/legacy/staff_area/oa_student_info.html:30
 msgid "Team's Response"
 msgstr "A csapat válasza"
+
+#: templates/legacy/staff_area/oa_student_info.html:39
+#, python-format
+msgid ""
+"\n"
+"                            Learner submission removed by %(removed_by_username)s on %(removed_datetime)s\n"
+"                        "
+msgstr ""
+"\n"
+"                            A tanuló beküldését eltávolította %(removed_by_username)s ekkor: %(removed_datetime)s\n"
+"                        "
 
 #: templates/legacy/staff_area/oa_student_info.html:50
 #, python-format
@@ -1601,6 +1815,10 @@ msgstr "A csapat végső osztályzata"
 msgid "Final Grade Details"
 msgstr "Végső osztályzat részletei"
 
+#: templates/legacy/staff_area/oa_student_info.html:154
+msgid "Feedback Recorded"
+msgstr "Visszajelzés rögzítve"
+
 #: templates/legacy/staff_area/oa_student_info.html:165
 msgid "The submission is waiting for assessments."
 msgstr "A beküldés értékelésre vár."
@@ -1632,6 +1850,10 @@ msgstr "A probléma nincs elkezdve."
 #: templates/legacy/staff_area/oa_student_info.html:181
 msgid "The problem has not been completed."
 msgstr "A probléma nincs befejezve."
+
+#: templates/legacy/staff_area/oa_student_info.html:195
+msgid "Submit Team Grade Override"
+msgstr "Csapat osztályzat felülírásának beküldése"
 
 #: templates/legacy/staff_area/oa_student_info.html:207
 msgid ""
@@ -1829,6 +2051,10 @@ msgstr "Munkatársi megjegyzések"
 msgid "Peer {peer_index}"
 msgstr "Társ {peer_index}"
 
+#: xblock/grade_mixin.py:384
+msgid "Peer Comments"
+msgstr "Társak megjegyzései"
+
 #: xblock/grade_mixin.py:394
 msgid "Self Assessment Grade"
 msgstr "Önértékelési osztályzat"
@@ -1836,6 +2062,10 @@ msgstr "Önértékelési osztályzat"
 #: xblock/grade_mixin.py:394
 msgid "Your Self Assessment"
 msgstr "Önértékelése"
+
+#: xblock/grade_mixin.py:395 xblock/grade_mixin.py:554
+msgid "Your Comments"
+msgstr "Az Ön megjegyzései"
 
 #: xblock/grade_mixin.py:508
 msgid "Waiting for peer reviews"
@@ -1929,6 +2159,10 @@ msgid "You do not have permission to access ORA staff grading."
 msgstr ""
 "Nincs jogosultsága az ORA személyzeti értékeléshez való hozzáféréshez."
 
+#: xblock/staff_area_mixin.py:241
+msgid "Pending"
+msgstr "Függőben"
+
 #: xblock/staff_area_mixin.py:245
 msgid "Not applicable"
 msgstr "Nem alkalmazható"
@@ -1948,6 +2182,12 @@ msgstr "Jelenleg nincs más tanulói válasz, amely értékelésre várna."
 #: xblock/staff_area_mixin.py:387
 msgid "Error getting staff grade information."
 msgstr "Hiba történt a személyzet osztályzatainak lekérésekor."
+
+#: xblock/staff_area_mixin.py:408
+msgid "Error getting staff grade ungraded and checked out counts."
+msgstr ""
+"Hiba történt a személyzet osztályzatlan és kivett tételeinek számának "
+"lekérésekor."
 
 #: xblock/staff_area_mixin.py:703
 msgid "Please enter valid reason to remove the submission."
@@ -2077,6 +2317,10 @@ msgid ""
 "released."
 msgstr "A feladat kiadása után az értékelések száma nem módosítható."
 
+#: xblock/utils/validation.py:200
+msgid "This rubric definition is not valid."
+msgstr "Ez a rubrika meghatározás érvénytelen."
+
 #: xblock/utils/validation.py:203
 msgid "You must provide at least one prompt."
 msgstr "Legalább egy utasítást meg kell adnia."
@@ -2092,6 +2336,22 @@ msgstr ""
 msgid "Prompts cannot be created or deleted after a problem is released."
 msgstr ""
 "A feladat kiadása után a feladatok nem hozhatók létre vagy törölhetők."
+
+#: xblock/utils/validation.py:230
+msgid "The number of criteria cannot be changed after a problem is released."
+msgstr ""
+"A kritériumok száma nem változtatható meg, miután egy probléma kiadásra "
+"került."
+
+#: xblock/utils/validation.py:243
+msgid "Criteria names cannot be changed after a problem is released"
+msgstr ""
+"A kritériumok nevei nem módosíthatók, miután egy probléma kiadásra került."
+
+#: xblock/utils/validation.py:248
+msgid "The number of options cannot be changed after a problem is released."
+msgstr ""
+"A lehetőségek száma nem módosítható, miután egy probléma kiadásra került."
 
 #: xblock/utils/validation.py:304
 msgid "Learner training must have at least one training example."
