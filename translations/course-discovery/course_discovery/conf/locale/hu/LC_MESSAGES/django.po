@@ -27,6 +27,14 @@ msgstr ""
 msgid "No user with the username [{username}] exists."
 msgstr "Nem létezik [{username}] nevű felhasználó."
 
+#: apps/api/filters.py:50
+msgid ""
+"Only staff users are permitted to filter by username. Remove the username "
+"parameter."
+msgstr ""
+"Csak stábtagot szűrhetnek felhasználónév alapján. Távolítsd el a "
+"felhasználónév paramétert."
+
 #: apps/api/serializers.py:850
 msgid "Number of courses contained in this catalog"
 msgstr "Kurzusok száma ebben a katalógusban"
@@ -42,6 +50,14 @@ msgstr "A kezdési dátum nem lehet a befejezési dátum után."
 #: apps/api/serializers.py:1028
 msgid "Term cannot be changed"
 msgstr "A kifejezés nem változtatható meg"
+
+#: apps/api/serializers.py:1048
+msgid "Language in which the course is administered"
+msgstr "A nyelv, amelyen a kurzust igazgatják"
+
+#: apps/api/serializers.py:1152
+msgid "Course cannot be changed for an existing course run"
+msgstr "Egy meglévő kurzus futam esetén a kurzus nem módosítható."
 
 #: apps/api/serializers.py:1157
 msgid "Minimum effort cannot be greater than Maximum effort"
@@ -98,6 +114,10 @@ msgstr "Hiányzó érték: [{name}]. "
 #: apps/api/v1/views/comments.py:60 apps/api/v1/views/courses.py:215
 msgid "Incorrect data sent. "
 msgstr "Helytelen adatok küldve. "
+
+#: apps/api/v1/views/course_runs.py:49
+msgid "Failed to set course run data: {}"
+msgstr "Nem sikerült beállítani a kurzus futási adatait: {}"
 
 #: apps/api/v1/views/course_runs.py:328
 msgid "Can only update status, ofac restrictions, and ofac comment"
@@ -175,6 +195,10 @@ msgstr "Katalógus neve"
 #: apps/catalogs/models.py:18
 msgid "Query to retrieve Course Run catalog contents"
 msgstr "Lekérdezés a kurzusfutam katalógus tartalmának lekéréséhez"
+
+#: apps/catalogs/models.py:25
+msgid "Include archived courses"
+msgstr "Tartalmazza az archivált kurzusokat"
 
 #: apps/core/admin.py:17
 msgid "Personal info"
@@ -263,9 +287,21 @@ msgstr ""
 "Kényelmes kód/azonosító, amelyet a Partner azonosítására használnak (pl. "
 "kezelési parancsokhoz)."
 
+#: apps/core/models.py:56
+msgid "Courses API URL"
+msgstr "Kurzusok API URL-címe"
+
+#: apps/core/models.py:59
+msgid "Course Mode API URL"
+msgstr "Kurzusmód API URL"
+
 #: apps/core/models.py:60
 msgid "E-Commerce API URL"
 msgstr "E-kereskedelmi API URL"
+
+#: apps/core/models.py:62
+msgid "Organizations API URL"
+msgstr "Szervezetek API URL-címe"
 
 #: apps/core/models.py:63
 msgid "Programs API URL"
@@ -351,6 +387,10 @@ msgstr "Salesforce szervezetazonosító"
 msgid "Salesforce Security Token"
 msgstr "Salesforce biztonsági token"
 
+#: apps/core/models.py:149
+msgid "Is a Salesforce Sandbox?"
+msgstr "Salesforce Sandbox?"
+
 #: apps/core/models.py:155
 msgid "Case Record Type Id"
 msgstr "Esetrekordtípus-azonosító"
@@ -372,6 +412,14 @@ msgstr "Igen"
 #: apps/course_metadata/admin.py:71
 msgid "No"
 msgstr "Nem"
+
+#: apps/course_metadata/admin.py:537 apps/course_metadata/admin.py:882
+msgid "Included course runs"
+msgstr "Tartalmazott kurzusfutamok"
+
+#: apps/course_metadata/admin.py:888
+msgid "Edit link"
+msgstr "Szerkesztési hivatkozás"
 
 #: apps/course_metadata/admin.py:896
 msgid "Edit course run exclusions"
@@ -410,6 +458,10 @@ msgstr "Következik"
 msgid "Archived"
 msgstr "Archivált"
 
+#: apps/course_metadata/algolia_models.py:678
+msgid "Available by subscription"
+msgstr "Előfizetéssel elérhető"
+
 #: apps/course_metadata/choices.py:6 apps/course_metadata/choices.py:22
 #: apps/course_metadata/choices.py:36
 msgid "Unpublished"
@@ -422,6 +474,10 @@ msgstr "Jogi felülvizsgálatra várva"
 #: apps/course_metadata/choices.py:8
 msgid "Awaiting Internal Review"
 msgstr "Belső ellenőrzésre vár"
+
+#: apps/course_metadata/choices.py:9
+msgid "Reviewed"
+msgstr "Felülvizsgálva"
 
 #: apps/course_metadata/choices.py:10 apps/course_metadata/choices.py:23
 #: apps/course_metadata/choices.py:101
@@ -465,9 +521,17 @@ msgstr "spoc"
 msgid "test"
 msgstr "teszt"
 
+#: apps/course_metadata/choices.py:46
+msgid "demo"
+msgstr "bemutató"
+
 #: apps/course_metadata/choices.py:47
 msgid "other"
 msgstr "egyéb"
+
+#: apps/course_metadata/choices.py:54
+msgid "Course Create"
+msgstr "Kurzus létrehozása"
 
 #: apps/course_metadata/choices.py:55
 msgid "Course Partial Update"
@@ -501,6 +565,10 @@ msgstr "Nem sikerült"
 msgid "Partially Completed"
 msgstr "Részben Teljesítve"
 
+#: apps/course_metadata/choices.py:70
+msgid "Errored"
+msgstr "Hibás"
+
 #: apps/course_metadata/choices.py:74
 msgid "Honor"
 msgstr "Becsület"
@@ -512,6 +580,10 @@ msgstr "Kredit"
 #: apps/course_metadata/choices.py:77
 msgid "Professional"
 msgstr "Profi"
+
+#: apps/course_metadata/choices.py:78
+msgid "Executive Education"
+msgstr "Vezetői oktatás"
 
 #: apps/course_metadata/choices.py:79
 msgid "Paid Executive Education"
@@ -601,6 +673,33 @@ msgstr ""
 "Nem küldünk értesítő e-mailt a(z) {template} sablonhoz, mert a(z) {course} "
 "kurzushoz nincs szervezet meghatározva."
 
+#: apps/course_metadata/emails.py:42
+#, python-brace-format
+msgid ""
+"Not sending notification email for template {template} because no project "
+"coordinator is defined for organization {org}"
+msgstr ""
+"Nem küldünk értesítő e-mailt a(z) {template} sablonhoz, mert nincs "
+"projektkoordinátor meghatározva a(z) {org} szervezethez."
+
+#: apps/course_metadata/emails.py:96
+#, python-brace-format
+msgid ""
+"Not sending notification email for template {template} because no publisher "
+"URL is defined for partner {partner}"
+msgstr ""
+"Nem küldünk értesítő e-mailt a(z) {template} sablonhoz, mert a(z) {partner} "
+"partnerhez nincs megadva kiadói URL."
+
+#: apps/course_metadata/emails.py:104
+#, python-brace-format
+msgid ""
+"Not sending notification email for template {template} because no studio URL"
+" is defined for partner {partner}"
+msgstr ""
+"Nem küldünk értesítő e-mailt a(z) {template} sablonhoz, mert a(z) {partner} "
+"partnerhez nincs stúdió URL meghatározva."
+
 #: apps/course_metadata/emails.py:170
 msgid "legal team"
 msgstr "jogi csapat"
@@ -661,6 +760,14 @@ msgstr ""
 msgid "Programs can only be activated if they have a banner image."
 msgstr "A programok csak akkor aktiválhatók, ha van banner képük."
 
+#: apps/course_metadata/management/commands/add_tag_to_courses.py:15
+msgid "Tag to add to courses"
+msgstr "Címke hozzáadása a kurzusokhoz"
+
+#: apps/course_metadata/management/commands/add_tag_to_courses.py:16
+msgid "UUIDs of courses to tag"
+msgstr "A címkézendő kurzusok UUID-jai"
+
 #: apps/course_metadata/management/commands/add_tag_to_courses.py:18
 msgid ""
 "Use arguments from the TagCourseUUIDsConfig model instead of the command "
@@ -671,6 +778,10 @@ msgstr ""
 #: apps/course_metadata/management/commands/add_tag_to_courses.py:27
 msgid "Missing required arguments"
 msgstr "Hiányzó kötelező argumentumok"
+
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:15
+msgid "CODE"
+msgstr "KÓD"
 
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:16
 #: apps/course_metadata/management/commands/delete_person_dups.py:33
@@ -688,6 +799,14 @@ msgstr "Partner rövid kódja."
 #: apps/learner_pathway/models.py:83 apps/learner_pathway/models.py:158
 msgid "UUID"
 msgstr "UUID"
+
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:22
+msgid "Course to backpopulate."
+msgstr "Tanfolyam visszamenőleges kitöltéshez."
+
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:27
+msgid "KEY"
+msgstr "KULCS"
 
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:41
 #: apps/course_metadata/management/commands/delete_person_dups.py:38
@@ -724,6 +843,10 @@ msgid ""
 msgstr ""
 "Nem sikerült visszamenőlegesen kitölteni a kurzustípust a következő "
 "kurzusokhoz: {course_keys}"
+
+#: apps/course_metadata/management/commands/delete_person_dups.py:21
+msgid "Delete duplicate persons in course_metadata."
+msgstr "Törölje a duplikált személyeket a course_metadata-ban."
 
 #: apps/course_metadata/management/commands/delete_person_dups.py:26
 msgid "PERSON"
@@ -763,6 +886,10 @@ msgstr "Törlés"
 msgid "Name"
 msgstr "Név"
 
+#: apps/course_metadata/management/commands/delete_person_dups.py:87
+msgid "Endorsements"
+msgstr "Ajánlások"
+
 #: apps/course_metadata/management/commands/delete_person_dups.py:88
 msgid "Programs"
 msgstr "Programok"
@@ -778,6 +905,10 @@ msgstr "Cél"
 #: apps/course_metadata/management/commands/delete_person_dups.py:129
 msgid "You must specify --partner-code"
 msgstr "Meg kell adnia a --partner-code paramétert"
+
+#: apps/course_metadata/management/commands/delete_person_dups.py:132
+msgid "You must specify at least one person"
+msgstr "Meg kell adnia legalább egy személyt"
 
 #: apps/course_metadata/management/commands/publish_live_course_runs.py:23
 #, python-brace-format
@@ -836,6 +967,16 @@ msgstr "A(z) {url_path} útvonal nincs használatban, nincs mit törölni."
 msgid "One or more courses failed to unpublish."
 msgstr "Egy vagy több kurzus sikertelenül lett visszavonva."
 
+#: apps/course_metadata/management/commands/unpublish_inactive_runs.py:48
+#, python-brace-format
+msgid "Successfully unpublished runs in course {key}"
+msgstr "Sikeresen visszavont futamok a(z) {key} kurzusban"
+
+#: apps/course_metadata/management/commands/unpublish_inactive_runs.py:51
+#, python-brace-format
+msgid "Failed to unpublish runs in course {key}"
+msgstr "Nem sikerült visszavonni a kurzus {key} futamait."
+
 #: apps/course_metadata/models.py:238
 msgid ""
 "Please do not use any spaces or special characters other than period, "
@@ -883,6 +1024,20 @@ msgstr ""
 "Ez a mező azt jelzi, hogy az adott szervezet bármelyik kurzusa szerepel-e a "
 "vállalati előfizetési katalógusban."
 
+#: apps/course_metadata/models.py:289
+msgid ""
+"The 6 character-hex-value of the orgnization theme color,\n"
+"            all related course under same organization will use this color as theme color.\n"
+"            (e.g. \"#ff0000\" which equals red) No need to provide the `#`"
+msgstr ""
+"A szervezet témaszínének 6 karakteres hexadecimális értéke,\n"
+"            az ugyanazon szervezethez tartozó összes kurzus ezt a színt fogja használni témaszínként.\n"
+"            (pl. \"#ff0000\", ami pirosnak felel meg) Nem szükséges megadni a `#` jelet."
+
+#: apps/course_metadata/models.py:305
+msgid "The timestamp of the last time the organization data was modified."
+msgstr "Az utolsó módosítás időbélyege az intézmény adatain."
+
 #: apps/course_metadata/models.py:321
 msgid ""
 "Please do not use any spaces or special characters other than period, "
@@ -890,6 +1045,10 @@ msgid ""
 msgstr ""
 "Kérjük, ne használjon szóközöket vagy speciális karaktereket, kivéve a "
 "pontot, az aláhúzást vagy a kötőjelet a kulcs mezőben."
+
+#: apps/course_metadata/models.py:392
+msgid "Corresponding organization code in an external product source"
+msgstr "Megfelelő szervezeti kód egy külső termékforrásban"
 
 #: apps/course_metadata/models.py:449
 msgid "LevelType model translations"
@@ -984,6 +1143,14 @@ msgstr ""
 "A Taxi Form (by 2U) csoportosítása, amely a hubspot űrlap helyett jelenik "
 "meg"
 
+#: apps/course_metadata/models.py:911
+msgid "The URL of the paid landing page on external site"
+msgstr "A fizetett céloldal URL-je külső webhelyen"
+
+#: apps/course_metadata/models.py:917
+msgid "The URL of the organic landing page on external site"
+msgstr "Az organikus céloldal URL-je külső webhelyen"
+
 #: apps/course_metadata/models.py:928
 msgid "The start date of the external course offering for marketing purpose"
 msgstr "A külső tanfolyam marketing célú ajánlatának kezdési dátuma"
@@ -991,6 +1158,10 @@ msgstr "A külső tanfolyam marketing célú ajánlatának kezdési dátuma"
 #: apps/course_metadata/models.py:932
 msgid "The ends date of the external course offering for marketing purpose"
 msgstr "Az külső tanfolyam marketing célú ajánlatának befejezési dátuma"
+
+#: apps/course_metadata/models.py:936
+msgid "The suggested deadline for enrollment for marketing purpose"
+msgstr "A javasolt határidő a beiratkozásra marketing célból"
 
 #: apps/course_metadata/models.py:940
 msgid "The identifier for a product variant."
@@ -1034,6 +1205,14 @@ msgstr ""
 "Kérlek, add hozzá a közreműködő képét, ügyelj arra, hogy a méretei 200x100px"
 " legyenek."
 
+#: apps/course_metadata/models.py:1271
+msgid "U.S. Value Per Lead"
+msgstr "Egyesült Államok érték leadenként"
+
+#: apps/course_metadata/models.py:1272
+msgid "U.S. value per lead in U.S. dollars."
+msgstr "Az egyesült államokbeli lead értéke amerikai dollárban."
+
 #: apps/course_metadata/models.py:1277
 msgid "International Value Per Lead"
 msgstr "Nemzetközi érték leadenként"
@@ -1041,6 +1220,10 @@ msgstr "Nemzetközi érték leadenként"
 #: apps/course_metadata/models.py:1278
 msgid "International value per lead in U.S. dollars."
 msgstr "Nemzetközi érték leadenként amerikai dollárban."
+
+#: apps/course_metadata/models.py:1284
+msgid "U.S. value per click in U.S. dollars."
+msgstr "Az Egyesült Államokban kattintásonkénti érték amerikai dollárban."
 
 #: apps/course_metadata/models.py:1289
 msgid "International Value Per Click"
@@ -1065,6 +1248,14 @@ msgstr "Engedélyezési lista"
 #: apps/course_metadata/models.py:1373
 msgid "Blocklist"
 msgstr "Tiltólista"
+
+#: apps/course_metadata/models.py:1420
+msgid ""
+"When making reruns for this course, they will use this key instead of the "
+"course key."
+msgstr ""
+"Amikor újraindítják ezt a kurzust, ezt a kulcsot fogják használni a "
+"kurzuskulcs helyett."
 
 #: apps/course_metadata/models.py:1458
 msgid "Add the course image"
@@ -1133,6 +1324,10 @@ msgstr "Jövő"
 msgid "Past"
 msgstr "Múlt"
 
+#: apps/course_metadata/models.py:2229 apps/course_metadata/models.py:3305
+msgid "Blocked"
+msgstr "Letiltva"
+
 #: apps/course_metadata/models.py:2230 apps/course_metadata/models.py:3306
 msgid "Unrestricted"
 msgstr "Korlátlan"
@@ -1174,6 +1369,11 @@ msgid ""
 msgstr ""
 "Hány órát kell hetente legfeljebb eltölteni az anyaggal, ahhoz, hogy a "
 "tanuló be tudja fejezni."
+
+#: apps/course_metadata/models.py:2275
+msgid "Estimated number of weeks needed to complete this course run."
+msgstr ""
+"A becsült hetek száma, amely szükséges ennek a kurzusnak a teljesítéséhez."
 
 #: apps/course_metadata/models.py:2282
 msgid ""
@@ -1256,6 +1456,14 @@ msgstr ""
 "Az ülés típusok felülvizsgálat utáni módosítása nem támogatott. Kérjük, "
 "forduljon projektkoordinátorához további segítségért, ha szükséges."
 
+#: apps/course_metadata/models.py:3105
+msgid "Job advancement"
+msgstr "Munkaköri előrelépés"
+
+#: apps/course_metadata/models.py:3106
+msgid "Learn valuable skills"
+msgstr "Tanuljon értékes készségeket"
+
 #: apps/course_metadata/models.py:3107
 msgid "Learn for fun"
 msgstr "Tanulj szórakozásból"
@@ -1311,6 +1519,10 @@ msgstr ""
 "listában szereplő oktatóknak minden más, a program kurzusfutamaihoz "
 "kapcsolódó oktató előtt kell megjelenniük."
 
+#: apps/course_metadata/models.py:3388
+msgid "The description of credit redemption for courses in program"
+msgstr "A kurzusok kreditbeváltásának leírása a programban"
+
 #: apps/course_metadata/models.py:3393
 msgid "Allow courses in this program to be purchased in a single transaction"
 msgstr ""
@@ -1351,6 +1563,19 @@ msgid ""
 msgstr ""
 "Ez a számított mező azt jelzi, hogy a program összes kurzusa szerepel-e a "
 "vállalati előfizetési katalógusban. "
+
+#: apps/course_metadata/models.py:3418
+msgid ""
+"A field to override Organization short code alias specific for this program."
+msgstr ""
+"Egy mező, amely felülírja a szervezet rövid kódjának aliasát, amely "
+"kifejezetten ehhez a programhoz tartozik."
+
+#: apps/course_metadata/models.py:3425
+msgid "A field to override Organization logo specific for this program."
+msgstr ""
+"Egy mező, amely felülírja a szervezet logóját, kifejezetten ehhez a "
+"programhoz."
 
 #: apps/course_metadata/models.py:3429
 msgid ""
@@ -1408,6 +1633,10 @@ msgstr "A tényleges rangszám"
 msgid "What does the rank number mean"
 msgstr "Mit jelent a rangszám?"
 
+#: apps/course_metadata/models.py:3988
+msgid "From where the rank is obtained"
+msgstr "Honnan származik a rang?"
+
 #: apps/course_metadata/models.py:4004
 msgid "Callback URL to partner application flow"
 msgstr "Visszahívási URL a partner alkalmazás folyamathoz"
@@ -1416,9 +1645,21 @@ msgstr "Visszahívási URL a partner alkalmazás folyamathoz"
 msgid "Overall program ranking (e.g. \"#1 in the U.S.\")"
 msgstr "Az összesített program rangsora (pl. \"#1 az Egyesült Államokban\")"
 
+#: apps/course_metadata/models.py:4012
+msgid ""
+"The 6 character hex value of the color to make the banner borders\n"
+"            (e.g. \"#ff0000\" which equals red) No need to provide the `#`"
+msgstr ""
+"A szín 6 karakteres hexadecimális értéke a banner szegélyekhez\n"
+"            (pl. \"ff0000\", ami pirosnak felel meg) Nincs szükség a `#` megadására"
+
 #: apps/course_metadata/models.py:4021
 msgid "Provide a campus image for the header of the degree"
 msgstr "Biztosítson egy campus képet a diploma fejlécéhez"
+
+#: apps/course_metadata/models.py:4037
+msgid "The fine print that displays at the Deadline section's bottom"
+msgstr "A határidő szakasz alján megjelenő apró betűs rész"
 
 #: apps/course_metadata/models.py:4044
 msgid "The sailthru email list name to capture leads"
@@ -1464,6 +1705,18 @@ msgid ""
 msgstr ""
 "Meghatározza, hogy a diploma megjelenjen-e a tulajdonos szervezet oldalán."
 
+#: apps/course_metadata/models.py:4140
+msgid "The redirect URL of the degree on external site"
+msgstr "A fokozat átirányítási URL-je külső oldalon"
+
+#: apps/course_metadata/models.py:4145
+msgid "The URL of the landing page on external site"
+msgstr "A céloldal URL-je a külső webhelyen"
+
+#: apps/course_metadata/models.py:4180
+msgid "Bell"
+msgstr "Csengő"
+
 #: apps/course_metadata/models.py:4181
 msgid "Certificate"
 msgstr "Bizonyítvány"
@@ -1475,6 +1728,10 @@ msgstr "Pipa"
 #: apps/course_metadata/models.py:4183
 msgid "Clock"
 msgstr "Óra"
+
+#: apps/course_metadata/models.py:4184
+msgid "Desktop"
+msgstr "Asztali számítógép"
 
 #: apps/course_metadata/models.py:4185
 msgid "Info"
@@ -1496,6 +1753,10 @@ msgstr "Dollar"
 msgid "Book"
 msgstr "Könyv"
 
+#: apps/course_metadata/models.py:4190
+msgid "Mortar Board"
+msgstr "Talársapka"
+
 #: apps/course_metadata/models.py:4191
 msgid "Star"
 msgstr "Csillag"
@@ -1511,6 +1772,10 @@ msgstr "Ikon FA osztály"
 #: apps/course_metadata/models.py:4197
 msgid "Paired text"
 msgstr "Párosított szöveg"
+
+#: apps/course_metadata/models.py:4216
+msgid "Deadline applies for this semester (e.g. Spring 2019"
+msgstr "Határidő vonatkozik erre a szemeszterre (pl. 2019 tavasz)"
 
 #: apps/course_metadata/models.py:4220
 msgid "Describes the deadline (e.g. Early Admission Deadline)"
@@ -1575,6 +1840,10 @@ msgstr ""
 msgid "It expects the data will be provided in a csv file format "
 msgstr "Elvárja, hogy az adatokat csv fájlformátumban adják meg. "
 
+#: apps/course_metadata/models.py:4535
+msgid "A csv file containing uuid of the courses to be archived"
+msgstr "Egy csv fájl, amely az archiválandó kurzusok uuid-ját tartalmazza"
+
 #: apps/course_metadata/models.py:4549 apps/course_metadata/models.py:4562
 #: apps/course_metadata/models.py:4575 apps/course_metadata/models.py:4595
 #: apps/course_metadata/models.py:4608 apps/course_metadata/models.py:4627
@@ -1603,6 +1872,10 @@ msgstr "Bootcampok"
 msgid "Course UUIDs"
 msgstr "Kurzus UUID-k"
 
+#: apps/course_metadata/models.py:4712
+msgid "Course Run IDs"
+msgstr "Kurzusfutás-azonosítók"
+
 #: apps/course_metadata/models.py:4728
 msgid "Profile Image UUIDs"
 msgstr "Profilkép UUID-k"
@@ -1611,6 +1884,14 @@ msgstr "Profilkép UUID-k"
 msgid "Tag"
 msgstr "Tag"
 
+#: apps/course_metadata/models.py:4751
+msgid "Remove All Redirects"
+msgstr "Távolítsa el az összes átirányítást"
+
+#: apps/course_metadata/models.py:4752
+msgid "Url Paths"
+msgstr "URL-útvonalak"
+
 #: apps/course_metadata/models.py:4761 apps/taxonomy_support/models.py:55
 msgid "Course uuids"
 msgstr "Kurzus azonosítók"
@@ -1618,6 +1899,10 @@ msgstr "Kurzus azonosítók"
 #: apps/course_metadata/models.py:4825
 msgid "User who uploaded the file"
 msgstr "A fájlt feltöltő felhasználó"
+
+#: apps/course_metadata/models.py:4830
+msgid "Summary of the task"
+msgstr "A feladat összefoglalása"
 
 #: apps/course_metadata/models.py:4833
 msgid "Task Type"
@@ -1648,6 +1933,10 @@ msgstr "Mégsem"
 msgid "Back to Program"
 msgstr "Vissza a programhoz"
 
+#: apps/course_metadata/templates/admin/course_metadata/course_run.html:29
+msgid "Save Course Run"
+msgstr "Kurzusfutás mentése"
+
 #: apps/course_metadata/templates/admin/course_metadata/course_skills.html:11
 #: apps/course_metadata/templates/admin/course_metadata/refresh_course_skills.html:7
 #: apps/course_metadata/templates/admin/course_metadata/refresh_program_skills.html:7
@@ -1657,6 +1946,11 @@ msgstr "Főoldal"
 #: apps/course_metadata/templates/admin/course_metadata/course_skills.html:26
 msgid "Course Skills"
 msgstr "Kurzus készségek"
+
+#: apps/course_metadata/templates/admin/course_metadata/refresh_program_skills.html:22
+#: apps/course_metadata/templates/admin/course_metadata/refresh_program_skills.html:32
+msgid "Refresh Program Skills"
+msgstr "Programkészségek frissítése"
 
 #: apps/course_metadata/templates/course_metadata/email/comment.html:7
 #, python-format
@@ -1889,6 +2183,14 @@ msgstr "A(z) {0} attribútum nem engedélyezett a(z) {1} címkén"
 msgid "The program was changed successfully."
 msgstr "A program sikeresen megváltozott."
 
+#: apps/course_metadata/views.py:127
+msgid "The refresh program skills task triggered successfully."
+msgstr "A programfrissítési készségek feladat sikeresen elindult."
+
+#: apps/course_metadata/views.py:206
+msgid "The refresh course skills task triggered successfully."
+msgstr "A frissítő tanfolyam készségek feladat sikeresen elindult."
+
 #: apps/course_metadata/views.py:306
 msgid "The course skills were updated successfully."
 msgstr "A kurzus készségei sikeresen frissültek."
@@ -1900,6 +2202,10 @@ msgid ""
 msgstr ""
 "A kérés nem teljesíthető, mert helytelenek az ElasticSearch lekérdezési "
 "paraméterei."
+
+#: apps/ietf_language_tags/models.py:34
+msgid "Name for translation"
+msgstr "Fordításra váró név"
 
 #: apps/ietf_language_tags/models.py:38
 msgid "LanguageTag model translations"
@@ -1930,6 +2236,12 @@ msgstr "Tanulói útvonal"
 #: apps/learner_pathway/models.py:119
 msgid "Learner Pathways"
 msgstr "Tanulói útvonalak"
+
+#: apps/learner_pathway/models.py:165
+msgid "Minimum number of nodes to complete this step of the pathway"
+msgstr ""
+"A minimális csomópontok száma a tanulási útvonal ezen lépésének "
+"teljesítéséhez"
 
 #: apps/learner_pathway/models.py:169
 msgid "Learner Pathway Step"
@@ -2005,6 +2317,17 @@ msgstr "Tanfolyamajánlások"
 msgid "Adds recommendations for all published courses"
 msgstr "Hozzáad ajánlásokat az összes közzétett kurzushoz"
 
+#: apps/taxonomy_support/models.py:58
+msgid ""
+"Adds recommendations for courses created or modified in the past num days"
+msgstr ""
+"Hozzáad ajánlásokat az elmúlt napokban létrehozott vagy módosított "
+"kurzusokhoz."
+
 #: apps/taxonomy_support/providers.py:198
 msgid "No partner object found!"
 msgstr "Nincs partnerobjektum!"
+
+#: urls.py:32
+msgid "Discovery Service Administration"
+msgstr "Felfedezési Szolgáltatás Adminisztrációja"
