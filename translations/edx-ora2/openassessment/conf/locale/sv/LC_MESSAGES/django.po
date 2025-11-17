@@ -103,6 +103,10 @@ msgstr "Feedback {number}"
 msgid "Item ID"
 msgstr "Artikelnummer"
 
+#: data.py:918
+msgid "Submission ID"
+msgstr "Inlämnings-ID"
+
 #: data.py:930
 msgid "Anonymized Student ID"
 msgstr "Anonymiserat student-ID"
@@ -147,6 +151,10 @@ msgstr "Datum/Tid Slutresultat ges"
 #: data.py:971
 msgid "Final Score Earned"
 msgstr "Slutresultat intjänat"
+
+#: data.py:972
+msgid "Final Score Possible"
+msgstr "Slutresultat möjlig"
 
 #: data.py:973
 msgid "Feedback Statements Selected"
@@ -196,6 +204,10 @@ msgstr "Visningsnamn "
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:8
 msgid "The display name for this component."
 msgstr "Visningsnamnet för den här komponenten."
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:12
+msgid "Text Response"
+msgstr "Textrespons"
 
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:20
 msgid ""
@@ -384,6 +396,10 @@ msgstr "Du kan inte radera ett kriterium efter att uppgiften har släppts."
 msgid "Criterion Name"
 msgstr "Kriterium Namn"
 
+#: templates/legacy/edit/oa_edit_criterion.html:29
+msgid "Criterion Prompt"
+msgstr "Kriterieuppmaning"
+
 #: templates/legacy/edit/oa_edit_criterion.html:44
 msgid "Add Option"
 msgstr "Lägg till alternativ"
@@ -415,6 +431,10 @@ msgstr ""
 #: templates/legacy/edit/oa_edit_prompt.html:7
 msgid "Prompt"
 msgstr "Prompt"
+
+#: templates/legacy/edit/oa_edit_header_and_validation.html:15
+msgid "Rubric"
+msgstr "Bedömningskriterier"
 
 #: templates/legacy/edit/oa_edit_header_and_validation.html:29
 msgid "Assessment steps"
@@ -559,6 +579,11 @@ msgstr "Datum och tid då eleverna kan börja bedöma kamratsvar."
 msgid "Due Date"
 msgstr "Förfallodatum"
 
+#: templates/legacy/edit/oa_edit_peer_assessment_schedule.html:40
+#: templates/legacy/edit/oa_edit_self_assessment_schedule.html:40
+msgid "Due Time"
+msgstr "Sinom tid"
+
 #: templates/legacy/edit/oa_edit_peer_assessment_schedule.html:48
 msgid "The date and time when all peer assessments must be complete."
 msgstr "Datum och tid då alla kamratbedömningar måste vara klara."
@@ -611,6 +636,10 @@ msgstr ""
 "Uppmuntra eleverna att ge feedback om svaret de har graderat. Du kan ersätta"
 " provtexten med din egen."
 
+#: templates/legacy/edit/oa_edit_rubric.html:49
+msgid "Default Feedback Text"
+msgstr "Standardtext för feedback"
+
 #: templates/legacy/edit/oa_edit_rubric.html:53
 msgid ""
 "Enter feedback text that learners will see before they enter their own "
@@ -651,6 +680,10 @@ msgstr "Starttid för svar"
 #: templates/legacy/edit/oa_edit_schedule.html:57
 msgid "The date and time when learners can begin submitting responses."
 msgstr "Datum och tid när eleverna kan börja lämna in svar."
+
+#: templates/legacy/edit/oa_edit_schedule.html:65
+msgid "Response Due Date"
+msgstr "Svarsdatum"
 
 #: templates/legacy/edit/oa_edit_schedule.html:78
 msgid "Response Due Time"
@@ -833,9 +866,31 @@ msgstr "Mer information om %(name)s"
 msgid "Your Grade"
 msgstr "Ditt betyg"
 
+#: templates/legacy/grade/oa_grade_cancelled.html:19
+#, python-format
+msgid ""
+"\n"
+"                                        %(points_earned)s out of %(points_possible)s\n"
+"                                    "
+msgstr ""
+"\n"
+"                                        %(points_earned)s av %(points_possible)s\n"
+"                                    "
+
 #: templates/legacy/grade/oa_grade_cancelled.html:38
 msgid "Your submission has been cancelled."
 msgstr "Ditt inlägg har annullerats."
+
+#: templates/legacy/grade/oa_grade_complete.html:19
+#, python-format
+msgid ""
+"\n"
+"                                            %(points_earned)s out of %(points_possible)s\n"
+"                                        "
+msgstr ""
+"\n"
+"                                            %(points_earned)s av %(points_possible)s\n"
+"                                        "
 
 #: templates/legacy/grade/oa_grade_complete.html:38
 #: templates/legacy/response/oa_response.html:29
@@ -1092,6 +1147,13 @@ msgstr ""
 "Denna uppgift pågår. Lärarutbildningen kommer snart att stängas. Slutför "
 "träningssteget för lärare för att gå vidare."
 
+#: templates/legacy/message/oa_message_incomplete.html:11
+msgid ""
+"This assignment is in progress. Complete the learner training step to move "
+"on."
+msgstr ""
+"Denna uppgift pågår. Slutför träningssteget för lärare för att gå vidare."
+
 #: templates/legacy/message/oa_message_incomplete.html:15
 #: templates/legacy/message/oa_message_incomplete.html:33
 msgid ""
@@ -1270,6 +1332,49 @@ msgstr ""
 msgid "Assess Peers"
 msgstr "Bedöma peers"
 
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "available August 13th, 2014 00:00 UTC (in
+#. 5 days and 45 minutes)"
+#: templates/legacy/peer/oa_peer_assessment.html:44
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"            <span id=\"oa_step_deadline_peer\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+msgstr ""
+"\n"
+"            <span id=\"oa_step_deadline_peer\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "due August 13th, 2014 00:00 UTC (in 5 days
+#. and 45 minutes)"
+#: templates/legacy/peer/oa_peer_assessment.html:51
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"            <span id=\"oa_step_deadline_peer\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+msgstr ""
+"\n"
+"            <span id=\"oa_step_deadline_peer\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+
+#: templates/legacy/peer/oa_peer_assessment.html:61
+#, python-format
+msgid ""
+"\n"
+"                    In Progress (%(review_number)s of %(num_must_grade)s)\n"
+"                "
+msgstr ""
+"\n"
+"                    ```\n"
+"                    \n"
+"Pågår (%(review_number)s av %(num_must_grade)s)\n"
+"                \n"
+"```\n"
+"                "
+
 #: templates/legacy/peer/oa_peer_assessment.html:75
 #: templates/legacy/peer/oa_peer_turbo_mode.html:45
 msgid "Read and assess the following response from one of your peers."
@@ -1303,6 +1408,18 @@ msgstr "Avbruten"
 msgid "Completed"
 msgstr "Avslutad"
 
+#: templates/legacy/peer/oa_peer_complete.html:31
+#: templates/legacy/peer/oa_peer_turbo_mode.html:41
+#: templates/legacy/peer/oa_peer_turbo_mode_waiting.html:36
+msgid ""
+"You have successfully completed all of the required peer assessments for "
+"this assignment. You may assess additional peer responses if you want to. "
+"Completing additional assessments will not affect your final grade."
+msgstr ""
+"Du har framgångsrikt slutfört alla obligatoriska utvärderingar för denna "
+"uppgift. Du kan bedöma ytterligare svar på svar om du vill. Att slutföra "
+"ytterligare bedömningar påverkar inte din slutbetyg."
+
 #: templates/legacy/peer/oa_peer_complete.html:36
 msgid "We could not retrieve additional submissions for assessment"
 msgstr "Vi kunde inte hämta ytterligare inlagor för bedömning"
@@ -1322,6 +1439,14 @@ msgstr ""
 "\n"
 "        Slutförd (%(num_graded)s)\n"
 "      "
+
+#: templates/legacy/peer/oa_peer_turbo_mode_waiting.html:38
+msgid ""
+"All submitted peer responses have been assessed. Check back later to see if "
+"more learners have submitted responses."
+msgstr ""
+"Alla inlämnade svar på svar har bedömts. Kolla tillbaka senare för att se om"
+" fler elever har lämnat in svar."
 
 #: templates/legacy/peer/oa_peer_unavailable.html:16
 #: templates/legacy/response/oa_response_unavailable.html:17
@@ -1653,6 +1778,13 @@ msgstr ""
 "kommer att få en klass av ofullständig. Om du sparat men inte skickade ett "
 "svar visas svaret i kursregistreringarna."
 
+#: templates/legacy/response/oa_response_graded.html:20
+#: templates/legacy/response/oa_response_submitted.html:20
+#: templates/legacy/self/oa_self_complete.html:18
+#: templates/legacy/student_training/student_training_complete.html:17
+msgid "Complete"
+msgstr "Avslutad"
+
 #: templates/legacy/response/oa_response_graded.html:30
 #: templates/legacy/response/oa_response_submitted.html:51
 #: templates/legacy/self/oa_self_assessment.html:67
@@ -1727,9 +1859,47 @@ msgstr ""
 msgid "Assess Your Response"
 msgstr "Bedöma ditt svar"
 
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "available August 13th, 2014 (in 5 days and
+#. 45 minutes)"
+#: templates/legacy/self/oa_self_assessment.html:41
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"               <span id=\"oa_step_deadline_self\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"           "
+msgstr ""
+"\n"
+"               <span id=\"oa_step_deadline_self\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"           "
+
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "due August 13th, 2014 (in 5 days and 45
+#. minutes)"
+#: templates/legacy/self/oa_self_assessment.html:48
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"               <span id=\"oa_step_deadline_self\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"           "
+msgstr ""
+"\n"
+"               <span id=\"oa_step_deadline_self\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"           "
+
 #: templates/legacy/self/oa_self_assessment.html:88
 msgid "Submit your assessment"
 msgstr "Skicka in din bedömning"
+
+#: templates/legacy/self/oa_self_closed.html:32
+msgid ""
+"The due date for this step has passed. This step is now closed. You can no "
+"longer complete a self assessment or continue with this assignment, and you "
+"will receive a grade of Incomplete."
+msgstr ""
+"Förfallodagen för detta steg har gått. Detta steg är nu stängd. Du kan inte "
+"längre slutföra en självbedömning eller fortsätta med den här uppgiften, och"
+" du får en betyg av ofullständig."
 
 #: templates/legacy/staff/oa_staff_grade.html:13 xblock/grade_mixin.py:369
 msgid "Staff Grade"
@@ -1787,10 +1957,18 @@ msgstr "Svar totalt"
 msgid "Location"
 msgstr "Plats"
 
+#: templates/legacy/staff_area/oa_staff_area.html:90
+msgid "Learner Progress"
+msgstr "Learner Progress"
+
 #: templates/legacy/staff_area/oa_staff_area.html:94
 #: templates/legacy/staff_area/oa_staff_area.html:117
 msgid "Problem Step"
 msgstr "Problemsteg"
+
+#: templates/legacy/staff_area/oa_staff_area.html:95
+msgid "Active Learners in Step"
+msgstr "Aktiva elever i steg"
 
 #: templates/legacy/staff_area/oa_staff_area.html:113
 msgid "Dates"
@@ -1813,6 +1991,10 @@ msgstr "Personalbedömning"
 msgid "Give this team a grade using the problem's rubric."
 msgstr "Ge det här laget ett betyg med hjälp av problemets rubrik."
 
+#: templates/legacy/staff_area/oa_staff_grade_learners_assessment.html:16
+msgid "Give this learner a grade using the problem's rubric."
+msgstr "Ge den här studenten en klass med hjälp av problemets rubrik."
+
 #: templates/legacy/staff_area/oa_staff_grade_learners_assessment.html:26
 #, python-format
 msgid ""
@@ -1822,6 +2004,18 @@ msgid ""
 msgstr ""
 "\n"
 "                                        Svar för: %(team_name)s med %(team_usernames)s\n"
+"                                    "
+
+#: templates/legacy/staff_area/oa_staff_grade_learners_assessment.html:30
+#: templates/legacy/staff_area/oa_staff_override_assessment.html:20
+#, python-format
+msgid ""
+"\n"
+"                                        Response for: %(student_username)s\n"
+"                                    "
+msgstr ""
+"\n"
+"                                        Svar för: %(student_username)s\n"
 "                                    "
 
 #: templates/legacy/staff_area/oa_staff_grade_learners_assessment.html:39
@@ -1853,6 +2047,16 @@ msgstr ""
 "\n"
 "                %(ungraded)s Tillgänglig och %(in_progress)s Utcheckad\n"
 "            "
+
+#: templates/legacy/staff_area/oa_staff_override_assessment.html:7
+msgid "Override this learner's current grade using the problem's rubric."
+msgstr ""
+"Åsidosätta den här elevens nuvarande betyg med hjälp av rubrikens problem."
+
+#: templates/legacy/staff_area/oa_staff_override_assessment.html:9
+msgid "Override this team's current grade using the problem's rubric."
+msgstr ""
+"Åsidosätt det här lagets nuvarande betyg med hjälp av problemets rubrik."
 
 #: templates/legacy/staff_area/oa_staff_override_assessment.html:27
 msgid "Team Response"
@@ -1897,6 +2101,10 @@ msgstr ""
 msgid "Peer Assessments for This Learner"
 msgstr "Peerbedömningar för denna elev"
 
+#: templates/legacy/staff_area/oa_student_info.html:76
+msgid "Peer Assessments Completed by This Learner"
+msgstr "Peerbedömningar slutförda av den här läraren"
+
 #: templates/legacy/staff_area/oa_student_info.html:87
 msgid "Staff Assessment for This Learner"
 msgstr "Personalbedömning för denna elev"
@@ -1904,6 +2112,10 @@ msgstr "Personalbedömning för denna elev"
 #: templates/legacy/staff_area/oa_student_info.html:89
 msgid "Staff Assessment for this Team"
 msgstr "Personalbedömning för detta team"
+
+#: templates/legacy/staff_area/oa_student_info.html:100
+msgid "Learner's Final Grade"
+msgstr "Lärarens slutbetyg"
 
 #: templates/legacy/staff_area/oa_student_info.html:102
 msgid "Team's Final Grade"
@@ -1958,9 +2170,17 @@ msgstr "Problemet har inte startats."
 msgid "The problem has not been completed."
 msgstr "Problemet har inte slutförts."
 
+#: templates/legacy/staff_area/oa_student_info.html:193
+msgid "Submit Assessment Grade Override"
+msgstr "Skicka in bedömningsbetygsöverskrivning"
+
 #: templates/legacy/staff_area/oa_student_info.html:195
 msgid "Submit Team Grade Override"
 msgstr "Skicka Team Grade Override"
+
+#: templates/legacy/staff_area/oa_student_info.html:204
+msgid "Unable to perform grade override"
+msgstr "Det går inte att utföra betygsändring"
 
 #: templates/legacy/staff_area/oa_student_info.html:207
 msgid ""
@@ -2109,9 +2329,17 @@ msgstr ""
 msgid "The response to the prompt above:"
 msgstr "Svaret på prompten ovan:"
 
+#: templates/legacy/student_training/student_training.html:98
+msgid "Selected Options Agree"
+msgstr "Valda alternativ Godkänn"
+
 #: templates/legacy/student_training/student_training.html:101
 msgid "The option you selected is the option that the instructor selected."
 msgstr "Alternativet du valt är det alternativ som instruktören valt."
+
+#: templates/legacy/student_training/student_training.html:105
+msgid "Selected Options Differ"
+msgstr "Valda alternativ Olika"
 
 #: templates/legacy/student_training/student_training.html:108
 msgid ""
@@ -2541,6 +2769,10 @@ msgstr "Antalet alternativ kan inte ändras efter att ett problem har släppts."
 #: xblock/utils/validation.py:253
 msgid "Point values cannot be changed after a problem is released."
 msgstr "Punktvärden kan inte ändras efter att ett problem har släppts."
+
+#: xblock/utils/validation.py:304
+msgid "Learner training must have at least one training example."
+msgstr "Lärarutbildning måste ha minst ett träningsexempel."
 
 #: xblock/utils/validation.py:392
 msgid "The submission format is invalid."
