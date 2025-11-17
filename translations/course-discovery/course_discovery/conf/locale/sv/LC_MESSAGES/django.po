@@ -66,6 +66,10 @@ msgstr "Minsta ansträngning kan inte vara större än Maximal ansträngning"
 msgid "Minimum effort and Maximum effort cannot be the same"
 msgstr "Minsta ansträngning och Maximal ansträngning kan inte vara samma sak"
 
+#: apps/api/serializers.py:1205
+msgid "Dictionary mapping course run IDs to boolean values"
+msgstr "Ordboksmappningskurs kör ID till booleska värden"
+
 #: apps/api/serializers.py:1309
 msgid "Restriction Type cannot be empty"
 msgstr "Restriktionstyp kan inte vara tom"
@@ -409,6 +413,10 @@ msgstr "Inkluderade kursomgångar"
 msgid "Edit link"
 msgstr "Redigera länk"
 
+#: apps/course_metadata/admin.py:896
+msgid "Edit course run exclusions"
+msgstr "Redigera kurskörningsundantag"
+
 #: apps/course_metadata/admin.py:898
 msgid "(save and continue editing to create a link)"
 msgstr "(spara och fortsätt redigera för att skapa en länk)"
@@ -521,9 +529,17 @@ msgstr "demo"
 msgid "other"
 msgstr "Övrig"
 
+#: apps/course_metadata/choices.py:54
+msgid "Course Create"
+msgstr "Skapa kurs"
+
 #: apps/course_metadata/choices.py:55
 msgid "Course Partial Update"
 msgstr "Kurs Delvis Uppdatering"
+
+#: apps/course_metadata/choices.py:56
+msgid "Course Rerun"
+msgstr "Kursomgång"
 
 #: apps/course_metadata/choices.py:64
 msgid "Pending"
@@ -553,6 +569,14 @@ msgstr "Delvis klar"
 msgid "Errored"
 msgstr "Felaktig"
 
+#: apps/course_metadata/choices.py:74
+msgid "Honor"
+msgstr "Förtroende"
+
+#: apps/course_metadata/choices.py:75
+msgid "Credit"
+msgstr "Poäng"
+
 #: apps/course_metadata/choices.py:77
 msgid "Professional"
 msgstr "Professionell"
@@ -572,6 +596,10 @@ msgstr "Obetald Executive Education"
 #: apps/course_metadata/choices.py:81
 msgid "Paid Bootcamp"
 msgstr "Betald Bootcamp"
+
+#: apps/course_metadata/choices.py:82
+msgid "Unpaid Bootcamp"
+msgstr "Obetald Bootcamp"
 
 #: apps/course_metadata/choices.py:86
 msgid "Platform"
@@ -745,6 +773,10 @@ msgstr "Program kan endast aktiveras om de har en bannerbild."
 msgid "Tag to add to courses"
 msgstr "Tagga för att lägga till kurser"
 
+#: apps/course_metadata/management/commands/add_tag_to_courses.py:16
+msgid "UUIDs of courses to tag"
+msgstr "UUID:er för kurser att tagga"
+
 #: apps/course_metadata/management/commands/add_tag_to_courses.py:18
 msgid ""
 "Use arguments from the TagCourseUUIDsConfig model instead of the command "
@@ -782,9 +814,17 @@ msgstr "Kortkod för en partner."
 msgid "UUID"
 msgstr "UUID"
 
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:22
+msgid "Course to backpopulate."
+msgstr "Kurs för att återbefolka."
+
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:27
 msgid "KEY"
 msgstr "NYCKEL"
+
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:29
+msgid "Organization to backpopulate."
+msgstr "Organisation att backpopulera."
 
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:35
 msgid ""
@@ -1001,6 +1041,10 @@ msgstr ""
 "Välj en tagg från förslagen. För att lägga till en ny tagg, lägg till ett "
 "kommatecken efter taggnamnet."
 
+#: apps/course_metadata/models.py:278
+msgid "Automatically generate course run keys"
+msgstr "Generera automatiskt kursnycklar"
+
 #: apps/course_metadata/models.py:280
 msgid ""
 "When this flag is enabled, the key of a new course run will be auto "
@@ -1196,6 +1240,10 @@ msgid ""
 "Add the collaborator image, please make sure its dimensions are 200x100px"
 msgstr ""
 "Lägg till bilden för redigeringsbehörig, se till att dess mått är 200x100px"
+
+#: apps/course_metadata/models.py:1271
+msgid "U.S. Value Per Lead"
+msgstr "Värde per lead i USA"
 
 #: apps/course_metadata/models.py:1272
 msgid "U.S. value per lead in U.S. dollars."
@@ -1708,6 +1756,14 @@ msgstr ""
 "Åsidosätt organisationsnamn om micromasters-programmet kommer från en annan "
 "organisation än masterprogrammet"
 
+#: apps/course_metadata/models.py:4103
+msgid "Ranking display for search card (e.g. \"#1 in the U.S.\""
+msgstr "Rangvisning för sökkort (t.ex. \"#1 i USA\""
+
+#: apps/course_metadata/models.py:4109
+msgid "Cost display for search card (e.g. \"$9,999\""
+msgstr "Kostnadsvisning för sökkort (t.ex. \"$9,999\""
+
 #: apps/course_metadata/models.py:4115
 msgid "Number of courses for search card (e.g. \"11 Courses\""
 msgstr "Antal kurser för sökkort (t.ex. \"11 kurser\""
@@ -1742,6 +1798,10 @@ msgstr "Bock"
 msgid "Clock"
 msgstr "Klocka"
 
+#: apps/course_metadata/models.py:4184
+msgid "Desktop"
+msgstr "Dator"
+
 #: apps/course_metadata/models.py:4185
 msgid "Info"
 msgstr "Info"
@@ -1761,6 +1821,10 @@ msgstr "Dollar"
 #: apps/course_metadata/models.py:4189
 msgid "Book"
 msgstr "Bok"
+
+#: apps/course_metadata/models.py:4190
+msgid "Mortar Board"
+msgstr "Studentmössa"
 
 #: apps/course_metadata/models.py:4191
 msgid "Star"
@@ -1785,6 +1849,10 @@ msgstr "Beskriver deadline (t.ex. Tidig antagningsdeadline)"
 #: apps/course_metadata/models.py:4224
 msgid "The date after which the deadline expires (e.g. January 1, 2019)"
 msgstr "Det datum efter vilket tidsfristen löper ut (t.ex. 1 januari 2019)"
+
+#: apps/course_metadata/models.py:4228
+msgid "The time after which the deadline expires (e.g. 11:59 PM EST)."
+msgstr "Tiden efter vilken tidsfristen löper ut (t.ex. 11:59 EST)."
 
 #: apps/course_metadata/models.py:4249
 msgid "Describes what the cost is for (e.g. Tuition)"
@@ -2287,6 +2355,10 @@ msgstr "Aktiv/inaktiv status för denna väg."
 #: apps/learner_pathway/models.py:118
 msgid "Learner Pathway"
 msgstr "Lärarväg"
+
+#: apps/learner_pathway/models.py:119
+msgid "Learner Pathways"
+msgstr "Lärarvägar"
 
 #: apps/learner_pathway/models.py:165
 msgid "Minimum number of nodes to complete this step of the pathway"
