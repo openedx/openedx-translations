@@ -53,6 +53,10 @@ msgid ""
 "Number of course outline regenerations successfully requested: {regenerates}"
 msgstr "A kurzusvázlat újragenerálások sikeresen kért száma: {regenerates}"
 
+#: cms/djangoapps/contentstore/admin.py:51
+msgid "Regenerate selected course outlines"
+msgstr "Regenerálja a kiválasztott kurzusvázlatokat"
+
 #: cms/djangoapps/contentstore/admin.py:59
 msgid "All course outline regenerations successfully requested."
 msgstr "Minden kurzusvázlat újragenerálása sikeresen kérve."
@@ -115,6 +119,12 @@ msgstr "Általános indexelési hiba történt"
 #: cms/djangoapps/contentstore/courseware_index.py:352
 msgid "(Unnamed)"
 msgstr "(Névtelen)"
+
+#: cms/djangoapps/contentstore/errors.py:6
+msgid "Aborting import because a course with this id: {} already exists."
+msgstr ""
+"Megszakítjuk az importálást, mert már létezik egy kurzus ezzel az "
+"azonosítóval: {}."
 
 #: cms/djangoapps/contentstore/errors.py:7
 msgid "Permission denied. You do not have write access to this course."
@@ -281,6 +291,10 @@ msgstr ""
 "Válaszd ki a megadott kurzust, és próbáld meg exportálni egy git tárolóba\n"
 ". A kurzus könyvtárának már git tárolónak kell lennie. Használat: git_export <course_loc> <git_url>"
 
+#: cms/djangoapps/contentstore/management/commands/recreate_upstream_links.py:46
+msgid "COURSE_KEY"
+msgstr "KURZUS_KULCS"
+
 #: cms/djangoapps/contentstore/management/commands/recreate_upstream_links.py:48
 msgid ""
 "Recreate links for xblocks under given course keys. For eg. "
@@ -398,6 +412,10 @@ msgstr "Segítség szöveg, amely leírja a beállítást."
 msgid "Tab type"
 msgstr "Fül típus"
 
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:15
+msgid "Default name for the tab displayed to users"
+msgstr "A felhasználóknak megjelenített fül alapértelmezett neve"
+
 #: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:18
 msgid "True if it's possible to hide the tab for a course"
 msgstr "Igaz, ha lehetséges elrejteni a kurzus fülét"
@@ -419,9 +437,21 @@ msgstr "Igaz, ha ezt a fület csak az oktatók számára kell megjeleníteni."
 msgid "Name of the tab displayed to users. Overrides title."
 msgstr "A felhasználóknak megjelenített fül neve. Felülírja a címet."
 
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:41
+msgid "Additional settings specific to the tab"
+msgstr "További beállítások a fülhöz kapcsolódóan"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:74
+msgid "ID of tab to update"
+msgstr "A frissítendő fül azonosítója"
+
 #: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:75
 msgid "Location (Usage Key) of tab to update"
 msgstr "A frissítendő fül helye (használati kulcs)"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:89
+msgid "Need to supply either a valid tab_id or a tab_location."
+msgstr "Meg kell adni egy érvényes tab_id-t vagy tab_location-t."
 
 #: cms/djangoapps/contentstore/rest_api/v0/views/tabs.py:117
 msgid "Change the visibility of tabs in a course."
@@ -465,6 +495,14 @@ msgstr "A transcript fájl kötelező."
 #: cms/templates/visibility_editor.html:113
 msgid "Deleted Group"
 msgstr "Törölt csoport"
+
+#. Translators: This is building up a list of groups. It is marked for
+#. translation because of the
+#. comma, which is used as a separator between each group.
+#: cms/djangoapps/contentstore/utils.py:923
+#, python-brace-format
+msgid "{previous_groups}, {current_group}"
+msgstr "{előző_csoportok}, {aktuális_csoport}"
 
 #: cms/djangoapps/contentstore/utils.py:1086
 #: cms/djangoapps/contentstore/views/block.py:277
@@ -549,6 +587,17 @@ msgstr "Importálva"
 #: cms/djangoapps/contentstore/video_storage_handlers.py:141
 msgid "Unknown"
 msgstr "ismeretlen"
+
+#. Translators: This is the status for a video that is having its
+#. transcription in progress on servers
+#: cms/djangoapps/contentstore/video_storage_handlers.py:143
+msgid "Transcription in Progress"
+msgstr "Feldolgozás alatt"
+
+#. Translators: This is the status for a video whose transcription is complete
+#: cms/djangoapps/contentstore/video_storage_handlers.py:145
+msgid "Transcript Ready"
+msgstr "Átirat elkészült"
 
 #. Translators: This is the status for a video whose transcription job was
 #. failed for some languages
@@ -937,6 +986,10 @@ msgstr "A YouTube-azonosító megadása kötelező."
 msgid "There is a problem with the YouTube transcript file."
 msgstr "Probléma van a YouTube átirat fájllal."
 
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:774
+msgid "Transcripts are not yet supported for this type of block"
+msgstr "A leiratok még nem támogatottak ehhez a blokkhoz."
+
 #: cms/djangoapps/contentstore/views/user.py:98
 msgid "Insufficient permissions"
 msgstr "Nincs elegendő engedély."
@@ -1012,6 +1065,10 @@ msgstr "Nem mozgathat egy elemet önmagába."
 msgid "You can not move an item into it's child."
 msgstr "Nem mozgathat egy elemet a saját alá."
 
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:767
+msgid "You can not move an item directly into content experiment."
+msgstr "Nem lehet egy elemet közvetlenül a tartalmi kísérletbe helyezni."
+
 #: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:769
 #, python-brace-format
 msgid "{source_usage_key} not found in {parent_usage_key}."
@@ -1035,6 +1092,10 @@ msgstr "%"
 #, python-brace-format
 msgid "{section_or_subsection} \"{display_name}\""
 msgstr "{section_or_subsection} \"{display_name}\""
+
+#: cms/djangoapps/course_creators/models.py:40
+msgid "unrequested"
+msgstr "nem kért"
 
 #: cms/djangoapps/course_creators/models.py:41
 msgid "pending"
@@ -1067,6 +1128,10 @@ msgid ""
 msgstr ""
 "Opcionális megjegyzések erről a felhasználóról (például, miért lett "
 "megtagadva a kurzuslétrehozási hozzáférés)"
+
+#: cms/djangoapps/course_creators/models.py:54
+msgid "Organizations under which the user is allowed to create courses."
+msgstr "Azok a szervezetek, amelyeknél a felhasználó kurzusokat hozhat létre."
 
 #: cms/djangoapps/course_creators/models.py:57
 msgid "Grant the user the permission to create courses in ALL organizations"
@@ -1190,6 +1255,10 @@ msgstr "A hivatkozott könyvtári elemet nem sikerült betölteni: {}"
 msgid "Django site admin"
 msgstr "Django webhely rendszergazda"
 
+#: cms/templates/admin/base_site.html:6 lms/templates/admin/base_site.html:5
+msgid "Django administration"
+msgstr "Django adminisztrátor"
+
 #: cms/templates/admin/base_site.html:11 lms/templates/admin/base_site.html:10
 msgid "View site"
 msgstr "Oldal megtekintése"
@@ -1279,6 +1348,20 @@ msgstr "Ár"
 msgid "Upgrade Deadline"
 msgstr "Fejlesztési határidő"
 
+#: common/djangoapps/course_modes/models.py:83
+msgid ""
+"OPTIONAL: After this date/time, users will no longer be able to enroll in "
+"this mode. Leave this blank if users can enroll in this mode until "
+"enrollment closes for the course."
+msgstr ""
+"Opcionális: Ez után a dátum után a felhasználók nem iratkozhatnak fel erre a"
+" kurzusra. Ha nem tölti ki, akkor a jelentkezési határidő lejárta után is be"
+" lehet iratkozni a kurzusra."
+
+#: common/djangoapps/course_modes/models.py:94
+msgid "Lock upgrade deadline date"
+msgstr "A zárolási frissítés határideje"
+
 #: common/djangoapps/course_modes/models.py:96
 msgid ""
 "OPTIONAL: Set to True to lock in the explicitly defined upgrade deadline "
@@ -1352,6 +1435,14 @@ msgstr ""
 #, python-brace-format
 msgid "{currency_symbol}{price}"
 msgstr "{currency_symbol}{price}"
+
+#. #-#-#-#-#  django.po (0.1a)  #-#-#-#-#
+#. Translators: This refers to the cost of the course. In this case, the
+#. course costs nothing so it is free.
+#: common/djangoapps/course_modes/models.py:928
+#: lms/templates/course_modes/track_selection.html:150
+msgid "Free"
+msgstr "Ingyenes"
 
 #: common/djangoapps/course_modes/models.py:983
 msgid ""
@@ -1461,6 +1552,15 @@ msgstr "A beiratkozási attribútum neve"
 msgid "Value of the enrollment attribute"
 msgstr "A beiratkozási attribútum értéke"
 
+#: common/djangoapps/student/models/course_enrollment.py:1740
+msgid ""
+"The window of time after enrolling during which users can be granted a "
+"refund, represented in microseconds. The default is 14 days."
+msgstr ""
+"A regisztráció utáni időintervallum, amely alatt a felhasználók "
+"visszatérítést kaphatnak, mikroszekundumban kifejezve. Az alapértelmezett 14"
+" nap."
+
 #: common/djangoapps/student/models/course_enrollment.py:1762
 msgid ""
 "It expect that the data will be provided in a csv file format with"
@@ -1514,6 +1614,10 @@ msgstr "Társult végzettség"
 msgid "Secondary/high school"
 msgstr "Szakközépiskola/gimnázium"
 
+#: common/djangoapps/student/models/user.py:480
+msgid "Junior secondary/junior high/middle school"
+msgstr "Szakiskola"
+
 #: common/djangoapps/student/models/user.py:481
 msgid "Elementary/primary school"
 msgstr "Elemi/általános iskola"
@@ -1559,6 +1663,11 @@ msgstr ""
 #, python-brace-format
 msgid "{platform_name} Certificate for {course_name}"
 msgstr "{platform_name} bizonyítvány a(z) {course_name} tanfolyamhoz"
+
+#: common/djangoapps/student/models/user.py:1473
+#: common/djangoapps/student/models/user.py:1505
+msgid "The ISO 639-1 language code for this language."
+msgstr "Az ISO 639-1 nyelvkód ehhez a nyelvhez."
 
 #: common/djangoapps/student/models/user.py:1536
 msgid "Name of the UTM cookie"
@@ -1676,6 +1785,11 @@ msgid ""
 msgstr ""
 "A helyreállító e-mail még nincs aktiválva. Kérjük, látogasson el az e-mail "
 "fiókjába, és kövesse az utasításokat az aktiváláshoz."
+
+#: common/djangoapps/student/views/dashboard.py:755
+#, python-brace-format
+msgid "The course you are looking for does not start until {date}."
+msgstr "Az Ön által keresett tanfolyam csak {date} fog kezdődik."
 
 #: common/djangoapps/student/views/dashboard.py:759
 #, python-brace-format
@@ -1947,6 +2061,14 @@ msgstr "Egy konfiguráció beceneve."
 msgid "Please wait"
 msgstr "Kérlek várj"
 
+#. Translators: the translation for "LONG_DATE_FORMAT" must be a format
+#. string for formatting dates in a long form.  For example, the
+#. American English form is "%A, %B %d %Y".
+#. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:145
+msgid "LONG_DATE_FORMAT"
+msgstr "LONG_DATE_FORMAT"
+
 #. Translators: the translation for "DATE_TIME_FORMAT" must be a format
 #. string for formatting dates with times.  For example, the American
 #. English form is "%b %d, %Y at %H:%M".
@@ -1969,6 +2091,22 @@ msgstr "SHORT_DATE_FORMAT"
 #: common/djangoapps/util/date_utils.py:201
 msgid "TIME_FORMAT"
 msgstr "TIME_FORMAT"
+
+#. Translators: This is an AM/PM indicator for displaying times.  It is
+#. used for the %p directive in date-time formats. See http://strftime.org
+#. for details.
+#: common/djangoapps/util/date_utils.py:263
+msgctxt "am/pm indicator"
+msgid "AM"
+msgstr "De."
+
+#. Translators: This is an AM/PM indicator for displaying times.  It is
+#. used for the %p directive in date-time formats. See http://strftime.org
+#. for details.
+#: common/djangoapps/util/date_utils.py:267
+msgctxt "am/pm indicator"
+msgid "PM"
+msgstr "Du."
 
 #. Translators: this is a weekday name that will be used when displaying
 #. dates, as in "Monday Februrary 10, 2014". It is used for the %A
@@ -2025,6 +2163,14 @@ msgstr "Szombat"
 msgctxt "weekday name"
 msgid "Sunday"
 msgstr "vasárnap"
+
+#. Translators: this is an abbreviated weekday name that will be used when
+#. displaying dates, as in "Mon Feb 10, 2014". It is used for the %a
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:305
+msgctxt "abbreviated weekday name"
+msgid "Mon"
+msgstr "Hé."
 
 #. Translators: this is an abbreviated weekday name that will be used when
 #. displaying dates, as in "Tue Feb 11, 2014". It is used for the %a
@@ -2759,6 +2905,17 @@ msgstr ""
 "Nyilvántartást vezetünk a régi e-mailekről, így ha ez a kérés nem szándékos "
 "volt, ki tudjuk vizsgálni."
 
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.html:12
+#, python-format
+msgid ""
+"\n"
+"                    Proctoring requirements for %(course_name)s\n"
+"                "
+msgstr ""
+"\n"
+"                    A %(course_name)s vizsgafelügyeleti követelményei\n"
+"                "
+
 #: common/templates/student/edx_ace/proctoringrequirements/email/body.html:38
 #, python-format
 msgid ""
@@ -2883,6 +3040,12 @@ msgstr ""
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:533
 msgid "Confirm Email"
 msgstr "E-mail megerősítése"
+
+#: common/templates/student/edx_ace/recoveryemailcreate/email/subject.txt:3
+#, python-format
+msgid "Confirm your recovery email for %(platform_name)s"
+msgstr ""
+"Erősítse meg a helyreállítási e-mail címét a(z) %(platform_name)s számára"
 
 #: lms/djangoapps/badges/events/course_complete.py:43
 #, python-brace-format
@@ -3028,6 +3191,10 @@ msgstr "Általános szerződési feltételek és becsületkódex"
 #: themes/stanford-style/lms/templates/static_templates/tos.html:15
 msgid "Privacy Policy"
 msgstr "Adatvédelmi Irányelvek"
+
+#: lms/djangoapps/branding/api.py:319 lms/djangoapps/branding/api.py:394
+msgid "Accessibility Policy"
+msgstr "Akadálymentességi irányelv"
 
 #. #-#-#-#-#  django.po (0.1a)  #-#-#-#-#
 #. Translators: This is a legal document users must agree to
@@ -3230,6 +3397,11 @@ msgstr "felhasználó '{user}' nem létezik"
 #, python-brace-format
 msgid "Course id '{course_id}' is not valid"
 msgstr "Tanfolyam id '{course_id}' nem érvényes"
+
+#: lms/djangoapps/certificates/views/support.py:118
+#, python-brace-format
+msgid "The course does not exist against the given key '{course_key}'"
+msgstr "A megadott kulcs '{course_key}' alapján a kurzus nem létezik."
 
 #: lms/djangoapps/certificates/views/support.py:144
 #, python-brace-format
@@ -3540,6 +3712,13 @@ msgstr ""
 "Az E-kereskedelmi szolgáltatás által üzemeltetett tanfolyam(ok) rendelés "
 "leadási oldalának elérési útja."
 
+#: lms/djangoapps/commerce/models.py:38
+#: openedx/core/djangoapps/catalog/models.py:31
+#: openedx/core/djangoapps/credentials/models.py:60
+#: openedx/core/djangoapps/credit/models.py:785
+msgid "Cache Time To Live"
+msgstr "Gyorsítótár élettartama"
+
 #: lms/djangoapps/commerce/models.py:41
 #: openedx/core/djangoapps/credentials/models.py:63
 #: openedx/core/djangoapps/credit/models.py:788
@@ -3778,10 +3957,18 @@ msgstr ""
 msgid "You must give Data Sharing Consent for the course"
 msgstr "Adatmegosztási hozzájárulást kell adnia a kurzushoz."
 
+#: lms/djangoapps/courseware/access_response.py:291
+msgid "You must be logged in to see this course"
+msgstr "Be kell jelentkeznie, hogy láthassa ezt a kurzust."
+
 #: lms/djangoapps/courseware/access_response.py:302
 #, python-brace-format
 msgid "{course_name} is no longer available."
 msgstr "A(z) {course_name} már nem elérhető."
+
+#: lms/djangoapps/courseware/course_tools.py:77
+msgid "Financial Assistance"
+msgstr "Pénzügyi Támogatás"
 
 #: lms/djangoapps/courseware/courses.py:648
 msgid "Assignment"
@@ -3810,6 +3997,10 @@ msgstr "Társfelmérés"
 #: lms/djangoapps/courseware/courses.py:777
 msgid "Staff Assessment"
 msgstr "Dolgozói felmérés"
+
+#: lms/djangoapps/courseware/courses.py:779
+msgid "Submission"
+msgstr "Beküldés"
 
 #. Translators: 'absolute' is a date such as "Jan 01,
 #. 2020". 'relative' is a fuzzy description of the time until
@@ -3916,9 +4107,23 @@ msgstr "{date}"
 msgid "Learn More"
 msgstr "Tudj meg többet"
 
+#: lms/djangoapps/courseware/date_summary.py:553
+msgid "Retry Verification"
+msgstr "Próbálja újra az ellenőrzést"
+
+#: lms/djangoapps/courseware/date_summary.py:557
+msgid "Verify My Identity"
+msgstr "Igazoljam a személyazonosságomat"
+
 #: lms/djangoapps/courseware/date_summary.py:565
 msgid "Missed Verification Deadline"
 msgstr "Elmulasztott hitelesítési határidő"
+
+#: lms/djangoapps/courseware/date_summary.py:572
+msgid ""
+"Unfortunately you missed this course's deadline for a successful "
+"verification."
+msgstr "Sajnos lemaradt a kurzus határidejéről a sikeres hitelesítéshez."
 
 #: lms/djangoapps/courseware/masquerade.py:188
 #, python-brace-format
@@ -3945,6 +4150,15 @@ msgstr ""
 "Ez a komponens nem jeleníthető meg, amikor a kurzust egy adott diák "
 "szemszögéből nézzük."
 
+#: lms/djangoapps/courseware/models.py:458
+#: lms/djangoapps/courseware/models.py:494
+#: lms/djangoapps/courseware/models.py:521
+msgid ""
+"Number of days a learner has to upgrade after content is made available"
+msgstr ""
+"A tanulónak rendelkezésére álló napok száma a tartalom elérhetővé válása "
+"után a frissítéshez"
+
 #: lms/djangoapps/courseware/models.py:499
 msgid "Disable the dynamic upgrade deadline for this course run."
 msgstr "Tiltsa le a dinamikus frissítési határidőt ennél a kurzusnál."
@@ -3969,6 +4183,11 @@ msgstr ""
 "Felhasználónév létrehozva a Pénzügyi Segítségnyújtás Backendhez, pl. "
 "financial_assistance_service_user."
 
+#: lms/djangoapps/courseware/models.py:567
+msgid "Percentage of courses allowed to use edx-financial-assistance"
+msgstr ""
+"Az edx-financial-assistance használatára engedélyezett kurzusok százaléka"
+
 #: lms/djangoapps/courseware/plugins.py:27
 #: lms/djangoapps/courseware/tabs.py:81
 #: lms/templates/peer_grading/peer_grading.html:41
@@ -3990,6 +4209,13 @@ msgstr "Tartsa a tanulókat elkötelezetten és a tanfolyam során a helyes úto
 msgid "Textbooks"
 msgstr "Tankönyvek"
 
+#: lms/djangoapps/courseware/plugins.py:75
+msgid ""
+"Create and manage a library of course readings, textbooks, and chapters."
+msgstr ""
+"Hozzon létre és kezeljen egy könyvtárat a kurzus olvasmányainak, "
+"tankönyveinek és fejezeteinek."
+
 #: lms/djangoapps/courseware/plugins.py:125
 msgid "Calculator"
 msgstr "Számológép"
@@ -3999,6 +4225,10 @@ msgid "Provide an in-course calculator for simple and complex calculations."
 msgstr ""
 "Biztosítson egy kurzuson belüli számológépet egyszerű és összetett "
 "számításokhoz."
+
+#: lms/djangoapps/courseware/plugins.py:173
+msgid "Proctoring"
+msgstr "Vizsgafelügyelet"
 
 #: lms/djangoapps/courseware/plugins.py:174
 msgid ""
@@ -4071,6 +4301,10 @@ msgid ""
 msgstr ""
 "Ön beiratkozott a kurzus felülvizsgálati sávjába. A felülvizsgálati sáv nem "
 "tartalmaz bizonyítványt."
+
+#: lms/djangoapps/courseware/views/views.py:183
+msgid "Your enrollment: Honor track"
+msgstr "Az Ön beiratkozása: Honor sáv"
 
 #: lms/djangoapps/courseware/views/views.py:184
 msgid ""
@@ -4225,6 +4459,22 @@ msgid ""
 msgstr ""
 "A fenti kurzus igazolt tanúsítványának díjának kifizetése gazdasági "
 "nehézséget okozna számomra."
+
+#: lms/djangoapps/courseware/views/views.py:2250
+msgid ""
+"I will work diligently to complete the course work and receive a certificate"
+msgstr ""
+"Arra fogok törekedni, hogy szorgalmasan elvégezzem a tanfolyamot és "
+"megszerezzem a bizonyítványt."
+
+#: lms/djangoapps/courseware/views/views.py:2262
+#, python-brace-format
+msgid ""
+"I have read, understand, and will abide by the {honor_code_link} for the edX"
+" Site"
+msgstr ""
+"Elolvastam, megértettem, és betartom az edX oldal {honor_code_link} "
+"szabályzatát."
 
 #: lms/djangoapps/discussion/django_comment_client/base/views.py:545
 #: lms/djangoapps/discussion/django_comment_client/base/views.py:610
@@ -4418,6 +4668,11 @@ msgstr ""
 "Győződjön meg róla, hogy a feltöltött fájl CSV formátumú, és nem tartalmaz "
 "felesleges karaktereket vagy sorokat."
 
+#: lms/djangoapps/instructor/views/api.py:372
+#: lms/djangoapps/instructor/views/api.py:3709
+msgid "Could not read uploaded file."
+msgstr "Nem sikerült beolvasni a feltöltött fájlt."
+
 #: lms/djangoapps/instructor/views/api.py:397
 #, python-brace-format
 msgid ""
@@ -4496,6 +4751,21 @@ msgstr ""
 "alfejezet vagy egység blokkok), akkor az adott blokk alatti összes blokk "
 "szerepelni fog a jelentésben."
 
+#: lms/djangoapps/instructor/views/api.py:1163
+msgid "A list of usage keys for the blocks to include in the report. "
+msgstr ""
+"A blokkok jelentésbe való felvételéhez szükséges használati kulcsok listája."
+" "
+
+#: lms/djangoapps/instructor/views/api.py:1171
+msgid ""
+"A list of problem/block types to generate the report for. This field can be "
+"omitted if the report should include details of allblock types. "
+msgstr ""
+"A jelentés generálásához szükséges probléma/blokk típusok listája. Ez a mező"
+" elhagyható, ha a jelentésnek minden blokk típus részleteit tartalmaznia "
+"kell. "
+
 #: lms/djangoapps/instructor/views/api.py:1182
 msgid "User-friendly text describing current status of report generation."
 msgstr ""
@@ -4539,6 +4809,10 @@ msgstr "probléma válaszok"
 #: lms/djangoapps/instructor/views/api.py:1356
 msgid "Could not find problem with this location."
 msgstr "Nem találtunk problémát ezzel a hellyel."
+
+#: lms/djangoapps/instructor/views/api.py:1422
+msgid "CourseID"
+msgstr "Tanfolyam ID"
 
 #: lms/djangoapps/instructor/views/api.py:1423
 msgid "Certificate Type"
@@ -4726,6 +5000,10 @@ msgstr "A modul nem létezik."
 msgid "An error occurred while deleting the score."
 msgstr "Hiba történt a pontszám törlése közben."
 
+#: lms/djangoapps/instructor/views/api.py:1971
+msgid "An error occurred while attempting to reset for all students."
+msgstr "Hiba történt a diákok adatainak visszaállítása közben."
+
 #: lms/djangoapps/instructor/views/api.py:2008
 #: lms/djangoapps/instructor/views/api.py:2236
 msgid "Course has no entrance exam section."
@@ -4769,6 +5047,10 @@ msgstr "A feladat jelenlegi állapota."
 #: lms/djangoapps/instructor/views/api.py:2325
 msgid "Identifies the kind of task being performed, e.g. rescoring."
 msgstr "Azonosítja az elvégzett feladat típusát, pl. pontozás."
+
+#: lms/djangoapps/instructor/views/api.py:2326
+msgid "The celery ID for the task."
+msgstr "A feladat zellerazonosítója."
 
 #: lms/djangoapps/instructor/views/api.py:2327
 msgid "The date and time when the task was created."
@@ -4857,10 +5139,23 @@ msgstr "értékelés"
 msgid "problem grade"
 msgstr "probléma értékelés"
 
+#: lms/djangoapps/instructor/views/api.py:3160
+msgid ""
+"Successfully removed invalid due date extension (unit has no due date)."
+msgstr ""
+"Sikeresen eltávolítva az érvénytelen határidő-hosszabbítás (az egységnek "
+"nincs határideje)."
+
 #: lms/djangoapps/instructor/views/api.py:3317
 #, python-format
 msgid "This student (%s) will skip the entrance exam."
 msgstr "Ez a diák (%s) kihagyja a felvételi vizsgát."
+
+#: lms/djangoapps/instructor/views/api.py:3319
+#, python-format
+msgid "This student (%s) is already allowed to skip the entrance exam."
+msgstr ""
+"Ennek a diáknak (%s) már engedélyezték, hogy kihagyja a felvételi vizsgát."
 
 #: lms/djangoapps/instructor/views/api.py:3343
 msgid ""
@@ -5011,6 +5306,16 @@ msgstr ""
 msgid "Instructor"
 msgstr "Oktató"
 
+#: lms/djangoapps/instructor/views/instructor_dashboard.py:157
+#, python-brace-format
+msgid ""
+"To gain insights into student enrollment and participation {link_start}visit"
+" {analytics_dashboard_name}, our new course analytics product{link_end}."
+msgstr ""
+"Ahhoz, hogy betekintést nyerjen a hallgatói beiratkozásba és részvételbe, "
+"{link_start}látogasson el a {analytics_dashboard_name} oldalra, az új "
+"kurzusanalitikai termékünkre{link_end}."
+
 #: lms/djangoapps/instructor/views/instructor_dashboard.py:322
 msgid "Special Exams"
 msgstr "Különleges vizsgák"
@@ -5025,6 +5330,11 @@ msgstr "Bizonyítványok"
 #: lms/djangoapps/instructor/views/instructor_dashboard.py:419
 msgid "Please Enter the numeric value for the course price"
 msgstr "Add meg a kurzus árát számokkal"
+
+#: lms/djangoapps/instructor/views/instructor_dashboard.py:428
+#, python-brace-format
+msgid "CourseMode with the mode slug({mode_slug}) DoesNotExist"
+msgstr "A(z) {mode_slug} módú CourseMode nem létezik"
 
 #: lms/djangoapps/instructor/views/instructor_dashboard.py:440
 msgid "CourseMode price updated successfully"
@@ -5108,9 +5418,17 @@ msgstr "Szerep neve"
 msgid "Invalid role name."
 msgstr "Érvénytelen szerepnév."
 
+#: lms/djangoapps/instructor/views/serializer.py:241
+msgid "The URL name of the problem to reset."
+msgstr "A visszaállítandó probléma URL-neve."
+
 #: lms/djangoapps/instructor/views/serializer.py:243
 msgid "Problem URL name cannot be blank."
 msgstr "A probléma URL-neve nem lehet üres."
+
+#: lms/djangoapps/instructor/views/serializer.py:248
+msgid "Whether to reset the problem for all students."
+msgstr "A probléma visszaállítása minden diák számára."
 
 #: lms/djangoapps/instructor/views/serializer.py:258
 msgid "unique student identifier."
@@ -5133,6 +5451,11 @@ msgstr "Nem található modul a következő URL-hez: {0}"
 #: lms/djangoapps/instructor/views/tools.py:171
 msgid "Could not find student enrollment in the course."
 msgstr "Nem található a hallgató beiratkozása a kurzusra."
+
+#: lms/djangoapps/instructor/views/tools.py:199
+#, python-brace-format
+msgid "Unit {0} has no due date to extend."
+msgstr "Az egység {0} határideje nem hosszabbítható meg."
 
 #: lms/djangoapps/instructor/views/tools.py:201
 msgid "An extended due date must be later than the original due date."
@@ -5162,6 +5485,11 @@ msgstr "Meghosszabbított határidő"
 msgid "Users with due date extensions for {0}"
 msgstr "Felhasználók, akiknek határidő-hosszabbításuk van a(z) {0} számára"
 
+#: lms/djangoapps/instructor/views/tools.py:256
+#, python-brace-format
+msgid "Due date extensions for {0} {1} ({2})"
+msgstr "Határidő-hosszabbítások {0} {1} ({2}) számára"
+
 #: lms/djangoapps/instructor_task/api_helper.py:32
 msgid "Requested task is already running"
 msgstr "A kért feladat már fut."
@@ -5185,6 +5513,10 @@ msgstr ""
 "lásd az alábbi Függőben lévő feladatok részt. A jelentést letöltheti, amikor"
 " elkészül."
 
+#: lms/djangoapps/instructor_task/api_helper.py:359
+msgid "This component cannot be rescored."
+msgstr "Ez a komponens nem újraértékelhető."
+
 #: lms/djangoapps/instructor_task/api_helper.py:374
 msgid "This component does not support score override."
 msgstr "Ez a komponens nem támogatja a pontszám felülírását."
@@ -5192,6 +5524,11 @@ msgstr "Ez a komponens nem támogatja a pontszám felülírását."
 #: lms/djangoapps/instructor_task/api_helper.py:378
 msgid "Scores must be between 0 and the value of the problem."
 msgstr "A pontszámoknak 0 és a feladat értéke között kell lenniük."
+
+#: lms/djangoapps/instructor_task/api_helper.py:393
+msgid "Not all problems in entrance exam support re-scoring."
+msgstr ""
+"Nem minden feladat az alkalmassági vizsgán támogatja az újraértékelést."
 
 #: lms/djangoapps/instructor_task/models.py:115
 msgid "An error has occurred. Task was not created."
@@ -5231,15 +5568,35 @@ msgstr "törölt"
 
 #. Translators: This is a past-tense verb that is inserted into task progress
 #. messages as {action}.
+#: lms/djangoapps/instructor_task/tasks.py:162
+msgid "emailed"
+msgstr "e-mailben elküldve"
+
+#. Translators: This is a past-tense verb that is inserted into task progress
+#. messages as {action}.
 #: lms/djangoapps/instructor_task/tasks.py:190
 msgid "graded"
 msgstr "értékelt"
+
+#. Translators: This is a past-tense phrase that is inserted into task
+#. progress messages as {action}.
+#: lms/djangoapps/instructor_task/tasks.py:208
+msgid "problem distribution graded"
+msgstr "problémaeloszlás értékelve"
 
 #. Translators: This is a past-tense verb that is inserted into task progress
 #. messages as {action}.
 #: lms/djangoapps/instructor_task/tasks.py:277
 msgid "certificates generated"
 msgstr "tanúsítványok generálva"
+
+#. Translators: This is a past-tense verb that is inserted into task progress
+#. messages as {action}.
+#. An example of such a message is: "Progress: {action} {succeeded} of
+#. {attempted} so far"
+#: lms/djangoapps/instructor_task/tasks.py:308
+msgid "generate_anonymized_id"
+msgstr "anonimizált_azonosító_generálása"
 
 #: lms/djangoapps/instructor_task/tasks.py:331
 msgid "compressed"
@@ -5329,6 +5686,12 @@ msgstr "Nem található olyan diák, akinek a beadott munkája {action} lenne."
 #, python-brace-format
 msgid "Problem successfully {action} for {attempted} students"
 msgstr "A probléma sikeresen {action} lett {attempted} diák számára"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#: lms/djangoapps/instructor_task/views.py:199
+#, python-brace-format
+msgid "Unable to find any recipients to be {action}"
+msgstr "Nem található címzett, akit {action} lehetne."
 
 #. Translators: {action} is a past-tense verb that is localized separately.
 #. {attempted} is a count.
@@ -5493,6 +5856,14 @@ msgstr ""
 "láthatónak tekintendő. Vegye figyelembe, hogy ezt a mezőt figyelmen kívül "
 "hagyják, ha a blokk csak a személyzet számára látható."
 
+#: lms/djangoapps/lms_xblock/mixin.py:146 xmodule/split_test_block.py:90
+msgid ""
+"The list of group configurations for partitioning students in content "
+"experiments."
+msgstr ""
+"A diákok csoportosítására szolgáló csoportkonfigurációk listája a tartalmi "
+"kísérletekhez."
+
 #: lms/djangoapps/lti_provider/models.py:39
 msgid ""
 "When checked, the LTI content will load only for learners who have an "
@@ -5504,6 +5875,10 @@ msgstr ""
 "be, akiknek van fiókjuk ebben az instanciában. Ez csak a tanulói fiókok LTI "
 "fogyasztóval való összekapcsolásához szükséges. További részletekért lásd az"
 " Open edX LTI Provider dokumentációját."
+
+#: lms/djangoapps/program_enrollments/models.py:57
+msgid "One of user or external_user_key must not be null."
+msgstr "A felhasználó vagy az external_user_key egyike nem lehet null."
 
 #: lms/djangoapps/support/views/index.py:20
 #: lms/templates/ccx/coach_dashboard.html:60
@@ -5535,6 +5910,23 @@ msgstr "Funkcióalapú beiratkozások"
 msgid "View feature based enrollment settings"
 msgstr "Tekintse meg a funkcióalapú beiratkozási beállításokat"
 
+#: lms/djangoapps/support/views/index.py:40
+#: lms/templates/support/link_program_enrollments.html:19
+msgid "Link Program Enrollments"
+msgstr "Programbeiratkozások összekapcsolása"
+
+#: lms/djangoapps/support/views/index.py:41
+msgid "Link LMS users to program enrollments"
+msgstr "Kapcsolja össze az LMS felhasználókat a programbeiratkozásokkal"
+
+#: lms/djangoapps/support/views/index.py:45
+msgid "Program Enrollments Inspector Tool"
+msgstr "Programbeiratkozások Ellenőrző Eszköz"
+
+#: lms/djangoapps/support/views/index.py:46
+msgid "Find information related to a learner's program enrollments"
+msgstr "Találjon információt a tanuló programbeiratkozásairól"
+
 #: lms/djangoapps/support/views/manage_user.py:34
 #: lms/templates/tracking_log.html:6
 msgid "username"
@@ -5565,6 +5957,14 @@ msgstr "A felhasználó sikeresen engedélyezve lett"
 #: lms/djangoapps/support/views/manage_user.py:91
 msgid "User Disabled Successfully"
 msgstr "A felhasználó sikeresen letiltva"
+
+#: lms/djangoapps/survey/utils.py:20
+msgid "You must complete a survey"
+msgstr "Ki kell töltenie egy kérdőívet"
+
+#: lms/djangoapps/teams/models.py:141
+msgid "Optional language the team uses as ISO 639-1 code."
+msgstr "A csapat által használt opcionális nyelv ISO 639-1 kódként."
 
 #: lms/djangoapps/teams/plugins.py:29 lms/djangoapps/teams/plugins.py:53
 #: lms/djangoapps/teams/templates/teams/teams.html:16
@@ -5613,6 +6013,10 @@ msgstr "A(z) {ordering} rendezés nem támogatott."
 msgid "The supplied course_id {course_id} is not valid."
 msgstr "A megadott kurzusazonosító {course_id} érvénytelen."
 
+#: lms/djangoapps/teams/views.py:604
+msgid "You are already in a team in this teamset."
+msgstr "Már tagja vagy egy csapatnak ebben a csapatkészletben."
+
 #: lms/djangoapps/teams/views.py:1350
 msgid "teamset_id and team_id are mutually exclusive options."
 msgstr "A teamset_id és a team_id kölcsönösen kizáró opciók."
@@ -5620,6 +6024,11 @@ msgstr "A teamset_id és a team_id kölcsönösen kizáró opciók."
 #: lms/djangoapps/teams/views.py:1370
 msgid "teamset_id requires course_id to also be provided."
 msgstr "A teamset_id megadása esetén a course_id is szükséges."
+
+#: lms/djangoapps/teams/views.py:1386 lms/djangoapps/teams/views.py:1399
+msgid "No teamset found in given course with given id"
+msgstr ""
+"Nem található csapatkészlet a megadott kurzusban a megadott azonosítóval"
 
 #: lms/djangoapps/teams/views.py:1420
 msgid "username or (team_id or teamset_id) must be specified."
@@ -5745,6 +6154,11 @@ msgstr "A képadatok nem támogatott formátumban vannak."
 #: lms/djangoapps/verify_student/views.py:969
 msgid "Image data is not valid."
 msgstr "A képadatok érvénytelenek."
+
+#: lms/djangoapps/verify_student/views.py:1135
+#, python-brace-format
+msgid "Your {platform_name} Verification Has Been Denied"
+msgstr "A(z) {platform_name} ellenőrzése elutasításra került."
 
 #: lms/templates/admin/user_api/accounts/cancel_retirement_action.html:13
 msgid "Please correct the errors below."
@@ -6330,6 +6744,20 @@ msgstr ""
 "{start_anchor}%(tpa_logout_url)s{middle_anchor}Kattintson ide{end_anchor}, "
 "hogy törölje az egyszeri bejelentkezési (SSO) munkamenetét."
 
+#: lms/templates/logout.html:26
+msgid "We are signing you in."
+msgstr "Bejelentkezünk."
+
+#: lms/templates/logout.html:30
+msgid ""
+"\n"
+"                  This may take a minute. If you are not redirected, go to the home page.\n"
+"                "
+msgstr ""
+"\n"
+"                  Ez eltarthat egy percig. Ha nem történik átirányítás, menjen a kezdőlapra.\n"
+"                "
+
 #: lms/templates/logout.html:39
 #, python-format, python-brace-format
 msgid ""
@@ -6428,6 +6856,11 @@ msgstr ""
 "Újra megpróbálhatja elvégezni ezt a kurzust, és sikeres teljesítés esetén "
 "hitelesített bizonyítványt szerezhet."
 
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:31
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:6
+msgid "Best,"
+msgstr "Üdvözlettel,"
+
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:2
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:2
 #: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.txt:2
@@ -6455,6 +6888,12 @@ msgid ""
 msgstr ""
 "Az Ön jóváhagyási státusza két évig érvényes, és lejár "
 "%(expiration_datetime)s."
+
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:29
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:6
+#: lms/templates/emails/passed_verification_email.txt:10
+msgid "Enjoy your studies,"
+msgstr "Élvezze a tanulmányait!"
 
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/subject.txt:3
 #, python-format
@@ -6513,6 +6952,16 @@ msgstr "A(z) %(platform_name)s ellenőrzése lejárt."
 #: lms/templates/verify_student/edx_ace/verificationsubmitted/email/body.html:10
 msgid "ID Verification Submitted"
 msgstr "ID-ellenőrzés elküldve"
+
+#: lms/templates/verify_student/edx_ace/verificationsubmitted/email/body.html:19
+#: lms/templates/verify_student/edx_ace/verificationsubmitted/email/body.txt:3
+#, python-format
+msgid ""
+"Thank you for submitting your photos for identity verification with "
+"%(platform_name)s. "
+msgstr ""
+"Köszönjük, hogy beküldte fényképeit a személyazonosság ellenőrzéséhez a(z) "
+"%(platform_name)s platformon. "
 
 #: lms/templates/verify_student/edx_ace/verificationsubmitted/email/body.html:24
 #: lms/templates/verify_student/edx_ace/verificationsubmitted/email/body.txt:4
@@ -6599,6 +7048,14 @@ msgstr ""
 "tartalmaznak további cikkeket. Próbáld meg a befoglalt cikkeket törölni "
 "egyesével."
 
+#: lms/templates/wiki/delete.html:23 wiki/templates/wiki/delete.html:22
+msgid ""
+"You are deleting an article. This means that its children will be deleted as"
+" well. If you choose to purge, children will also be purged!"
+msgstr ""
+"Ön egy cikket töröl. Ez azt jelenti, hogy a gyermekei is törlődnek. Ha a "
+"tisztítást választja, a gyermekek is törlődnek!"
+
 #: lms/templates/wiki/delete.html:25 wiki/templates/wiki/delete.html:24
 msgid "Articles that will be deleted"
 msgstr "Cikkek, amelyek törlésre kerülnek"
@@ -6673,6 +7130,11 @@ msgstr ""
 #: lms/templates/wiki/history.html:113
 msgid "(no log message)"
 msgstr "nincs naplóüzenet"
+
+#: lms/templates/wiki/history.html:133 wiki/templates/wiki/history.html:86
+#: wiki/templates/wiki/history.html:91
+msgid "Preview this revision"
+msgstr "Tekintse meg ezt a verziót"
 
 #: lms/templates/wiki/history.html:152 wiki/templates/wiki/history.html:105
 msgid "Auto log:"
@@ -6832,6 +7294,10 @@ msgstr "**strong** or __strong__"
 #: lms/templates/wiki/includes/cheatsheet.html:52
 msgid "Unordered List"
 msgstr "Rendezetlen lista"
+
+#: lms/templates/wiki/includes/cheatsheet.html:53
+msgid "Sub Item 1"
+msgstr "Alcím 1"
 
 #: lms/templates/wiki/includes/cheatsheet.html:54
 msgid "Sub Item 2"
@@ -7137,6 +7603,10 @@ msgstr "Jóváhagyva"
 msgid "Status of this API access request"
 msgstr "Az API hozzáférési kérelem állapota"
 
+#: openedx/core/djangoapps/api_admin/models.py:54
+msgid "The URL of the website associated with this API user."
+msgstr "A weboldal URL-je, amely ehhez az API-felhasználóhoz kapcsolódik."
+
 #: openedx/core/djangoapps/api_admin/widgets.py:33
 #, python-brace-format
 msgid ""
@@ -7295,6 +7765,10 @@ msgstr ""
 "Konfigurálja az értékeket az összes, ehhez a szervezethez kapcsolódó "
 "kurzusfutamhoz. Ez a szervezet neve (pl. edX, MITx)."
 
+#: openedx/core/djangoapps/config_model_utils/models.py:90
+msgid "Course in Org"
+msgstr "Tanfolyam a szervezetben"
+
 #: openedx/core/djangoapps/config_model_utils/models.py:92
 msgid ""
 "Configure values for all course runs associated with this course. This is "
@@ -7358,6 +7832,10 @@ msgstr ""
 #: openedx/core/djangoapps/content_libraries/constants.py:15
 msgid "All Rights Reserved."
 msgstr "Minden jog fenntartva."
+
+#: openedx/core/djangoapps/content_libraries/constants.py:16
+msgid "Creative Commons Attribution 4.0"
+msgstr "Creative Commons Nevezd meg! 4.0"
 
 #: openedx/core/djangoapps/content_libraries/constants.py:18
 msgid "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0"
@@ -7469,6 +7947,14 @@ msgstr ""
 "A tartalom kiszolgálására szolgáló erőforrás használati kulcs karakterlánca "
 "ehhez az indításhoz."
 
+#: openedx/core/djangoapps/content_libraries/models.py:486
+msgid ""
+"The LTI platform unique identifier of this resource, also known as the "
+"\"resource link id\"."
+msgstr ""
+"Az LTI platform egyedi azonosítója ehhez az erőforráshoz, más néven "
+"\"resource link id\"."
+
 #: openedx/core/djangoapps/content_libraries/models.py:493
 msgid "The LTI platform descriptive title for this resource."
 msgstr "Az LTI platform leíró címe ehhez az erőforráshoz."
@@ -7508,6 +7994,10 @@ msgstr "Lejárt"
 #: openedx/core/djangoapps/content_staging/models.py:42
 msgid "Staged Content"
 msgstr "Szakaszolt tartalom"
+
+#: openedx/core/djangoapps/content_staging/models.py:71
+msgid "Content tags applied to these blocks"
+msgstr "Tartalmi címkék alkalmazva ezekre a blokkokra"
 
 #: openedx/core/djangoapps/content_staging/models.py:115
 msgid "Original usage key/ID of the thing that is in the clipboard."
@@ -7549,6 +8039,10 @@ msgid ""
 msgstr ""
 "Kell lennie egy olyan csoportnak, amelyhez a diákok automatikusan "
 "hozzárendelhetők."
+
+#: openedx/core/djangoapps/course_groups/views.py:204
+msgid "A cohort with the same name already exists."
+msgstr "Egy azonos nevű csoport már létezik."
 
 #: openedx/core/djangoapps/course_live/models.py:21
 msgid "If disabled, the LTI in the associated course will be disabled."
@@ -7599,6 +8093,10 @@ msgstr ""
 "Engedélyezze a hitelesítések kiadását a Hitelesítési Szolgáltatáson "
 "keresztül."
 
+#: openedx/core/djangoapps/credentials/models.py:53
+msgid "Enable Authoring of Credential in Studio"
+msgstr "A hitelesítési adatok szerkesztésének engedélyezése a Stúdióban"
+
 #: openedx/core/djangoapps/credentials/models.py:56
 msgid "Enable authoring of Credential Service credentials in Studio."
 msgstr ""
@@ -7607,6 +8105,12 @@ msgstr ""
 #: openedx/core/djangoapps/credit/email_utils.py:91
 msgid "Course Credit Eligibility"
 msgstr "Tanulmányi kredit jogosultság"
+
+#: openedx/core/djangoapps/credit/email_utils.py:94
+#, python-brace-format
+msgid "You are eligible for credit from {providers_string}"
+msgstr ""
+"Ön jogosult kreditet kapni a következő szolgáltatóktól: {providers_string}"
 
 #. Translators: The join of two university names (e.g., Harvard and MIT).
 #: openedx/core/djangoapps/credit/email_utils.py:276
@@ -7664,6 +8168,10 @@ msgstr ""
 "A hitelnyújtó URL-je, ahol a felhasználó ellenőrizheti hitelkérelmének "
 "állapotát. Ez a diákok számára *azután* jelenik meg, hogy hitelt kértek."
 
+#: openedx/core/djangoapps/credit/models.py:104
+msgid "Description for the credit provider displayed to users."
+msgstr "A felhasználóknak megjelenített leírás a hitelnyújtóról."
+
 #: openedx/core/djangoapps/credit/models.py:112
 msgid ""
 "Plain text or html content for displaying further steps on receipt page "
@@ -7697,6 +8205,18 @@ msgstr ""
 #: openedx/core/djangoapps/credit/models.py:140
 msgid "Thumbnail image url of the credit provider."
 msgstr "A hitelnyújtó bélyegképének URL-je."
+
+#: openedx/core/djangoapps/credit/models.py:449
+msgid "Credit requirement statuses"
+msgstr "Kreditkövetelmény-státuszok"
+
+#: openedx/core/djangoapps/dark_lang/views.py:51
+msgid "Preview Language Administration"
+msgstr "Nyelvi előnézet adminisztrációja"
+
+#: openedx/core/djangoapps/dark_lang/views.py:90
+msgid "Language not provided"
+msgstr "A nyelv nincs megadva"
 
 #: openedx/core/djangoapps/dark_lang/views.py:96
 #, python-brace-format
@@ -7835,6 +8355,10 @@ msgstr ""
 "Használati kulcs a kontextuson belüli vitatémához. Állítsa nullára a kurzus "
 "szintű témákhoz."
 
+#: openedx/core/djangoapps/discussions/models.py:582
+msgid "Title for discussion topic."
+msgstr "Vita téma címe."
+
 #: openedx/core/djangoapps/discussions/models.py:589
 msgid "Group for divided discussions."
 msgstr "Csoport a megosztott vitákhoz."
@@ -7842,6 +8366,18 @@ msgstr "Csoport a megosztott vitákhoz."
 #: openedx/core/djangoapps/discussions/models.py:593
 msgid "Provider id for discussion provider."
 msgstr "A vita szolgáltató azonosítója."
+
+#: openedx/core/djangoapps/discussions/models.py:598
+msgid ""
+"Discussion context ID in external forum provider. e.g. commentable_id for "
+"cs_comments_service."
+msgstr ""
+"A vita kontextusazonosítója a külső fórum szolgáltatónál. Például "
+"commentable_id a cs_comments_service esetében."
+
+#: openedx/core/djangoapps/discussions/models.py:602
+msgid "Whether this topic should be shown in-context in the course."
+msgstr "Meg kell-e jeleníteni ezt a témát a kurzus kontextusában?"
 
 #: openedx/core/djangoapps/discussions/models.py:606
 msgid "Ordering of this topic in its learning context"
@@ -8099,6 +8635,10 @@ msgstr "Azonnal"
 msgid "Never"
 msgstr "Soha"
 
+#: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:5
+msgid "Email Digest Preferences Updated"
+msgstr "E-mail összefoglaló beállítások frissítve"
+
 #: openedx/core/djangoapps/notifications/views.py:220
 msgid "The notification preference config version is not up to date."
 msgstr "A figyelmeztetési beállítások konfigurációs verziója nem naprakész."
@@ -8306,6 +8846,17 @@ msgstr ""
 "Reméljük, hogy élvezed a {start_strong}{course_name}{end_strong} "
 "tanfolyamot! Szeretnénk tájékoztatni, mire számíthatsz a(z) {week_num}. "
 "héten:"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:31
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.txt:13
+msgid ""
+"With self-paced courses, you learn on your own schedule. We encourage you to"
+" spend time with the course each week. Your focused attention will pay off "
+"in the end!"
+msgstr ""
+"Az önálló ütemezésű tanfolyamokkal a saját időbeosztásod szerint tanulhatsz."
+" Arra bátorítunk, hogy minden héten szánj időt a tanfolyamra. A koncentrált "
+"figyelmed végül kifizetődik!"
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:40
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:39
@@ -8560,6 +9111,11 @@ msgstr "A(z) {site_theme} téma nem létezik"
 msgid "Site theme reverted to the default"
 msgstr "Az oldal témája visszaállt az alapértelmezettre."
 
+#: openedx/core/djangoapps/theming/views.py:138
+#: openedx/core/djangoapps/theming/templates/theming/theming-admin-fragment.html:17
+msgid "Theming Administration"
+msgstr "Témakezelés"
+
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:43
 msgid ""
 "Usernames can only contain letters (A-Z, a-z), numerals (0-9), underscores "
@@ -8651,6 +9207,10 @@ msgstr "Írja be vezetéknevét"
 msgid "The email addresses do not match"
 msgstr "Az email címek nem egyeznek."
 
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:100
+msgid "Enter your confirm email"
+msgstr "Adja meg a megerősítő e-mail címét"
+
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:101
 msgid "Select your country or region of residence"
 msgstr "Válassza ki lakóhelye országát vagy régióját"
@@ -8690,6 +9250,10 @@ msgstr "Válassza ki születésének évét"
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:111
 msgid "Select your gender"
 msgstr "Válassza ki a nemét"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:112
+msgid "Enter your mailing address"
+msgstr "Adja meg a postacímét"
 
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:116
 msgid ""
@@ -8740,6 +9304,12 @@ msgid ""
 msgstr ""
 "Ez a fiók ideiglenesen zárolva lett a túlzott bejelentkezési hibák miatt. "
 "Próbálja meg később újra."
+
+#: openedx/core/djangoapps/user_api/accounts/views.py:654
+#: openedx/core/djangoapps/user_authn/views/login.py:311
+#: lms/templates/provider_login.html:43
+msgid "Email or password is incorrect."
+msgstr "Az e-mail cím vagy a jelszó helytelen."
 
 #: openedx/core/djangoapps/user_api/admin.py:52
 #: wiki/templates/wiki/permission_denied.html:7
@@ -8877,6 +9447,15 @@ msgstr "Mondja el, miért érdekli a(z) {platform_name}"
 msgid "Profession"
 msgstr "Szakma"
 
+#. Translators: This label appears above a dropdown menu to select
+#. the user's specialty
+#. Translators: This label appears above a dropdown menu on the registration
+#. form used to select the user's specialty
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:184
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:785
+msgid "Specialty"
+msgstr "Szakirány"
+
 #. Translators: This label appears above a field which allows the
 #. user to input the Company
 #. Translators: This label appears above a field on the registration form
@@ -8953,6 +9532,10 @@ msgstr "Állam/Tartomány/Régió"
 msgid "Work experience"
 msgstr "Munkatapasztalat"
 
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:10
+msgid "Password reset"
+msgstr "Jelszó visszaállítása"
+
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:14
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.txt:2
 #, python-format
@@ -8978,6 +9561,10 @@ msgstr ""
 msgid "If you did not request this change, you can ignore this email."
 msgstr ""
 "Ha nem Ön kérte ezt a változtatást, hagyja figyelmen kívül ezt az e-mailt."
+
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:37
+msgid "Reset my password"
+msgstr "Jelszavam visszaállítása"
 
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.txt:9
 msgid "Please go to the following page and choose a new password:"
@@ -9329,6 +9916,16 @@ msgstr ""
 "{terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end} "
 "feltételeivel."
 
+#. Translators: "Terms of Service" is a legal document users must agree to
+#. in order to register a new account.
+#. Translators: "Terms of service" is a legal document users must agree to
+#. in order to register a new account.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1034
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1098
+#, python-brace-format
+msgid "You must agree to the {platform_name} {terms_of_service}"
+msgstr "El kell fogadnia az {platform_name} {terms_of_service}"
+
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:1045
 #, python-brace-format
 msgid ""
@@ -9358,6 +9955,16 @@ msgstr ""
 #: openedx/core/djangoapps/user_authn/views/utils.py:53
 msgid "Create Account"
 msgstr "Fiók létrehozása"
+
+#: openedx/core/djangoapps/util/user_messages.py:104
+#, python-brace-format
+msgid "{header_open}{title}{header_close}{body}"
+msgstr "{header_open}{title}{header_close}{body}"
+
+#: openedx/core/djangoapps/util/user_messages.py:241
+#, python-brace-format
+msgid "{header_open}{title}{header_close}"
+msgstr "{header_open}{title}{header_close}"
 
 #: openedx/core/djangoapps/util/user_messages.py:256
 #: cms/templates/course_outline.html:61 cms/templates/course_outline.html:99
@@ -9406,6 +10013,11 @@ msgstr "Ez a mező nem szerkeszthető"
 #, python-format
 msgid "%(min_score)s is not a valid grade percentage"
 msgstr "%(min_score)s nem érvényes százalékos osztályzat"
+
+#: openedx/core/lib/gating/api.py:186
+#, python-brace-format
+msgid "Gating milestone for {usage_key}"
+msgstr "A(z) {usage_key} mérföldkő lezárása"
 
 #: openedx/core/lib/license/mixin.py:26
 msgid "License"
@@ -9596,6 +10208,11 @@ msgstr ""
 msgid "'course_key' is required."
 msgstr "A 'course_key' megadása kötelező."
 
+#: openedx/features/course_experience/api/v1/views.py:98
+#: openedx/features/course_experience/api/v1/views.py:101
+msgid "View all dates"
+msgstr "Tekintse meg az összes dátumot"
+
 #: openedx/features/course_experience/api/v1/views.py:99
 msgid ""
 "Your due dates have been successfully shifted to help you stay on track."
@@ -9706,6 +10323,10 @@ msgstr ""
 #: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:15
 msgid "Home"
 msgstr "Főoldal"
+
+#: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:17
+msgid "Enterprise Course Enrollments"
+msgstr "Vállalati tanfolyami beiratkozások"
 
 #: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:18
 msgid "Override Enrollment Attributes"
@@ -10003,6 +10624,10 @@ msgstr "Válasz"
 msgid "Error {err} in evaluating hint function {hintfn}."
 msgstr "Hiba {err} a {hintfn} súgó funkció kiértékelésekor."
 
+#: xmodule/capa/responsetypes.py:490
+msgid "(Source code line unavailable)"
+msgstr "(A forráskód sor nem elérhető)"
+
 #: xmodule/capa/responsetypes.py:491
 #, python-brace-format
 msgid "See XML source line {sourcenum}."
@@ -10145,6 +10770,10 @@ msgid "An error occurred with SymbolicResponse. The error was: {error_msg}"
 msgstr ""
 "Hiba történt a SymbolicResponse használata közben. A hiba oka: {error_msg}"
 
+#: xmodule/capa/responsetypes.py:2594
+msgid "Code Input"
+msgstr "Code Input"
+
 #: xmodule/capa/responsetypes.py:2652
 msgid "No answer provided."
 msgstr "Nincs válasz megadva."
@@ -10253,6 +10882,10 @@ msgstr ""
 "A Codejail API szolgáltatás nem érhető el. Kérjük, próbálja meg néhány perc "
 "múlva újra."
 
+#: xmodule/capa/safe_exec/remote_exec.py:128
+msgid "Codejail API Service invalid response."
+msgstr "A Codejail API szolgáltatás érvénytelen választ adott."
+
 #: xmodule/capa/safe_exec/remote_exec.py:134
 msgid "Invalid JSON response received from codejail api service."
 msgstr "Érvénytelen JSON válasz érkezett a codejail API szolgáltatástól."
@@ -10305,6 +10938,10 @@ msgstr "Átlagos pontszám"
 msgid "Date that this problem is due by"
 msgstr "Feladat megoldásának esedékességi dátuma"
 
+#: xmodule/capa_block.py:213
+msgid "Amount of time after the due date that submissions will be accepted"
+msgstr "A határidő lejárta után mennyi ideig fogaható el a feladatbeadás"
+
 #: xmodule/capa_block.py:217 xmodule/modulestore/inheritance.py:103
 msgid "Show Results"
 msgstr "Eredmények megjelenítése"
@@ -10349,6 +10986,10 @@ msgstr "Megpróbált vagy lejárt"
 #: xmodule/capa_block.py:238
 msgid "Closed"
 msgstr "Lezárt"
+
+#: xmodule/capa_block.py:239
+msgid "Finished"
+msgstr "Befejezve"
 
 #: xmodule/capa_block.py:240
 msgid "Correct or Past Due"
@@ -10412,6 +11053,10 @@ msgstr "Tanulónként"
 msgid "XML data for the problem"
 msgstr "Feladat XML adatai"
 
+#: xmodule/capa_block.py:291
+msgid "Dictionary with the correctness of current student answers"
+msgstr "A jelenlegi diák válaszainak helyességét tartalmazó szótár"
+
 #: xmodule/capa_block.py:296
 msgid "Dictionary for maintaining the state of inputtypes"
 msgstr "Szótár az inputtípusok állapotának fenntartásához"
@@ -10427,6 +11072,14 @@ msgstr "A diákok válaszainak listája minden próbálkozásra"
 #: xmodule/capa_block.py:303
 msgid "Dictionary with the current student score"
 msgstr "A jelenlegi tanulói pontszámot tartalmazó szótár"
+
+#: xmodule/capa_block.py:305
+msgid "List of scores for each attempt"
+msgstr "Az egyes próbálkozások pontszámainak listája"
+
+#: xmodule/capa_block.py:310
+msgid "Random seed for this student"
+msgstr "A diák véletlenszerű magja"
 
 #: xmodule/capa_block.py:311
 msgid "Last submission time"
@@ -10447,6 +11100,10 @@ msgid ""
 msgstr ""
 "Meghatározza, hogy hány pontot ér egy-egy feladat. Ha az érték nincs "
 "beállítva, a feladat minden válaszmezője egy pontot ér."
+
+#: xmodule/capa_block.py:324
+msgid "Markdown source of this module"
+msgstr "Ennek a modulnak a Markdown forrása"
 
 #: xmodule/capa_block.py:326
 msgid ""
@@ -10477,6 +11134,14 @@ msgstr ""
 " veszélybe került. Ha kulcsot szeretne szerezni a kurzusához, vagy problémát"
 " szeretne jelenteni, kérjük, lépjen kapcsolatba a moocsupport@mathworks.com "
 "címen."
+
+#: xmodule/capa_block.py:344
+msgid ""
+"Indicates if the problem was edited using the Markdown editor in the "
+"Authoring MFE."
+msgstr ""
+"Jelzi, hogy a problémát a Markdown szerkesztővel módosították-e az Authoring"
+" MFE-ben."
 
 #: xmodule/capa_block.py:435
 msgid ""
@@ -10659,6 +11324,10 @@ msgstr "A problémát meg kell válaszolni, mielőtt újra osztályozható lenne
 msgid "Conditional"
 msgstr "Feltételes"
 
+#: xmodule/conditional_block.py:95
+msgid "List of urls of children that are references to external modules"
+msgstr "A gyermekek URL-jeinek listája, amelyek külső modulokra hivatkoznak"
+
 #: xmodule/conditional_block.py:100
 msgid "Source Components"
 msgstr "Forrás Komponensek"
@@ -10691,9 +11360,31 @@ msgstr ""
 msgid "Conditional Value"
 msgstr "Függő Érték"
 
+#: xmodule/conditional_block.py:119
+msgid ""
+"The value that the conditional attribute of the source components must match"
+" before a learner is shown the content of this conditional block."
+msgstr ""
+"A forráskomponensek feltételes attribútumának azt az értéket kell elérnie, "
+"mielőtt a tanuló megtekintheti ennek a feltételes blokknak a tartalmát."
+
 #: xmodule/conditional_block.py:126
 msgid "Blocked Content Message"
 msgstr "Letiltott tartalom üzenet"
+
+#: xmodule/conditional_block.py:127
+#, python-brace-format
+msgid ""
+"The message that is shown to learners when not all conditions are met to "
+"show the content of this conditional block. Include {link} in the text of "
+"your message to give learners a direct link to required units. For example, "
+"'You must complete {link} before you can access this unit'."
+msgstr ""
+"A feltételes blokk tartalmának megjelenítéséhez szükséges feltételek nem "
+"teljesülése esetén a tanulóknak megjelenő üzenet. Tartalmazza az üzenet "
+"szövegében a {link} elemet, hogy a tanulók közvetlen linket kapjanak a "
+"szükséges egységekhez. Például: „A hozzáféréshez először teljesítenie kell a"
+" {link} egységet.”"
 
 #: xmodule/conditional_block.py:131
 #, python-brace-format
@@ -10752,6 +11443,10 @@ msgstr "Az óra befejezésének dátuma"
 msgid "Date that certificates become available to learners"
 msgstr "A tanúsítványok elérhetővé válásának dátuma a tanulók számára"
 
+#: xmodule/course_block.py:354
+msgid "Cosmetic Course Display Price"
+msgstr "Kozmetikai tanfolyam megjelenített ára"
+
 #: xmodule/course_block.py:363
 msgid "Course Advertised Start"
 msgstr "Kurzus hirdetett indítása"
@@ -10773,6 +11468,14 @@ msgstr "Előfeltétel tanfolyamok"
 #: xmodule/course_block.py:373
 msgid "Pre-Requisite Course key if this course has a pre-requisite course"
 msgstr "Előfeltétel kurzuskulcs, ha ennek a kurzusnak van előfeltétele."
+
+#: xmodule/course_block.py:377
+msgid "Grading policy definition for this class"
+msgstr "Az osztály értékelési szabályzatának meghatározása"
+
+#: xmodule/course_block.py:382
+msgid "Show Calculator"
+msgstr "Számológép megjelenítése"
 
 #: xmodule/course_block.py:383
 msgid ""
@@ -10835,6 +11538,10 @@ msgstr ""
 " néz ki, beleértve a külső szögletes zárójelet is: [[\"2015-09-15\", "
 "\"2015-09-21\"], [\"2015-10-01\", \"2015-10-08\"]] "
 
+#: xmodule/course_block.py:420
+msgid "Discussion Topic Mapping"
+msgstr "Vitatéma feltérképezése"
+
 #: xmodule/course_block.py:422
 msgid ""
 "Enter discussion categories in the following format: \"CategoryName\": "
@@ -10857,6 +11564,14 @@ msgstr ""
 "\"default\" attribútumát igazra állítja. Például: \"Lydian Mode\": {\"id\": "
 "\"i4x-UniversityX-MUS101-course-2015_T1\", \"default\": true}."
 
+#: xmodule/course_block.py:434
+msgid "Discussions Plugin Settings"
+msgstr "Vita plugin beállítások"
+
+#: xmodule/course_block.py:436
+msgid "Settings for discussions plugins."
+msgstr "Beállítások a vitafórum bővítményekhez."
+
 #: xmodule/course_block.py:444
 msgid "Course Announcement Date"
 msgstr "Kurzus hirdetmény dátuma"
@@ -10868,6 +11583,16 @@ msgstr "Adja meg a kurzus kihirdetésének dátumát."
 #: xmodule/course_block.py:449
 msgid "Cohort Configuration"
 msgstr "Tanulói csoport beállítása"
+
+#: xmodule/course_block.py:451
+msgid ""
+"Enter policy keys and values to enable the cohort feature, define automated "
+"student assignment to groups, or identify any course-wide discussion topics "
+"as private to cohort members."
+msgstr ""
+"Adja meg a szabálykulcsokat és értékeket a kohorsz funkció engedélyezéséhez,"
+" a hallgatók automatikus csoportokba osztásának meghatározásához, vagy "
+"bármely kurzus szintű vitatémák kohorsz tagok számára priváttá tételéhez."
 
 #: xmodule/course_block.py:457
 msgid "Course Is New"
@@ -10920,6 +11645,10 @@ msgstr ""
 msgid "PDF Textbooks"
 msgstr "PDF tankönyv"
 
+#: xmodule/course_block.py:491
+msgid "List of dictionaries containing pdf_textbook configuration"
+msgstr "Szótárak listája, amelyek pdf_tankönyv konfigurációt tartalmaznak"
+
 #: xmodule/course_block.py:494
 msgid "HTML Textbooks"
 msgstr "HTML tankönyv"
@@ -10933,6 +11662,10 @@ msgstr ""
 "A kurzusban külön fülekként megjelenő HTML tankönyvek esetén adja meg a fül "
 "nevét (általában a könyv címét), valamint a könyv egyes fejezeteinek URL-"
 "jeit és címeit."
+
+#: xmodule/course_block.py:502
+msgid "Remote Gradebook"
+msgstr "Távoli osztálynapló"
 
 #: xmodule/course_block.py:504
 msgid ""
@@ -10994,6 +11727,10 @@ msgid ""
 msgstr ""
 "Írj be igaz vagy hamis értéket. Ha igaz, akkor a tanulók írhatnak a többi "
 "tanuló számára névtelen hozzászólást."
+
+#: xmodule/course_block.py:541
+msgid "Allow Anonymous Discussion Posts to Peers"
+msgstr "Engedélyezze az anonim vitabejegyzéseket a társak számára"
 
 #: xmodule/course_block.py:543
 msgid ""
@@ -11247,6 +11984,20 @@ msgstr ""
 "Adja meg, hogy igaz vagy hamis. Ha igaz, a diákok akkor is megtekinthetik a "
 "kurzus wikijét, ha nincsenek beiratkozva a kurzusra."
 
+#: xmodule/course_block.py:749
+msgid "Invitation Only"
+msgstr "Meghívásos alapon"
+
+#: xmodule/course_block.py:756
+msgid "Pre-Course Survey Name"
+msgstr "Előzetes kurzusfelmérés neve"
+
+#: xmodule/course_block.py:757
+msgid "Name of SurveyForm to display as a pre-course survey to the user."
+msgstr ""
+"A felhasználónak megjelenítendő SurveyForm neve, mint előzetes "
+"kurzusfelmérés."
+
 #: xmodule/course_block.py:764
 msgid "Pre-Course Survey Required"
 msgstr "Előzetes kurzusfelmérés szükséges"
@@ -11264,6 +12015,21 @@ msgstr ""
 #: xmodule/course_block.py:775
 msgid "Course Visibility In Catalog"
 msgstr "Kurzus láthatósága a katalógusban"
+
+#. Translators: the quoted words 'both', 'about', and 'none' must be
+#. left untranslated.  Leave them as English words.
+#: xmodule/course_block.py:779
+msgid ""
+"Defines the access permissions for showing the course in the course catalog."
+" This can be set to one of three values: 'both' (show in catalog and allow "
+"access to about page), 'about' (only allow access to about page), 'none' (do"
+" not show in catalog and do not allow access to an about page)."
+msgstr ""
+"Meghatározza a hozzáférési jogosultságokat a kurzus megjelenítéséhez a "
+"kurzuskatalógusban. Ez három értékre állítható: „mindkettő” (megjelenítés a "
+"katalógusban és hozzáférés engedélyezése az „about” oldalhoz), „about” (csak"
+" az „about” oldalhoz való hozzáférés engedélyezése), „nincs” (ne jelenjen "
+"meg a katalógusban, és ne engedélyezze a hozzáférést az „about” oldalhoz)."
 
 #: xmodule/course_block.py:793
 msgid "Entrance Exam Enabled"
@@ -11387,6 +12153,10 @@ msgstr ""
 "Adjon meg egy e-mail címet, amelyen a támogatási csapat elérheti Önt, amikor"
 " eszkalációk történnek (pl. fellebbezések, késleltetett értékelések stb.)."
 
+#: xmodule/course_block.py:891
+msgid "Allow Opting Out of Proctored Exams"
+msgstr "Lehetővé teszi a felügyelt vizsgák alóli mentességet"
+
 #: xmodule/course_block.py:893
 msgid ""
 "Enter true or false. If this value is true, learners can choose to take "
@@ -11497,6 +12267,15 @@ msgstr ""
 #: xmodule/course_block.py:981
 msgid "Video Sharing Options"
 msgstr "Videómegosztási lehetőségek"
+
+#: xmodule/course_block.py:983
+msgid ""
+"Specify the video sharing options for the course. This can be set to one of "
+"three values: 'all-on', 'all-off' and 'per-video'. with 'per-video' as the "
+"default."
+msgstr ""
+"Adja meg a kurzus videómegosztási beállításait. Ez három értékre állítható: "
+"'all-on', 'all-off' és 'per-video', ahol a 'per-video' az alapértelmezett."
 
 #: xmodule/course_block.py:1018
 msgid "Course Instructor"
@@ -11962,6 +12741,14 @@ msgstr ""
 "érték 1,0. Ez a beállítás csak akkor használatos, ha a Pontozás be van "
 "állítva Igazra."
 
+#: xmodule/lti_block.py:209
+msgid ""
+"The score kept in the xblock KVS -- duplicate of the published score in "
+"django DB"
+msgstr ""
+"Az xblock KVS-ben tárolt pontszám -- a django adatbázisban közzétett "
+"pontszám másolata"
+
 #: xmodule/lti_block.py:219
 msgid "Hide External Tool"
 msgstr "Külső eszköz elrejtése"
@@ -11992,6 +12779,12 @@ msgstr ""
 msgid "Request user's email"
 msgstr "Felhasználói e-mail kérése"
 
+#. Translators: This is used to request the user's email for a third party
+#. service.
+#: xmodule/lti_block.py:241
+msgid "Select True to request the user's email address."
+msgstr "Válassza a \"True\" lehetőséget, ha kéri a felhasználó e-mail címét."
+
 #: xmodule/lti_block.py:247
 msgid "LTI Application Information"
 msgstr "LTI Alkalmazásinformációk"
@@ -12010,6 +12803,10 @@ msgstr ""
 #: xmodule/lti_block.py:257
 msgid "Button Text"
 msgstr "Gomb felirat"
+
+#: xmodule/lti_block.py:266
+msgid "Accept grades past deadline"
+msgstr "Fogadja el a határidőn túli jegyeket"
 
 #: xmodule/lti_block.py:267
 msgid ""
