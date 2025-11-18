@@ -1204,6 +1204,10 @@ msgstr "इस असाइनमेंट को देखने के लि�
 msgid "Instructions Unavailable"
 msgstr "अनुदेश अनुपलब्ध"
 
+#: templates/legacy/message/oa_message_unavailable.html:6
+msgid "The instructions for this step could not be loaded."
+msgstr "इस चरण के निर्देश लोड नहीं किए जा सके."
+
 #: templates/legacy/oa_base.html:16 templates/openassessmentblock/base.html:22
 msgid ""
 "This assignment has several steps. In the first step, you'll provide a "
@@ -1270,6 +1274,60 @@ msgstr ""
 msgid "Assess Peers"
 msgstr "साथियों का आकलन करें"
 
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "available August 13th, 2014 00:00 UTC (in
+#. 5 days and 45 minutes)"
+#: templates/legacy/peer/oa_peer_assessment.html:44
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"            <span id=\"oa_step_deadline_peer\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+msgstr ""
+"\n"
+"            <span id=\"oa_step_deadline_peer\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "due August 13th, 2014 00:00 UTC (in 5 days
+#. and 45 minutes)"
+#: templates/legacy/peer/oa_peer_assessment.html:51
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"            <span id=\"oa_step_deadline_peer\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+msgstr ""
+"\n"
+"            <span id=\"oa_step_deadline_peer\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+
+#: templates/legacy/peer/oa_peer_assessment.html:61
+#, python-format
+msgid ""
+"\n"
+"                    In Progress (%(review_number)s of %(num_must_grade)s)\n"
+"                "
+msgstr ""
+"\n"
+"प्रगति में ( %(review_number)s का %(num_must_grade)s )\n"
+"                "
+
+#: templates/legacy/peer/oa_peer_assessment.html:75
+#: templates/legacy/peer/oa_peer_turbo_mode.html:45
+msgid "Read and assess the following response from one of your peers."
+msgstr ""
+"अपने किसी सहकर्मी की निम्नलिखित प्रतिक्रिया को पढ़ें और उसका मूल्यांकन करें।"
+
+#: templates/legacy/peer/oa_peer_assessment.html:87
+#: templates/legacy/peer/oa_peer_turbo_mode.html:56
+#: templates/legacy/self/oa_self_assessment.html:70
+#: templates/legacy/staff_area/oa_staff_grade_learners_assessment.html:45
+#: templates/legacy/staff_area/oa_staff_override_assessment.html:38
+#: templates/legacy/staff_area/oa_student_info.html:63
+msgid "Associated Files"
+msgstr "संबद्ध फ़ाइलें"
+
 #: templates/legacy/peer/oa_peer_assessment.html:101
 #: templates/legacy/peer/oa_peer_turbo_mode.html:70
 #: templates/legacy/self/oa_self_assessment.html:81
@@ -1285,13 +1343,63 @@ msgstr "हम आपका मूल्यांकन प्रस्तुत
 msgid "Cancelled"
 msgstr "रद्द"
 
+#: templates/legacy/peer/oa_peer_closed.html:20
+#, python-format
+msgid ""
+"\n"
+"            Incomplete (%(num_graded)s of %(num_must_grade)s)\n"
+"        "
+msgstr ""
+"\n"
+"अपूर्ण ( %(num_graded)s का %(num_must_grade)s )\n"
+"        "
+
+#: templates/legacy/peer/oa_peer_closed.html:35
+msgid ""
+"The due date for this step has passed. This step is now closed. You can no "
+"longer complete peer assessments or continue with this assignment, and you "
+"will receive a grade of Incomplete."
+msgstr ""
+"इस चरण की नियत तिथि बीत चुकी है. यह चरण अब बंद हो गया है. अब आप सहकर्मी "
+"मूल्यांकन पूरा नहीं कर सकते हैं या इस असाइनमेंट को जारी नहीं रख सकते हैं, और"
+" आपको अपूर्ण का ग्रेड प्राप्त होगा।"
+
 #: templates/legacy/peer/oa_peer_complete.html:13
 msgid "Completed"
 msgstr "पूरा कर लिया है"
 
+#: templates/legacy/peer/oa_peer_complete.html:31
+#: templates/legacy/peer/oa_peer_turbo_mode.html:41
+#: templates/legacy/peer/oa_peer_turbo_mode_waiting.html:36
+msgid ""
+"You have successfully completed all of the required peer assessments for "
+"this assignment. You may assess additional peer responses if you want to. "
+"Completing additional assessments will not affect your final grade."
+msgstr ""
+"आपने इस असाइनमेंट के लिए सभी आवश्यक सहकर्मी मूल्यांकन सफलतापूर्वक पूरा कर "
+"लिया है। यदि आप चाहें तो आप अतिरिक्त सहकर्मी प्रतिक्रियाओं का मूल्यांकन कर "
+"सकते हैं। अतिरिक्त मूल्यांकन पूरा करने से आपके अंतिम ग्रेड पर कोई प्रभाव "
+"नहीं पड़ेगा।"
+
+#: templates/legacy/peer/oa_peer_complete.html:36
+msgid "We could not retrieve additional submissions for assessment"
+msgstr "हम मूल्यांकन के लिए अतिरिक्त प्रस्तुतियाँ पुनः प्राप्त नहीं कर सके"
+
 #: templates/legacy/peer/oa_peer_complete.html:43
 msgid "Continue Assessing Peers"
 msgstr "साथियों का मूल्यांकन जारी रखें"
+
+#: templates/legacy/peer/oa_peer_turbo_mode.html:26
+#: templates/legacy/peer/oa_peer_turbo_mode_waiting.html:20
+#, python-format
+msgid ""
+"\n"
+"        Complete (%(num_graded)s)\n"
+"      "
+msgstr ""
+"\n"
+"पूर्ण ( %(num_graded)s )\n"
+"      "
 
 #: templates/legacy/peer/oa_peer_turbo_mode_waiting.html:38
 msgid ""
@@ -1309,6 +1417,17 @@ msgstr ""
 msgid "Not Available"
 msgstr "उपलब्‍ध नहीं "
 
+#: templates/legacy/peer/oa_peer_waiting.html:20
+#, python-format
+msgid ""
+"\n"
+"          In Progress (%(review_number)s of %(num_must_grade)s)\n"
+"        "
+msgstr ""
+"\n"
+"प्रगति में ( %(review_number)s का %(num_must_grade)s )\n"
+"        "
+
 #: templates/legacy/peer/oa_peer_waiting.html:37
 msgid ""
 "All available peer responses have been assessed. Check back later to see if "
@@ -1325,6 +1444,34 @@ msgstr ""
 msgid "Your Team's Response"
 msgstr "आपकी टीम की प्रतिक्रिया"
 
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "available August 13th, 2014 (in 5 days and
+#. 45 minutes)"
+#: templates/legacy/response/oa_response.html:39
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"            <span id=\"oa_step_deadline_response\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+msgstr ""
+"\n"
+"            <span id=\"oa_step_deadline_response\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "due August 13th, 2014 (in 5 days and 45
+#. minutes)"
+#: templates/legacy/response/oa_response.html:46
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"            <span id=\"oa_step_deadline_response\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+msgstr ""
+"\n"
+"            <span id=\"oa_step_deadline_response\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+
 #: templates/legacy/response/oa_response.html:54
 #: templates/legacy/self/oa_self_assessment.html:56
 msgid "In Progress"
@@ -1334,12 +1481,36 @@ msgstr "प्रगति पर है"
 msgid "Enter your team's response to the prompt."
 msgstr "प्रॉम्प्ट पर अपनी टीम की प्रतिक्रिया दर्ज करें।"
 
+#: templates/legacy/response/oa_response.html:68
+msgid ""
+"\n"
+"                        Your work will save automatically and you can return to complete your team's response at any time before the due date\n"
+"                      "
+msgstr ""
+"\n"
+"आपका काम स्वचालित रूप से सहेजा जाएगा और आप नियत तारीख से पहले किसी भी समय अपनी टीम की प्रतिक्रिया पूरी करने के लिए वापस आ सकते हैं\n"
+"                      "
+
+#: templates/legacy/response/oa_response.html:81
+msgid ""
+"\n"
+"                        Your work will save automatically and you can return to complete your team's response at any time.\n"
+"                      "
+msgstr ""
+"\n"
+"आपका काम स्वचालित रूप से सहेजा जाएगा और आप किसी भी समय अपनी टीम की प्रतिक्रिया को पूरा करने के लिए वापस आ सकते हैं।\n"
+"                      "
+
 #: templates/legacy/response/oa_response.html:86
 msgid ""
 "After you submit a response on behalf of your team, it cannot be edited."
 msgstr ""
 "अपनी टीम की ओर से प्रतिक्रिया सबमिट करने के बाद, इसे संपादित नहीं किया जा "
 "सकता है।"
+
+#: templates/legacy/response/oa_response.html:89
+msgid "Enter your response to the prompt."
+msgstr "संकेत पर अपनी प्रतिक्रिया दर्ज करें."
 
 #: templates/legacy/response/oa_response.html:92
 msgid ""
@@ -1392,6 +1563,21 @@ msgstr "आप टीम में हैं "
 #: templates/legacy/response/oa_response.html:150
 msgid "Team Members: "
 msgstr "टीम के सदस्य: "
+
+#: templates/legacy/response/oa_response.html:155
+#, python-format
+msgid ""
+"\n"
+"                                              %(team_members_with_external_submissions)s\n"
+"                                              have/has already submitted a response to this assignment with another team,\n"
+"                                              and will not be a part of your team's submission or assignment grade.\n"
+"                                          "
+msgstr ""
+"\n"
+"%(team_members_with_external_submissions)s\n"
+" किसी अन्य टीम के साथ इस असाइनमेंट का उत्तर पहले ही सबमिट कर दिया है/कर चुका है,\n"
+" और आपकी टीम के सबमिशन या असाइनमेंट ग्रेड का हिस्सा नहीं होगा।\n"
+"                                          "
 
 #: templates/legacy/response/oa_response.html:171
 msgid "Team Response "
