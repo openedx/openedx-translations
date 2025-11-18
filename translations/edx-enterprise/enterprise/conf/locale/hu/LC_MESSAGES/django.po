@@ -30,6 +30,14 @@ msgstr ""
 "Tekintse meg az adatmegosztási hozzájárulási oldal előnézetét, amely egy "
 "tanfolyamra való beiratkozás kontextusában jelenik meg."
 
+#: consent/admin/__init__.py:110
+msgid ""
+"Preview the data sharing consent page rendered in the context of a program "
+"enrollment."
+msgstr ""
+"Tekintse meg az adatmegosztási hozzájárulási oldal előnézetét, amely egy "
+"programba való beiratkozás kontextusában jelenik meg."
+
 #: consent/admin/__init__.py:119 enterprise/admin/__init__.py:720
 msgid "Preview (course)"
 msgstr "Előnézet (kurzus)"
@@ -164,6 +172,10 @@ msgstr ""
 msgid "Title of page"
 msgstr "Az oldal címe"
 
+#: consent/models.py:344
+msgid "Text next to agreement check mark"
+msgstr "Szöveg a beleegyezés jelölőnégyzete mellett"
+
 #: consent/models.py:352
 msgid "Text of decline link"
 msgstr "A visszautasítás link szövege"
@@ -179,6 +191,10 @@ msgid ""
 msgstr ""
 "A párbeszédpanel címszövege, amely akkor jelenik meg, amikor a felhasználó "
 "elutasítja a hozzájárulás megadását"
+
+#: consent/models.py:378
+msgid "Text of abort decline link on confirmation dialog box"
+msgstr "A megerősítő párbeszédablak visszavonás linkjének szövege"
 
 #: consent/models.py:393
 msgid "Specifies whether data sharing consent page is published."
@@ -198,6 +214,17 @@ msgid ""
 "The base URL used for API requests to Canvas, i.e. https://instructure.com."
 msgstr ""
 "A Canvas API-kérésekhez használt alap URL, azaz https://instructure.com."
+
+#: integrated_channels/canvas/models.py:135
+#: integrated_channels/integrated_channel/models.py:155
+#: integrated_channels/moodle/models.py:163
+#: integrated_channels/sap_success_factors/models.py:198
+msgid ""
+"The maximum number of data items to transmit to the integrated channel with "
+"each request."
+msgstr ""
+"Az adatelemek maximális száma, amelyet minden kérésnél az integrált "
+"csatornára kell továbbítani."
 
 #: integrated_channels/canvas/models.py:247
 msgid "The amount of points that the learner scored on the subsection."
@@ -256,6 +283,10 @@ msgstr ""
 "A legfrissebb munkamenet-token, amelyet az ügyfél példányára történő API-"
 "hívások engedélyezésére biztosítottak."
 
+#: integrated_channels/cornerstone/models.py:116
+msgid "Date time when session token was last provided"
+msgstr "A dátum és idő, amikor a munkamenet token utoljára biztosítva lett"
+
 #: integrated_channels/cornerstone/models.py:124
 msgid "If checked, subjects will not be sent to Cornerstone"
 msgstr ""
@@ -268,6 +299,15 @@ msgstr "Ez az edX kurzuskulcs, amelyet egyedi azonosítóként használnak."
 #: integrated_channels/cornerstone/models.py:313
 msgid "This is the course key that is being sent to our partners."
 msgstr "Ez az a kurzuskulcs, amelyet partnereinknek küldünk."
+
+#: integrated_channels/integrated_channel/management/commands/__init__.py:67
+msgid ""
+"Transmit data for only this EnterpriseCustomer. Omit this option to transmit"
+" to all EnterpriseCustomers with active integrated channels."
+msgstr ""
+"Adatok továbbítása csak ehhez az EnterpriseCustomerhez. Hagyja ki ezt az "
+"opciót, hogy az összes aktív integrált csatornával rendelkező "
+"EnterpriseCustomerhez továbbítson."
 
 #: integrated_channels/integrated_channel/management/commands/__init__.py:75
 msgid ""
@@ -324,6 +364,16 @@ msgstr ""
 "    Ez a kezelési parancs törli az IntegratedChannelAPIRequestLogs modellből az egy hónapnál régebbi rekordokat.\n"
 "    "
 
+#: integrated_channels/integrated_channel/management/commands/reset_sapsf_learner_transmissions.py:19
+msgid ""
+"\n"
+"    Reset SAPSF learner transmissions for the given EnterpriseCustomer and Channel between two dates.\n"
+"    "
+msgstr ""
+"\n"
+"    Állítsa vissza az SAPSF tanulói átviteleket a megadott EnterpriseCustomer és csatorna között két dátum között.\n"
+"    "
+
 #: integrated_channels/integrated_channel/management/commands/reset_sapsf_learner_transmissions.py:31
 msgid "Start date and time in YYYY-MM-DDTHH:MM:SSZ format."
 msgstr "A kezdési dátum és idő a YYYY-MM-DDTHH:MM:SSZ formátumban."
@@ -356,6 +406,10 @@ msgstr ""
 #: integrated_channels/xapi/models.py:40
 msgid "Is this configuration active?"
 msgstr "Aktív ez a konfiguráció?"
+
+#: integrated_channels/integrated_channel/models.py:143
+msgid "Is this configuration in dry-run mode? (experimental)"
+msgstr "Ez a konfiguráció szárazfutás módban van? (kísérleti)"
 
 #: integrated_channels/integrated_channel/models.py:162
 msgid ""
@@ -394,6 +448,11 @@ msgstr "Az API-kérés válaszának továbbításával kapcsolatos adatok."
 msgid "Cannot set both a Username/Password and Token"
 msgstr "Nem lehet egyszerre felhasználónevet/jelszót és tokent beállítani."
 
+#: integrated_channels/moodle/admin/__init__.py:33
+msgid "Must set both a Username and Password, not just one"
+msgstr ""
+"Mind a felhasználónevet, mind a jelszót meg kell adni, nem csak az egyiket."
+
 #: integrated_channels/moodle/models.py:38
 msgid "The base URL used for API requests to Moodle"
 msgstr "A Moodle API-kérésekhez használt alap URL"
@@ -401,6 +460,10 @@ msgstr "A Moodle API-kérésekhez használt alap URL"
 #: integrated_channels/moodle/models.py:46
 msgid "The short name for the Moodle webservice."
 msgstr "A Moodle webszolgáltatás rövid neve."
+
+#: integrated_channels/moodle/models.py:55
+msgid "The category ID for what edX courses should be associated with."
+msgstr "Az edX kurzusokhoz társítandó kategóriaazonosító."
 
 #: integrated_channels/moodle/models.py:64
 msgid ""
@@ -430,6 +493,14 @@ msgstr ""
 msgid "The maximum grade points for the courses. Default: 100"
 msgstr "A kurzusok maximális pontszáma. Alapértelmezett: 100"
 
+#: integrated_channels/moodle/models.py:182
+msgid ""
+"When set to True, the configured customer will receive learner data "
+"transmissions, for incomplete courses as well"
+msgstr ""
+"Amikor az érték True, a konfigurált ügyfél a befejezetlen kurzusok adatait "
+"is megkapja."
+
 #: integrated_channels/sap_success_factors/exporters/content_metadata.py:223
 #: integrated_channels/sap_success_factors/exporters/content_metadata.py:298
 #: enterprise/views.py:1604
@@ -439,6 +510,10 @@ msgstr "Kezdés"
 #: integrated_channels/sap_success_factors/exporters/content_metadata.py:228
 msgid "Enrollment Closed"
 msgstr "Feliratkozás lezárult"
+
+#: integrated_channels/sap_success_factors/exporters/content_metadata.py:307
+msgid "Ends"
+msgstr "Befejeződik"
 
 #: integrated_channels/sap_success_factors/models.py:84
 msgid ""
@@ -472,6 +547,14 @@ msgstr ""
 msgid "Type of SAP User (admin or user)."
 msgstr "SAP felhasználó típusa (rendszergazda vagy felhasználó)."
 
+#: integrated_channels/sap_success_factors/models.py:179
+msgid "A comma-separated list of additional locales."
+msgstr "Vesszővel elválasztott további helyi beállítások listája."
+
+#: integrated_channels/sap_success_factors/models.py:183
+msgid "Transmit Total Hours"
+msgstr "Összes óraszám továbbítása"
+
 #: integrated_channels/sap_success_factors/models.py:189
 msgid ""
 "When set to True, the integration will use the generic edX service user "
@@ -497,6 +580,12 @@ msgstr "xAPI LRS kulcsa."
 #: integrated_channels/xapi/models.py:36
 msgid "secret of xAPI LRS."
 msgstr "xAPI LRS titka."
+
+#: enterprise/admin/__init__.py:724
+msgid ""
+"Preview the HTML template rendered in the context of a program enrollment."
+msgstr ""
+"Tekintse meg a programbeiratkozás kontextusában megjelenített HTML sablont."
 
 #: enterprise/admin/forms.py:52
 msgid "To add a single learner, enter an email address or username."
@@ -609,6 +698,16 @@ msgstr "Adja meg a kurzus futtatási kulcsát."
 #: enterprise/admin/forms.py:436
 msgid "Preview"
 msgstr "Előnézet"
+
+#: enterprise/admin/forms.py:437
+msgid "Hold Ctrl when clicking on button to open Preview in new tab"
+msgstr ""
+"Tartsa lenyomva a Ctrl billentyűt, amikor a gombra kattint, hogy az Előnézet"
+" új lapon nyíljon meg."
+
+#: enterprise/admin/forms.py:500
+msgid "Identity Provider"
+msgstr "Azonosításszolgáltató"
 
 #: enterprise/admin/forms.py:524
 msgid ""
@@ -807,6 +906,10 @@ msgstr "URL a következő oldal elemeinek lekéréséhez."
 msgid "URL to fetch previous page of items."
 msgstr "URL az elemek előző oldalának lekéréséhez."
 
+#: enterprise/api/v1/serializers.py:97
+msgid "List of items."
+msgstr "Tételek listája."
+
 #: enterprise/api/v1/views/coupon_codes.py:96
 #, python-brace-format
 msgid "Code Management - Request for Codes by {token_enterprise_name}"
@@ -925,10 +1028,38 @@ msgstr ""
 "bele kell egyeznie, hogy megossza kurzusadatait a(z) "
 "{enterprise_customer_name} vállalattal."
 
+#: enterprise/constants.py:22
+#, python-brace-format
+msgid ""
+"If you do not consent to share your course data, that information may be "
+"shared with {enterprise_customer_name}."
+msgstr ""
+"Ha nem járul hozzá a kurzusadatok megosztásához, az információ megosztásra "
+"kerülhet a(z) {enterprise_customer_name} vállalattal."
+
 #: enterprise/constants.py:25
 #, python-brace-format
 msgid "Welcome to {platform_name}."
 msgstr "Üdvözlünk az {platform_name} rendszerben."
+
+#: enterprise/constants.py:27
+#, python-brace-format
+msgid ""
+"You have left the {strong_start}{enterprise_customer_name}{strong_end} "
+"website and are now on the {platform_name} site. {enterprise_customer_name} "
+"has partnered with {platform_name} to offer you high-quality, always "
+"available learning programs to help you advance your knowledge and career. "
+"{line_break}Please note that {platform_name} has a different "
+"{privacy_policy_link_start}Privacy Policy {privacy_policy_link_end} from "
+"{enterprise_customer_name}."
+msgstr ""
+"Ön elhagyta a {strong_start}{enterprise_customer_name}{strong_end} "
+"weboldalt, és most a {platform_name} oldalán van. A "
+"{enterprise_customer_name} együttműködik a {platform_name}-nel, hogy kiváló "
+"minőségű, mindig elérhető tanulási programokat kínáljon Önnek, amelyek "
+"segítenek bővíteni tudását és előrelépni karrierjében. {line_break}Kérjük, "
+"vegye figyelembe, hogy a {platform_name} adatvédelmi szabályzata eltér a "
+"{enterprise_customer_name} szabályzatától."
 
 #: enterprise/constants.py:86
 msgid ""
@@ -941,6 +1072,18 @@ msgstr ""
 "fejlődését, a legjobb egyetemek által létrehozva és vállalatok által "
 "elismert. A MicroMasters programok kreditre jogosultak, keresett tudást "
 "nyújtanak, és felhasználhatók a mesterképzés felgyorsítására."
+
+#: enterprise/constants.py:92
+msgid ""
+"Designed by industry leaders and top universities to enhance professional "
+"skills, Professional Certificates develop the proficiency and expertise that"
+" employers are looking for with specialized training and professional "
+"education."
+msgstr ""
+"Az iparág vezetői és a legjobb egyetemek által tervezett, a szakmai "
+"készségek fejlesztésére szolgáló szakmai bizonyítványok olyan jártasságot és"
+" szakértelmet fejlesztenek, amelyet a munkaadók keresnek, speciális "
+"képzéssel és szakmai oktatással."
 
 #: enterprise/constants.py:98
 msgid ""
@@ -1232,6 +1375,15 @@ msgstr ""
 "Engedélyezi a tanulási platform konfigurációs képernyőjét a rendszergazda "
 "portálon."
 
+#: enterprise/models.py:459
+msgid ""
+"Allows a learner to input customer slug to identify their org in the SSO "
+"process. Should be enabled for customers that leverage SSO."
+msgstr ""
+"Lehetővé teszi a tanuló számára, hogy megadja az ügyfél azonosítóját, "
+"amellyel az SSO folyamat során azonosíthatja a szervezetét. Azoknál az "
+"ügyfeleknél kell engedélyezni, akik az SSO-t használják."
+
 #: enterprise/models.py:465
 msgid ""
 "Specifies whether the organization should have access to executive education"
@@ -1267,6 +1419,13 @@ msgstr "Meghatározza a szervezet tanulóinak alapértelmezett nyelvét."
 msgid "Specifies the sender alias for automated emails from the edX system."
 msgstr ""
 "Meghatározza az edX rendszerből küldött automatikus e-mailek feladó álnevét."
+
+#: enterprise/models.py:520
+msgid ""
+"Email address that will receive learner replies to automated edX emails."
+msgstr ""
+"Az e-mail cím, amelyre a tanulók válaszai érkeznek az automatizált edX "
+"e-mailekre."
 
 #: enterprise/models.py:531
 msgid ""
@@ -1306,6 +1465,25 @@ msgstr "Vállalati ügyfél tanulók"
 msgid "Logo images must be in .png format."
 msgstr "A logóképeknek .png formátumúaknak kell lenniük."
 
+#: enterprise/models.py:1743
+msgid "Branding Configuration"
+msgstr "Márka konfiguráció"
+
+#: enterprise/models.py:1744
+msgid "Branding Configurations"
+msgstr "Márka konfigurációk"
+
+#: enterprise/models.py:1826
+msgid "Specifies whether this is default provider for enterprise customer."
+msgstr ""
+"Meghatározza, hogy ez az alapértelmezett szolgáltató-e a vállalati ügyfél "
+"számára."
+
+#: enterprise/models.py:1911
+msgid ""
+"The UUID of the course (not course run) in which the learner is entitled."
+msgstr "A tanuló jogosultságot szerzett kurzus (nem kurzus futam) UUID-je."
+
 #: enterprise/models.py:1921
 msgid "The enterprise learner to which this entitlement is attached."
 msgstr "Az üzleti tanuló, akihez ez a jogosultság kapcsolódik."
@@ -1313,6 +1491,10 @@ msgstr "Az üzleti tanuló, akihez ez a jogosultság kapcsolódik."
 #: enterprise/models.py:2044
 msgid "The enterprise learner to which this enrollment is attached."
 msgstr "Az üzleti tanuló, akihez ez a beiratkozás kapcsolódik."
+
+#: enterprise/models.py:2051
+msgid "The ID of the course in which the learner was enrolled."
+msgstr "A tanfolyam azonosítója, amelyre a tanuló beiratkozott."
 
 #: enterprise/models.py:2058
 msgid ""
@@ -1345,6 +1527,10 @@ msgid ""
 msgstr ""
 "A vállalati támogatás visszavonásra kerül-e, például amikor egy felhasználó "
 "licencét visszavonják."
+
+#: enterprise/models.py:2521
+msgid "The customer for which this default enrollment will be realized."
+msgstr "Az ügyfél, akinek ez az alapértelmezett beiratkozás megvalósul."
 
 #: enterprise/models.py:2530
 msgid "The type of content (e.g. a course vs. a course run)."
@@ -1488,6 +1674,10 @@ msgstr "A titkosítási kulcs, ha PGP titkosított fájl szükséges."
 msgid "Data Type"
 msgstr "Adattípus"
 
+#: enterprise/models.py:3409
+msgid "The type of data this report should contain."
+msgstr "A jelentésnek tartalmaznia kell az adatok típusát."
+
 #: enterprise/models.py:3416
 msgid "Report Type"
 msgstr "Jelentéstípus"
@@ -1503,6 +1693,10 @@ msgstr "e-mail"
 #: enterprise/models.py:3422
 msgid "The email(s), one per line, where the report should be sent."
 msgstr "Az e-mail cím(ek), soronként egy, ahová a jelentést küldeni kell."
+
+#: enterprise/models.py:3429
+msgid "Frequency"
+msgstr "Gyakoriság"
 
 #: enterprise/models.py:3430
 msgid ""
@@ -1522,6 +1716,10 @@ msgstr ""
 "A hónap napja, amikor a jelentést el kell küldeni. Ez a mező kötelező, és "
 "csak akkor érvényes, ha a gyakoriság havi."
 
+#: enterprise/models.py:3444
+msgid "Day of Week"
+msgstr "A hét napja"
+
 #: enterprise/models.py:3445
 msgid ""
 "The day of the week to send the report. This field is required and only "
@@ -1530,6 +1728,10 @@ msgstr ""
 "A hét napja, amikor a jelentést el kell küldeni. Ez a mező kötelező, és csak"
 " akkor érvényes, ha a gyakoriság heti."
 
+#: enterprise/models.py:3449
+msgid "Hour of Day"
+msgstr "A nap órája"
+
 #: enterprise/models.py:3458
 msgid ""
 "This password will be used to secure the zip file. It will be encrypted when"
@@ -1537,6 +1739,10 @@ msgid ""
 msgstr ""
 "Ezt a jelszót a zip fájl védelmére fogják használni. Titkosítva lesz, amikor"
 " az adatbázisban tárolják."
+
+#: enterprise/models.py:3465
+msgid "SFTP Host name"
+msgstr "SFTP hosztnév"
 
 #: enterprise/models.py:3466
 msgid "If the delivery method is sftp, the host to deliver the report to."
@@ -1694,6 +1900,11 @@ msgstr "Rendszergazda értesítések olvasása"
 msgid "The enterprise that can be linked using this key."
 msgstr "Az a vállalat, amely ehhez a kulcshoz kapcsolható."
 
+#: enterprise/models.py:4137
+msgid "The number of times this key can be used to link a learner."
+msgstr ""
+"A kulcs felhasználásainak száma, amellyel egy tanulót lehet összekapcsolni."
+
 #: enterprise/models.py:4146
 msgid "The key will no longer be valid after this date."
 msgstr "A kulcs ezen dátum után már nem lesz érvényes."
@@ -1767,6 +1978,20 @@ msgstr ""
 "Meghatározza, hogy az integráció az ügyfél identitásszolgáltatójával "
 "automatikusan frissítse-e a metaadatokat."
 
+#: enterprise/models.py:4484
+msgid ""
+"The date and time when the configuration was submitted to the SSO "
+"orchestration."
+msgstr ""
+"A konfiguráció SSO-orchestrationhöz való benyújtásának dátuma és időpontja."
+
+#: enterprise/models.py:4500
+msgid ""
+"The date and time when the configuration was validated and used for the "
+"first time."
+msgstr ""
+"Az időpont, amikor a konfigurációt először érvényesítették és használták."
+
 #: enterprise/models.py:4508
 msgid ""
 "The date and time when the orchestrator encountered an error during "
@@ -1832,6 +2057,14 @@ msgstr "Meghatározza a vállalati csoport nevét."
 msgid "The type of enterprise group"
 msgstr "A vállalati csoport típusa"
 
+#: enterprise/models.py:4721
+msgid "Enterprise Group"
+msgstr "Vállalati csoport"
+
+#: enterprise/models.py:4722
+msgid "Enterprise Groups"
+msgstr "Vállalati csoportok"
+
 #: enterprise/models.py:4835
 msgid ""
 "The moment at which the membership record is written with an Enterprise "
@@ -1892,6 +2125,11 @@ msgstr "Bezár"
 msgid "Home"
 msgstr "Főoldal"
 
+#: enterprise/templates/enterprise/admin/clear_learners_data_sharing_consent.html:33
+#: enterprise/templates/enterprise/admin/clear_learners_data_sharing_consent.html:40
+msgid "Clear Data Sharing Consent"
+msgstr "Adatmegosztási hozzájárulás törlése"
+
 #: enterprise/templates/enterprise/admin/manage_learners.html:65
 msgid "Manage Learners"
 msgstr "Tanulók kezelése"
@@ -1936,6 +2174,11 @@ msgstr "Kapcsolja össze a tanulókat"
 #: enterprise/templates/enterprise/admin/setup_auth_org_id.html:46
 msgid "Cancel"
 msgstr "Mégsem"
+
+#: enterprise/templates/enterprise/admin/transmit_courses_metadata.html:33
+#: enterprise/templates/enterprise/admin/transmit_courses_metadata.html:40
+msgid "Transmit Courses Metadata"
+msgstr "Kurzusok metaadatainak továbbítása"
 
 #: enterprise/templates/enterprise/enterprise_customer_login_page.html:44
 #: enterprise/templates/enterprise/enterprise_customer_select_form.html:50
@@ -2080,6 +2323,11 @@ msgstr "A megadott érték nem érvényes hex színkód."
 msgid "Unsupported file extension."
 msgstr "Nem támogatott fájlkiterjesztés."
 
+#: enterprise/validators.py:52
+#, python-format
+msgid "The logo image file size must be less than or equal to %s KB."
+msgstr "A logó kép fájlmérete legfeljebb %s KB lehet."
+
 #: enterprise/views.py:211
 msgid ""
 "The following method from the Open edX platform is necessary for this view "
@@ -2096,6 +2344,10 @@ msgstr "{platform_name} kezdőlap"
 #: enterprise/views.py:352
 msgid "Data sharing consent required"
 msgstr "Adatmegosztási hozzájárulás szükséges"
+
+#: enterprise/views.py:353
+msgid "Consent to share your data"
+msgstr "Hozzájárulás az adatok megosztásához"
 
 #: enterprise/views.py:355
 #, python-brace-format
@@ -2306,6 +2558,10 @@ msgstr "tanulmányi előrehaladásod"
 msgid "course completion"
 msgstr "tanfolyam befejezése"
 
+#: enterprise/views.py:985
+msgid "Enterprise Slug Login"
+msgstr "Vállalati Slug Bejelentkezés"
+
 #: enterprise/views.py:1109
 msgid "Select Organization"
 msgstr "Válasszon szervezetet"
@@ -2357,6 +2613,10 @@ msgstr ""
 msgid "Confirm your course"
 msgstr "Erősítse meg a kurzusát"
 
+#: enterprise/views.py:1605
+msgid "View Course Details"
+msgstr "Tekintse meg a kurzus részleteit"
+
 #: enterprise/views.py:1606
 msgid "Please select one:"
 msgstr "Kérjük, válasszon egyet:"
@@ -2388,6 +2648,13 @@ msgstr "A kurzusról"
 #: enterprise/views.py:1615 enterprise/views.py:2113
 msgid "Course Staff"
 msgstr "Kurzus közreműködői"
+
+#: enterprise/views.py:2052
+#, python-brace-format
+msgid "{count} Course"
+msgid_plural "{count} Courses"
+msgstr[0] "{count} tanfolyam"
+msgstr[1] "{count} tanfolyam"
 
 #: enterprise/views.py:2059
 msgid "{}-{} hours per week, per course"
@@ -2428,6 +2695,10 @@ msgstr "Valódi karrierhatás"
 #: enterprise/views.py:2104
 msgid "See More"
 msgstr "További információ"
+
+#: enterprise/views.py:2105
+msgid "See Less"
+msgstr "Kevesebb megjelenítése"
 
 #: enterprise/views.py:2106
 msgid "Confirm Program"
