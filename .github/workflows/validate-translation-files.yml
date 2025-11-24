@@ -29,7 +29,7 @@ jobs:
       # Clones the openedx-translations repo
       - name: clone openedx/openedx-translations
         if: steps.filter.outputs.changedtranslations == 'true'
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Install msgfmt from gettext for po-file validation
         if: steps.filter.outputs.changedtranslations == 'true' && matrix.file-type == 'po'
