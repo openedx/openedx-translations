@@ -152,6 +152,10 @@ msgstr "Ndodh një gabim i panjohur gjatë hapit të paketimit."
 msgid "Unknown User ID: {0}"
 msgstr "ID e panjohur e përdoruesit: {0}"
 
+#: cms/djangoapps/contentstore/errors.py:17
+msgid "Unsafe archive file. Aborting import."
+msgstr "Skedar arkivi i pasigurt. Ndërprerja e importit."
+
 #: cms/djangoapps/contentstore/errors.py:18
 msgid "User permission denied."
 msgstr "Refuzoj lejen e përdoruesit."
@@ -762,6 +766,15 @@ msgstr "Provimi i përfunduar i hyrjes në kurs"
 #: cms/djangoapps/contentstore/views/export_git.py:47
 msgid "Course successfully exported to git repository"
 msgstr "Eksportova kursin me sukses në git depo"
+
+#: cms/djangoapps/contentstore/views/import_export.py:150
+#, python-brace-format
+msgid ""
+"We support uploading files in one of the following formats: "
+"{IMPORTABLE_FILE_TYPES}"
+msgstr ""
+"Ne mbështesim ngarkimin e skedarëve në një nga formatet e mëposhtme: "
+"{IMPORTABLE_FILE_TYPES}"
 
 #: cms/djangoapps/contentstore/views/import_export.py:179
 msgid "Some chunks missed during file upload. Please try again"
@@ -4381,6 +4394,33 @@ msgstr ""
 "verifikuar. Nëse kursi nuk shfaqet në listë, sigurohuni që të jeni "
 "regjistruar në pistën e auditimit për kursin."
 
+#: lms/djangoapps/courseware/views/views.py:2264
+msgid "I certify that: "
+msgstr "Unë vërtetoj se: "
+
+#: lms/djangoapps/courseware/views/views.py:2271
+msgid ""
+"Paying the verified certificate fee for the above course would cause me "
+"economic hardship"
+msgstr ""
+"Pagesa e tarifës së certifikatës së verifikuar për kursin e mësipërm do të "
+"më shkaktonte vështirësi ekonomike"
+
+#: lms/djangoapps/courseware/views/views.py:2283
+msgid ""
+"I will work diligently to complete the course work and receive a certificate"
+msgstr ""
+"Do të punoj me zell për të përfunduar punën e kursit dhe për të marrë një "
+"certifikatë"
+
+#: lms/djangoapps/courseware/views/views.py:2295
+#, python-brace-format
+msgid ""
+"I have read, understand, and will abide by the {honor_code_link} for the edX"
+" Site"
+msgstr ""
+"Kam lexuar, kuptuar dhe do t'i përmbahem {honor_code_link} për sitin edX"
+
 #: lms/djangoapps/discussion/django_comment_client/base/views.py:558
 #: lms/djangoapps/discussion/django_comment_client/base/views.py:623
 msgid "Title can't be empty"
@@ -5389,9 +5429,65 @@ msgstr "Anulo"
 msgid "Error"
 msgstr "Gabim"
 
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:11
+#: lms/templates/support/edx_ace/wholecoursereset/email/subject.txt:3
+#, python-format
+msgid "The course %(course_title)s has been reset !"
+msgstr "Rivendoset kursi %(course_title)s!"
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:21
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:3
+#, python-format
+msgid ""
+"Your progress in course %(course_title)s has been reset on your behalf."
+msgstr ""
+"Përparimi juaj në kursin %(course_title)s është rivendosur në emrin tuaj."
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:25
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:4
+msgid ""
+"You will be able to re-attempt this course and earn a verified certificate "
+"upon successful completion."
+msgstr ""
+"Ju do të jeni në gjendje të provoni përsëri këtë kurs dhe të fitoni një "
+"Certifikatë të verifikuar pas përfundimit të suksesshëm."
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:31
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:6
+msgid "Best,"
+msgstr "Më e mira,"
+
+#: lms/templates/video.html:23
+msgid "Loading video player"
+msgstr "Video po ngarkohet"
+
 #: lms/templates/video.html:25
 msgid "Play video"
 msgstr "Luaj video"
+
+#: lms/templates/video.html:29
+msgid "No playable video sources found."
+msgstr "Nuk u gjetën burime video të luajtshme."
+
+#: lms/templates/video.html:31
+msgid ""
+"Your browser does not support this video format. Try using a different "
+"browser."
+msgstr ""
+"Shfletuesi juaj nuk e mbështet këtë format video. Provoni të përdorni një "
+"shfletues tjetër."
+
+#: lms/templates/video.html:52
+msgid "Downloads and transcripts"
+msgstr "Shkarkimet dhe transkriptet"
+
+#: lms/templates/video.html:62
+msgid "Download video file"
+msgstr "Shkarkoni skedarin e videos"
+
+#: lms/templates/video.html:71 lms/templates/video.html:74
+msgid "Share this video"
+msgstr "Shpërndajeni këtë video"
 
 #: lms/templates/video.html:104
 #, python-format
@@ -5410,6 +5506,18 @@ msgstr "Transkriptet"
 #, python-format
 msgid "Download %(file)s"
 msgstr "Shkarkoni %(file)s"
+
+#: lms/templates/video.html:140
+msgid "Download transcript"
+msgstr "Shkarko transkriptin"
+
+#: lms/templates/video.html:146
+msgid "Handouts"
+msgstr "Fletushka"
+
+#: lms/templates/video.html:147
+msgid "Download Handout"
+msgstr "Shkarko fletushkën"
 
 #: lms/templates/video.html:154
 msgid "How is the transcript quality?"
@@ -5481,6 +5589,20 @@ msgstr "Ka ndodhur një gabim. Ju lutemi provoni përsëri."
 msgid "Enabled"
 msgstr "Aktivizuar"
 
+#: openedx/core/djangoapps/content/search/models.py:28
+msgid ""
+"Numeric ID for each Course / Library context. This ID will generally require"
+" fewer bits than the full LearningContextKey, allowing more courses and "
+"libraries to be represented in content search filters."
+msgstr ""
+"ID numerike për çdo kontekst kursi / bibliotekë. Ky ID në përgjithësi do të "
+"kërkojë më pak bit sesa LearningContextKey i plotë, duke lejuar që më shumë "
+"kurse dhe biblioteka të përfaqësohen në filtrat e kërkimit të përmbajtjes."
+
+#: openedx/core/djangoapps/content_libraries/api/blocks.py:301
+msgid "Library cannot have more than {} Components"
+msgstr "Biblioteka nuk mund të ketë më shumë se {} komponentë"
+
 #: openedx/core/djangoapps/content_libraries/rest_api/libraries.py:803
 msgid "This field is required."
 msgstr "Kjo fushë është e nevojshme."
@@ -5488,6 +5610,10 @@ msgstr "Kjo fushë është e nevojshme."
 #: openedx/core/djangoapps/content_staging/data.py:19
 msgid "Loading"
 msgstr "Po ngarkohet"
+
+#: openedx/core/djangoapps/content_staging/models.py:72
+msgid "Content tags applied to these blocks"
+msgstr "Etiketat e përmbajtjes aplikohen në këto blloqe"
 
 #: openedx/core/djangoapps/course_groups/cohorts.py:553
 msgid ""
@@ -5508,19 +5634,49 @@ msgstr "Komuniteti TA"
 msgid "Student"
 msgstr "Student"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:135
+#, python-brace-format
+msgid ""
+"<p><strong>{username}’s </strong> {content_type} has been reported <strong> "
+"{content}</strong></p>"
+msgstr ""
+"<p><strong>{username}’s</strong> {content_type} është raportuar "
+"<strong>{content}</strong></p>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:243
 #, python-brace-format
 msgid "<{p}>Your instructor posted <{strong}>{post_title}</{strong}></{p}>"
 msgstr "<{p}>Instruktori juaj postoi <{strong}>{post_title}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:266
+msgid "Notifications for new announcements and updates from the course team."
+msgstr "Njoftimet për njoftimet dhe përditësimet e reja nga ekipi i kursit."
+
 #: openedx/core/djangoapps/notifications/email/utils.py:463
 msgid "discussion"
 msgstr "diskutim"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:16
+msgid "Daily"
+msgstr "Ditore"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:17
+msgid "Weekly"
+msgstr "Javore"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:18
+msgid "Immediately"
+msgstr "Menjëherë"
 
 #: openedx/core/djangoapps/notifications/templates/notifications/digest_content.html:50
 #: openedx/core/djangoapps/notifications/templates/notifications/immediate_email_content.html:27
 msgid "View"
 msgstr "Shiko"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:12
+#: openedx/core/djangoapps/notifications/templates/notifications/immediate_email_content.html:8
+msgid "Unsubscribe"
+msgstr "Çregjistrohu"
 
 #: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:25
 msgid "Weekly Notifications Digest"
@@ -5596,6 +5752,10 @@ msgstr ""
 msgid "Your focused attention will pay off in the end! "
 msgstr "Vëmendja juaj e përqendruar do të shpërblehet në fund! "
 
+#: openedx/core/djangoapps/user_api/accounts/api.py:436
+msgid "Full name can't be longer than 255 symbols"
+msgstr "Emri i plotë nuk mund të jetë më i gjatë se 255 simbole"
+
 #: openedx/core/djangoapps/user_api/admin.py:72
 msgid "Success"
 msgstr "Sukses"
@@ -5612,6 +5772,12 @@ msgstr "Veprimet"
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:899
 msgid "Title"
 msgstr "Titulli"
+
+#. Translators: This label appears above a dropdown menu to select
+#. the user's work experience
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:376
+msgid "Work experience"
+msgstr "Përvojë pune"
 
 #. Translators: This is a legal document users must agree to
 #. in order to register a new account.
@@ -5705,6 +5871,15 @@ msgstr ""
 #: openedx/core/lib/license/mixin.py:26
 msgid "License"
 msgstr "Licenca"
+
+#: openedx/core/lib/teams_config.py:386
+#, python-brace-format
+msgid "Team Group: {team_set_name}"
+msgstr "Grupi i ekipit: {team_set_name}"
+
+#: openedx/core/lib/teams_config.py:387
+msgid "Partition for segmenting users by team-set"
+msgstr "Ndarje për segmentimin e përdoruesve sipas grupit të ekipit"
 
 #: openedx/features/enterprise_support/utils.py:205
 msgid "Continue"
@@ -6170,6 +6345,18 @@ msgid ""
 msgstr ""
 "Përcakton numrin e herëve që një student mund të përpiqet t'i përgjigjet "
 "këtij problemi. Nëse vlera nuk është caktuar, lejohen përpjekje të pafundme."
+
+#: xmodule/capa_block.py:197
+msgid "Grading Method"
+msgstr "Metoda e notimit"
+
+#: xmodule/capa_block.py:199
+msgid ""
+"Define the grading method for this problem. By default, it's the score of "
+"the last submission made by the student."
+msgstr ""
+"Përcaktoni metodën e vlerësimit për këtë problem. Si parazgjedhje, është "
+"rezultati i paraqitjes së fundit të bërë nga studenti."
 
 #: xmodule/capa_block.py:211
 msgid "Date that this problem is due by"
@@ -6642,6 +6829,21 @@ msgstr ""
 "Ky bllok është tashmë i migruar për të përdorur bibliotekën v2. Tani mund të"
 " sinkronizoni blloqet individuale."
 
+#: xmodule/library_content_block.py:242
+msgid "Source content library has not been specified."
+msgstr "Biblioteka e përmbajtjes së burimit nuk është specifikuar."
+
+#: xmodule/library_content_block.py:246
+msgid "Content libraries are not available in the current runtime."
+msgstr ""
+"Bibliotekat e përmbajtjes nuk janë të disponueshme në kohën aktuale të "
+"ekzekutimit."
+
+#: xmodule/library_content_block.py:249
+#, python-brace-format
+msgid "Source content library does not exist: {source_library_id}"
+msgstr "Biblioteka e përmbajtjes së burimit nuk ekziston: {source_library_id}"
+
 #: xmodule/library_content_block.py:345
 msgid ""
 "This legacy library reference is no longer supported, and needs to be "
@@ -6699,6 +6901,11 @@ msgstr "Një bibliotekë nuk është zgjedhur ende."
 #: xmodule/library_content_block.py:435
 msgid "Select a Library."
 msgstr "Zgjidhni një Bibliotekë."
+
+#: xmodule/library_content_block.py:454
+#, python-brace-format
+msgid "There are no problems in the specified library of type {capa_type}."
+msgstr "Nuk ka probleme në bibliotekën e specifikuar të tipit {capa_type}."
 
 #: xmodule/library_content_block.py:457
 msgid "Select another problem type."
@@ -7190,6 +7397,18 @@ msgstr ""
 "përgjigjeve për blloqet e problemit do të merren parasysh në algoritmin e "
 "pikëve/kalimit të provimit të hyrjes."
 
+#: xmodule/modulestore/inheritance.py:244
+msgid "Hide from Table of Contents"
+msgstr "Fshihni nga Tabela e Përmbajtjes"
+
+#: xmodule/modulestore/inheritance.py:245
+msgid ""
+"Enter true or false. If true, this block will be hidden from the Table of "
+"Contents."
+msgstr ""
+"Shkruani e vërtetë ose e gabuar. Nëse është e vërtetë, ky bllok do të "
+"fshihet nga Tabela e Përmbajtjes."
+
 #: xmodule/modulestore/xml_importer.py:82
 msgid "Error while reading {}. Check file for XML errors."
 msgstr "Gabim gjatë leximit të {}. Kontrolloni skedarin për gabime XML."
@@ -7486,18 +7705,350 @@ msgstr ""
 "Opsionale, për shfletuesit më të vjetër: ID-ja e YouTube për videon me "
 "shpejtësi normale."
 
+#: xmodule/video_block/video_xfields.py:35
+msgid "YouTube ID"
+msgstr "ID-ja e YouTube"
+
+#: xmodule/video_block/video_xfields.py:40
+msgid "Optional, for older browsers: the YouTube ID for the .75x speed video."
+msgstr ""
+"Opsionale, për shfletuesit më të vjetër: ID-ja e YouTube për videon me "
+"shpejtësi 0,75x."
+
+#: xmodule/video_block/video_xfields.py:41
+msgid "YouTube ID for .75x speed"
+msgstr "ID e YouTube për shpejtësi 0,75x"
+
+#: xmodule/video_block/video_xfields.py:46
+msgid ""
+"Optional, for older browsers: the YouTube ID for the 1.25x speed video."
+msgstr ""
+"Opsionale, për shfletuesit më të vjetër: ID-ja e YouTube për videon me "
+"shpejtësi 1,25x."
+
+#: xmodule/video_block/video_xfields.py:47
+msgid "YouTube ID for 1.25x speed"
+msgstr "ID e YouTube për shpejtësi 1,25x"
+
+#: xmodule/video_block/video_xfields.py:52
+msgid "Optional, for older browsers: the YouTube ID for the 1.5x speed video."
+msgstr ""
+"Opsionale, për shfletuesit më të vjetër: ID-ja e YouTube për videon me "
+"shpejtësi 1,5x."
+
+#: xmodule/video_block/video_xfields.py:53
+msgid "YouTube ID for 1.5x speed"
+msgstr "ID-ja e YouTube për shpejtësi 1,5x"
+
+#: xmodule/video_block/video_xfields.py:59
+msgid ""
+"Time you want the video to start if you don't want the entire video to play."
+" Not supported in the native mobile app: the full video file will play. "
+"Formatted as HH:MM:SS. The maximum value is 23:59:59."
+msgstr ""
+"Koha kur dëshironi që videoja të fillojë nëse nuk dëshironi të luhet e "
+"gjithë video. Nuk mbështetet në aplikacionin origjinal celular: do të luhet "
+"skedari i plotë i videos. Formatuar si HH:MM:SS. Vlera maksimale është "
+"23:59:59."
+
+#: xmodule/video_block/video_xfields.py:63
+msgid "Video Start Time"
+msgstr "Koha e fillimit të videos"
+
+#: xmodule/video_block/video_xfields.py:69
+msgid ""
+"Time you want the video to stop if you don't want the entire video to play. "
+"Not supported in the native mobile app: the full video file will play. "
+"Formatted as HH:MM:SS. The maximum value is 23:59:59."
+msgstr ""
+"Koha kur dëshironi që videoja të ndalet nëse nuk dëshironi të luhet e gjithë"
+" video. Nuk mbështetet në aplikacionin origjinal celular: do të luhet "
+"skedari i plotë i videos. Formatuar si HH:MM:SS. Vlera maksimale është "
+"23:59:59."
+
+#: xmodule/video_block/video_xfields.py:73
+msgid "Video Stop Time"
+msgstr "Koha e ndalimit të videos"
+
+#: xmodule/video_block/video_xfields.py:80
+msgid ""
+"Allow students to download versions of this video in different formats if "
+"they cannot use the edX video player or do not have access to YouTube. You "
+"must add at least one non-YouTube URL in the Video File URLs field."
+msgstr ""
+"Lejojini studentët të shkarkojnë versione të kësaj videoje në formate të "
+"ndryshme nëse nuk mund të përdorin luajtësin e videos edX ose nuk kanë qasje"
+" në YouTube. Duhet të shtoni të paktën një URL jo-YouTube në fushën e URL-ve"
+" të skedarit video."
+
+#: xmodule/video_block/video_xfields.py:83
+msgid "Video Download Allowed"
+msgstr "Shkarkimi i videos është i lejuar"
+
+#: xmodule/video_block/video_xfields.py:88
+msgid ""
+"The URL or URLs where you've posted non-YouTube versions of the video. Each "
+"URL must end in .mpeg, .mp4, .ogg, or .webm and cannot be a YouTube URL. "
+"(For browser compatibility, we strongly recommend .mp4 and .webm format.) "
+"Students will be able to view the first listed video that's compatible with "
+"the student's computer. To allow students to download these videos, set "
+"Video Download Allowed to True."
+msgstr ""
+"URL-ja ose URL-të ku keni postuar versione jo-YouTube të videos. Çdo URL "
+"duhet të përfundojë me .mpeg, .mp4, .ogg ose .webm dhe nuk mund të jetë një "
+"URL e YouTube. (Për pajtueshmërinë e shfletuesit, ne rekomandojmë fuqimisht "
+"formatin .mp4 dhe .webm.) Studentët do të mund të shikojnë videon e parë të "
+"listuar që është në përputhje me kompjuterin e studentit. Për t'i lejuar "
+"studentët të shkarkojnë këto video, caktoni shkarkimin e videove të lejuara "
+"në \"Të vërtetë\"."
+
+#: xmodule/video_block/video_xfields.py:93
+msgid "Video File URLs"
+msgstr "URL-të e skedarëve video"
+
+#: xmodule/video_block/video_xfields.py:97
+msgid ""
+"By default, students can download an .srt or .txt transcript when you set "
+"Download Transcript Allowed to True. If you want to provide a downloadable "
+"transcript in a different format, we recommend that you upload a handout by "
+"using the Upload a Handout field. If this isn't possible, you can post a "
+"transcript file on the Files & Uploads page or on the Internet, and then add"
+" the URL for the transcript here. Students see a link to download that "
+"transcript below the video."
+msgstr ""
+"Si parazgjedhje, studentët mund të shkarkojnë një transkript .srt ose .txt "
+"kur vendosni \"Shkarkimi i transkriptit të lejuar\" në \"Të vërtetë\". Nëse "
+"dëshironi të siguroni një transkript të shkarkueshëm në një format tjetër, "
+"ju rekomandojmë të ngarkoni një fletushkë duke përdorur fushën Ngarko një "
+"fletushkë. Nëse kjo nuk është e mundur, mund të postoni një skedar "
+"transkripti në faqen Skedarët dhe Ngarkimet ose në internet dhe më pas "
+"shtoni URL-në për transkriptin këtu. Studentët shohin një lidhje për të "
+"shkarkuar atë transkript poshtë videos."
+
+#: xmodule/video_block/video_xfields.py:102
+msgid "Downloadable Transcript URL"
+msgstr "URL e transkriptit që mund të shkarkohet"
+
+#: xmodule/video_block/video_xfields.py:107
+msgid ""
+"Allow students to download the timed transcript. A link to download the file"
+" appears below the video. By default, the transcript is an .srt or .txt "
+"file. If you want to provide the transcript for download in a different "
+"format, upload a file by using the Upload Handout field."
+msgstr ""
+"Lejojini studentët të shkarkojnë transkriptin me kohë. Një lidhje për të "
+"shkarkuar skedarin shfaqet poshtë videos. Si parazgjedhje, transkripti është"
+" një skedar .srt ose .txt. Nëse dëshironi të jepni transkriptin për shkarkim"
+" në një format tjetër, ngarkoni një skedar duke përdorur fushën Ngarko "
+"fletëpalosje."
+
+#: xmodule/video_block/video_xfields.py:110
+msgid "Download Transcript Allowed"
+msgstr "Shkarko transkriptin e lejuar"
+
+#: xmodule/video_block/video_xfields.py:117
+msgid ""
+"The default transcript for the video, from the Default Timed Transcript "
+"field on the Basic tab. This transcript should be in English. You don't have"
+" to change this setting."
+msgstr ""
+"Transkripti i parazgjedhur për videon, nga fusha &quot;Transkripti me kohë "
+"të paracaktuar&quot; në skedën &quot;Bazë&quot;. Ky transkript duhet të jetë"
+" në anglisht. Nuk duhet ta ndryshoni këtë cilësim."
+
 #: xmodule/video_block/video_xfields.py:119
 msgid "Default Timed Transcript"
 msgstr "Transkripti i parazgjedhur me kohë"
+
+#: xmodule/video_block/video_xfields.py:124
+msgid "Specify whether the transcripts appear with the video by default."
+msgstr "Specifikoni nëse transkriptet shfaqen me videon si parazgjedhje."
+
+#: xmodule/video_block/video_xfields.py:125
+msgid "Show Transcript"
+msgstr "Shfaq transkriptin"
+
+#: xmodule/video_block/video_xfields.py:131
+msgid ""
+"Add transcripts in different languages. Click below to specify a language "
+"and upload an .srt transcript file for that language."
+msgstr ""
+"Shtoni transkriptet në gjuhë të ndryshme. Kliko më poshtë për të specifikuar"
+" një gjuhë dhe për të ngarkuar një skedar transkripti .srt për atë gjuhë."
 
 #: xmodule/video_block/video_xfields.py:133
 msgid "Transcript Languages"
 msgstr "Gjuhët e transkriptimit"
 
+#: xmodule/video_block/video_xfields.py:138
+msgid "Preferred language for transcript."
+msgstr "Gjuha e preferuar për transkriptimin."
+
+#: xmodule/video_block/video_xfields.py:139
+msgid "Preferred language for transcript"
+msgstr "Gjuha e preferuar për transkriptimin"
+
+#: xmodule/video_block/video_xfields.py:144
+msgid "Transcript file format to download by user."
+msgstr "Formati i skedarit të transkriptit për t'u shkarkuar nga përdoruesi."
+
+#. Translators: This is a type of file used for captioning in the video
+#. player.
+#: xmodule/video_block/video_xfields.py:148
+msgid "SubRip (.srt) file"
+msgstr "Skedari SubRip (.srt)."
+
+#: xmodule/video_block/video_xfields.py:149
+msgid "Text (.txt) file"
+msgstr "Skedari i tekstit (.txt)"
+
+#: xmodule/video_block/video_xfields.py:154
+msgid "The last speed that the user specified for the video."
+msgstr "Shpejtësia e fundit që përdoruesi ka specifikuar për videon."
+
+#: xmodule/video_block/video_xfields.py:158
+msgid "The default speed for the video."
+msgstr "Shpejtësia e paracaktuar për videon."
+
+#: xmodule/video_block/video_xfields.py:163
+msgid ""
+"Specify whether to advance automatically to the next unit when the video "
+"ends."
+msgstr ""
+"Specifikoni nëse do të avanconi automatikisht në njësinë tjetër kur të "
+"përfundojë video."
+
+#: xmodule/video_block/video_xfields.py:172
+msgid "Specify whether YouTube is available for the user."
+msgstr "Specifiko nëse YouTube është i disponueshëm për përdoruesin."
+
+#: xmodule/video_block/video_xfields.py:177
+msgid ""
+"Upload a handout to accompany this video. Students can download the handout "
+"by clicking Download Handout under the video."
+msgstr ""
+"Ngarko një fletushkë për të shoqëruar këtë video. Nxënësit mund ta "
+"shkarkojnë fletushkën duke klikuar \"Shkarko fletushkën\" nën video."
+
 #: xmodule/video_block/video_xfields.py:179
 msgid "Upload Handout"
 msgstr "Ngarko fletushkë"
 
+#: xmodule/video_block/video_xfields.py:184
+msgid ""
+"Specify whether access to this video is limited to browsers only, or if it "
+"can be accessed from other applications including mobile apps."
+msgstr ""
+"Specifiko nëse qasja në këtë video është e kufizuar vetëm për shfletues, ose"
+" nëse ajo mund të aksesohet nga aplikacione të tjera, duke përfshirë "
+"aplikacionet celulare."
+
+#: xmodule/video_block/video_xfields.py:187
+msgid "Video Available on Web Only"
+msgstr "Video e disponueshme vetëm në ueb"
+
+#: xmodule/video_block/video_xfields.py:192
+msgid ""
+"If you were assigned a Video ID by edX for the video to play in this "
+"component, enter the ID here. In this case, do not enter values in the "
+"Default Video URL, the Video File URLs, and the YouTube ID fields. If you "
+"were not assigned a Video ID, enter values in those other fields and ignore "
+"this field."
+msgstr ""
+"Nëse ju është caktuar një ID video nga edX që videoja të luhet në këtë "
+"komponent, futni ID-në këtu. Në këtë rast, mos vendosni vlera në URL-në e "
+"parazgjedhur të videos, URL-të e skedarit të videos dhe fushat e ID-së së "
+"YouTube. Nëse nuk ju është caktuar një ID video, futni vlerat në ato fusha "
+"të tjera dhe shpërfilleni këtë fushë."
+
+#: xmodule/video_block/video_xfields.py:201
+msgid "Date of the last view of the bumper"
+msgstr "Data e pamjes së fundit të parakolpit"
+
+#: xmodule/video_block/video_xfields.py:205
+msgid "Do not show bumper again"
+msgstr "Mos e shfaqni përsëri parakolpin"
+
+#: xmodule/video_block/video_xfields.py:210
+msgid "Specify whether the video can be accessed publicly by learners."
+msgstr "Specifikoni nëse videoja mund të aksesohet publikisht nga nxënësit."
+
+#: xmodule/video_block/video_xfields.py:211
+msgid "Public Access"
+msgstr "Qasja publike"
+
+#: xmodule/video_block/video_xfields.py:218
+msgid "Add a specific thumbnail for learners to see before playing the video."
+msgstr ""
+"Shtoni një miniaturë specifike që nxënësit ta shohin përpara se të luajnë "
+"videon."
+
 #: xmodule/video_block/video_xfields.py:219
 msgid "Thumbnail"
 msgstr "Miniatura"
+
+#: xmodule/word_cloud_block.py:69
+msgid "Instructions"
+msgstr "Udhëzimet"
+
+#: xmodule/word_cloud_block.py:70
+msgid ""
+"Add instructions to help learners understand how to use the word cloud. "
+"Clear instructions are important, especially for learners who have "
+"accessibility requirements."
+msgstr ""
+"Shtoni udhëzime për t'i ndihmuar nxënësit të kuptojnë se si të përdorin "
+"fjalën re. Udhëzimet e qarta janë të rëndësishme, veçanërisht për nxënësit "
+"që kanë kërkesa për aksesueshmëri."
+
+#: xmodule/word_cloud_block.py:74
+msgid "Inputs"
+msgstr "Inputet"
+
+#: xmodule/word_cloud_block.py:75
+msgid ""
+"The number of text boxes available for learners to add words and sentences."
+msgstr ""
+"Numri i kutive të tekstit në dispozicion për nxënësit për të shtuar fjalë "
+"dhe fjali."
+
+#: xmodule/word_cloud_block.py:81
+msgid "Maximum Words"
+msgstr "Fjalët maksimale"
+
+#: xmodule/word_cloud_block.py:82
+msgid "The maximum number of words displayed in the generated word cloud."
+msgstr "Numri maksimal i fjalëve që shfaqen në renë e fjalëve të krijuara."
+
+#: xmodule/word_cloud_block.py:88
+msgid "Show Percents"
+msgstr "Shfaq përqindjet"
+
+#: xmodule/word_cloud_block.py:89
+msgid "Statistics are shown for entered words near that word."
+msgstr "Statistikat tregojnë për fjalët e futura pranë asaj fjale."
+
+#: xmodule/word_cloud_block.py:96
+msgid "Whether this learner has posted words to the cloud."
+msgstr "Nëse ky nxënës ka postuar fjalë në re."
+
+#: xmodule/word_cloud_block.py:101
+msgid "Student answer."
+msgstr "Përgjigja e nxënësit."
+
+#: xmodule/word_cloud_block.py:106
+msgid "All possible words from all learners."
+msgstr "Të gjitha fjalët e mundshme nga të gjithë nxënësit."
+
+#: xmodule/word_cloud_block.py:110
+msgid "Top num_top_words words for word cloud."
+msgstr "Fjalët kryesore për renë e fjalëve num_top_words."
+
+#: xmodule/x_module.py:724
+#, python-brace-format
+msgid ""
+"{display_name} is only accessible to enrolled learners. Sign in or register,"
+" and enroll in this course to view it."
+msgstr ""
+"{display_name} është i aksesueshëm vetëm për nxënësit e regjistruar. "
+"Identifikohu ose regjistrohu dhe përfshihu në këtë kurs për ta parë atë."
