@@ -1159,6 +1159,101 @@ msgstr ""
 msgid "Incorrect format for field '{name}'. {detailed_message}"
 msgstr "Formato incorreto para o campo ' {name} '. {detailed_message}"
 
+#: cms/djangoapps/modulestore_migrator/models.py:32
+msgid "Key of the content source (a course or a legacy library)"
+msgstr "Chave da fonte de conteúdo (um curso ou uma biblioteca legado)"
+
+#: cms/djangoapps/modulestore_migrator/models.py:39
+msgid ""
+"If set, the system will forward references of this source over to the target"
+" of this migration"
+msgstr ""
+"Se definido, o sistema encaminhará referências desta fonte para o destino "
+"desta migração."
+
+#: cms/djangoapps/modulestore_migrator/models.py:73
+msgid "Migrated content version, the hash of published content version"
+msgstr "Versão de conteúdo migrado, o hash da versão de conteúdo publicada"
+
+#: cms/djangoapps/modulestore_migrator/models.py:79
+msgid ""
+"Maximum hierachy level at which content should be aggregated in target "
+"library"
+msgstr ""
+"Nível máximo de hierarquia no qual você deve agregar o conteúdo na "
+"biblioteca de destino."
+
+#: cms/djangoapps/modulestore_migrator/models.py:86
+msgid ""
+"If a piece of content already exists in the content library, choose how to "
+"handle it."
+msgstr ""
+"Se um conteúdo já existir na biblioteca de conteúdos, escolha como lidar com"
+" ele."
+
+#: cms/djangoapps/modulestore_migrator/models.py:92
+msgid ""
+"Should the migration preserve the location IDs of the existing blocks?If "
+"not, then new, unique human-readable IDs will be generated based on the "
+"block titles."
+msgstr ""
+"A migração deve preservar os IDs de localização dos blocos existentes? Caso "
+"contrário, novos IDs únicos e legíveis por humanos serão gerados com base "
+"nos títulos dos blocos."
+
+#: cms/djangoapps/modulestore_migrator/models.py:99
+msgid "Content will be imported into this library"
+msgstr "Conteúdo será importado para esta biblioteca"
+
+#: cms/djangoapps/modulestore_migrator/models.py:106
+msgid ""
+"Optional - Collection (within the target library) into which imported "
+"content will be grouped"
+msgstr ""
+"Opcional - Coleção (dentro da biblioteca de destino) na qual o conteúdo "
+"importado será agrupado"
+
+#: cms/djangoapps/modulestore_migrator/models.py:114
+msgid ""
+"Tracks the status of the task which is executing this migration. In a bulk "
+"migration, the same task can be multiple migrations"
+msgstr ""
+"Acompanha o status da tarefa que está executando esta migração. Em uma "
+"migração em massa, a mesma tarefa pode ser múltiplas migrações."
+
+#: cms/djangoapps/modulestore_migrator/models.py:123
+msgid ""
+"Changelog entry in the target learning package which records this migration"
+msgstr ""
+"Entrada no changelog no pacote de aprendizagem de destino que registra esta "
+"migração"
+
+#: cms/djangoapps/modulestore_migrator/models.py:130
+msgid ""
+"Modulestore content is processed and staged before importing it to a "
+"learning packge. We temporarily save the staged content to allow for "
+"troubleshooting of failed migrations."
+msgstr ""
+"O conteúdo do Modulestore é processado e preparado antes de ser importado "
+"para um pacote de aprendizado. Salvamos temporariamente o conteúdo preparado"
+" para permitir a solução de problemas de migrações falhas."
+
+#: cms/djangoapps/modulestore_migrator/models.py:142
+msgid "is the migration failed?"
+msgstr "a migração falhou?"
+
+#: cms/djangoapps/modulestore_migrator/models.py:171
+msgid "Original usage key of the XBlock that has been imported."
+msgstr "Chave de uso original do XBlock que foi importado."
+
+#: cms/djangoapps/modulestore_migrator/models.py:178
+msgid ""
+"If set, the system will forward references of this block source over to the "
+"target of this block migration"
+msgstr ""
+"Se configurado, o sistema encaminhará as referências desta fonte de bloco "
+"para o destino desta migração de bloco."
+
 #: cms/lib/xblock/tagging/tagging.py:21
 msgid "Dictionary with the available tags"
 msgstr "Dicionário com os separadores disponíveis"
@@ -5433,6 +5528,14 @@ msgstr ""
 "A tarefa de reemissão de certificados foi iniciada. Pode visualizar o estado"
 " da tarefa na secção \"Tarefas pendentes\"."
 
+#: lms/djangoapps/instructor/views/api.py:3594
+msgid ""
+"Please select certificate statuses that lie with in \"certificate_statuses\""
+" entry in POST data."
+msgstr ""
+"Por favor, selecione os status de Certificado que estão na entrada "
+"\"certificate_statuses\" nos dados POST."
+
 #: lms/djangoapps/instructor/views/api.py:3651
 #, python-format
 msgid "This student (%s) will skip the entrance exam."
@@ -5762,6 +5865,14 @@ msgstr "Inscrições"
 #: lms/djangoapps/instructor/views/serializers_v2.py:103
 msgid "Grading"
 msgstr "Classificação"
+
+#: lms/djangoapps/instructor/views/serializers_v2.py:116
+msgid "Date Extensions"
+msgstr "Extensões de Datas"
+
+#: lms/djangoapps/instructor/views/serializers_v2.py:123
+msgid "Data Downloads"
+msgstr "Download de Dados"
 
 #: lms/djangoapps/instructor/views/tools.py:79
 #, python-brace-format
@@ -7423,6 +7534,10 @@ msgstr "Material de Apoio"
 #: lms/templates/video.html:147
 msgid "Download Handout"
 msgstr "Transferir Material de Apoio"
+
+#: lms/templates/video.html:154
+msgid "How is the transcript quality?"
+msgstr "Como é a qualidade da transcrição?"
 
 #: lms/templates/wiki/article.html:30
 msgid "Last modified:"
@@ -12896,6 +13011,21 @@ msgstr ""
 "Indique o operador de supervisão que quer utilizar nesta edição do curso. "
 "Escolha a partir das seguintes opções: {available_providers}."
 
+#: xmodule/course_block.py:902
+msgid "Proctoring Exam Escalation Contact"
+msgstr "Contato para escalação do exame de supervisão"
+
+#: xmodule/course_block.py:904
+msgid ""
+"Required if 'requires_escalation_email' is set in the proctoring "
+"backend.Enter an email address to be contacted by the support team whenever "
+"there are escalations (e.g. appeals, delayed reviews, etc.)."
+msgstr ""
+"Obrigatório se 'requires_escalation_email' estiver configurado no backend de"
+" supervisão. Insira um endereço de e-mail para ser contatado pela equipe de "
+"suporte sempre que houver escalonamentos (por exemplo, apelações, revisões "
+"atrasadas etc.)."
+
 #: xmodule/course_block.py:914
 msgid "Allow Opting Out of Proctored Exams"
 msgstr "Ativar Opção de não participar em Exames Supervisionados"
@@ -13325,6 +13455,18 @@ msgstr ""
 "Escolher um tipo de problema para ir buscar à biblioteca. Se for selecionado"
 " \"Qualquer Tipo\", não é aplicada qualquer filtragem."
 
+#: xmodule/library_content_block.py:108
+msgid "Is Migrated to library v2"
+msgstr "Migra para a biblioteca v2"
+
+#: xmodule/library_content_block.py:237
+msgid ""
+"This block is already migrated to use library v2. You can sync individual "
+"blocks now"
+msgstr ""
+"Este bloco já foi migrado para usar a biblioteca v2. Agora você pode "
+"sincronizar blocos individuais."
+
 #: xmodule/library_content_block.py:242
 msgid "Source content library has not been specified."
 msgstr "A fonte da biblioteca de conteúdo não foi indicada."
@@ -13337,6 +13479,21 @@ msgstr "Bibliotecas de conteúdo não estão disponíveis no ambiente atual."
 #, python-brace-format
 msgid "Source content library does not exist: {source_library_id}"
 msgstr "A fonte da biblioteca de conteúdo não existe: {source_library_id}"
+
+#: xmodule/library_content_block.py:345
+msgid ""
+"This legacy library reference is no longer supported, and needs to be "
+"updated to receive future changes"
+msgstr ""
+"Esta referência de biblioteca legado não é mais suportada e precisa ser "
+"atualizada para receber futuras alterações."
+
+#. Translators: {refresh_icon} placeholder is substituted to "↻" (without
+#. double quotes)
+#: xmodule/library_content_block.py:352
+#, python-brace-format
+msgid "{refresh_icon} Update reference"
+msgstr "{refresh_icon} Atualizar referência"
 
 #: xmodule/library_content_block.py:361
 msgid "This component is out of date. The library has new content."
@@ -13356,6 +13513,14 @@ msgstr "A biblioteca está inválida, danificada, ou foi apagada."
 #: xmodule/library_content_block.py:376
 msgid "Edit Library List."
 msgstr "Editar lista da Biblioteca."
+
+#: xmodule/library_content_block.py:394
+msgid "The source library has not been migrated to version 2"
+msgstr "A biblioteca de origem não foi migrada para a versão 2"
+
+#: xmodule/library_content_block.py:396
+msgid "The block has already been upgraded to version 2"
+msgstr "O bloco já atualizou para a versão 2"
 
 #: xmodule/library_content_block.py:423
 msgid ""
