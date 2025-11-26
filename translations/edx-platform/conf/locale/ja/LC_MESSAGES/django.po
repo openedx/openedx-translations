@@ -5,8 +5,8 @@
 # 
 # Translators:
 # Transifex Bot <>, 2025
-# Brian Smith, 2025
 # Eden Huthmacher, 2025
+# Brian Smith, 2025
 # 
 msgid ""
 msgstr ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: openedx-translation@googlegroups.com\n"
 "POT-Creation-Date: 2023-06-13 08:00+0000\n"
 "PO-Revision-Date: 2023-11-20 11:35+0000\n"
-"Last-Translator: Eden Huthmacher, 2025\n"
+"Last-Translator: Brian Smith, 2025\n"
 "Language-Team: Japanese (https://app.transifex.com/open-edx/teams/6205/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1052,6 +1052,83 @@ msgstr "すべての組織でコースを作成する権限をユーザーに付
 #, python-brace-format
 msgid "Incorrect format for field '{name}'. {detailed_message}"
 msgstr "フィールド「{name}」の形式が正しくありません。{detailed_message}"
+
+#: cms/djangoapps/modulestore_migrator/models.py:32
+msgid "Key of the content source (a course or a legacy library)"
+msgstr "コンテンツソースのキー（コースまたはレガシーライブラリ）"
+
+#: cms/djangoapps/modulestore_migrator/models.py:39
+msgid ""
+"If set, the system will forward references of this source over to the target"
+" of this migration"
+msgstr "設定されている場合、システムはこのソースの参照をこの移行のターゲットに転送します。"
+
+#: cms/djangoapps/modulestore_migrator/models.py:73
+msgid "Migrated content version, the hash of published content version"
+msgstr "移行されたコンテンツバージョン、公開されたコンテンツバージョンのハッシュ"
+
+#: cms/djangoapps/modulestore_migrator/models.py:79
+msgid ""
+"Maximum hierachy level at which content should be aggregated in target "
+"library"
+msgstr "ターゲットライブラリでコンテンツを集約する最大階層レベル"
+
+#: cms/djangoapps/modulestore_migrator/models.py:86
+msgid ""
+"If a piece of content already exists in the content library, choose how to "
+"handle it."
+msgstr "コンテンツライブラリにすでに存在するコンテンツがある場合、その処理方法を選択してください。"
+
+#: cms/djangoapps/modulestore_migrator/models.py:92
+msgid ""
+"Should the migration preserve the location IDs of the existing blocks?If "
+"not, then new, unique human-readable IDs will be generated based on the "
+"block titles."
+msgstr ""
+"既存のブロックの位置IDを移行時に保持しますか？保持しない場合は、ブロックタイトルに基づいて新しい一意の人間が読みやすいIDが生成されます。"
+
+#: cms/djangoapps/modulestore_migrator/models.py:99
+msgid "Content will be imported into this library"
+msgstr "このライブラリにコンテンツがインポートされます"
+
+#: cms/djangoapps/modulestore_migrator/models.py:106
+msgid ""
+"Optional - Collection (within the target library) into which imported "
+"content will be grouped"
+msgstr "ターゲットライブラリ内でインポートされたコンテンツがグループ化されるコレクション（任意）"
+
+#: cms/djangoapps/modulestore_migrator/models.py:114
+msgid ""
+"Tracks the status of the task which is executing this migration. In a bulk "
+"migration, the same task can be multiple migrations"
+msgstr "タスクはこの移行を実行し、そのステータスを追跡します。バルク移行では、同じタスクが複数の移行を行うことがあります。"
+
+#: cms/djangoapps/modulestore_migrator/models.py:123
+msgid ""
+"Changelog entry in the target learning package which records this migration"
+msgstr "ターゲット学習パッケージの変更履歴エントリで、この移行を記録します。"
+
+#: cms/djangoapps/modulestore_migrator/models.py:130
+msgid ""
+"Modulestore content is processed and staged before importing it to a "
+"learning packge. We temporarily save the staged content to allow for "
+"troubleshooting of failed migrations."
+msgstr ""
+"モジュールストアのコンテンツは、学習パッケージにインポートする前に処理され、ステージングされます。失敗した移行のトラブルシューティングを可能にするために、ステージングされたコンテンツを一時的に保存します。"
+
+#: cms/djangoapps/modulestore_migrator/models.py:142
+msgid "is the migration failed?"
+msgstr "マイグレーションは失敗しましたか？"
+
+#: cms/djangoapps/modulestore_migrator/models.py:171
+msgid "Original usage key of the XBlock that has been imported."
+msgstr "インポートされたXBlockの元の使用キー。"
+
+#: cms/djangoapps/modulestore_migrator/models.py:178
+msgid ""
+"If set, the system will forward references of this block source over to the "
+"target of this block migration"
+msgstr "この設定を行うと、システムはこのブロックのソースの参照を、このブロック移行のターゲットに転送します。"
 
 #: cms/lib/xblock/tagging/tagging.py:21
 msgid "Dictionary with the available tags"
@@ -4818,6 +4895,12 @@ msgid ""
 "the generation task in the \"Pending Tasks\" section."
 msgstr "証明書再生成タスクが開始されました。「保留中のタスク」セクションで生成タスクのステータスを確認できます。"
 
+#: lms/djangoapps/instructor/views/api.py:3594
+msgid ""
+"Please select certificate statuses that lie with in \"certificate_statuses\""
+" entry in POST data."
+msgstr "\"certificate_statuses\"エントリ内の証明書ステータスをPOSTデータで選択してください。"
+
 #: lms/djangoapps/instructor/views/api.py:3651
 #, python-format
 msgid "This student (%s) will skip the entrance exam."
@@ -5111,6 +5194,14 @@ msgstr "登録者数"
 #: lms/djangoapps/instructor/views/serializers_v2.py:103
 msgid "Grading"
 msgstr "採点"
+
+#: lms/djangoapps/instructor/views/serializers_v2.py:116
+msgid "Date Extensions"
+msgstr "日付の延長"
+
+#: lms/djangoapps/instructor/views/serializers_v2.py:123
+msgid "Data Downloads"
+msgstr "データダウンロード"
 
 #: lms/djangoapps/instructor/views/tools.py:79
 #, python-brace-format
@@ -6603,6 +6694,10 @@ msgstr "配布資料"
 #: lms/templates/video.html:147
 msgid "Download Handout"
 msgstr "ハンドアウトをダウンロード"
+
+#: lms/templates/video.html:154
+msgid "How is the transcript quality?"
+msgstr "トランスクリプトの質はどうですか？"
 
 #: lms/templates/wiki/article.html:30
 msgid "Last modified:"
@@ -11481,6 +11576,18 @@ msgid ""
 msgstr ""
 "このコース実施のために使用したい監督プロバイダーを入力してください。次のオプションから選択してください: {available_providers}."
 
+#: xmodule/course_block.py:902
+msgid "Proctoring Exam Escalation Contact"
+msgstr "プロクタリング試験エスカレーション連絡先"
+
+#: xmodule/course_block.py:904
+msgid ""
+"Required if 'requires_escalation_email' is set in the proctoring "
+"backend.Enter an email address to be contacted by the support team whenever "
+"there are escalations (e.g. appeals, delayed reviews, etc.)."
+msgstr ""
+"'escalation_email'がプロクタリングバックエンドで設定されている場合に必要です。エスカレーション（例：異議申し立て、レビューの遅延など）が発生した際にサポートチームから連絡を受けるためのメールアドレスを入力してください。"
+
 #: xmodule/course_block.py:916
 msgid ""
 "Enter true or false. If this value is true, learners can choose to take "
@@ -11845,6 +11952,16 @@ msgid ""
 " no filtering is applied."
 msgstr "ライブラリから取得する問題の種類を選択してください。「任意の種類」が選択されている場合、フィルタリングは適用されません。"
 
+#: xmodule/library_content_block.py:108
+msgid "Is Migrated to library v2"
+msgstr "ライブラリv2に移行済みです。"
+
+#: xmodule/library_content_block.py:237
+msgid ""
+"This block is already migrated to use library v2. You can sync individual "
+"blocks now"
+msgstr "このブロックはすでにライブラリv2を使用するように移行されています。今、個々のブロックを同期できます。"
+
 #: xmodule/library_content_block.py:242
 msgid "Source content library has not been specified."
 msgstr "ソースコンテンツライブラリが指定されていません。"
@@ -11857,6 +11974,19 @@ msgstr "現在のランタイムではコンテンツライブラリは利用で
 #, python-brace-format
 msgid "Source content library does not exist: {source_library_id}"
 msgstr "指定されたコンテンツライブラリは存在しません: {source_library_id}"
+
+#: xmodule/library_content_block.py:345
+msgid ""
+"This legacy library reference is no longer supported, and needs to be "
+"updated to receive future changes"
+msgstr "このレガシーライブラリ参照はサポートされなくなり、今後の変更を受け取るには更新が必要です。"
+
+#. Translators: {refresh_icon} placeholder is substituted to "↻" (without
+#. double quotes)
+#: xmodule/library_content_block.py:352
+#, python-brace-format
+msgid "{refresh_icon} Update reference"
+msgstr "{refresh_icon} 参照を更新"
 
 #: xmodule/library_content_block.py:361
 msgid "This component is out of date. The library has new content."
@@ -11876,6 +12006,14 @@ msgstr "ライブラリが無効であるか、破損しているか、削除さ
 #: xmodule/library_content_block.py:376
 msgid "Edit Library List."
 msgstr "ライブラリリストを編集"
+
+#: xmodule/library_content_block.py:394
+msgid "The source library has not been migrated to version 2"
+msgstr "ソースライブラリはバージョン2に移行されていません。"
+
+#: xmodule/library_content_block.py:396
+msgid "The block has already been upgraded to version 2"
+msgstr "ブロックはすでにバージョン2にアップグレードされています。"
 
 #: xmodule/library_content_block.py:423
 msgid ""
