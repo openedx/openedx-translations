@@ -993,6 +993,81 @@ msgstr "授予用户在所有組織中建立課程的權限"
 msgid "Incorrect format for field '{name}'. {detailed_message}"
 msgstr "欄位「{name}」的格式不正確。 {detailed_message}"
 
+#: cms/djangoapps/modulestore_migrator/models.py:32
+msgid "Key of the content source (a course or a legacy library)"
+msgstr "内容来源的关键（课程或旧版库）"
+
+#: cms/djangoapps/modulestore_migrator/models.py:39
+msgid ""
+"If set, the system will forward references of this source over to the target"
+" of this migration"
+msgstr "如果设置，系统将把此来源的引用转发到此迁移的目标。"
+
+#: cms/djangoapps/modulestore_migrator/models.py:73
+msgid "Migrated content version, the hash of published content version"
+msgstr "迁移的内容版本，已发布内容版本的哈希值"
+
+#: cms/djangoapps/modulestore_migrator/models.py:79
+msgid ""
+"Maximum hierachy level at which content should be aggregated in target "
+"library"
+msgstr "在目标库中，内容应汇总的最大层级级别"
+
+#: cms/djangoapps/modulestore_migrator/models.py:86
+msgid ""
+"If a piece of content already exists in the content library, choose how to "
+"handle it."
+msgstr "如果内容库中已存在某个内容，请选择如何处理。"
+
+#: cms/djangoapps/modulestore_migrator/models.py:92
+msgid ""
+"Should the migration preserve the location IDs of the existing blocks?If "
+"not, then new, unique human-readable IDs will be generated based on the "
+"block titles."
+msgstr "迁移是否应保留现有区块的位置ID？如果不保留，将根据区块标题生成新的、唯一且易于阅读的ID。"
+
+#: cms/djangoapps/modulestore_migrator/models.py:99
+msgid "Content will be imported into this library"
+msgstr "内容将被导入到此库中"
+
+#: cms/djangoapps/modulestore_migrator/models.py:106
+msgid ""
+"Optional - Collection (within the target library) into which imported "
+"content will be grouped"
+msgstr "可选 - 将导入的内容分组到目标库中的集合"
+
+#: cms/djangoapps/modulestore_migrator/models.py:114
+msgid ""
+"Tracks the status of the task which is executing this migration. In a bulk "
+"migration, the same task can be multiple migrations"
+msgstr "跟踪执行此迁移任务的状态。在批量迁移中，同一任务可以是多个迁移。"
+
+#: cms/djangoapps/modulestore_migrator/models.py:123
+msgid ""
+"Changelog entry in the target learning package which records this migration"
+msgstr "目标学习包中的变更日志条目记录了此次迁移"
+
+#: cms/djangoapps/modulestore_migrator/models.py:130
+msgid ""
+"Modulestore content is processed and staged before importing it to a "
+"learning packge. We temporarily save the staged content to allow for "
+"troubleshooting of failed migrations."
+msgstr "模块存储内容在导入到学习包之前会被处理和暂存。我们会临时保存这些暂存内容，以便在迁移失败时进行故障排除。"
+
+#: cms/djangoapps/modulestore_migrator/models.py:142
+msgid "is the migration failed?"
+msgstr "迁移失败了吗？"
+
+#: cms/djangoapps/modulestore_migrator/models.py:171
+msgid "Original usage key of the XBlock that has been imported."
+msgstr "已导入XBlock的原始使用密钥。"
+
+#: cms/djangoapps/modulestore_migrator/models.py:178
+msgid ""
+"If set, the system will forward references of this block source over to the "
+"target of this block migration"
+msgstr "如果设置，系统将把此区块源的引用转发到此区块迁移的目标。"
+
 #: cms/lib/xblock/tagging/tagging.py:21
 msgid "Dictionary with the available tags"
 msgstr "帶有可用標籤的字典"
@@ -4662,6 +4737,12 @@ msgid ""
 "the generation task in the \"Pending Tasks\" section."
 msgstr "修課證明重新產出任務已啟動。您可以在「待處理任務」區域中查看證明產出任務的狀態。"
 
+#: lms/djangoapps/instructor/views/api.py:3594
+msgid ""
+"Please select certificate statuses that lie with in \"certificate_statuses\""
+" entry in POST data."
+msgstr "请选择在POST数据中\"certificate_statuses\"条目内的证书状态。"
+
 #: lms/djangoapps/instructor/views/api.py:3651
 #, python-format
 msgid "This student (%s) will skip the entrance exam."
@@ -4933,6 +5014,14 @@ msgstr "入學人數"
 #: lms/djangoapps/instructor/views/serializers_v2.py:103
 msgid "Grading"
 msgstr "正在評分"
+
+#: lms/djangoapps/instructor/views/serializers_v2.py:116
+msgid "Date Extensions"
+msgstr "日期扩展"
+
+#: lms/djangoapps/instructor/views/serializers_v2.py:123
+msgid "Data Downloads"
+msgstr "数据下载"
 
 #: lms/djangoapps/instructor/views/tools.py:79
 #, python-brace-format
@@ -6453,6 +6542,10 @@ msgstr "講義"
 #: lms/templates/video.html:147
 msgid "Download Handout"
 msgstr "下載講義"
+
+#: lms/templates/video.html:154
+msgid "How is the transcript quality?"
+msgstr "成绩单质量如何？"
 
 #: lms/templates/wiki/article.html:30
 msgid "Last modified:"
@@ -11213,6 +11306,18 @@ msgid ""
 "from the following options: {available_providers}."
 msgstr "輸入您想要用於本次課程運行的監考提供者。從下列選項中選擇： {available_providers} 。"
 
+#: xmodule/course_block.py:902
+msgid "Proctoring Exam Escalation Contact"
+msgstr "监考考试升级联系人"
+
+#: xmodule/course_block.py:904
+msgid ""
+"Required if 'requires_escalation_email' is set in the proctoring "
+"backend.Enter an email address to be contacted by the support team whenever "
+"there are escalations (e.g. appeals, delayed reviews, etc.)."
+msgstr ""
+"如果在监考后端设置了“requires_escalation_email”，则为必填项。输入电子邮件地址，以便在出现升级（例如上诉、延迟审核等）时团队联系。"
+
 #: xmodule/course_block.py:914
 msgid "Allow Opting Out of Proctored Exams"
 msgstr "允許選擇退出監考考試"
@@ -11563,6 +11668,16 @@ msgid ""
 " no filtering is applied."
 msgstr "選擇要從資料庫中取得的問題類型。如果選擇“任何類型”，則不會套用篩選。"
 
+#: xmodule/library_content_block.py:108
+msgid "Is Migrated to library v2"
+msgstr "已迁移到库v2"
+
+#: xmodule/library_content_block.py:237
+msgid ""
+"This block is already migrated to use library v2. You can sync individual "
+"blocks now"
+msgstr "此模块已迁移至使用库v2。您现在可以同步单个模块。"
+
 #: xmodule/library_content_block.py:242
 msgid "Source content library has not been specified."
 msgstr "未指定來源內容資料庫。"
@@ -11575,6 +11690,19 @@ msgstr "內容庫在目前運行時不可用。"
 #, python-brace-format
 msgid "Source content library does not exist: {source_library_id}"
 msgstr "來源內容資料庫不存在： {source_library_id}"
+
+#: xmodule/library_content_block.py:345
+msgid ""
+"This legacy library reference is no longer supported, and needs to be "
+"updated to receive future changes"
+msgstr "此旧版库引用不再受支持，需要更新以接收未来的更改。"
+
+#. Translators: {refresh_icon} placeholder is substituted to "↻" (without
+#. double quotes)
+#: xmodule/library_content_block.py:352
+#, python-brace-format
+msgid "{refresh_icon} Update reference"
+msgstr "{refresh_icon} 更新参考"
 
 #: xmodule/library_content_block.py:361
 msgid "This component is out of date. The library has new content."
@@ -11594,6 +11722,14 @@ msgstr "資料庫無效、損壞或已刪除。"
 #: xmodule/library_content_block.py:376
 msgid "Edit Library List."
 msgstr "編輯資料庫列表。"
+
+#: xmodule/library_content_block.py:394
+msgid "The source library has not been migrated to version 2"
+msgstr "源库尚未迁移到版本2，这意味着在使用新功能或修复已知问题之前，您需要进行更新。"
+
+#: xmodule/library_content_block.py:396
+msgid "The block has already been upgraded to version 2"
+msgstr "该模块已升级到版本2"
 
 #: xmodule/library_content_block.py:423
 msgid ""
