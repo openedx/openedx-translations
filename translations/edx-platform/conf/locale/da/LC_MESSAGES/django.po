@@ -148,6 +148,100 @@ msgstr "Ugyldige data"
 msgid "Invalid data ({details})"
 msgstr "Ugyldige data ( {details} )"
 
+#: cms/djangoapps/modulestore_migrator/models.py:32
+msgid "Key of the content source (a course or a legacy library)"
+msgstr "Nøgle til indholdskilden (et kursus eller et ældre bibliotek)"
+
+#: cms/djangoapps/modulestore_migrator/models.py:39
+msgid ""
+"If set, the system will forward references of this source over to the target"
+" of this migration"
+msgstr ""
+"Hvis indstillet, vil systemet videresende referencer fra denne kilde til "
+"målet for denne migration"
+
+#: cms/djangoapps/modulestore_migrator/models.py:73
+msgid "Migrated content version, the hash of published content version"
+msgstr "Migreret indholdsversion, hash af offentliggjort indholdsversion"
+
+#: cms/djangoapps/modulestore_migrator/models.py:79
+msgid ""
+"Maximum hierachy level at which content should be aggregated in target "
+"library"
+msgstr ""
+"maksimalt hierarkiniveau, hvor indholdet skal aggregeres i målbiblioteket"
+
+#: cms/djangoapps/modulestore_migrator/models.py:86
+msgid ""
+"If a piece of content already exists in the content library, choose how to "
+"handle it."
+msgstr ""
+"Hvis et stykke indhold allerede findes i indholdsbiblioteket, skal du vælge,"
+" hvordan det skal håndteres."
+
+#: cms/djangoapps/modulestore_migrator/models.py:92
+msgid ""
+"Should the migration preserve the location IDs of the existing blocks?If "
+"not, then new, unique human-readable IDs will be generated based on the "
+"block titles."
+msgstr ""
+"Skal migreringen bevare lokalitets-ID'erne for de eksisterende blokke? Hvis "
+"ikke, vil der blive genereret nye, unikke menneskelæsbare ID'er baseret på "
+"bloktitlerne."
+
+#: cms/djangoapps/modulestore_migrator/models.py:99
+msgid "Content will be imported into this library"
+msgstr "Indhold vil blive importeret til dette bibliotek"
+
+#: cms/djangoapps/modulestore_migrator/models.py:106
+msgid ""
+"Optional - Collection (within the target library) into which imported "
+"content will be grouped"
+msgstr ""
+"Valgfrit - Samling (inden for det målrettede bibliotek), hvori importeret "
+"indhold vil blive grupperet"
+
+#: cms/djangoapps/modulestore_migrator/models.py:114
+msgid ""
+"Tracks the status of the task which is executing this migration. In a bulk "
+"migration, the same task can be multiple migrations"
+msgstr ""
+"Sporer status på den opgave, der udfører denne migration. I en "
+"masseoverførsel kan den samme opgave være flere migrationer."
+
+#: cms/djangoapps/modulestore_migrator/models.py:123
+msgid ""
+"Changelog entry in the target learning package which records this migration"
+msgstr ""
+"Ændringslogindgang i den målrettede læringspakke, der registrerer denne "
+"migration"
+
+#: cms/djangoapps/modulestore_migrator/models.py:130
+msgid ""
+"Modulestore content is processed and staged before importing it to a "
+"learning packge. We temporarily save the staged content to allow for "
+"troubleshooting of failed migrations."
+msgstr ""
+"Modulestore-indhold behandles og klargøres, før det importeres til en "
+"læringspakke. Vi gemmer midlertidigt det klargjorte indhold for at muliggøre"
+" fejlfinding af mislykkede migrationer."
+
+#: cms/djangoapps/modulestore_migrator/models.py:142
+msgid "is the migration failed?"
+msgstr "Er migrationen mislykket?"
+
+#: cms/djangoapps/modulestore_migrator/models.py:171
+msgid "Original usage key of the XBlock that has been imported."
+msgstr "Original brugsnøgle for den XBlock, der er blevet importeret."
+
+#: cms/djangoapps/modulestore_migrator/models.py:178
+msgid ""
+"If set, the system will forward references of this block source over to the "
+"target of this block migration"
+msgstr ""
+"Hvis indstillet, vil systemet videresende referencer fra denne blok-kilde "
+"til målet for denne blok-migration"
+
 #: cms/lib/xblock/upstream_sync.py:290
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "Den tilknyttede `upstream_key` er ikke en gyldig nøgle"
@@ -3865,6 +3959,14 @@ msgstr ""
 "Re-generering af diplomer er startet. Du kan se status for opgaven i "
 "sektionen \"Ventende opgaver\"."
 
+#: lms/djangoapps/instructor/views/api.py:3594
+msgid ""
+"Please select certificate statuses that lie with in \"certificate_statuses\""
+" entry in POST data."
+msgstr ""
+"Vælg venligst certifikatstatusser, der ligger inden for "
+"\"certificate_statuses\" posten i POST-data."
+
 #: lms/djangoapps/instructor/views/api.py:3651
 #, python-format
 msgid "This student (%s) will skip the entrance exam."
@@ -4135,6 +4237,14 @@ msgstr "Den overordnede score, der skal indstilles."
 #: lms/djangoapps/instructor/views/serializers_v2.py:93
 msgid "Enrollments"
 msgstr "Tilmeldinger"
+
+#: lms/djangoapps/instructor/views/serializers_v2.py:116
+msgid "Date Extensions"
+msgstr "Dato Udvidelser"
+
+#: lms/djangoapps/instructor/views/serializers_v2.py:123
+msgid "Data Downloads"
+msgstr "Data Downloads"
 
 #: lms/djangoapps/instructor/views/tools.py:79
 #, python-brace-format
@@ -5644,6 +5754,10 @@ msgstr "Handouts"
 #: lms/templates/video.html:147
 msgid "Download Handout"
 msgstr "Download Handout"
+
+#: lms/templates/video.html:154
+msgid "How is the transcript quality?"
+msgstr "Hvordan er kvaliteten af transskriptionen?"
 
 #: lms/templates/wiki/article.html:30
 msgid "Last modified:"
@@ -10456,6 +10570,20 @@ msgstr ""
 "Indtast den proctoring-udbyder, du vil bruge til denne kursuskørsel. Vælg "
 "mellem følgende muligheder: {available_providers} ."
 
+#: xmodule/course_block.py:902
+msgid "Proctoring Exam Escalation Contact"
+msgstr "Proctoring Eksamen Eskaleringskontakt"
+
+#: xmodule/course_block.py:904
+msgid ""
+"Required if 'requires_escalation_email' is set in the proctoring "
+"backend.Enter an email address to be contacted by the support team whenever "
+"there are escalations (e.g. appeals, delayed reviews, etc.)."
+msgstr ""
+"Påkrævet, hvis 'requires_escalation_email' er indstillet i proctoring-"
+"backend. Indtast en e-mailadresse, der skal kontaktes af supportteamet, når "
+"der er eskaleringer (f.eks. appeller, forsinkede anmeldelser osv.)."
+
 #: xmodule/course_block.py:914
 msgid "Allow Opting Out of Proctored Exams"
 msgstr "Tillad fravalg af proctored-eksamener"
@@ -10825,6 +10953,33 @@ msgstr ""
 "Vælg en opgavetype fra biblioteket. Hvis der er valgt \"Enhver Type\", "
 "anvendes ingen filtrering."
 
+#: xmodule/library_content_block.py:108
+msgid "Is Migrated to library v2"
+msgstr "Er migreret til bibliotek v2"
+
+#: xmodule/library_content_block.py:237
+msgid ""
+"This block is already migrated to use library v2. You can sync individual "
+"blocks now"
+msgstr ""
+"Denne blok er allerede migreret til at bruge bibliotek v2. Du kan nu "
+"synkronisere individuelle blokke."
+
+#: xmodule/library_content_block.py:345
+msgid ""
+"This legacy library reference is no longer supported, and needs to be "
+"updated to receive future changes"
+msgstr ""
+"Denne ældre biblioteksreference understøttes ikke længere og skal opdateres "
+"for at modtage fremtidige ændringer."
+
+#. Translators: {refresh_icon} placeholder is substituted to "↻" (without
+#. double quotes)
+#: xmodule/library_content_block.py:352
+#, python-brace-format
+msgid "{refresh_icon} Update reference"
+msgstr "{refresh_icon} Opdater reference"
+
 #: xmodule/library_content_block.py:361
 msgid "This component is out of date. The library has new content."
 msgstr "Denne komponent er forældet. Biblioteket har nyt indhold."
@@ -10843,6 +10998,14 @@ msgstr "Bibliotek er ugyldigt, beskadiget, eller er blevet slettet."
 #: xmodule/library_content_block.py:376
 msgid "Edit Library List."
 msgstr "Rediger Bibliotek Liste."
+
+#: xmodule/library_content_block.py:394
+msgid "The source library has not been migrated to version 2"
+msgstr "Kildelibrary er ikke blevet migreret til version 2"
+
+#: xmodule/library_content_block.py:396
+msgid "The block has already been upgraded to version 2"
+msgstr "Blokken er allerede blevet opgraderet til version 2"
 
 #: xmodule/library_content_block.py:423
 msgid ""
