@@ -352,6 +352,101 @@ msgstr ""
 "Catatan tambahan tentang pengguna ini (misalnya, kenapa akses pembuatan "
 "kursus ditolak)"
 
+#: cms/djangoapps/modulestore_migrator/models.py:32
+msgid "Key of the content source (a course or a legacy library)"
+msgstr "Kunci sumber konten (sebuah kursus atau perpustakaan lama)"
+
+#: cms/djangoapps/modulestore_migrator/models.py:39
+msgid ""
+"If set, the system will forward references of this source over to the target"
+" of this migration"
+msgstr ""
+"Jika diatur, sistem akan meneruskan referensi dari sumber ini ke target "
+"migrasi ini"
+
+#: cms/djangoapps/modulestore_migrator/models.py:73
+msgid "Migrated content version, the hash of published content version"
+msgstr ""
+"Versi konten yang dimigrasikan, hash dari versi konten yang dipublikasikan"
+
+#: cms/djangoapps/modulestore_migrator/models.py:79
+msgid ""
+"Maximum hierachy level at which content should be aggregated in target "
+"library"
+msgstr ""
+"Tingkat hierarki maksimum di mana konten harus digabungkan dalam "
+"perpustakaan target"
+
+#: cms/djangoapps/modulestore_migrator/models.py:86
+msgid ""
+"If a piece of content already exists in the content library, choose how to "
+"handle it."
+msgstr ""
+"Jika sebuah konten sudah ada di perpustakaan konten, pilih cara untuk "
+"menanganinya."
+
+#: cms/djangoapps/modulestore_migrator/models.py:92
+msgid ""
+"Should the migration preserve the location IDs of the existing blocks?If "
+"not, then new, unique human-readable IDs will be generated based on the "
+"block titles."
+msgstr ""
+"Haruskah migrasi mempertahankan ID lokasi dari blok yang ada? Jika tidak, "
+"maka ID baru yang unik dan mudah dibaca akan dihasilkan berdasarkan judul "
+"blok."
+
+#: cms/djangoapps/modulestore_migrator/models.py:99
+msgid "Content will be imported into this library"
+msgstr "Konten akan diimpor ke perpustakaan ini"
+
+#: cms/djangoapps/modulestore_migrator/models.py:106
+msgid ""
+"Optional - Collection (within the target library) into which imported "
+"content will be grouped"
+msgstr ""
+"Opsional - Koleksi (dalam perpustakaan target) di mana konten yang diimpor "
+"akan dikelompokkan"
+
+#: cms/djangoapps/modulestore_migrator/models.py:114
+msgid ""
+"Tracks the status of the task which is executing this migration. In a bulk "
+"migration, the same task can be multiple migrations"
+msgstr ""
+"Melacak status tugas yang menjalankan migrasi ini. Dalam migrasi massal, "
+"tugas yang sama dapat menjadi beberapa migrasi."
+
+#: cms/djangoapps/modulestore_migrator/models.py:123
+msgid ""
+"Changelog entry in the target learning package which records this migration"
+msgstr ""
+"Entri changelog dalam paket pembelajaran target yang mencatat migrasi ini"
+
+#: cms/djangoapps/modulestore_migrator/models.py:130
+msgid ""
+"Modulestore content is processed and staged before importing it to a "
+"learning packge. We temporarily save the staged content to allow for "
+"troubleshooting of failed migrations."
+msgstr ""
+"Konten Modulestore diproses dan disiapkan sebelum diimpor ke paket "
+"pembelajaran. Kami menyimpan sementara konten yang disiapkan untuk "
+"memungkinkan pemecahan masalah migrasi yang gagal."
+
+#: cms/djangoapps/modulestore_migrator/models.py:142
+msgid "is the migration failed?"
+msgstr "Apakah migrasi gagal?"
+
+#: cms/djangoapps/modulestore_migrator/models.py:171
+msgid "Original usage key of the XBlock that has been imported."
+msgstr "Kunci penggunaan asli dari XBlock yang telah diimpor."
+
+#: cms/djangoapps/modulestore_migrator/models.py:178
+msgid ""
+"If set, the system will forward references of this block source over to the "
+"target of this block migration"
+msgstr ""
+"Jika diatur, sistem akan meneruskan referensi dari sumber blok ini ke target"
+" migrasi blok ini."
+
 #: cms/lib/xblock/upstream_sync.py:290
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "Kunci `upstream_key` yang terhubung tidak valid"
@@ -3007,6 +3102,14 @@ msgstr ""
 "Tugas regenerasi sertifikat telah dimulai. Anda dapat melihat status "
 "pembuatan di bagian \"Tugas Tertunda\"."
 
+#: lms/djangoapps/instructor/views/api.py:3594
+msgid ""
+"Please select certificate statuses that lie with in \"certificate_statuses\""
+" entry in POST data."
+msgstr ""
+"Silakan pilih status sertifikat yang terdapat dalam entri "
+"\"certificate_statuses\" di data POST."
+
 #: lms/djangoapps/instructor/views/api.py:3651
 #, python-format
 msgid "This student (%s) will skip the entrance exam."
@@ -3238,6 +3341,14 @@ msgstr "Enrollments"
 #: lms/djangoapps/instructor/views/serializers_v2.py:103
 msgid "Grading"
 msgstr "Pemeringkatan"
+
+#: lms/djangoapps/instructor/views/serializers_v2.py:116
+msgid "Date Extensions"
+msgstr "Perpanjangan Tanggal"
+
+#: lms/djangoapps/instructor/views/serializers_v2.py:123
+msgid "Data Downloads"
+msgstr "Unduhan Data"
 
 #: lms/djangoapps/instructor/views/tools.py:79
 #, python-brace-format
@@ -3987,6 +4098,10 @@ msgstr "Handouts"
 #: lms/templates/video.html:147
 msgid "Download Handout"
 msgstr "Unduh Materi"
+
+#: lms/templates/video.html:154
+msgid "How is the transcript quality?"
+msgstr "Bagaimana kualitas transkripnya?"
 
 #: lms/templates/wiki/article.html:30
 msgid "Last modified:"
@@ -6907,6 +7022,20 @@ msgstr ""
 "Masukkan provider proctor yang ingin Anda gunakan untuk menjalankan kursus "
 "ini. PIlih dari opsi berikut: {available_providers}."
 
+#: xmodule/course_block.py:902
+msgid "Proctoring Exam Escalation Contact"
+msgstr "Kontak Eskalasi Ujian Proctoring"
+
+#: xmodule/course_block.py:904
+msgid ""
+"Required if 'requires_escalation_email' is set in the proctoring "
+"backend.Enter an email address to be contacted by the support team whenever "
+"there are escalations (e.g. appeals, delayed reviews, etc.)."
+msgstr ""
+"Diperlukan jika 'requires_escalation_email' diatur di backend proctoring. "
+"Masukkan alamat email untuk dihubungi oleh tim dukungan setiap kali ada "
+"eskalasi (misalnya banding, peninjauan tertunda, dll.)."
+
 #: xmodule/course_block.py:914
 msgid "Allow Opting Out of Proctored Exams"
 msgstr "Ijinkan Tidak Mengikuti Ujian Tersupervisi"
@@ -7207,6 +7336,33 @@ msgstr ""
 "Pilih jenis soal untuk ditarik dari library. Jika Anda memilih \"Jenis "
 "Apapun\" maka filter tidak diaktifkan"
 
+#: xmodule/library_content_block.py:108
+msgid "Is Migrated to library v2"
+msgstr "Telah Dimigrasikan ke perpustakaan v2"
+
+#: xmodule/library_content_block.py:237
+msgid ""
+"This block is already migrated to use library v2. You can sync individual "
+"blocks now"
+msgstr ""
+"Blok ini sudah dimigrasikan untuk menggunakan pustaka v2. Anda dapat "
+"menyinkronkan blok individual sekarang."
+
+#: xmodule/library_content_block.py:345
+msgid ""
+"This legacy library reference is no longer supported, and needs to be "
+"updated to receive future changes"
+msgstr ""
+"Referensi perpustakaan lama ini tidak lagi didukung, dan perlu diperbarui "
+"untuk menerima perubahan di masa depan."
+
+#. Translators: {refresh_icon} placeholder is substituted to "↻" (without
+#. double quotes)
+#: xmodule/library_content_block.py:352
+#, python-brace-format
+msgid "{refresh_icon} Update reference"
+msgstr "{refresh_icon} Perbarui referensi"
+
 #: xmodule/library_content_block.py:361
 msgid "This component is out of date. The library has new content."
 msgstr "Komponen ini telah kadaluarsa. Library telah memiliki konten baru"
@@ -7225,6 +7381,14 @@ msgstr "Library tidak valid, rusak, atau telah dihapus."
 #: xmodule/library_content_block.py:376
 msgid "Edit Library List."
 msgstr "Edit Daftar Library."
+
+#: xmodule/library_content_block.py:394
+msgid "The source library has not been migrated to version 2"
+msgstr "Perpustakaan sumber belum dimigrasikan ke versi 2"
+
+#: xmodule/library_content_block.py:396
+msgid "The block has already been upgraded to version 2"
+msgstr "Blok ini sudah ditingkatkan ke versi 2"
 
 #: xmodule/library_content_block.py:423
 msgid ""
