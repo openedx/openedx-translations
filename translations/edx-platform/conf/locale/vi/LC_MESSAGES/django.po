@@ -1044,11 +1044,11 @@ msgid "Incorrect format for field '{name}'. {detailed_message}"
 msgstr ""
 "Định dạng không chính xác cho trường &#39;{name}&#39;. {detailed_message}"
 
-#: cms/djangoapps/modulestore_migrator/models.py:32
+#: cms/djangoapps/modulestore_migrator/models.py:35
 msgid "Key of the content source (a course or a legacy library)"
 msgstr "Khóa của nguồn nội dung (một khóa học hoặc thư viện cũ)"
 
-#: cms/djangoapps/modulestore_migrator/models.py:39
+#: cms/djangoapps/modulestore_migrator/models.py:42
 msgid ""
 "If set, the system will forward references of this source over to the target"
 " of this migration"
@@ -1056,26 +1056,26 @@ msgstr ""
 "Nếu được thiết lập, hệ thống sẽ chuyển tiếp các tham chiếu của nguồn này "
 "sang mục tiêu của quá trình di chuyển này."
 
-#: cms/djangoapps/modulestore_migrator/models.py:73
+#: cms/djangoapps/modulestore_migrator/models.py:76
 msgid "Migrated content version, the hash of published content version"
 msgstr ""
 "Phiên bản nội dung đã di chuyển, mã băm của phiên bản nội dung đã xuất bản"
 
-#: cms/djangoapps/modulestore_migrator/models.py:79
+#: cms/djangoapps/modulestore_migrator/models.py:82
 msgid ""
 "Maximum hierachy level at which content should be aggregated in target "
 "library"
 msgstr ""
 "Mức độ phân cấp tối đa mà nội dung nên được tổng hợp trong thư viện mục tiêu"
 
-#: cms/djangoapps/modulestore_migrator/models.py:86
+#: cms/djangoapps/modulestore_migrator/models.py:89
 msgid ""
 "If a piece of content already exists in the content library, choose how to "
 "handle it."
 msgstr ""
 "Nếu một nội dung đã tồn tại trong thư viện nội dung, hãy chọn cách xử lý nó."
 
-#: cms/djangoapps/modulestore_migrator/models.py:92
+#: cms/djangoapps/modulestore_migrator/models.py:95
 msgid ""
 "Should the migration preserve the location IDs of the existing blocks?If "
 "not, then new, unique human-readable IDs will be generated based on the "
@@ -1085,11 +1085,11 @@ msgstr ""
 "hiện có không? Nếu không, thì các ID mới, duy nhất và dễ đọc sẽ được tạo dựa"
 " trên tiêu đề của các khối."
 
-#: cms/djangoapps/modulestore_migrator/models.py:99
+#: cms/djangoapps/modulestore_migrator/models.py:102
 msgid "Content will be imported into this library"
 msgstr "Nội dung sẽ được nhập vào thư viện này"
 
-#: cms/djangoapps/modulestore_migrator/models.py:106
+#: cms/djangoapps/modulestore_migrator/models.py:109
 msgid ""
 "Optional - Collection (within the target library) into which imported "
 "content will be grouped"
@@ -1097,7 +1097,7 @@ msgstr ""
 "Tùy chọn - Bộ sưu tập (trong thư viện mục tiêu) mà nội dung nhập khẩu sẽ "
 "được nhóm lại"
 
-#: cms/djangoapps/modulestore_migrator/models.py:114
+#: cms/djangoapps/modulestore_migrator/models.py:117
 msgid ""
 "Tracks the status of the task which is executing this migration. In a bulk "
 "migration, the same task can be multiple migrations"
@@ -1106,14 +1106,14 @@ msgstr ""
 "Trong một quá trình di chuyển hàng loạt, cùng một nhiệm vụ có thể là nhiều "
 "quá trình di chuyển."
 
-#: cms/djangoapps/modulestore_migrator/models.py:123
+#: cms/djangoapps/modulestore_migrator/models.py:126
 msgid ""
 "Changelog entry in the target learning package which records this migration"
 msgstr ""
 "Mục nhật ký thay đổi trong gói học tập mục tiêu ghi lại quá trình di chuyển "
 "này"
 
-#: cms/djangoapps/modulestore_migrator/models.py:130
+#: cms/djangoapps/modulestore_migrator/models.py:133
 msgid ""
 "Modulestore content is processed and staged before importing it to a "
 "learning packge. We temporarily save the staged content to allow for "
@@ -1123,21 +1123,39 @@ msgstr ""
 "Chúng tôi tạm thời lưu nội dung đã dàn dựng để cho phép khắc phục sự cố di "
 "chuyển thất bại."
 
-#: cms/djangoapps/modulestore_migrator/models.py:142
+#: cms/djangoapps/modulestore_migrator/models.py:145
 msgid "is the migration failed?"
 msgstr "Việc di chuyển có thất bại không?"
 
-#: cms/djangoapps/modulestore_migrator/models.py:171
+#: cms/djangoapps/modulestore_migrator/models.py:174
 msgid "Original usage key of the XBlock that has been imported."
 msgstr "Mã sử dụng gốc của XBlock đã được nhập."
 
-#: cms/djangoapps/modulestore_migrator/models.py:178
+#: cms/djangoapps/modulestore_migrator/models.py:181
 msgid ""
 "If set, the system will forward references of this block source over to the "
 "target of this block migration"
 msgstr ""
 "Nếu được thiết lập, hệ thống sẽ chuyển tiếp các tham chiếu của nguồn khối "
 "này sang mục tiêu của việc di chuyển khối này."
+
+#: cms/djangoapps/modulestore_migrator/models.py:216
+msgid ""
+"The target entity of this block migration, set to null if it fails to "
+"migrate"
+msgstr ""
+"Thực thể mục tiêu của việc di chuyển khối này, được đặt thành null nếu không"
+" di chuyển được"
+
+#: cms/djangoapps/modulestore_migrator/models.py:230
+msgid "Reason if the block is unsupported and target is set to null"
+msgstr "Lý do nếu khối không được hỗ trợ và mục tiêu được đặt thành null"
+
+#: cms/djangoapps/modulestore_migrator/tasks.py:1040
+#, python-brace-format
+msgid " It has {count} children block."
+msgid_plural " It has {count} children blocks."
+msgstr[0] " Nó có {count} khối con."
 
 #: cms/lib/xblock/tagging/tagging.py:21
 msgid "Dictionary with the available tags"
@@ -4444,33 +4462,33 @@ msgid ""
 " Site"
 msgstr "Tôi đã đọc, hiểu và sẽ tuân theo {honor_code_link} cho Trang edX"
 
-#: lms/djangoapps/discussion/django_comment_client/base/views.py:558
-#: lms/djangoapps/discussion/django_comment_client/base/views.py:623
+#: lms/djangoapps/discussion/django_comment_client/base/views.py:559
+#: lms/djangoapps/discussion/django_comment_client/base/views.py:629
 msgid "Title can't be empty"
 msgstr "Tiêu đề không thể trống"
 
-#: lms/djangoapps/discussion/django_comment_client/base/views.py:560
-#: lms/djangoapps/discussion/django_comment_client/base/views.py:625
-#: lms/djangoapps/discussion/django_comment_client/base/views.py:667
-#: lms/djangoapps/discussion/django_comment_client/base/views.py:750
+#: lms/djangoapps/discussion/django_comment_client/base/views.py:561
+#: lms/djangoapps/discussion/django_comment_client/base/views.py:631
+#: lms/djangoapps/discussion/django_comment_client/base/views.py:675
+#: lms/djangoapps/discussion/django_comment_client/base/views.py:762
 msgid "Body can't be empty"
 msgstr "Phần thân không thể trống rỗng"
 
-#: lms/djangoapps/discussion/django_comment_client/base/views.py:642
+#: lms/djangoapps/discussion/django_comment_client/base/views.py:648
 msgid "Topic doesn't exist"
 msgstr "Chủ đề không tồn tại"
 
-#: lms/djangoapps/discussion/django_comment_client/base/views.py:716
-#: lms/djangoapps/discussion/django_comment_client/base/views.py:815
+#: lms/djangoapps/discussion/django_comment_client/base/views.py:726
+#: lms/djangoapps/discussion/django_comment_client/base/views.py:831
 msgid "Comment level too deep"
 msgstr "Mức độ bình luận quá sâu sắc"
 
-#: lms/djangoapps/discussion/django_comment_client/base/views.py:1104
+#: lms/djangoapps/discussion/django_comment_client/base/views.py:1134
 msgid ""
 "Error uploading file. Please contact the site administrator. Thank you."
 msgstr "Lỗi tải tập tin lên. Vui lòng liên hệ với quản lý. Cảm ơn."
 
-#: lms/djangoapps/discussion/django_comment_client/base/views.py:1107
+#: lms/djangoapps/discussion/django_comment_client/base/views.py:1137
 msgid "Good"
 msgstr "Tốt"
 
@@ -7830,8 +7848,22 @@ msgstr ""
 "hơn trong các bộ lọc tìm kiếm nội dung."
 
 #: openedx/core/djangoapps/content_libraries/api/blocks.py:301
-msgid "Library cannot have more than {} Components"
-msgstr "Thư viện không thể có nhiều hơn {} Thành phần"
+msgid "Library cannot have more than {} Components."
+msgstr "Thư viện không thể có nhiều hơn {} Thành Phần."
+
+#: openedx/core/djangoapps/content_libraries/api/blocks.py:313
+#, python-brace-format
+msgid ""
+"The \"{block_type}\" XBlock (ID: \"{block_id}\") has children, so it not "
+"supported in content libraries."
+msgstr ""
+"XBlock \"{block_type}\" (ID: \"{block_id}\") có các thành phần con, vì vậy "
+"nó không được hỗ trợ trong thư viện nội dung."
+
+#: openedx/core/djangoapps/content_libraries/api/blocks.py:325
+#, python-brace-format
+msgid "An XBlock with ID '{usage_key}' already exists."
+msgstr "Một XBlock với ID '{usage_key}' đã tồn tại."
 
 #: openedx/core/djangoapps/content_libraries/api/libraries.py:531
 msgid "Cannot change or remove the access level for the only admin."
