@@ -1865,9 +1865,10 @@ msgid ""
 "{activated_or_confirmed}{html_end}Something went wrong, please <a "
 "href=\"{support_url}\">contact support</a> to resolve this issue."
 msgstr ""
-"{html_start}Hesabınız və ya e-poçt ünvanınız aktivləşdirilə və ya təsdiqlənə"
-" bilmədi{html_end}Xəta baş verdi, zəhmət olmasa bu məsələni həll etmək üçün "
-"<a href=\"{support_url}\">dəstək xidməti ilə əlaqə saxlayın</a>."
+"{html_start}{account_or_email} ünvanınız "
+"{activated_or_confirmed}{html_end}Xəta baş verdi, zəhmət olmasa bu məsələni "
+"həll etmək üçün <a href=\"{support_url}\">dəstək xidməti ilə əlaqə "
+"saxlayın</a>."
 
 #: common/djangoapps/student/views/management.py:615
 #, python-brace-format
@@ -16439,6 +16440,10 @@ msgstr "Hazırlayır"
 msgid "Preparing to start the export"
 msgstr "İxracı başlamaq üçün hazırlayır"
 
+#: cms/templates/export.html:137
+msgid "Exporting"
+msgstr "İxrac edilir"
+
 #: cms/templates/export.html:138
 msgid ""
 "Creating the export data files (You can now leave this page safely, but "
@@ -16476,6 +16481,13 @@ msgstr "İxrac olunmuş kursu yükləyin"
 #, python-brace-format
 msgid "Data {em_start}exported with{em_end} your course:"
 msgstr "Verilənlər {em_start}kursunuzla{em_end} ixrac edildi:"
+
+#: cms/templates/export.html:197
+msgid ""
+"Values from Advanced Settings, including MATLAB API keys and LTI passports"
+msgstr ""
+"MATLAB API açarları və LTI parsportları daxil olmaqla qabaqcıl "
+"parametrlərdən dəyərlər"
 
 #: cms/templates/export.html:198
 msgid "Course Content (all Sections, Sub-sections, and Units)"
@@ -16590,6 +16602,14 @@ msgstr "Qiymətləndirmə siyasəti"
 #: cms/templates/export.html:257 cms/templates/import.html:235
 msgid "Any group configurations"
 msgstr "Hər hansı qrup konfiqurasiyaları"
+
+#: cms/templates/export.html:258 cms/templates/import.html:236
+msgid ""
+"Settings on the Advanced Settings page, including MATLAB API keys and LTI "
+"passports"
+msgstr ""
+"MATLAB API açarları və LTI pasportları daxil olmaqla qabaqcıl "
+"parametrlərdəki parametrlər"
 
 #: cms/templates/export.html:260
 msgid "The following content is not exported."
@@ -16952,6 +16972,10 @@ msgstr ""
 "dəyişikliklər Yaddaşa salın düyməsini kliklədiyinizdə kursda öz əksini "
 "tapacaq."
 
+#: cms/templates/howitworks.html:138
+msgid "Release-On Date Publishing"
+msgstr "Elan edilmiş gündə başlayın"
+
 #: cms/templates/howitworks.html:139
 #, python-brace-format
 msgid ""
@@ -16993,6 +17017,14 @@ msgstr "Artıq {studio_name} hesabınız var? Daxil olun"
 #: cms/templates/howitworks.html:177
 msgid "Outlining Your Course"
 msgstr "Kursunuzun icmalı"
+
+#: cms/templates/howitworks.html:180
+msgid ""
+"Simple two-level outline to organize your course. Drag and drop, and see "
+"your course at a glance."
+msgstr ""
+"Sadə iki səviyyəli kontur kursunuzu təşkil etmək üçün. Sürükleyin və "
+"buraxın, və kursunuzu bir baxışda görün."
 
 #: cms/templates/howitworks.html:190
 msgid "More than Just Lectures"
@@ -17108,10 +17140,26 @@ msgstr ""
 "ya .zip faylı course.xml faylını ehtiva etməlidir. O, həmçinin digər "
 "faylları da ehtiva edə bilər."
 
+#: cms/templates/import.html:56
+msgid ""
+"The import process has five stages. During the first two stages, you must "
+"stay on this page. You can leave this page after the Unpacking stage has "
+"completed. We recommend, however, that you don't make important changes to "
+"your course until the import operation has completed."
+msgstr ""
+"İdxal prosesi beş mərhələdən ibarətdir. İlk iki mərhələ ərzində siz bu "
+"səhifədə qalmalısınız. Siz bu səhifəni Açmaq mərhələsi tamamlandıqdan sonra "
+"tərk edə bilərsiniz. Biz tövsiyə edirik ki, İdxal prosesi tamamlanana kimi "
+"kursunuza vacib dəyişikliklər etməyin."
+
 #: cms/templates/import.html:67
 msgid "Select a .tar.gz File to Replace Your Library Content"
 msgstr ""
 "Sizin kitabxana məzmununuzu əvəzləşdirmək üçün bir .tar.gz faylı seçin"
+
+#: cms/templates/import.html:77
+msgid "Choose a File to Import"
+msgstr "İxdal etmək üçün bir fayl seçin"
 
 #: cms/templates/import.html:82
 msgid "File Chosen:"
@@ -17136,6 +17184,10 @@ msgstr "Kurs idxalının statusu"
 #: cms/templates/import.html:118
 msgid "Transferring your file to our servers"
 msgstr "Faylınızı serverlərə göndərir"
+
+#: cms/templates/import.html:129
+msgid "Unpacking"
+msgstr "Açılır"
 
 #: cms/templates/import.html:130
 msgid ""
@@ -17262,6 +17314,18 @@ msgstr "Aşağıdakı məzmun idxal edilmir."
 #: cms/templates/import.html:246
 msgid "Warning: Importing while a course is running"
 msgstr "Xəbərdarlıq: Kurs davam edərkən idxal olunur"
+
+#: cms/templates/import.html:247
+msgid ""
+"If you perform an import while your course is running, and you change the "
+"URL names (or url_name nodes) of any Problem components, the student data "
+"associated with those Problem components may be lost. This data includes "
+"students' problem scores."
+msgstr ""
+"Kursunuz davam edərkən bir idxal etsəniz və hər hansı bir problem "
+"komponentinin URL adlarını (və ya url_name qovşaqlarını) dəyişdirirsinizsə, "
+"bu Problem komponentləri ilə əlaqəli tələbə məlumatları itirə bilər. Bu "
+"məlumata tələbələrin balları da daxildir."
 
 #: cms/templates/import.html:250
 msgid "Learn more about importing a course"
@@ -17868,6 +17932,18 @@ msgstr ""
 msgid "Transferring Ownership"
 msgstr "Mülkiyyəti köçürür"
 
+#: cms/templates/manage_users.html:111
+msgid ""
+"Every course must have an Admin. If you are the Admin and you want to "
+"transfer ownership of the course, click <strong>Add admin access</strong> to"
+" make another user the Admin, then ask that user to remove you from the "
+"Course Team list."
+msgstr ""
+"Hər bir kursun bir Admini olmalıdır. Əgər siz Adminsinizsə və bu rolu "
+"başqasına ötürmək istəyirsinizsə, başqa istifadəçini Amin etmək üçün "
+"<strong>Admin girişi əlavə edin </strong> düyməsinə klikləyin, sonra həmin "
+"istifadəçidən sizi Kurs Komanda siyahısından çıxartmasını xahiş edin."
+
 #: cms/templates/manage_users_lib.html:13
 msgid "Library User Access"
 msgstr "Kitabxanaya istifadəçi girişi"
@@ -17992,6 +18068,11 @@ msgstr "E-mail vasitəsilə tələbələrə bir qeyd göndərin"
 msgid "Invite your students"
 msgstr "Şagirdlərinizi dəvət edin"
 
+#: cms/templates/settings.html:122
+#, python-brace-format
+msgid "Promoting Your Course with {platform_name}"
+msgstr "Kursunuzu {platform_name} ilə tanıtmaq"
+
 #: cms/templates/settings.html:125
 msgid ""
 "Your course summary page will not be viewable until your course has been "
@@ -18044,6 +18125,10 @@ msgstr "Kursdaxili dəyişiklik {number}"
 msgid "Course Pacing"
 msgstr "Kursun növü"
 
+#: cms/templates/settings.html:193
+msgid "Set the pacing for this course"
+msgstr "Bu kursun növünü tənzimləyin"
+
 #: cms/templates/settings.html:201
 msgid "Instructor-Paced"
 msgstr "Təlimatçı əsaslı"
@@ -18057,6 +18142,10 @@ msgstr ""
 "Kurs müəllifinin təyin etdiyi sürətlə təlimatçı əsaslı kurslar davam edir. "
 "Kurs məzmunu və təyinat tarixləri üçün buraxılış tarixlərini konfiqurasiya "
 "edə bilərsiniz."
+
+#: cms/templates/settings.html:206
+msgid "Self-Paced"
+msgstr "Sərbəst"
 
 #: cms/templates/settings.html:207
 msgid ""
@@ -18080,6 +18169,10 @@ msgstr "Kursunuzun nə vaxt görünə biləcəyini idarə edən tarixlər"
 #: cms/templates/settings.html:224
 msgid "Course Start Date"
 msgstr "Kursun başlama tarixi"
+
+#: cms/templates/settings.html:227
+msgid "First day the course begins"
+msgstr "Kursun başladığı ilk gün"
 
 #: cms/templates/settings.html:231
 msgid "Course Start Time"
@@ -18118,6 +18211,20 @@ msgstr "Kursun bitmə tarixindən sonrakı tarix"
 #: cms/templates/settings.html:263
 msgid "Certificates are awarded at the end of a course run"
 msgstr "Kursun sonunda sertifikatlar təqdim olunur"
+
+#: cms/templates/settings.html:270
+msgid "Read more about this setting"
+msgstr "Daha ətraflı oxuyun"
+
+#: cms/templates/settings.html:274
+msgid ""
+"In all configurations of this setting, certificates are generated for "
+"learners as soon as they achieve the passing threshold in the course (which "
+"can occur before a final assignment based on course design)"
+msgstr ""
+"Bu ayarın bütün konfiqurasiyalarında, kursda keçid həddinə çatdıqdan sonra "
+"dərhal öyrənənlər üçün sertifikatlar yaradılır (bu, kurs dizaynına əsasən "
+"son tapşırıqdan əvvəl baş verə bilər)."
 
 #: cms/templates/settings.html:277
 msgid ""
@@ -18185,9 +18292,17 @@ msgstr ""
 msgid "Enrollment End Time"
 msgstr "Qeydiyyatın bitmə vaxtı"
 
+#: cms/templates/settings.html:344
+msgid "Upgrade Deadline Date"
+msgstr "Yeniləmə üçün son tarix"
+
 #: cms/templates/settings.html:347
 msgid "Last day students can upgrade to a verified enrollment."
 msgstr "Tələbələrin təsdiqlənmiş qeydiyyata yüksələ biləcəyi son gün."
+
+#: cms/templates/settings.html:353
+msgid "Upgrade Deadline Time"
+msgstr "Yeniləmə üçün son müddət vaxtı"
 
 #: cms/templates/settings.html:365
 msgid "Course Details"
@@ -18498,6 +18613,12 @@ msgstr "Qiymət tələbləri"
 msgid " %"
 msgstr " %"
 
+#: cms/templates/settings.html:658
+msgid ""
+"The score student must meet in order to successfully complete the entrance "
+"exam. "
+msgstr "Tələbənin giriş imtahanını uğurla tamamlaması üçün tələb olunan bal"
+
 #: cms/templates/settings.html:672
 msgid "Course Content License"
 msgstr "Kurs məzmun lisenziyası"
@@ -18545,6 +18666,14 @@ msgstr ""
 "Dəyişikliklər edə bilməyəcəksiniz, səhvlər aradan qaldırılana qədər. Bu "
 "parametrləri yeniləmək üçün {link_start}Mühafizə olunan İmtahan Parametrləri"
 " səhifəsinə{link_end} keçin."
+
+#: cms/templates/settings_advanced.html:53
+msgid ""
+"You will be unable to make changes until the following settings are updated "
+"on the page below."
+msgstr ""
+"Aşağıdakı səhifədəki parametrlər yenilənənə qədər dəyişiklik edə "
+"bilməyəcəksiniz."
 
 #: cms/templates/settings_advanced.html:90
 msgid "Your policy changes have been saved."
@@ -18624,6 +18753,10 @@ msgstr "Tələbənin final qiymətləri üçün sizin ümumi qiymətləndirmə m
 #: cms/templates/settings_graders.html:68
 msgid "Add grade"
 msgstr "Qiymət əlavə edin"
+
+#: cms/templates/settings_graders.html:97
+msgid "Credit Eligibility"
+msgstr "Kredit haqqı"
 
 #: cms/templates/settings_graders.html:98
 msgid "Settings for course credit eligibility"
@@ -18728,6 +18861,10 @@ msgstr "Yeniləmə mövcuddur - sinxronizasiya etmək üçün klikləyin"
 #: cms/templates/studio_xblock_wrapper.html:146
 msgid "Update available"
 msgstr "Yeniləmə mövcuddur"
+
+#: cms/templates/studio_xblock_wrapper.html:172
+msgid "Manage Access"
+msgstr "Girişi idarə et"
 
 #: cms/templates/studio_xblock_wrapper.html:182
 msgid "Manage Tags"
@@ -18889,6 +19026,14 @@ msgstr "Bütün tələbələr və işçilər"
 #: cms/templates/visibility_editor.html:101
 msgid "Select one or more groups:"
 msgstr "Bir və ya daha çox qrup seçin."
+
+#: cms/templates/visibility_editor.html:115
+msgid ""
+"This group no longer exists.  Choose another group or remove the access "
+"restriction."
+msgstr ""
+"Bu qrup artıq mövcud deyil. Başqa qrup seçin və ya giriş məhdudiyyətini "
+"silin."
 
 #: cms/templates/emails/course_creator_admin_subject.txt:2
 #, python-brace-format
@@ -19129,6 +19274,10 @@ msgstr "Cari Kurs:"
 msgid "Course Navigation"
 msgstr "Kurs naviqasiyası"
 
+#: cms/templates/widgets/header.html:100 cms/templates/widgets/header.html:105
+msgid "Outline"
+msgstr "Mündəricat"
+
 #: cms/templates/widgets/header.html:155
 msgid "Videos"
 msgstr "Videolar"
@@ -19256,6 +19405,10 @@ msgstr "{studio_name} köməyi gizlədin"
 #, python-brace-format
 msgid "{studio_name} Documentation"
 msgstr "{studio_name} sənədlər"
+
+#: cms/templates/widgets/sock_links.html:14
+msgid "Access edx.org documentation on http://docs.edx.org"
+msgstr "http://docs.edx.org saytından sənədləri əldə edin"
 
 #: cms/templates/widgets/sock_links.html:15
 msgid "edX Documentation"
@@ -19440,6 +19593,14 @@ msgstr ""
 "Bu məzmuna baxmaq üçün siz '{prereq_section_name}' üçün ön şərtləri "
 "tamamlamalısınız"
 
+#: lms/templates/_gated_content.html:22
+msgid "Go to Prerequisite Section"
+msgstr "Keçid Şərtləri Bölməsinə Get"
+
+#: lms/templates/annotatable.html:14
+msgid "Collapse Instructions"
+msgstr "Təlimatları Gizlət"
+
 #: lms/templates/annotatable.html:24
 msgid "Guided Discussion"
 msgstr "İdarəolunan müzakirə"
@@ -19477,6 +19638,12 @@ msgstr "Başlanır: {date}"
 #: lms/templates/courses_list.html:22
 msgid "View all Courses"
 msgstr "Bütün kurslara baxın"
+
+#: lms/templates/dashboard.html:29 lms/templates/header/user_dropdown.html:42
+#: lms/templates/header/user_dropdown.html:44
+#: lms/templates/user_dropdown.html:30 lms/templates/user_dropdown.html:38
+msgid "Dashboard"
+msgstr "İdarə paneli"
 
 #: lms/templates/dashboard.html:230
 msgid "results successfully populated,"
@@ -19533,6 +19700,11 @@ msgstr ""
 "Biz {strong_start}{email}{strong_end} ünvanına hesabınızı aktivləşdirmək "
 "üçün keçid göndərdik. Tapa bilmirsiniz? Spam qovluğunuzu yoxlayın və ya "
 "{link_start}emaili yenidən göndərin{link_end}."
+
+#: lms/templates/dashboard.html:331
+#, python-brace-format
+msgid "Continue to {platform_name}"
+msgstr "Davam et {platform_name}"
 
 #: lms/templates/dashboard.html:352
 #, python-brace-format
@@ -19767,6 +19939,13 @@ msgstr "Xarici resurslar"
 msgid "{points} / {total_points} points"
 msgstr "{points} / {total_points} xallar"
 
+#. Translators: "total_points" is the maximum number of points achievable on
+#. this LTI unit
+#: lms/templates/lti.html:19
+#, python-brace-format
+msgid "{total_points} points possible"
+msgstr "{ümumi_xallar} mümkün xallar"
+
 #: lms/templates/lti.html:38
 msgid "View resource in a new window"
 msgstr "Resursa yeni pəncərədə baxın"
@@ -19926,6 +20105,14 @@ msgstr[1] "Siz {num_total} cəhdin {num_used} cəhdindən istifadə etmisiniz"
 msgid "Grading method: {grading_method}"
 msgstr "Qiymətləndirmə metodu: {grading_method}"
 
+#: lms/templates/problem.html:98
+msgid ""
+"Some problems have options such as save, reset, hints, or show answer. These"
+" options follow the Submit button."
+msgstr ""
+"Bəzi çalışmalar üzrə yadda saxla, sıfırla, ip ucları və ya qısa cavabı "
+"göstər kimi seçimlər var. Bu seçimlər təqdim edin düyməsndən sonradır."
+
 #: lms/templates/problem.html:154
 msgid "Answers are displayed within the problem"
 msgstr "Cavablar sualın daxilində göstərilib"
@@ -20003,6 +20190,10 @@ msgstr ""
 #: lms/templates/secondary_email_change_failed.html:11
 msgid "Secondary e-mail change failed"
 msgstr "İkincil e-poçtun dəyişdirilməsi uğursuz oldu"
+
+#: lms/templates/secondary_email_change_successful.html:12
+msgid "Secondary e-mail change successful!"
+msgstr "İkincil e-poçtun dəyişdirilməsi uğurla başa çatdı!"
 
 #: lms/templates/secondary_email_change_successful.html:15
 #, python-brace-format
@@ -20190,6 +20381,10 @@ msgstr "Tələbənin Təqdimatını Yenidən Qiymətləndir"
 msgid "Rescore Only If Score Improves"
 msgstr "Yalnız bal artdığı halda yenidən qiymətləndirin"
 
+#: lms/templates/staff_problem_info.html:93
+msgid "Override Score"
+msgstr "Balı silin"
+
 #: lms/templates/staff_problem_info.html:104
 #: lms/templates/staff_problem_info.html:105
 msgid "Module Fields"
@@ -20244,6 +20439,14 @@ msgstr "Növbəti səhifə"
 #: lms/templates/studio_render_children_view.html:16
 msgid "Paste Component"
 msgstr "Komponenti yapışdırın"
+
+#: lms/templates/studio_render_children_view.html:24
+msgid "From:"
+msgstr "Kimdən:"
+
+#: lms/templates/studio_render_children_view.html:27
+msgid "What's in my clipboard?"
+msgstr "Mənim mübadilə buferimdə nə var?"
 
 #: lms/templates/tracking_log.html:5
 msgid "Tracking Log"
@@ -20347,6 +20550,14 @@ msgstr "son tarix {date}"
 msgid "Past due"
 msgstr "Vaxtı keçib"
 
+#: lms/templates/vert_module.html:74
+msgid "Reset Problems"
+msgstr "Problemləri sıfırla"
+
+#: lms/templates/video.html:28
+msgid "Loading video player"
+msgstr "Video pleyeri yüklənir"
+
 #: lms/templates/video.html:29
 msgid "Play video"
 msgstr "Videonu oynat"
@@ -20378,6 +20589,10 @@ msgstr "Bu videonu paylaşın"
 #: lms/templates/video.html:127
 msgid "Copy"
 msgstr "Kopyala"
+
+#: lms/templates/video.html:138
+msgid "Transcripts"
+msgstr "Altyazılar"
 
 #: lms/templates/video.html:144
 #, python-brace-format
@@ -20508,6 +20723,58 @@ msgstr "API xidmət şərtləri"
 #, python-brace-format
 msgid "Terms of Service for {platform_name} APIs"
 msgstr "{platform_name} API-ləri üçün xidmət şərtləri"
+
+#: lms/templates/api_admin/terms_of_service.html:15
+#, python-brace-format
+msgid ""
+"Welcome to {platform_name}. Thank you for using {platform_name}'s Course "
+"Discovery API, Enterprise API and/or any additional APIs that we may offer "
+"from time to time (collectively, the \"APIs\"). Please read these Terms of "
+"Service prior to accessing or using the APIs. These Terms of Service, any "
+"additional terms within accompanying API documentation, and any applicable "
+"policies and guidelines that {platform_name} makes available and/or updates "
+"from time to time are agreements (collectively, the \"Terms\") between you "
+"and {platform_name}. These Terms are issued under the enterprise product "
+"agreement, member participation agreement, or other direct agreement "
+"governing the purchase of {platform_name} products, if any (the "
+"\"Agreement\"), executed by you or the party on whose behalf you are "
+"accessing or using the APIs and {platform_name}.  In the event that you have"
+" such an Agreement that applies to your use of the APIs, the Agreement will "
+"control in the event of any conflict between it and these Terms. By "
+"accessing or using the APIs, you accept and agree to be legally bound by the"
+" Terms, whether or not you are a registered user. If you are accessing or "
+"using the APIs on behalf of a company, organization or other legal entity, "
+"you are agreeing to these Terms for that entity and representing and "
+"warranting to {platform_name} that you have full authority to accept and "
+"agree to these Terms for such entity, in which case the terms \"you,\" "
+"\"your\" or related terms herein shall refer to such entity on whose behalf "
+"you are accessing or using the APIs. If you do not have such authority or if"
+" you do not understand or do not wish to be bound by the Terms, you should "
+"not use the APIs."
+msgstr ""
+"{Platform_name} səhifəsinə xoş gəlmisiniz. {Platform_name} nin Dəyişdirmə "
+"API'sı, Korporativ API və/və ya bəzən təklif edə biləcəyimiz əlavələri "
+"(kollektiv, \"API\"lər) istifadə etdiyiniz üçün sizə təşəkkür edirik. API-ya"
+" daxil olmaq və ya istifadə etməzdən əvvəl bu Xidmət Şərtlərini oxuyun. Bu "
+"Xidmət Şərtləri, API sənədlərinə daxil olan hər hansı əlavə şərtlər və "
+"{platform_name} -da tətbiq olunan hər hansı siyasət və qaydalar və/və ya "
+"vaxtaşırı yeniliklər sizinlə və {platform_name} arasında müqavilələrdir "
+"(birgə, \"Şərtlər\"). Bu şərtlər, müəssisənin məhsul razılaşması, üzv "
+"iştirak müqaviləsi və ya digər birbaşa müqavilələr {platform_name}-nın "
+"məhsullarının satınalınmasını tənzimləyir və siz və ya sizin adınızdan "
+"istifadə edilən (\"Razılaşmalar\") API və {platform_name} əsasında verilir. "
+"API-lərdən istifadənizə dair belə bir Razılaşmanız olduqda, Razılaşma "
+"Tərəflər arasında hər hansı bir qarşıdurma halına nəzarət edəcəkdir. "
+"API'lara daxil olmaq və ya istifadə etməklə, qeydə alınmış bir istifadəçi "
+"olub-olmamasına baxmayaraq, şərtləri ilə qanuni olaraq bağlandığınızı qəbul "
+"edir və razılaşırsınız. Əgər bir şirkətin, təşkilatın və ya digər hüquqi "
+"şəxsin adından daxl olur və ya API istifadə edirsinizsə, onda siz bu "
+"müəssisə üçün bu şərtləri qəbul edirsiniz və {platform_name}-nı təmsil edir "
+"və təmin edirsinizsə, bu şərtləri qəbul etmək və razılaşmaq üçün tam "
+"səlahiyyətiniz var. \"Siz\", \"Sizin\" və bu kimi ifadələr API-nə daxil "
+"olduğunuz və istifadə etdiyiniz müəssisəni bildirir. Əgər belə bir "
+"səlahiyyətiniz yoxdursa və ya başa düşmürsünüzsə və ya şərtlərlə bağlı olmaq"
+" istəmirsinizsə, API-dən istifadə etməməlisiniz."
 
 #: lms/templates/api_admin/terms_of_service.html:17
 msgid "API Access"
@@ -20798,6 +21065,10 @@ msgstr ""
 "{platform_name} və digər üçüncü tərəflərlə bölüşmək üçün açıq və dəqiq "
 "təsvir edirsiniz."
 
+#: lms/templates/api_admin/terms_of_service.html:62
+msgid "Right to Charge"
+msgstr "Qiymətləndirmək hüququ"
+
 #: lms/templates/api_admin/terms_of_service.html:64
 #, python-brace-format
 msgid ""
@@ -20952,6 +21223,25 @@ msgstr ""
 "MÜLKİYYƏTİNİZƏ (KOMPÜTER SİSTEMİNİZ DƏ DAXİL OLMAQLA) VƏ YA MƏLUMATI, "
 "MATERİALLARI VƏ YA DATANI YÜKLƏYƏRKƏN VƏ YA İSTİFADƏ EDƏRKƏN DƏYƏN ZİYANDAN "
 "YALNIZ SİZ MƏSULİYYƏT DAŞIYIRSINIZ."
+
+#: lms/templates/api_admin/terms_of_service.html:86
+#, python-brace-format
+msgid ""
+"TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, YOU AGREE THAT NEITHER "
+"{platform_name} NOR ANY OF THE {platform_name} PARTICIPANTS WILL BE LIABLE "
+"TO YOU FOR ANY LOSS OR DAMAGES, EITHER ACTUAL OR CONSEQUENTIAL, ARISING OUT "
+"OF OR RELATING TO THE TERMS, OR YOUR (OR ANY THIRD PARTY'S) USE OF OR "
+"INABILITY TO USE THE APIS OR ANY API CONTENT, OR YOUR RELIANCE UPON "
+"INFORMATION OBTAINED FROM OR THROUGH THE APIS, WHETHER YOUR CLAIM IS BASED "
+"IN CONTRACT, TORT, STATUTORY OR OTHER LAW."
+msgstr ""
+"MÜVAFİQ QANUNVERİCİLİKDƏ İCAZƏ VERİLƏN DƏRƏCƏDƏ SİZ RAZILAŞIRSINIZ Kİ, NƏ "
+"{platform_name}, NƏ DƏ {platform_name} İŞTİRAKÇILAR ŞƏTLƏRLƏ BAĞLI VƏ YA "
+"API-LƏR VƏ YA API MƏZMUNDAN SİZİN (VƏ YA ÜÇÜNCÜ TƏRƏF) İSTİFADƏ VƏ YA "
+"İSTİFADƏ EDƏ BİLMƏMƏ, VƏ YA SİZİN API-LƏR VASİTƏSİLƏ ƏLDƏ ETDİYİNİZ MƏLUMATA"
+" İNAM, SİZİN İDDİANIZ MÜQAVİLƏYƏ, QANUN POZUNTUSUNA, QANUNLA MÜƏYYƏN EDİLMİŞ"
+" DİGƏR QANUNLARA ƏSASLANSA BELƏ SİZİN QARŞINIZDA HƏR HANSI İTKİ VƏ YA "
+"ZƏRƏRLƏRƏ GÖRƏ MƏSULİYYƏT DAŞIMAYACAQSINIZ."
 
 #: lms/templates/api_admin/terms_of_service.html:88
 #, python-brace-format
@@ -21135,6 +21425,36 @@ msgstr ""
 "{platform_name}, nə də ki {platform_name} iştirakçıları bu cür fəaliyyət "
 "üçün heç bir məsuliyyət daşımır."
 
+#: lms/templates/api_admin/terms_of_service.html:110
+#, python-brace-format
+msgid ""
+"Upon any termination of the Terms or discontinuation of your access to an "
+"API for any reason, your right to use any API and API Content will "
+"immediately cease. You will immediately stop using the APIs and delete any "
+"cached or stored API Content from Your Application and your networks, "
+"systems and servers as soon as reasonably possible. All provisions of the "
+"Terms that by their nature should survive termination shall survive "
+"termination, including, without limitation, ownership provisions, warranty "
+"disclaimers, and limitations of liability. Termination of your access to and"
+" use of the APIs and API Content shall not relieve you of any obligations "
+"arising or accruing prior to such termination or limit any liability that "
+"you otherwise may have to {platform_name}, including without limitation any "
+"indemnification obligations contained herein."
+msgstr ""
+"Şərtlərin hər hansı bir şəkildə dayandırılmasından və ya API-ya hər hansı "
+"bir səbəbdən çıxmağınızın qarşısı alındığından sonra hər hansı bir API və "
+"API məzmununu istifadə etmək hüququ dərhal dayandırılacaq. Dərhal API-lərdən"
+" istifadəniz dayandırılmaqla yanaşı, siz proqram tətbiqinizdən, "
+"şəbəkələrinizdən, sistemlərinizdən və serverlərinizdən gizlədilmiş və "
+"saxlanılmış API məzmununu silin. Şərtlərinə əsasən xitamdan xilas olma "
+"şərtlərinin bütün müddəaları, mülkiyyət müddəaları, zəmanət vermək və "
+"məsuliyyətin məhdudiyyətləri daxil olmaqla, məhdudiyyətsizdir. API və API "
+"Məzmununa daxil olmaq və istifadə etməkdən imtina etməyiniz, bu cür sona "
+"yetirilməmişdən əvvəl yaranan və ya düşən hər hansı bir öhdəlikdən sizi azad"
+" etməyəcək və ya başqa bir şəkildə {platform_name} ünvanına malik "
+"olmalısınız, məsələn, burada göstərilən hər hansı bir kompensasiya öhdəliyi "
+"olmadan."
+
 #: lms/templates/api_admin/catalogs/edit.html:12
 #, python-brace-format
 msgid "Edit {catalog_name}"
@@ -21188,6 +21508,12 @@ msgstr ""
 msgid "Unsubscribe"
 msgstr "Abunəlikdən çıxın"
 
+#: lms/templates/bulk_email/confirm_unsubscribe.html:27
+#, python-brace-format
+msgid "confirm unsubscribe from {org} {course} emails."
+msgstr ""
+"təşkilatın {org} {course} kursunun e-poçtlarından çıxışınızı təsdiqləyin."
+
 #: lms/templates/bulk_email/confirm_unsubscribe.html:34
 msgid "Note:"
 msgstr "Qeyd:"
@@ -21221,6 +21547,10 @@ msgstr "Kalkulyatoru işə sal"
 #: lms/templates/calculator/toggle_calculator.html:17
 msgid "Enter equation"
 msgstr "Tənlik daxil edin"
+
+#: lms/templates/calculator/toggle_calculator.html:18
+msgid "Calculator Input Field"
+msgstr "Kalkulyator Daxil Etmə Sahəsi"
 
 #: lms/templates/calculator/toggle_calculator.html:21
 msgid "Hints"
@@ -21356,6 +21686,11 @@ msgstr "Əsas funksiyalar"
 msgid "Trigonometric functions"
 msgstr "Trigonometrik funksiyalar"
 
+#. Translators: Please see http://en.wikipedia.org/wiki/Scientific_notation
+#: lms/templates/calculator/toggle_calculator.html:125
+msgid "Scientific notation"
+msgstr "Elmi qeyd"
+
 #. Translators: 10^ is a mathematical symbol. Please do not translate.
 #: lms/templates/calculator/toggle_calculator.html:127
 msgid "10^ and the exponent"
@@ -21380,10 +21715,20 @@ msgstr "Hesablayın"
 msgid "Result"
 msgstr "Nəticə"
 
+#: lms/templates/ccx/coach_dashboard.html:13
+#: lms/templates/ccx/coach_dashboard.html:28
+msgid "CCX Coach Dashboard"
+msgstr "CCX Texniki direktor Dashboard"
+
 #: lms/templates/ccx/coach_dashboard.html:47
 #: lms/templates/ccx/coach_dashboard.html:48
 msgid "Name your CCX"
 msgstr "CCX-inizə ad verin"
+
+#: lms/templates/ccx/coach_dashboard.html:51
+#, python-brace-format
+msgid "Create a new Custom Course for {platform_name}"
+msgstr "Yeni Xüsusi Kurs yaradın {platform_name} üçün"
 
 #: lms/templates/ccx/coach_dashboard.html:69
 #: lms/templates/ccx/coach_dashboard.html:81
@@ -21641,9 +21986,17 @@ msgstr "Sertifikatı çap edin"
 msgid "{platform_name} Home"
 msgstr "{platform_name} Əsas səhifə"
 
+#: lms/templates/certificates/_accomplishment-rendering.html:43
+msgid "Noted by"
+msgstr "Tərəfindən qeyd edildi"
+
 #: lms/templates/certificates/_accomplishment-rendering.html:69
 msgid "Supported by the following organizations"
 msgstr "Aşağıdakı təşkilatlar tərəfindən dəstəklənir"
+
+#: lms/templates/certificates/_accomplishment-rendering.html:96
+msgid "Awarded to:"
+msgstr "Təqdim olunur:"
 
 #: lms/templates/certificates/_edx-accomplishment-print-help.html:10
 #, python-brace-format
@@ -21747,6 +22100,25 @@ msgid ""
 msgstr ""
 "{start_bold}Kursun məzmununa və materiallarına tam giriş{end_bold}, hətta "
 "kurs bitdikdən sonra belə"
+
+#: lms/templates/course_modes/fbe.html:53
+#, python-brace-format
+msgid ""
+"Get temporary access to  {start_bold}non-graded{end_bold} activities, "
+"including discussion forums and non-graded assignments"
+msgstr ""
+"Müzakirə forumları və qiymətləndirilməyən tapşırıqlar daxil olmaqla, "
+"{start_bold}qiymətləndirilməyən{end_bold} fəaliyyətlərə müvəqqəti giriş əldə"
+" edin"
+
+#: lms/templates/course_modes/fbe.html:57
+#, python-brace-format
+msgid ""
+"Get {start_bold}temporary access{end_bold} to the course material, including"
+" videos and readings"
+msgstr ""
+"Kurs materiallarına, o cümlədən videolara və oxu materiallarına "
+"{start_bold}müvəqqəti giriş{end_bold} əldə edin"
 
 #: lms/templates/course_modes/fbe.html:62
 msgid "Access expires and all progress will be lost on"
@@ -21902,6 +22274,11 @@ msgstr ""
 msgid "Take a course with {platform} online"
 msgstr "{platform}-da onlayn kurs götürün"
 
+#: lms/templates/courseware/course_about_sidebar_header.html:52
+#: themes/stanford-style/lms/templates/courseware/course_about_sidebar_header.html:10
+msgid "Tweet that you've enrolled in this course"
+msgstr "Bu kursa yazıldığınızı tvit edin"
+
 #: lms/templates/courseware/course_about_sidebar_header.html:55
 msgid "Post a Facebook message to say you've enrolled in this course"
 msgstr "Bu kursa qeydiyyatdan keçdiyinlə əlaqədar Facebook-da post paylaşın"
@@ -21943,6 +22320,16 @@ msgstr "Erkən kurs yenilənmələrini göstərin"
 #: lms/templates/courseware/courses.html:60
 msgid "List of Courses"
 msgstr "Kursların siyahısı"
+
+#: lms/templates/courseware/courses.html:72
+#: lms/templates/courseware/courses.html:73
+msgid "Refine Your Search"
+msgstr "Axtarışlarınızı təmizləyin"
+
+#: lms/templates/courseware/courseware-chromeless.html:100
+#: lms/templates/courseware/courseware.html:307
+msgid "Course Utilities"
+msgstr "Kurs Vasitələri"
 
 #: lms/templates/courseware/courseware-error.html:8
 msgid "Courseware"
@@ -21987,6 +22374,12 @@ msgstr "Qiymət kitabı"
 #: lms/templates/courseware/gradebook.html:51
 msgid "Search students"
 msgstr "Tələbələri axtarın"
+
+#: lms/templates/courseware/gradebook.html:91
+#: lms/templates/courseware/gradebook.html:116
+#: lms/templates/instructor/instructor_dashboard_2/course_info.html:59
+msgid "Total"
+msgstr "Ümumi"
 
 #: lms/templates/courseware/gradebook.html:126
 msgid "previous page"
@@ -22041,6 +22434,10 @@ msgstr "{currency})"
 #: lms/templates/courseware/program_marketing.html:116
 msgid "Start Learning"
 msgstr "Öyrənməyə başlayın"
+
+#: lms/templates/courseware/program_marketing.html:124
+msgid "Play"
+msgstr "Başladın"
 
 #: lms/templates/courseware/program_marketing.html:127
 msgid "YouTube Video"
@@ -22105,6 +22502,11 @@ msgstr "Proqramdakı {number_of_courses} ədəd kurs"
 #: lms/templates/courseware/program_marketing.html:249
 msgid "Price (USD)"
 msgstr "Qiymət (USD)"
+
+#: lms/templates/courseware/program_marketing.html:260
+#, python-brace-format
+msgid "${newPrice}{htmlEnd} for entire program"
+msgstr "Bütün proqram üçün qiymət ${newPrice}{htmlEnd}"
 
 #: lms/templates/courseware/program_marketing.html:265
 #, python-brace-format
@@ -22225,6 +22627,10 @@ msgid ""
 msgstr ""
 "Nəzarətli imtahanın nəzərdən keçirilməsi zamanı şübhəli fəaliyyət aşkar "
 "edilmişdir. İmtahan xalı 0."
+
+#: lms/templates/courseware/progress.html:217
+msgid "Section grade has been overridden."
+msgstr "Bölüm qiymətləri ləğv edilib."
 
 #: lms/templates/courseware/progress.html:224
 msgid "Problem Scores: "
@@ -22397,6 +22803,21 @@ msgstr ""
 "əlaqə saxlayaraq bizə bildirin. {cert_name_long} üçün geri qaytarma "
 "istəyirsinizsə, xahiş edirik {billing_email} ünvanına müraciət edin."
 
+#: lms/templates/dashboard/_dashboard_certificate_information.html:76
+#, python-brace-format
+msgid ""
+"Your {cert_name_long} is being held pending confirmation that the issuance "
+"of your {cert_name_short} is in compliance with strict U.S. embargoes on "
+"Iran, Cuba, Syria and Sudan. If you think our system has mistakenly "
+"identified you as being connected with one of those countries, please let us"
+" know by contacting {email}."
+msgstr ""
+"Sizin təsdiq edilmiş {cert_name_long} sertifikatınız {cert_name_short} "
+"sertifikatınızın verilməsi üçün Birləşmiş Millətlərin İran, Kuba, Suriya və "
+"Sudana tətbiq etdiyi ciddi embargoya uyğunluğu haqqında təsdiq gözləyir. "
+"Əgər sistemimizin sizi səhvən bu ölkələrdən biri ilə əlaqəli olduğunu "
+"düşünərsə, xahiş edirik ki, bizə {email} ilə əlaqə quraraq məlumat verin."
+
 #: lms/templates/dashboard/_dashboard_certificate_information.html:80
 #, python-brace-format
 msgid ""
@@ -22439,6 +22860,10 @@ msgstr "Siz hələ sertifikat almaq üçün uyğun deyilsiniz."
 #: lms/templates/dashboard/_dashboard_certificate_information.html:148
 msgid "This link will open the course progress page"
 msgstr "Bu keçid kursun irəliləyiş səhifəsini açacaq"
+
+#: lms/templates/dashboard/_dashboard_certificate_information.html:149
+msgid "View grades"
+msgstr "Qiymətləri görmək"
 
 #: lms/templates/dashboard/_dashboard_course_listing.html:85
 msgid "Course details"
@@ -22584,6 +23009,10 @@ msgstr ""
 "nümayiş etdirmək üçün {link_start}doğrulanmış sertifikat{link_end} qazanmaq "
 "üçün yüksəldin."
 
+#: lms/templates/dashboard/_dashboard_course_listing.html:411
+msgid "Upgrade"
+msgstr "Yeniləyin"
+
 #: lms/templates/dashboard/_dashboard_course_resume.html:12
 msgid "Resume Course"
 msgstr "Kursa davam edin"
@@ -22725,6 +23154,11 @@ msgstr "Kursları tamamlamaq üçün kifayət qədər vaxtım olmadı"
 msgid "The content was not available when I wanted to start"
 msgstr "Məzmunu başlamaq istədiyim zaman mövcud deyildi"
 
+#: lms/templates/dashboard/_entitlement_reason_survey.html:137
+#: lms/templates/dashboard/_reason_survey.html:23
+msgid "Thank you for sharing your reasons for unenrolling."
+msgstr "Qeydiyyatdan çıxma səbəbini bildirdiyiniz üçün təşəkkür edirik."
+
 #: lms/templates/dashboard/_entitlement_reason_survey.html:138
 #: lms/templates/dashboard/_reason_survey.html:24
 msgid "You are unenrolled from"
@@ -22838,6 +23272,11 @@ msgstr "Bütün müzakirələr"
 #: lms/templates/discussion/_filter_dropdown.html:67
 msgid "Posts I'm Following"
 msgstr "İzlədiyim yazılar"
+
+#. Translators: This labels a filter menu in forum navigation
+#: lms/templates/discussion/_thread_list_template.html:8
+msgid "Filter:"
+msgstr "Filtr:"
 
 #. Translators: This is a menu option for showing all forum threads unfiltered
 #: lms/templates/discussion/_thread_list_template.html:11
@@ -23088,6 +23527,13 @@ msgid ""
 msgstr ""
 "{course_names} kursuna yazılmaq üçün sizə qeydiyyat URL-i təqdim etmişik. "
 "Zəhmət olmasa, girişinizi əldə etmək üçün aşağıdakı təlimatlara əməl edin."
+
+#. Translators: please translate the text inside [[ ]]. This is meant as a
+#. template for course teams to use.
+#: lms/templates/emails/business_order_confirmation_email.txt:92
+msgid "Your redeem url is: [[Enter Redeem URL here from the attached CSV]]"
+msgstr ""
+"Sizin geri alma URL-iniz: [[Enter Redeem URL here from the attached CSV]]"
 
 #: lms/templates/emails/business_order_confirmation_email.txt:94
 #, python-brace-format
@@ -23349,6 +23795,10 @@ msgstr "Qeydiyyatdan keçdiyiniz üçün təşəkkür edirik:"
 msgid "We hope you enjoy the course."
 msgstr "Ümid edirik ki, kursdan zövq alacaqsınız."
 
+#: lms/templates/financial-assistance/financial-assistance.html:17
+msgid "Financial Assistance Application"
+msgstr "Maliyyə Yardımı Müraciəti"
+
 #: lms/templates/financial-assistance/financial-assistance.html:23
 msgid "A Note to Learners"
 msgstr "Tələbələrə qeyd"
@@ -23357,6 +23807,17 @@ msgstr "Tələbələrə qeyd"
 #: lms/templates/financial-assistance/financial-assistance.html:25
 msgid "Dear edX Learner,"
 msgstr "Əziz tələbə,"
+
+#. Translators: This string will not be used in Open edX installations.
+#: lms/templates/financial-assistance/financial-assistance.html:28
+msgid ""
+"EdX Financial Assistance is a program we created to give learners in all "
+"financial circumstances a chance to earn a Verified Certificate upon "
+"successful completion of an edX course."
+msgstr ""
+"EdX Maliyyə Yardımı, edX kursunu uğurla başa vurduqdan sonra Təstiq Edilmiş "
+"Sertifikat qazanmaq üçün bütün maliyyə vəziyyətlərində olan öyrənənlərə şans"
+" vermək məqsədilə yaratdığımız bir proqramdır."
 
 #. Translators: This string will not be used in Open edX installations.
 #: lms/templates/financial-assistance/financial-assistance.html:31
@@ -23510,6 +23971,11 @@ msgstr "Status:"
 #, python-brace-format
 msgid "Generating example {name} certificate"
 msgstr "Nümunə {name} sertifikat yaradır"
+
+#: lms/templates/instructor/instructor_dashboard_2/certificates.html:44
+#, python-brace-format
+msgid "Error generating example {name} certificate: {error}"
+msgstr "Nümunə {name} sertifikatının yaradılmasında səhv: {error}"
 
 #: lms/templates/instructor/instructor_dashboard_2/certificates.html:46
 #, python-brace-format
@@ -23933,6 +24399,13 @@ msgstr "ORA Məlumat Hesabatı Yarat"
 msgid "Generate ORA Summary Report"
 msgstr "ORA Ümumi Hesabatını Yarat"
 
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:104
+msgid ""
+"Click to generate a ZIP file that contains all submission texts and "
+"attachments."
+msgstr ""
+"Faylları və əlavələri ehtiva edən ZIP faylını yaratmaq üçün klikləyin."
+
 #: lms/templates/instructor/instructor_dashboard_2/data_download.html:106
 msgid "Generate Submission Files Archive"
 msgstr "Təqdimat Faylları Arxivini Yarat"
@@ -24042,6 +24515,18 @@ msgstr "Kupon kodunu yeniləyin"
 #: lms/templates/instructor/instructor_dashboard_2/extensions.html:7
 msgid "Individual due date extensions"
 msgstr "Fərdi olaraq son tarixlərin uzadılması"
+
+#: lms/templates/instructor/instructor_dashboard_2/extensions.html:9
+msgid ""
+"In this section, you have the ability to grant extensions on specific "
+"subsections to individual students. Please note that the latest date is "
+"always taken; you cannot use this tool to make an assignment due earlier for"
+" a particular student."
+msgstr ""
+"Bu bölmədə siz fərdi tələbələr üçün müəyyən alt bölmələrdə uzadılmalar verə "
+"bilərsiniz. Nəzərə alın ki, həmişə ən son tarix götürülür; bu alətdən "
+"istifadə edərək müəyyən bir tələbə üçün tapşırığın vaxtını daha erkən edə "
+"bilməzsiniz."
 
 #: lms/templates/instructor/instructor_dashboard_2/extensions.html:15
 #: lms/templates/instructor/instructor_dashboard_2/extensions.html:70
@@ -24195,6 +24680,10 @@ msgstr "Ünvan 3"
 msgid "State/Province"
 msgstr "Dövlət"
 
+#: lms/templates/instructor/instructor_dashboard_2/generate_registarion_codes_modal.html:98
+msgid "Zip"
+msgstr "Poçt indeksi"
+
 #: lms/templates/instructor/instructor_dashboard_2/generate_registarion_codes_modal.html:109
 msgid "Unit Price"
 msgstr "Vahid qiymət"
@@ -24214,6 +24703,10 @@ msgstr "Yaradılacaq bütün qeydiyyat kodlarının ümumi sayı"
 #: lms/templates/instructor/instructor_dashboard_2/generate_registarion_codes_modal.html:126
 msgid "Course Team Internal Reference"
 msgstr "Kurs komandası daxili arayışı"
+
+#: lms/templates/instructor/instructor_dashboard_2/generate_registarion_codes_modal.html:130
+msgid "Internal reference information for the sale"
+msgstr "Satış üçün daxili istinad məlumatı"
 
 #: lms/templates/instructor/instructor_dashboard_2/generate_registarion_codes_modal.html:134
 msgid "Customer Reference"
@@ -24457,6 +24950,10 @@ msgstr ""
 msgid "Add Admin"
 msgstr "Admin əlavə edin"
 
+#: lms/templates/instructor/instructor_dashboard_2/membership.html:214
+msgid "Beta Testers"
+msgstr "Beta Testerlər"
+
 #: lms/templates/instructor/instructor_dashboard_2/membership.html:216
 msgid ""
 "Beta Testers can see course content before other learners. They can make "
@@ -24583,6 +25080,10 @@ msgstr ""
 "bilərlər. Onların yazıları 'İcma TƏ' olaraq işarələnir. Kursa hələ "
 "qeydiyyatdan keçməmiş istifadəçilər, İcma TƏ olaraq əlavə edildikdə "
 "avtomatik olaraq qeydiyyatdan keçiriləcək."
+
+#: lms/templates/instructor/instructor_dashboard_2/membership.html:292
+msgid "Add Community TA"
+msgstr "İcma TA əlavə et"
 
 #: lms/templates/instructor/instructor_dashboard_2/membership.html:299
 msgid "CCX Coaches"
@@ -24735,6 +25236,10 @@ msgstr "E-mail tapşırıq tarixçəsini göstərin"
 msgid "Set Course Mode Price"
 msgstr "Kurs rejimi qiymətini tənzimləyin"
 
+#: lms/templates/instructor/instructor_dashboard_2/set_course_mode_price_modal.html:24
+msgid "Please enter Course Mode detail below"
+msgstr "Kurs rejimi haqqında məlumatı aşağıda daxil edin"
+
 #: lms/templates/instructor/instructor_dashboard_2/set_course_mode_price_modal.html:34
 msgid "Course Price"
 msgstr "Kursun qiyməti"
@@ -24859,6 +25364,12 @@ msgstr ""
 msgid "Reset Attempts to Zero"
 msgstr "Cəhdləri sıfırlayın"
 
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:89
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:159
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:215
+msgid "Rescore"
+msgstr "Yenidən baxın"
+
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html:90
 msgid ""
 "For the specified problem, rescore the learner's responses. The 'Rescore "
@@ -24869,6 +25380,10 @@ msgstr ""
 "'Yalnız xal artdığı təqdirdə yenidən qiymətləndir'seçimi tələbənin xalını "
 "yalnız tələbənin xeyrinə yeniləyir."
 
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:101
+msgid "Score Override"
+msgstr "Xalın ləğvi"
+
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html:102
 msgid "For the specified problem, override the learner's score."
 msgstr "Müəyyən tapşırıq üçün tələbənin xalını ləğv edin."
@@ -24877,6 +25392,14 @@ msgstr "Müəyyən tapşırıq üçün tələbənin xalını ləğv edin."
 msgid ""
 "New score for problem, out of the total points available for the problem"
 msgstr "Tapşırıq üçün mümkün olan bütün xaldan yeni xal"
+
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:108
+msgid "Score"
+msgstr "Bal"
+
+#: lms/templates/instructor/instructor_dashboard_2/student_admin.html:111
+msgid "Override Learner's Score"
+msgstr "Tələbənin xalını ləğv edin"
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html:117
 msgid "Problem History"
@@ -25028,6 +25551,11 @@ msgstr ""
 "(məsələn, imtahanlar və problem dəstləri) bölgüsüdür və Studio-da 'Ayarlar' "
 "altında 'Qiymətləndirmə' səhifəsində dəyişdirilə bilər."
 
+#: lms/templates/instructor/instructor_dashboard_2/data_download_2/reports.html:74
+msgid "Click to download a CSV of                 anonymized student IDs:"
+msgstr ""
+"Klikləyin ki, anonimləşdirilmiş tələbə ID-lərinin CSV faylını yükləyəsiniz:"
+
 #: lms/templates/instructor/instructor_dashboard_2/data_download_2/reports.html:77
 msgid ""
 "For large courses, generating some reports can take                 several "
@@ -25107,6 +25635,10 @@ msgid ""
 msgstr ""
 "CSV formatında bütün hazırda qeydiyyatda olan tələbələr üçün problem qiymət "
 "hesabatı yaratmaq üçün klikləyin."
+
+#: lms/templates/learner_dashboard/_dashboard_navigation_courses.html:7
+msgid "My Courses"
+msgstr "Yazıldığım Kurslar"
 
 #: lms/templates/lti_provider/user-auth-error.html:11
 msgid "There was an error when loading this module!"
@@ -25399,6 +25931,11 @@ msgid ""
 msgstr ""
 "Axtardığınız səhifə tapılmadı. {link_start}Ana səhifəyə{link_end} qayıdın."
 
+#: lms/templates/static_templates/429.html:9
+#: lms/templates/static_templates/429.html:14
+msgid "Too Many Requests"
+msgstr "Çoxlu Sorğular"
+
 #: lms/templates/static_templates/429.html:21
 msgid "Your request has been rate-limited. Please try again later."
 msgstr ""
@@ -25468,6 +26005,11 @@ msgid ""
 msgstr ""
 "İşçilərimiz hazırda saytı mümkün qədər tez bir zamanda yenidən işə salmaq "
 "üçün çalışırlar. "
+
+#: lms/templates/static_templates/server-error.html:16
+#, python-brace-format
+msgid "There has been a 500 error on the {platform_name} servers"
+msgstr "{platform_name} serverlərində 500 ədəd xəta olub"
 
 #: lms/templates/static_templates/server-error.html:27
 msgid "Please wait a few seconds and then reload the page."
@@ -25625,6 +26167,15 @@ msgstr "Təsdiqləmə üçün son tarix keçib"
 msgid "Upgrade Deadline Has Passed"
 msgstr "Yenilənmə üçün son tarix keçib"
 
+#: lms/templates/verify_student/missed_deadline.html:28
+#, python-brace-format
+msgid ""
+"The verification deadline for {course_name} was {{date}}. Verification is no"
+" longer available."
+msgstr ""
+"{course_name} üçün təsdiqləmə müddəti {{date}} tarixinə qədər idi. "
+"Təsdiqləmə artıq mümkün deyil."
+
 #: lms/templates/verify_student/missed_deadline.html:34
 msgid ""
 "The deadline to upgrade to a verified certificate for this course has "
@@ -25672,6 +26223,16 @@ msgstr "Yenidən təsdiqlənmə"
 #: lms/templates/verify_student/reverify_not_allowed.html:12
 msgid "Identity Verification"
 msgstr "Şəxsiyyətin təsdiqlənməsi"
+
+#: lms/templates/verify_student/reverify_not_allowed.html:17
+msgid ""
+"You have already submitted your verification information. You will see a "
+"message on your dashboard when the verification process is complete (usually"
+" within 5-7 days)."
+msgstr ""
+"Siz artıq təsdiq məlumatını göndərmisiniz. Siz təsdiqlənmə prosesi "
+"tamamlandıqda (adətən 5 gün içərisində) bu barədə məktubu panelinizdə tapa "
+"bilərsiniz."
 
 #: lms/templates/verify_student/reverify_not_allowed.html:19
 msgid "You cannot verify your identity at this time."
@@ -25737,12 +26298,24 @@ msgid "All Rights Reserved"
 msgstr "Bütün hüquqlar qorunur"
 
 #: openedx/core/lib/license/templates/license.html:33
+msgid "Attribution"
+msgstr "Müəlliflik hüququ"
+
+#: openedx/core/lib/license/templates/license.html:33
 msgid "Noncommercial"
 msgstr "Qeyri-kommersiya"
 
 #: openedx/core/lib/license/templates/license.html:34
+msgid "No Derivatives"
+msgstr "Dəyişikliklərə icazə verilmir"
+
+#: openedx/core/lib/license/templates/license.html:34
 msgid "Share Alike"
 msgstr "Bərabərhüquqlu"
+
+#: openedx/core/lib/license/templates/license.html:51
+msgid "Creative Commons licensed content, with terms as follow:"
+msgstr "Aşağıdakı şərtlərlə Creative Commons lisenziyalı məzmun:"
 
 #: openedx/core/lib/license/templates/license.html:55
 msgid "Some Rights Reserved"
@@ -25879,6 +26452,10 @@ msgstr "İctimai görünüş adı"
 msgid "Additional Personal Information"
 msgstr "Əlavə Şəxsi Məlumat"
 
+#: themes/stanford-style/lms/templates/register-form.html:161
+msgid "example: New York"
+msgstr "nümunə: Bakı"
+
 #: themes/stanford-style/lms/templates/register-form.html:180
 msgid "Highest Level of Education Completed"
 msgstr "Bitirdiyiniz ən yüksək təhsil səviyyəsi"
@@ -25918,6 +26495,15 @@ msgstr "Sizin hesab məlumatlarınız icra olunur"
 msgid "Welcome {username}!  Please set your preferences below"
 msgstr ""
 "Xoş gəlmisiniz, {username}!  Zəhmət olmasa, seçimlərinizi aşağıda qeyd edin"
+
+#: themes/stanford-style/lms/templates/register-shib.html:109
+#, python-brace-format
+msgid ""
+"Required fields are noted by {strong_indicator}bold text and an asterisk "
+"(*).{strong_close}"
+msgstr ""
+"Tələb olunan sahələr {strong_indicator}qalın mətn və ulduz işarəsi (*) ilə "
+"qeyd olunur.{strong_close}"
 
 #: themes/stanford-style/lms/templates/register-shib.html:190
 msgid "Update My Account"
