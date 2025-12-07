@@ -443,6 +443,14 @@ msgstr "Me sukses %(status)s %(count)d %(items)s ."
 msgid "Certificates"
 msgstr "Certifikatë"
 
+#: apps/course_metadata/algolia_models.py:55
+msgid "Pathways to Degrees"
+msgstr "Rrugët drejt diplomave"
+
+#: apps/course_metadata/algolia_models.py:58
+msgid "Boot Camps"
+msgstr "Boot Camps"
+
 #: apps/course_metadata/algolia_models.py:65
 msgid "Bachelor’s"
 msgstr "Bachelor"
@@ -542,6 +550,10 @@ msgstr "tjera"
 msgid "Course Create"
 msgstr "Kursi Krijo"
 
+#: apps/course_metadata/choices.py:56
+msgid "Course Rerun"
+msgstr "Përsëritja e kursit"
+
 #: apps/course_metadata/choices.py:64
 msgid "Pending"
 msgstr "Në pritje"
@@ -561,6 +573,14 @@ msgstr "Kompletuar"
 #: apps/course_metadata/choices.py:68
 msgid "Failed"
 msgstr "Dështoi"
+
+#: apps/course_metadata/choices.py:69
+msgid "Partially Completed"
+msgstr "Pjesërisht e përfunduar"
+
+#: apps/course_metadata/choices.py:70
+msgid "Errored"
+msgstr "Gabim"
 
 #: apps/course_metadata/choices.py:74
 msgid "Honor"
@@ -709,6 +729,10 @@ msgstr ""
 #: apps/course_metadata/emails.py:170
 msgid "legal team"
 msgstr "ekipi ligjor"
+
+#: apps/course_metadata/emails.py:188
+msgid "Project Coordinator team"
+msgstr "Ekipi i Koordinatorit të Projektit"
 
 #: apps/course_metadata/emails.py:212
 msgid "course team"
@@ -1352,6 +1376,10 @@ msgstr "Formati i numrit të kursit p.sh. CS002x, BIO1.1x, BIO1.2x"
 msgid "Additional Information"
 msgstr "Informacion Shtesë"
 
+#: apps/course_metadata/models.py:1559
+msgid "The last time this course was modified in the database."
+msgstr "Herën e fundit që ky kurs u modifikua në bazën e të dhënave."
+
 #: apps/course_metadata/models.py:1564
 msgid ""
 "This field signifies if this course is in the enterprise subscription "
@@ -1375,6 +1403,14 @@ msgstr ""
 #: apps/course_metadata/models.py:1585
 msgid "Watchers"
 msgstr "Vrojtuesit"
+
+#: apps/course_metadata/models.py:1587
+msgid ""
+"The list of email addresses that will be notified if any of the course runs "
+"is published or scheduled."
+msgstr ""
+"Lista e adresave të postës elektronike që do të njoftohen nëse ndonjë nga "
+"kursi zhvillohet, publikohet ose planifikohet."
 
 #: apps/course_metadata/models.py:1832
 msgid "Future"
@@ -2006,6 +2042,10 @@ msgstr "Shto ridrejtime nga të gjitha url-të e kursit të publikuar"
 msgid "Course uuids"
 msgstr "Uuids kursi"
 
+#: apps/course_metadata/models.py:5044
+msgid "User who uploaded the file"
+msgstr "Përdoruesi që ngarkoi skedarin"
+
 #: apps/course_metadata/models.py:5049
 msgid "Summary of the task"
 msgstr "Përmbledhje e detyrës"
@@ -2293,6 +2333,17 @@ msgid ""
 msgstr ""
 "\n"
 "Kursi &#39; %(course_name)s &#39; është rishikuar me sukses nga edX dhe tani është publikuar në %(course_publish_date)s . Për të parë kursin drejtpërdrejt, shkoni këtu: %(course_marketing_url)s\n"
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.txt:8
+#, python-format
+msgid ""
+"\n"
+"   Course '%(course_name)s' has been successfully reviewed by edX and is now ready for publication. The course will be published on %(course_publish_date)s.\n"
+"    To see a preview of the Course About Page, go here: %(course_preview_url)s\n"
+msgstr ""
+"\n"
+"Kursi &#39; %(course_name)s &#39; është shqyrtuar me sukses nga edX dhe tani është gati për botim. Kursi do të publikohet në %(course_publish_date)s .\n"
+" Për të parë një pamje paraprake të Faqes Rreth Kursit, shkoni këtu: %(course_preview_url)s\n"
 
 #: apps/course_metadata/utils.py:391
 msgid "Special characters not allowed in Course Number."
