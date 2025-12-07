@@ -145,6 +145,11 @@ msgstr "Organizata [ {org} ] nuk ekziston. "
 msgid "Course Type [{course_type}] does not exist. "
 msgstr "Lloji i kursit [ {course_type} ] nuk ekziston. "
 
+#: apps/api/v1/views/courses.py:212
+#, python-brace-format
+msgid "Product Source [{product_source}] does not exist. "
+msgstr "Burimi i produktit [ {product_source} ] nuk ekziston. "
+
 #: apps/api/v1/views/courses.py:229
 #, python-brace-format
 msgid "A course with key [{key}] already exists."
@@ -438,6 +443,14 @@ msgstr "Me sukses %(status)s %(count)d %(items)s ."
 msgid "Certificates"
 msgstr "Certifikatë"
 
+#: apps/course_metadata/algolia_models.py:65
+msgid "Bachelor’s"
+msgstr "Bachelor"
+
+#: apps/course_metadata/algolia_models.py:66
+msgid "Master’s"
+msgstr "Master"
+
 #: apps/course_metadata/algolia_models.py:116
 #: apps/course_metadata/algolia_models.py:667
 msgid "Available now"
@@ -453,6 +466,10 @@ msgstr "E ardhme"
 #: apps/course_metadata/models.py:2767
 msgid "Archived"
 msgstr "Arkivuar"
+
+#: apps/course_metadata/algolia_models.py:678
+msgid "Available by subscription"
+msgstr "E disponueshme me abonim"
 
 #: apps/course_metadata/choices.py:6 apps/course_metadata/choices.py:22
 #: apps/course_metadata/choices.py:36
@@ -501,6 +518,14 @@ msgstr "Aktiv"
 msgid "Deleted"
 msgstr "U fshi"
 
+#: apps/course_metadata/choices.py:43
+msgid "mooc"
+msgstr "mooc"
+
+#: apps/course_metadata/choices.py:44
+msgid "spoc"
+msgstr "spoc"
+
 #: apps/course_metadata/choices.py:45
 msgid "test"
 msgstr "provë"
@@ -512,6 +537,10 @@ msgstr "demo"
 #: apps/course_metadata/choices.py:47
 msgid "other"
 msgstr "tjera"
+
+#: apps/course_metadata/choices.py:54
+msgid "Course Create"
+msgstr "Kursi Krijo"
 
 #: apps/course_metadata/choices.py:64
 msgid "Pending"
@@ -596,6 +625,14 @@ msgstr "Sprint"
 #: apps/course_metadata/choices.py:110
 msgid "Course Stack"
 msgstr "Stack kursi"
+
+#: apps/course_metadata/choices.py:114
+msgid "Custom B2B Enterprise"
+msgstr "Ndërmarrja e personalizuar B2B"
+
+#: apps/course_metadata/choices.py:115
+msgid "Custom B2C"
+msgstr "B2C me porosi"
 
 #: apps/course_metadata/data_loaders/course_type.py:27
 #, python-brace-format
@@ -682,6 +719,11 @@ msgstr "ekipi i kursit"
 msgid "Legal review requested: {title}"
 msgstr "Kërkohet rishikim ligjor: {title}"
 
+#: apps/course_metadata/emails.py:234
+#, python-brace-format
+msgid "Course URL for {title}"
+msgstr "URL-ja e kursit për {title}"
+
 #: apps/course_metadata/emails.py:280
 #, python-brace-format
 msgid "Review requested: {key} - {title}"
@@ -706,6 +748,15 @@ msgstr "Publikuar: {key} - {title}"
 #, python-brace-format
 msgid "Comment added: {title}"
 msgstr "Komenti i shtuar: {title}"
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: apps/course_metadata/fields.py:33
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, slashes, underscores or"
+" hyphens."
+msgstr ""
+"Futni një &quot;slug&quot; të vlefshëm të përbërë nga shkronja, numra, "
+"prerje, nënvizime ose viza."
 
 #: apps/course_metadata/forms.py:102
 msgid "Programs can only be activated if they have a banner image."
@@ -1022,6 +1073,11 @@ msgstr ""
 " të gjitha kurset e lidhura nën të njëjtën organizatë do të përdorin këtë ngjyrë si ngjyrë teme.\n"
 " (p.sh. &quot;#ff0000&quot; që është e barabartë me të kuqe) Nuk ka nevojë të jepet `#`"
 
+#: apps/course_metadata/models.py:306
+msgid "The timestamp of the last time the organization data was modified."
+msgstr ""
+"Vula kohore e herës së fundit që u modifikuan të dhënat e organizatës."
+
 #: apps/course_metadata/models.py:322
 msgid ""
 "Please do not use any spaces or special characters other than period, "
@@ -1029,6 +1085,10 @@ msgid ""
 msgstr ""
 "Ju lutemi, mos përdorni hapësira ose karaktere të veçanta përveç pikës, "
 "nënvizimit ose vizës në fushën kryesore."
+
+#: apps/course_metadata/models.py:393
+msgid "Corresponding organization code in an external product source"
+msgstr "Kodi përkatës i organizatës në një burim të jashtëm produkti"
 
 #: apps/course_metadata/models.py:450
 msgid "LevelType model translations"
@@ -1177,6 +1237,13 @@ msgstr ""
 "Kjo fushë përmban llojin e marketingut të kurseve të jashtme specifike për "
 "linjat e produkteve"
 
+#: apps/course_metadata/models.py:1002
+msgid ""
+"Determines weather the course should be displayed on the owning "
+"organization's page"
+msgstr ""
+"Përcakton motin që kursi duhet të shfaqet në faqen e organizatës zotëruese"
+
 #: apps/course_metadata/models.py:1073
 msgid "A list of major works by this person. Must be valid HTML."
 msgstr ""
@@ -1300,6 +1367,15 @@ msgstr ""
 "Nëse zgjidhet, ky artikull nuk do të indeksohet në Algolia dhe nuk do të "
 "shfaqet në rezultatet e kërkimit."
 
+#: apps/course_metadata/models.py:1580 apps/course_metadata/models.py:3525
+msgid "If checked, the About Page will have a meta tag with noindex value"
+msgstr ""
+"Nëse zgjidhet, Faqja Rreth do të ketë një meta etiketë me vlerë noindex"
+
+#: apps/course_metadata/models.py:1585
+msgid "Watchers"
+msgstr "Vrojtuesit"
+
 #: apps/course_metadata/models.py:1832
 msgid "Future"
 msgstr "E ardhmja"
@@ -1359,6 +1435,16 @@ msgid "Estimated number of weeks needed to complete this course run."
 msgstr ""
 "Numri i përllogaritur i javëve të nevojshme për të përfunduar këtë kurs."
 
+#: apps/course_metadata/models.py:2329
+msgid ""
+"A JSON dict detailing the available translations and transcriptions for this"
+" run. The dict has two keys: translation_languages and "
+"transcription_languages."
+msgstr ""
+"Një urdhër JSON që përshkruan përkthimet dhe transkriptimet e disponueshme "
+"për këtë ekzekutim. Diktati ka dy çelësa: përkthimi_gjuhët dhe "
+"transkriptimi_gjuhët."
+
 #: apps/course_metadata/models.py:2336
 msgid "Total number of learners who have enrolled in this course run"
 msgstr ""
@@ -1407,6 +1493,15 @@ msgstr ""
 "Kjo fushë e llogaritur tregon nëse ky kurs është në katalogun e abonimeve të"
 " ndërmarrjes"
 
+#: apps/course_metadata/models.py:2405
+msgid ""
+"The identifier for a product variant. This is used to link a course run to a"
+" product variant for external LOBs (i.e; ExecEd & Bootcamps)."
+msgstr ""
+"Identifikuesi për një variant produkti. Kjo përdoret për të lidhur një kurs "
+"të drejtuar me një variant produkti për LOB të jashtëm (p.sh. ExecEd &amp; "
+"Bootcamps)."
+
 #: apps/course_metadata/models.py:2753 apps/course_metadata/models.py:2766
 msgid "Current"
 msgstr "Aktuale"
@@ -1424,9 +1519,21 @@ msgstr ""
 "kontaktoni koordinatorin e projektit tuaj për ndihmë shtesë nëse është e "
 "nevojshme."
 
+#: apps/course_metadata/models.py:3159
+msgid "Change careers"
+msgstr "Ndryshoni karrierën"
+
 #: apps/course_metadata/models.py:3160
 msgid "Job advancement"
 msgstr "Avancimi i punës"
+
+#: apps/course_metadata/models.py:3161
+msgid "Learn valuable skills"
+msgstr "Mësoni aftësi të vlefshme"
+
+#: apps/course_metadata/models.py:3162
+msgid "Learn for fun"
+msgstr "Mësoni për argëtim"
 
 #: apps/course_metadata/models.py:3359
 msgid "FAQs"
@@ -1839,6 +1946,10 @@ msgstr ""
 msgid "It expects the data will be provided in a csv file format "
 msgstr "Ai pret që të dhënat të jepen në një format skedari csv "
 
+#: apps/course_metadata/models.py:4738
+msgid "A csv file containing uuid of the courses to be archived"
+msgstr "Një skedar csv që përmban uuid të kurseve që do të arkivohen"
+
 #: apps/course_metadata/models.py:4752 apps/course_metadata/models.py:4765
 #: apps/course_metadata/models.py:4778 apps/course_metadata/models.py:4813
 #: apps/course_metadata/models.py:4826 apps/course_metadata/models.py:4845
@@ -1850,6 +1961,18 @@ msgid ""
 msgstr ""
 "Ai pret që të dhënat do të sigurohen në një format skedari csv me rreshtin e"
 " parë që përmban të gjithë titujt."
+
+#: apps/course_metadata/models.py:4837
+msgid "Open Courses"
+msgstr "Kurse të hapura"
+
+#: apps/course_metadata/models.py:4838
+msgid "2U Executive Education Courses"
+msgstr "2U Kurse Edukimi Ekzekutiv"
+
+#: apps/course_metadata/models.py:4839
+msgid "Bootcamps"
+msgstr "Bootcamps"
 
 #: apps/course_metadata/models.py:4850 apps/course_metadata/models.py:4954
 msgid "Course UUIDs"
@@ -1883,6 +2006,10 @@ msgstr "Shto ridrejtime nga të gjitha url-të e kursit të publikuar"
 msgid "Course uuids"
 msgstr "Uuids kursi"
 
+#: apps/course_metadata/models.py:5049
+msgid "Summary of the task"
+msgstr "Përmbledhje e detyrës"
+
 #: apps/course_metadata/models.py:5052
 msgid "Task Type"
 msgstr "Lloji i detyrës"
@@ -1894,6 +2021,14 @@ msgstr "Lloji i detyrës me shumicë që do të kryhet"
 #: apps/course_metadata/models.py:5058
 msgid "Status"
 msgstr "Status"
+
+#: apps/course_metadata/models.py:5061
+msgid "Status of the Bulk Task"
+msgstr "Statusi i detyrës me shumicë"
+
+#: apps/course_metadata/models.py:5069
+msgid "Identifier of the celery task associated with this bulk task"
+msgstr "Identifikuesi i detyrës selino të lidhur me këtë detyrë me shumicë"
 
 #: apps/course_metadata/salesforce.py:78
 msgid "Attempted to query Salesforce with no client for partner={}"
@@ -2077,6 +2212,15 @@ msgstr ""
 "Shikoni këtë kurs të ekzekutuar në Publisher më lart për të përcaktuar "
 "statusin e OFAC."
 
+#: apps/course_metadata/templates/course_metadata/email/legal_review.txt:15
+#: apps/course_metadata/templates/course_metadata/email/reviewed.txt:25
+msgid ""
+"Note: This email address is unable to receive replies. For questions or "
+"comments, please contact your Project Coordinator(s):"
+msgstr ""
+"Shënim: Kjo adresë emaili nuk mund të marrë përgjigje. Për pyetje ose "
+"komente, ju lutemi kontaktoni Koordinatorin(ët) e Projektit tuaj:"
+
 #: apps/course_metadata/templates/course_metadata/email/reviewed.html:15
 #, python-brace-format
 msgid ""
@@ -2127,6 +2271,28 @@ msgstr ""
 "\n"
 "Kursi &#39; %(course_name)s &#39; është rishikuar me sukses nga edX dhe tani është publikuar në %(course_publish_date)s . Për të parë kursin drejtpërdrejt, shkoni këtu: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
 "    "
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.html:12
+#, python-format
+msgid ""
+"\n"
+"        Course '%(course_name)s' has been successfully reviewed by edX and is now ready for publication. The course will be published on %(course_publish_date)s.\n"
+"        To see a preview of the Course About Page, go here: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
+msgstr ""
+"\n"
+"Kursi &#39; %(course_name)s &#39; është shqyrtuar me sukses nga edX dhe tani është gati për botim. Kursi do të publikohet në %(course_publish_date)s .\n"
+" Për të parë një pamje paraprake të faqes së Kursit Rreth, shkoni këtu: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.txt:4
+#, python-format
+msgid ""
+"\n"
+"    Course '%(course_name)s' has been successfully reviewed by edX and is now published on %(course_publish_date)s. To see live course, go here: %(course_marketing_url)s\n"
+msgstr ""
+"\n"
+"Kursi &#39; %(course_name)s &#39; është rishikuar me sukses nga edX dhe tani është publikuar në %(course_publish_date)s . Për të parë kursin drejtpërdrejt, shkoni këtu: %(course_marketing_url)s\n"
 
 #: apps/course_metadata/utils.py:391
 msgid "Special characters not allowed in Course Number."
