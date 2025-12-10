@@ -33,6 +33,9 @@ fix_force_suffix_transifex_resource_names:  ## Runs the script on the RELEASE pr
 fix_force_suffix_dry_run_transifex_resource_names:  ## Runs the script in --dry-run mode on the RELEASE project with --force-suffix
 	python scripts/fix_transifex_resource_names.py --force-suffix --dry-run --release=$(RELEASE)
 
+update_from_main:  ## Runs the update_from_main script to sync translations from main Open edX repo. Pass ARGS="..." for additional arguments
+	python scripts/update_from_main.py $(ARGS)
+
 test_requirements:  ## Installs test.txt requirements
 	pip install -q -r requirements/test.txt
 
