@@ -121,6 +121,14 @@ msgstr "כשל בהגדרת נתוני ריצת הקורס: {}"
 msgid "Can only update status, ofac restrictions, and ofac comment"
 msgstr "יכול רק לעדכן את המצב, הגבלות ה-OFAC והערת ה-OFAC"
 
+#: apps/api/v1/views/course_runs.py:363
+#, python-brace-format
+msgid ""
+"The course run type '{course_run_type}' is not valid for this course type "
+"'{course_type}'."
+msgstr ""
+"סוג הקורס '{course_run_type}' אינו תקף עבור הקורס הזה '{course_type}'."
+
 #: apps/api/v1/views/course_runs.py:381
 msgid "Course run is in review. Editing disabled."
 msgstr "ריצת הקורס נמצאת בבדיקה. העריכה מושבת."
@@ -530,6 +538,14 @@ msgstr "הַדגָמָה"
 msgid "other"
 msgstr "אחר"
 
+#: apps/course_metadata/choices.py:54
+msgid "Course Create"
+msgstr "קורס ליצור"
+
+#: apps/course_metadata/choices.py:56
+msgid "Course Rerun"
+msgstr "הפעלת הקורס מחדש"
+
 #: apps/course_metadata/choices.py:57
 msgid "Course Editor Update"
 msgstr "עדכון עורך הקורס"
@@ -553,6 +569,10 @@ msgstr "הושלמו"
 #: apps/course_metadata/choices.py:68
 msgid "Failed"
 msgstr "נכשל"
+
+#: apps/course_metadata/choices.py:70
+msgid "Errored"
+msgstr "שגיאה"
 
 #: apps/course_metadata/choices.py:74
 msgid "Honor"
@@ -1902,9 +1922,29 @@ msgstr "הוסף הפניות מחדש מכל שמות קצרים לכתובות
 msgid "Course uuids"
 msgstr "קורס uuids"
 
+#: apps/course_metadata/models.py:5044
+msgid "User who uploaded the file"
+msgstr "משתמש שהעלה את הקובץ"
+
+#: apps/course_metadata/models.py:5049
+msgid "Summary of the task"
+msgstr "סיכום משימות"
+
+#: apps/course_metadata/models.py:5055
+msgid "Type of Bulk Task to be performed"
+msgstr "סוג המשימות שיבוצעו"
+
 #: apps/course_metadata/models.py:5058
 msgid "Status"
 msgstr "מצב"
+
+#: apps/course_metadata/models.py:5061
+msgid "Status of the Bulk Task"
+msgstr "מצב של משימות המסה"
+
+#: apps/course_metadata/models.py:5069
+msgid "Identifier of the celery task associated with this bulk task"
+msgstr "זהות משימת הסלרי הקשורה למשימה זו"
 
 #: apps/course_metadata/salesforce.py:78
 msgid "Attempted to query Salesforce with no client for partner={}"
