@@ -9,8 +9,8 @@
 # Nathan Robertson, 2024
 # edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2024
 # Cecilia Liu, 2024
-# Eden Huthmacher, 2025
 # Brian Smith, 2025
+# Eden Huthmacher, 2025
 # 
 msgid ""
 msgstr ""
@@ -18,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-12 00:32+0000\n"
 "PO-Revision-Date: 2023-01-26 15:39+0000\n"
-"Last-Translator: Brian Smith, 2025\n"
+"Last-Translator: Eden Huthmacher, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/open-edx/teams/6205/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -121,6 +121,13 @@ msgstr "无法设置课程运行数据：{}"
 #: apps/api/v1/views/course_runs.py:328
 msgid "Can only update status, ofac restrictions, and ofac comment"
 msgstr "只能更新状态、ofac 限制和 ofac 评论"
+
+#: apps/api/v1/views/course_runs.py:363
+#, python-brace-format
+msgid ""
+"The course run type '{course_run_type}' is not valid for this course type "
+"'{course_type}'."
+msgstr "开课时间类型“{course_run_type}”对于此课程类型“{course_type}”无效。"
 
 #: apps/api/v1/views/course_runs.py:381
 msgid "Course run is in review. Editing disabled."
@@ -418,6 +425,22 @@ msgstr "成功 %(status)s %(count)d %(items)s。"
 #: apps/course_metadata/algolia_models.py:54
 msgid "Certificates"
 msgstr "证书"
+
+#: apps/course_metadata/algolia_models.py:55
+msgid "Pathways to Degrees"
+msgstr "路径到学位"
+
+#: apps/course_metadata/algolia_models.py:58
+msgid "Boot Camps"
+msgstr "新手营"
+
+#: apps/course_metadata/algolia_models.py:65
+msgid "Bachelor’s"
+msgstr "学士学位"
+
+#: apps/course_metadata/algolia_models.py:66
+msgid "Master’s"
+msgstr "硕士"
 
 #: apps/course_metadata/algolia_models.py:116
 #: apps/course_metadata/algolia_models.py:667
@@ -1769,6 +1792,10 @@ msgstr ""
 msgid "It expects the data will be provided in a csv file format "
 msgstr "它预计数据将以 csv 文件格式提供 "
 
+#: apps/course_metadata/models.py:4738
+msgid "A csv file containing uuid of the courses to be archived"
+msgstr "包含要存档的课程的 uuid 的 csv 文件"
+
 #: apps/course_metadata/models.py:4752 apps/course_metadata/models.py:4765
 #: apps/course_metadata/models.py:4778 apps/course_metadata/models.py:4813
 #: apps/course_metadata/models.py:4826 apps/course_metadata/models.py:4845
@@ -1822,6 +1849,30 @@ msgstr "从所有已发布的课程 url slugs 添加重定向"
 #: apps/course_metadata/models.py:4979 apps/taxonomy_support/models.py:55
 msgid "Course uuids"
 msgstr "课程uuid"
+
+#: apps/course_metadata/models.py:5049
+msgid "Summary of the task"
+msgstr "任务概要"
+
+#: apps/course_metadata/models.py:5052
+msgid "Task Type"
+msgstr "任务类型"
+
+#: apps/course_metadata/models.py:5055
+msgid "Type of Bulk Task to be performed"
+msgstr "待执行的批量任务类型"
+
+#: apps/course_metadata/models.py:5058
+msgid "Status"
+msgstr "状态"
+
+#: apps/course_metadata/models.py:5061
+msgid "Status of the Bulk Task"
+msgstr "批量任务状态"
+
+#: apps/course_metadata/models.py:5069
+msgid "Identifier of the celery task associated with this bulk task"
+msgstr "与此批量任务关联的 celery 任务的标识符"
 
 #: apps/course_metadata/salesforce.py:78
 msgid "Attempted to query Salesforce with no client for partner={}"
