@@ -5,8 +5,8 @@
 # 
 # Translators:
 # Cecilia Liu, 2024
-# edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2025
 # Brian Smith, 2025
+# Eden Huthmacher, 2025
 # 
 msgid ""
 msgstr ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: openedx-translation@googlegroups.com\n"
 "POT-Creation-Date: 2023-06-13 08:00+0000\n"
 "PO-Revision-Date: 2023-11-20 11:35+0000\n"
-"Last-Translator: Brian Smith, 2025\n"
+"Last-Translator: Eden Huthmacher, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/open-edx/teams/6205/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -262,6 +262,10 @@ msgstr "要发表容器才能访问 `published_at`"
 #: openedx/core/djangoapps/api_admin/models.py:42
 msgid "Pending"
 msgstr "等待"
+
+#: cms/djangoapps/contentstore/models.py:556
+msgid "Processing"
+msgstr "处理中"
 
 #. Translators: This is the status for a video that the servers have failed to
 #. process
@@ -3820,6 +3824,28 @@ msgid ""
 "audit track for the course."
 msgstr "选择您想要获得修课证明之课程。如果课程没出现在列表中，请确认您已经注册及追踪该课程。"
 
+#: lms/djangoapps/courseware/views/views.py:2264
+msgid "I certify that: "
+msgstr "我保证： "
+
+#: lms/djangoapps/courseware/views/views.py:2271
+msgid ""
+"Paying the verified certificate fee for the above course would cause me "
+"economic hardship"
+msgstr "支付上述课程的经核实的证书费用会给我带来经济困难"
+
+#: lms/djangoapps/courseware/views/views.py:2283
+msgid ""
+"I will work diligently to complete the course work and receive a certificate"
+msgstr "我会努力地完成所有课程作业，并最终获得一张证书。"
+
+#: lms/djangoapps/courseware/views/views.py:2295
+#, python-brace-format
+msgid ""
+"I have read, understand, and will abide by the {honor_code_link} for the edX"
+" Site"
+msgstr "我已阅读、理解并将遵守 edX 网站的{honor_code_link}"
+
 #: lms/djangoapps/discussion/django_comment_client/base/views.py:559
 #: lms/djangoapps/discussion/django_comment_client/base/views.py:629
 msgid "Title can't be empty"
@@ -6055,6 +6081,10 @@ msgstr "下载的文件及字幕"
 msgid "Download video file"
 msgstr "下载视频文件"
 
+#: lms/templates/video.html:71 lms/templates/video.html:74
+msgid "Share this video"
+msgstr "分享这个视频"
+
 #: lms/templates/video.html:104
 #, python-format
 msgid "Share on %(site)s"
@@ -7361,6 +7391,14 @@ msgstr ""
 "<{p}><{strong}>{replier_name}</{strong}> "
 "和其他人回复了您关注的帖子：<{strong}>{post_title}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:189
+#, python-brace-format
+msgid ""
+"<p><strong>{username}’s </strong> {content_type} has been reported <strong> "
+"{content}</strong></p>"
+msgstr ""
+"<p><strong>{username}的</strong>{content_type}已报告<strong>{content}</strong></p>"
+
 #: openedx/core/djangoapps/notifications/email/utils.py:441
 #: openedx/features/course_experience/plugins.py:34
 msgid "Updates"
@@ -7935,6 +7973,10 @@ msgstr "系统检测到您的密码存在漏洞。我们建议您更改它，以
 msgid "The '{field_name}' field cannot be edited."
 msgstr "'{field_name}'字段无法编辑。"
 
+#: openedx/core/djangoapps/user_api/accounts/api.py:436
+msgid "Full name can't be longer than 255 symbols"
+msgstr "全名不能超过 255 个符号"
+
 #: openedx/core/djangoapps/user_api/accounts/api.py:438
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:109
 msgid "Enter a valid name"
@@ -7975,6 +8017,12 @@ msgstr "成功"
 #: openedx/core/djangoapps/user_api/admin.py:118
 msgid "Actions"
 msgstr "操作"
+
+#: openedx/core/djangoapps/user_api/models.py:444
+msgid ""
+"Comma separated file that have username and user_email of the users that "
+"needs to be retired"
+msgstr "逗号分隔的文件，其中包含用户的用户名和 user_email，这些用户需要退休。"
 
 #: openedx/core/djangoapps/user_api/preferences/api.py:253
 #, python-brace-format
@@ -8165,6 +8213,12 @@ msgstr "邮寄地址"
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:865
 msgid "State/Province/Region"
 msgstr "州/省/地区"
+
+#. Translators: This label appears above a dropdown menu to select
+#. the user's work experience
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:376
+msgid "Work experience"
+msgstr "工作经验"
 
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:10
 msgid "Password reset"
@@ -8567,6 +8621,42 @@ msgstr "{header_open}{title}{header_close}"
 msgid "Dismiss"
 msgstr "忽略"
 
+#: openedx/core/djangoapps/video_config/sharing_sites.py:77
+#, python-brace-format
+msgid ""
+"Here's a fun clip from a class I'm taking on {social_account_handle} from {organization_name}.\n"
+"\n"
+msgstr ""
+"这是我在{organization_name}的{social_account_handle}上上课的一个有趣的剪辑。\n"
+"\n"
+
+#: openedx/core/djangoapps/video_config/sharing_sites.py:84
+#, python-brace-format
+msgid ""
+"Here's a fun clip from a class I'm taking on {social_account_handle}.\n"
+"\n"
+msgstr ""
+"这是我在{social_account_handle}上的课程中的一个有趣剪辑。\n"
+"\n"
+
+#: openedx/core/djangoapps/video_config/sharing_sites.py:88
+#, python-brace-format
+msgid ""
+"Here's a fun clip from a class I'm taking from {organization_name}.\n"
+"\n"
+msgstr ""
+"这是我从{organization_name}上课时摘取的一个有趣片段。\n"
+"\n"
+
+#: openedx/core/djangoapps/video_config/sharing_sites.py:92
+#, python-brace-format
+msgid ""
+"Here's a fun clip from a class I'm taking on {platform_name}.\n"
+"\n"
+msgstr ""
+"这是我在{platform_name}上的课程中的一个有趣剪辑。\n"
+"\n"
+
 #: openedx/core/djangoapps/video_config/transcripts_utils.py:214
 #, python-brace-format
 msgid "Can't get transcript link from Youtube for {youtube_id}."
@@ -8951,6 +9041,12 @@ msgid ""
 "due assignments into the future. Don’t worry—you won’t lose any of the "
 "progress you’ve made when you shift your due dates."
 msgstr "为了让自己保持在正轨上，您可以更新此时间表并将过去到期的任务转移到未来。别担心——当您改变截止日期时，您已经取得的任何进展都不会丢失。"
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:145
+#, python-brace-format
+msgid "Try again ({attempts} attempt remaining)"
+msgid_plural "Try again ({attempts} attempts remaining)"
+msgstr[0] "再试一次（剩余{attempts}次尝试）"
 
 #: openedx/features/personalized_learner_schedules/call_to_action.py:150
 #, python-brace-format
@@ -9751,6 +9847,24 @@ msgid ""
 "Your answers were previously saved. Click '{button_name}' to grade them."
 msgstr "您的答案已保存。点击{button_name}查看分数。"
 
+#: xmodule/capa_block.py:1394
+#, python-brace-format
+msgid "Incorrect ({progress} point)"
+msgid_plural "Incorrect ({progress} points)"
+msgstr[0] "不正确 ({progress} 分)"
+
+#: xmodule/capa_block.py:1401
+#, python-brace-format
+msgid "Correct ({progress} point)"
+msgid_plural "Correct ({progress} points)"
+msgstr[0] "正确 ({progress} 分)"
+
+#: xmodule/capa_block.py:1408
+#, python-brace-format
+msgid "Partially correct ({progress} point)"
+msgid_plural "Partially correct ({progress} points)"
+msgstr[0] "部分正确 ({progress} 分)"
+
 #: xmodule/capa_block.py:1413
 msgid "Partially Correct"
 msgstr "部分正确"
@@ -9780,6 +9894,24 @@ msgid ""
 "You must wait at least {wait_secs} between submissions. {remaining_secs} "
 "remaining."
 msgstr "在两次提交之间需要等待 {wait_secs} 秒。还需等待{remaining_secs}秒。"
+
+#: xmodule/capa_block.py:2011
+#, python-brace-format
+msgid "{num_hour} hour"
+msgid_plural "{num_hour} hours"
+msgstr[0] "需要{num_hour}小时"
+
+#: xmodule/capa_block.py:2016
+#, python-brace-format
+msgid "{num_minute} minute"
+msgid_plural "{num_minute} minutes"
+msgstr[0] "{num_minute}分钟"
+
+#: xmodule/capa_block.py:2022
+#, python-brace-format
+msgid "{num_second} second"
+msgid_plural "{num_second} seconds"
+msgstr[0] "{num_second}秒"
 
 #: xmodule/capa_block.py:2140
 msgid "Problem needs to be reset prior to save."
@@ -10640,6 +10772,28 @@ msgstr ""
 "定义未登记学员的访问权限。这可以设置为三个值之一： “private” （默认可见性，只允许在册学生使用）、“public_outline” "
 "（允许访问课程概述）和 “public”（允许访问概述和课程内容）。"
 
+#: xmodule/course_block.py:1004
+msgid "Video Sharing Options"
+msgstr "视频共享选项"
+
+#: xmodule/course_block.py:1006
+msgid ""
+"Specify the video sharing options for the course. This can be set to one of "
+"three values: 'all-on', 'all-off' and 'per-video'. with 'per-video' as the "
+"default."
+msgstr ""
+"指定课程的视频共享选项。可以将其设置为三个值之一：“all-on”、“all-off”和“per-video”。默认为“per-video”。"
+
+#: xmodule/course_block.py:1020
+msgid "Force Flexible Grading for Peer ORAs"
+msgstr "强制对等 ORA 进行灵活分级"
+
+#: xmodule/course_block.py:1021
+msgid ""
+"Setting this flag will force on the flexible grading option for all peer-"
+"graded ORAs in this course."
+msgstr "设置此标志将强制本课程中所有同行评分的 ORA 使用灵活的评分选项。"
+
 #: xmodule/course_block.py:1041
 msgid "Course Instructor"
 msgstr "授课老师"
@@ -10880,6 +11034,19 @@ msgid ""
 "blocks now"
 msgstr "此模块已迁移至使用库v2。您现在可以同步单个模块。"
 
+#: xmodule/library_content_block.py:242
+msgid "Source content library has not been specified."
+msgstr "源内容库尚未被指定。"
+
+#: xmodule/library_content_block.py:246
+msgid "Content libraries are not available in the current runtime."
+msgstr "内容库在当前运行时不可用。"
+
+#: xmodule/library_content_block.py:249
+#, python-brace-format
+msgid "Source content library does not exist: {source_library_id}"
+msgstr "源内容库不存在： {source_library_id}"
+
 #: xmodule/library_content_block.py:345
 msgid ""
 "This legacy library reference is no longer supported, and needs to be "
@@ -10934,9 +11101,26 @@ msgstr "未选择一个知识库。"
 msgid "Select a Library."
 msgstr "选择一个知识库。"
 
+#: xmodule/library_content_block.py:454
+#, python-brace-format
+msgid "There are no problems in the specified library of type {capa_type}."
+msgstr "{capa_type}类型的指定库没有问题。"
+
 #: xmodule/library_content_block.py:457
 msgid "Select another problem type."
 msgstr "选择其他问题类型。"
+
+#: xmodule/library_content_block.py:468
+#, python-brace-format
+msgid "The specified library is configured to fetch {count} problem, "
+msgid_plural "The specified library is configured to fetch {count} problems, "
+msgstr[0] "指定的库配置为获取{count}问题， "
+
+#: xmodule/library_content_block.py:473
+#, python-brace-format
+msgid "but there is only {actual} matching problem."
+msgid_plural "but there are only {actual} matching problems."
+msgstr[0] "但只有{actual}匹配问题。"
 
 #: xmodule/library_content_block.py:479
 msgid "Edit the library configuration."
@@ -11573,6 +11757,13 @@ msgstr "添加对该单元的讨论。"
 #: xmodule/video_block/video_block.py:137
 msgid "Basic"
 msgstr "基本"
+
+#: xmodule/video_block/video_block.py:551
+#, python-brace-format
+msgid "There is no transcript file associated with the {lang} language."
+msgid_plural ""
+"There are no transcript files associated with the {lang} languages."
+msgstr[0] "没有与{lang}语言关联的转录文件。"
 
 #: xmodule/video_block/video_block.py:886
 msgid ""
