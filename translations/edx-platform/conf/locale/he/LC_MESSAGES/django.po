@@ -3572,6 +3572,10 @@ msgstr "מבחן מתוזמן"
 msgid "Exam"
 msgstr "מבחן"
 
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:33
+msgid "There’s still time to reach your goal"
+msgstr "עדיין יש זמן להשיג את המטרה שלך"
+
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:49
 #, python-format, python-brace-format
 msgid ""
@@ -3693,6 +3697,11 @@ msgstr "להוריד את יישומון ה־iOS ב־Apple Store"
 #: themes/red-theme/lms/templates/ace_common/edx_ace/common/base_body.html:153
 msgid "Download the Android app on the Google Play Store"
 msgstr "להוריד יישומון ה־Android בחנות Google Play"
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/footer.html:174
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/footer.html:174
+msgid "edX is the trusted platform for education and learning"
+msgstr "edX היא הפלטפורמה המהימנה ביותר בתחום החינוך והלמידה"
 
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/subject.txt:3
 #, python-format
@@ -8147,6 +8156,19 @@ msgstr "<{p}>המדריך שלך פרסם <{strong}>{post_title}</{strong}></{p}
 msgid "Notifications for submission grading."
 msgstr "הודעות על ציון בהגשות."
 
+#: openedx/core/djangoapps/notifications/email/tasks.py:144
+msgid "New Course Update"
+msgstr "עדכון קורס חדש"
+
+#: openedx/core/djangoapps/notifications/email/tasks.py:152
+msgid ""
+"You are receiving this email because you are enrolled in the edX course "
+msgstr "אתה מקבל דוא\"ל מזה מכיוון שאתה רשום בתוך קורס edX "
+
+#: openedx/core/djangoapps/notifications/email/utils.py:136
+msgid "Total Notifications"
+msgstr "סה\"כ התראות"
+
 #: openedx/core/djangoapps/notifications/email/utils.py:212
 msgid "Today"
 msgstr "היום"
@@ -8156,9 +8178,21 @@ msgstr "היום"
 msgid "Updates"
 msgstr "עדכונים"
 
+#: openedx/core/djangoapps/notifications/email/utils.py:442
+msgid "Grades"
+msgstr "ציונים"
+
 #: openedx/core/djangoapps/notifications/email/utils.py:463
 msgid "discussion"
 msgstr "דיונים"
+
+#: openedx/core/djangoapps/notifications/email/utils.py:464
+msgid "update"
+msgstr "עדכון"
+
+#: openedx/core/djangoapps/notifications/email/utils.py:465
+msgid "assessment"
+msgstr "הערכה"
 
 #: openedx/core/djangoapps/notifications/email_notifications.py:16
 msgid "Daily"
@@ -8178,15 +8212,54 @@ msgstr "מייד"
 msgid "Never"
 msgstr "לעולם לא"
 
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_content.html:15
+msgid "View all"
+msgstr "הצג בהכל"
+
 #: openedx/core/djangoapps/notifications/templates/notifications/digest_content.html:50
 #: openedx/core/djangoapps/notifications/templates/notifications/immediate_email_content.html:27
 msgid "View"
 msgstr "הצג"
 
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_content.html:63
+msgid "more"
+msgstr "עוד"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:38
+msgid ""
+"You are receiving this email because you have subscribed to email digest"
+msgstr "אתה מקבל דוא\"ל מכיוון שנרשמת לקבלת תקציר דוא\"ל."
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:43
+msgid "Notification Settings"
+msgstr "הגדרות התראות"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:46
+msgid "Unsubscribe from email digest for learning activity"
+msgstr "הסרה מרשימת התפוצה של סיכום פעילויות הלמידה"
+
 #: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:12
 #: openedx/core/djangoapps/notifications/templates/notifications/immediate_email_content.html:8
 msgid "Unsubscribe"
 msgstr "ביטול מינוי"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:25
+msgid "Weekly Notifications Digest"
+msgstr "סיכום הודעות שבועיות"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:27
+msgid "Daily Notifications Digest"
+msgstr "סיכום התראות יומיות"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/body.txt:4
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/subject.txt:4
+msgid "Weekly Notifications Digest for the Week of"
+msgstr "סיכום הודעות שבועיות לשבוע של"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/body.txt:6
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/subject.txt:6
+msgid "Daily Notifications Digest for"
+msgstr "סיכום התראות יומיות עבור"
 
 #: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:5
 msgid "Email Digest Preferences Updated"
@@ -8378,6 +8451,31 @@ msgid ""
 msgstr ""
 "זו היא הודעת דוא\"ל שהועברה ל- הפעלת חשבון עבור %(routed_profile_name)s "
 "(%(routed_user_email)s): %(routed_profile_name)s"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:36
+msgid "Welcome to edX. It’s time for your next career move"
+msgstr "ברוך הבא ל-edX. הגיע הזמן לצעד הבא בקריירה שלך"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:62
+msgid "Resume your course "
+msgstr "המשך הקורס "
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:82
+msgid "Your focused attention will pay off in the end!"
+msgstr "ההתמקדות שלך תשתלם בסופו של דבר!"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:84
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:101
+msgid ""
+"With self-paced courses, you learn on your own schedule. It’s a good idea to"
+" spend time with the course each week and check in with your goals often."
+msgstr ""
+"בקורסים בקצב אישי, אתה לומד לפי לוח הזמנים שלך. מומלץ להקדיש זמן לקורס בכל "
+"שבוע ולבדוק לעתים קרובות את היעדים שלך."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:100
+msgid "Your focused attention will pay off in the end! "
+msgstr "ההתמקדות שלך תשתלם בסופו של דבר! "
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.txt:4
 #, python-format
