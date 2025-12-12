@@ -672,6 +672,11 @@ msgstr "צוות הקורס"
 msgid "Legal review requested: {title}"
 msgstr "ביקורת משפטית מתבקשת: {title}"
 
+#: apps/course_metadata/emails.py:234
+#, python-brace-format
+msgid "Course URL for {title}"
+msgstr "כתובת הקורס עבור {title}"
+
 #: apps/course_metadata/emails.py:280
 #, python-brace-format
 msgid "Review requested: {key} - {title}"
@@ -1266,6 +1271,18 @@ msgstr "אם מסומן, פריט זה לא יצורף לאינדקס באלגו
 msgid "If checked, the About Page will have a meta tag with noindex value"
 msgstr "אם מסומן, לעמוד על אודות תהיה מטא תגית עם ערך noindex"
 
+#: apps/course_metadata/models.py:1585
+msgid "Watchers"
+msgstr "צופים"
+
+#: apps/course_metadata/models.py:1587
+msgid ""
+"The list of email addresses that will be notified if any of the course runs "
+"is published or scheduled."
+msgstr ""
+"רשימת כתובות הדואר האלקטרוני שתקבלו הודעה אם חלק מהקורסים יפורסמו או "
+"מתוכננים."
+
 #: apps/course_metadata/models.py:1832
 msgid "Future"
 msgstr "עתיד"
@@ -1788,6 +1805,14 @@ msgstr ""
 "הוא מצפה שהנתונים יסופקו בפורמט קובץ csv כאשר שורה ראשונה מכילה את כל "
 "הכותרות."
 
+#: apps/course_metadata/models.py:4837
+msgid "Open Courses"
+msgstr "קורסים פתוחים"
+
+#: apps/course_metadata/models.py:4838
+msgid "2U Executive Education Courses"
+msgstr "קורסי חינוך מנהלים 2U"
+
 #: apps/course_metadata/models.py:4850 apps/course_metadata/models.py:4954
 msgid "Course UUIDs"
 msgstr "מזהי UUID של הקורס"
@@ -2016,6 +2041,52 @@ msgstr ""
 #, python-format
 msgid "View the course run in Publisher: %(course_page_url)s"
 msgstr "צפה בקורס המופעל ב-Publisher: %(course_page_url)s"
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.html:8
+#, python-format
+msgid ""
+"\n"
+"        Course '%(course_name)s' has been successfully reviewed by edX and is now published on %(course_publish_date)s. To see live course, go here: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
+msgstr ""
+"\n"
+"        הקורס '%(course_name)s' נבדק בהצלחה על ידי edX ופורסם כעת ב-%(course_publish_date)s. כדי לראות קורס חי, עבור לכאן: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.html:12
+#, python-format
+msgid ""
+"\n"
+"        Course '%(course_name)s' has been successfully reviewed by edX and is now ready for publication. The course will be published on %(course_publish_date)s.\n"
+"        To see a preview of the Course About Page, go here: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
+msgstr ""
+"\n"
+"        ```\n"
+"הקורס '%(course_name)s' נבדק בהצלחה על ידי edX והוא מוכן כעת לפרסום. הקורס יפורסם ב-%(course_publish_date)s.\n"
+"כדי לראות תצוגה מקדימה של עמוד על אודות הקורס, עבור לכאן: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"```\n"
+"    "
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.txt:4
+#, python-format
+msgid ""
+"\n"
+"    Course '%(course_name)s' has been successfully reviewed by edX and is now published on %(course_publish_date)s. To see live course, go here: %(course_marketing_url)s\n"
+msgstr ""
+"\n"
+"    הקורס '%(course_name)s' נבדק בהצלחה על ידי edX ופורסם כעת ב-%(course_publish_date)s. כדי לראות קורס חי, עבור לכאן: %(course_marketing_url)s\n"
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.txt:8
+#, python-format
+msgid ""
+"\n"
+"   Course '%(course_name)s' has been successfully reviewed by edX and is now ready for publication. The course will be published on %(course_publish_date)s.\n"
+"    To see a preview of the Course About Page, go here: %(course_preview_url)s\n"
+msgstr ""
+"\n"
+"   הקורס '%(course_name)s' נבדק בהצלחה על ידי edX והוא מוכן כעת לפרסום. הקורס יפורסם ב-%(course_publish_date)s.  \n"
+"כדי לראות תצוגה מקדימה של עמוד על אודות הקורס, עבור לכאן: %(course_preview_url)s\n"
 
 #: apps/course_metadata/utils.py:391
 msgid "Special characters not allowed in Course Number."
