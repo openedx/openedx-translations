@@ -4275,6 +4275,22 @@ msgstr "תעודה נוצרה."
 msgid "Certificate is being created."
 msgstr "התעודה נוצרת."
 
+#: lms/djangoapps/courseware/views/views.py:2062
+msgid ""
+"We plan to use this information to evaluate your application for financial assistance and to further develop our financial assistance program. \n"
+"Please note that while assistance is available in most courses that offer verified certificates, a few courses and programs are not eligible. You must complete a separate application for each course you take. You may be approved for financial assistance five (5) times each year (based on 12-month period from you first approval). \n"
+"To apply for financial assistance: \n"
+"1. Enroll in the audit track for an eligible course that offers Verified Certificates. \n"
+"2. Complete this application. \n"
+"3. Check your email, please allow 4 weeks for your application to be processed."
+msgstr ""
+"אנו מתכננים להשתמש במידע זה כדי להעריך את בקשתך לסיוע כספי וכדי להמשיך ולפתח את תוכנית הסיוע הכספי שלנו. \n"
+"לידיעתך, אף שהסיוע זמין ברוב הקורסים המציעים תעודות מאומתות, כמה קורסים ותוכניות אינם זכאים. עליך למלא בקשה נפרדת עבור כל קורס שאתה לוקח. אתה עשוי להיות זכאי לסיוע כספי חמש (5) פעמים בשנה (בהתבסס על תקופה של 12 חודשים מהאישור הראשון שלך). \n"
+"כדי להגיש בקשה לסיוע כספי: \n"
+"1. הירשם למסלול ביקורת עבור קורס זכאי המציע תעודות מאומתות. \n"
+"2. מלא את טופס הבקשה זה. \n"
+"3. בדוק את הדוא\"ל שלך, אנא המתן 4 שבועות עד שהבקשה תטופל."
+
 #: lms/djangoapps/courseware/views/views.py:2257
 msgid ""
 "Select the course for which you want to earn a verified certificate. If the "
@@ -4807,6 +4823,10 @@ msgstr "מודול אינו קיים"
 msgid "An error occurred while deleting the score."
 msgstr "אירעה שגיאה במהלך מחיקת הציון."
 
+#: lms/djangoapps/instructor/views/api.py:2056
+msgid "An error occurred while attempting to reset for all students."
+msgstr "אירעה שגיאה בעת ניסיון לאפס את ההגדרות עבור כל התלמידים."
+
 #: lms/djangoapps/instructor/views/api.py:2116
 #: lms/djangoapps/instructor/views/api.py:2355
 msgid "Course has no entrance exam section."
@@ -5215,6 +5235,16 @@ msgstr "הושלם"
 #: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
 msgid "Incomplete"
 msgstr "לא הושלם"
+
+#: lms/djangoapps/instructor/views/serializer.py:31
+#: lms/djangoapps/instructor/views/serializer.py:89
+msgid "Role name"
+msgstr "תפקיד שם"
+
+#: lms/djangoapps/instructor/views/serializer.py:38
+#: lms/djangoapps/instructor/views/serializer.py:99
+msgid "Invalid role name."
+msgstr "שם תפקיד לא חוקי."
 
 #: lms/djangoapps/instructor/views/serializer.py:496
 msgid "Whether to reset for all students."
@@ -7511,6 +7541,11 @@ msgid ""
 "The authorized LTI profile that launched the resource (identifies the user)."
 msgstr "הפרופיל המורשה של LTI שהשיק את המשאב (מזהה את המשתמש)."
 
+#: openedx/core/djangoapps/content_libraries/models.py:480
+msgid ""
+"The usage key string of the resource serving the content of this launch."
+msgstr "מחרוזת מפתח השימוש של המשאב המשרת את תוכן של הפעלת זה."
+
 #: openedx/core/djangoapps/content_libraries/models.py:486
 msgid ""
 "The LTI platform unique identifier of this resource, also known as the "
@@ -7951,6 +7986,22 @@ msgstr "רשימה לבנה {country} עבור {course} "
 msgid "Blacklist {country} for {course}"
 msgstr "רשימה שחורה {country} עבור {course} "
 
+#: openedx/core/djangoapps/notifications/admin.py:71
+msgid ""
+"Search by username, course_id. Specify fields with username: or course_id: prefixes. If no prefix is specified, search will be done on username. \n"
+"Examples: \n"
+" - testuser (default username search) \n"
+" - username:testuser (username keyword search) \n"
+" - course_id:course-v1:edX+DemoX+Demo_Course (course_id keyword search) \n"
+" - username:testuser, course_id:course-v1:edX+DemoX+Demo_Course (combined keyword search) \n"
+msgstr ""
+"חפש על ידי שם משתמש, מזהה קורס. ציין שדות עם קידומת שם משתמש: או מזהה קורס:. אם לא צוינה קידומת, החיפוש יבוצע על שם משתמש. \n"
+"דוגמה: \n"
+" - testuser (חיפוש ברירת מחדל על שם משתמש) \n"
+" - שם משתמש:testuser (חיפוש מילת מפתח על שם משתמש) \n"
+" - מזהה קורס:course-v1:edX+DemoX+Demo_Course (חיפוש מילת מפתח על מזהה קורס) \n"
+" - שם משתמש:testuser, מזהה קורס:course-v1:edX+DemoX+Demo_Course (חיפוש מילות מפתח משולב) \n"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:69
 #, python-brace-format
 msgid ""
@@ -8033,6 +8084,33 @@ msgstr ""
 "<{p}><{strong}>{replier_name}</{strong}> ואחרים הגיבו לפוסט שאתה עוקב אחריו:"
 " <{strong}>{post_title}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:168
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> commented on "
+"<{strong}>{author_name}</{strong}> response in a post you’re following "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> הגיב על התגובה של "
+"<{strong}>{author_name}</{strong}> בפוסט שאתה עוקב אחריו "
+"<{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:206
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}'s</{strong}> response has been endorsed in "
+"your post <{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>תגובתו של {replier_name}</{strong}> זכתה לתמיכה בתוך הפוסט "
+"שלך <{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:221
+#, python-brace-format
+msgid ""
+"<{p}>Your response has been endorsed on the post "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr "<{p}>תגובתך אושרה ב- פוסט <{strong}>{post_title}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:256
 #, python-brace-format
 msgid ""
@@ -8064,6 +8142,10 @@ msgstr ""
 #, python-brace-format
 msgid "<{p}>Your instructor posted <{strong}>{post_title}</{strong}></{p}>"
 msgstr "<{p}>המדריך שלך פרסם <{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:364
+msgid "Notifications for submission grading."
+msgstr "הודעות על ציון בהגשות."
 
 #: openedx/core/djangoapps/notifications/email/utils.py:212
 msgid "Today"
@@ -8105,6 +8187,15 @@ msgstr "הצג"
 #: openedx/core/djangoapps/notifications/templates/notifications/immediate_email_content.html:8
 msgid "Unsubscribe"
 msgstr "ביטול מינוי"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:5
+msgid "Email Digest Preferences Updated"
+msgstr "העדפות סיכום דוא\"ל עודכנו"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:9
+msgid ""
+"You have successfully unsubscribed from email digest for learning activity"
+msgstr "ביטלת את הרישום שלך בהצלחה, התקציר של הדוא\"ל לפעילויות הלמידה."
 
 #: openedx/core/djangoapps/notifications/views.py:174
 msgid "Invalid app name."
@@ -8575,6 +8666,10 @@ msgid ""
 msgstr ""
 "נראה כי {email_address} שייך לחשבון קיים. נסה שוב עם כתובת דואר אלקטרוני אחרת.\n"
 "*במקרה של הקמת משתמש דרך פייסבוק/גוגל/הזדהות משרד החינוך יש להתחבר לחשבון הקיים ולבצע את החיבור מתוך החשבון."
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:64
+msgid "This email is already associated with an existing account"
+msgstr "זה הדוא\"ל כבר מקושר לחשבון קיים"
 
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:69
 msgid ""
@@ -9718,6 +9813,10 @@ msgstr "תודה שהצטרפת ל-{platform_name}. רק עוד כמה צעדי�
 #: openedx/features/enterprise_support/utils.py:205
 msgid "Continue"
 msgstr "המשך"
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:121
+msgid "The deadline to complete this assignment has passed."
+msgstr "המועד האחרון להשלמת המטלה חלף."
 
 #: openedx/features/personalized_learner_schedules/call_to_action.py:127
 msgid "Shift due dates"
