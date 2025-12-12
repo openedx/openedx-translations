@@ -5178,6 +5178,12 @@ msgstr "אפשר"
 msgid "Error"
 msgstr "שגיאה"
 
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:11
+#: lms/templates/support/edx_ace/wholecoursereset/email/subject.txt:3
+#, python-format
+msgid "The course %(course_title)s has been reset !"
+msgstr "הקורס %(course_title)s אופס!"
+
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.html:16
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:14
 #: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:14
@@ -5187,6 +5193,20 @@ msgstr "שגיאה"
 #, python-format
 msgid "Hello %(full_name)s,"
 msgstr "שלום %(full_name)s,"
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:21
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:3
+#, python-format
+msgid ""
+"Your progress in course %(course_title)s has been reset on your behalf."
+msgstr "ההתקדמות שלך בקורס %(course_title)s אופסה עבורך."
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:25
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:4
+msgid ""
+"You will be able to re-attempt this course and earn a verified certificate "
+"upon successful completion."
+msgstr "תוכל לנסות שוב את הקורס הזה ולהרוויח תעודה מאומתת עם השלמה מוצלחת."
 
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:2
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:2
@@ -6103,6 +6123,10 @@ msgstr "טוען"
 msgid "Expired"
 msgstr "לא בתוקף"
 
+#: openedx/core/djangoapps/content_staging/models.py:72
+msgid "Content tags applied to these blocks"
+msgstr "תגיות תוכן הוחלו על הבלוקים האלה"
+
 #: openedx/core/djangoapps/cors_csrf/models.py:21
 msgid ""
 "List of domains that are allowed to make cross-domain requests to this site."
@@ -6374,6 +6398,18 @@ msgstr ""
 #: openedx/features/course_experience/plugins.py:34
 msgid "Updates"
 msgstr "עדכונים"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:16
+msgid "Daily"
+msgstr "יומי"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:17
+msgid "Weekly"
+msgstr "שבועי"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:18
+msgid "Immediately"
+msgstr "מייד"
 
 #: openedx/core/djangoapps/notifications/email_notifications.py:19
 #: xmodule/capa_block.py:229 xmodule/capa_block.py:246
@@ -7083,6 +7119,15 @@ msgstr "רישיון"
 msgid ""
 "A license defines how the contents of this block can be shared and reused."
 msgstr "רישיון מגדיר כיצד ניתן לשתף ולעשות שימוש חוזר בתוכן של בלוק זה."
+
+#: openedx/core/lib/teams_config.py:386
+#, python-brace-format
+msgid "Team Group: {team_set_name}"
+msgstr "צוות קבוצה: {team_set_name}"
+
+#: openedx/core/lib/teams_config.py:387
+msgid "Partition for segmenting users by team-set"
+msgstr "Partition for segmenting משתמשים by צוות-set"
 
 #: openedx/features/calendar_sync/ics.py:36
 #, python-brace-format
@@ -7896,6 +7941,34 @@ msgstr ""
 "מגדיר את מספר הפעמים בהן סטודנט יכול לנסות לענות על בעיה זו. אם הערך אינו "
 "נקבע, יתאפשרו אינסוף ניסיונות."
 
+#: xmodule/capa_block.py:201
+msgid "Grading Method"
+msgstr "שיטת הערכה"
+
+#: xmodule/capa_block.py:203
+msgid ""
+"Define the grading method for this problem. By default, it's the score of "
+"the last submission made by the student."
+msgstr ""
+"הגדר את שיטת ההערכה לבעיה זו. כברירת מחדל, זהו הציון של ההגשות האחרונות "
+"שביצע התלמיד."
+
+#: xmodule/capa_block.py:209 xmodule/capa_block.py:513
+msgid "Last Score"
+msgstr "ציון אחרון"
+
+#: xmodule/capa_block.py:210 xmodule/capa_block.py:514
+msgid "First Score"
+msgstr "ציון ראשון"
+
+#: xmodule/capa_block.py:211 xmodule/capa_block.py:515
+msgid "Highest Score"
+msgstr "הציון הגבוה ביותר"
+
+#: xmodule/capa_block.py:212 xmodule/capa_block.py:516
+msgid "Average Score"
+msgstr "ציון ממוצע"
+
 #: xmodule/capa_block.py:215
 msgid "Date that this problem is due by"
 msgstr "תאריך יעד להשלמת הבעיה"
@@ -8026,6 +8099,10 @@ msgstr "מידע XML עבור בעיה"
 msgid "Dictionary with the correctness of current student answers"
 msgstr "מילון עם התשובות התקינות הנוכחיות של הסטודנטים."
 
+#: xmodule/capa_block.py:298
+msgid "List of correctness maps for each attempt"
+msgstr "רשימת מפות נכונות לכל ניסיון"
+
 #: xmodule/capa_block.py:299
 msgid "Dictionary for maintaining the state of inputtypes"
 msgstr "מילון עבור שמירה על מצב סוגי קלט."
@@ -8034,9 +8111,17 @@ msgstr "מילון עבור שמירה על מצב סוגי קלט."
 msgid "Dictionary with the current student responses"
 msgstr "מילון עם התשובות הנוכחיות של הסטודנט"
 
+#: xmodule/capa_block.py:302
+msgid "List of student answers for each attempt"
+msgstr "רשימת תשובות התלמידים עבור כל ניסיון"
+
 #: xmodule/capa_block.py:306
 msgid "Dictionary with the current student score"
 msgstr "מילון עם הציון הנוכחי של הסטודנט"
+
+#: xmodule/capa_block.py:308
+msgid "List of scores for each attempt"
+msgstr "רשימת ציונים לכל ניסיון"
 
 #: xmodule/capa_block.py:311
 msgid "Whether or not the answers have been saved since last submit"
