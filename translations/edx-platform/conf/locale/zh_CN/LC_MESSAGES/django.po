@@ -3495,6 +3495,25 @@ msgstr "计时考试"
 msgid "Exam"
 msgstr "考试"
 
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:33
+msgid "There’s still time to reach your goal"
+msgstr "你还有时间实现目标"
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:98
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:117
+msgid "Remember: the best goal is one that you can stick to. "
+msgstr "记住：最好的目标是你可以坚持的目标。 "
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:99
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:118
+msgid "You can always"
+msgstr "您可以随时"
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:101
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:120
+msgid "if you need to."
+msgstr "如果你需要的话。"
+
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:144
 msgid ""
 "\n"
@@ -3506,6 +3525,18 @@ msgstr ""
 "取消订阅此课程的目标提醒邮件\n"
 "\n"
 "                        "
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:158
+msgid ""
+"\n"
+"                                Unsubscribe from goal reminder emails for this course\n"
+"                                "
+msgstr ""
+"\n"
+"                                \n"
+"取消订阅此课程的目标提醒邮件\n"
+"\n"
+"                                "
 
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.txt:2
 msgid "You're almost there!"
@@ -3587,6 +3618,11 @@ msgstr "在App Store下载iOS App"
 #: themes/red-theme/lms/templates/ace_common/edx_ace/common/base_body.html:153
 msgid "Download the Android app on the Google Play Store"
 msgstr "在Google Play商店下载安卓App"
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/footer.html:174
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/footer.html:174
+msgid "edX is the trusted platform for education and learning"
+msgstr "edX 是值得信赖的教育和学习平台"
 
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/footer.html:180
 #: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/base_body.html:240
@@ -4076,6 +4112,10 @@ msgid ""
 "After this course officially ends, you will receive an email notification "
 "with your certificate."
 msgstr "本课程正式结束后，您将收到一封包含证书的电子邮件通知。"
+
+#: lms/djangoapps/courseware/views/views.py:247
+msgid "Your certificate will be available after the indicated date"
+msgstr "您的证书将在指定日期后可用"
 
 #: lms/djangoapps/courseware/views/views.py:258
 msgid "Your certificate is available"
@@ -8180,6 +8220,11 @@ msgid ""
 msgstr ""
 "<{p}>您在评估中获得了{points_earned}分（满分为{points_possible}分）：<{strong}>{ora_name}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:297
+#, python-brace-format
+msgid "<{p}>Your instructor posted <{strong}>{post_title}</{strong}></{p}>"
+msgstr "<{p}>您的导师发布了 <{strong}>{post_title}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:345
 msgid ""
 "Notifications for responses and comments on your posts, and the ones you’re "
@@ -8193,6 +8238,19 @@ msgstr "课程团队的新公告和更新通知。"
 #: openedx/core/djangoapps/notifications/base_notification.py:364
 msgid "Notifications for submission grading."
 msgstr "提交评分的通知。"
+
+#: openedx/core/djangoapps/notifications/email/tasks.py:144
+msgid "New Course Update"
+msgstr "新课程更新"
+
+#: openedx/core/djangoapps/notifications/email/tasks.py:152
+msgid ""
+"You are receiving this email because you are enrolled in the edX course "
+msgstr "您收到这封电子邮件是因为您已注册 edX 课程 "
+
+#: openedx/core/djangoapps/notifications/email/utils.py:136
+msgid "Total Notifications"
+msgstr "通知总数"
 
 #: openedx/core/djangoapps/notifications/email/utils.py:212
 msgid "Today"
@@ -8210,6 +8268,14 @@ msgstr "成绩"
 #: openedx/core/djangoapps/notifications/email/utils.py:463
 msgid "discussion"
 msgstr "讨论"
+
+#: openedx/core/djangoapps/notifications/email/utils.py:464
+msgid "update"
+msgstr "更新"
+
+#: openedx/core/djangoapps/notifications/email/utils.py:465
+msgid "assessment"
+msgstr "评估"
 
 #: openedx/core/djangoapps/notifications/email_notifications.py:16
 msgid "Daily"
@@ -8229,15 +8295,54 @@ msgstr "立即地"
 msgid "Never"
 msgstr "从不"
 
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_content.html:15
+msgid "View all"
+msgstr "查看全部"
+
 #: openedx/core/djangoapps/notifications/templates/notifications/digest_content.html:50
 #: openedx/core/djangoapps/notifications/templates/notifications/immediate_email_content.html:27
 msgid "View"
 msgstr "阅览"
 
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_content.html:63
+msgid "more"
+msgstr "更多的"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:38
+msgid ""
+"You are receiving this email because you have subscribed to email digest"
+msgstr "您收到这封电子邮件是因为您订阅了电子邮件摘要"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:43
+msgid "Notification Settings"
+msgstr "通知设置功能选项"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:46
+msgid "Unsubscribe from email digest for learning activity"
+msgstr "取消订阅学习活动电子邮件摘要"
+
 #: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:12
 #: openedx/core/djangoapps/notifications/templates/notifications/immediate_email_content.html:8
 msgid "Unsubscribe"
 msgstr "取消订阅"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:25
+msgid "Weekly Notifications Digest"
+msgstr "每周通知摘要"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:27
+msgid "Daily Notifications Digest"
+msgstr "每日通知摘要"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/body.txt:4
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/subject.txt:4
+msgid "Weekly Notifications Digest for the Week of"
+msgstr "本周的通知摘要"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/body.txt:6
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/subject.txt:6
+msgid "Daily Notifications Digest for"
+msgstr "每日通知摘要"
 
 #: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:5
 msgid "Email Digest Preferences Updated"
@@ -8425,6 +8530,38 @@ msgstr "于%(filter_title)s前"
 #, python-format
 msgid "Welcome to week %(week_num)s of %(course_name)s!"
 msgstr "%(week_num)s学习的第%(course_name)s周！"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:22
+#, python-format
+msgid ""
+"This is a routed Account Activation email for %(routed_profile_name)s "
+"(%(routed_user_email)s): %(routed_profile_name)s"
+msgstr ""
+"这是 %(routed_profile_name)s (%(routed_user_email)s) "
+"的路由账户激活电子邮件：%(routed_profile_name)s"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:36
+msgid "Welcome to edX. It’s time for your next career move"
+msgstr "欢迎来到 edX。是时候开启你的下一个职业发展了"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:62
+msgid "Resume your course "
+msgstr "继续你的课程 "
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:82
+msgid "Your focused attention will pay off in the end!"
+msgstr "您的专注最终将会获得回报！"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:84
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:101
+msgid ""
+"With self-paced courses, you learn on your own schedule. It’s a good idea to"
+" spend time with the course each week and check in with your goals often."
+msgstr "通过自定进度的课程，您可以按照自己的时间表学习。建议每周花时间学习课程，并经常检查自己的目标。"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:100
+msgid "Your focused attention will pay off in the end! "
+msgstr "您的专注最终将会获得回报！ "
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.txt:4
 #, python-format
