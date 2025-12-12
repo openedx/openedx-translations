@@ -238,6 +238,11 @@ msgstr "问题"
 msgid "Library Content"
 msgstr "图书馆内容"
 
+#: cms/djangoapps/contentstore/helpers.py:229
+#: cms/djangoapps/contentstore/views/component.py:288
+msgid "Problem Bank"
+msgstr "问题库"
+
 #: cms/djangoapps/contentstore/management/commands/git_export.py:33
 msgid ""
 "Take the specified course and attempt to export it to a git repository\n"
@@ -624,6 +629,10 @@ msgstr "视频"
 #: cms/djangoapps/contentstore/views/component.py:285
 msgid "Open Response"
 msgstr "开放性题目"
+
+#: cms/djangoapps/contentstore/views/component.py:286
+msgid "Legacy Library"
+msgstr "遗产图书馆"
 
 #: cms/djangoapps/contentstore/views/component.py:289
 msgid "Drag and Drop"
@@ -1073,9 +1082,25 @@ msgstr[0] " 它有{count}个子模块。"
 msgid "Dictionary with the available tags"
 msgstr "可使用标签的字典"
 
+#: cms/lib/xblock/upstream_sync.py:72
+msgid "Content is not linked to a Content Library."
+msgstr "内容未链接到内容库。"
+
+#: cms/lib/xblock/upstream_sync.py:257
+msgid "Cannot update content because it does not belong to a course."
+msgstr "无法更新内容，因为它不属于课程。"
+
+#: cms/lib/xblock/upstream_sync.py:267
+msgid "Reference to linked library item is malformed"
+msgstr "对链接库项目的引用格式不正确"
+
 #: cms/lib/xblock/upstream_sync.py:290
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "关联的 `upstream_key` 不是有效的键"
+
+#: cms/lib/xblock/upstream_sync_block.py:108
+msgid "Linked library item could not be loaded: {}"
+msgstr "无法加载链接库项目：{}"
 
 #: cms/templates/admin/base_site.html:4 lms/templates/admin/base_site.html:3
 msgid "Django site admin"
@@ -3657,6 +3682,15 @@ msgstr "自定义页面"
 #: lms/djangoapps/courseware/plugins.py:220
 msgid "Provide additional course content and resources with custom pages"
 msgstr "使用自定义页面提供额外的课程内容和资源"
+
+#: lms/djangoapps/courseware/plugins.py:271
+msgid "Flexible Peer Grading for ORAs"
+msgstr "灵活的 ORA 同行评分"
+
+#: lms/djangoapps/courseware/plugins.py:272
+msgid ""
+"Course level settings for Flexible Peer Grading Open Response Assessments."
+msgstr "灵活的同行评分开放式反应评估的课程级别设置。"
 
 #: lms/djangoapps/courseware/tabs.py:36
 #: lms/djangoapps/courseware/views/views.py:2250
@@ -7382,6 +7416,13 @@ msgstr ""
 "<{p}><{strong}>{replier_name}</{strong}> 和其他人回复了您的帖子 "
 "<{strong}>{post_title}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:118
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> and others started new "
+"discussions</{p}>"
+msgstr "<{p}><{strong}>{replier_name}</{strong}>和其他人开始了新的讨论</{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:153
 #, python-brace-format
 msgid ""
@@ -8457,6 +8498,12 @@ msgstr "需要正确的邮件格式"
 msgid "Your legal name must be a minimum of one character long"
 msgstr "您的合法帐号名必须至少包含一个字符的长度"
 
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:149
+#, python-format
+msgid ""
+"Your legal name is too long. It must not exceed %(max_length)s characters"
+msgstr "您的法定名称太长。不得超过%(max_length)s个字符"
+
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:161
 #, python-format
 msgid "Email cannot be more than %(limit_value)s characters long"
@@ -8512,6 +8559,10 @@ msgid ""
 "It looks like {email} belongs to an existing account. Try again with a "
 "different email address."
 msgstr "邮箱 {email} 已被其他账号关联。请使用另一个邮箱重试。"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:311
+msgid "Registration from this country is not allowed due to restrictions."
+msgstr "由于限制，不允许来自该国的注册。"
 
 #. Translators: These instructions appear on the registration form,
 #. immediately
@@ -10921,6 +10972,12 @@ msgstr "{section_type} {index} 未公开 - 0% (?/?)"
 msgid "The lowest {drop_count} {section_type} scores are dropped."
 msgstr "最低{drop_count} {section_type}分的科目会被退课。"
 
+#. Translators: "Homework Average = 0%"
+#: xmodule/graders.py:436
+#, python-brace-format
+msgid "{section_type} Average = {percent:.2%}"
+msgstr "{section_type} 平均值 = {percent:.2%}"
+
 #. Translators: Avg is short for Average
 #: xmodule/graders.py:441
 #, python-brace-format
@@ -11001,6 +11058,24 @@ msgid ""
 "Determines whether a 'Reset Problems' button is shown, so users may reset "
 "their answers and reshuffle selected items."
 msgstr "确定是否显示“重置问题”按钮，以便用户可以重置他们的答案并重新排列所选项目。"
+
+#: xmodule/item_bank_block.py:480
+#, python-brace-format
+msgid ""
+"The problem bank has been configured to show {count} problems. Please "
+"specify a positive number of problems, or specify -1 to show all problems."
+msgstr "问题库已配置为显示{count}个问题。请指定一个正数问题，或指定 -1 以显示所有问题。"
+
+#: xmodule/item_bank_block.py:484 xmodule/item_bank_block.py:496
+msgid "Edit the problem bank configuration."
+msgstr "请编辑题库的配置。"
+
+#: xmodule/item_bank_block.py:492
+#, python-brace-format
+msgid ""
+"The problem bank has been configured to show {count} problems, but only "
+"{actual} have been selected."
+msgstr "问题库已配置为显示{count}问题，但只选择了{actual} 。"
 
 #: xmodule/library_content_block.py:52
 msgid "Any Type"
@@ -11759,6 +11834,31 @@ msgstr "该内容实验可能影响内容可见性。"
 #: xmodule/tabs.py:398 xmodule/tabs.py:433
 msgid "External Discussion"
 msgstr "外部讨论"
+
+#: xmodule/templates/item_bank/author_view.html:32
+#, python-brace-format
+msgid ""
+"Press {link_start}View{link_end} to preview, sync/update, and/or remove the "
+"selected components."
+msgstr "按{link_start}查看{link_end}来预览、同步/更新和/或删除选定的组件。"
+
+#: xmodule/templates/item_bank/author_view.html:38
+#, python-brace-format
+msgid ""
+"Press {link_start}Edit{link_end} to configure how many will be shown and "
+"other settings."
+msgstr "按{link_start}编辑{link_end}配置将显示多少个以及其他设置。"
+
+#: xmodule/templates/item_bank/author_view.html:44
+msgid "You have not selected any components yet."
+msgstr "您尚未选择任何组件。"
+
+#: xmodule/templates/item_bank/author_view_add.html:11
+#, python-brace-format
+msgid ""
+"{button_start}Add components{button_end} from a content library to this "
+"problem bank."
+msgstr "{button_start}从内容库中添加组件{button_end}到这个问题库。"
 
 #: xmodule/vertical_block.py:45
 msgid "Enable in-context discussions for the Unit"
