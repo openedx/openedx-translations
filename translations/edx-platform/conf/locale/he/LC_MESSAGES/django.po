@@ -178,6 +178,10 @@ msgstr "בהמתנה"
 msgid "Failed"
 msgstr "נכשל"
 
+#: cms/djangoapps/contentstore/models.py:558
+msgid "Completed"
+msgstr "הושלמו"
+
 #: cms/djangoapps/contentstore/utils.py:1088
 #: cms/djangoapps/contentstore/views/block.py:277
 #: cms/djangoapps/contentstore/views/component.py:282 xmodule/html_block.py:61
@@ -3701,6 +3705,12 @@ msgstr "נגן סרטון וידאו"
 msgid "No playable video sources found."
 msgstr "לא נמצא מקור וידאו שניתן לצפות בו. "
 
+#: lms/templates/video.html:31
+msgid ""
+"Your browser does not support this video format. Try using a different "
+"browser."
+msgstr "הדפדפן שלך אינו תומך בפורמט הווידאו הזה. נסה להשתמש בדפדפן אחר."
+
 #: lms/templates/video.html:52
 msgid "Downloads and transcripts"
 msgstr "הורדות ותמלולים"
@@ -3708,6 +3718,10 @@ msgstr "הורדות ותמלולים"
 #: lms/templates/video.html:62
 msgid "Download video file"
 msgstr "הורד קובץ סרטון וידאו"
+
+#: lms/templates/video.html:71 lms/templates/video.html:74
+msgid "Share this video"
+msgstr "שתף וידאו זה"
 
 #: lms/templates/video.html:104
 #, python-format
@@ -4534,6 +4548,11 @@ msgstr ""
 "<{p}><{strong}>{replier_name}</{strong}> ואחרים הגיבו לפוסט שאתה עוקב אחריו:"
 " <{strong}>{post_title}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/email/utils.py:441
+#: openedx/features/course_experience/plugins.py:34
+msgid "Updates"
+msgstr "עדכונים"
+
 #: openedx/core/djangoapps/notifications/email_notifications.py:19
 #: xmodule/capa_block.py:229 xmodule/capa_block.py:246
 #: xmodule/capa_block.py:285
@@ -4544,6 +4563,11 @@ msgstr "לעולם לא"
 #: openedx/core/djangoapps/notifications/templates/notifications/immediate_email_content.html:27
 msgid "View"
 msgstr "הצג"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:12
+#: openedx/core/djangoapps/notifications/templates/notifications/immediate_email_content.html:8
+msgid "Unsubscribe"
+msgstr "ביטול מינוי"
 
 #: openedx/core/djangoapps/profile_images/images.py:98
 #, python-brace-format
@@ -4658,6 +4682,10 @@ msgstr ""
 #, python-brace-format
 msgid "The '{field_name}' field cannot be edited."
 msgstr "לא ניתן לערוך שדה '{field_name}'"
+
+#: openedx/core/djangoapps/user_api/accounts/api.py:436
+msgid "Full name can't be longer than 255 symbols"
+msgstr "השם המלא לא יכול להיות ארוך מ־255 סימנים"
 
 #: openedx/core/djangoapps/user_api/accounts/api.py:438
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:109
@@ -4875,6 +4903,10 @@ msgstr "איפוס סיסמה נכשל"
 msgid "Error in resetting your password. Please try again."
 msgstr "שגיאה באתחול סיסמתך. נא נסה שוב."
 
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:664
+msgid "Some error occurred during password change. Please try again"
+msgstr "אירעה שגיאה במהלך שינוי הסיסמה. נא לנסות שוב."
+
 #: openedx/core/djangoapps/user_authn/views/password_reset.py:668
 msgid "No email address provided."
 msgstr "לא סופקה כתובת דואר אלקטרוני."
@@ -4901,6 +4933,10 @@ msgstr "ה-access_token שסופק, מקושר כבר עם משתמש אחר."
 #: openedx/core/djangoapps/user_authn/views/register.py:345
 msgid "The provided access_token is not valid."
 msgstr "ה-access_token  שסופק אינו חוקי."
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:107
+msgid "Full Name cannot contain the following characters: < >"
+msgstr "שם מלא cannot contain the following characters: < >"
 
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:147
 msgid "A properly formatted e-mail is required"
@@ -4995,11 +5031,33 @@ msgstr "זה יהיה הכינוי המזהה שלך בקורסים. לא נית
 msgid "I agree that {platform_name} may send me marketing messages."
 msgstr "אני מסכים ש- {platform_name} עשוי לשלוח לי הודעות שיווקיות."
 
+#. Translators: This label appears above a dropdown menu on the registration
+#. form used to select the country in which the user lives.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:967
+msgid "Country or Region of Residence"
+msgstr "ארץ או אזור מגורים"
+
+#. Translators: These instructions appear on the registration form,
+#. immediately
+#. below a field meant to hold the user's country.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:978
+msgid "The country or region where you live."
+msgstr "מדינה או מחוז מגורים"
+
 #. Translators: This is a legal document users must agree to
 #. in order to register a new account.
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:1016
 msgid "Terms of Service and Honor Code"
 msgstr "תנאי שימוש וקוד אתי"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1022
+#, python-brace-format
+msgid ""
+"I agree to the {platform_name} "
+"{terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end}"
+msgstr ""
+"I agree to the {platform_name} "
+"{terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end}"
 
 #. Translators: "Terms of Service" is a legal document users must agree to
 #. in order to register a new account.
@@ -5011,9 +5069,88 @@ msgstr "תנאי שימוש וקוד אתי"
 msgid "You must agree to the {platform_name} {terms_of_service}"
 msgstr "עליך להסכים ל{terms_of_service} של {platform_name}"
 
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1045
+#, python-brace-format
+msgid ""
+"By creating an account, you agree to the                   "
+"{terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end}"
+"                   and you acknowledge that {platform_name} and each Member "
+"process your personal data in accordance                   with the "
+"{privacy_policy_link_start}Privacy Policy{privacy_policy_link_end}."
+msgstr ""
+"על ידי יצירת חשבון, אתם מסכימים "
+"ל{terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end} "
+"ואתם מאשרים ל{platform_name} ולכל חבר לעבד את המידע האישי שלכם בהתאם "
+"ל{privacy_policy_link_start}מדיניות הפרטיות{privacy_policy_link_end}."
+
+#. Translators: "Terms of service" is a legal document users must agree to
+#. in order to register a new account.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1087
+#, python-brace-format
+msgid ""
+"I agree to the {platform_name} "
+"{tos_link_start}{terms_of_service}{tos_link_end}"
+msgstr ""
+"אני מסכים ל{platform_name} {tos_link_start}{terms_of_service}{tos_link_end}"
+
+#: openedx/core/djangoapps/user_authn/views/utils.py:53
+msgid "Create Account"
+msgstr "צור חשבון"
+
+#: openedx/core/djangoapps/util/user_messages.py:104
+#, python-brace-format
+msgid "{header_open}{title}{header_close}{body}"
+msgstr "{header_open}{title}{header_close}{body}"
+
+#: openedx/core/djangoapps/util/user_messages.py:241
+#, python-brace-format
+msgid "{header_open}{title}{header_close}"
+msgstr "{header_open}{title}{header_close}"
+
 #: openedx/core/djangoapps/util/user_messages.py:256
 msgid "Dismiss"
 msgstr "ביטול"
+
+#: openedx/core/djangoapps/video_config/sharing_sites.py:77
+#, python-brace-format
+msgid ""
+"Here's a fun clip from a class I'm taking on {social_account_handle} from {organization_name}.\n"
+"\n"
+msgstr ""
+"הנה קטע כיפי משיעור שאני לוקח ב-{social_account_handle} מ-{organization_name}.\n"
+"\n"
+
+#: openedx/core/djangoapps/video_config/sharing_sites.py:84
+#, python-brace-format
+msgid ""
+"Here's a fun clip from a class I'm taking on {social_account_handle}.\n"
+"\n"
+msgstr ""
+"הנה קטע כיפי משיעור שאני לוקח ב-{social_account_handle}.\n"
+"\n"
+
+#: openedx/core/djangoapps/video_config/sharing_sites.py:88
+#, python-brace-format
+msgid ""
+"Here's a fun clip from a class I'm taking from {organization_name}.\n"
+"\n"
+msgstr ""
+"הנה קטע מהנה משיעור שאני לוקח מ-{organization_name}.\n"
+"\n"
+
+#: openedx/core/djangoapps/video_config/sharing_sites.py:92
+#, python-brace-format
+msgid ""
+"Here's a fun clip from a class I'm taking on {platform_name}.\n"
+"\n"
+msgstr ""
+"הנה קטע משעשע משיעור שאני לוקח ב-{platform_name}.\n"
+"\n"
+
+#: openedx/core/djangoapps/video_config/transcripts_utils.py:214
+#, python-brace-format
+msgid "Can't get transcript link from Youtube for {youtube_id}."
+msgstr "לא ניתן לקבל קישור לתמלול מיוטיוב עבור {youtube_id}."
 
 #: openedx/core/djangoapps/video_config/transcripts_utils.py:236
 #, python-brace-format
@@ -5046,6 +5183,14 @@ msgid "{exception_message}: Can't find uploaded transcripts: {user_filename}"
 msgstr ""
 "{exception_message}: לא ניתן למצוא את התעתיקים שהועלו: {user_filename}"
 
+#: openedx/core/djangoapps/video_pipeline/models.py:33
+msgid "Oauth client name of VEM service."
+msgstr "Oauth client שם of VEM service."
+
+#: openedx/core/djangoapps/video_pipeline/models.py:46
+msgid "Username created for VEM Integration, e.g. vem_service_user."
+msgstr "שם משתמש שנוצר עבור אינטגרציה של VEM, לדוגמה vem_service_user."
+
 #: openedx/core/djangoapps/waffle_utils/models.py:28
 #: openedx/core/djangoapps/waffle_utils/models.py:91
 msgid "Force On"
@@ -5055,6 +5200,21 @@ msgstr "אלץ דלוק"
 #: openedx/core/djangoapps/waffle_utils/models.py:91
 msgid "Force Off"
 msgstr "אלץ כבוי"
+
+#: openedx/core/djangoapps/xblock/runtime/mixin.py:65
+msgid ""
+"This content is only accessible to registered learners. Sign in or register "
+"to view it."
+msgstr "תוכן זה נגיש רק ללומדים רשומים. היכנס או הירשם כדי לצפות בו."
+
+#: openedx/core/djangoapps/xblock/runtime/mixin.py:69
+msgid "This content is only accessible to enrolled learners. "
+msgstr "תוכן זה נגיש רק ללומדים רשומים. "
+
+#: openedx/core/lib/api/view_utils.py:159
+#, python-brace-format
+msgid "The about me field must be at most {BIO_MAX_LENGTH} characters long."
+msgstr "שדה ה\"אודותיי\" חייב להיות באורך של לכל היותר {BIO_MAX_LENGTH} תווים."
 
 #: openedx/core/lib/api/view_utils.py:161
 msgid "This value is invalid."
@@ -5083,9 +5243,232 @@ msgid ""
 "A license defines how the contents of this block can be shared and reused."
 msgstr "רישיון מגדיר כיצד ניתן לשתף ולעשות שימוש חוזר בתוכן של בלוק זה."
 
+#: openedx/features/calendar_sync/ics.py:36
+#, python-brace-format
+msgid "{assignment} is due for {course}."
+msgstr "{assignment} is due for {course}."
+
+#: openedx/features/calendar_sync/plugins.py:21
+msgid "Calendar Sync"
+msgstr "סנכרון לוח שנה"
+
+#: openedx/features/calendar_sync/plugins.py:45
+msgid "Subscribe to calendar updates"
+msgstr "להירשם לעדכוני לוח שנה"
+
+#: openedx/features/calendar_sync/utils.py:16
+#, python-brace-format
+msgid "Sync {course} to your calendar"
+msgstr "סנכרון {course} ליומן שלך"
+
+#: openedx/features/calendar_sync/utils.py:17
+#, python-brace-format
+msgid ""
+"Sticking to a schedule is the best way to ensure that you successfully "
+"complete your self-paced course. This schedule for {course} will help you "
+"stay on track!"
+msgstr ""
+"שמירה על לוח זמנים היא הדרך הטובה ביותר להבטיח שתסיים בהצלחה את הקורס בקצב "
+"שלך. לוח הזמנים הזה עבור {course} יעזור לך להישאר במסלול!"
+
+#: openedx/features/calendar_sync/utils.py:20
+msgid ""
+"Once you sync your course schedule to your calendar, any updates to the "
+"course from your instructor will be automatically reflected. You can remove "
+"the course from your calendar at any time."
+msgstr ""
+"לאחר שתסנכרן את לוח הזמנים של הקורס שלך עם היומן, כל עדכון בקורס מהמדריך שלך"
+" ישתקף אוטומטית. תוכל להסיר את הקורס מהיומן שלך בכל עת."
+
+#: openedx/features/calendar_sync/utils.py:33
+#, python-brace-format
+msgid "{course} dates have been updated on your calendar"
+msgstr "תאריכים של {course} עודכנו בלוח השנה שלך"
+
+#: openedx/features/calendar_sync/utils.py:34
+msgid ""
+"You have successfully shifted your course schedule and your calendar is up "
+"to date."
+msgstr "הצלחת לשנות בהצלחה את לוח הזמנים של הקורס שלך והיומן שלך מעודכן."
+
+#: openedx/features/content_type_gating/models.py:30
+#: openedx/features/course_duration_limits/models.py:39
+msgid ""
+"If the configuration is Enabled, then all enrollments created after this "
+"date and time (user local time) will be affected."
+msgstr ""
+"אם ההגדרה מופעלת, אז כל ההרשמות שנוצרו לאחר תאריך ושעה זו (זמן מקומי של "
+"המשתמש) יושפעו."
+
+#: openedx/features/content_type_gating/models.py:36
+msgid "Studio Override Enabled"
+msgstr "סטודיו Override Enabled"
+
+#: openedx/features/content_type_gating/partitions.py:117
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:10
+msgid "Graded assessments are available to Verified Track learners."
+msgstr "הערכות מדורגות זמינות ללומדים במסלול המאומת."
+
+#: openedx/features/content_type_gating/partitions.py:119
+msgid ""
+"Graded assessments are available to Verified Track learners. Upgrade to "
+"Unlock."
+msgstr "הערכות מדורגות זמינות ללומדים במסלול המאומת. שדרגו כדי לשחרר נעילה."
+
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:3
+msgid "Content available only to verified track learners"
+msgstr "תוכן זמין רק ללומדים במסלול מאומת"
+
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:7
+msgid "Verified Track Access"
+msgstr "Verified Track Access"
+
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:15
+msgid "Upgrade to unlock"
+msgstr "לשדרג כדי לשחרר נעילה"
+
+#: openedx/features/course_duration_limits/access.py:32
+#, python-brace-format
+msgid "Access expired on {expiration_date}"
+msgstr "פג תוקף הגישה ב-{expiration_date}"
+
+#: openedx/features/course_duration_limits/access.py:35
+#, python-brace-format
+msgid "Access to {course_name} expired on {expiration_date}"
+msgstr "הגישה ל-{course_name} פגה בתוקף ב-{expiration_date}"
+
+#: openedx/features/course_duration_limits/access.py:40
+#, python-brace-format
+msgid "Access to the course you were looking for expired on {expiration_date}"
+msgstr "הגישה לקורס שחיפשת פגה בתוקף ב-{expiration_date}"
+
+#: openedx/features/course_duration_limits/access.py:158
+#, python-brace-format
+msgid ""
+"This learner does not have access to this course. Their access expired on "
+"{expiration_date}."
+msgstr "ללומד זה אין גישה לקורס הזה. הגישה שלהם פגה ב-{expiration_date}."
+
+#: openedx/features/course_duration_limits/access.py:167
+#, python-brace-format
+msgid ""
+"{line_break}Upgrade by {upgrade_deadline} to get unlimited access to the "
+"course as long as it exists on the site. {a_open}Upgrade "
+"now{sronly_span_open} to retain access past "
+"{expiration_date}{span_close}{a_close}"
+msgstr ""
+"{line_break}שדרגו עד {upgrade_deadline} כדי לקבל גישה בלתי מוגבלת לקורס כל "
+"עוד הוא קיים באתר. {a_open}שדרגו עכשיו{sronly_span_open} כדי לשמור על גישה "
+"לאחר {expiration_date}{span_close}{a_close}"
+
+#: openedx/features/course_experience/api/v1/views.py:60
+msgid "'course_key' is required."
+msgstr "'course_key' is required."
+
+#: openedx/features/course_experience/api/v1/views.py:69
+#: openedx/features/course_experience/api/v1/views.py:72
+msgid "View all dates"
+msgstr "צפה בכל התאריכים"
+
+#: openedx/features/course_experience/api/v1/views.py:70
+msgid ""
+"Your due dates have been successfully shifted to help you stay on track."
+msgstr "תאריכי היעד שלך הוזזו בהצלחה כדי לעזור לך להישאר על המסלול."
+
+#: openedx/features/course_experience/api/v1/views.py:73
+msgid "Deadlines successfully reset."
+msgstr "הדדליין אופס בהצלחה."
+
+#: openedx/features/discounts/admin.py:22
+msgid ""
+"These define the context to disable lms-controlled discounts on. If no "
+"values are set, then the configuration applies globally. If a single value "
+"is set, then the configuration applies to all courses within that context. "
+"At most one value can be set at a time.<br>If multiple contexts apply to a "
+"course (for example, if configuration is specified for the course "
+"specifically, and for the org that the course is in, then the more specific "
+"context overrides the more general context."
+msgstr ""
+"אלה מגדירים את ההקשר לביטול הנחות הנשלטות על ידי LMS. אם לא מוגדרים ערכים, "
+"ההגדרה חלה באופן גלובלי. אם מוגדר ערך יחיד, ההגדרה חלים על כל הקורסים בהקשר "
+"זה. ניתן להגדיר ערך אחד בלבד בכל פעם.<br>אם מספר הקשרים חלים על קורס "
+"(לדוגמה, אם ההגדרה מוגדרת עבור הקורס באופן ספציפי, ועבור הארגון שבו הקורס "
+"נמצא, אז ההקשר הספציפי יותר גובר על ההקשר הכללי יותר."
+
+#: openedx/features/discounts/admin.py:54
+msgid ""
+"These define the context to configure the percentage for the first purchase "
+"discount.If multiple contexts apply to a course (for example, if "
+"configuration is specified for the course specifically, and for the org that"
+" the course is in, then the more specific context overrides the more general"
+" context."
+msgstr ""
+"אלה מגדירים את ההקשר להגדרת האחוז להנחה ברכישה הראשונה. אם מספר הקשרים חלים "
+"על קורס (לדוגמה, אם ההגדרה מצוינת עבור הקורס באופן ספציפי, ועבור הארגון שבו "
+"הקורס נמצא, אז ההקשר הספציפי יותר גובר על ההקשר הכללי יותר."
+
+#: openedx/features/discounts/utils.py:142
+#, python-brace-format
+msgid ""
+"{s_sr}Original price: {s_op}{original_price}{e_p}, discount price: "
+"{e_sr}{formatted_discount_price}"
+msgstr ""
+"{s_sr}מחיר מקורי: {s_op}{original_price}{e_p}, אחרי הנחה: "
+"{e_sr}{formatted_discount_price}"
+
+#: openedx/features/enterprise_support/admin/forms.py:13
+msgid "CSV File"
+msgstr "קובץ CSV"
+
+#: openedx/features/enterprise_support/admin/forms.py:14
+msgid ""
+"CSV file should have 3 columns having names lms_user_id, course_id, "
+"opportunity_id"
+msgstr ""
+"CSV file should have 3 columns having שמות lms_user_id, מזהה קורס, "
+"opportunity_id"
+
+#: openedx/features/enterprise_support/admin/views.py:66
+#, python-brace-format
+msgid ""
+"Enrollment attributes were not updated for records at following line numbers"
+" in csv because no enrollment found for these records: {error_line_numbers}"
+msgstr ""
+"מאפייני ההרשמה לא עודכנו עבור הרשומות במספרי השורות הבאים בקובץ ה-CSV מכיוון"
+" שלא נמצאה הרשמה עבור רשומות אלו: {error_line_numbers}"
+
+#: openedx/features/enterprise_support/api.py:903
+#, python-brace-format
+msgid ""
+"You have access to the {bold_start}{enterprise_name}{bold_end} dashboard. To"
+" access the courses available to you through {enterprise_name}, "
+"{link_start}visit the {enterprise_name} dashboard{link_end}."
+msgstr ""
+"יש לך גישה ללוח הבקרה של {bold_start}{enterprise_name}{bold_end}. כדי לגשת "
+"לקורסים הזמינים לך דרך {enterprise_name}, {link_start}בקר בלוח הבקרה של "
+"{enterprise_name}{link_end}."
+
+#: openedx/features/enterprise_support/api.py:1004
+#, python-brace-format
+msgid "Enrollment in {course_title} was not complete."
+msgstr "ההרשמה לקורס {course_title} לא הושלמה."
+
+#: openedx/features/enterprise_support/api.py:1008
+#, python-brace-format
+msgid ""
+"If you have concerns about sharing your data, please contact your "
+"administrator at {enterprise_customer_name}."
+msgstr ""
+"בכל שאלה או חשש בנוגע לנתונים שלך ניתן לפנות אל הנהלת המערכת "
+"ב-{enterprise_customer_name}."
+
 #: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:15
 msgid "Home"
 msgstr "בית"
+
+#: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:25
+msgid "Upload CSV to override enrollment attributes for learners"
+msgstr "העלה CSV כדי לעקוף מאפייני הרשמה ללומדים"
 
 #: openedx/features/enterprise_support/utils.py:178
 #, python-brace-format
@@ -5100,9 +5483,66 @@ msgstr ""
 "{platform_name}.{line_break}{line_break}פרטי "
 "שגיאה:{line_break}{error_message}"
 
+#: openedx/features/enterprise_support/utils.py:200
+#, python-brace-format
+msgid ""
+"Thank you for joining {platform_name}. Just a couple steps before you start "
+"learning!"
+msgstr "תודה שהצטרפת ל-{platform_name}. רק עוד כמה צעדים לפני שתתחיל ללמוד!"
+
 #: openedx/features/enterprise_support/utils.py:205
 msgid "Continue"
 msgstr "המשך"
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:127
+msgid "Shift due dates"
+msgstr "שינוי תאריכי יעד"
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:134
+msgid ""
+"It looks like you missed some important deadlines based on our suggested "
+"schedule."
+msgstr "נראה שהחמצת כמה מועדים חשובים בהתבסס על לוח הזמנים המוצע שלנו."
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:135
+msgid ""
+"To keep yourself on track, you can update this schedule and shift the past "
+"due assignments into the future. Don’t worry—you won’t lose any of the "
+"progress you’ve made when you shift your due dates."
+msgstr ""
+"כדי להישאר במסלול, תוכל לעדכן את לוח הזמנים הזה ולהעביר את המטלות שפג תוקפן "
+"למועד מאוחר יותר. אל תדאג — לא תאבד אף אחד מההתקדמות שהשגת כאשר תעביר את "
+"תאריכי היעד שלך."
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:145
+#, python-brace-format
+msgid "Try again ({attempts} attempt remaining)"
+msgid_plural "Try again ({attempts} attempts remaining)"
+msgstr[0] "נסה שוב ({attempts} ניסיון נותר)"
+msgstr[1] "נסה שוב ({attempts} ניסיונות נותרו)"
+msgstr[2] "נסה שוב ({attempts} ניסיונות נותרו)"
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:150
+#, python-brace-format
+msgid "You have used {attempts} of {max_attempts} attempts for this problem."
+msgstr "השתמשת ב {attempts} מתוך {max_attempts} ניסיונות עבור זה הבעיה."
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:155
+msgid "Try again (unlimited attempts)"
+msgstr "נסה שוב (ניסיונות ללא הגבלה)"
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:156
+#, python-brace-format
+msgid "You have used {attempts} of unlimited attempts for this problem."
+msgstr "השתמשת ב-{attempts} מתוך ניסיונות בלתי מוגבלים עבור זאת בעיה."
+
+#: themes/red-theme/lms/templates/ace_common/edx_ace/common/base_body.html:70
+msgid "Sign In"
+msgstr "כניסה"
+
+#: themes/red-theme/lms/templates/ace_common/edx_ace/common/base_body.html:176
+msgid "Our mailing address is"
+msgstr "כתובת הדואר שלנו היא"
 
 #: xmodule/annotatable_block.py:48
 msgid "XML data for the annotation"
@@ -5126,6 +5566,10 @@ msgstr "ביאור"
 #: xmodule/capa/capa_problem.py:518
 msgid "Cannot rescore problems with possible file submissions"
 msgstr "לא ניתן לתת מחדש ציון עבור תשובות להגשות קובץ אפשריות. "
+
+#: xmodule/capa/capa_problem.py:616
+msgid "Question {}"
+msgstr "שאלה {}"
 
 #: xmodule/capa/capa_problem.py:750 xmodule/capa_block.py:1397
 msgid "Incorrect"
@@ -5529,6 +5973,11 @@ msgstr "לא ניתן לפרש את תשובת הצוות כמספר."
 msgid "Could not interpret '{given_answer}' as a number."
 msgstr "לא ניתן לפרש '{given_answer}' כמספר."
 
+#: xmodule/capa/safe_exec/remote_exec.py:118
+msgid ""
+"Codejail API Service is unavailable. Please try again in a few minutes."
+msgstr "שירות Codejail API אינו זמין. נסה שוב בעוד כמה דקות."
+
 #: xmodule/capa/templates/codeinput.html:6
 msgid "Code Editor"
 msgstr "עורך קוד"
@@ -5665,6 +6114,10 @@ msgstr "הושלם"
 msgid "Correct or Past Due"
 msgstr "נכון או עבר תאריך יעד"
 
+#: xmodule/capa_block.py:247
+msgid "After Some Number of Attempts"
+msgstr "אחרי מספר ניסיונות"
+
 #: xmodule/capa_block.py:248
 msgid "After All Attempts"
 msgstr "אחרי כל הנסיונות"
@@ -5676,6 +6129,17 @@ msgstr "אחרי כל הניסיונות או נכון"
 #: xmodule/capa_block.py:250
 msgid "Attempted"
 msgstr "נוסה"
+
+#: xmodule/capa_block.py:254
+msgid "Show Answer: Number of Attempts"
+msgstr "הצג תשובה: מספר ניסיונות מענה"
+
+#: xmodule/capa_block.py:256
+msgid ""
+"Number of times the student must attempt to answer the question before the "
+"Show Answer button appears."
+msgstr ""
+"על התלמיד לנסות לענות על השאלה מספר פעמים לפני שלחצן 'הצג תשובה' מופיע."
 
 #: xmodule/capa_block.py:263
 msgid "Whether to force the save button to appear on the page"
@@ -5728,6 +6192,10 @@ msgstr "מילון עבור שמירה על מצב סוגי קלט."
 #: xmodule/capa_block.py:300
 msgid "Dictionary with the current student responses"
 msgstr "מילון עם התשובות הנוכחיות של הסטודנט"
+
+#: xmodule/capa_block.py:306
+msgid "Dictionary with the current student score"
+msgstr "מילון עם הציון הנוכחי של הסטודנט"
 
 #: xmodule/capa_block.py:311
 msgid "Whether or not the answers have been saved since last submit"
@@ -5815,9 +6283,17 @@ msgid ""
 "refresh your page."
 msgstr "מצב הבעיה השתנה מאז שטענת עמוד זה. נא רענן את העמוד שלך. "
 
+#: xmodule/capa_block.py:790 xmodule/capa_block.py:807
+msgid "Answer ID"
+msgstr "מזהה תשובה"
+
 #: xmodule/capa_block.py:791 xmodule/capa_block.py:808
 msgid "Question"
 msgstr "שאלה"
+
+#: xmodule/capa_block.py:795
+msgid "Correct Answer"
+msgstr "תשובה נכונה"
 
 #: xmodule/capa_block.py:1043
 msgid "Submitting"
@@ -5839,6 +6315,16 @@ msgstr "מצב בעיה זו הושחת באמצעות הגשה לא חוקית.
 msgid "If this error persists, please contact the course staff."
 msgstr "אם שגיאה זו ממשיכה, אנא צור קשר עם צוות הקורס."
 
+#. Translators: {previous_hints} is the HTML of hints that have already been
+#. generated, {hint_number_prefix}
+#. is a header for this hint, and {hint_text} is the text of the hint itself.
+#. This string is being passed to translation only for possible reordering of
+#. the placeholders.
+#: xmodule/capa_block.py:1231
+#, python-brace-format
+msgid "{previous_hints}{list_start_tag}{strong_text}{hint_text}</li>"
+msgstr "{previous_hints}{list_start_tag}{strong_text}{hint_text}</li>"
+
 #. Translators: e.g. "Hint 1 of 3: " meaning we are showing the first of three
 #. hints.
 #. This text is shown in bold before the accompanying hint text.
@@ -5852,6 +6338,30 @@ msgstr "רמז ({hint_num} מתוך {hints_count}):"
 msgid ""
 "Your answers were previously saved. Click '{button_name}' to grade them."
 msgstr "תשובותיך נשמרו קודם. לחץ על  '{button_name}' כדי לתת להן ציון."
+
+#: xmodule/capa_block.py:1394
+#, python-brace-format
+msgid "Incorrect ({progress} point)"
+msgid_plural "Incorrect ({progress} points)"
+msgstr[0] "נקודה שגויה ({progress})"
+msgstr[1] "({progress} נקודות שגויות)"
+msgstr[2] "({progress} נקודות שגויות)"
+
+#: xmodule/capa_block.py:1401
+#, python-brace-format
+msgid "Correct ({progress} point)"
+msgid_plural "Correct ({progress} points)"
+msgstr[0] "(נקודה נכונה {progress})"
+msgstr[1] "({progress} נקודות נכונות)"
+msgstr[2] "({progress} נקודות נכונות)"
+
+#: xmodule/capa_block.py:1408
+#, python-brace-format
+msgid "Partially correct ({progress} point)"
+msgid_plural "Partially correct ({progress} points)"
+msgstr[0] "נקודה נכונה חלקית ({progress})"
+msgstr[1] "נכון חלקית ({progress} נקודות)"
+msgstr[2] "נכון חלקית ({progress} נקודות)"
 
 #: xmodule/capa_block.py:1413
 msgid "Partially Correct"
@@ -5960,13 +6470,39 @@ msgstr "רכיבי מקור"
 msgid "Conditional Attribute"
 msgstr "מאפיין מותנה"
 
+#: xmodule/conditional_block.py:109
+msgid ""
+"The attribute of the source components that determines whether a learner is "
+"shown the content of this conditional block."
+msgstr "המאפיין של מרכיבי המקור שקובע אם לומד יראה את התוכן של בלוק מותנה זה."
+
 #: xmodule/conditional_block.py:118
 msgid "Conditional Value"
 msgstr "ערך מותנה"
 
+#: xmodule/conditional_block.py:119
+msgid ""
+"The value that the conditional attribute of the source components must match"
+" before a learner is shown the content of this conditional block."
+msgstr ""
+"הערך שהמאפיין המותנה של מרכיבי המקור חייב להתאים אליו לפני הצגת תוכן בלוק "
+"מותנה זה ללומד."
+
 #: xmodule/conditional_block.py:126
 msgid "Blocked Content Message"
 msgstr "הודעה על תוכן חסום"
+
+#: xmodule/conditional_block.py:127
+#, python-brace-format
+msgid ""
+"The message that is shown to learners when not all conditions are met to "
+"show the content of this conditional block. Include {link} in the text of "
+"your message to give learners a direct link to required units. For example, "
+"'You must complete {link} before you can access this unit'."
+msgstr ""
+"ההודעה המוצגת ללומדים כאשר לא כל התנאים מולאו להצגת תוכן מודול מותנה זה. "
+"כלול {link} בטקסט ההודעה כדי שהתלמידים יקבלו קישור ישיר ליחידות הדרושות. "
+"לדוגמה, 'עליך להשלים את {link} לפני שתוכל לגשת ליחידה זו'."
 
 #: xmodule/conditional_block.py:131
 #, python-brace-format
@@ -6010,6 +6546,10 @@ msgstr "קבע תאריך להרשמה זו מאחר וכיתה זו פתוחה"
 #: xmodule/course_block.py:365
 msgid "Date that enrollment for this class is closed"
 msgstr "קבע תאריך להרשמה זו מאחר וכיתה זו סגורה"
+
+#: xmodule/course_block.py:367
+msgid "Start time when this block is visible"
+msgstr "שעת ההתחלה כאשר בלוק זה גלוי"
 
 #: xmodule/course_block.py:371
 msgid "Date that this class ends"
@@ -6066,6 +6606,10 @@ msgid ""
 "Enter true or false. When true, students can see the calculator in the "
 "course."
 msgstr "הזן כן או לא. כאשר כן, סטודנטים יכולים לראות את המחשבון בקורס."
+
+#: xmodule/course_block.py:411
+msgid "Enter the name of the course as it should appear in the course list."
+msgstr "הזן את שם הקורס כפי שהוא אמור להופיע ברשימת הקורסים."
 
 #: xmodule/course_block.py:413
 msgid "Course Display Name"
@@ -6139,6 +6683,14 @@ msgstr ""
 "התכונה \"ברירת מחדל\" לאמת. לדוגמה,  \"Lydian Mode\": {\"id\": "
 "\"i4x-UniversityX-MUS101-course-2015_T1\", \"default\": true}."
 
+#: xmodule/course_block.py:457
+msgid "Discussions Plugin Settings"
+msgstr "הגדרות תוסף דיונים"
+
+#: xmodule/course_block.py:459
+msgid "Settings for discussions plugins."
+msgstr "הגדרות לתוספי דיונים"
+
 #: xmodule/course_block.py:467
 msgid "Course Announcement Date"
 msgstr "תאריך הכרזת הקורס"
@@ -6165,6 +6717,14 @@ msgstr ""
 msgid "Course Is New"
 msgstr "קורס חדש"
 
+#: xmodule/course_block.py:482
+msgid ""
+"Enter true or false. If true, the course appears in the list of new courses,"
+" and a New! badge temporarily appears next to the course image."
+msgstr ""
+"הזן נכון או לא נכון. אם נכון, הקורס יופיע ברשימת הקורסים החדשים, ותג חדש! "
+"יופיע באופן זמני ליד תמונת הקורס."
+
 #: xmodule/course_block.py:488
 msgid "Mobile Course Available"
 msgstr "קורס זמין בנייד"
@@ -6178,6 +6738,15 @@ msgstr "הזן כן או לא. אם כן, הקורס יהיה זמין למכש�
 #: xmodule/course_block.py:494
 msgid "Video Upload Credentials"
 msgstr "אישורי העלאת סרטון וידאו"
+
+#: xmodule/course_block.py:496
+#, python-brace-format
+msgid ""
+"Enter the unique identifier for your course's video files provided by "
+"{platform_name}."
+msgstr ""
+"הזן את המזהה הייחודי עבור קבצי הווידאו של הקורס שלך כפי שסופק על ידי "
+"{platform_name}."
 
 #: xmodule/course_block.py:501
 msgid "Course Not Graded"
@@ -6236,6 +6805,22 @@ msgstr ""
 #: xmodule/course_block.py:536
 msgid "Enable CCX"
 msgstr "הפעל CCX"
+
+#. Translators: Custom Courses for edX (CCX) is an edX feature for re-using
+#. course content. CCX Coach is
+#. a role created by a course Instructor to enable a person (the "Coach") to
+#. manage the custom course for
+#. his students.
+#: xmodule/course_block.py:541
+#, python-brace-format
+msgid ""
+"Allow course instructors to assign CCX Coach roles, and allow coaches to "
+"manage Custom Courses on {platform_name}. When false, Custom Courses cannot "
+"be created, but existing Custom Courses will be preserved."
+msgstr ""
+"אפשר למנחי הקורס להקצות תפקיד מנחה כיתה ולמנחים לשנות את הקורסים המותאמים "
+"אישית ב-{platform_name}. במידה ולא, לא ניתן ליצור את הקורסים המותאמים אישית,"
+" אך יישמרו קורסים מותאמים אישית קיימים."
 
 #. Translators: Custom Courses for edX (CCX) is an edX feature for re-using
 #. course content.
@@ -6329,6 +6914,14 @@ msgstr ""
 #: xmodule/course_block.py:609
 msgid "Certificates Display Behavior"
 msgstr "תעודות המציגות התנהגות"
+
+#: xmodule/course_block.py:611
+msgid ""
+"This field, together with certificate_available_date will determine when a "
+"user can see their certificate for the course"
+msgstr ""
+"שדה זה, יחד עם certificate_available_date, יקבע מתי משתמש יכול לראות את "
+"התעודה שלו עבור הקורס"
 
 #: xmodule/course_block.py:618
 msgid "Course About Page Image"
@@ -6499,6 +7092,14 @@ msgstr ""
 msgid "Allow Public Wiki Access"
 msgstr "אפשר גישה ציבורית ל-Wiki."
 
+#: xmodule/course_block.py:764
+msgid ""
+"Enter true or false. If true, students can view the course wiki even if "
+"they're not enrolled in the course."
+msgstr ""
+"הזן אמת או שקר. אם אמת, סטודנטים יכולים לצפות בוויקי של הקורס גם אם הם לא "
+"רשומים לקורס."
+
 #: xmodule/course_block.py:772
 msgid "Invitation Only"
 msgstr "בהזמנה בלבד"
@@ -6575,6 +7176,10 @@ msgstr ""
 msgid "Entrance Exam ID"
 msgstr "מזהה של מבחן כניסה"
 
+#: xmodule/course_block.py:840
+msgid "Content block identifier (location) of entrance exam."
+msgstr "מזהה (מיקום) בלוק תוכן עבור מבחן כניסה."
+
 #: xmodule/course_block.py:846
 msgid "Social Media Sharing URL"
 msgstr "כתובת URL לשיתוף במדיה חברתית"
@@ -6615,6 +7220,19 @@ msgid ""
 msgstr ""
 "הזן כן או לא. אם הערך הוא כן, מבחנים תחת פיקוח מאופשרים בקורס שלך. שים לב "
 "שאיפשור מבחנים תחת פיקוח יאפשר גם מבחנים מתוזמנים."
+
+#: xmodule/course_block.py:886
+msgid "Proctoring Provider"
+msgstr "השגחה ספק"
+
+#: xmodule/course_block.py:888
+#, python-brace-format
+msgid ""
+"Enter the proctoring provider you want to use for this course run. Choose "
+"from the following options: {available_providers}."
+msgstr ""
+"הזן את ספק ההשגחה שברצונך להשתמש בו עבור ריצת הקורס הזה. בחר מתוך האפשרויות "
+"הבאות: {available_providers}."
 
 #: xmodule/course_block.py:904
 msgid ""
@@ -6710,6 +7328,46 @@ msgstr "מידע על הלמידה בקורס"
 msgid "Specify what student can learn from the course."
 msgstr "ציין איזה סטודנט יכול ללמוד מהקורס."
 
+#. Translators: the quoted words 'private', 'public_outline', and 'public'
+#. must be left untranslated.  Leave them as English words.
+#: xmodule/course_block.py:990
+msgid ""
+"Defines the access permissions for unenrolled learners. This can be set to "
+"one of three values: 'private' (default visibility, only allowed for "
+"enrolled students), 'public_outline' (allow access to course outline) and "
+"'public' (allow access to both outline and course content)."
+msgstr ""
+"מגדיר את הרשאות הגישה ללומדים שאינם רשומים. ניתן להגדיר זאת לאחת משלוש "
+"ערכים: 'פרטי' (ברירת מחדל, גישה מותרת רק לסטודנטים רשומים), 'public_outline'"
+" (מאפשר גישה למתווה הקורס) ו-'public' (מאפשר גישה גם למתווה וגם לתוכן "
+"הקורס)."
+
+#: xmodule/course_block.py:1004
+msgid "Video Sharing Options"
+msgstr "אפשרויות שיתוף וידאו"
+
+#: xmodule/course_block.py:1006
+msgid ""
+"Specify the video sharing options for the course. This can be set to one of "
+"three values: 'all-on', 'all-off' and 'per-video'. with 'per-video' as the "
+"default."
+msgstr ""
+"ציין את אפשרויות שיתוף הווידאו עבור הקורס. ניתן להגדיר זאת לאחת משלוש "
+"האפשרויות: 'all-on', 'all-off' ו-'per-video'. כאשר 'per-video' הוא ברירת "
+"המחדל."
+
+#: xmodule/course_block.py:1020
+msgid "Force Flexible Grading for Peer ORAs"
+msgstr "Force Flexible Grading for Peer ORAs"
+
+#: xmodule/course_block.py:1021
+msgid ""
+"Setting this flag will force on the flexible grading option for all peer-"
+"graded ORAs in this course."
+msgstr ""
+"הגדרת דגל זה תפעיל את אפשרות ההערכה הגמישה עבור כל ORAs המוערכים על ידי "
+"עמיתים בקורס הזה."
+
 #: xmodule/course_block.py:1041
 msgid "Course Instructor"
 msgstr "מדריך הקורס"
@@ -6733,6 +7391,45 @@ msgstr ""
 "הזן כן או לא. אם כן, תוכל להוסיף בעיות וכלים לא נתמכים לקורס שלך בסטודיו. "
 "בעיות וכלים לא נתמכים אינם מומלצים לשימוש בקורסים בשל אי ציות לאחת או יותר "
 "מהדרישות הבסיסיות, כגון בחינה, נגישות, אינטרנציונליזציה ותיעוד."
+
+#: xmodule/course_block.py:1058
+msgid "Highlights Enabled for Messaging"
+msgstr "Highlights Enabled for Messaging"
+
+#: xmodule/course_block.py:1067
+msgid "Course-wide Custom JS"
+msgstr "JS מותאם אישית לכל הקורס"
+
+#: xmodule/course_block.py:1068
+msgid ""
+"Enter Javascript resource URLs you want to be loaded globally throughout the"
+" course pages."
+msgstr "הזן כתובות של משאבי Javascript שברצונך שיטענו בכל דפי הקורס."
+
+#: xmodule/course_block.py:1073
+msgid "Course-wide Custom CSS"
+msgstr "CSS מותאם אישית לכל הקורס"
+
+#: xmodule/course_block.py:1074
+msgid ""
+"Enter CSS resource URLs you want to be loaded globally throughout the course"
+" pages."
+msgstr "הזנת כתובות של משאבי CSS שברצונך שיטענו בכל דפי הקורס."
+
+#: xmodule/course_block.py:1079
+msgid "Other Course Settings"
+msgstr "הגדרות קורס נוספות"
+
+#: xmodule/course_block.py:1081
+msgid ""
+"Any additional information about the course that the platform needs or that "
+"allows integration with external systems such as CRM software. Enter a "
+"dictionary of values in JSON format, such as { \"my_custom_setting\": "
+"\"value\", \"other_setting\": \"value\" }"
+msgstr ""
+"כל מידע נוסף על הקורס שהפלטפורמה צריכה או שמאפשר אינטגרציה עם מערכות "
+"חיצוניות כמו תוכנת CRM. הזן מילון ערכים בפורמט JSON, כגון { "
+"\"my_custom_setting\": \"value\", \"other_setting\": \"value\" }"
 
 #: xmodule/course_block.py:1133
 msgid "General"
@@ -6765,6 +7462,51 @@ msgid ""
 msgstr ""
 "שם תת קטגוריה עבור הדיון. השם הזה מופיע בחלונית השמאלית של פורום הדיונים של "
 "הקורס. "
+
+#: xmodule/discussion_block.py:184
+#, python-brace-format
+msgid ""
+"You are not signed in. To view the discussion content, {sign_in_link} or "
+"{register_link}, and enroll in this course."
+msgstr ""
+"אתה לא מחובר. כדי לצפות בתוכן הדיונים, {sign_in_link} או {register_link}, "
+"ולהירשם לקורס הזה."
+
+#: xmodule/graders.py:382
+msgid "Generated"
+msgstr "נוצר"
+
+#. Translators: "Homework 1 - Unreleased - 0% (?/?)" The section has not been
+#. released for viewing.
+#: xmodule/graders.py:403
+#, python-brace-format
+msgid "{section_type} {index} Unreleased - 0% (?/?)"
+msgstr "{section_type} {index} Unreleased - 0% (?/?)"
+
+#: xmodule/graders.py:417
+#, python-brace-format
+msgid "The lowest {drop_count} {section_type} scores are dropped."
+msgstr "מורידים את ה-{drop_count} {section_type} עם הציונים הפחות טובים."
+
+#. Translators: Avg is short for Average
+#: xmodule/graders.py:441
+#, python-brace-format
+msgid "{short_label} Avg"
+msgstr "{short_label} Avg"
+
+#: xmodule/hidden_block.py:38
+#, python-brace-format
+msgid ""
+"ERROR: \"{block_type}\" is an unknown component type. This component will be"
+" hidden in LMS."
+msgstr ""
+"ERROR: \"{block_type}\" is an unknown מרכיב type. This מרכיב will be hidden "
+"in LMS."
+
+#: xmodule/html_block.py:63 xmodule/html_block.py:388
+#: xmodule/html_block.py:448
+msgid "Html contents to display for this block"
+msgstr "תוכן HTML להצגה עבור בלוק זה"
 
 #: xmodule/html_block.py:65
 msgid "Upstream html contents to store upstream data field"
@@ -6820,6 +7562,14 @@ msgstr "רשימת פריטים שעודכנו בקורס "
 msgid "Count"
 msgstr "ספירה"
 
+#: xmodule/item_bank_block.py:82
+msgid ""
+"Determines whether a 'Reset Problems' button is shown, so users may reset "
+"their answers and reshuffle selected items."
+msgstr ""
+"קובע אם להציג כפתור 'איפוס בעיות', כך שמשתמשים יוכלו לאפס את תשובותיהם "
+"ולערבב מחדש פריטים שנבחרו."
+
 #: xmodule/library_content_block.py:52
 msgid "Any Type"
 msgstr "כל סוג"
@@ -6856,6 +7606,15 @@ msgid ""
 "blocks now"
 msgstr ""
 "זה הבלוק כבר הועבר לשימוש בספרייה גרסה 2. עכשיו אפשר לסנכרן בלוקים בודדים."
+
+#: xmodule/library_content_block.py:246
+msgid "Content libraries are not available in the current runtime."
+msgstr "ספריות תוכן אינן זמינות בזמן הריצה הנוכחי."
+
+#: xmodule/library_content_block.py:249
+#, python-brace-format
+msgid "Source content library does not exist: {source_library_id}"
+msgstr "Source תוכן library does not exist: {source_library_id}"
 
 #: xmodule/library_content_block.py:345
 msgid ""
@@ -6913,9 +7672,30 @@ msgstr "לא נבחרה ספריה."
 msgid "Select a Library."
 msgstr "בחר ספריה."
 
+#: xmodule/library_content_block.py:454
+#, python-brace-format
+msgid "There are no problems in the specified library of type {capa_type}."
+msgstr "אין בעיות בתוך הספרייה שצוינה מסוג {capa_type}."
+
 #: xmodule/library_content_block.py:457
 msgid "Select another problem type."
 msgstr "בחר סוג בעיה אחר."
+
+#: xmodule/library_content_block.py:468
+#, python-brace-format
+msgid "The specified library is configured to fetch {count} problem, "
+msgid_plural "The specified library is configured to fetch {count} problems, "
+msgstr[0] "הספריה שצוינה מוגדרת למשיכת בעיה {count}, "
+msgstr[1] "הספריה המצוינת מוגדרת להביא {count} בעיות, "
+msgstr[2] "הספריה המצוינת מוגדרת להביא {count} בעיות, "
+
+#: xmodule/library_content_block.py:473
+#, python-brace-format
+msgid "but there is only {actual} matching problem."
+msgid_plural "but there are only {actual} matching problems."
+msgstr[0] "אך יש רק בעיית התאמה {actual}."
+msgstr[1] "אך יש רק {actual} בעיות התאמה."
+msgstr[2] "אך יש רק {actual} בעיות התאמה."
 
 #: xmodule/library_content_block.py:479
 msgid "Edit the library configuration."
@@ -6948,13 +7728,50 @@ msgstr ""
 msgid "LTI ID"
 msgstr "מזהה LTI "
 
+#: xmodule/lti_block.py:142
+#, python-brace-format
+msgid ""
+"Enter the LTI ID for the external LTI provider.  This value must be the same"
+" LTI ID that you entered in the LTI Passports setting on the Advanced "
+"Settings page.{break_tag}See {docs_anchor_open}the edX LTI "
+"documentation{anchor_close} for more details on this setting."
+msgstr ""
+"הזן את מזהה LTI לספק ה-LTI החיצוני. ערך זה חייב להיות זהה למזהה LTI שהזנת "
+"בהגדרת דרכוני ה-LTI בדף ההגדרות המתקדמות.{break_tag}ראה "
+"{docs_anchor_open}תיעוד ה-LTI של edX{anchor_close} לקבלת פרטים נוספים על "
+"הגדרה זו."
+
 #: xmodule/lti_block.py:155
 msgid "LTI URL"
 msgstr "כתובת URL של LTI"
 
+#: xmodule/lti_block.py:157
+#, python-brace-format
+msgid ""
+"Enter the URL of the external tool that this component launches. This "
+"setting is only used when Hide External Tool is set to False.{break_tag}See "
+"{docs_anchor_open}the edX LTI documentation{anchor_close} for more details "
+"on this setting."
+msgstr ""
+"הזן את כתובת ה-URL של הכלי החיצוני שמרכיב זה מפעיל. הגדרה זו משמשת רק כאשר "
+"'הסתרת כלי חיצוני' מוגדר ל'לא'.{break_tag}ראה {docs_anchor_open}תיעוד ה-LTI "
+"של edX{anchor_close} לקבלת פרטים נוספים על הגדרה זו."
+
 #: xmodule/lti_block.py:168
 msgid "Custom Parameters"
 msgstr "משתנים בהתאמה אישית"
+
+#: xmodule/lti_block.py:170
+#, python-brace-format
+msgid ""
+"Add the key/value pair for any custom parameters, such as the page your "
+"e-book should open to or the background color for this "
+"component.{break_tag}See {docs_anchor_open}the edX LTI "
+"documentation{anchor_close} for more details on this setting."
+msgstr ""
+"הוסף התאמת מפתח/ערך לכל משתנה מותאם אישית, כגון הדף שבו הספר האלקטרוני שלך "
+"אמור להיפתח או צבע הרקע של מרכיב זה.{break_tag}ראה {docs_anchor_open}תיעוד "
+"ה-LTI של edX{anchor_close} לקבלת פרטים נוספים על הגדרה זו."
 
 #: xmodule/lti_block.py:180
 msgid "Open in New Page"
@@ -7095,6 +7912,13 @@ msgstr "תאריך סיום"
 msgid "Enter the default date by which problems are due."
 msgstr "הזן את תאריך היעד שיהווה ברירת מחדל להגשת הבעיות."
 
+#: xmodule/modulestore/inheritance.py:54 xmodule/seq_block.py:85
+msgid ""
+"Enter the number of weeks the problems are due by relative to the learner's "
+"enrollment date"
+msgstr ""
+"הזן את מספר השבועות עד למועד ההגשה של הבעיות ביחס לתאריך ההרשמה של הלומד"
+
 #: xmodule/modulestore/inheritance.py:70
 msgid "GIT URL"
 msgstr "כתובת URL של GIT"
@@ -7224,6 +8048,16 @@ msgid ""
 msgstr ""
 "הזן כן או לא. אם כן, יתבצע אחסון במטמון וידאו עבור סרטוני וידאו של HTML5."
 
+#: xmodule/modulestore/inheritance.py:176
+msgid ""
+"Specify whether to show an auto-advance button in videos. If the student "
+"clicks it, when the last video in a unit finishes it will automatically move"
+" to the next unit and autoplay the first video."
+msgstr ""
+"ציין אם להציג כפתור מעבר אוטומטי בוידאו. אם התלמיד לוחץ עליו, כאשר הוידאו "
+"האחרון ביחידה מסתיים, הוא יעבור אוטומטית ליחידה הבאה ויפעיל אוטומטית את "
+"הוידאו הראשון."
+
 #: xmodule/modulestore/inheritance.py:182
 msgid "Video Pre-Roll"
 msgstr "מודעה לפני סרטון וידאו"
@@ -7272,6 +8106,26 @@ msgstr ""
 "מציין אם רשימות הסטודנטים גלויים בקורס. הסטודנטים יכולים להציג או להסתיר את "
 "רשימותיהם בתוכנת המחשב של הקורס."
 
+#: xmodule/modulestore/inheritance.py:225
+msgid "Tag this block as part of an Entrance Exam section"
+msgstr "סמן בלוק זה כחלק ממקטע של מבחן כניסה."
+
+#: xmodule/modulestore/inheritance.py:226
+msgid ""
+"Enter true or false. If true, answer submissions for problem blocks will be "
+"considered in the Entrance Exam scoring/gating algorithm."
+msgstr ""
+"הזן כן או לא. אם כן, הגשות תשובות עבור בלוקי הבעיות יילקחו בחשבון במסגרת "
+"דירוג מבחן הכניסה/אלגוריתם הכניסה."
+
+#: xmodule/modulestore/xml_importer.py:82
+msgid "Error while reading {}. Check file for XML errors."
+msgstr "Error while reading {}. Check file for XML errors."
+
+#: xmodule/modulestore/xml_importer.py:94
+msgid "Failed to import block: {} at location: {}"
+msgstr "Failed to import block: {} at location: {}"
+
 #: xmodule/partitions/enrollment_track_partition_generator.py:38
 msgid "Enrollment Track Groups"
 msgstr "קבוצות מסלול הרשמה"
@@ -7318,6 +8172,14 @@ msgstr ""
 #: xmodule/seq_block.py:99
 msgid "Is Entrance Exam"
 msgstr "היא בחינת כניסה"
+
+#: xmodule/seq_block.py:101
+msgid ""
+"Tag this course block as an Entrance Exam. Note, you must enable Entrance "
+"Exams for this course setting to take effect."
+msgstr ""
+"תייג את מודול הקורס כמבחן כניסה. שים לב, עליך לאפשר מבחני כניסה כדי שהגדרת "
+"הקורס הזה תיכנס לתוקף."
 
 #: xmodule/seq_block.py:152
 msgid "Is Time Limited"
@@ -7375,6 +8237,10 @@ msgstr ""
 "הגדרה זו מציינת אם מבחן זה הוא מבחן למטרות בחינה בלבד. מבחני תרגול אינם "
 "מאומתים"
 
+#: xmodule/seq_block.py:200
+msgid "This setting indicates whether this exam is an onboarding exam."
+msgstr "הגדרה זו מציינת אם מבחן זה הוא מבחן קליטה."
+
 #: xmodule/seq_block.py:358 xmodule/seq_block.py:450
 msgid ""
 "This subsection is unlocked for learners when they meet the prerequisite "
@@ -7394,6 +8260,18 @@ msgstr "מכיוון שהקורס כבר נגמר, מטלה זו מוסתרת."
 msgid ""
 "Because the due date has passed, this assignment is hidden from the learner."
 msgstr "מכיוון שתאריך היעד כבר חלף, מטלה זו מוסתרת."
+
+#: xmodule/seq_block.py:557
+msgid ""
+"This section is a prerequisite. You must complete this section in order to "
+"unlock additional content."
+msgstr ""
+"מקטע זה הוא דרישת קדם. עליך להשלים מקטע זה כדי לשחרר נעילה של תוכן נוסף."
+
+#: xmodule/seq_block.py:996
+msgid ""
+"A list summarizing what students should look forward to in this section."
+msgstr "רשימה המסכמת את מה שהתלמידים יכולים לצפות לו במקטע זה."
 
 #: xmodule/split_test_block.py:42
 #, python-brace-format
@@ -7424,6 +8302,10 @@ msgstr ""
 #: xmodule/split_test_block.py:98
 msgid "Group Configuration"
 msgstr "הגדרת קבוצה"
+
+#: xmodule/split_test_block.py:109
+msgid "Which child block students in a particular group_id should see"
+msgstr "איזה בלוק משנה הסטודנטים ב-group_id מסוים צריכים לראות"
 
 #: xmodule/split_test_block.py:295
 #, python-brace-format
@@ -7478,9 +8360,26 @@ msgstr "קיימות בעיות בניסוי תוכן זה המשפיעות על
 msgid "External Discussion"
 msgstr "דיון חיצוני"
 
+#: xmodule/vertical_block.py:45
+msgid "Enable in-context discussions for the Unit"
+msgstr "אפשר דיונים בהקשר עבור יחידה"
+
+#: xmodule/vertical_block.py:46
+msgid "Add discussion for the Unit."
+msgstr "הוסף דיונים ליחידה."
+
 #: xmodule/video_block/video_block.py:137
 msgid "Basic"
 msgstr "בסיסי"
+
+#: xmodule/video_block/video_block.py:551
+#, python-brace-format
+msgid "There is no transcript file associated with the {lang} language."
+msgid_plural ""
+"There are no transcript files associated with the {lang} languages."
+msgstr[0] "אין קובץ תמלול המשויך לשפה {lang}."
+msgstr[1] "אין קבצי תמלול המשויכים ל- {lang} שפות."
+msgstr[2] "אין קבצי תמלול המשויכים ל- {lang} שפות."
 
 #: xmodule/video_block/video_block.py:886
 msgid ""
@@ -7493,6 +8392,10 @@ msgstr ""
 #: xmodule/video_block/video_block.py:888
 msgid "Default Video URL"
 msgstr "כתובת URL כברירת מחדל לסרטון וידאו"
+
+#: xmodule/video_block/video_handlers.py:683
+msgid "Language is required."
+msgstr "שפה חובה."
 
 #: xmodule/video_block/video_xfields.py:21
 msgid "Component Display Name"
@@ -7702,6 +8605,12 @@ msgstr "המהירות האחרונה שפירט המשתמש עבור סרטו�
 msgid "The default speed for the video."
 msgstr "מהירות ברירת המחדל עבור סרטו הווידאו."
 
+#: xmodule/video_block/video_xfields.py:163
+msgid ""
+"Specify whether to advance automatically to the next unit when the video "
+"ends."
+msgstr "נא לציין האם להתקדם אוטומטית ליחידה הבאה עם סיום הווידאו."
+
 #: xmodule/video_block/video_xfields.py:172
 msgid "Specify whether YouTube is available for the user."
 msgstr "ציין אם יוטיוב זמין למשתמש."
@@ -7750,6 +8659,22 @@ msgstr "תאריך הצפיה האחרונה בבאמפר"
 #: xmodule/video_block/video_xfields.py:205
 msgid "Do not show bumper again"
 msgstr "אל תציג שוב את הבאמפר"
+
+#: xmodule/video_block/video_xfields.py:210
+msgid "Specify whether the video can be accessed publicly by learners."
+msgstr "ציין האם התלמידים יכולים לגשת לוידאו באופן ציבורי."
+
+#: xmodule/video_block/video_xfields.py:211
+msgid "Public Access"
+msgstr "גישה ציבורית"
+
+#: xmodule/video_block/video_xfields.py:218
+msgid "Add a specific thumbnail for learners to see before playing the video."
+msgstr "הוסף תמונה ממוזערת ספציפית כדי שהלומדים יראו לפני הפעלת הווידאו."
+
+#: xmodule/video_block/video_xfields.py:219
+msgid "Thumbnail"
+msgstr "תמונה ממוזערת"
 
 #: xmodule/word_cloud_block.py:69
 msgid "Instructions"
