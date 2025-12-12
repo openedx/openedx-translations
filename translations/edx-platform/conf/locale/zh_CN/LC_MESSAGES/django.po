@@ -6413,6 +6413,12 @@ msgstr "允许"
 msgid "Error"
 msgstr "错误"
 
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:11
+#: lms/templates/support/edx_ace/wholecoursereset/email/subject.txt:3
+#, python-format
+msgid "The course %(course_title)s has been reset !"
+msgstr "课程%(course_title)s已重置！"
+
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.html:16
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:14
 #: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:14
@@ -6422,6 +6428,25 @@ msgstr "错误"
 #, python-format
 msgid "Hello %(full_name)s,"
 msgstr "您好，%(full_name)s"
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:21
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:3
+#, python-format
+msgid ""
+"Your progress in course %(course_title)s has been reset on your behalf."
+msgstr "您在课程%(course_title)s中的进度已被重置。"
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:25
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:4
+msgid ""
+"You will be able to re-attempt this course and earn a verified certificate "
+"upon successful completion."
+msgstr "您将可以重新尝试本课程，并在成功完成后获得经过验证的证书。"
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:31
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:6
+msgid "Best,"
+msgstr "最好的，"
 
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:2
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:2
@@ -7264,6 +7289,15 @@ msgstr "有错误的课程"
 msgid "Learning Sequences and Outlines"
 msgstr "学习顺序和大纲"
 
+#: openedx/core/djangoapps/content/search/models.py:28
+msgid ""
+"Numeric ID for each Course / Library context. This ID will generally require"
+" fewer bits than the full LearningContextKey, allowing more courses and "
+"libraries to be represented in content search filters."
+msgstr ""
+"每个课程/图书馆上下文的数字 ID。此 ID 通常需要比完整 LearningContextKey "
+"更少的位数，从而允许在内容搜索过滤器中显示更多课程和图书馆。"
+
 #: openedx/core/djangoapps/content_libraries/api/blocks.py:301
 msgid "Library cannot have more than {} Components."
 msgstr "資料庫不能有超過 {} 個元件。"
@@ -7449,6 +7483,10 @@ msgstr "已到期"
 #: openedx/core/djangoapps/content_staging/models.py:43
 msgid "Staged Content"
 msgstr "上演内容"
+
+#: openedx/core/djangoapps/content_staging/models.py:72
+msgid "Content tags applied to these blocks"
+msgstr "应用于这些块的内容标签"
 
 #: openedx/core/djangoapps/content_staging/models.py:116
 msgid "Original usage key/ID of the thing that is in the clipboard."
@@ -8066,6 +8104,18 @@ msgstr "更新"
 #: openedx/core/djangoapps/notifications/email/utils.py:463
 msgid "discussion"
 msgstr "讨论"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:16
+msgid "Daily"
+msgstr "日常的"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:17
+msgid "Weekly"
+msgstr "每周"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:18
+msgid "Immediately"
+msgstr "立即地"
 
 #: openedx/core/djangoapps/notifications/email_notifications.py:19
 #: xmodule/capa_block.py:229 xmodule/capa_block.py:246
@@ -9459,6 +9509,15 @@ msgid ""
 "A license defines how the contents of this block can be shared and reused."
 msgstr "许可定义了此块的内容能如何被分享和重用。"
 
+#: openedx/core/lib/teams_config.py:386
+#, python-brace-format
+msgid "Team Group: {team_set_name}"
+msgstr "团队群组： {team_set_name}"
+
+#: openedx/core/lib/teams_config.py:387
+msgid "Partition for segmenting users by team-set"
+msgstr "按团队集对用户进行细分的分区"
+
 #: openedx/features/calendar_sync/ics.py:36
 #, python-brace-format
 msgid "{assignment} is due for {course}."
@@ -10289,6 +10348,32 @@ msgid ""
 " value is not set, infinite attempts are allowed."
 msgstr "定义学生在回答这个问题时所允许的尝试次数。如果未设置，则允许无限次尝试。"
 
+#: xmodule/capa_block.py:201
+msgid "Grading Method"
+msgstr "评分方法"
+
+#: xmodule/capa_block.py:203
+msgid ""
+"Define the grading method for this problem. By default, it's the score of "
+"the last submission made by the student."
+msgstr "定义该问题的评分方法。默认情况下，它是学生最后一次提交的分数。"
+
+#: xmodule/capa_block.py:209 xmodule/capa_block.py:513
+msgid "Last Score"
+msgstr "最后得分"
+
+#: xmodule/capa_block.py:210 xmodule/capa_block.py:514
+msgid "First Score"
+msgstr "首次得分"
+
+#: xmodule/capa_block.py:211 xmodule/capa_block.py:515
+msgid "Highest Score"
+msgstr "最高分"
+
+#: xmodule/capa_block.py:212 xmodule/capa_block.py:516
+msgid "Average Score"
+msgstr "平均分"
+
 #: xmodule/capa_block.py:215
 msgid "Date that this problem is due by"
 msgstr "问题的截至日期为"
@@ -10412,6 +10497,10 @@ msgstr "问题的XML数据"
 msgid "Dictionary with the correctness of current student answers"
 msgstr "当前学生答案正确性词典"
 
+#: xmodule/capa_block.py:298
+msgid "List of correctness maps for each attempt"
+msgstr "每次尝试的正确性图列表"
+
 #: xmodule/capa_block.py:299
 msgid "Dictionary for maintaining the state of inputtypes"
 msgstr "维护状态的输入类型词典"
@@ -10420,9 +10509,17 @@ msgstr "维护状态的输入类型词典"
 msgid "Dictionary with the current student responses"
 msgstr "当前学生的回应词典"
 
+#: xmodule/capa_block.py:302
+msgid "List of student answers for each attempt"
+msgstr "学生每次尝试的答案列表"
+
 #: xmodule/capa_block.py:306
 msgid "Dictionary with the current student score"
 msgstr "带当前学生分数的字典"
+
+#: xmodule/capa_block.py:308
+msgid "List of scores for each attempt"
+msgstr "每次尝试的得分列表"
 
 #: xmodule/capa_block.py:311
 msgid "Whether or not the answers have been saved since last submit"
