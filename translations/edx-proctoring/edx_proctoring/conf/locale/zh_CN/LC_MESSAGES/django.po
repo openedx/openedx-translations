@@ -119,6 +119,11 @@ msgstr "剩余时间{remaining_time}"
 msgid "your course"
 msgstr "您的课程"
 
+#: api.py:1745
+#, python-brace-format
+msgid "Proctoring Results For {course_name} {exam_name}"
+msgstr "{course_name} {exam_name}的监考结果"
+
 #: api.py:2238
 msgid "Taking As Proctored Exam"
 msgstr "切换至监考模式"
@@ -163,6 +168,10 @@ msgstr "模拟考试失败"
 msgid "Timed Exam"
 msgstr "计时考试"
 
+#: api.py:2888
+msgid "Onboarding status question"
+msgstr "入职状态问题"
+
 #: models.py:391
 msgid "Taking as Proctored"
 msgstr "切换至监考模式"
@@ -170,6 +179,18 @@ msgstr "切换至监考模式"
 #: models.py:395
 msgid "Is Sample Attempt"
 msgstr "样本尝试"
+
+#: models.py:413
+msgid "Is Resumable"
+msgstr "是否可恢复"
+
+#: models.py:418
+msgid "Ready to Resume"
+msgstr "准备恢复"
+
+#: models.py:421
+msgid "Resumed"
+msgstr "恢复"
 
 #: models.py:524
 msgid "Additional Time (minutes)"
@@ -179,9 +200,119 @@ msgstr "额外时间（分钟）"
 msgid "Review Policy Exception"
 msgstr "审核政策的特殊情况"
 
+#: templates/common/waiting_banner.html:3
+msgid ""
+"\n"
+"        The result will be visible after <strong id=\"wait_deadline\"> Loading... </strong>\n"
+"    "
+msgstr ""
+"\n"
+"        <strong id=\"wait_deadline\">加载中...</strong>结果将可见。\n"
+"    "
+
+#: templates/emails/proctoring_attempt_satisfactory_email.html:12
+#, python-format
+msgid ""
+"\n"
+"        Your proctored exam \"%(exam_name)s\" in\n"
+"        <a href=\"%(course_url)s\">%(course_name)s</a> was reviewed and you\n"
+"        met all proctoring requirements.\n"
+"    "
+msgstr ""
+"\n"
+"        您监考的考试“%(exam_name)s”在\n"
+"        <a href=\"%(course_url)s\">%(course_name)s</a>已被审核，您\n"
+"        满足所有监考要求。\n"
+"    "
+
+#: templates/emails/proctoring_attempt_unsatisfactory_email.html:12
+#, python-format
+msgid ""
+"\n"
+"        Your proctored exam \"%(exam_name)s\" in\n"
+"        <a href=\"%(course_url)s\">%(course_name)s</a> was reviewed and the\n"
+"        course team has identified one or more violations of the proctored exam rules. Examples\n"
+"        of issues that may result in a rules violation include browsing\n"
+"        the internet, blurry or missing photo identification, using a phone,\n"
+"        or getting help from another person. As a result of the identified issue(s),\n"
+"        you did not successfully meet the proctored exam requirements.\n"
+"    "
+msgstr ""
+"\n"
+"        您监考的考试“%(exam_name)s”在\n"
+"<a href=\"%(course_url)s\">%(course_name)s</a>已被审查，并且\n"
+"课程团队已发现一项或多项违反监考考试规则的行为。可能导致违反规则的问题包括浏览\n"
+"互联网、模糊或丢失的照片身份证明、使用手机、\n"
+"或从他人那里获得帮助。由于已发现的问题，\n"
+"您没有成功满足监考考试要求。\n"
+"    "
+
+#: templates/onboarding_exam/entrance.html:5
+msgid ""
+"\n"
+"    Proctoring onboarding exam\n"
+"  "
+msgstr ""
+"\n"
+"    监考入职考试\n"
+"  "
+
+#: templates/onboarding_exam/entrance.html:12
+msgid ""
+"\n"
+"      Why this is important to you:\n"
+"    "
+msgstr ""
+"\n"
+"      为什么这对您很重要：\n"
+"    "
+
+#: templates/onboarding_exam/entrance.html:34
+#, python-format
+msgid ""
+"\n"
+"      Proctoring for this course is provided via %(provider_name)s.  Onboarding review, including identity verification, can take 2+ business days.\n"
+"    "
+msgstr ""
+"\n"
+"      本课程的监考由%(provider_name)s提供。入职审核（包括身份验证）可能需要 2+ 个工作日。\n"
+"    "
+
 #: templates/onboarding_exam/entrance.html:58
 msgid "Continue to onboarding"
 msgstr "请继续入职流程"
+
+#: templates/onboarding_exam/entrance.html:62
+msgid ""
+"\n"
+"    You will be guided through online proctoring software set up and identity verification.\n"
+"  "
+msgstr ""
+"\n"
+"    我们将指导您完成在线监考软件设置和身份验证。\n"
+"  "
+
+#: templates/onboarding_exam/error.html:4
+msgid ""
+"\n"
+"    Error: There was a problem with your onboarding session\n"
+"  "
+msgstr ""
+"\n"
+"    错误：您的入职会话出现问题\n"
+"  "
+
+#: templates/onboarding_exam/error.html:13
+msgid ""
+"\n"
+"    Your proctoring session ended before you completed this onboarding exam.\n"
+"    You should retry this onboarding exam.\n"
+"  "
+msgstr ""
+"\n"
+"    您的监考课程在您完成入职考试之前就结束了。\n"
+"    您应该重试此入职考试。\n"
+"  "
 
 #: templates/onboarding_exam/rejected.html:5
 msgid ""
