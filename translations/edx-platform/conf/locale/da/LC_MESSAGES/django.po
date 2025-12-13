@@ -129,6 +129,12 @@ msgstr "Uploader"
 msgid "Ready"
 msgstr "Parat"
 
+#. Translators: This is the status for a video that is cancelled during upload
+#. by user
+#: cms/djangoapps/contentstore/video_storage_handlers.py:129
+msgid "Cancelled"
+msgstr "Aflyst"
+
 #. Translators: This is the status for a video that is in an unknown state
 #: cms/djangoapps/contentstore/video_storage_handlers.py:141
 msgid "Unknown"
@@ -5694,6 +5700,12 @@ msgstr "Give lov til"
 msgid "Error"
 msgstr "Fejl"
 
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:11
+#: lms/templates/support/edx_ace/wholecoursereset/email/subject.txt:3
+#, python-format
+msgid "The course %(course_title)s has been reset !"
+msgstr "Kursen %(course_title)s er blevet nulstillet!"
+
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.html:16
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:14
 #: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:14
@@ -5703,6 +5715,29 @@ msgstr "Fejl"
 #, python-format
 msgid "Hello %(full_name)s,"
 msgstr "Hej %(full_name)s ,"
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:21
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:3
+#, python-format
+msgid ""
+"Your progress in course %(course_title)s has been reset on your behalf."
+msgstr ""
+"Dine fremskridt i kursus %(course_title)s er blevet nulstillet på dine "
+"vegne."
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:25
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:4
+msgid ""
+"You will be able to re-attempt this course and earn a verified certificate "
+"upon successful completion."
+msgstr ""
+"Du vil være i stand til at prøve dette kursus igen og opnå et bekræftet "
+"certifikat, når du har gennemført det."
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:31
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:6
+msgid "Best,"
+msgstr "Bedst,"
 
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:2
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:2
@@ -6599,6 +6634,16 @@ msgstr "Kurser med fejl"
 msgid "Learning Sequences and Outlines"
 msgstr "Læringssekvenser og konturer"
 
+#: openedx/core/djangoapps/content/search/models.py:28
+msgid ""
+"Numeric ID for each Course / Library context. This ID will generally require"
+" fewer bits than the full LearningContextKey, allowing more courses and "
+"libraries to be represented in content search filters."
+msgstr ""
+"Numerisk ID for hver kursus-/bibliotekskontekst. Dette ID vil generelt kræve"
+" færre bits end den fulde LearningContextKey, hvilket tillader flere kurser "
+"og biblioteker at blive repræsenteret i indholdssøgefiltre."
+
 #: openedx/core/djangoapps/content_libraries/api/blocks.py:301
 msgid "Library cannot have more than {} Components."
 msgstr "Biblioteket må ikke have mere end {} komponenter."
@@ -6785,6 +6830,10 @@ msgstr "Indlæser"
 #: openedx/core/djangoapps/content_staging/data.py:23
 msgid "Expired"
 msgstr "Udløbet"
+
+#: openedx/core/djangoapps/content_staging/models.py:72
+msgid "Content tags applied to these blocks"
+msgstr "Indholdstags anvendt på disse blokke"
 
 #: openedx/core/djangoapps/content_tagging/models/base.py:24
 msgid "owner"
@@ -7307,6 +7356,18 @@ msgstr "I dag"
 #: openedx/features/course_experience/plugins.py:34
 msgid "Updates"
 msgstr "Opdateringer"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:16
+msgid "Daily"
+msgstr "Dagligt"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:17
+msgid "Weekly"
+msgstr "Ugentlig"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:18
+msgid "Immediately"
+msgstr "Med det samme"
 
 #: openedx/core/djangoapps/notifications/email_notifications.py:19
 #: xmodule/capa_block.py:229 xmodule/capa_block.py:246
@@ -8737,6 +8798,15 @@ msgid ""
 msgstr ""
 "En licens definerer, hvordan indholdet af denne blok kan deles og genbruges."
 
+#: openedx/core/lib/teams_config.py:386
+#, python-brace-format
+msgid "Team Group: {team_set_name}"
+msgstr "Holdgruppe: {team_set_name}"
+
+#: openedx/core/lib/teams_config.py:387
+msgid "Partition for segmenting users by team-set"
+msgstr "Partition til segmentering af brugere efter teamsæt"
+
 #: openedx/features/calendar_sync/ics.py:36
 #, python-brace-format
 msgid "{assignment} is due for {course}."
@@ -9631,6 +9701,34 @@ msgstr ""
 "Angiv antal gange, en kursist kan forsøge at besvare denne opgave. Hvis "
 "værdien ikke er angivet, er uendelige antal forsøg tilladt."
 
+#: xmodule/capa_block.py:201
+msgid "Grading Method"
+msgstr "Bedømmelsesmetode"
+
+#: xmodule/capa_block.py:203
+msgid ""
+"Define the grading method for this problem. By default, it's the score of "
+"the last submission made by the student."
+msgstr ""
+"Definer karaktermetoden for dette problem. Som standard er det scoren for "
+"den sidste aflevering foretaget af eleven."
+
+#: xmodule/capa_block.py:209 xmodule/capa_block.py:513
+msgid "Last Score"
+msgstr "Sidste score"
+
+#: xmodule/capa_block.py:210 xmodule/capa_block.py:514
+msgid "First Score"
+msgstr "Første score"
+
+#: xmodule/capa_block.py:211 xmodule/capa_block.py:515
+msgid "Highest Score"
+msgstr "Højeste score"
+
+#: xmodule/capa_block.py:212 xmodule/capa_block.py:516
+msgid "Average Score"
+msgstr "Gennemsnitlig score"
+
 #: xmodule/capa_block.py:215
 msgid "Date that this problem is due by"
 msgstr "Forfaldsdato"
@@ -9766,6 +9864,10 @@ msgstr "XML data til spørgsmålet"
 msgid "Dictionary with the correctness of current student answers"
 msgstr "Mappe over rigtigheden af de nuværende kursisters svar"
 
+#: xmodule/capa_block.py:298
+msgid "List of correctness maps for each attempt"
+msgstr "Liste over korrekthedskort for hvert forsøg"
+
 #: xmodule/capa_block.py:299
 msgid "Dictionary for maintaining the state of inputtypes"
 msgstr "Mappe til at vedligeholde tilstanden af inputtyper"
@@ -9774,9 +9876,17 @@ msgstr "Mappe til at vedligeholde tilstanden af inputtyper"
 msgid "Dictionary with the current student responses"
 msgstr "Mappe med de nuværende kursisters svar"
 
+#: xmodule/capa_block.py:302
+msgid "List of student answers for each attempt"
+msgstr "Liste over elevernes svar for hvert forsøg"
+
 #: xmodule/capa_block.py:306
 msgid "Dictionary with the current student score"
 msgstr "Ordbog med det aktuelle elevresultat"
+
+#: xmodule/capa_block.py:308
+msgid "List of scores for each attempt"
+msgstr "Liste over scoringer for hvert forsøg"
 
 #: xmodule/capa_block.py:311
 msgid "Whether or not the answers have been saved since last submit"
