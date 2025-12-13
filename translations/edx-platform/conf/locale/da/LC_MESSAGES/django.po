@@ -308,9 +308,34 @@ msgstr ""
 "Nøgle til brug af upstream-blokke, denne værdi kan ikke være null og er "
 "nyttig til at spore upstream-biblioteksblokke, der endnu ikke findes"
 
+#: cms/djangoapps/contentstore/models.py:163
+msgid "Component Link"
+msgstr "Komponent-link"
+
+#: cms/djangoapps/contentstore/models.py:164
+msgid "Component Links"
+msgstr "Links til komponenter"
+
 #: cms/djangoapps/contentstore/models.py:190
 msgid "The component must be published to access `published_at`"
 msgstr "Komponenten skal offentliggøres for at få adgang til `published_at`"
+
+#: cms/djangoapps/contentstore/models.py:329
+msgid ""
+"Upstream block key (e.g. lct:...), this value cannot be null and is useful "
+"to track upstream library blocks that do not exist yet or were deleted."
+msgstr ""
+"Upstream-bloknøgle (f.eks. lct:...), denne værdi kan ikke være null og er "
+"nyttig til at spore upstream-biblioteksblokke, der ikke findes endnu eller "
+"er blevet slettet."
+
+#: cms/djangoapps/contentstore/models.py:336
+msgid "Container Link"
+msgstr "Container-link"
+
+#: cms/djangoapps/contentstore/models.py:337
+msgid "Container Links"
+msgstr "Links til containere"
 
 #: cms/djangoapps/contentstore/models.py:363
 msgid "The container must be published to access `published_at`"
@@ -1232,6 +1257,10 @@ msgstr "Ordbog med de tilgængelige tags"
 msgid "Content is not linked to a Content Library."
 msgstr "Indholdet er ikke knyttet til et indholdsbibliotek."
 
+#: cms/lib/xblock/upstream_sync.py:253
+msgid "Downstream is not an XBlock or is missing required UpstreamSyncMixin"
+msgstr "Downstream er ikke en XBlock eller mangler påkrævet UpstreamSyncMixin"
+
 #: cms/lib/xblock/upstream_sync.py:257
 msgid "Cannot update content because it does not belong to a course."
 msgstr "Kan ikke opdatere indhold, fordi det ikke hører til et kursus."
@@ -1240,9 +1269,34 @@ msgstr "Kan ikke opdatere indhold, fordi det ikke hører til et kursus."
 msgid "Reference to linked library item is malformed"
 msgstr "Reference til linket bibliotekselement er misdannet"
 
+#: cms/lib/xblock/upstream_sync.py:273
+msgid ""
+"Updating content with children is not yet supported unless the upstream is a"
+" container."
+msgstr ""
+"Opdatering af indhold med børn er endnu ikke understøttet, medmindre "
+"upstream er en container."
+
+#: cms/lib/xblock/upstream_sync.py:279
+msgid "Linked upstream library block was not found in the system"
+msgstr "Den sammenkædede upstream-biblioteksblok blev ikke fundet i systemet"
+
+#: cms/lib/xblock/upstream_sync.py:286
+msgid "Linked upstream library container was not found in the system"
+msgstr "Linked upstream library container findes ikke i systemet"
+
 #: cms/lib/xblock/upstream_sync.py:290
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "Den tilknyttede `upstream_key` er ikke en gyldig nøgle"
+
+#: cms/lib/xblock/upstream_sync.py:299
+#, python-brace-format
+msgid ""
+"Content type mismatch: {downstream_id} ({downstream_type}) cannot be linked "
+"to {upstream_id}."
+msgstr ""
+"Manglende overensstemmelse mellem indholdstyper: {downstream_id} "
+"({downstream_type}) kan ikke knyttes til {upstream_id}."
 
 #: cms/lib/xblock/upstream_sync_block.py:108
 msgid "Linked library item could not be loaded: {}"
@@ -5567,6 +5621,24 @@ msgstr "Navn på rolle"
 msgid "Invalid role name."
 msgstr "Ugyldigt rollenavn."
 
+#: lms/djangoapps/instructor/views/serializer.py:344
+msgid "The URL name of the problem to reset."
+msgstr "URL-navnet på det problem, der skal nulstilles."
+
+#: lms/djangoapps/instructor/views/serializer.py:346
+#: lms/djangoapps/instructor/views/serializer.py:567
+msgid "Problem URL name cannot be blank."
+msgstr "Problem URL-navn kan ikke være tomt."
+
+#: lms/djangoapps/instructor/views/serializer.py:351
+msgid "Whether to reset the problem for all students."
+msgstr "Om problemet skal nulstilles for alle elever."
+
+#: lms/djangoapps/instructor/views/serializer.py:361
+#: lms/djangoapps/instructor/views/serializer.py:508
+msgid "unique student identifier."
+msgstr "unik studerende identifikator."
+
 #: lms/djangoapps/instructor/views/serializer.py:496
 msgid "Whether to reset for all students."
 msgstr "Om det skal nulstilles for alle studerende."
@@ -8826,6 +8898,24 @@ msgstr ""
 msgid "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
 msgstr "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:256
+#, python-brace-format
+msgid ""
+"<{p}>You have a new open response submission awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>Du har et nyt åbent svar, der afventer gennemgang for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:258
+#, python-brace-format
+msgid ""
+"<{p}>You have multiple submissions awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>Du har flere indsendelser, der venter på at blive gennemgået for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:277
 #, python-brace-format
 msgid ""
@@ -11563,6 +11653,14 @@ msgstr ""
 "MathWorks, hvis du mener, at nøglen er blevet afsløret eller kompromitteret."
 " For at få en nøgle til dit kursus, eller til at rapportere et problem, skal"
 " du kontakte moocsupport@mathworks.com"
+
+#: xmodule/capa_block.py:348
+msgid ""
+"Indicates if the problem was edited using the Markdown editor in the "
+"Authoring MFE."
+msgstr ""
+"Angiver, om problemet blev redigeret ved hjælp af Markdown-editoren i "
+"Authoring MFE."
 
 #: xmodule/capa_block.py:440
 msgid ""
