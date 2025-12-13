@@ -274,9 +274,34 @@ msgstr ""
 "Intenta exportar el curso especificado a un repositorio git\n"
 ". El directorio del curso debe ser ya un repositorio git. Uso: git_export <course_loc> <git_url>"
 
+#: cms/djangoapps/contentstore/models.py:163
+msgid "Component Link"
+msgstr "Componente Enlace"
+
+#: cms/djangoapps/contentstore/models.py:164
+msgid "Component Links"
+msgstr "Enlaces Componente"
+
 #: cms/djangoapps/contentstore/models.py:190
 msgid "The component must be published to access `published_at`"
 msgstr "El componente debe publicarse para acceder a `published_at`"
+
+#: cms/djangoapps/contentstore/models.py:329
+msgid ""
+"Upstream block key (e.g. lct:...), this value cannot be null and is useful "
+"to track upstream library blocks that do not exist yet or were deleted."
+msgstr ""
+"Clave de bloque ascendente (por ejemplo, lct:...), este valor no puede ser "
+"nulo y es útil para rastrear bloques de biblioteca ascendentes que aún no "
+"existen o fueron eliminados."
+
+#: cms/djangoapps/contentstore/models.py:336
+msgid "Container Link"
+msgstr "Enlace de Contenedor"
+
+#: cms/djangoapps/contentstore/models.py:337
+msgid "Container Links"
+msgstr "Enlaces contenedor"
 
 #: cms/djangoapps/contentstore/models.py:363
 msgid "The container must be published to access `published_at`"
@@ -1184,6 +1209,10 @@ msgstr "Diccionario con las etiquetas disponibles"
 msgid "Content is not linked to a Content Library."
 msgstr "El contenido no está vinculado a una biblioteca de contenido."
 
+#: cms/lib/xblock/upstream_sync.py:253
+msgid "Downstream is not an XBlock or is missing required UpstreamSyncMixin"
+msgstr "Downstream no es un XBlock o y falta el obligatorio UpstreamSyncMixin"
+
 #: cms/lib/xblock/upstream_sync.py:257
 msgid "Cannot update content because it does not belong to a course."
 msgstr "No se puede actualizar contenido porque no pertenece a un curso."
@@ -1192,9 +1221,35 @@ msgstr "No se puede actualizar contenido porque no pertenece a un curso."
 msgid "Reference to linked library item is malformed"
 msgstr "La referencia al ítem de la biblioteca enlazada está mal formada"
 
+#: cms/lib/xblock/upstream_sync.py:273
+msgid ""
+"Updating content with children is not yet supported unless the upstream is a"
+" container."
+msgstr ""
+"Aún no se admite actualizar contenido que tiene hijos a menos que el origen "
+"sea un contenedor."
+
+#: cms/lib/xblock/upstream_sync.py:279
+msgid "Linked upstream library block was not found in the system"
+msgstr ""
+"No se encontró el bloque de biblioteca vinculado ascendente en el sistema"
+
+#: cms/lib/xblock/upstream_sync.py:286
+msgid "Linked upstream library container was not found in the system"
+msgstr "No se encontró el contenedor de biblioteca vinculada en el sistema."
+
 #: cms/lib/xblock/upstream_sync.py:290
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "La clave `upstream_key` vinculada no es una clave válida"
+
+#: cms/lib/xblock/upstream_sync.py:299
+#, python-brace-format
+msgid ""
+"Content type mismatch: {downstream_id} ({downstream_type}) cannot be linked "
+"to {upstream_id}."
+msgstr ""
+"No coincide el tipo de contenido: {downstream_id} ({downstream_type}) no se "
+"puede enlazar a {upstream_id}."
 
 #: cms/lib/xblock/upstream_sync_block.py:108
 msgid "Linked library item could not be loaded: {}"
@@ -5662,6 +5717,24 @@ msgstr "Nombre del Rol"
 msgid "Invalid role name."
 msgstr "Nombre de rol no válido."
 
+#: lms/djangoapps/instructor/views/serializer.py:344
+msgid "The URL name of the problem to reset."
+msgstr "El nombre de URL del problema que se va a restablecer."
+
+#: lms/djangoapps/instructor/views/serializer.py:346
+#: lms/djangoapps/instructor/views/serializer.py:567
+msgid "Problem URL name cannot be blank."
+msgstr "El nombre de URL del problema no puede quedar en blanco."
+
+#: lms/djangoapps/instructor/views/serializer.py:351
+msgid "Whether to reset the problem for all students."
+msgstr "Decidir si restablecer el problema para todos los estudiantes."
+
+#: lms/djangoapps/instructor/views/serializer.py:361
+#: lms/djangoapps/instructor/views/serializer.py:508
+msgid "unique student identifier."
+msgstr "Identificador del estudiante único."
+
 #: lms/djangoapps/instructor/views/serializer.py:496
 msgid "Whether to reset for all students."
 msgstr "Si se debe restablecer para todos los estudiantes."
@@ -8981,6 +9054,24 @@ msgstr ""
 msgid "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
 msgstr "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:256
+#, python-brace-format
+msgid ""
+"<{p}>You have a new open response submission awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>Tiene una nueva entrega de respuesta abierta en espera de revisión para"
+" <{strong}>{ora_name}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:258
+#, python-brace-format
+msgid ""
+"<{p}>You have multiple submissions awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>Tienes varias entregas en espera de revisión para "
+"<{strong}>{ora_name}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:277
 #, python-brace-format
 msgid ""
@@ -11773,6 +11864,14 @@ msgstr ""
 "la clave ha sido expuesta o comprometida. Para obtener una clave para tu "
 "curso, o reportar un incidente, escriba un correo a  "
 "moocsupport@mathworks.com"
+
+#: xmodule/capa_block.py:348
+msgid ""
+"Indicates if the problem was edited using the Markdown editor in the "
+"Authoring MFE."
+msgstr ""
+"Indica si el problema se editó utilizando el editor Markdown en Authoring "
+"MFE."
 
 #: xmodule/capa_block.py:440
 msgid ""
