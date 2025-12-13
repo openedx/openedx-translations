@@ -364,6 +364,34 @@ msgid ""
 "response."
 msgstr "Angiv, om eleverne kan se rubrikken, mens de arbejder på deres svar."
 
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:167
+msgid "Allow Learner Resubmissions"
+msgstr "Tillad genindsendelse af elever"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:174
+msgid ""
+"Set to TRUE to allow learners to resubmit ungraded work. Set to FALSE if "
+"resubmissions are not allowed."
+msgstr ""
+"Indstil til TRUE for at give eleverne mulighed for at genindsende arbejde "
+"uden karakter. Indstil til FALSK, hvis genindsendelser ikke er tilladt."
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:178
+msgid "Resubmission Grace Period"
+msgstr "Genindsendelse henstandsperiode"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:187
+msgid ""
+"Specify the maximum period during which resubmissions are allowed. If left "
+"blank, learners will be able to reset their submission as long as it has not"
+" been graded. The grace period starts once the learner has submitted their "
+"response."
+msgstr ""
+"Angiv den maksimale periode, hvor genindsendelser er tilladt. Hvis det "
+"efterlades tomt, vil eleverne være i stand til at nulstille deres "
+"aflevering, så længe den ikke er blevet bedømt. Henstandsperioden starter, "
+"når eleven har afgivet sit svar."
+
 #: templates/legacy/edit/oa_edit_criterion.html:6
 #: templates/legacy/staff_area/oa_student_info.html:122
 #: templates/legacy/staff_area/oa_student_info_assessment_detail.html:25
@@ -531,6 +559,29 @@ msgstr ""
 "Denne funktion aktiveres af indstillingen på kursusniveau. Det kan findes "
 "under kortet Open Response Assessment Settings på siden Pages &amp; "
 "Resources Studio."
+
+#: templates/legacy/edit/oa_edit_peer_assessment.html:60
+msgid "Grading strategy for the peer assessment"
+msgstr "Graderingsstrategi for peer-vurderingen"
+
+#: templates/legacy/edit/oa_edit_peer_assessment.html:62
+msgid "Mean"
+msgstr "Gennemsnit"
+
+#: templates/legacy/edit/oa_edit_peer_assessment.html:63
+msgid "Median (default)"
+msgstr "Median (standard)"
+
+#: templates/legacy/edit/oa_edit_peer_assessment.html:66
+msgid ""
+"Select the preferred grading strategy for the peer assessment. By default, "
+"the median across all peer reviews is used to calculate the final grade. If "
+"you select the mean, the average of all peer reviews will be used."
+msgstr ""
+"Vælg den foretrukne karakterstrategi for peer-vurderingen. Som standard "
+"bruges medianen på tværs af alle peer reviews til at beregne den endelige "
+"karakter. Hvis du vælger gennemsnittet, vil gennemsnittet af alle peer "
+"reviews blive brugt."
 
 #: templates/legacy/edit/oa_edit_peer_assessment_schedule.html:5
 msgid "Peer Assessment Deadlines"
@@ -1855,6 +1906,14 @@ msgstr ""
 "```\n"
 "                    "
 
+#: templates/legacy/response/oa_response_submitted.html:63
+msgid "We could not reset your response"
+msgstr "Vi kunne ikke nulstille dit svar"
+
+#: templates/legacy/response/oa_response_submitted.html:69
+msgid "Reset response and submit again"
+msgstr "Nulstil svar og send igen"
+
 #: templates/legacy/response/oa_response_team_already_submitted.html:15
 msgid "Error"
 msgstr "Fejl"
@@ -2475,6 +2534,10 @@ msgstr "Din selvvurdering"
 msgid "Your Comments"
 msgstr "Dine kommentarer"
 
+#: xblock/grade_mixin.py:429
+msgid "Peer Mean Grade"
+msgstr "Peer gennemsnitskarakter"
+
 #: xblock/grade_mixin.py:430
 msgid "Peer Median Grade"
 msgstr "Peer median karakter"
@@ -2516,6 +2579,14 @@ msgstr ""
 "Karakteren for dette problem bestemmes af median-score for dine peer-"
 "vurderinger."
 
+#: xblock/grade_mixin.py:715
+msgid ""
+"The grade for this problem is determined by the mean score of your Peer "
+"Assessments."
+msgstr ""
+"Karakteren for dette problem bestemmes af gennemsnitsscoren for dine peer-"
+"vurderinger."
+
 #: xblock/openassesment_template_mixin.py:66
 msgid "Peer Assessment Only"
 msgstr "Kun peer-vurdering"
@@ -2535,6 +2606,22 @@ msgstr "Selvvurdering til Peer-vurdering"
 #: xblock/openassesment_template_mixin.py:70
 msgid "Self Assessment to Staff Assessment"
 msgstr "Selvevaluering til personalevurdering"
+
+#: xblock/openassessmentblock.py:1365
+msgid "You can't reset your submission."
+msgstr "Du kan ikke nulstille din indsendelse."
+
+#: xblock/openassessmentblock.py:1378
+msgid "The user does not exist."
+msgstr "Brugeren eksisterer ikke."
+
+#: xblock/openassessmentblock.py:1381
+msgid "There is no submission to reset."
+msgstr "Der er ingen indsendelse at nulstille."
+
+#: xblock/openassessmentblock.py:1383
+msgid "Submission reset successfully."
+msgstr "Indsendelsen blev nulstillet."
 
 #: xblock/rubric_reuse_mixin.py:62
 msgid "You must specify a block id from which to copy a rubric."
@@ -2776,6 +2863,14 @@ msgid ""
 "The assessment type cannot be changed after the problem has been released."
 msgstr ""
 "Vurderingstypen kan ikke ændres, efter at problemet er blevet frigivet."
+
+#: xblock/utils/validation.py:176
+msgid ""
+"The grading strategy for peer assessments cannot be changed after the "
+"problem has been released."
+msgstr ""
+"Graderingsstrategien for peer-vurderinger kan ikke ændres, efter at "
+"problemet er blevet frigivet."
 
 #: xblock/utils/validation.py:200
 msgid "This rubric definition is not valid."
