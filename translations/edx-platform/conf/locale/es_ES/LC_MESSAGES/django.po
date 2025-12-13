@@ -6765,6 +6765,12 @@ msgstr "Permitir"
 msgid "Error"
 msgstr "Error"
 
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:11
+#: lms/templates/support/edx_ace/wholecoursereset/email/subject.txt:3
+#, python-format
+msgid "The course %(course_title)s has been reset !"
+msgstr "¡El curso %(course_title)s ha sido reiniciado!"
+
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.html:16
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:14
 #: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:14
@@ -6774,6 +6780,28 @@ msgstr "Error"
 #, python-format
 msgid "Hello %(full_name)s,"
 msgstr "Hola %(full_name)s,"
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:21
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:3
+#, python-format
+msgid ""
+"Your progress in course %(course_title)s has been reset on your behalf."
+msgstr ""
+"Su progreso en el curso %(course_title)s se ha restablecido en su nombre."
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:25
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:4
+msgid ""
+"You will be able to re-attempt this course and earn a verified certificate "
+"upon successful completion."
+msgstr ""
+"Podrá volver a intentar este curso y obtener un Certificado verificado al "
+"finalizarlo exitosamente."
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:31
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:6
+msgid "Best,"
+msgstr "Mejor,"
 
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:2
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:2
@@ -7687,6 +7715,17 @@ msgstr "Cursos con errores"
 msgid "Learning Sequences and Outlines"
 msgstr "Secuencias y esquemas de aprendizaje"
 
+#: openedx/core/djangoapps/content/search/models.py:28
+msgid ""
+"Numeric ID for each Course / Library context. This ID will generally require"
+" fewer bits than the full LearningContextKey, allowing more courses and "
+"libraries to be represented in content search filters."
+msgstr ""
+"Identificador numérico para cada contexto de Curso/Biblioteca. Este "
+"identificador generalmente requerirá menos bits que la LearningContextKey "
+"completa, lo que permitirá representar más cursos y bibliotecas en los "
+"filtros de búsqueda de contenido."
+
 #: openedx/core/djangoapps/content_libraries/api/blocks.py:301
 msgid "Library cannot have more than {} Components."
 msgstr "La biblioteca no puede tener más de {} Componentes."
@@ -7892,6 +7931,10 @@ msgstr ""
 "            este campo debe ser el mismo que la etiqueta raíz del OLX.\n"
 "            Por ej.: \"vídeo\" si hay un vídeo escalonado, o \"vertical\" si se trata de una unidad.\n"
 "        "
+
+#: openedx/core/djangoapps/content_staging/models.py:72
+msgid "Content tags applied to these blocks"
+msgstr "Se aplican etiquetas de contenido a estos bloques"
 
 #: openedx/core/djangoapps/content_staging/models.py:116
 msgid "Original usage key/ID of the thing that is in the clipboard."
@@ -8493,6 +8536,18 @@ msgstr ""
 #: openedx/features/course_experience/plugins.py:34
 msgid "Updates"
 msgstr "Actualizaciones"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:16
+msgid "Daily"
+msgstr "A diario"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:17
+msgid "Weekly"
+msgstr "Semanalmente"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:18
+msgid "Immediately"
+msgstr "Inmediatamente"
 
 #: openedx/core/djangoapps/notifications/email_notifications.py:19
 #: xmodule/capa_block.py:229 xmodule/capa_block.py:246
@@ -10013,6 +10068,15 @@ msgstr ""
 "Una licencia define cómo se pueden compartir y reutilizar los contenidos de "
 "este bloque."
 
+#: openedx/core/lib/teams_config.py:386
+#, python-brace-format
+msgid "Team Group: {team_set_name}"
+msgstr "Grupo de equipo: {team_set_name}"
+
+#: openedx/core/lib/teams_config.py:387
+msgid "Partition for segmenting users by team-set"
+msgstr "La partición segmenta a los usuarios por conjunto de equipo."
+
 #: openedx/features/calendar_sync/ics.py:36
 #, python-brace-format
 msgid "{assignment} is due for {course}."
@@ -10936,6 +11000,34 @@ msgstr ""
 "problema. Si no se especifica valor, se permite un número infinito de "
 "intentos."
 
+#: xmodule/capa_block.py:201
+msgid "Grading Method"
+msgstr "Método de calificación"
+
+#: xmodule/capa_block.py:203
+msgid ""
+"Define the grading method for this problem. By default, it's the score of "
+"the last submission made by the student."
+msgstr ""
+"Defina el método de calificación para este problema. Por defecto, es la "
+"puntuación de la última entrega realizada por el estudiante."
+
+#: xmodule/capa_block.py:209 xmodule/capa_block.py:513
+msgid "Last Score"
+msgstr "Última puntuación"
+
+#: xmodule/capa_block.py:210 xmodule/capa_block.py:514
+msgid "First Score"
+msgstr "Primera puntuación"
+
+#: xmodule/capa_block.py:211 xmodule/capa_block.py:515
+msgid "Highest Score"
+msgstr "Puntuación más alta"
+
+#: xmodule/capa_block.py:212 xmodule/capa_block.py:516
+msgid "Average Score"
+msgstr "Puntuación media"
+
 #: xmodule/capa_block.py:215
 msgid "Date that this problem is due by"
 msgstr "Fecha límite para entregar el problema."
@@ -11072,6 +11164,10 @@ msgstr "Contenido XML del problema"
 msgid "Dictionary with the correctness of current student answers"
 msgstr "Diccionario con las correcciones de los alumnos actuales."
 
+#: xmodule/capa_block.py:298
+msgid "List of correctness maps for each attempt"
+msgstr "Lista de mapas de corrección para cada Intentos."
+
 #: xmodule/capa_block.py:299
 msgid "Dictionary for maintaining the state of inputtypes"
 msgstr "Diccionario para mantener el estado de los tipos de entrada"
@@ -11080,9 +11176,17 @@ msgstr "Diccionario para mantener el estado de los tipos de entrada"
 msgid "Dictionary with the current student responses"
 msgstr "Diccionario con las respuestas de los alumnos actuales."
 
+#: xmodule/capa_block.py:302
+msgid "List of student answers for each attempt"
+msgstr "Lista de respuestas de los estudiantes para cada intento."
+
 #: xmodule/capa_block.py:306
 msgid "Dictionary with the current student score"
 msgstr "Diccionario con la puntuación actual del alumno."
+
+#: xmodule/capa_block.py:308
+msgid "List of scores for each attempt"
+msgstr "Lista de puntuaciones de cada Intento."
 
 #: xmodule/capa_block.py:311
 msgid "Whether or not the answers have been saved since last submit"
