@@ -252,6 +252,11 @@ msgstr "Unidade"
 msgid "Problem"
 msgstr "Problema"
 
+#: cms/djangoapps/contentstore/helpers.py:227
+#: cms/djangoapps/contentstore/views/component.py:287
+msgid "Library Content"
+msgstr "Conteúdo da Biblioteca"
+
 #: cms/djangoapps/contentstore/management/commands/git_export.py:33
 msgid ""
 "Take the specified course and attempt to export it to a git repository\n"
@@ -419,6 +424,10 @@ msgstr "Duplicata de '{0}'"
 msgid "Invalid prerequisite course key"
 msgstr "Chave de pré-requisitos de curso inválida. "
 
+#: cms/djangoapps/contentstore/utils.py:1920
+msgid "Set Date"
+msgstr "Configurar data"
+
 #. Translators: This is the status of an active video upload
 #: cms/djangoapps/contentstore/video_storage_handlers.py:119
 msgid "Uploading"
@@ -494,6 +503,16 @@ msgstr "Transcrição pronta"
 msgid "Partial Failure"
 msgstr "Falha Parcial"
 
+#. Translators: This is the status for a video whose transcription job has
+#. failed altogether
+#: cms/djangoapps/contentstore/video_storage_handlers.py:149
+msgid "Transcript Failed"
+msgstr "Transcrição Falhou"
+
+#: cms/djangoapps/contentstore/video_storage_handlers.py:338
+msgid "An image file is required."
+msgstr "Um arquivo de imagem é obrigatório."
+
 #. Translators: This is the header for a CSV file column
 #. containing URLs for video encodings for the named profile
 #. (e.g. desktop, mobile high quality, mobile low quality)
@@ -531,6 +550,67 @@ msgstr "Situação"
 msgid "{course}_video_urls"
 msgstr "{course}_video_url"
 
+#: cms/djangoapps/contentstore/video_storage_handlers.py:956
+msgid "A non zero positive integer is expected"
+msgstr "Um número inteiro positivo diferente de zero é esperado."
+
+#: cms/djangoapps/contentstore/video_utils.py:42
+msgid "The image must have name, content type, and size information."
+msgstr "A imagem deve conter nome, tipo de conteúdo, e tamanho."
+
+#: cms/djangoapps/contentstore/video_utils.py:44
+#, python-brace-format
+msgid ""
+"This image file type is not supported. Supported file types are "
+"{supported_file_formats}."
+msgstr ""
+"Este tipo de arquivo de imagem não é compatível. Os tipos de arquivo "
+"compatíveis são: {supported_file_formats}"
+
+#: cms/djangoapps/contentstore/video_utils.py:48
+#, python-brace-format
+msgid "This image file must be smaller than {image_max_size}."
+msgstr "O arquivo desta imagem deve ser menor do que {image_max_size}."
+
+#: cms/djangoapps/contentstore/video_utils.py:52
+#, python-brace-format
+msgid "This image file must be larger than {image_min_size}."
+msgstr "O arquivo desta imagem deve ser maior do que {image_min_size}."
+
+#: cms/djangoapps/contentstore/video_utils.py:59
+#: cms/djangoapps/contentstore/video_utils.py:61
+msgid ""
+"There is a problem with this image file. Try to upload a different file."
+msgstr ""
+"Há um problema com este arquivo de imagem. Tente enviar um arquivo "
+"diferente."
+
+#: cms/djangoapps/contentstore/video_utils.py:64
+#, python-brace-format
+msgid ""
+"Recommended image resolution is "
+"{image_file_max_width}x{image_file_max_height}. The minimum resolution is "
+"{image_file_min_width}x{image_file_min_height}."
+msgstr ""
+"A resolução recomendada para imagens é "
+"{image_file_max_width}x{image_file_max_height}. A resolução mínima é "
+"{image_file_min_width}x{image_file_min_height}."
+
+#: cms/djangoapps/contentstore/video_utils.py:72
+#, python-brace-format
+msgid ""
+"This image file must have an aspect ratio of "
+"{video_image_aspect_ratio_text}."
+msgstr "Esta imagem deve ter a proporção {video_image_aspect_ratio_text}."
+
+#: cms/djangoapps/contentstore/video_utils.py:79
+msgid ""
+"The image file name can only contain letters, numbers, hyphens (-), and "
+"underscores (_)."
+msgstr ""
+"O nome do arquivo desta imagem só pode conter letras, números, hífens (-) e "
+"sublinhados (_)."
+
 #: cms/djangoapps/contentstore/views/certificate_manager.py:115
 msgid "must have name of the certificate"
 msgstr "deve ter o nome do certificado"
@@ -545,6 +625,11 @@ msgstr "Ordem do certificado {0} chave de valor ausente '{1}'"
 msgid "PermissionDenied: Failed in authenticating {user}"
 msgstr "Permissão Negada: Falha na autenticação de {user}"
 
+#: cms/djangoapps/contentstore/views/component.py:277
+#, python-brace-format
+msgid "{platform_name} Support Levels:"
+msgstr "{platform_name} Níveis de suporte:"
+
 #. Translators: 'Discussion' refers to the tab in the courseware that leads to
 #. the discussion forums
 #: cms/djangoapps/contentstore/views/component.py:281
@@ -555,6 +640,15 @@ msgstr "Permissão Negada: Falha na autenticação de {user}"
 #: openedx/features/lti_course_tab/tab.py:274 xmodule/discussion_block.py:198
 msgid "Discussion"
 msgstr "Discussão"
+
+#: cms/djangoapps/contentstore/views/component.py:284
+#: lms/templates/video.html:56
+msgid "Video"
+msgstr "Vídeo"
+
+#: cms/djangoapps/contentstore/views/component.py:285
+msgid "Open Response"
+msgstr "Resposta Aberta"
 
 #: cms/djangoapps/contentstore/views/component.py:289
 msgid "Drag and Drop"
@@ -567,6 +661,11 @@ msgstr "Vazio "
 #: cms/djangoapps/contentstore/views/component.py:333
 msgid "Peer Assessment Only"
 msgstr "Somente Avaliação por Pares"
+
+#: cms/djangoapps/contentstore/views/component.py:337
+#: xmodule/capa_block.py:186
+msgid "Blank Problem"
+msgstr "Problema em branco"
 
 #: cms/djangoapps/contentstore/views/component.py:462
 #: xmodule/video_block/video_block.py:142
@@ -611,6 +710,14 @@ msgstr ""
 "Não foi possível criar o curso '{name}'.\n"
 "{err}"
 
+#: cms/djangoapps/contentstore/views/course.py:938
+msgid ""
+"User does not have the permission to create courses in this organization or "
+"course creation is disabled"
+msgstr ""
+"Usuário não tem permissão para criar cursos nesta organização, ou a criação "
+"de cursos está desabilitada."
+
 #: cms/djangoapps/contentstore/views/course.py:955
 msgid ""
 "You must link this course to an organization in order to continue. "
@@ -654,6 +761,24 @@ msgstr "Exame de Admissão de Curso Concluído"
 msgid "Course successfully exported to git repository"
 msgstr "O curso foi exportado com sucesso para o repositório git"
 
+#: cms/djangoapps/contentstore/views/import_export.py:179
+msgid "Some chunks missed during file upload. Please try again"
+msgstr ""
+"Alguns blocos foram perdidos durante o upload do arquivo. Por favor, tente "
+"novamente"
+
+#: cms/djangoapps/contentstore/views/import_export.py:190
+msgid "File upload failed. Please try again"
+msgstr "Falha no envio do arquivo. Por favor, tente novamente"
+
+#: cms/djangoapps/contentstore/views/library.py:240
+msgid ""
+"User does not have the permission to create library in this organization or "
+"course creation is disabled"
+msgstr ""
+"O Usuário não tem permissão para criar uma biblioteca nesta organização, ou "
+"a criação de cursos está desabilitada."
+
 #: cms/djangoapps/contentstore/views/library.py:247
 #, python-brace-format
 msgid "Unable to create library - missing required field '{field}'"
@@ -682,6 +807,38 @@ msgstr ""
 "biblioteca. Por favor, mude o código de biblioteca de modo que ele seja "
 "único em sua organização."
 
+#: cms/djangoapps/contentstore/views/library.py:267
+#, python-brace-format
+msgid "'{organization_key}' is not a valid organization identifier."
+msgstr ""
+"'{organization_key}' não é um identificador válido de uma organização."
+
+#: cms/djangoapps/contentstore/views/preview.py:306
+#, python-brace-format
+msgid "Access restricted to: {list_of_groups}"
+msgstr "Acesso restrito a: {list_of_groups}"
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:195
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:527
+msgid "Transcripts are supported only for \"video\" blocks."
+msgstr "As transcrições são suportadas apenas para blocos de \"vídeo\"."
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:198
+msgid "Cannot find item by locator."
+msgstr "Não foi possível encontrar o item pelo localizador."
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:219
+msgid "Video locator is required."
+msgstr "O localizador de vídeo é obrigatório."
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:223
+msgid "This transcript file type is not supported."
+msgstr "Este tipo de transcrição de arquivo não é compatível."
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:225
+msgid "Video ID is required."
+msgstr "A identificação do vídeo é obrigatória."
+
 #: cms/djangoapps/contentstore/views/transcripts_ajax.py:520
 #: cms/djangoapps/contentstore/views/transcripts_ajax.py:561
 msgid "Incoming video data is empty."
@@ -690,6 +847,31 @@ msgstr "Não há dados do vídeo recebido. "
 #: cms/djangoapps/contentstore/views/transcripts_ajax.py:524
 msgid "Can't find item by locator."
 msgstr "Não é possível encontrar o item através do localizador."
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:610
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:664
+msgid "No such transcript."
+msgstr "Nenhuma transcrição."
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:634
+msgid "There is a problem with the chosen transcript file."
+msgstr "Há um problema com a transcrição do arquivo escolhido."
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:689
+msgid ""
+"There is a problem with the existing transcript file. Please upload a "
+"different file."
+msgstr ""
+"Há um problema com a transcrição do arquivo existente. Por favor, envie "
+"outro arquivo."
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:710
+msgid "YouTube ID is required."
+msgstr "A identificação do YouTube é obrigatória."
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:750
+msgid "There is a problem with the YouTube transcript file."
+msgstr "Há um problema com a transcrição do arquivo do YouTube."
 
 #: cms/djangoapps/contentstore/views/user.py:98
 msgid "Insufficient permissions"
@@ -703,6 +885,11 @@ msgstr "Não foi possível encontrar o usuário através do e-mail '{email}'."
 #: cms/djangoapps/contentstore/views/user.py:149
 msgid "No `role` specified."
 msgstr "Sem `função` especificada. "
+
+#: cms/djangoapps/contentstore/views/user.py:154
+#, python-brace-format
+msgid "User {email} has registered but has not yet activated their account."
+msgstr "O usuário {email} se registrou, mas ainda não ativou sua conta."
 
 #: cms/djangoapps/contentstore/views/user.py:175
 msgid "Invalid `role` specified."
@@ -718,6 +905,71 @@ msgstr ""
 #: xmodule/library_content_block.py:577
 msgid "Empty"
 msgstr "Vazio"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:230
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:682
+#, python-brace-format
+msgid "Libraries cannot have more than {limit} components"
+msgstr "Bibliotecas não podem ter mais que {limit} componentes."
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:436
+#: openedx/core/djangoapps/xblock/rest_api/views.py:341
+msgid "Invalid data"
+msgstr "Dados inválidos"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:438
+#: openedx/core/djangoapps/xblock/rest_api/views.py:343
+#, python-brace-format
+msgid "Invalid data ({details})"
+msgstr "Dados inválidos ({details})"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:656
+msgid "There was a problem pasting your component."
+msgstr "Um problema ocorreu ao colar seu componente."
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:660
+msgid "Your clipboard is empty or invalid."
+msgstr "Sua área de transferência está vazia ou inválida."
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:803
+#, python-brace-format
+msgid "You can not move {source_type} into {target_parent_type}."
+msgstr "Você não pode mover {source_type} para {target_parent_type}."
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:812
+msgid "Item is already present in target location."
+msgstr "Item já esteve presente na localização desejada."
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:814
+msgid "You can not move an item into itself."
+msgstr "Você não pode mover um item para si mesmo."
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:816
+msgid "You can not move an item into it's child."
+msgstr "Você não pode mover um item para dentro de um outro item aninhado."
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:818
+msgid "You can not move an item directly into content experiment."
+msgstr ""
+"Você não pode mover um item diretamente para o experimento de conteúdo."
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:820
+#, python-brace-format
+msgid "{source_usage_key} not found in {parent_usage_key}."
+msgstr "{source_usage_key} não encontrado em {parent_usage_key}."
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:832
+#, python-brace-format
+msgid ""
+"You can not move {source_usage_key} at an invalid index ({target_index})."
+msgstr ""
+"Você não pode mover {source_usage_key} para um índice inválido "
+"({target_index})."
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:839
+#, python-brace-format
+msgid "You must provide target_index ({target_index}) as an integer."
+msgstr "Você deve fornecer o target_index ({target_index}) como um inteiro."
 
 #: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1154
 #, python-brace-format
@@ -773,6 +1025,15 @@ msgid ""
 msgstr ""
 "Notas opcionais sobre este usuário (por exemplo, a razão pela qual o acesso "
 "à criação do curso foi negado)"
+
+#: cms/djangoapps/course_creators/models.py:54
+msgid "Organizations under which the user is allowed to create courses."
+msgstr "O usuário pode criar cursos sob as organizações."
+
+#: cms/djangoapps/course_creators/models.py:57
+msgid "Grant the user the permission to create courses in ALL organizations"
+msgstr ""
+"Conceder ao usuário a permissão para criou cursos em TODAS as organizações"
 
 #: cms/djangoapps/models/settings/course_metadata.py:235
 #, python-brace-format
@@ -895,9 +1156,33 @@ msgstr[0] " Tem {count} blocos filhos."
 msgstr[1] " Existem {count} blocos filhos."
 msgstr[2] " Existem {count} blocos filhos."
 
+#: cms/lib/xblock/tagging/tagging.py:21
+msgid "Dictionary with the available tags"
+msgstr "Dicionário com as Tags disponíveis"
+
 #: cms/lib/xblock/upstream_sync.py:290
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "Vinculado `upstream_key` não é um link válido"
+
+#: cms/templates/admin/base_site.html:4 lms/templates/admin/base_site.html:3
+msgid "Django site admin"
+msgstr "Administrador do site Django"
+
+#: cms/templates/admin/base_site.html:6 lms/templates/admin/base_site.html:5
+msgid "Django administration"
+msgstr "Administração Django"
+
+#: cms/templates/admin/base_site.html:11 lms/templates/admin/base_site.html:10
+msgid "View site"
+msgstr "Visualizar site"
+
+#: cms/templates/admin/base_site.html:20 lms/templates/admin/base_site.html:19
+msgid "Log out"
+msgstr "Sair"
+
+#: cms/urls.py:30
+msgid "Studio Administration"
+msgstr "Administração do Studio"
 
 #: common/djangoapps/course_modes/admin.py:40
 #: common/djangoapps/course_modes/models.py:60
@@ -978,6 +1263,20 @@ msgstr ""
 "inscreverem-se neste modo. Deixe em branco se os usuários puderem se "
 "inscrever neste modo até que feche a inscrição para o curso."
 
+#: common/djangoapps/course_modes/models.py:94
+msgid "Lock upgrade deadline date"
+msgstr "Bloquear data limite de upgrade"
+
+#: common/djangoapps/course_modes/models.py:96
+msgid ""
+"OPTIONAL: Set to True to lock in the explicitly defined upgrade deadline "
+"date. Set to False if there is no upgrade deadline or to use the default "
+"upgrade deadline."
+msgstr ""
+"OPCIONAL: Defina como VERDADEIRO para bloquear a data limite de atualização "
+"explicitamente definida. Defina como FALSO se não houver prazo de "
+"atualização ou para usar o prazo de atualização padrão."
+
 #: common/djangoapps/course_modes/models.py:121
 msgid ""
 "OPTIONAL: This is the SKU (stock keeping unit) of this mode in the external "
@@ -988,11 +1287,40 @@ msgstr ""
 "serviço de e-commerce externo. Deixe em branco se o curso ainda não foi "
 "migrado para o serviço e-commerce."
 
+#: common/djangoapps/course_modes/models.py:133
+msgid ""
+"OPTIONAL: This is the Android SKU registered on play store for this mode of "
+"the course. Leave this blank if the course has not yet been migrated to the "
+"ecommerce service."
+msgstr ""
+"OPCIONAL: Este é o SKU do Android cadastrado na play store para esta "
+"modalidade do curso. Deixe em branco se o curso ainda não foi migrado para o"
+" serviço de comércio eletrônico."
+
+#: common/djangoapps/course_modes/models.py:145
+msgid ""
+"OPTIONAL: This is the iOS SKU registered on app store for this mode of the "
+"course.  Leave this blank if the course has not yet been migrated to the "
+"ecommerce service."
+msgstr ""
+"OPCIONAL: Este é o SKU iOS cadastrado na app store para esta modalidade do "
+"curso. Deixe em branco se o curso ainda não foi migrado para o serviço de "
+"comércio eletrônico."
+
 #: common/djangoapps/course_modes/models.py:249
 msgid ""
 "Professional education modes are not allowed to have expiration_datetime "
 "set."
 msgstr "Modos de educação profissional não podem ter definição de fim_data."
+
+#: common/djangoapps/course_modes/models.py:258
+#, python-brace-format
+msgid ""
+"The {course_mode} course mode has a minimum price of {min_price}. You must "
+"set a price greater than or equal to {min_price}."
+msgstr ""
+"O modo de curso {course_mode} tem um preço mínimo de {min_price}. Você deve "
+"colocar um preço maior ou igual a {min_price}."
 
 #. Translators: This will look like '$50', where {currency_symbol} is a symbol
 #. such as '$' and {price} is a
@@ -1049,6 +1377,15 @@ msgstr[0] "Apagado com sucesso %(count)d entrada de histórico selecionada."
 msgstr[1] "Apagados com sucesso %(count)d itens de histórico selecionados."
 msgstr[2] "Apagados com sucesso %(count)d itens de histórico selecionados."
 
+#: common/djangoapps/student/admin.py:520
+msgid "User profile"
+msgstr "Perfil do Usuário"
+
+#: common/djangoapps/student/admin.py:527
+#: common/djangoapps/student/admin.py:528
+msgid "Account recovery"
+msgstr "Recuperação de Conta"
+
 #. Translators: This label appears above a field on the login form
 #. meant to hold the user's password.
 #. Translators: This label appears above a field on the registration form
@@ -1058,6 +1395,33 @@ msgstr[2] "Apagados com sucesso %(count)d itens de histórico selecionados."
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:609
 msgid "Password"
 msgstr "Senha"
+
+#: common/djangoapps/student/admin.py:545
+msgid ""
+"Raw passwords are not stored, so there is no way to see this user's "
+"password."
+msgstr ""
+"As senhas brutas não são armazenadas, portanto, não há como ver a senha "
+"desse usuário."
+
+#: common/djangoapps/student/admin.py:714
+#, python-brace-format
+msgid ""
+"Please add a key/value 'THIRD_PARTY_AUTH_ONLY_DOMAIN/{site_email_domain}' in"
+" SiteConfiguration model's site_values field."
+msgstr ""
+"Adicione uma chave / valor 'THIRD_PARTY_AUTH_ONLY_DOMAIN / "
+"{site_email_domain}' no campo site_values ​​do modelo de Configuração de "
+"Site."
+
+#: common/djangoapps/student/admin.py:719
+#, python-brace-format
+msgid "Email doesn't have {allowed_site_email_domain} domain name."
+msgstr "Email não tem {allowed_site_email_domain} nome de domínio."
+
+#: common/djangoapps/student/admin.py:722
+msgid "User with this email doesn't exist in system."
+msgstr "O usuário com este email não existe no sistema."
 
 #: common/djangoapps/student/helpers.py:77
 #: common/djangoapps/student/helpers.py:725
@@ -1102,6 +1466,28 @@ msgid ""
 msgstr ""
 "A janela de tempo após a matricula durante a qual os usuários podem receber "
 "uma restituição, representada em microssegundos. O padrão é de 14 dias."
+
+#: common/djangoapps/student/models/course_enrollment.py:1760
+msgid ""
+"It expect that the data will be provided in a csv file format with"
+"                     first row being the header and columns will be as "
+"follows:                     user_id, username, email, course_id, "
+"is_verified, verification_date"
+msgstr ""
+"Espera-se que os dados sejam fornecidos em um formato de arquivo csv com a "
+"primeira linha sendo o cabeçalho e as colunas são as seguintes: user_id, "
+"nome de usuário, email, identificação do curso, is_verified, "
+"verificação_date"
+
+#: common/djangoapps/student/models/course_enrollment.py:1774
+msgid ""
+"It expect that the data will be provided in a csv file format with"
+"                     first row being the header and columns will be as "
+"follows:                     course_id, username, mode"
+msgstr ""
+"Espera-se que os dados sejam fornecidos em um formato de arquivo csv com a "
+"primeira linha sendo o cabeçalho e as colunas são as seguintes: "
+"identificação do curso, nome de usuário, modo."
 
 #: common/djangoapps/student/models/user.py:463
 msgid "Male"
@@ -1170,6 +1556,16 @@ msgstr "{platform_name} Certificado Verificado para {course_name}"
 msgid "{platform_name} Professional Certificate for {course_name}"
 msgstr "{platform_name} Certificado Profissional para {course_name}"
 
+#: common/djangoapps/student/models/user.py:1373
+msgid ""
+"Your organization ID (if your organization has an existing page on LinkedIn)"
+" e.g 1337. If not provided, will default to sending Platform Name (e.g. edX)"
+" instead."
+msgstr ""
+"A Identificação da sua organização (se sua organização tiver uma página "
+"existente no Linkedin), por exemplo 1337. Se não for fornecido, o padrão "
+"será enviar o nome da plataforma (por exemplo, edX)"
+
 #: common/djangoapps/student/models/user.py:1446
 #, python-brace-format
 msgid "{platform_name} Certificate for {course_name}"
@@ -1180,10 +1576,132 @@ msgstr "{platform_name} Certificado para {course_name}"
 msgid "The ISO 639-1 language code for this language."
 msgstr "Código linguístico ISO 639-1 para este idioma."
 
+#: common/djangoapps/student/models/user.py:1602
+msgid "Name of the UTM cookie"
+msgstr "Nome do UTM cookie"
+
+#: common/djangoapps/student/models/user.py:1607
+msgid "Name of the affiliate cookie"
+msgstr "Nome do cookie afiliado"
+
+#: common/djangoapps/student/models/user.py:1630
+msgid "Name of this user attribute."
+msgstr "Nome do atributo desse usuário."
+
+#: common/djangoapps/student/models/user.py:1631
+msgid "Value of this user attribute."
+msgstr "Valor do atributo desse usuário."
+
+#: common/djangoapps/student/models/user.py:1696
+msgid "Secondary email address"
+msgstr "Endereço de e-mail secundário"
+
+#: common/djangoapps/student/models/user.py:1697
+msgid "Secondary email address to recover linked account."
+msgstr "Endereço de e-mail secundário para recuperar a conta vinculada."
+
+#: common/djangoapps/student/models/user.py:1744
+msgid ""
+"An employee (a user whose email has current site's domain name) whose email "
+"exists in this model, can be able to login from login screen through email "
+"and password. And if any employee's email doesn't exist in this model then "
+"that employee can login via third party authentication backend only."
+msgstr ""
+"Um funcionário (um usuário cujo e-mail possui o nome de domínio do site "
+"atual) cujo e-mail existe neste modelo, pode fazer o login através de e-mail"
+" e senha. E se o e-mail de algum funcionário não existir nesse modelo, esse "
+"funcionário poderá fazer o login apenas por meio do backend de autenticação "
+"de terceiros."
+
+#: common/djangoapps/student/models/user.py:1759
+msgid ""
+"It expect that the data will be provided in a csv file format with"
+"                     first row being the header and columns will be as "
+"follows:                     username, current_email, desired_email"
+msgstr ""
+"Espera-se que os dados sejam fornecidos no formato csv com a primeira linha "
+"sendo o cabeçalho e as colunas sejam as seguintes: nome de usuário, "
+"current_email, email desejado"
+
+#: common/djangoapps/student/models/user.py:1941
+msgid "Add a reason"
+msgstr "Adicione um motivo"
+
+#: common/djangoapps/student/views/dashboard.py:143
+msgid " and "
+msgstr " e "
+
+#: common/djangoapps/student/views/dashboard.py:286
+msgid "Photos are mismatched"
+msgstr "Fotos não correspondentes"
+
+#: common/djangoapps/student/views/dashboard.py:287
+msgid "Name missing from ID photo"
+msgstr "Nome faltando na foto de Identificação"
+
+#: common/djangoapps/student/views/dashboard.py:288
+msgid "ID photo not provided"
+msgstr "Identificação com foto não fornecida"
+
+#: common/djangoapps/student/views/dashboard.py:289
+msgid "ID is invalid"
+msgstr "A identificação é inválida"
+
+#: common/djangoapps/student/views/dashboard.py:290
+msgid "Learner photo is blurry"
+msgstr "A foto do estudante está borrada"
+
+#: common/djangoapps/student/views/dashboard.py:291
+msgid "Name on ID does not match name on account"
+msgstr "O nome na Identificação não corresponde ao da conta"
+
+#: common/djangoapps/student/views/dashboard.py:292
+msgid "Learner photo not provided"
+msgstr "Foto do estudante não fornecido"
+
+#: common/djangoapps/student/views/dashboard.py:293
+msgid "ID photo is blurry"
+msgstr "A foto do documento de Identificação está borrada."
+
+#: common/djangoapps/student/views/dashboard.py:607
+#, python-brace-format
+msgid ""
+"Check your {email_start}{email}{email_end} inbox for an account activation "
+"link from {platform_name}. If you need help, contact "
+"{link_start}{platform_name} Support{link_end}."
+msgstr ""
+"Verifique sua caixa de entrada de {email_start}{email}{email_end} por um "
+"link de ativação da conta de {platform_name}. Se precisar de ajuda, entre em"
+" contato com {link_start}{platform_name} Suporte{link_end}."
+
+#: common/djangoapps/student/views/dashboard.py:632
+#, python-brace-format
+msgid ""
+"Add a recovery email to retain access when single-sign on is not available. "
+"Go to {link_start}your Account Settings{link_end}."
+msgstr ""
+"Adicione um e-mail de recuperação para reter o acesso quando o single-sign "
+"on não estiver disponível. Acesse {link_start}suas Configurações de "
+"Conta{link_end}."
+
+#: common/djangoapps/student/views/dashboard.py:643
+msgid ""
+"Recovery email is not activated yet. Kindly visit your email and follow the "
+"instructions to activate it."
+msgstr ""
+"O e-mail de recuperação ainda não está ativo. Por favor, visite seu e-mail e"
+" siga as instruções para ativá-lo."
+
 #: common/djangoapps/student/views/dashboard.py:765
 #, python-brace-format
 msgid "The course you are looking for does not start until {date}."
 msgstr "O curso que você está procurando não começara até {date}."
+
+#: common/djangoapps/student/views/dashboard.py:769
+#, python-brace-format
+msgid "The course you are looking for is closed for enrollment as of {date}."
+msgstr ""
+"O curso que você está procurando está fechado para matrícula desde {date}."
 
 #: common/djangoapps/student/views/management.py:369
 msgid "Course id not specified"
@@ -1200,6 +1718,10 @@ msgstr "ID do curso inválido"
 #: common/djangoapps/student/views/management.py:430
 msgid "Could not enroll"
 msgstr "Não foi possível matricular"
+
+#: common/djangoapps/student/views/management.py:450
+msgid "Unenrollment is currently disabled"
+msgstr "Desativamos o cancelamento da inscrição no momento."
 
 #: common/djangoapps/student/views/management.py:454
 msgid "You are not enrolled in this course"
@@ -1237,6 +1759,48 @@ msgstr "A conta de {} foi reativada com sucesso"
 msgid "Unexpected account status"
 msgstr "Status da conta inesperado"
 
+#: common/djangoapps/student/views/management.py:580
+#, python-brace-format
+msgid ""
+"{html_start}Your {account_or_email} could not be "
+"{activated_or_confirmed}{html_end}Something went wrong, please <a "
+"href=\"{support_url}\">contact support</a> to resolve this issue."
+msgstr ""
+"{html_start}Sua {account_or_email} não pôde ser "
+"{activated_or_confirmed}{html_end}Algo deu errado, <a "
+"href=\"{support_url}\">entre em contato com o suporte</a> para resolver o "
+"problema."
+
+#: common/djangoapps/student/views/management.py:615
+#, python-brace-format
+msgid ""
+"{html_start}This {account_or_email} has already been "
+"{activated_or_confirmed}.{html_end}"
+msgstr ""
+"{html_start}Esta {account_or_email} já foi "
+"{activated_or_confirmed}.{html_end}"
+
+#: common/djangoapps/student/views/management.py:627
+#, python-brace-format
+msgid ""
+"{html_start}Success{html_end} You have {activated_or_confirmed} your "
+"{account_or_email}."
+msgstr ""
+"{html_start}Sucesso{html_end} Você {ativou_ou_confirmou} seu "
+"{account_or_email}."
+
+#: common/djangoapps/student/views/management.py:640
+#, python-brace-format
+msgid ""
+"{html_start}Success! You have {activated_or_confirmed} your "
+"{account_or_email}.{html_end}You will now receive email updates and alerts "
+"from us related to the courses you are enrolled in. Sign In to continue."
+msgstr ""
+"{html_start}Sucesso! Você {activated_or_confirmed} sua "
+"{account_or_email}.{html_end}Você agora receberá nossas atualizações e "
+"alertas por e-mail relacionados aos cursos nos quais você está matriculado. "
+"Faça login para continuar."
+
 #: common/djangoapps/student/views/management.py:731
 #: common/djangoapps/student/views/management.py:746
 msgid "Valid e-mail address required."
@@ -1247,11 +1811,27 @@ msgstr "É necessário um endereço de e-mail válido. "
 msgid "Old email is the same as the new email."
 msgstr "O e-mail antigo é igual ao novo."
 
+#: common/djangoapps/student/views/management.py:755
+msgid "Cannot be same as your sign in email address."
+msgstr "Não pode ser igual ao seu endereço de e-mail de login."
+
 #: common/djangoapps/student/views/management.py:825
 msgid "Unable to send email activation link. Please try again later."
 msgstr ""
 "Não foi possível enviar o e-mail com o link de ativação. Por favor, tente "
 "novamente mais tarde."
+
+#: common/djangoapps/third_party_auth/admin.py:73
+msgid "Deleted the selected configuration(s)."
+msgstr "Configurações selecionadas apagadas."
+
+#: common/djangoapps/third_party_auth/admin.py:93
+msgid "Delete the selected configuration"
+msgstr "Apagar a configuração selecionada"
+
+#: common/djangoapps/third_party_auth/middleware.py:45
+msgid "Unable to connect with the external provider, please try again"
+msgstr "Não foi possível conectar-se ao provedor externo, tente novamente"
 
 #: common/djangoapps/third_party_auth/models.py:86
 msgid "Authentication with {} is currently unavailable."
@@ -1264,6 +1844,32 @@ msgid ""
 msgstr ""
 "Fornecedores secundários são exibidos com menos destaque, em uma lista "
 "separada de \"Instituições\" para acesso de fornecedores."
+
+#: common/djangoapps/third_party_auth/models.py:158
+msgid ""
+"optional. If this provider is an Organization, this attribute can be used "
+"reference users in that Organization"
+msgstr ""
+"opcional. Se esse provedor for uma Organização, esse atributo poderá ser "
+"usado para usuários de referência nessa Organização."
+
+#: common/djangoapps/third_party_auth/models.py:167
+msgid "The Site that this provider configuration belongs to."
+msgstr "Esta configuração de fornecedor pertence ao Site."
+
+#: common/djangoapps/third_party_auth/models.py:174
+#: common/djangoapps/third_party_auth/models.py:721
+msgid ""
+"If this option is enabled, users that visit a \"TPA hinted\" URL for this "
+"provider (e.g. a URL ending with `?tpa_hint=[provider_name]`) will be "
+"forwarded directly to the login URL of the provider instead of being first "
+"prompted with a login dialog."
+msgstr ""
+"Se esta opção estiver habilitada, os usuários que visitarem uma URL "
+"\"sugerida pelo TPA\" para esse fornecedor (por exemplo, um URL terminado "
+"com `?tpa_hint=[nome_do_provedor]`) serão encaminhados diretamente para o "
+"URL de login do fornecedor em vez de serem solicitados a um diálogo de "
+"login."
 
 #: common/djangoapps/third_party_auth/models.py:182
 #: common/djangoapps/third_party_auth/models.py:729
@@ -1285,6 +1891,81 @@ msgid ""
 msgstr ""
 "Se esta opção estiver selecionada, usuários não serão obrigados a confirmar "
 "o e-mail e suas contas serão ativadas imediatamente após a inscrição."
+
+#: common/djangoapps/third_party_auth/models.py:197
+msgid ""
+"If this option is selected, users will be sent a welcome email upon "
+"registration."
+msgstr ""
+"Se esta opção for selecionada, os usuários receberão um email de boas-vindas"
+" no momento do registro."
+
+#: common/djangoapps/third_party_auth/models.py:203
+msgid ""
+"If this option is not selected, users will not be presented with the "
+"provider as an option to authenticate with on the login screen, but manual "
+"authentication using the correct link is still possible."
+msgstr ""
+"Se esta opção não estiver selecionada, os usuários não serão apresentados ao"
+" fornecedor como uma opção para autenticação na tela de login, mas a "
+"autenticação manual usando o link correto ainda é possível."
+
+#: common/djangoapps/third_party_auth/models.py:214
+msgid ""
+"If this option is set, then users logging in using this SSO provider will "
+"have their session length limited to no longer than this value. If set to 0 "
+"(zero), the session will expire upon the user closing their browser. If left"
+" blank, the Django platform session default length will be used."
+msgstr ""
+"Se esta opção for definida, os usuários que fizerem login usando esse "
+"provedor de SSO terão sua duração de sessão limitada a não mais que esse "
+"valor. Se definido como 0 (zero), a sessão expirará quando o usuário fechar "
+"o navegador. Se deixado em branco, será usada a duração padrão da sessão da "
+"plataforma Django."
+
+#: common/djangoapps/third_party_auth/models.py:223
+#: common/djangoapps/third_party_auth/models.py:744
+msgid ""
+"If this option is selected, users will be directed to the registration page "
+"immediately after authenticating with the third party instead of the login "
+"page."
+msgstr ""
+"Se esta opção for selecionada, os usuários serão direcionados para a página "
+"de registro imediatamente após a autenticação com o terceiro, em vez da "
+"página de login."
+
+#: common/djangoapps/third_party_auth/models.py:230
+msgid ""
+"Synchronize user profile data received from the identity provider with the "
+"edX user account on each SSO login. The user will be notified if the email "
+"address associated with their account is changed as a part of this "
+"synchronization."
+msgstr ""
+"Sincronizar os dados do perfil do usuário recebidos do provedor de "
+"identidade com a Conta do usuário edX em cada logon do SSO. O usuário será "
+"notificado se o endereço de e-mail associado a sua Conta for alterado como "
+"parte dessa sincronização."
+
+#: common/djangoapps/third_party_auth/models.py:244
+msgid ""
+"IDPs with this set to True will be excluded from the dropdown IDP selection "
+"in the EnterpriseCustomer Django Admin form."
+msgstr ""
+"Os IDPs com esse valor definido como True serão excluídos da seleção "
+"suspensa de IDP no formulário EnterpriseCustomer Django Administrador."
+
+#: common/djangoapps/third_party_auth/models.py:479
+msgid "The Site that this SAML configuration belongs to."
+msgstr "O Site ao qual esta configuração de SAML pertence."
+
+#: common/djangoapps/third_party_auth/models.py:574
+#, python-brace-format
+msgid "{platform_name} Support"
+msgstr "{platform_name} Suporte"
+
+#: common/djangoapps/third_party_auth/models.py:629
+msgid "A configuration nickname."
+msgstr "Um apelido de configuração."
 
 #: common/djangoapps/third_party_auth/templates/third_party_auth/post_custom_auth_entry.html:5
 msgid "Please wait"
@@ -1641,6 +2322,17 @@ msgctxt "month name"
 msgid "December"
 msgstr "Dezembro"
 
+#: common/djangoapps/util/file.py:67
+#, python-brace-format
+msgid "The file must end with the extension '{file_types}'."
+msgid_plural ""
+"The file must end with one of the following extensions: '{file_types}'."
+msgstr[0] "O arquivo deve terminar com a extensão '{file_types}'."
+msgstr[1] ""
+"O arquivo deve terminar com uma das seguintes extensões: '{file_types}'."
+msgstr[2] ""
+"O arquivo deve terminar com uma das seguintes extensões: '{file_types}'."
+
 #: common/djangoapps/util/file.py:73
 #, python-brace-format
 msgid "Maximum upload file size is {file_size} bytes."
@@ -1656,6 +2348,279 @@ msgstr "O curso {course_id} necessita {prerequisite_course_id}"
 msgid "System defined milestone"
 msgstr "Marcação definida pelo sistema"
 
+#: common/djangoapps/util/password_policy_validators.py:68
+#, python-brace-format
+msgid ""
+"Your password must contain {length_instruction}, including "
+"{complexity_instructions}."
+msgstr ""
+"Sua senha deve conter {length_instruction}, incluindo "
+"{complexity_instructions}."
+
+#: common/djangoapps/util/password_policy_validators.py:73
+#, python-brace-format
+msgid "Your password must contain {length_instruction}."
+msgstr "Sua senha deve conter {length_instruction}."
+
+#: common/djangoapps/util/password_policy_validators.py:101
+msgid "Invalid password."
+msgstr "Senha inválida."
+
+#: common/djangoapps/util/password_policy_validators.py:149
+#, python-format
+msgid "at least %(min_length)d character"
+msgid_plural "at least %(min_length)d characters"
+msgstr[0] "pelo menos %(min_length)d caractere"
+msgstr[1] "pelo menos %(min_length)d caracteres"
+msgstr[2] "pelo menos %(min_length)d caracteres"
+
+#: common/djangoapps/util/password_policy_validators.py:175
+#, python-format
+msgid ""
+"This password is too long. It must contain no more than %(max_length)d "
+"character."
+msgid_plural ""
+"This password is too long. It must contain no more than %(max_length)d "
+"characters."
+msgstr[0] ""
+"Esta senha é muito longa. Não deve conter mais do que 10 caracteres."
+msgstr[1] ""
+"Esta senha é muito longa. Não deve conter mais do que %(max_length)d "
+"caracteres."
+msgstr[2] ""
+"Esta senha é muito longa. Não deve conter mais do que %(max_length)d "
+"caracteres."
+
+#: common/djangoapps/util/password_policy_validators.py:185
+#, python-format
+msgid "Your password must contain no more than %(max_length)d character."
+msgid_plural ""
+"Your password must contain no more than %(max_length)d characters."
+msgstr[0] "Sua senha não deve conter mais do que %(max_length)d caractere."
+msgstr[1] "Sua senha não deve conter mais do que %(max_length)d caracteres."
+msgstr[2] "Sua senha não deve conter mais do que %(max_length)d caracteres."
+
+#: common/djangoapps/util/password_policy_validators.py:213
+#, python-format
+msgid "This password must contain at least %(min_alphabetic)d letter."
+msgid_plural "This password must contain at least %(min_alphabetic)d letters."
+msgstr[0] "Esta senha deve conter pelo menos %(min_alphabetic)d letras."
+msgstr[1] "Esta senha deve conter pelo menos %(min_alphabetic)d letras."
+msgstr[2] "Esta senha deve conter pelo menos %(min_alphabetic)d letras."
+
+#: common/djangoapps/util/password_policy_validators.py:223
+#, python-format
+msgid "Your password must contain at least %(min_alphabetic)d letter."
+msgid_plural "Your password must contain at least %(min_alphabetic)d letters."
+msgstr[0] "Sua senha deve conter pelo menos X letras."
+msgstr[1] "Sua senha deve conter pelo menos %(min_alphabetic)d letras."
+msgstr[2] "Sua senha deve conter pelo menos %(min_alphabetic)d letras."
+
+#: common/djangoapps/util/password_policy_validators.py:231
+#, python-format
+msgid "%(num)d letter"
+msgid_plural "%(num)d letters"
+msgstr[0] "%(num)d letra"
+msgstr[1] "%(num)d letras"
+msgstr[2] "%(num)d letras"
+
+#: common/djangoapps/util/password_policy_validators.py:261
+#, python-format
+msgid "This password must contain at least %(min_numeric)d number."
+msgid_plural "This password must contain at least %(min_numeric)d numbers."
+msgstr[0] "Esta senha deve conter pelo menos %(min_numeric)d número."
+msgstr[1] "Esta senha deve conter pelo menos %(min_numeric)d números."
+msgstr[2] "Esta senha deve conter pelo menos %(min_numeric)d números."
+
+#: common/djangoapps/util/password_policy_validators.py:271
+#, python-format
+msgid "Your password must contain at least %(min_numeric)d number."
+msgid_plural "Your password must contain at least %(min_numeric)d numbers."
+msgstr[0] "Sua senha deve conter pelo menos %(min_numeric)d número."
+msgstr[1] "Sua senha deve conter pelo menos %(min_numeric)d números."
+msgstr[2] "Sua senha deve conter pelo menos %(min_numeric)d números."
+
+#: common/djangoapps/util/password_policy_validators.py:279
+#, python-format
+msgid "%(num)d number"
+msgid_plural "%(num)d numbers"
+msgstr[0] "%(num)d número"
+msgstr[1] "%(num)d números"
+msgstr[2] "%(num)d números"
+
+#: common/djangoapps/util/password_policy_validators.py:309
+#, python-format
+msgid "This password must contain at least %(min_upper)d uppercase letter."
+msgid_plural ""
+"This password must contain at least %(min_upper)d uppercase letters."
+msgstr[0] "Esta senha deve conter pelo menos %(min_upper)d letra maiúscula."
+msgstr[1] "Esta senha deve conter pelo menos %(min_upper)d letras maiúsculas."
+msgstr[2] "Esta senha deve conter pelo menos %(min_upper)d letras maiúsculas."
+
+#: common/djangoapps/util/password_policy_validators.py:319
+#, python-format
+msgid "Your password must contain at least %(min_upper)d uppercase letter."
+msgid_plural ""
+"Your password must contain at least %(min_upper)d uppercase letters."
+msgstr[0] "Sua senha deve conter pelo menos %(min_upper)d letra maiúscula."
+msgstr[1] "Sua senha deve conter pelo menos %(min_upper)d letras maiúsculas."
+msgstr[2] "Sua senha deve conter pelo menos %(min_upper)d letras maiúsculas."
+
+#: common/djangoapps/util/password_policy_validators.py:327
+#, python-format
+msgid "%(num)d uppercase letter"
+msgid_plural "%(num)d uppercase letters"
+msgstr[0] "%(num)d letra maiúscula"
+msgstr[1] "%(num)d letras maiúsculas"
+msgstr[2] "%(num)d letras maiúsculas"
+
+#: common/djangoapps/util/password_policy_validators.py:357
+#, python-format
+msgid "This password must contain at least %(min_lower)d lowercase letter."
+msgid_plural ""
+"This password must contain at least %(min_lower)d lowercase letters."
+msgstr[0] "Esta senha deve conter pelo menos %(min_lower)d letra minúscula."
+msgstr[1] "Esta senha deve conter pelo menos %(min_lower)d letras minúsculas."
+msgstr[2] "Esta senha deve conter pelo menos %(min_lower)d letras minúsculas."
+
+#: common/djangoapps/util/password_policy_validators.py:367
+#, python-format
+msgid "Your password must contain at least %(min_lower)d lowercase letter."
+msgid_plural ""
+"Your password must contain at least %(min_lower)d lowercase letters."
+msgstr[0] "Sua senha deve conter pelo menos %(min_lower)d letra minúscula."
+msgstr[1] "Sua senha deve conter pelo menos %(min_lower)d letras minúsculas."
+msgstr[2] "Sua senha deve conter pelo menos %(min_lower)d letras minúsculas."
+
+#: common/djangoapps/util/password_policy_validators.py:375
+#, python-format
+msgid "%(num)d lowercase letter"
+msgid_plural "%(num)d lowercase letters"
+msgstr[0] "%(num)d letra minúscula"
+msgstr[1] "%(num)d letras minúsculas"
+msgstr[2] "%(num)d letras minúsculas"
+
+#: common/djangoapps/util/password_policy_validators.py:406
+#, python-format
+msgid ""
+"This password must contain at least %(min_punctuation)d punctuation mark."
+msgid_plural ""
+"This password must contain at least %(min_punctuation)d punctuation marks."
+msgstr[0] ""
+"Esta senha deve conter pelo menos %(min_punctuation)d sinal de pontuação."
+msgstr[1] ""
+"Esta senha deve conter pelo menos %(min_punctuation)d sinais de pontuação."
+msgstr[2] ""
+"Esta senha deve conter pelo menos %(min_punctuation)d sinais de pontuação."
+
+#: common/djangoapps/util/password_policy_validators.py:416
+#, python-format
+msgid ""
+"Your password must contain at least %(min_punctuation)d punctuation mark."
+msgid_plural ""
+"Your password must contain at least %(min_punctuation)d punctuation marks."
+msgstr[0] ""
+"Sua senha deve conter pelo menos %(min_punctuation)d sinal de pontuação."
+msgstr[1] ""
+"Sua senha deve conter pelo menos %(min_punctuation)d sinais de pontuação."
+msgstr[2] ""
+"Sua senha deve conter pelo menos %(min_punctuation)d sinais de pontuação."
+
+#: common/djangoapps/util/password_policy_validators.py:424
+#, python-format
+msgid "%(num)d punctuation mark"
+msgid_plural "%(num)d punctuation marks"
+msgstr[0] "%(num)d sinal de pontuação"
+msgstr[1] "%(num)d sinais de pontuação"
+msgstr[2] "%(num)d sinais de pontuação"
+
+#: common/djangoapps/util/password_policy_validators.py:454
+#, python-format
+msgid "This password must contain at least %(min_symbol)d symbol."
+msgid_plural "This password must contain at least %(min_symbol)d symbols."
+msgstr[0] "Esta senha deve conter pelo menos %(min_symbol)d símbolo."
+msgstr[1] "Esta senha deve conter pelo menos %(min_symbol)d símbolos."
+msgstr[2] "Esta senha deve conter pelo menos %(min_symbol)d símbolos."
+
+#: common/djangoapps/util/password_policy_validators.py:464
+#, python-format
+msgid "Your password must contain at least %(min_symbol)d symbol."
+msgid_plural "Your password must contain at least %(min_symbol)d symbols."
+msgstr[0] "Sua senha deve conter pelo menos %(min_symbol)d símbolo."
+msgstr[1] "Sua senha deve conter pelo menos %(min_symbol)d símbolos."
+msgstr[2] "Sua senha deve conter pelo menos %(min_symbol)d símbolos."
+
+#: common/djangoapps/util/password_policy_validators.py:472
+#, python-format
+msgid "%(num)d symbol"
+msgid_plural "%(num)d symbols"
+msgstr[0] "%(num)d símbolo"
+msgstr[1] "%(num)d símbolos"
+msgstr[2] "%(num)d símbolos"
+
+#: common/djangoapps/xblock_django/admin.py:22
+msgid ""
+"To disable the XBlock and prevent rendering in the LMS, leave \"Enabled\" "
+"deselected; for clarity, update XBlockStudioConfiguration support state "
+"accordingly."
+msgstr ""
+"Para desativar o XBlock e impedir a renderização no LMS, deixe "
+"\"Habilitado\" desmarcado; para maior clareza, atualize adequadamente o "
+"estado do suporte XBlockStudioConfiguration."
+
+#: common/djangoapps/xblock_django/admin.py:27
+msgid ""
+"Only XBlocks listed in a course's Advanced Module List can be flagged as "
+"deprecated. Remember to update XBlockStudioConfiguration support state "
+"accordingly, as deprecated does not impact whether or not new XBlock "
+"instances can be created in Studio."
+msgstr ""
+"Somente XBlocks listados na Lista de Módulos Avançados de um curso podem ser"
+" marcados como obsoletos. Lembre-se de atualizar o estado do suporte a "
+"XBlockStudioConfiguration de acordo, pois obsoleto não afeta se novas "
+"instâncias de XBlock podem ou não ser criadas no Studio."
+
+#: common/djangoapps/xblock_django/admin.py:45
+msgid ""
+"XBlock/template combinations that are disabled cannot be edited in Studio, "
+"regardless of support level. Remember to also check if all instances of the "
+"XBlock are disabled in XBlockConfiguration."
+msgstr ""
+"As combinações XBlock/modelo desativadas não podem ser editadas no Studio, "
+"independentemente do nível de suporte. Lembre-se também de verificar se "
+"todas as instâncias do XBlock estão desabilitadas no XBlockConfiguration."
+
+#: common/djangoapps/xblock_django/admin.py:52
+msgid ""
+"Enabled XBlock/template combinations with full or provisional support can "
+"always be created in Studio. Unsupported XBlock/template combinations "
+"require course author opt-in."
+msgstr ""
+"As combinações de XBlock/modelo habilitadas com suporte completo ou "
+"provisório sempre podem ser criadas no Studio. As combinações XBlock/modelo "
+"não suportadas exigem a aceitação do autor do curso."
+
+#: common/djangoapps/xblock_django/models.py:27
+msgid "show deprecation messaging in Studio"
+msgstr "Exibir mensagens de depreciação no Studio"
+
+#: common/djangoapps/xblock_django/models.py:65
+msgid "Fully Supported"
+msgstr "Totalmente Suportado"
+
+#: common/djangoapps/xblock_django/models.py:66
+msgid "Provisionally Supported"
+msgstr "Suporta provisoriamente"
+
+#: common/djangoapps/xblock_django/models.py:67
+msgid "Unsupported"
+msgstr "Não suportado"
+
+#: common/templates/admin/student/loginfailures/change_form_template.html:7
+#: common/templates/admin/student/loginfailures/change_form_template.html:22
+msgid "Unlock Account"
+msgstr "Desbloquear Conta"
+
 #: common/templates/admin/student/loginfailures/change_form_template.html:13
 #: common/templates/admin/student/loginfailures/change_form_template.html:29
 #: lms/templates/wiki/edit.html:47 lms/templates/wiki/history.html:203
@@ -1663,6 +2628,122 @@ msgstr "Marcação definida pelo sistema"
 #: lms/templates/wiki/includes/cheatsheet.html:5
 msgid "Close"
 msgstr "Fechar"
+
+#: common/templates/student/edx_ace/accountactivation/email/body.html:13
+#, python-format
+msgid ""
+"This is a routed Account Activation email for %(routed_user)s "
+"(%(routed_user_email)s): %(routed_profile_name)s"
+msgstr ""
+"Este é um e-mail de ativação de Conta para %(routed_user)s "
+"(%(routed_user_email)s): %(routed_profile_name)s"
+
+#: common/templates/student/edx_ace/accountactivation/email/body.html:23
+msgid "Account activation"
+msgstr "Ativação de Conta"
+
+#: common/templates/student/edx_ace/accountactivation/email/body.html:27
+#, python-format
+msgid ""
+"You're almost there! Use the link below to activate your account to access "
+"engaging, high-quality %(platform_name)s courses. Note that you will not be "
+"able to log back into your account until you have activated it."
+msgstr ""
+"Você está quase lá! Use o link abaixo para ativar sua conta e acessar cursos"
+" envolventes e de alta qualidade de %(platform_name)s. Observe que você não "
+"poderá fazer login novamente em sua conta até ativá-la."
+
+#: common/templates/student/edx_ace/accountactivation/email/body.html:33
+msgid "Activate your account"
+msgstr "Ativar sua Conta"
+
+#: common/templates/student/edx_ace/accountactivation/email/body.html:42
+#: common/templates/student/edx_ace/accountactivation/email/body.txt:6
+#, python-format
+msgid "Enjoy learning with %(platform_name)s."
+msgstr "Aprecie aprender com %(platform_name)s."
+
+#: common/templates/student/edx_ace/accountactivation/email/body.html:50
+#, python-format, python-brace-format
+msgid ""
+"If you need help, please use our web form at "
+"{start_anchor_web}%(support_url)s{end_anchor} or email "
+"{start_anchor_email}%(support_email)s{end_anchor}."
+msgstr ""
+"Se precisar de ajuda, use nosso formulário da web em "
+"{start_anchor_web}%(support_url)s{end_anchor} ou envie um e-mail para "
+"{start_anchor_email}%(support_email)s{end_anchor}."
+
+#: common/templates/student/edx_ace/accountactivation/email/body.html:64
+#: common/templates/student/edx_ace/accountactivation/email/body.txt:10
+#, python-format
+msgid ""
+"This email message was automatically sent by %(lms_url)s because someone "
+"attempted to create an account on %(platform_name)s using this email "
+"address."
+msgstr ""
+"Esta mensagem foi enviada automaticamente por %(lms_url)s porque alguém "
+"tentou criar uma Conta em %(platform_name)s usando este endereço de e-mail."
+
+#: common/templates/student/edx_ace/accountactivation/email/body.txt:2
+#, python-format
+msgid ""
+"You’re almost there! Use the link below to activate your account to access "
+"engaging, high-quality %(platform_name)s courses. Note that you will not be "
+"able to log back into your account until you have activated it."
+msgstr ""
+"Você está quase lá! Use o link abaixo para ativar sua conta para acessar "
+"cursos envolventes e de alta qualidade de %(platform_name)s. Observe que "
+"você não poderá fazer login novamente em sua conta até ativá-la."
+
+#: common/templates/student/edx_ace/accountactivation/email/body.txt:8
+#, python-format
+msgid ""
+"If you need help, please use our web form at %(support_url)s or email "
+"%(support_email)s."
+msgstr ""
+"Se precisar de ajuda, por favor use nosso formulário web em %(support_url)s "
+"ou e-mail %(support_email)s."
+
+#: common/templates/student/edx_ace/accountactivation/email/subject.txt:3
+#, python-format
+msgid "Action Required: Activate your %(platform_name)s account"
+msgstr "Ação requerida: Ativar sua conta %(platform_name)s."
+
+#: common/templates/student/edx_ace/accountrecovery/email/body.html:10
+#: common/templates/student/edx_ace/accountrecovery/email/body.html:39
+msgid "Create Password"
+msgstr "Criar senha"
+
+#: common/templates/student/edx_ace/accountrecovery/email/body.html:14
+#: common/templates/student/edx_ace/accountrecovery/email/body.txt:2
+#, python-format
+msgid ""
+"You're receiving this e-mail because you requested to create a password for "
+"your user account at %(platform_name)s."
+msgstr ""
+"Você está recebendo este e-mail porque solicitou que criasse uma senha para "
+"sua conta de usuário em %(platform_name)s."
+
+#: common/templates/student/edx_ace/accountrecovery/email/body.html:21
+#: common/templates/student/edx_ace/accountrecovery/email/body.txt:4
+#, python-format
+msgid ""
+"We've restored access to your %(platform_name)s account using the recovery "
+"email you provided at registration."
+msgstr ""
+"Nós restauramos o acesso à sua conta %(platform_name)s usando o e-mail de "
+"recuperação que você forneceu no registro."
+
+#: common/templates/student/edx_ace/accountrecovery/email/body.html:28
+#: common/templates/student/edx_ace/accountrecovery/email/body.txt:6
+#, python-format
+msgid ""
+"Once you've created a password [below], you will be able to log in to "
+"%(platform_name)s with this email (%(email)s) and your new password."
+msgstr ""
+"Depois de criar uma senha [abaixo], você poderá entrar %(platform_name)s com"
+" este e-mail ( %(email)s) e sua nova senha."
 
 #: common/templates/student/edx_ace/accountrecovery/email/body.html:34
 #: common/templates/student/edx_ace/accountrecovery/email/body.txt:8
@@ -1686,6 +2767,209 @@ msgstr "Obrigado por utilizar o nosso site!"
 msgid "The %(platform_name)s Team"
 msgstr "A Equipe de %(platform_name)s"
 
+#: common/templates/student/edx_ace/accountrecovery/email/subject.txt:3
+#, python-format
+msgid "Password creation on %(platform_name)s"
+msgstr "Criar senha em %(platform_name)s"
+
+#: common/templates/student/edx_ace/emailchange/email/body.html:10
+msgid "Email Change"
+msgstr "Alteração de e-mail"
+
+#: common/templates/student/edx_ace/emailchange/email/body.html:14
+#: common/templates/student/edx_ace/emailchange/email/body.txt:2
+#, python-format
+msgid ""
+"We received a request to change the e-mail associated with your "
+"%(platform_name)s account from %(old_email)s to %(new_email)s. If this is "
+"correct, please confirm your new e-mail address by visiting:"
+msgstr ""
+"Recebemos um pedido para alterar o e-mail associado à sua conta do "
+"%(platform_name)s de %(old_email)s para %(new_email)s. Caso isso esteja "
+"correto, por favor confirme o seu novo endereço de e-mail acessando:"
+
+#: common/templates/student/edx_ace/emailchange/email/body.html:20
+msgid "Confirm Email Change"
+msgstr "Confirme Alteração de e-mail"
+
+#: common/templates/student/edx_ace/emailchange/email/body.html:26
+#: common/templates/student/edx_ace/emailchange/email/body.txt:6
+#, python-format
+msgid ""
+"If you didn't request this, you don't need to do anything; you won't receive"
+" any more email from us. Please do not reply to this e-mail; if you require "
+"assistance, check the help section of the %(platform_name)s web site."
+msgstr ""
+"Se você não solicitou isso, você não precisa fazer nada; você não receberá "
+"mais nenhum e-mail nosso. Por favor não responda este e-mail; se necessitar "
+"assistência, verifique a seção de ajuda no site da %(platform_name)s."
+
+#: common/templates/student/edx_ace/emailchange/email/subject.txt:3
+#, python-format
+msgid "Request to change %(platform_name)s account e-mail"
+msgstr "Solicitação para alterar e-mail da Conta %(platform_name)s"
+
+#: common/templates/student/edx_ace/emailchangeconfirmation/email/body.html:11
+#: common/templates/student/edx_ace/emailchangeconfirmation/email/subject.txt:3
+#, python-format
+msgid "Email Change Confirmation for %(platform_name)s"
+msgstr "Confirmação de Alteração de Senha para %(platform_name)s"
+
+#: common/templates/student/edx_ace/emailchangeconfirmation/email/body.html:16
+#: common/templates/student/edx_ace/emailchangeconfirmation/email/body.txt:2
+#, python-format
+msgid ""
+"This is to confirm that you changed the e-mail associated with "
+"%(platform_name)s from %(old_email)s to %(new_email)s. If you did not make "
+"this request, please contact us immediately. Contact information is listed "
+"at:"
+msgstr ""
+"Isso é para confirmar que você alterou o e-mail associado a "
+"%(platform_name)s de %(old_email)s para %(new_email)s. Se você não fez este "
+"pedido, entre em contato conosco imediatamente. As informações de contato "
+"estão listadas em:"
+
+#: common/templates/student/edx_ace/emailchangeconfirmation/email/body.html:25
+#: common/templates/student/edx_ace/emailchangeconfirmation/email/body.txt:6
+msgid ""
+"We keep a log of old e-mails, so if this request was unintentional, we can "
+"investigate."
+msgstr ""
+"Mantivemos um log de e-mails antigos, então caso a troca tenha sido um erro,"
+" podemos investigar o que ocorreu."
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.html:20
+#, python-format
+msgid ""
+"\n"
+"                    Hello %(full_name)s,\n"
+"                "
+msgstr ""
+"\n"
+"                    Olá %(full_name)s,\n"
+"                "
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.html:46
+msgid ""
+"\n"
+"                    Carefully review the system requirements as well as the steps to take a proctored exam in order to ensure that you are prepared.\n"
+"                "
+msgstr ""
+"\n"
+"                    Revisar cuidadosamente os requisitos do sistema, bem como as etapas para fazer um exame supervisionado, a fim de garantir que você esteja preparado.\n"
+"                "
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.html:60
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.txt:11
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:38
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.txt:12
+msgid "Thank you,"
+msgstr "Obrigado,"
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.html:63
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.txt:12
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:34
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:7
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:32
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:7
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:41
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.txt:13
+#: lms/templates/verify_student/edx_ace/verificationsubmitted/email/body.html:35
+#: lms/templates/verify_student/edx_ace/verificationsubmitted/email/body.txt:8
+#, python-format
+msgid "The %(platform_name)s Team "
+msgstr "A equipe %(platform_name)s "
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.txt:1
+#, python-format
+msgid "Hello %(full_name)s"
+msgstr "Olá %(full_name)s"
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.txt:3
+#, python-format
+msgid ""
+"You are enrolled in %(course_name)s at %(platform_name)s. This course "
+"contains proctored exams."
+msgstr ""
+"Você está matriculado em %(course_name)s em %(platform_name)s. Este curso "
+"contém exames supervisionados."
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.txt:5
+#, python-format
+msgid ""
+"Proctored exams are timed exams that you take while proctoring software "
+"monitors your computer's desktop, webcam video, and audio. Your course uses "
+"%(proctoring_provider)s software for proctoring."
+msgstr ""
+"Os exames supervisionados são exames cronometrados que você faz enquanto o "
+"software de supervisão monitora a área de trabalho do seu computador, o "
+"vídeo da webcam e o áudio. Seu curso usa o software %(proctoring_provider)s "
+"para supervisão."
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.txt:7
+msgid ""
+"Carefully review the system requirements as well as the steps to take a "
+"proctored exam in order to ensure that you are prepared."
+msgstr ""
+"Revisar cuidadosamente os requisitos do sistema, bem como as etapas para "
+"fazer um exame supervisionado, a fim de garantir que você esteja preparado."
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.txt:9
+#, python-format
+msgid ""
+"To view proctoring instructions and requirements, please visit: "
+"%(proctoring_requirements_url)s"
+msgstr ""
+"Para ver as instruções e requisitos de supervisão, visite: "
+"%(proctoring_requirements_url)s"
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.txt:14
+#, python-format
+msgid ""
+"This email was automatically sent from %(platform_name)s to %(full_name)s."
+msgstr ""
+"Este e-mail foi enviado automaticamente de %(platform_name)s para "
+"%(full_name)s."
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/subject.txt:3
+#, python-format
+msgid "Proctoring requirements for %(course_name)s"
+msgstr "Requisito de supervisão para %(course_name)s"
+
+#: common/templates/student/edx_ace/recoveryemailcreate/email/body.html:10
+msgid "Create Recovery Email"
+msgstr "Criar endereço de e-mail de recuperação"
+
+#: common/templates/student/edx_ace/recoveryemailcreate/email/body.html:14
+#: common/templates/student/edx_ace/recoveryemailcreate/email/body.txt:2
+#, python-format
+msgid "You've registered this recovery email address for %(platform_name)s."
+msgstr ""
+"Você registrou este endereço de e-mail de recuperação para "
+"%(platform_name)s."
+
+#: common/templates/student/edx_ace/recoveryemailcreate/email/body.html:18
+#: common/templates/student/edx_ace/recoveryemailcreate/email/body.txt:4
+msgid ""
+"If you set this email address, click \"confirm email.\"  If you didn't "
+"request this change, you can disregard this email."
+msgstr ""
+"Se você definir este endereço de e-mail, clique em \"confirmar e-mail\". Se "
+"você não solicitou essa alteração, pode ignorar este e-mail."
+
+#. Translators: This label appears above a field on the registration form
+#. meant to confirm the user's email address.
+#: common/templates/student/edx_ace/recoveryemailcreate/email/body.html:24
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:360
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:533
+msgid "Confirm Email"
+msgstr "Confirmar e-mail"
+
+#: common/templates/student/edx_ace/recoveryemailcreate/email/subject.txt:3
+#, python-format
+msgid "Confirm your recovery email for %(platform_name)s"
+msgstr "Confirme seu e-mail de recuperação para %(platform_name)s"
+
 #: lms/djangoapps/badges/events/course_complete.py:43
 #, python-brace-format
 msgid ""
@@ -1707,6 +2991,10 @@ msgstr "A imagem do emblema deve ser quadrada."
 #: lms/djangoapps/badges/models.py:17
 msgid "The badge image file size must be less than 250KB."
 msgstr "O arquivo de imagem do crachá deve ser menor que 250KB."
+
+#: lms/djangoapps/badges/models.py:25
+msgid "This value must be all lowercase."
+msgstr "Esse valor deve conter apenas letras minúsculas."
 
 #. Translators: 'Open edX' is a trademark, please keep this untranslated.
 #. See http://openedx.org for more information.
