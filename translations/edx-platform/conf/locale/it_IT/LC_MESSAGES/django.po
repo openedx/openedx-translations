@@ -5,6 +5,7 @@
 # 
 # Translators:
 # Brian Smith, 2025
+# Eden Huthmacher, 2025
 # 
 msgid ""
 msgstr ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: openedx-translation@googlegroups.com\n"
 "POT-Creation-Date: 2023-06-13 08:00+0000\n"
 "PO-Revision-Date: 2023-11-20 11:35+0000\n"
-"Last-Translator: Brian Smith, 2025\n"
+"Last-Translator: Eden Huthmacher, 2025\n"
 "Language-Team: Italian (Italy) (https://app.transifex.com/open-edx/teams/6205/it_IT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -278,6 +279,10 @@ msgstr "Il contenitore deve essere pubblicato per accedere a `published_at`"
 #: openedx/core/djangoapps/api_admin/models.py:42
 msgid "Pending"
 msgstr "In attesa"
+
+#: cms/djangoapps/contentstore/models.py:556
+msgid "Processing"
+msgstr "in lavorazione"
 
 #. Translators: This is the status for a video that the servers have failed to
 #. process
@@ -4201,6 +4206,32 @@ msgstr ""
 " Se il corso non appare nell'elenco, assicurarsi che sia stata effettuata "
 "l'iscrizione nel registro di controllo per il corso."
 
+#: lms/djangoapps/courseware/views/views.py:2264
+msgid "I certify that: "
+msgstr "Attesto che: "
+
+#: lms/djangoapps/courseware/views/views.py:2271
+msgid ""
+"Paying the verified certificate fee for the above course would cause me "
+"economic hardship"
+msgstr ""
+"Pagare la quota certificato verificato per il corso sopra indicato mi "
+"causerebbe difficoltà economiche"
+
+#: lms/djangoapps/courseware/views/views.py:2283
+msgid ""
+"I will work diligently to complete the course work and receive a certificate"
+msgstr ""
+"Lavorerò diligentemente per completare il lavoro del corso e ricevere un "
+"certificato"
+
+#: lms/djangoapps/courseware/views/views.py:2295
+#, python-brace-format
+msgid ""
+"I have read, understand, and will abide by the {honor_code_link} for the edX"
+" Site"
+msgstr "Ho letto, compreso e rispetterò le {honor_code_link} per il sito edX"
+
 #: lms/djangoapps/discussion/django_comment_client/base/views.py:559
 #: lms/djangoapps/discussion/django_comment_client/base/views.py:629
 msgid "Title can't be empty"
@@ -6725,6 +6756,10 @@ msgstr "Download e trascrizioni"
 msgid "Download video file"
 msgstr "Scarica file video "
 
+#: lms/templates/video.html:71 lms/templates/video.html:74
+msgid "Share this video"
+msgstr "Condividi questo video"
+
 #: lms/templates/video.html:104
 #, python-format
 msgid "Share on %(site)s"
@@ -8166,6 +8201,15 @@ msgstr ""
 "<{p}><{strong}>{replier_name}</{strong}> e altri hanno risposto a un post "
 "che stai seguendo: <{strong}>{post_title}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:189
+#, python-brace-format
+msgid ""
+"<p><strong>{username}’s </strong> {content_type} has been reported <strong> "
+"{content}</strong></p>"
+msgstr ""
+"<p><strong>{username}’s</strong> {content_type} è stato segnalato "
+"<strong>{content}</strong></p>"
+
 #: openedx/core/djangoapps/notifications/email/utils.py:441
 #: openedx/features/course_experience/plugins.py:34
 msgid "Updates"
@@ -8818,6 +8862,10 @@ msgstr ""
 msgid "The '{field_name}' field cannot be edited."
 msgstr "Impossibile modificare il campo '{field_name}'."
 
+#: openedx/core/djangoapps/user_api/accounts/api.py:436
+msgid "Full name can't be longer than 255 symbols"
+msgstr "Il nome completo non può contenere più di 255 simboli"
+
 #: openedx/core/djangoapps/user_api/accounts/api.py:438
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:109
 msgid "Enter a valid name"
@@ -9068,6 +9116,12 @@ msgstr "Indirizzo"
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:865
 msgid "State/Province/Region"
 msgstr "Stato/Provincia/Regione"
+
+#. Translators: This label appears above a dropdown menu to select
+#. the user's work experience
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:376
+msgid "Work experience"
+msgstr "Esperienza di lavoro"
 
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:10
 msgid "Password reset"
@@ -9493,6 +9547,48 @@ msgstr "{header_open}{title}{header_close}"
 #: openedx/core/djangoapps/util/user_messages.py:256
 msgid "Dismiss"
 msgstr "Chiudi"
+
+#: openedx/core/djangoapps/video_config/sharing_sites.py:77
+#, python-brace-format
+msgid ""
+"Here's a fun clip from a class I'm taking on {social_account_handle} from {organization_name}.\n"
+"\n"
+msgstr ""
+"Ecco una divertente clip di un corso che sto frequentando su {social_account_handle} da {organization_name}.\n"
+"\n"
+
+#: openedx/core/djangoapps/video_config/sharing_sites.py:84
+#, python-brace-format
+msgid ""
+"Here's a fun clip from a class I'm taking on {social_account_handle}.\n"
+"\n"
+msgstr ""
+"Ecco una clip divertente da un corso che sto frequentando su {social_account_handle}.\n"
+"\n"
+
+#: openedx/core/djangoapps/video_config/sharing_sites.py:88
+#, python-brace-format
+msgid ""
+"Here's a fun clip from a class I'm taking from {organization_name}.\n"
+"\n"
+msgstr ""
+"Ecco una clip divertente da una lezione che sto prendendo da {organization_name}.\n"
+"\n"
+
+#: openedx/core/djangoapps/video_config/sharing_sites.py:92
+#, python-brace-format
+msgid ""
+"Here's a fun clip from a class I'm taking on {platform_name}.\n"
+"\n"
+msgstr ""
+"Ecco una clip divertente da un corso che sto frequentando su {platform_name}.\n"
+"\n"
+
+#: openedx/core/djangoapps/video_config/transcripts_utils.py:214
+#, python-brace-format
+msgid "Can't get transcript link from Youtube for {youtube_id}."
+msgstr ""
+"Impossibile ottenere il link della trascrizione da Youtube per {youtube_id}."
 
 #: openedx/core/djangoapps/video_config/transcripts_utils.py:236
 #, python-brace-format
@@ -11829,6 +11925,18 @@ msgstr ""
 "(consente l'accesso alle linee generali del corso) e 'public' (consente "
 "l'accesso sia al contenuto generale che al contenuto del corso stesso)."
 
+#: xmodule/course_block.py:1020
+msgid "Force Flexible Grading for Peer ORAs"
+msgstr "Forzare la valutazione flessibile per le ORA tra colleghi"
+
+#: xmodule/course_block.py:1021
+msgid ""
+"Setting this flag will force on the flexible grading option for all peer-"
+"graded ORAs in this course."
+msgstr ""
+"L&#39;impostazione di questo flag imporrà l&#39;opzione di valutazione "
+"flessibile per tutti gli ORA valutati tra pari in questo corso."
+
 #: xmodule/course_block.py:1041
 msgid "Course Instructor"
 msgstr "istruttore del corso"
@@ -11986,6 +12094,11 @@ msgstr ""
 "ERRORE: \"{block_type}\" è un tipo di componente sconosciuto. Questo "
 "componente verrà nascosto in LMS."
 
+#: xmodule/html_block.py:63 xmodule/html_block.py:388
+#: xmodule/html_block.py:448
+msgid "Html contents to display for this block"
+msgstr "Contenuti HTML da visualizzare per questo blocco"
+
 #: xmodule/html_block.py:65
 msgid "Upstream html contents to store upstream data field"
 msgstr "Contenuti HTML a monte per memorizzare il campo dati a monte"
@@ -12043,6 +12156,14 @@ msgstr "Elenco degli elementi di aggiornamento del corso"
 msgid "Count"
 msgstr "Conta"
 
+#: xmodule/item_bank_block.py:69
+msgid ""
+"Enter the number of components to display to each student. Set it to -1 to "
+"display all components."
+msgstr ""
+"Immettere il numero di componenti da mostrare a ogni studente. Impostalo su "
+"-1 per visualizzare tutti i componenti."
+
 #: xmodule/item_bank_block.py:82
 msgid ""
 "Determines whether a 'Reset Problems' button is shown, so users may reset "
@@ -12092,6 +12213,19 @@ msgid ""
 msgstr ""
 "Questo blocco è già stato migrato per utilizzare la libreria v2. Ora puoi "
 "sincronizzare i singoli blocchi."
+
+#: xmodule/library_content_block.py:242
+msgid "Source content library has not been specified."
+msgstr "La libreria contenuto di origine non è stata specificata."
+
+#: xmodule/library_content_block.py:246
+msgid "Content libraries are not available in the current runtime."
+msgstr "le librerie di Contenuto non sono disponibili nel runtime corrente."
+
+#: xmodule/library_content_block.py:249
+#, python-brace-format
+msgid "Source content library does not exist: {source_library_id}"
+msgstr "La libreria contenuto di origine non esiste: {source_library_id}"
 
 #: xmodule/library_content_block.py:345
 msgid ""
@@ -12152,9 +12286,34 @@ msgstr "Non è stata ancora selezionata alcuna libreria."
 msgid "Select a Library."
 msgstr "Seleziona una libreria."
 
+#: xmodule/library_content_block.py:454
+#, python-brace-format
+msgid "There are no problems in the specified library of type {capa_type}."
+msgstr ""
+"Non sono presenti problemi nella libreria specificata di tipo {capa_type}."
+
 #: xmodule/library_content_block.py:457
 msgid "Select another problem type."
 msgstr "Selezionare un altro tipo di problema."
+
+#: xmodule/library_content_block.py:468
+#, python-brace-format
+msgid "The specified library is configured to fetch {count} problem, "
+msgid_plural "The specified library is configured to fetch {count} problems, "
+msgstr[0] ""
+"La libreria specificata è configurata per recuperare {count} problema, "
+msgstr[1] ""
+"La libreria specificata è configurata per recuperare {count} problemi, "
+msgstr[2] ""
+"La libreria specificata è configurata per recuperare {count} problemi, "
+
+#: xmodule/library_content_block.py:473
+#, python-brace-format
+msgid "but there is only {actual} matching problem."
+msgid_plural "but there are only {actual} matching problems."
+msgstr[0] "ma c'è solo il {actual} problema corrispondente."
+msgstr[1] "ma ci sono solo {actual} problemi corrispondenti."
+msgstr[2] "ma ci sono solo {actual} problemi corrispondenti."
 
 #: xmodule/library_content_block.py:479
 msgid "Edit the library configuration."
@@ -12629,9 +12788,28 @@ msgstr ""
 "Indica se le note studente sono visibili nel corso. Gli studenti possono "
 "mostrare o nascondere le loro note nel materiale didattico."
 
+#: xmodule/modulestore/inheritance.py:225
+msgid "Tag this block as part of an Entrance Exam section"
+msgstr ""
+"Contrassegna questo blocco come parte di una sezione dell&#39;esame di "
+"ammissione"
+
+#: xmodule/modulestore/inheritance.py:226
+msgid ""
+"Enter true or false. If true, answer submissions for problem blocks will be "
+"considered in the Entrance Exam scoring/gating algorithm."
+msgstr ""
+"Inserisci vero o falso. Se vero, le risposte inviate per blocchi di problemi"
+" verranno prese in considerazione nell&#39;algoritmo di punteggio/gating "
+"dell&#39;esame di ammissione."
+
 #: xmodule/modulestore/xml_importer.py:82
 msgid "Error while reading {}. Check file for XML errors."
 msgstr "Errore durante la lettura di {}. Controlla il file per errori XML."
+
+#: xmodule/modulestore/xml_importer.py:94
+msgid "Failed to import block: {} at location: {}"
+msgstr "Impossibile importare il blocco: {} nella posizione: {}"
 
 #: xmodule/partitions/enrollment_track_partition_generator.py:38
 msgid "Enrollment Track Groups"
@@ -12681,6 +12859,15 @@ msgstr ""
 #: xmodule/seq_block.py:99
 msgid "Is Entrance Exam"
 msgstr "È un esame di ammissione"
+
+#: xmodule/seq_block.py:101
+msgid ""
+"Tag this course block as an Entrance Exam. Note, you must enable Entrance "
+"Exams for this course setting to take effect."
+msgstr ""
+"Contrassegna questo blocco di corso come esame di ammissione. Tieni presente"
+" che devi abilitare gli esami di ammissione affinché questa impostazione del"
+" corso abbia effetto."
 
 #: xmodule/seq_block.py:152
 msgid "Is Time Limited"
@@ -12821,6 +13008,12 @@ msgstr ""
 msgid "Group Configuration"
 msgstr "Configurazione del gruppo"
 
+#: xmodule/split_test_block.py:109
+msgid "Which child block students in a particular group_id should see"
+msgstr ""
+"Quale blocco figlio gli studenti in un particolare group_id dovrebbero "
+"vedere"
+
 #: xmodule/split_test_block.py:295
 #, python-brace-format
 msgid "{group_name} (inactive)"
@@ -12889,6 +13082,16 @@ msgstr "Aggiungi una discussione per l'Unità."
 #: xmodule/video_block/video_block.py:137
 msgid "Basic"
 msgstr "Di base"
+
+#: xmodule/video_block/video_block.py:551
+#, python-brace-format
+msgid "There is no transcript file associated with the {lang} language."
+msgid_plural ""
+"There are no transcript files associated with the {lang} languages."
+msgstr[0] ""
+"Non esiste alcun file di trascrizione associato alla lingua {lang}."
+msgstr[1] "Non vi sono file di trascrizione associati alle lingue {lang}."
+msgstr[2] "Non vi sono file di trascrizione associati alle lingue {lang}."
 
 #: xmodule/video_block/video_block.py:886
 msgid ""
@@ -13196,6 +13399,16 @@ msgstr "Specifica se gli studenti possono accedere pubblicamente al video."
 #: xmodule/video_block/video_xfields.py:211
 msgid "Public Access"
 msgstr "Accesso pubblico"
+
+#: xmodule/video_block/video_xfields.py:218
+msgid "Add a specific thumbnail for learners to see before playing the video."
+msgstr ""
+"Aggiungi una miniatura specifica che gli studenti possono vedere prima di "
+"riprodurre il video."
+
+#: xmodule/video_block/video_xfields.py:219
+msgid "Thumbnail"
+msgstr "Thumbnail"
 
 #: xmodule/word_cloud_block.py:69
 msgid "Instructions"
