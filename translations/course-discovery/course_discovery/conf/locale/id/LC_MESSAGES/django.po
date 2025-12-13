@@ -5,8 +5,8 @@
 # 
 # Translators:
 # Translators:
-# Eden Huthmacher, 2025
 # Brian Smith, 2025
+# Eden Huthmacher, 2025
 # 
 msgid ""
 msgstr ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-12 00:32+0000\n"
 "PO-Revision-Date: 2023-01-26 15:39+0000\n"
-"Last-Translator: Brian Smith, 2025\n"
+"Last-Translator: Eden Huthmacher, 2025\n"
 "Language-Team: Indonesian (https://app.transifex.com/open-edx/teams/6205/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -117,6 +117,15 @@ msgstr "Gagal untuk mengatur data kursus berjalan: {}"
 #: apps/api/v1/views/course_runs.py:328
 msgid "Can only update status, ofac restrictions, and ofac comment"
 msgstr "Can only update status, ofac restrictions, and ofac comment"
+
+#: apps/api/v1/views/course_runs.py:363
+#, python-brace-format
+msgid ""
+"The course run type '{course_run_type}' is not valid for this course type "
+"'{course_type}'."
+msgstr ""
+"Jenis kursus yang dijalankan '{course_run_type}' tidak valid untuk jenis "
+"kursus ini '{course_type}'."
 
 #: apps/api/v1/views/course_runs.py:381
 msgid "Course run is in review. Editing disabled."
@@ -507,6 +516,14 @@ msgstr "demo"
 msgid "other"
 msgstr "lainnya"
 
+#: apps/course_metadata/choices.py:54
+msgid "Course Create"
+msgstr "Kursus Membuat"
+
+#: apps/course_metadata/choices.py:56
+msgid "Course Rerun"
+msgstr "Kursus Ulang"
+
 #: apps/course_metadata/choices.py:64
 msgid "Pending"
 msgstr "Tertunda"
@@ -530,6 +547,10 @@ msgstr "Gagal"
 #: apps/course_metadata/choices.py:69
 msgid "Partially Completed"
 msgstr "Sebagian Selesai"
+
+#: apps/course_metadata/choices.py:70
+msgid "Errored"
+msgstr "salah"
 
 #: apps/course_metadata/choices.py:74
 msgid "Honor"
@@ -1319,6 +1340,16 @@ msgstr ""
 "Perkiraan jumlah minggu yang dibutuhkan untuk menyelesaikan jalur kursus "
 "ini."
 
+#: apps/course_metadata/models.py:2329
+msgid ""
+"A JSON dict detailing the available translations and transcriptions for this"
+" run. The dict has two keys: translation_languages and "
+"transcription_languages."
+msgstr ""
+"Kamus JSON yang merinci terjemahan dan transkripsi yang tersedia untuk "
+"proses ini. Kamus memiliki dua kunci: translation_languages dan "
+"transcription_languages."
+
 #: apps/course_metadata/models.py:2336
 msgid "Total number of learners who have enrolled in this course run"
 msgstr ""
@@ -1753,6 +1784,10 @@ msgstr ""
 msgid "It expects the data will be provided in a csv file format "
 msgstr "Diharapkan data akan disediakan dalam format berkas csv "
 
+#: apps/course_metadata/models.py:4738
+msgid "A csv file containing uuid of the courses to be archived"
+msgstr "File csv yang berisi uuid kursus yang akan diarsipkan"
+
 #: apps/course_metadata/models.py:4752 apps/course_metadata/models.py:4765
 #: apps/course_metadata/models.py:4778 apps/course_metadata/models.py:4813
 #: apps/course_metadata/models.py:4826 apps/course_metadata/models.py:4845
@@ -1805,13 +1840,33 @@ msgstr "Menambahkan pengalihan dari semua slug url kursus yang diterbitkan"
 msgid "Course uuids"
 msgstr "Course uuids"
 
+#: apps/course_metadata/models.py:5044
+msgid "User who uploaded the file"
+msgstr "Pengguna mengunggah file"
+
+#: apps/course_metadata/models.py:5049
+msgid "Summary of the task"
+msgstr "Ringkasan tugas"
+
 #: apps/course_metadata/models.py:5052
 msgid "Task Type"
 msgstr "Jenis Tugas"
 
+#: apps/course_metadata/models.py:5055
+msgid "Type of Bulk Task to be performed"
+msgstr "Jenis Tugas Massal yang Akan Dilakukan"
+
 #: apps/course_metadata/models.py:5058
 msgid "Status"
 msgstr "Status"
+
+#: apps/course_metadata/models.py:5061
+msgid "Status of the Bulk Task"
+msgstr "Status Tugas Massal"
+
+#: apps/course_metadata/models.py:5069
+msgid "Identifier of the celery task associated with this bulk task"
+msgstr "Pengidentifikasi tugas seledri yang terkait dengan tugas massal ini"
 
 #: apps/course_metadata/salesforce.py:78
 msgid "Attempted to query Salesforce with no client for partner={}"
