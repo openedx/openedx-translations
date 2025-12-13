@@ -3655,6 +3655,12 @@ msgstr "Unduh aplikasi iOS di Apple Store"
 msgid "Download the Android app on the Google Play Store"
 msgstr "Unduh aplikasi Android di Google Play Store"
 
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/footer.html:180
+#: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/base_body.html:240
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/footer.html:180
+msgid "Unsubscribe from these emails."
+msgstr "Unsubscribe from these emails."
+
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/subject.txt:3
 #, python-format
 msgid "You've almost reached your goal in %(course_name)s"
@@ -4519,6 +4525,31 @@ msgstr ""
 "Course is not cohorted but cohort provided. Ignoring cohort assignment for "
 "all users."
 
+#: lms/djangoapps/instructor/views/api.py:444
+#, python-brace-format
+msgid ""
+"Cohort name not found: {cohort}. Ignoring cohort assignment for all users."
+msgstr ""
+"Cohort name not found: {cohort}. Ignoring cohort assignment for all users."
+
+#: lms/djangoapps/instructor/views/api.py:461
+#, python-brace-format
+msgid ""
+"Invalid course mode: {mode}. Falling back to the default mode, or keeping "
+"the current mode in case the user is already enrolled."
+msgstr ""
+"Invalid course mode: {mode}. Falling back to the default mode, or keeping "
+"the current mode in case the user is already enrolled."
+
+#: lms/djangoapps/instructor/views/api.py:467
+#, python-brace-format
+msgid ""
+"Invalid course mode: {mode}.  Failling back to {default_mode}, or resetting "
+"to {default_mode} in case the user is already enrolled."
+msgstr ""
+"Invalid course mode: {mode}.  Falling back to {default_mode}, or resetting "
+"to {default_mode} in case the user is already enrolled."
+
 #: lms/djangoapps/instructor/views/api.py:485
 #: lms/djangoapps/instructor/views/api.py:547
 #: lms/djangoapps/instructor/views/api.py:582
@@ -4555,6 +4586,43 @@ msgstr ""
 "Kesalahan '{error}' saat mengirim email ke pengguna baru (email pengguna = "
 "{email}). Tanpa email siswa tidak akan bisa masuk. Silahkan hubungi bagian "
 "support untuk informasi lebih lanjut."
+
+#: lms/djangoapps/instructor/views/api.py:1156
+msgid "A list of usage keys for the blocks to include in the report. "
+msgstr "A list of usage keys for the blocks to include in the report. "
+
+#: lms/djangoapps/instructor/views/api.py:1164
+msgid ""
+"A list of problem/block types to generate the report for. This field can be "
+"omitted if the report should include details of allblock types. "
+msgstr ""
+"Daftar jenis masalah/blok untuk menghasilkan laporan. Bidang ini dapat "
+"diabaikan jika laporan harus mencakup detail dari semua jenis blok. "
+
+#: lms/djangoapps/instructor/views/api.py:1175
+msgid "User-friendly text describing current status of report generation."
+msgstr ""
+"Teks ramah pengguna yang menjelaskan status terkini dari pembuatan laporan."
+
+#: lms/djangoapps/instructor/views/api.py:1178
+msgid ""
+"A unique id for the report generation task. It can be used to query the "
+"latest report generation status."
+msgstr ""
+"Id unik untuk tugas pembuatan laporan. Ini dapat digunakan untuk menanyakan "
+"status pembuatan laporan terbaru."
+
+#: lms/djangoapps/instructor/views/api.py:1207
+#: lms/djangoapps/instructor/views/api.py:2537
+#: lms/djangoapps/instructor/views/api.py:2747
+msgid "The requesting user is not authenticated."
+msgstr "The requesting user is not authenticated."
+
+#: lms/djangoapps/instructor/views/api.py:1208
+#: lms/djangoapps/instructor/views/api.py:2538
+#: lms/djangoapps/instructor/views/api.py:2748
+msgid "The requesting user lacks access to the course."
+msgstr "The requesting user lacks access to the course."
 
 #: lms/djangoapps/instructor/views/api.py:1354
 #: lms/djangoapps/instructor_task/api_helper.py:109
@@ -4683,6 +4751,10 @@ msgstr "Terakhir Masuk"
 msgid "Date Joined"
 msgstr "Tanggal Bergabung"
 
+#: lms/djangoapps/instructor/views/api.py:1548
+msgid "External User Key"
+msgstr "External User Key"
+
 #: lms/djangoapps/instructor/views/api.py:1566
 msgid "Cohort"
 msgstr "Kohort"
@@ -4730,6 +4802,10 @@ msgstr "Survei"
 #: lms/djangoapps/instructor_task/api_helper.py:114
 msgid "proctored exam results"
 msgstr "Hasil Ujian Tersupervisi"
+
+#: lms/djangoapps/instructor/views/api.py:1851
+msgid "Anonymized User IDs"
+msgstr "Anonymized User IDs"
 
 #: lms/djangoapps/instructor/views/api.py:1888
 #, python-brace-format
@@ -4794,10 +4870,73 @@ msgstr ""
 "Tidak dapat melakukan penilaian ulang dengan all_students dan "
 "unique_student_identifier."
 
+#: lms/djangoapps/instructor/views/api.py:2455
+msgid "Current status of task."
+msgstr "Status terkini dari tugas."
+
+#: lms/djangoapps/instructor/views/api.py:2456
+msgid "Identifies the kind of task being performed, e.g. rescoring."
+msgstr ""
+"Mengidentifikasi jenis tugas yang sedang dilakukan, misalnya penilaian "
+"ulang."
+
+#: lms/djangoapps/instructor/views/api.py:2457
+msgid "The celery ID for the task."
+msgstr "The celery ID for the task."
+
+#: lms/djangoapps/instructor/views/api.py:2458
+msgid "The date and time when the task was created."
+msgstr "Tanggal dan waktu ketika tugas dibuat."
+
+#: lms/djangoapps/instructor/views/api.py:2465
+msgid "The username of the user who initiated this task."
+msgstr "Nama pengguna of the user who initiated this task."
+
+#: lms/djangoapps/instructor/views/api.py:2466
+msgid "The last knows state of the celery task."
+msgstr "The last known state of the celery task."
+
+#: lms/djangoapps/instructor/views/api.py:2467
+msgid "Task duration information, if known"
+msgstr "Task duration information, if known"
+
+#: lms/djangoapps/instructor/views/api.py:2468
+msgid "User-friendly task status information, if available."
+msgstr "Informasi status tugas yang ramah pengguna, jika tersedia."
+
+#: lms/djangoapps/instructor/views/api.py:2477
+msgid "List of instructor tasks."
+msgstr "Daftar tugas instruktur."
+
+#: lms/djangoapps/instructor/views/api.py:2539
+#: lms/djangoapps/instructor/views/api.py:2749
+msgid "The requested course does not exist."
+msgstr "kursus yang diminta tidak ada."
+
+#: lms/djangoapps/instructor/views/api.py:2711
+msgid "URL from which report can be downloaded."
+msgstr "URL from which report can be diunduh."
+
+#: lms/djangoapps/instructor/views/api.py:2712
+msgid "Name of report."
+msgstr "Nama laporan."
+
+#: lms/djangoapps/instructor/views/api.py:2713
+msgid "HTML anchor tag that contains the name and link."
+msgstr "HTML anchor tag that contains the name and link."
+
+#: lms/djangoapps/instructor/views/api.py:2736
+msgid "ID for the course whose reports need to be listed."
+msgstr "ID for the course whose reports need to be listed."
+
 #: lms/djangoapps/instructor/views/api.py:2866
 #: lms/djangoapps/instructor_task/api_helper.py:115
 msgid "ORA data"
 msgstr "Data ORA"
+
+#: lms/djangoapps/instructor/views/api.py:2927
+msgid "Attachments archive is being created."
+msgstr "Kami sedang membuat arsip lampiran."
 
 #: lms/djangoapps/instructor/views/api.py:2948
 #: lms/djangoapps/instructor_task/api_helper.py:116
@@ -4875,12 +5014,39 @@ msgstr ""
 "Rekaman tidak dalam format yang benar. Silahkan tambahkan username atau "
 "alamat email yang valid."
 
+#: lms/djangoapps/instructor/views/api.py:3854
+#, python-brace-format
+msgid ""
+"Student {user} is not enrolled in this course. Please check your spelling "
+"and retry."
+msgstr ""
+"Siswa {user} tidak terdaftar dalam kursus ini. Harap periksa ejaan Anda dan "
+"coba lagi."
+
+#: lms/djangoapps/instructor/views/api.py:3861
+#, python-brace-format
+msgid ""
+"Student {user} is already on the certificate invalidation list and cannot be"
+" added to the certificate exception list."
+msgstr ""
+"Student {user} sudah ada dalam daftar pembatalan sertifikat dan tidak dapat "
+"ditambahkan ke daftar pengecualian sertifikat."
+
 #: lms/djangoapps/instructor/views/api.py:3867
 #, python-brace-format
 msgid "Student (username/email={user}) already in certificate exception list."
 msgstr ""
 "Siswa (nama pengguna / email = {user}) sudah ada dalam daftar pengecualian "
 "sertifikat."
+
+#: lms/djangoapps/instructor/views/api.py:3903
+#, python-brace-format
+msgid ""
+"Error occurred removing the allowlist entry for student {student}. Please "
+"refresh the page and try again"
+msgstr ""
+"Error occurred removing the allowlist entry for student {student}. Please "
+"refresh the page and try again"
 
 #: lms/djangoapps/instructor/views/api.py:3921
 msgid ""
@@ -4900,6 +5066,10 @@ msgstr "{user} tidak ada di LMS. Silahkan periksa ejaan dan coba lagi."
 msgid "Invalid data, generate_for must be \"new\" or \"all\"."
 msgstr "Data tidak valid, generate_for harus \"baru\" atau \"semua\"."
 
+#: lms/djangoapps/instructor/views/api.py:4004
+msgid "Certificate generation started for students on the allowlist."
+msgstr "Certificate generation started for students on the allowlist."
+
 #: lms/djangoapps/instructor/views/api.py:4057
 #, python-brace-format
 msgid "user \"{user}\" in row# {row}"
@@ -4909,6 +5079,17 @@ msgstr "pengguna \"{user}\" in row# {row}"
 #, python-brace-format
 msgid "user \"{username}\" in row# {row}"
 msgstr "pengguna \"{username}\" in row# {row}"
+
+#: lms/djangoapps/instructor/views/api.py:4168
+#, python-brace-format
+msgid ""
+"The student {student} appears on the Certificate Exception list in course "
+"{course}. Please remove them from the Certificate Exception list before "
+"attempting to invalidate their certificate."
+msgstr ""
+"Siswa {student} muncul dalam daftar Pengecualian Sertifikat di kursus "
+"{course}. Silakan hapus mereka dari daftar Pengecualian Sertifikat sebelum "
+"mencoba membatalkan sertifikat mereka."
 
 #: lms/djangoapps/instructor/views/api.py:4229
 #, python-brace-format
@@ -4928,6 +5109,14 @@ msgstr ""
 "Sertifikat untuk siswa {user} sudah tidak valid, silahkan verifikasi bahwa "
 "sertifikat tersebut yang dibuat untuk siswa ini dan kemudian lanjutkan "
 "prosesnya."
+
+#: lms/djangoapps/instructor/views/api.py:4274
+msgid ""
+"Certificate Invalidation does not exist, Please refresh the page and try "
+"again."
+msgstr ""
+"Tidak dapat menemukan Validasi Sertifikat, Silakan refresh halaman ini dan "
+"coba kembali."
 
 #: lms/djangoapps/instructor/views/api.py:4310
 msgid ""
@@ -5040,6 +5229,18 @@ msgstr "Tanggapan Terbuka"
 msgid "0 sent"
 msgstr "Terkirim 0"
 
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:90
+#, python-brace-format
+msgid "{num_emails} sent"
+msgid_plural "{num_emails} sent"
+msgstr[0] "Terkirim {num_emails}"
+
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:99
+#, python-brace-format
+msgid "{num_emails} failed"
+msgid_plural "{num_emails} failed"
+msgstr[0] "Gagal {num_emails}"
+
 #: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
 msgid "Complete"
 msgstr "Selesai"
@@ -5118,6 +5319,10 @@ msgstr "Nonaktifkan untuk menguraikan tanggal:"
 msgid "Couldn't find module for url: {0}"
 msgstr "Tidak dapat menemukan modul untuk url: {0}"
 
+#: lms/djangoapps/instructor/views/tools.py:171
+msgid "Could not find student enrollment in the course."
+msgstr "Tidak dapat menemukan pendaftaran siswa dalam kursus."
+
 #: lms/djangoapps/instructor/views/tools.py:199
 #, python-brace-format
 msgid "Unit {0} has no due date to extend."
@@ -5189,6 +5394,10 @@ msgid "Not all problems in entrance exam support re-scoring."
 msgstr ""
 "Tidak semua problem dalam ujian masuk mendukung pemberian skor ulang. "
 
+#: lms/djangoapps/instructor_task/models.py:115
+msgid "An error has occurred. Task was not created."
+msgstr "Terjadi kesalahan. Tugas tidak dibuat."
+
 #. Translators: This is a past-tense verb that is inserted into task progress
 #. messages as {action}.
 #: lms/djangoapps/instructor_task/tasks.py:82
@@ -5227,6 +5436,12 @@ msgstr "terkirim melalui email"
 msgid "graded"
 msgstr "dinilai"
 
+#. Translators: This is a past-tense phrase that is inserted into task
+#. progress messages as {action}.
+#: lms/djangoapps/instructor_task/tasks.py:212
+msgid "problem distribution graded"
+msgstr "distribusi masalah menilai"
+
 #. Translators: This is a past-tense verb that is inserted into task progress
 #. messages as {action}.
 #: lms/djangoapps/instructor_task/tasks.py:295
@@ -5240,6 +5455,18 @@ msgstr "Pembuatan Sertifikat"
 #: lms/djangoapps/instructor_task/tasks.py:313
 msgid "cohorted"
 msgstr "cohorted"
+
+#. Translators: This is a past-tense verb that is inserted into task progress
+#. messages as {action}.
+#. An example of such a message is: "Progress: {action} {succeeded} of
+#. {attempted} so far"
+#: lms/djangoapps/instructor_task/tasks.py:326
+msgid "generate_anonymized_id"
+msgstr "generate_anonymized_id"
+
+#: lms/djangoapps/instructor_task/tasks.py:349
+msgid "compressed"
+msgstr "terkompresi"
 
 #: lms/djangoapps/instructor_task/views.py:106
 #: lms/djangoapps/instructor_task/views.py:111
@@ -5299,6 +5526,14 @@ msgstr ""
 #. Translators: {action} is a past-tense verb that is localized separately.
 #. {student} is a student identifier.  # lint-amnesty, pylint: disable=line-
 #. too-long
+#: lms/djangoapps/instructor_task/views.py:164
+#, python-brace-format
+msgid "Problem failed to be {action} for student '{student}'"
+msgstr "Masalah gagal {action} untuk siswa '{student}'"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#. {student} is a student identifier.  # lint-amnesty, pylint: disable=line-
+#. too-long
 #: lms/djangoapps/instructor_task/views.py:168
 #, python-brace-format
 msgid "Problem successfully {action} for student '{student}'"
@@ -5343,6 +5578,27 @@ msgid "Problem successfully {action} for {attempted} students"
 msgstr "Masalah berhasil untuk di {action} untuk {attempted} pelajar"
 
 #. Translators: {action} is a past-tense verb that is localized separately.
+#: lms/djangoapps/instructor_task/views.py:199
+#, python-brace-format
+msgid "Unable to find any recipients to be {action}"
+msgstr "Tidak dapat menemukan penerima manapun yang {action}"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#. {attempted} is a count.
+#: lms/djangoapps/instructor_task/views.py:206
+#, python-brace-format
+msgid "Message successfully {action} for {attempted} recipients"
+msgstr "Message successfully {action} for {attempted} recipients"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#. {succeeded} and {attempted} are counts.  # lint-amnesty, pylint:
+#. disable=line-too-long
+#: lms/djangoapps/instructor_task/views.py:209
+#, python-brace-format
+msgid "Message {action} for {succeeded} of {attempted} recipients"
+msgstr "Message {action} for {succeeded} of {attempted} recipients"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
 #. {succeeded} and {attempted} are counts.  # lint-amnesty, pylint:
 #. disable=line-too-long
 #: lms/djangoapps/instructor_task/views.py:213
@@ -5369,6 +5625,87 @@ msgstr " (out of {total})"
 msgid "Programs"
 msgstr "Program-program"
 
+#: lms/djangoapps/learner_dashboard/programs.py:155
+msgid "Program Details"
+msgstr "Detail Program"
+
+#: lms/djangoapps/lms_xblock/mixin.py:23
+msgid ""
+"This component's access settings refer to deleted or invalid group "
+"configurations."
+msgstr ""
+"Pengaturan akses komponen ini mengacu pada konfigurasi grup yang dihapus "
+"atau tidak valid."
+
+#: lms/djangoapps/lms_xblock/mixin.py:26
+msgid ""
+"This unit's access settings refer to deleted or invalid group "
+"configurations."
+msgstr ""
+"Setelan akses unit ini mengacu pada konfigurasi grup yang dihapus atau tidak"
+" valid."
+
+#: lms/djangoapps/lms_xblock/mixin.py:29
+msgid "This component's access settings refer to deleted or invalid groups."
+msgstr ""
+"Pengaturan akses komponen ini mengacu pada grup yang dihapus atau tidak "
+"valid."
+
+#: lms/djangoapps/lms_xblock/mixin.py:31
+msgid "This unit's access settings refer to deleted or invalid groups."
+msgstr ""
+"Pengaturan akses unit ini mengacu pada grup yang dihapus atau tidak valid."
+
+#: lms/djangoapps/lms_xblock/mixin.py:32
+msgid ""
+"This component's access settings contradict its parent's access settings."
+msgstr ""
+"Setelan akses komponen ini bertentangan dengan setelan akses induknya."
+
+#: lms/djangoapps/lms_xblock/mixin.py:56
+msgid "Whether to display this block in the table of contents"
+msgstr "Apakah blok ini akan ditampilkan di daftar isi"
+
+#: lms/djangoapps/lms_xblock/mixin.py:67
+msgid "Course Chrome"
+msgstr "Course Chrome"
+
+#. Translators: DO NOT translate the words in quotes here, they are
+#. specific words for the acceptable values.
+#: lms/djangoapps/lms_xblock/mixin.py:70
+msgid ""
+"Enter the chrome, or navigation tools, to use for the XBlock in the LMS. Valid values are: \n"
+"\"chromeless\" -- to not use tabs or the accordion; \n"
+"\"tabs\" -- to use tabs only; \n"
+"\"accordion\" -- to use the accordion only; or \n"
+"\"tabs,accordion\" -- to use tabs and the accordion."
+msgstr ""
+"Masukkan alat navigasi, atau chrome, yang akan digunakan untuk XBlock di LMS. Nilai yang valid adalah: \n"
+"\"chromeless\" -- untuk tidak menggunakan tab atau akordeon; \n"
+"\"tabs\" -- untuk hanya menggunakan tab; \n"
+"\"accordion\" -- untuk hanya menggunakan akordeon; atau \n"
+"\"tabs,accordion\" -- untuk menggunakan tab dan akordeon."
+
+#: lms/djangoapps/lms_xblock/mixin.py:79
+msgid "Default Tab"
+msgstr "Default Tab"
+
+#: lms/djangoapps/lms_xblock/mixin.py:80
+msgid ""
+"Enter the tab that is selected in the XBlock. If not set, the Course tab is "
+"selected."
+msgstr ""
+"Masukkan tab yang dipilih di XBlock. Jika tidak diatur, tab Kursus akan "
+"dipilih."
+
+#: lms/djangoapps/lms_xblock/mixin.py:85
+msgid "LaTeX Source File Name"
+msgstr "LaTeX Source File Name"
+
+#: lms/djangoapps/lms_xblock/mixin.py:86
+msgid "Enter the source file name for LaTeX."
+msgstr "Masukkan nama file sumber untuk LaTeX."
+
 #: lms/djangoapps/lms_xblock/mixin.py:91 xmodule/modulestore/inheritance.py:58
 msgid "If true, can be seen only by course staff, regardless of start date."
 msgstr ""
@@ -5381,6 +5718,18 @@ msgid ""
 "experiments."
 msgstr "Daftar Konfigurasi Grup untuk membagi siswa dalam percobaan konten."
 
+#: lms/djangoapps/lti_provider/models.py:39
+msgid ""
+"When checked, the LTI content will load only for learners who have an "
+"account in this instance. This is required only for linking learner accounts"
+" with the LTI consumer. See the Open edX LTI Provider documentation for more"
+" details."
+msgstr ""
+"Ketika dicentang, konten LTI akan dimuat hanya untuk peserta didik yang "
+"memiliki akun di instance ini. Ini diperlukan hanya untuk menghubungkan akun"
+" peserta didik dengan konsumen LTI. Lihat dokumentasi Penyedia LTI Open edX "
+"untuk lebih jelasnya."
+
 #: lms/djangoapps/lti_provider/models.py:44
 msgid ""
 "When checked, the platform will automatically use any personal information "
@@ -5391,13 +5740,29 @@ msgstr ""
 "pribadi yang diberikan melalui LTI untuk membuat akun. Jika tidak, akun "
 "anonim akan dibuat."
 
+#: lms/djangoapps/program_enrollments/models.py:57
+msgid "One of user or external_user_key must not be null."
+msgstr "One of user or external_user_key must not be null."
+
+#: lms/djangoapps/support/views/index.py:16
+msgid "View and regenerate certificates."
+msgstr "Lihat dan buat ulang sertifikat."
+
 #: lms/djangoapps/support/views/index.py:20
 msgid "Enrollment"
 msgstr "Pendaftaran"
 
+#: lms/djangoapps/support/views/index.py:21
+msgid "View and update learner enrollments."
+msgstr "Lihat dan perbarui pendaftaran peserta didik."
+
 #: lms/djangoapps/support/views/index.py:25
 msgid "Manage User"
 msgstr "Mengelola pengguna"
+
+#: lms/djangoapps/support/views/index.py:26
+msgid "Disable User Account"
+msgstr "Nonaktifkan Akun Pengguna"
 
 #: lms/djangoapps/support/views/index.py:30
 msgid "Entitlements"
@@ -5407,13 +5772,195 @@ msgstr "Hak"
 msgid "Feature Based Enrollments"
 msgstr "Pendaftaran Berdasarkan Fitur"
 
+#: lms/djangoapps/support/views/index.py:36
+msgid "View feature based enrollment settings"
+msgstr "Lihat pengaturan pendaftaran berdasarkan fitur"
+
+#: lms/djangoapps/support/views/index.py:40
+msgid "Link Program Enrollments"
+msgstr "Tautan Pendaftaran Program"
+
+#: lms/djangoapps/support/views/index.py:41
+msgid "Link LMS users to program enrollments"
+msgstr "Link LMS users to program enrollments"
+
+#: lms/djangoapps/support/views/index.py:46
+msgid "Find information related to a learner's program enrollments"
+msgstr "Temukan informasi terkait pendaftaran program peserta didik"
+
 #: lms/djangoapps/support/views/manage_user.py:35
 msgid "username"
 msgstr "nama pengguna"
 
+#: lms/djangoapps/support/views/manage_user.py:36
+msgid "user_support_url"
+msgstr "user_support_url"
+
+#: lms/djangoapps/support/views/manage_user.py:37
+msgid "user_detail_url"
+msgstr "user_detail_url"
+
+#: lms/djangoapps/support/views/manage_user.py:62
+#: lms/djangoapps/support/views/manage_user.py:90
+msgid "Usable"
+msgstr "Dapat digunakan"
+
+#: lms/djangoapps/support/views/manage_user.py:62
+#: lms/djangoapps/support/views/manage_user.py:93
+msgid "Unusable"
+msgstr "tidak dapat digunakan"
+
+#: lms/djangoapps/support/views/manage_user.py:91
+msgid "User Enabled Successfully"
+msgstr "Pengguna Berhasil Diaktifkan"
+
+#: lms/djangoapps/support/views/manage_user.py:94
+msgid "User Disabled Successfully"
+msgstr "Pengguna Berhasil Dinonaktifkan"
+
+#: lms/djangoapps/survey/utils.py:20
+msgid "You must complete a survey"
+msgstr "Anda harus menyelesaikan survei"
+
+#: lms/djangoapps/teams/models.py:141
+msgid "Optional language the team uses as ISO 639-1 code."
+msgstr "Optional language the team uses as ISO 639-1 code."
+
 #: lms/djangoapps/teams/plugins.py:29 lms/djangoapps/teams/plugins.py:53
 msgid "Teams"
 msgstr "Tim"
+
+#: lms/djangoapps/teams/plugins.py:54
+msgid "Leverage teams to allow learners to connect by topic of interest."
+msgstr ""
+"Manfaatkan tim untuk memungkinkan peserta didik terhubung berdasarkan topik "
+"yang diminati."
+
+#: lms/djangoapps/teams/views.py:417
+msgid "course_id must be provided"
+msgstr "course_id must be provided"
+
+#: lms/djangoapps/teams/views.py:427 lms/djangoapps/teams/views.py:1007
+#, python-brace-format
+msgid "The supplied course id {course_id} is not valid."
+msgstr "ID kursus yang diberikan {course_id} tidak valid."
+
+#: lms/djangoapps/teams/views.py:443
+msgid "text_search and order_by cannot be provided together"
+msgstr "text_search and order_by cannot be provided together"
+
+#: lms/djangoapps/teams/views.py:454
+#, python-brace-format
+msgid "The supplied topic id {topic_id} is not valid"
+msgstr "ID topik yang diberikan {topic_id} tidak valid"
+
+#: lms/djangoapps/teams/views.py:474
+msgid "Error connecting to elasticsearch"
+msgstr "Error connecting to elasticsearch"
+
+#. Translators: 'ordering' is a string describing a way
+#. of ordering a list. For example, {ordering} may be
+#. 'name', indicating that the user wants to sort the
+#. list by lower case name.
+#: lms/djangoapps/teams/views.py:536 lms/djangoapps/teams/views.py:1034
+#, python-brace-format
+msgid "The ordering {ordering} is not supported"
+msgstr "Pemesanan {ordering} tidak didukung"
+
+#: lms/djangoapps/teams/views.py:563
+#, python-brace-format
+msgid "The supplied course_id {course_id} is not valid."
+msgstr "ID kursus yang disuplai {course_id} tidak valid."
+
+#: lms/djangoapps/teams/views.py:573
+msgid "topic_id is required"
+msgstr "topic_id is required"
+
+#: lms/djangoapps/teams/views.py:592
+msgid "You can't create a team in an instructor managed topic."
+msgstr "Anda tidak dapat membuat tim dalam topik yang dikelola instruktur."
+
+#: lms/djangoapps/teams/views.py:604
+msgid "You are already in a team in this teamset."
+msgstr "Anda sudah berada dalam tim di set tim ini."
+
+#: lms/djangoapps/teams/views.py:1350
+msgid "teamset_id and team_id are mutually exclusive options."
+msgstr "teamset_id and team_id are mutually exclusive options."
+
+#: lms/djangoapps/teams/views.py:1370
+msgid "teamset_id requires course_id to also be provided."
+msgstr "teamset_id requires course_id to also be provided."
+
+#: lms/djangoapps/teams/views.py:1386 lms/djangoapps/teams/views.py:1399
+msgid "No teamset found in given course with given id"
+msgstr "No teamset found in given course with given id"
+
+#: lms/djangoapps/teams/views.py:1420
+msgid "username or (team_id or teamset_id) must be specified."
+msgstr "nama pengguna or (team_id or teamset_id) must be specified."
+
+#: lms/djangoapps/teams/views.py:1441
+msgid "Username is required."
+msgstr "Nama Pengguna wajib diisi."
+
+#: lms/djangoapps/teams/views.py:1444
+msgid "Team id is required."
+msgstr "Team id is required."
+
+#: lms/djangoapps/teams/views.py:1473
+msgid "This team is already full."
+msgstr "Tim ini sudah penuh."
+
+#: lms/djangoapps/teams/views.py:1479
+msgid "You can't join an instructor managed team."
+msgstr "Anda tidak dapat bergabung dengan tim yang dikelola instruktur."
+
+#: lms/djangoapps/teams/views.py:1497
+#, python-brace-format
+msgid "The user {username} is already a member of a team in this teamset."
+msgstr "Pengguna {username} sudah menjadi anggota tim dalam set tim ini."
+
+#: lms/djangoapps/teams/views.py:1505
+#, python-brace-format
+msgid ""
+"The user {username} is not enrolled in the course associated with this team."
+msgstr ""
+"The user {username} is not enrolled in the course associated with this team."
+
+#: lms/djangoapps/teams/views.py:1631
+msgid "You can't leave an instructor managed team."
+msgstr "Anda tidak dapat meninggalkan tim yang dikelola instruktur."
+
+#: lms/djangoapps/user_tours/models.py:20
+msgid "Show new user tour"
+msgstr "Show new user tour"
+
+#: lms/djangoapps/user_tours/models.py:21
+msgid "Do not show user tour"
+msgstr "Do not show user tour"
+
+#: lms/djangoapps/verify_student/api.py:42
+#, python-brace-format
+msgid "Your {platform_name} ID verification was approved!"
+msgstr "Verifikasi ID {platform_name} Anda telah disetujui!"
+
+#: lms/djangoapps/verify_student/models.py:1097
+msgid "The course for which this deadline applies"
+msgstr "The course for which this deadline applies"
+
+#: lms/djangoapps/verify_student/models.py:1102
+msgid ""
+"The datetime after which users are no longer allowed to submit photos for "
+"verification."
+msgstr ""
+"Tanggal dan waktu setelah pengguna tidak lagi diizinkan untuk mengirimkan "
+"foto untuk verifikasi."
+
+#: lms/djangoapps/verify_student/services.py:204
+#, python-brace-format
+msgid "Your {platform_name} verification has expired."
+msgstr "Verifikasi {platform_name} Anda telah kadaluarsa."
 
 #: lms/djangoapps/verify_student/views.py:143
 msgid "Intro"
@@ -5443,20 +5990,100 @@ msgstr "Konfirmasi pendaftaran"
 msgid "Selected price is not valid number."
 msgstr "Harga yang dipilih bukan angka valid."
 
+#: lms/djangoapps/verify_student/views.py:788
+msgid "This course doesn't support paid certificates"
+msgstr "Kursus ini tidak mendukung sertifikat berbayar"
+
 #: lms/djangoapps/verify_student/views.py:794
 msgid "No selected price or selected price is below minimum."
 msgstr "Harga tidak dipilih atau harga pilihan di bawah minimum."
+
+#: lms/djangoapps/verify_student/views.py:913
+msgid ""
+"Photo ID image is required if the user does not have an initial verification"
+" attempt."
+msgstr ""
+"Photo ID image is required if the user does not have an initial verification"
+" attempt."
+
+#: lms/djangoapps/verify_student/views.py:918
+msgid "Missing required parameter face_image"
+msgstr "Missing required parameter face_image"
+
+#: lms/djangoapps/verify_student/views.py:941
+msgid "Image data is in an unsupported format."
+msgstr "Image data is in an unsupported format."
+
+#: lms/djangoapps/verify_student/views.py:1136
+#, python-brace-format
+msgid "Your {platform_name} Verification Has Been Denied"
+msgstr "Your {platform_name} Verification Has Been Denied"
+
+#: lms/templates/admin/user_api/accounts/cancel_retirement_action.html:13
+msgid "Please correct the errors below."
+msgstr "Silakan perbaiki kesalahan di bawah ini."
+
+#: lms/templates/admin/user_api/accounts/cancel_retirement_action.html:19
+#, python-format
+msgid "Are you sure you want to cancel retirement for user \"%(username)s\"? "
+msgstr ""
+"Apakah Anda yakin ingin membatalkan pensiun untuk pengguna \"%(nama "
+"pengguna)s\"? "
 
 #: lms/templates/admin/user_api/accounts/cancel_retirement_action.html:38
 #: xmodule/capa_block.py:1030
 msgid "Submit"
 msgstr "Kirim"
 
+#: lms/templates/bulk_email/edx_ace/bulkemail/email/body.html:24
+#, python-format
+msgid ""
+"\n"
+"            You are receiving this email at address %(email)s because you are enrolled in\n"
+"          "
+msgstr ""
+"\n"
+"            Anda menerima email ini di alamat %(email)s karena Anda terdaftar di\n"
+"          "
+
+#: lms/templates/bulk_email/edx_ace/bulkemail/email/body.txt:7
+#, python-format
+msgid "This email was automatically sent from %(platform_name)s."
+msgstr "Email ini dikirim secara otomatis dari %(platform_name)s."
+
+#: lms/templates/bulk_email/edx_ace/bulkemail/email/body.txt:8
+#, python-format
+msgid ""
+"You are receiving this email at address %(email)s because you are enrolled "
+"in %(course_title)s."
+msgstr ""
+"Anda menerima email ini di alamat %(email)s karena Anda terdaftar di "
+"%(course_title)s."
+
+#: lms/templates/bulk_email/edx_ace/bulkemail/email/body.txt:9
+#, python-format
+msgid ""
+"To stop receiving email like this, update your course email settings here "
+"%(email_settings_url)s"
+msgstr ""
+"To stop receiving email like this, update your course email settings here "
+"%(email_settings_url)s"
+
+#: lms/templates/bulk_email/edx_ace/bulkemail/email/body.txt:10
+#, python-format
+msgid "To unsubscribe click here %(unsubscribe_link)s"
+msgstr "To unsubscribe click here %(unsubscribe_link)s"
+
 #: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.html:12
 #: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.txt:1
 #, python-format
 msgid "Welcome to %(course_name)s"
 msgstr "Selamat datang %(course_name)s"
+
+#: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.html:18
+#, python-format
+msgid "To get started, please visit https://%(site_name)s."
+msgstr "Untuk memulai, silakan kunjungi https://%(site_name)s."
 
 #: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.html:25
 msgid "The login information for your account follows:"
@@ -5468,10 +6095,26 @@ msgstr "Informasi login untuk akun Anda sbb:"
 msgid "email: %(email_address)s"
 msgstr "email: %(email_address)s"
 
+#: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.html:33
+#: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.txt:6
+#, python-format
+msgid "password: %(password)s"
+msgstr "sandi: %(password)s"
+
 #: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.html:40
 #: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.txt:9
 msgid "It is recommended that you change your password."
 msgstr "Kami merekomendasikan Anda untuk mengganti sandi."
+
+#: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.html:48
+msgid "You may access your course."
+msgstr "Anda dapat mengakses kursus Anda."
+
+#: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.html:56
+#: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.txt:13
+#, python-format
+msgid "Sincerely yours, The %(course_name)s Team"
+msgstr "Salam, Tim %(course_name)s"
 
 #: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.txt:3
 #, python-format
@@ -5481,6 +6124,11 @@ msgid ""
 msgstr ""
 "Untuk mulai, silakan buka https://%(site_name)s. Informasi login Anda akan "
 "mengikuti."
+
+#: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.txt:11
+#, python-format
+msgid "You may access your course at: %(course_url)s."
+msgstr "Anda dapat mengakses kursus Anda di: %(course_url)s."
 
 #: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/subject.txt:3
 #: lms/templates/instructor/edx_ace/enrollenrolled/email/subject.txt:3
@@ -5500,6 +6148,10 @@ msgstr ""
 "                    Anda telah dinudang menjadi beta tester untuk %(course_name)s di %(site_name)s\n"
 "                "
 
+#: lms/templates/instructor/edx_ace/addbetatester/email/body.html:28
+msgid "To start accessing course materials, please visit:"
+msgstr "Untuk mulai mengakses materi kursus, silakan kunjungi:"
+
 #: lms/templates/instructor/edx_ace/addbetatester/email/body.html:37
 #: lms/templates/instructor/edx_ace/addbetatester/email/body.html:49
 msgid "To enroll in this course and begin the beta test:"
@@ -5509,6 +6161,15 @@ msgstr "Untuk mendaftar dalam kursus ini dan memulai tes beta:"
 #, python-format
 msgid "Visit %(course_name)s"
 msgstr "Kunjungi %(course_name)s"
+
+#: lms/templates/instructor/edx_ace/addbetatester/email/body.html:54
+#, python-format
+msgid ""
+"Visit %(site_name)s\n"
+"                "
+msgstr ""
+"Kunjungi %(site_name)s\n"
+"                "
 
 #: lms/templates/instructor/edx_ace/addbetatester/email/body.html:63
 #: lms/templates/instructor/edx_ace/addbetatester/email/body.txt:12
@@ -5547,6 +6208,25 @@ msgstr ""
 msgid "To start accessing course materials, please visit %(course_url)s"
 msgstr "Untuk mulai mengakses materi kursus, kunjungi %(course_url)s"
 
+#: lms/templates/instructor/edx_ace/addbetatester/email/body.txt:7
+#, python-format
+msgid ""
+"Visit %(course_about_url)s to enroll in this course and begin the beta test."
+msgstr ""
+"Kunjungi %(course_about_url)s untuk mendaftar di kursus ini dan memulai uji "
+"beta."
+
+#: lms/templates/instructor/edx_ace/addbetatester/email/body.txt:9
+#, python-format
+msgid "Visit %(site_name)s to enroll in this course and begin the beta test."
+msgstr ""
+"Kunjungi %(site_name)s untuk mendaftar di kursus ini dan memulai uji beta."
+
+#: lms/templates/instructor/edx_ace/addbetatester/email/subject.txt:3
+#, python-format
+msgid "You have been invited to a beta test for %(course_name)s"
+msgstr "Anda telah diundang untuk melakukan tes beta %(course_name)s"
+
 #: lms/templates/instructor/edx_ace/addbetatester/push/body.txt:3
 #: lms/templates/instructor/edx_ace/enrolledunenroll/push/body.txt:3
 #: lms/templates/instructor/edx_ace/enrollenrolled/push/body.txt:3
@@ -5571,6 +6251,38 @@ msgid ""
 msgstr ""
 "Anda telah diundang ke pengujian beta untuk %(course_name)s di %(site_name)s"
 " ."
+
+#: lms/templates/instructor/edx_ace/allowedenroll/email/body.html:12
+#, python-format
+msgid "You have been invited to %(course_name)s"
+msgstr "Anda telah diundang ke %(course_name)s"
+
+#: lms/templates/instructor/edx_ace/allowedenroll/email/body.html:19
+#: lms/templates/instructor/edx_ace/allowedenroll/email/body.txt:3
+#, python-format
+msgid ""
+"You have been invited to join %(course_name)s at %(site_name)s by a member "
+"of the course staff."
+msgstr ""
+"Anda telah diundang untuk mengikuti %(course_name)s di %(site_name)s oleh "
+"anggota staf kursus."
+
+#: lms/templates/instructor/edx_ace/allowedenroll/email/body.html:28
+msgid "To access this course click on the button below and login:"
+msgstr "Untuk mengakses kursus ini, klik tombol di bawah ini dan login:"
+
+#: lms/templates/instructor/edx_ace/allowedenroll/email/body.html:37
+msgid "To access this course visit it and register:"
+msgstr "Untuk mengakses kursus ini, kunjungi dan daftar:"
+
+#: lms/templates/instructor/edx_ace/allowedenroll/email/body.html:47
+#, python-format
+msgid ""
+"Please finish your registration and fill out the registration form making "
+"sure to use %(email_address)s in the Email field:"
+msgstr ""
+"Silakan selesaikan pendaftaran Anda dan isi formulir pendaftaran dengan "
+"memastikan untuk menggunakan %(email_address)s di kolom Email:"
 
 #: lms/templates/instructor/edx_ace/allowedenroll/email/body.html:52
 msgid "Finish Your Registration"
@@ -5775,6 +6487,15 @@ msgid ""
 msgstr ""
 "Anda telah dihapus dari tes beta untuk %(course_name)s pada %(site_name)s"
 
+#: lms/templates/instructor/edx_ace/removebetatester/email/body.html:19
+#, python-format
+msgid ""
+"You have been removed as a beta tester for %(course_name)s at %(site_name)s "
+"by a member of the course staff."
+msgstr ""
+"Anda telah dihapus dari tes beta untuk %(course_name)s di %(site_name)s oleh"
+" anggota staf kursus."
+
 #: lms/templates/instructor/edx_ace/removebetatester/email/body.html:26
 msgid ""
 "This course will remain on your dashboard, but you will no longer be part of"
@@ -5793,6 +6514,11 @@ msgstr ""
 "Anda telah dihapus dari tes beta untuk %(course_name)s di  %(site_name)s "
 "oleh anggota staf kursus. Kursus akan tetap ada di dashboard Anda, namun "
 "Anda tidak lagi menjadi bagian kelompok tes beta."
+
+#: lms/templates/instructor/edx_ace/removebetatester/email/subject.txt:3
+#, python-format
+msgid "You have been removed from a beta test for %(course_name)s"
+msgstr "Anda telah dikeluarkan dari uji beta untuk %(course_name)s"
 
 #: lms/templates/instructor/edx_ace/removebetatester/push/body.txt:4
 #, python-format
@@ -5821,9 +6547,61 @@ msgstr "Sudah Keluar"
 msgid "You have signed out."
 msgstr "Anda sudah keluar."
 
+#: lms/templates/logout.html:12
+#, python-format, python-brace-format
+msgid ""
+"{start_anchor}%(tpa_logout_url)s{middle_anchor}Click here{end_anchor} to "
+"delete your single signed on (SSO) session."
+msgstr ""
+"{start_anchor}%(tpa_logout_url)s{middle_anchor}Klik di sini{end_anchor} "
+"untuk menghapus sesi single signed on (SSO) Anda."
+
+#: lms/templates/logout.html:30
+msgid ""
+"\n"
+"                  This may take a minute. If you are not redirected, go to the home page.\n"
+"                "
+msgstr ""
+"\n"
+"                  Ini mungkin memerlukan waktu sebentar. Jika Anda tidak diarahkan, pergi ke halaman utama.\n"
+"                "
+
+#: lms/templates/logout.html:39
+#, python-format, python-brace-format
+msgid ""
+"If you are not redirected within 5 seconds, "
+"{start_anchor}%(target)s{middle_anchor}click here to go to the home "
+"page{end_anchor}."
+msgstr ""
+"Jika Anda tidak dialihkan dalam 5 detik, "
+"{start_anchor}%(target)s{middle_anchor}klik di sini untuk pergi ke halaman "
+"utama{end_anchor}."
+
 #: lms/templates/main_django.html:50
 msgid "Skip to main content"
 msgstr "Lewati ke konten utama"
+
+#: lms/templates/oauth2_provider/authorize.html:24
+msgid ""
+"The above application requests the following permissions from your account:"
+msgstr "Aplikasi di atas meminta izin berikut dari akun Anda:"
+
+#: lms/templates/oauth2_provider/authorize.html:32
+msgid ""
+"These permissions will be granted for data from your courses associated with"
+" the following content providers:"
+msgstr ""
+"Izin ini akan diberikan untuk data dari kursus Anda yang terkait dengan "
+"penyedia konten berikut:"
+
+#: lms/templates/oauth2_provider/authorize.html:40
+msgid ""
+"Please click the 'Allow' button to grant these permissions to the above "
+"application. Otherwise, to withhold these permissions, please click the "
+"'Cancel' button."
+msgstr ""
+"Silakan klik tombol 'Perbolehkan' untuk memberikan izin ini kepada aplikasi "
+"di atas. Jika tidak, untuk menahan izin ini, silakan klik tombol 'Batalkan'."
 
 #: lms/templates/oauth2_provider/authorize.html:48
 #: openedx/core/djangoapps/user_api/admin.py:111
@@ -5839,6 +6617,12 @@ msgstr "Perbolehkan"
 msgid "Error"
 msgstr "Kesalahan"
 
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:11
+#: lms/templates/support/edx_ace/wholecoursereset/email/subject.txt:3
+#, python-format
+msgid "The course %(course_title)s has been reset !"
+msgstr "Kursus %(course_title)s telah direset!"
+
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.html:16
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:14
 #: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:14
@@ -5849,6 +6633,29 @@ msgstr "Kesalahan"
 msgid "Hello %(full_name)s,"
 msgstr "Halo %(full_name)s,"
 
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:21
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:3
+#, python-format
+msgid ""
+"Your progress in course %(course_title)s has been reset on your behalf."
+msgstr ""
+"Kemajuan Anda dalam kursus %(course_title)s telah disetel ulang atas nama "
+"Anda."
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:25
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:4
+msgid ""
+"You will be able to re-attempt this course and earn a verified certificate "
+"upon successful completion."
+msgstr ""
+"Anda akan dapat mencoba kembali kursus ini dan mendapatkan sertifikat "
+"terverifikasi setelah berhasil menyelesaikannya."
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:31
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:6
+msgid "Best,"
+msgstr "Terbaik,"
+
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:2
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:2
 #: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.txt:2
@@ -5856,6 +6663,36 @@ msgstr "Halo %(full_name)s,"
 #, python-format
 msgid "Hello %(full_name)s, "
 msgstr "Halo %(full_name)s,"
+
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:10
+msgid "ID Verification Approved"
+msgstr "ID Verification Approved"
+
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:19
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:3
+#, python-format
+msgid "Your %(platform_name)s ID verification photos have been approved."
+msgstr "Foto-foto verifikasi ID %(platform_name)s Anda telah disetujui."
+
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:23
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:4
+#, python-format
+msgid ""
+"Your approval status remains valid for two years, and it will expire "
+"%(expiration_datetime)s."
+msgstr ""
+"Status persetujuan Anda tetap berlaku selama dua tahun, dan masa berlakunya "
+"akan habis %(expiration_datetime)s."
+
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:29
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:6
+msgid "Enjoy your studies,"
+msgstr "Nikmati studi Anda,"
+
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/subject.txt:3
+#, python-format
+msgid "Your %(platform_name)s ID verification was approved!"
+msgstr "Verifikasi ID %(platform_name)s Anda telah disetujui!"
 
 #: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:10
 msgid "Expired ID Verification"
@@ -5866,6 +6703,23 @@ msgstr "Verifikasi ID Kadaluarsa"
 #, python-format
 msgid "Your %(platform_name)s ID verification has expired. "
 msgstr "Verifikasi ID %(platform_name)s Anda telah kadaluarsa."
+
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:23
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.txt:5
+msgid ""
+"You must have a valid ID verification to take proctored exams and qualify "
+"for certificates."
+msgstr ""
+"Anda harus memiliki verifikasi ID yang valid untuk mengikuti ujian yang "
+"diawasi dan memenuhi syarat untuk sertifikat."
+
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:24
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.txt:6
+msgid ""
+"Follow the link below to submit your photos and renew your ID verification."
+msgstr ""
+"Ikuti tautan di bawah ini untuk mengirimkan foto Anda dan memperbarui "
+"verifikasi ID Anda."
 
 #: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:25
 #: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.txt:7
@@ -5883,6 +6737,41 @@ msgstr "Kirim Ulang Verifikasi : %(lms_verification_link)s"
 #, python-format
 msgid "ID verification FAQ : %(help_center_link)s "
 msgstr "FAQ Verifikasi ID : %(help_center_link)s "
+
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/subject.txt:3
+#, python-format
+msgid "Your %(platform_name)s Verification has Expired"
+msgstr "Verifikasi %(platform_name)s Anda telah kadaluarsa."
+
+#: lms/templates/verify_student/edx_ace/verificationsubmitted/email/body.html:10
+msgid "ID Verification Submitted"
+msgstr "ID Verification Submitted"
+
+#: lms/templates/verify_student/edx_ace/verificationsubmitted/email/body.html:19
+#: lms/templates/verify_student/edx_ace/verificationsubmitted/email/body.txt:3
+#, python-format
+msgid ""
+"Thank you for submitting your photos for identity verification with "
+"%(platform_name)s. "
+msgstr ""
+"Thank you for submitting your photos for identity verification with "
+"%(platform_name)s. "
+
+#: lms/templates/verify_student/edx_ace/verificationsubmitted/email/body.html:24
+#: lms/templates/verify_student/edx_ace/verificationsubmitted/email/body.txt:4
+msgid ""
+"We have received your photos and they will be reviewed within 3-5 days."
+msgstr "Kami telah menerima foto Anda dan akan ditinjau dalam 3-5 hari."
+
+#: lms/templates/verify_student/edx_ace/verificationsubmitted/email/body.html:27
+#: lms/templates/verify_student/edx_ace/verificationsubmitted/email/body.txt:5
+#, python-format
+msgid "You may check the status on your dashboard: %(dashboard_link)s "
+msgstr "Anda dapat memeriksa statusnya di dasbor Anda: %(dashboard_link)s "
+
+#: lms/templates/verify_student/edx_ace/verificationsubmitted/email/subject.txt:3
+msgid "Thank you for submitting your photos!"
+msgstr "Terima kasih telah memasukkan foto Anda!"
 
 #: lms/templates/video.html:23
 msgid "Loading video player"
@@ -6119,6 +7008,15 @@ msgstr "Setelah ini, penting untuk review manual."
 msgid "Create new merged version"
 msgstr "Buat versi tergabung yang baru"
 
+#: lms/templates/wiki/includes/anonymous_blocked.html:7
+#, python-brace-format
+msgid ""
+"You need to {anchor_start_login}log in{anchor_end} or "
+"{anchor_start_signup}sign up{anchor_end} to use this function."
+msgstr ""
+"Anda perlu {anchor_start_login}masuk{anchor_end} atau "
+"{anchor_start_signup}daftar{anchor_end} untuk menggunakan fungsi ini."
+
 #: lms/templates/wiki/includes/anonymous_blocked.html:12
 msgid "You need to log in or sign up to use this function."
 msgstr "Anda harus masuk atau daftar untuk pakai fungsi ini."
@@ -6130,6 +7028,17 @@ msgstr "Contekan Wiki"
 #: lms/templates/wiki/includes/cheatsheet.html:14
 msgid "Wiki Syntax Help"
 msgstr "Bantuan Sintaks Wiki"
+
+#: lms/templates/wiki/includes/cheatsheet.html:15
+#, python-brace-format
+msgid ""
+"This wiki uses {start_strong}Markdown{end_strong} for styling. There are "
+"several useful guides online. See any of the links below for in-depth "
+"details:"
+msgstr ""
+"This wiki uses {start_strong}Markdown{end_strong} for styling. There are "
+"several useful guides online. See any of the links below for in-depth "
+"details:"
 
 #: lms/templates/wiki/includes/cheatsheet.html:18
 msgid "Markdown: Basics"
@@ -6218,6 +7127,15 @@ msgstr "Daftar"
 #: lms/templates/wiki/includes/cheatsheet.html:59
 msgid "Quotes"
 msgstr "Kutipan"
+
+#: lms/templates/wiki/includes/editor_widget.html:4
+#, python-brace-format
+msgid ""
+"Markdown syntax is allowed. See the {start_link}cheatsheet{end_link} for "
+"help."
+msgstr ""
+"Sintaksis Markdown diperbolehkan. Lihat {start_link}lembar "
+"contekan{end_link} untuk bantuan."
 
 #: lms/templates/wiki/plugins/attachments/index.html:4
 msgid "Attachments"
@@ -6323,9 +7241,21 @@ msgstr "Revisi telah dihapus."
 msgid "Restoring to this revision will mark the article as deleted."
 msgstr "Mengembalikan ke revisi ini akan menandai artikel sebagai terhapus."
 
+#: lms/urls.py:61
+msgid "LMS Administration"
+msgstr "LMS Administration"
+
+#: openedx/core/djangoapps/ace_common/apps.py:18
+msgid "ACE Common"
+msgstr "ACE Common"
+
 #: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/base_body.html:97
 msgid "Courses"
 msgstr "Kursus"
+
+#: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/base_body.html:108
+msgid "My Account"
+msgstr "Akun Saya"
 
 #: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/base_body.html:180
 #: themes/red-theme/lms/templates/ace_common/edx_ace/common/base_body.html:124
@@ -6333,10 +7263,40 @@ msgstr "Kursus"
 msgid "%(platform_name)s on Google Plus"
 msgstr "%(platform_name)s di Google Plus"
 
+#: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/base_body.html:233
+msgid "Our mailing address is:"
+msgstr "Alamat kami"
+
+#: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/base_head.html:7
+#, python-format
+msgid "%(platform_name)s Email"
+msgstr "%(platform_name)s Email"
+
+#: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/upsell_cta.html:7
+#: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/upsell_cta.txt:4
+#, python-format
+msgid ""
+"Don't miss the opportunity to highlight your new knowledge and skills by "
+"earning a verified certificate. Upgrade by "
+"%(user_schedule_upgrade_deadline_time)s."
+msgstr ""
+"Jangan lewatkan kesempatan untuk menonjolkan pengetahuan dan keterampilan "
+"baru Anda dengan mendapatkan sertifikat terverifikasi. Tingkatkan sebelum "
+"%(user_schedule_upgrade_deadline_time)s."
+
 #: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/upsell_cta.html:26
 #: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/upsell_cta.txt:9
 msgid "Upgrade Now"
 msgstr "Tingkatkan Sekarang"
+
+#: openedx/core/djangoapps/api_admin/admin.py:36
+#, python-brace-format
+msgid ""
+"Once you have approved this request, go to {catalog_admin_url} to set up a "
+"catalog for this user."
+msgstr ""
+"Setelah Anda menyetujui permintaan ini, buka {catalog_admin_url} untuk "
+"menyiapkan katalog bagi pengguna ini."
 
 #: openedx/core/djangoapps/api_admin/forms.py:20
 msgid "Organization Name"
@@ -6358,6 +7318,22 @@ msgstr "URL website organisasi anda."
 msgid "The name of your organization."
 msgstr "Nama organisasi anda."
 
+#: openedx/core/djangoapps/api_admin/forms.py:28
+msgid "The contact address of your organization."
+msgstr "Alamat kontak organisasi Anda."
+
+#: openedx/core/djangoapps/api_admin/forms.py:73
+#, python-brace-format
+msgid "The following users do not exist: {usernames}."
+msgstr "Pengguna berikut tidak ada: {usernames}."
+
+#: openedx/core/djangoapps/api_admin/forms.py:86
+msgid ""
+"Comma-separated list of usernames which will be able to view this catalog."
+msgstr ""
+"Daftar nama pengguna yang dipisahkan dengan koma yang dapat melihat katalog "
+"ini."
+
 #: openedx/core/djangoapps/api_admin/models.py:43
 msgid "Denied"
 msgstr "Ditolak"
@@ -6365,6 +7341,32 @@ msgstr "Ditolak"
 #: openedx/core/djangoapps/api_admin/models.py:44
 msgid "Approved"
 msgstr "Diterima"
+
+#: openedx/core/djangoapps/api_admin/models.py:52
+msgid "Status of this API access request"
+msgstr "Status of this API access request"
+
+#: openedx/core/djangoapps/api_admin/models.py:54
+msgid "The URL of the website associated with this API user."
+msgstr "The URL of the website associated with this API user."
+
+#: openedx/core/djangoapps/api_admin/models.py:55
+msgid "The reason this user wants to access the API."
+msgstr "Alasan pengguna ini ingin mengakses API."
+
+#: openedx/core/djangoapps/api_admin/widgets.py:33
+#, python-brace-format
+msgid ""
+"I, and my organization, accept the {link_start}{platform_name} API Terms of "
+"Service{link_end}."
+msgstr ""
+"I, and my organization, accept the {link_start}{platform_name} API Terms of "
+"Service{link_end}."
+
+#: openedx/core/djangoapps/auth_exchange/forms.py:72
+#, python-format
+msgid "'%s' is not a valid scope."
+msgstr "'%s' is not a valid scope."
 
 #: openedx/core/djangoapps/bookmarks/apps.py:18
 #: openedx/features/course_bookmarks/plugins.py:39
@@ -6380,6 +7382,21 @@ msgstr "Terjadi kesalahan. Coba kembali."
 msgid "No data provided."
 msgstr "Tidak ada data tersedia."
 
+#: openedx/core/djangoapps/bookmarks/views.py:224
+msgid "Parameter usage_id not provided."
+msgstr "Parameter usage_id not provided."
+
+#: openedx/core/djangoapps/bookmarks/views.py:229
+#: openedx/core/djangoapps/bookmarks/views.py:310
+#, python-brace-format
+msgid "Invalid usage_id: {usage_id}."
+msgstr "Invalid usage_id: {usage_id}."
+
+#: openedx/core/djangoapps/bookmarks/views.py:236
+#, python-brace-format
+msgid "Block with usage_id: {usage_id} not found."
+msgstr "Block with usage_id: {usage_id} not found."
+
 #: openedx/core/djangoapps/bookmarks/views.py:241
 #, python-brace-format
 msgid ""
@@ -6389,6 +7406,21 @@ msgstr ""
 "Anda dapat membuat sampai dengan {max_num_bookmarks_per_course} bookmark. "
 "Anda harus menghapus beberapa bookmark sebelum Anda dapat menandai halaman "
 "baru."
+
+#: openedx/core/djangoapps/bookmarks/views.py:336
+#: openedx/core/djangoapps/bookmarks/views.py:356
+#, python-brace-format
+msgid "Bookmark with usage_id: {usage_id} does not exist."
+msgstr "Bookmark with usage_id: {usage_id} does not exist."
+
+#: openedx/core/djangoapps/catalog/models.py:24
+#: openedx/core/djangoapps/video_pipeline/models.py:37
+msgid "Internal API URL"
+msgstr "Internal API URL"
+
+#: openedx/core/djangoapps/catalog/models.py:26
+msgid "DEPRECATED: Use the setting COURSE_CATALOG_API_URL."
+msgstr "TIDAK DIGUNAKAN LAGI: Gunakan setelan COURSE_CATALOG_API_URL."
 
 #: openedx/core/djangoapps/catalog/models.py:34
 msgid ""
@@ -6502,6 +7534,17 @@ msgstr "Courses with Errors"
 #: openedx/core/djangoapps/content/learning_sequences/apps.py:10
 msgid "Learning Sequences and Outlines"
 msgstr "Learning Sequences and Outlines"
+
+#: openedx/core/djangoapps/content/search/models.py:28
+msgid ""
+"Numeric ID for each Course / Library context. This ID will generally require"
+" fewer bits than the full LearningContextKey, allowing more courses and "
+"libraries to be represented in content search filters."
+msgstr ""
+"ID numerik untuk setiap konteks Kursus/Perpustakaan. ID ini umumnya "
+"memerlukan bit yang lebih sedikit dibandingkan LearningContextKey lengkap, "
+"sehingga memungkinkan lebih banyak kursus dan perpustakaan untuk "
+"direpresentasikan dalam filter pencarian konten."
 
 #: openedx/core/djangoapps/content_libraries/api/blocks.py:301
 msgid "Library cannot have more than {} Components."
@@ -6682,6 +7725,10 @@ msgstr ""
 "Misalnya, \"video\" jika video dipentaskan, atau \"vertikal\" untuk unit.\n"
 "\n"
 "        "
+
+#: openedx/core/djangoapps/content_staging/models.py:72
+msgid "Content tags applied to these blocks"
+msgstr "Tag konten menerapkan pada blok ini"
 
 #: openedx/core/djangoapps/content_staging/models.py:116
 msgid "Original usage key/ID of the thing that is in the clipboard."
@@ -7224,6 +8271,18 @@ msgstr "Pembaruan"
 #: openedx/core/djangoapps/notifications/email/utils.py:463
 msgid "discussion"
 msgstr "diskusi"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:16
+msgid "Daily"
+msgstr "Sehari-hari"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:17
+msgid "Weekly"
+msgstr "Mingguan"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:18
+msgid "Immediately"
+msgstr "Langsung"
 
 #: openedx/core/djangoapps/notifications/email_notifications.py:19
 #: xmodule/capa_block.py:229 xmodule/capa_block.py:246
@@ -8704,6 +9763,15 @@ msgstr ""
 "Lisensi mendefinisikan bagaimana isi dari blok ini dapat dibagikan dan "
 "digunakan kembali."
 
+#: openedx/core/lib/teams_config.py:386
+#, python-brace-format
+msgid "Team Group: {team_set_name}"
+msgstr "Tim: {team_set_name}"
+
+#: openedx/core/lib/teams_config.py:387
+msgid "Partition for segmenting users by team-set"
+msgstr "Partisi untuk mengelompokkan pengguna berdasarkan kumpulan tim"
+
 #: openedx/features/calendar_sync/ics.py:36
 #, python-brace-format
 msgid "{assignment} is due for {course}."
@@ -9543,6 +10611,34 @@ msgstr ""
 "Mendefinisikan jumlah kali seorang siswa dapat mencoba menjawab soal ini. "
 "Jika nilai belum disetel, maka siswa dapat menjawab hingga tidak terbatas."
 
+#: xmodule/capa_block.py:201
+msgid "Grading Method"
+msgstr "Metode Penilaian"
+
+#: xmodule/capa_block.py:203
+msgid ""
+"Define the grading method for this problem. By default, it's the score of "
+"the last submission made by the student."
+msgstr ""
+"Tentukan metode penilaian untuk masalah ini. Secara default, ini adalah skor"
+" penyerahan terakhir yang dilakukan oleh siswa."
+
+#: xmodule/capa_block.py:209 xmodule/capa_block.py:513
+msgid "Last Score"
+msgstr "Skor Terakhir"
+
+#: xmodule/capa_block.py:210 xmodule/capa_block.py:514
+msgid "First Score"
+msgstr "Skor Pertama"
+
+#: xmodule/capa_block.py:211 xmodule/capa_block.py:515
+msgid "Highest Score"
+msgstr "Skor Tertinggi"
+
+#: xmodule/capa_block.py:212 xmodule/capa_block.py:516
+msgid "Average Score"
+msgstr "Skor Rata-rata"
+
 #: xmodule/capa_block.py:215
 msgid "Date that this problem is due by"
 msgstr "Tanggal akhir untuk soal ini adalah"
@@ -9676,6 +10772,10 @@ msgstr "Data XML untuk soal"
 msgid "Dictionary with the correctness of current student answers"
 msgstr "Kamus dengan ketepatan jawaban siswa saat ini"
 
+#: xmodule/capa_block.py:298
+msgid "List of correctness maps for each attempt"
+msgstr "Daftar peta kebenaran untuk setiap upaya"
+
 #: xmodule/capa_block.py:299
 msgid "Dictionary for maintaining the state of inputtypes"
 msgstr "Kamus untuk memelihara kondisi inputtypes"
@@ -9684,9 +10784,17 @@ msgstr "Kamus untuk memelihara kondisi inputtypes"
 msgid "Dictionary with the current student responses"
 msgstr "Kamus dengan respon siswa saat ini"
 
+#: xmodule/capa_block.py:302
+msgid "List of student answers for each attempt"
+msgstr "Daftar jawaban siswa untuk setiap percobaan"
+
 #: xmodule/capa_block.py:306
 msgid "Dictionary with the current student score"
 msgstr "Kamus dengan nilai siswa saat ini"
+
+#: xmodule/capa_block.py:308
+msgid "List of scores for each attempt"
+msgstr "Daftar skor untuk setiap upaya"
 
 #: xmodule/capa_block.py:311
 msgid "Whether or not the answers have been saved since last submit"
