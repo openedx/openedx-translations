@@ -22,6 +22,30 @@ msgstr ""
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
+#: admin.py:112
+msgid "internally reviewed"
+msgstr "Revisão interna"
+
+#: admin.py:121
+msgid "All Unreviewed"
+msgstr "Todos não revisados"
+
+#: admin.py:122
+msgid "All Unreviewed Failures"
+msgstr "Todas as falhas não revisadas"
+
+#: admin.py:142
+msgid "active proctored exams"
+msgstr "exame supervisionado ativo"
+
+#: admin.py:197
+msgid "courses with active proctored exams"
+msgstr "cursos com exames supervisionados ativos"
+
+#: admin.py:354
+msgid "Course Id"
+msgstr "Identificação Do Curso"
+
 #: admin.py:392
 msgid "Created"
 msgstr "Criado"
@@ -30,13 +54,25 @@ msgstr "Criado"
 msgid "Download Software Clicked"
 msgstr "Clique no software para baixar"
 
+#: admin.py:394
+msgid "Ready To Start"
+msgstr "Pronto para começar"
+
 #: admin.py:395
 msgid "Started"
 msgstr "Iniciado"
 
+#: admin.py:396
+msgid "Ready To Submit"
+msgstr "Pronto para enviar"
+
 #: admin.py:397
 msgid "Declined"
 msgstr "Recusado"
+
+#: admin.py:398
+msgid "Timed Out"
+msgstr "Tempo esgotado"
 
 #: admin.py:399
 msgid "Submitted"
@@ -74,6 +110,88 @@ msgstr "Integração Pendente"
 msgid "Onboarding Expired"
 msgstr "Integração Expirada"
 
+#: api.py:824 views.py:1297
+#, python-brace-format
+msgid "you have {remaining_time} remaining"
+msgstr "você tem {remaining_time} restante"
+
+#: api.py:1654
+msgid "your course"
+msgstr "Seu curso"
+
+#: api.py:1745
+#, python-brace-format
+msgid "Proctoring Results For {course_name} {exam_name}"
+msgstr "Resultados de Supervisão Para {course_name} {exam_name}"
+
+#: api.py:2238
+msgid "Taking As Proctored Exam"
+msgstr "Fazer Como Exame Supervisionado"
+
+#: api.py:2243
+msgid "Proctored Option Available"
+msgstr "Opção Supervisionada Disponível"
+
+#: api.py:2248
+msgid "Taking As Open Exam"
+msgstr "Considerar como exame aberto"
+
+#: api.py:2253 api.py:2258
+msgid "Pending Session Review"
+msgstr "Revisão de Sessão Pendente"
+
+#: api.py:2263
+msgid "Passed Proctoring"
+msgstr "Monitoração Aprovada"
+
+#: api.py:2268 api.py:2273
+msgid "Failed Proctoring"
+msgstr "A monitoração falhou."
+
+#: api.py:2278
+msgid "Proctored Option No Longer Available"
+msgstr "Opção Monitorada não está mais disponível"
+
+#: api.py:2287
+msgid "Ungraded Practice Exam"
+msgstr "Exame Prático Sem Classificação"
+
+#: api.py:2292
+msgid "Practice Exam Completed"
+msgstr "Exame Prático Concluído"
+
+#: api.py:2297
+msgid "Practice Exam Failed"
+msgstr "Falhou no exame prático"
+
+#: api.py:2305
+msgid "Timed Exam"
+msgstr "Prova cronometrada"
+
+#: api.py:2888
+msgid "Onboarding status question"
+msgstr "Pergunta sobre o estado de integração"
+
+#: models.py:391
+msgid "Taking as Proctored"
+msgstr "Tomando como proctoreado"
+
+#: models.py:395
+msgid "Is Sample Attempt"
+msgstr "É uma tentativa simples"
+
+#: models.py:413
+msgid "Is Resumable"
+msgstr "É Retomável"
+
+#: models.py:418
+msgid "Ready to Resume"
+msgstr "Pronto para retomar"
+
+#: models.py:421
+msgid "Resumed"
+msgstr "Retomado"
+
 #: models.py:524
 msgid "Additional Time (minutes)"
 msgstr "Tempo Adicional (minutos)"
@@ -82,9 +200,188 @@ msgstr "Tempo Adicional (minutos)"
 msgid "Review Policy Exception"
 msgstr "Revisão Política de Exceção"
 
+#: templates/common/waiting_banner.html:3
+msgid ""
+"\n"
+"        The result will be visible after <strong id=\"wait_deadline\"> Loading... </strong>\n"
+"    "
+msgstr ""
+"\n"
+"        \n"
+"O resultado ficará visível após <strong id=\"wait_deadline\"> Carregando... </strong>\n"
+"    "
+
+#: templates/emails/proctoring_attempt_satisfactory_email.html:12
+#, python-format
+msgid ""
+"\n"
+"        Your proctored exam \"%(exam_name)s\" in\n"
+"        <a href=\"%(course_url)s\">%(course_name)s</a> was reviewed and you\n"
+"        met all proctoring requirements.\n"
+"    "
+msgstr ""
+"\n"
+"        Seu exame supervisionado \"%(exam_name)s\" em\n"
+"        <a href=\"%(course_url)s\">%(course_name)s</a> foi revisado e você\n"
+"        atendeu a todos os requisitos de supervisão.\n"
+"    "
+
+#: templates/emails/proctoring_attempt_unsatisfactory_email.html:12
+#, python-format
+msgid ""
+"\n"
+"        Your proctored exam \"%(exam_name)s\" in\n"
+"        <a href=\"%(course_url)s\">%(course_name)s</a> was reviewed and the\n"
+"        course team has identified one or more violations of the proctored exam rules. Examples\n"
+"        of issues that may result in a rules violation include browsing\n"
+"        the internet, blurry or missing photo identification, using a phone,\n"
+"        or getting help from another person. As a result of the identified issue(s),\n"
+"        you did not successfully meet the proctored exam requirements.\n"
+"    "
+msgstr ""
+"\n"
+"        ```\n"
+"Seu exame supervisionado \"%(exam_name)s\" em\n"
+"<a href=\"%(course_url)s\">%(course_name)s</a> foi revisado e a\n"
+"equipe do curso identificou um ou mais exemplos de violações das regras do exame supervisionado. Exemplos\n"
+"de problemas que podem resultar em violação de regras incluem navegação\n"
+"na internet, identificação com foto borrada ou faltando, uso de um telefone\n"
+"ou obter ajuda de outra pessoa. Como resultado do(s) problema(s) identificado(s),\n"
+"você não atendeu com sucesso aos requisitos do exame supervisionado.\n"
+"```\n"
+"    "
+
+#: templates/emails/proctoring_attempt_unsatisfactory_email.html:25
+#, python-format
+msgid ""
+"\n"
+"        To appeal your proctored exam results, please reach out with any relevant information\n"
+"        about your exam at \n"
+"        <a href=\"%(contact_url)s\">\n"
+"            %(contact_url_text)s\n"
+"        </a>.\n"
+"    "
+msgstr ""
+"\n"
+"        Para contestar os resultados do seu exame supervisionado, entre em contato com qualquer informação relevante sobre seu exame em \n"
+"<a href=\"%(contact_url)s\">\n"
+"%(contact_url_text)s\n"
+"</a>.\n"
+"    "
+
+#: templates/onboarding_exam/entrance.html:5
+msgid ""
+"\n"
+"    Proctoring onboarding exam\n"
+"  "
+msgstr ""
+"\n"
+"    Exame de admissão supervisionado\n"
+"  "
+
+#: templates/onboarding_exam/entrance.html:12
+msgid ""
+"\n"
+"      Why this is important to you:\n"
+"    "
+msgstr ""
+"\n"
+"      Por que isso é importante para você.\n"
+"    "
+
+#: templates/onboarding_exam/entrance.html:18
+msgid ""
+"\n"
+"        Establish your identity with the proctoring system to take a proctored exam\n"
+"      "
+msgstr ""
+"\n"
+"        \n"
+"Estabeleça sua identidade com o sistema de supervisão para fazer um exame supervisionado\n"
+"\n"
+"      "
+
+#: templates/onboarding_exam/entrance.html:28
+msgid ""
+"\n"
+"        Practice taking a proctored test\n"
+"      "
+msgstr ""
+"\n"
+"        \n"
+"Pratique fazendo um teste supervisionado\n"
+"\n"
+"      "
+
+#: templates/onboarding_exam/entrance.html:40
+#, python-format
+msgid ""
+"\n"
+"        Once your profile has been reviewed, you will receive an email with review results. The email will come from\n"
+"        <a href=\"mailto:%(learner_notification_from_email)s\">%(learner_notification_from_email)s</a>.\n"
+"        Make sure this email has been added to your inbox filter.\n"
+"      "
+msgstr ""
+"\n"
+"        ```\n"
+"Depois que seu perfil for revisado, você receberá um e-mail com os resultados da revisão. O e-mail virá de\n"
+"<a href=\"mailto:%(learner_notification_from_email)s\">%(learner_notification_from_email)s</a>.\n"
+"Certifique-se de que este e-mail foi adicionado ao filtro da sua caixa de entrada.\n"
+"```\n"
+"      "
+
+#: templates/onboarding_exam/entrance.html:49
+#, python-format
+msgid ""
+"\n"
+"        Please contact\n"
+"        <a href=\"mailto:%(integration_specific_email)s\">%(integration_specific_email)s</a>\n"
+"        if you have questions.\n"
+"      "
+msgstr ""
+"\n"
+"        \n"
+"Por favor, entre em contato\n"
+"<a href=\"mailto:%(integration_specific_email)s\">%(integration_specific_email)s</a>\n"
+"se você tiver perguntas.\n"
+"\n"
+"      "
+
 #: templates/onboarding_exam/entrance.html:58
 msgid "Continue to onboarding"
 msgstr "Continuar para a integração"
+
+#: templates/onboarding_exam/entrance.html:62
+msgid ""
+"\n"
+"    You will be guided through online proctoring software set up and identity verification.\n"
+"  "
+msgstr ""
+"\n"
+"    Você será guiado pela configuração do software de supervisão on-line e pela verificação de identidade.\n"
+"  "
+
+#: templates/onboarding_exam/error.html:4
+msgid ""
+"\n"
+"    Error: There was a problem with your onboarding session\n"
+"  "
+msgstr ""
+"\n"
+"    Erro: houve um problema com sua sessão de integração\n"
+"  "
+
+#: templates/onboarding_exam/error.html:13
+msgid ""
+"\n"
+"    Your proctoring session ended before you completed this onboarding exam.\n"
+"    You should retry this onboarding exam.\n"
+"  "
+msgstr ""
+"\n"
+"    Sua sessão de supervisão terminou antes de você concluir este exame de integração.  \n"
+"Você deve tentar novamente este exame de integração.\n"
+"  "
 
 #: templates/onboarding_exam/rejected.html:20
 #: templates/onboarding_exam/submitted.html:47
@@ -93,9 +390,142 @@ msgstr "Continuar para a integração"
 msgid "Retry my exam"
 msgstr "Tentar novamente meu exame"
 
+#: templates/onboarding_exam/rejected.html:21
+#: templates/practice_exam/error.html:30
+#: templates/practice_exam/submitted.html:19
+msgid "Resetting Onboarding Exam"
+msgstr "Redefinindo o exame de integração"
+
+#: templates/onboarding_exam/submitted.html:4
+msgid ""
+"\n"
+"    You have submitted this onboarding exam\n"
+"  "
+msgstr ""
+"\n"
+"    \n"
+"Você enviou este exame de integração\n"
+"\n"
+"  "
+
+#: templates/onboarding_exam/submitted.html:19
+#, python-format
+msgid ""
+"\n"
+"      Once your profile has been reviewed, you will receive an email\n"
+"      with review results. The email will come from\n"
+"      <a href=\"mailto:%(learner_notification_from_email)s\">\n"
+"        %(learner_notification_from_email)s\n"
+"      </a>,\n"
+"      so make sure this email has been added to your inbox filter.\n"
+"    "
+msgstr ""
+"\n"
+"      ```\n"
+"Assim que seu perfil for revisado, você receberá um e-mail\n"
+" com resultados da revisão. O e-mail virá de\n"
+" <a href=\"mailto:%(learner_notification_from_email)s\">\n"
+" %(learner_notification_from_email)s\n"
+" </a>,\n"
+" portanto, certifique-se de que este e-mail foi adicionado ao filtro da sua caixa de entrada.\n"
+"```\n"
+"    "
+
 #: templates/onboarding_exam/submitted.html:41
 msgid "I understand and want to reset this onboarding exam."
 msgstr "Entendo e quero redefinir este exame de integração."
+
+#: templates/onboarding_exam/submitted.html:53
+#: templates/onboarding_exam/verified.html:16
+#, python-format
+msgid ""
+"\n"
+"      Please contact\n"
+"      <a href=\"mailto:%(integration_specific_email)s\">\n"
+"        %(integration_specific_email)s\n"
+"      </a> if you have questions.\n"
+"    "
+msgstr ""
+"\n"
+"      ```\n"
+"Por favor, entre em contato\n"
+"<a href=\"mailto:%(integration_specific_email)s\">\n"
+"%(integration_specific_email)s\n"
+"</a> se você tiver perguntas.\n"
+"```\n"
+"    "
+
+#: templates/practice_exam/entrance.html:12
+msgid ""
+"\n"
+"        Get familiar with proctoring for real exams later in the course. This practice exam has no impact\n"
+"        on your grade in the course.\n"
+"      "
+msgstr ""
+"\n"
+"        Familiarize-se com a monitoração para exames mais tarde no curso. Este exame prático não tem impacto  \n"
+"na sua nota no curso.\n"
+"      "
+
+#: templates/practice_exam/entrance.html:20
+msgid "Continue to my practice exam"
+msgstr "Continue com o meu exame de prática"
+
+#: templates/practice_exam/error.html:5
+msgid ""
+"\n"
+"        There was a problem with your practice proctoring session\n"
+"      "
+msgstr ""
+"\n"
+"        \n"
+"Houve um problema com sua sessão de supervisão prática\n"
+"\n"
+"      "
+
+#: templates/practice_exam/error.html:13
+msgid ""
+"\n"
+"      Your practice proctoring results: <b class=\"failure\"> Unsatisfactory </b>\n"
+"    "
+msgstr ""
+"\n"
+"      Os resultados da sua prática de supervisão: <b class=\"failure\"> Insatisfatório </b>\n"
+"    "
+
+#: templates/practice_exam/submitted.html:5
+msgid ""
+"\n"
+"        You have submitted this practice proctored exam\n"
+"      "
+msgstr ""
+"\n"
+"        \n"
+"Você enviou este exame prático supervisionado\n"
+"\n"
+"      "
+
+#: templates/practice_exam/submitted.html:13
+msgid ""
+"\n"
+"        Practice exams do not affect your grade.\n"
+"        You have completed this practice exam and can continue with your course work.\n"
+"      "
+msgstr ""
+"\n"
+"        Os exames simulados não afetam sua nota.  \n"
+"Você concluiu este exame simulado e pode continuar com o trabalho do curso.\n"
+"      "
+
+#: templates/proctored_exam/confirm-decline.html:5
+msgid ""
+"\n"
+"        Are you sure you want to take this exam without proctoring?\n"
+"      "
+msgstr ""
+"\n"
+"        Você tem certeza de que quer fazer este exame sem supervisão?\n"
+"      "
 
 #: templates/proctored_exam/confirm-decline.html:16
 msgid "Continue Exam Without Proctoring"
