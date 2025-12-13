@@ -2996,6 +2996,23 @@ msgstr "O arquivo de imagem do crachá deve ser menor que 250KB."
 msgid "This value must be all lowercase."
 msgstr "Esse valor deve conter apenas letras minúsculas."
 
+#. Translators: This string is used across Open edX installations
+#. as a callback to edX. Please do not translate `edX.org`
+#: lms/djangoapps/branding/api.py:117
+msgid "Take free online courses at edX.org"
+msgstr "Faça cursos online em edX.org"
+
+#. Translators: 'edX' and 'Open edX' are trademarks of 'edX Inc.'.
+#. Please do not translate any of these trademarks and company names.
+#: lms/djangoapps/branding/api.py:131
+#, python-brace-format
+msgid ""
+"© {org_name}.  All rights reserved except where noted.  edX, Open edX and "
+"their respective logos are registered trademarks of edX Inc."
+msgstr ""
+"© {org_name}. Todos os direitos reservados exceto quando especificado. edX, "
+"Open edX e seus respectivos logos são marcas registradas da edX Inc."
+
 #. Translators: 'Open edX' is a trademark, please keep this untranslated.
 #. See http://openedx.org for more information.
 #: lms/djangoapps/branding/api.py:147
@@ -3014,6 +3031,10 @@ msgstr "Contate-nos"
 msgid "Help Center"
 msgstr "Central de ajuda"
 
+#: lms/djangoapps/branding/api.py:257
+msgid "Security"
+msgstr "Segurança"
+
 #: lms/djangoapps/branding/api.py:261 lms/djangoapps/branding/api.py:320
 msgid "Media Kit"
 msgstr "Kit de multimídia"
@@ -3025,6 +3046,11 @@ msgstr "Doe"
 #: lms/djangoapps/branding/api.py:286 lms/djangoapps/branding/api.py:362
 msgid "About"
 msgstr "Sobre"
+
+#: lms/djangoapps/branding/api.py:289 lms/djangoapps/branding/api.py:365
+#, python-brace-format
+msgid "{platform_name} for Business"
+msgstr "{platform_name} para Negócios"
 
 #: lms/djangoapps/branding/api.py:293
 msgid "Contact"
@@ -3075,6 +3101,14 @@ msgstr "Afiliados"
 msgid "Open edX"
 msgstr "Open edX"
 
+#: lms/djangoapps/branding/api.py:393
+msgid "Cookie Policy"
+msgstr "Política de Cookies"
+
+#: lms/djangoapps/branding/api.py:395
+msgid "Your Privacy Choices"
+msgstr "Suas opções de privacidade"
+
 #: lms/djangoapps/branding/api.py:408
 msgid "Trademark Policy"
 msgstr "Política de marca comercial"
@@ -3089,9 +3123,23 @@ msgstr "Baixar o aplicativo móvel {platform_name} em Apple App Store"
 msgid "Download the {platform_name} mobile app from Google Play"
 msgstr "Baixar o aplicativo móvel {platform_name} em Google Play"
 
+#. Translators: Bulk email from address e.g. ("Physics 101" Course Staff)
+#: lms/djangoapps/bulk_email/tasks.py:399
+#, python-brace-format
+msgid "\"{course_title}\" Course Staff"
+msgstr "Equipe do Curso \"{course_title}\""
+
 #: lms/djangoapps/ccx/plugins.py:22
 msgid "CCX Coach"
 msgstr "Técnico CCX"
+
+#: lms/djangoapps/ccx/utils.py:50
+msgid ""
+"A CCX can only be created on this course through an external service. "
+"Contact a course admin to give you access."
+msgstr ""
+"Um CCX só pode ser criar neste curso por meio de um serviço externo. Entre "
+"em contato com um administrador do curso para que ele lhe dê acesso."
 
 #: lms/djangoapps/ccx/utils.py:267
 #, python-brace-format
@@ -3267,6 +3315,11 @@ msgstr "{course_key} não é um ID de curso válido."
 #, python-brace-format
 msgid "The course {course_key} does not exist"
 msgstr "O curso {course_key} não existe"
+
+#: lms/djangoapps/certificates/views/support.py:197
+#, python-brace-format
+msgid "User {user_id} is not enrolled in the course {course_key}"
+msgstr "Usuário {user_id} não está matriculado-se no curso {course_key}"
 
 #: lms/djangoapps/certificates/views/support.py:218
 msgid "An unexpected error occurred while regenerating certificates."
@@ -3548,6 +3601,16 @@ msgstr "{course_id} não é um ID de curso válido."
 msgid "Course {course_id} does not exist."
 msgstr "O curso {course_id} não existe."
 
+#: lms/djangoapps/commerce/models.py:29
+msgid "Use the checkout page hosted by the E-Commerce service."
+msgstr "Use a página de checkout hospedada pelo serviço E-Commerce."
+
+#: lms/djangoapps/commerce/models.py:35
+msgid "Path to course(s) checkout page hosted by the E-Commerce service."
+msgstr ""
+"Caminho para a página de checkout do(s) curso(s) hospedada pelo serviço "
+"E-Commerce."
+
 #: lms/djangoapps/commerce/models.py:38
 #: openedx/core/djangoapps/catalog/models.py:31
 #: openedx/core/djangoapps/credentials/models.py:60
@@ -3565,6 +3628,16 @@ msgstr ""
 "Especificado em segundos. Ativar armazenamento em cache, definindo este como"
 " um valor maior que 0."
 
+#: lms/djangoapps/commerce/models.py:49
+msgid "Path to order receipt page."
+msgstr "Caminho para a página de recibo do pedido."
+
+#: lms/djangoapps/commerce/models.py:53
+msgid "Automatically approve valid refund requests, without manual processing"
+msgstr ""
+"Aprovar automaticamente pedidos de reembolso válidos, sem processamento "
+"manual"
+
 #: lms/djangoapps/commerce/utils.py:413
 msgid "[Refund] User-Requested Refund"
 msgstr "[Refund] Reembolso solicitado pelo usuário"
@@ -3578,10 +3651,52 @@ msgstr ""
 "Uma solicitação de reembolso foi iniciada por {username} ({email}). Para "
 "processar esta solicitação, por favor, clique no link(s) abaixo."
 
+#: lms/djangoapps/course_api/blocks/transformers/milestones.py:191
+#: openedx/core/djangoapps/content/learning_sequences/api/processors/special_exams.py:88
+msgid "Practice Exam"
+msgstr "Exame de Prática"
+
+#: lms/djangoapps/course_api/blocks/transformers/milestones.py:193
+#: openedx/core/djangoapps/content/learning_sequences/api/processors/special_exams.py:90
+msgid "Proctored Exam"
+msgstr "Exame supervisionado"
+
 #: lms/djangoapps/course_api/blocks/transformers/milestones.py:195
 #: openedx/core/djangoapps/content/learning_sequences/api/processors/special_exams.py:92
 msgid "Timed Exam"
 msgstr "Prova cronometrada"
+
+#: lms/djangoapps/course_api/blocks/transformers/milestones.py:198
+#: openedx/core/djangoapps/content/learning_sequences/api/processors/special_exams.py:95
+msgid "Exam"
+msgstr "Exame"
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.txt:2
+msgid "You're almost there!"
+msgstr "Você está quase lá!"
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.txt:3
+msgid "There's still time to reach your goal"
+msgstr "Ainda dá tempo de atingir seu objetivo"
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.txt:5
+#, python-format
+msgid ""
+"You set a goal of learning %(days_per_week)s times a week in "
+"%(course_name)s. You're not quite there, but there's still time to reach "
+"that goal!"
+msgstr ""
+"Você definiu uma meta de aprender %(days_per_week)s vezes por semana em "
+"%(course_name)s. Você ainda não chegou lá, mas ainda dá tempo de atingir "
+"esse objetivo!"
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.txt:9
+msgid ""
+"Remember, you can always change your learning goal. The best goal is one "
+"that you can stick to.  "
+msgstr ""
+"Lembre-se, você sempre pode alterar seu objetivo de aprendizagem. O melhor "
+"objetivo é aquele que você consegue cumprir.  "
 
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/footer.html:47
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/head.html:24
@@ -3647,16 +3762,102 @@ msgstr "Baixar o aplicativo para Android na Google Play Store"
 msgid "Unsubscribe from these emails."
 msgstr "Cancele a assinatura desses e-mails."
 
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/subject.txt:3
+#, python-format
+msgid "You've almost reached your goal in %(course_name)s"
+msgstr "Você quase atingiu seu objetivo em %(course_name)s"
+
+#: lms/djangoapps/course_home_api/admin.py:21
+msgid ""
+"These define the context to disable the frontend-app-learning progress "
+"page.If no values are set, then the configuration applies globally. If a "
+"single value is set, then the configuration applies to all courses within "
+"that context. At most one value can be set at a time.<br>If multiple "
+"contexts apply to a course (for example, if configuration is specified for "
+"the course specifically, and for the org that the course is in, then the "
+"more specific context overrides the more general context."
+msgstr ""
+"Isso define o contexto para desabilitar a página de progresso de aprendizado"
+" do aplicativo front-end. Se nenhum valor for definido, a configuração será "
+"aplicada globalmente. Se um único valor for definido, a configuração se "
+"aplica a todos os cursos nesse contexto. No máximo um valor pode ser "
+"definido por vez.<br> Se vários contextos se aplicarem a um curso (por "
+"exemplo, se a configuração for especificada especificamente para o curso e "
+"para a organização em que o curso está inserido, o contexto mais específico "
+"substituirá o contexto mais geral."
+
+#: lms/djangoapps/course_home_api/admin.py:33
+#: openedx/features/discounts/admin.py:34
+msgid ""
+"If any of these values is left empty or \"Unknown\", then their value at "
+"runtime will be retrieved from the next most specific context that applies. "
+"For example, if \"Disabled\" is left as \"Unknown\" in the course context, "
+"then that course will be Disabled only if the org that it is in is Disabled."
+msgstr ""
+"Se algum desses valores for deixado em branco ou \"Desconhecido\", então seu"
+" valor no tempo de execução será recuperado do próximo contexto mais "
+"específico aplicável. Por exemplo, se \"Desativado\" for deixado como "
+"\"Desconhecido\" no contexto do curso, esse curso será Desativado somente se"
+" a organização em que ele está estiver Desativada."
+
 #: lms/djangoapps/course_home_api/models.py:22
 #: openedx/features/discounts/models.py:25
 msgid "Disabled"
 msgstr "Desabilitado"
+
+#: lms/djangoapps/course_home_api/outline/serializers.py:33
+#, python-brace-format
+msgid "({number} Question)"
+msgid_plural "({number} Questions)"
+msgstr[0] "({number} Pergunta)"
+msgstr[1] "({number} Perguntas)"
+msgstr[2] "({number} Perguntas)"
+
+#: lms/djangoapps/course_home_api/outline/views.py:293
+#, python-brace-format
+msgid ""
+"Please contact your degree administrator or {platform_name} Support if you "
+"have questions."
+msgstr ""
+"Entre em contato com o administrador do seu curso ou com o Suporte "
+"{platform_name} se tiver dúvidas."
+
+#: lms/djangoapps/course_home_api/outline/views.py:300
+msgid "Course is full"
+msgstr "Não há mais vagas"
+
+#: lms/djangoapps/course_home_api/outline/views.py:654
+msgid "'course_id' is required."
+msgstr "'course_id' é obrigatório."
+
+#: lms/djangoapps/course_home_api/outline/views.py:658
+msgid "Only 'course_id' is expected."
+msgstr "Apenas 'course_id' é esperado."
+
+#: lms/djangoapps/course_home_api/outline/views.py:664
+msgid "Welcome message successfully dismissed."
+msgstr "Mensagem de boas-vindas descartada com sucesso."
+
+#: lms/djangoapps/course_home_api/outline/views.py:694
+msgid "Your course goal has been successfully set."
+msgstr "O objetivo do seu curso foi definido com sucesso."
+
+#: lms/djangoapps/course_home_api/outline/views.py:695
+msgid "Course goal updated successfully."
+msgstr "Atualizamos o objetivo do curso com sucesso."
 
 #: lms/djangoapps/course_wiki/plugins/course_app.py:31
 #: lms/djangoapps/course_wiki/tab.py:19
 #: lms/djangoapps/course_wiki/views.py:125 lms/templates/wiki/base.html:6
 msgid "Wiki"
 msgstr "Wiki"
+
+#: lms/djangoapps/course_wiki/plugins/course_app.py:32
+msgid ""
+"Enable learners to access, and collaborate on course-related information."
+msgstr ""
+"Habilitar que os estudantes acessem e colaborem com as informações "
+"relacionadas ao curso."
 
 #. Translators: this string includes wiki markup.  Leave the ** and the _
 #. alone.
@@ -3700,14 +3901,115 @@ msgstr "Você não tem acesso a este curso"
 msgid "You do not have access to this course on a mobile device"
 msgstr "Você não tem acesso a este curso via dispositivos móveis"
 
+#: lms/djangoapps/courseware/access_response.py:253
+msgid "You must be enrolled in the course"
+msgstr "Você deve estar matriculado no curso"
+
+#: lms/djangoapps/courseware/access_response.py:264
+#, python-brace-format
+msgid ""
+"You are enrolled in this course with '{enrollment_enterprise_name}'. "
+"However, you are currently logged in as a '{active_enterprise_name}' user. "
+"Please log in with '{enrollment_enterprise_name}' to access this course."
+msgstr ""
+"Você está matriculado neste curso com '{enrollment_enterprise_name}'. No "
+"entanto, você está conectado como um usuário '{active_enterprise_name}'. Por"
+" favor, entre com '{enrollment_enterprise_name}' para acessar este curso."
+
+#: lms/djangoapps/courseware/access_response.py:280
+msgid "You must give Data Sharing Consent for the course"
+msgstr "Você deve dar consentimento de compartilhamento de Dados para o curso"
+
+#: lms/djangoapps/courseware/access_response.py:291
+msgid "You must be logged in to see this course"
+msgstr "Você precisa estar logado para ver este curso"
+
+#: lms/djangoapps/courseware/access_response.py:302
+#, python-brace-format
+msgid "{course_name} is no longer available."
+msgstr "{course_name} não está mais disponível."
+
+#: lms/djangoapps/courseware/course_tools.py:77
+msgid "Financial Assistance"
+msgstr "Assistência Financeira"
+
 #: lms/djangoapps/courseware/courses.py:652
 msgid "Assignment"
 msgstr "Atribuição"
+
+#: lms/djangoapps/courseware/courses.py:743
+msgid "Open Response Assessment"
+msgstr "Avaliação de Resposta Aberta"
+
+#: lms/djangoapps/courseware/courses.py:766
+msgid ""
+"This Open Response Assessment's due dates are set by your instructor and "
+"can't be shifted."
+msgstr ""
+"As datas de vencimento desta avaliação de resposta aberta são definidas pelo"
+" seu instrutor e não podem ser alteradas."
+
+#: lms/djangoapps/courseware/courses.py:777
+msgid "Self Assessment"
+msgstr "Autoavaliação"
+
+#: lms/djangoapps/courseware/courses.py:779
+msgid "Peer Assessment"
+msgstr "Avaliação pelos Pares"
+
+#: lms/djangoapps/courseware/courses.py:781
+msgid "Staff Assessment"
+msgstr "Avaliação da Equipe"
+
+#: lms/djangoapps/courseware/courses.py:783
+msgid "Submission"
+msgstr "Envio"
+
+#. Translators: 'absolute' is a date such as "Jan 01,
+#. 2020". 'relative' is a fuzzy description of the time until
+#. 'absolute'. For example, 'absolute' might be "Jan 01, 2020",
+#. and if today were December 5th, 2020, 'relative' would be "1
+#. month".
+#: lms/djangoapps/courseware/date_summary.py:132
+#, python-brace-format
+msgid "{relative} ago - {absolute}"
+msgstr "{relative} atrás - {absolute}"
+
+#: lms/djangoapps/courseware/date_summary.py:132
+#, python-brace-format
+msgid "in {relative} - {absolute}"
+msgstr "em {relative} - {absolute}"
 
 #: lms/djangoapps/courseware/date_summary.py:272
 #: lms/djangoapps/instructor/views/api.py:1549
 msgid "Enrollment Date"
 msgstr "Data de Inscrição"
+
+#: lms/djangoapps/courseware/date_summary.py:273
+msgid "Course starts"
+msgstr "Início do curso"
+
+#: lms/djangoapps/courseware/date_summary.py:281
+msgid "Course ends"
+msgstr "Fim do curso"
+
+#: lms/djangoapps/courseware/date_summary.py:298
+msgid ""
+"After this date, the course will be archived, which means you can review the"
+" course content but can no longer participate in graded assignments or work "
+"towards earning a certificate."
+msgstr ""
+"Após essa data, o curso será arquivado, o que significa que você poderá "
+"revisar o conteúdo do curso, mas não poderá mais participar de atribuições "
+"avaliadas ou trabalhar para obter um certificado."
+
+#: lms/djangoapps/courseware/date_summary.py:302
+msgid ""
+"After the course ends, the course content will be archived and no longer "
+"active."
+msgstr ""
+"Após o término do curso, o conteúdo do curso será arquivado e não estará "
+"mais ativo."
 
 #: lms/djangoapps/courseware/date_summary.py:304
 msgid ""
@@ -3717,6 +4019,24 @@ msgstr ""
 "Este curso está arquivado, o que significa que você pode rever o conteúdo do"
 " curso, mas ele não está mais ativo."
 
+#: lms/djangoapps/courseware/date_summary.py:404
+msgid "You lose all access to this course, including your progress."
+msgstr "Você perde todo o acesso a este curso, incluindo seu progresso."
+
+#: lms/djangoapps/courseware/date_summary.py:408
+msgid "Audit Access Expires"
+msgstr "O acesso do ouvinte expira"
+
+#: lms/djangoapps/courseware/date_summary.py:420
+msgid "Certificate Available"
+msgstr "Certificado disponível"
+
+#: lms/djangoapps/courseware/date_summary.py:432
+msgid "Day certificates will become available for passing verified learners."
+msgstr ""
+"Certificados do dia estarão disponíveis para aprovação de estudantes "
+"verificados."
+
 #: lms/djangoapps/courseware/date_summary.py:457
 #: lms/djangoapps/courseware/date_summary.py:486
 msgid "Upgrade to Verified Certificate"
@@ -3725,6 +4045,32 @@ msgstr "Atualizar para um Certificado verificado"
 #: lms/djangoapps/courseware/date_summary.py:488
 msgid "Verification Upgrade Deadline"
 msgstr "Prazo final para atualização da verificação"
+
+#: lms/djangoapps/courseware/date_summary.py:500
+msgid ""
+"Don't miss the opportunity to highlight your new knowledge and skills by "
+"earning a verified certificate."
+msgstr ""
+"Não perca a oportunidade de destacar seus novos conhecimentos e habilidades "
+"conquistando um certificado comprovado."
+
+#: lms/djangoapps/courseware/date_summary.py:503
+msgid ""
+"You are still eligible to upgrade to a Verified Certificate! Pursue it to "
+"highlight the knowledge and skills you gain in this course."
+msgstr ""
+"Você ainda está qualificado para atualizar para um Certificado verificado! "
+"Busque destacar os conhecimentos e habilidades que você conquistar neste "
+"curso."
+
+#. Translators: This describes the time by which the user
+#. should upgrade to the verified track. 'date' will be
+#. their personalized verified upgrade deadline formatted
+#. according to their locale.
+#: lms/djangoapps/courseware/date_summary.py:519
+#, python-brace-format
+msgid "by {date}"
+msgstr "por {date}"
 
 #: lms/djangoapps/courseware/date_summary.py:551
 msgid "Learn More"
@@ -3758,6 +4104,23 @@ msgstr ""
 "Você deve concluir com sucesso a verificação antes dessa data para se "
 "qualificar para obter um Certificado."
 
+#: lms/djangoapps/courseware/masquerade.py:188
+#, python-brace-format
+msgid ""
+"There is no user with the username or email address \"{user_identifier}\" "
+"enrolled in this course."
+msgstr ""
+"Não há usuário com o nome de usuário ou endereço de e-mail "
+"\"{user_identifier}\" matriculado neste curso."
+
+#: lms/djangoapps/courseware/masquerade.py:402
+msgid ""
+"This user does not have access to this content because"
+"                         the content start date is in the future"
+msgstr ""
+"Este usuário não tem acesso a este conteúdo porque a data de início do "
+"conteúdo está no futuro"
+
 #: lms/djangoapps/courseware/masquerade.py:479
 msgid ""
 "This type of component cannot be shown while viewing the course as a "
@@ -3766,10 +4129,53 @@ msgstr ""
 "Este tipo de componente não pode ser mostrado durante a exibição do curso "
 "para um aluno específico."
 
+#: lms/djangoapps/courseware/models.py:468
+#: lms/djangoapps/courseware/models.py:504
+#: lms/djangoapps/courseware/models.py:531
+msgid ""
+"Number of days a learner has to upgrade after content is made available"
+msgstr ""
+"Número de dias que um estudante tem para a atualização após o conteúdo ser "
+"disponibilizado"
+
+#: lms/djangoapps/courseware/models.py:509
+msgid "Disable the dynamic upgrade deadline for this course run."
+msgstr ""
+"Desative o prazo de atualização dinâmica para esse funcionamento do curso."
+
+#: lms/djangoapps/courseware/models.py:536
+msgid "Disable the dynamic upgrade deadline for this organization."
+msgstr "Desative o prazo de atualização dinâmica para essa organização."
+
+#: lms/djangoapps/courseware/models.py:563
+msgid "Internal API Base URL"
+msgstr "URL base da API interna"
+
+#: lms/djangoapps/courseware/models.py:564
+msgid "Financial Assistance Backend API Base URL."
+msgstr "URL base da API de Backend de assistência financeira."
+
+#: lms/djangoapps/courseware/models.py:572
+msgid ""
+"Username created for Financial Assistance Backend, e.g. "
+"financial_assistance_service_user."
+msgstr ""
+"O nome de usuário foi criado para backend de assistência financeira, por "
+"exemplo, financial_assistance_service_user."
+
+#: lms/djangoapps/courseware/models.py:577
+msgid "Percentage of courses allowed to use edx-financial-assistance"
+msgstr "Porcentagem de cursos autorizados a usar edx-financial-assistance"
+
 #: lms/djangoapps/courseware/plugins.py:27
 #: lms/djangoapps/courseware/tabs.py:81
 msgid "Progress"
 msgstr "Progresso"
+
+#: lms/djangoapps/courseware/plugins.py:28
+msgid "Keep learners engaged and on track throughout the course."
+msgstr ""
+"Mantenha os estudantes envolvidos e no caminho certo durante todo o curso."
 
 #. Translators: 'Textbooks' refers to the tab in the course that leads to the
 #. course' textbooks
@@ -3777,6 +4183,41 @@ msgstr "Progresso"
 #: lms/djangoapps/courseware/tabs.py:109
 msgid "Textbooks"
 msgstr "Livros didáticos"
+
+#: lms/djangoapps/courseware/plugins.py:75
+msgid ""
+"Create and manage a library of course readings, textbooks, and chapters."
+msgstr ""
+"Criar e gerenciar uma biblioteca de leituras de cursos, livros-texto e "
+"capítulos."
+
+#: lms/djangoapps/courseware/plugins.py:125
+msgid "Calculator"
+msgstr "Calculadora"
+
+#: lms/djangoapps/courseware/plugins.py:126
+msgid "Provide an in-course calculator for simple and complex calculations."
+msgstr "Forneça uma calculadora no curso para cálculos simples e complexos."
+
+#: lms/djangoapps/courseware/plugins.py:173
+msgid "Proctoring"
+msgstr "Supervisão"
+
+#: lms/djangoapps/courseware/plugins.py:174
+msgid ""
+"Maintain exam integrity by enabling a proctoring solution for your course"
+msgstr ""
+"Mantenha a integridade do exame habilitando uma solução de supervisão para o"
+" seu curso"
+
+#: lms/djangoapps/courseware/plugins.py:219
+msgid "Custom pages"
+msgstr "Páginas customizadas"
+
+#: lms/djangoapps/courseware/plugins.py:220
+msgid "Provide additional course content and resources with custom pages"
+msgstr ""
+"Forneça conteúdo e recursos adicionais do curso com páginas customizadas"
 
 #: lms/djangoapps/courseware/tabs.py:36
 #: lms/djangoapps/courseware/views/views.py:2250
@@ -3788,15 +4229,126 @@ msgstr "Curso"
 msgid "Syllabus"
 msgstr "Programa de Estudos"
 
+#: lms/djangoapps/courseware/tabs.py:307
+msgid "Dates"
+msgstr "Datas"
+
+#: lms/djangoapps/courseware/views/views.py:181
+msgid "Your enrollment: Audit track"
+msgstr "Sua matrícula: Faixa de Ouvinte"
+
+#: lms/djangoapps/courseware/views/views.py:182
+msgid ""
+"You are enrolled in the audit track for this course. The audit track does "
+"not include a certificate."
+msgstr ""
+"Você está inscrito na faixa de ouvinte deste curso. A faixa de ouvinte não "
+"inclui um certificado."
+
+#: lms/djangoapps/courseware/views/views.py:190
+msgid "Your enrollment: Honor track"
+msgstr "Sua matrícula: Faixa de Honra"
+
+#: lms/djangoapps/courseware/views/views.py:191
+msgid ""
+"You are enrolled in the honor track for this course. The honor track does "
+"not include a certificate."
+msgstr ""
+"Você está inscrito na faixa de honra deste curso. A faixa de honra não "
+"inclui um certificado."
+
+#: lms/djangoapps/courseware/views/views.py:204
+msgid "We're working on it..."
+msgstr "Estamos trabalhando nisso..."
+
+#: lms/djangoapps/courseware/views/views.py:206
+msgid ""
+"We're creating your certificate. You can keep working in your courses and a "
+"link to it will appear here and on your Dashboard when it is ready."
+msgstr ""
+"Estamos criando seu Certificado. Você pode manter suas atividades nos seus "
+"cursos. Quando o Certificado estiver pronto, um link para ele aparecerá aqui"
+" e no seu Painel de controle."
+
+#: lms/djangoapps/courseware/views/views.py:216
+msgid "Your certificate has been invalidated"
+msgstr "Seu certificado foi invalidado"
+
+#: lms/djangoapps/courseware/views/views.py:217
+msgid "Please contact your course team if you have any questions."
+msgstr "Entre em contato com a equipe do curso caso tenha alguma dúvida."
+
+#: lms/djangoapps/courseware/views/views.py:225
+msgid "Congratulations, you qualified for a certificate!"
+msgstr "Parabéns, você se qualificou para um certificado!"
+
+#: lms/djangoapps/courseware/views/views.py:226
+#: lms/djangoapps/courseware/views/views.py:259
+msgid "You've earned a certificate for this course."
+msgstr "Você conquistou um certificado por este curso."
+
+#: lms/djangoapps/courseware/views/views.py:236
+msgid "Your certificate will be available soon!"
+msgstr "Seu certificado estará disponível em breve!"
+
+#: lms/djangoapps/courseware/views/views.py:237
+#: lms/djangoapps/courseware/views/views.py:248
+msgid ""
+"After this course officially ends, you will receive an email notification "
+"with your certificate."
+msgstr ""
+"Após o término oficial deste curso, você receberá uma notificação por e-mail"
+" com seu Certificado."
+
+#: lms/djangoapps/courseware/views/views.py:258
+msgid "Your certificate is available"
+msgstr "Seu certificado está disponível"
+
+#: lms/djangoapps/courseware/views/views.py:272
+msgid "Certificate unavailable"
+msgstr "Certificado indisponível"
+
+#: lms/djangoapps/courseware/views/views.py:274
+#, python-brace-format
+msgid ""
+"You have not received a certificate because you do not have a current "
+"{platform_name} verified identity."
+msgstr ""
+"Você não recebeu um certificado, pois você não tem uma identidade atual "
+"{platform_name} verificada."
+
 #: lms/djangoapps/courseware/views/views.py:577
 #, python-brace-format
 msgid "To see course content, {sign_in_link} or {register_link}."
 msgstr "Para ver o conteúdo do curso, {sign_in_link} ou {register_link}."
 
+#: lms/djangoapps/courseware/views/views.py:579
+#: xmodule/discussion_block.py:187
+msgid "sign in"
+msgstr "entrar"
+
+#: lms/djangoapps/courseware/views/views.py:592
+#, python-brace-format
+msgid "{sign_in_link} or {register_link}."
+msgstr "{sign_in_link} ou {register_link}."
+
 #: lms/djangoapps/courseware/views/views.py:594
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordresetsuccess/email/body.html:25
 msgid "Sign in"
 msgstr "Entrar"
+
+#: lms/djangoapps/courseware/views/views.py:608
+#, python-brace-format
+msgid ""
+"You must be enrolled in the course to see course content. "
+"{enroll_link_start}Enroll now{enroll_link_end}."
+msgstr ""
+"Você deve estar matriculado no curso para ver o conteúdo do curso. "
+"{enroll_link_start}Matricule-se agora{enroll_link_end}."
+
+#: lms/djangoapps/courseware/views/views.py:621
+msgid "You must be enrolled in the course to see course content."
+msgstr "Você deve matricular-se no curso para ver o conteúdo do curso."
 
 #: lms/djangoapps/courseware/views/views.py:1248
 #: lms/djangoapps/instructor/views/api.py:171
@@ -3877,10 +4429,60 @@ msgstr ""
 msgid "Good"
 msgstr "Bom"
 
+#. Translators: Replier commented on "your" response to your post
+#: lms/djangoapps/discussion/rest_api/discussions_notifications.py:165
+msgid "your"
+msgstr "seu"
+
+#. Translators: Replier commented on "their" response to your post
+#. Translators: Replier commented on "their" response in a post you're
+#. following
+#: lms/djangoapps/discussion/rest_api/discussions_notifications.py:169
+#: lms/djangoapps/discussion/rest_api/discussions_notifications.py:259
+msgid "their"
+msgstr "deles"
+
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.html:24
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.txt:18
+msgid "Go to Discussion"
+msgstr "Ir para Discussão"
+
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.txt:4
+#, python-format
+msgid "%(course_name)s: Reported content awaits review"
+msgstr "%(course_name)s: O conteúdo relatado aguarda revisão"
+
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/subject.txt:3
+#, python-format
+msgid " %(course_name)s %(course_id)s moderator content for review "
+msgstr " %(course_name)s %(course_id)s conteúdo do moderador para revisão "
+
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/responsenotification/email/body.html:11
+#, python-format, python-brace-format
+msgid "%(comment_username)s replied to {start_tag}%(thread_title)s{end_tag}:"
+msgstr ""
+"%(comment_username)s respondeu a {start_tag}%(thread_title)s{end_tag}:"
+
 #: lms/djangoapps/discussion/templates/discussion/edx_ace/responsenotification/email/body.html:24
 #: lms/djangoapps/discussion/templates/discussion/edx_ace/responsenotification/email/body.txt:16
 msgid "View discussion"
 msgstr "Ver discussão"
+
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/responsenotification/email/body.txt:4
+#, python-format
+msgid "%(comment_username)s replied to <b>%(thread_title)s</b>:"
+msgstr "%(comment_username)s responde a <b>%(thread_title)s</b>:"
+
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/responsenotification/email/subject.txt:3
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/responsenotification/push/title.txt:2
+#, python-format
+msgid "Response to %(thread_title)s"
+msgstr "Resposta para: %(thread_title)s"
+
+#: lms/djangoapps/discussion/views.py:80
+msgid "Access to this discussion is restricted to team members and staff."
+msgstr ""
+"O acesso a esta Discussão é restrito aos membros da equipe e funcionários."
 
 #: lms/djangoapps/edxnotes/helpers.py:117
 #: lms/djangoapps/edxnotes/helpers.py:148
@@ -3889,6 +4491,14 @@ msgstr ""
 "O Serviço EdxNotes não está disponível. Por favor, tente novamente em alguns"
 " minutos."
 
+#: lms/djangoapps/edxnotes/helpers.py:341
+msgid "Invalid JSON response received from notes api."
+msgstr "Resposta JSON inválida recebida da API de anotações."
+
+#: lms/djangoapps/edxnotes/helpers.py:348
+msgid "Incorrect data received from notes api."
+msgstr "Os dados recebidos da API de notas estão incorretos."
+
 #: lms/djangoapps/edxnotes/helpers.py:391
 msgid "No endpoint was provided for EdxNotes."
 msgstr "Nenhum resultado foi fornecido por EdxNotes."
@@ -3896,6 +4506,55 @@ msgstr "Nenhum resultado foi fornecido por EdxNotes."
 #: lms/djangoapps/edxnotes/plugins.py:27 lms/djangoapps/edxnotes/plugins.py:57
 msgid "Notes"
 msgstr "Anotações"
+
+#: lms/djangoapps/edxnotes/plugins.py:58
+msgid ""
+"Allow learners to highlight passages and make notes right in the course."
+msgstr ""
+"Permita que os estudantes destaquem passagens e façam anotações diretamente "
+"no curso."
+
+#: lms/djangoapps/grades/rest_api/v1/gradebook_views.py:1142
+msgid ""
+"Cannot override subsection grade: subsection is not available for target "
+"learner."
+msgstr ""
+"Não é possível substituir a nota da subseção: a subseção não está disponível"
+" para o estudante-alvo."
+
+#: lms/djangoapps/instructor/services.py:127
+#, python-brace-format
+msgid "Proctored Exam Review: {review_status}"
+msgstr "Revisão de Exame Supervisionado: {review_status}"
+
+#: lms/djangoapps/instructor/services.py:129
+#, python-brace-format
+msgid ""
+"A proctored exam attempt for {exam_name} in {course_name} by username: {student_username} was reviewed as {review_status} by the proctored exam review provider.\n"
+"Review link: {review_url}"
+msgstr ""
+"Uma tentativa de exame supervisionado para {exam_name} em {course_name} pelo nome de usuário: {student_username} foi revisada como {review_status} pelo provedor de revisão de exame supervisionado.\n"
+"Link para revisão: {review_url}"
+
+#: lms/djangoapps/instructor/settings/common.py:11
+msgid "Your Platform Insights"
+msgstr "Suas informações da plataforma"
+
+#: lms/djangoapps/instructor/views/api.py:155
+#, python-brace-format
+msgid ""
+"The {report_type} report is being created. To view the status of the report,"
+" see Pending Tasks below."
+msgstr ""
+"O relatório {report_type} está sendo criado. Para ver o status do relatório,"
+" consulte Tarefas pendentes abaixo."
+
+#: lms/djangoapps/instructor/views/api.py:173
+msgid ""
+"Found a conflict with given identifier. Please try an alternative identifier"
+msgstr ""
+"Foi encontrado um conflito com o identificador fornecido. Por favor, tente "
+"um identificador alternativo"
 
 #: lms/djangoapps/instructor/views/api.py:364
 #: lms/djangoapps/instructor/views/api.py:4065
@@ -3910,6 +4569,60 @@ msgstr ""
 #: lms/djangoapps/instructor/views/api.py:4068
 msgid "Could not read uploaded file."
 msgstr "O arquivo de upload não foi lido corretamente."
+
+#: lms/djangoapps/instructor/views/api.py:395
+#, python-brace-format
+msgid ""
+"Data in row #{row_num} must have between four and six columns: email, "
+"username, full name, country, cohort, and course mode. The last two columns "
+"are optional."
+msgstr ""
+"Os dados na linha #{row_num} devem ter entre quatro e seis colunas: email, "
+"nome de usuário, nome completo, país, grupo e modo de curso. As duas últimas"
+" colunas são opcionais."
+
+#: lms/djangoapps/instructor/views/api.py:400
+#, python-brace-format
+msgid ""
+"Data in row #{row_num} must have exactly four columns: email, username, full"
+" name, and country."
+msgstr ""
+"Dados na linha #{row_num} devem ter exatamente quatro colunas: email, nome "
+"de usuário, nome completo e país."
+
+#: lms/djangoapps/instructor/views/api.py:429
+msgid ""
+"Course is not cohorted but cohort provided. Ignoring cohort assignment for "
+"all users."
+msgstr ""
+"O curso não é coorte, mas grupo fornecido. Ignorando a atribuição de grupo "
+"para todos os usuários."
+
+#: lms/djangoapps/instructor/views/api.py:444
+#, python-brace-format
+msgid ""
+"Cohort name not found: {cohort}. Ignoring cohort assignment for all users."
+msgstr ""
+"Nome do grupo não encontrado: {cohort}. Ignorando a atribuição de grupo para"
+" todos os usuários."
+
+#: lms/djangoapps/instructor/views/api.py:461
+#, python-brace-format
+msgid ""
+"Invalid course mode: {mode}. Falling back to the default mode, or keeping "
+"the current mode in case the user is already enrolled."
+msgstr ""
+"Modo de curso inválido: {mode}. Voltando ao modo padrão ou mantendo o modo "
+"atual caso o usuário já esteja matriculado."
+
+#: lms/djangoapps/instructor/views/api.py:467
+#, python-brace-format
+msgid ""
+"Invalid course mode: {mode}.  Failling back to {default_mode}, or resetting "
+"to {default_mode} in case the user is already enrolled."
+msgstr ""
+"Modo de curso inválido: {mode}. Retornando para {default_mode} ou "
+"redefinindo para {default_mode} caso o usuário já esteja matriculado."
 
 #: lms/djangoapps/instructor/views/api.py:485
 #: lms/djangoapps/instructor/views/api.py:547
@@ -3948,6 +4661,71 @@ msgstr ""
 "Sem o e-mail o aluno não conseguirá o acesso. Por favor, entre em contato "
 "com o suporte para mais informações."
 
+#: lms/djangoapps/instructor/views/api.py:1147
+msgid ""
+"A usage key location for a section or a problem. If the location is a block "
+"that contains other blocks, (such as the course, section, subsection, or "
+"unit blocks) then all blocks under that block will be included in the "
+"report."
+msgstr ""
+"Uma localização de chave de uso para uma seção ou um problema. Se a "
+"localização for um quarteirão que contém outros quarteirões (como o curso, "
+"seção, subseção ou blocos de unidade), todos os quarteirões desse quarteirão"
+" serão incluídos no relatório."
+
+#: lms/djangoapps/instructor/views/api.py:1156
+msgid "A list of usage keys for the blocks to include in the report. "
+msgstr ""
+"Uma lista de chaves de uso para os blocos a serem incluídos no relatório. "
+
+#: lms/djangoapps/instructor/views/api.py:1164
+msgid ""
+"A list of problem/block types to generate the report for. This field can be "
+"omitted if the report should include details of allblock types. "
+msgstr ""
+"Uma lista de tipos de problemas/blocos para os quais gerar o relatório. Este"
+" campo pode ser omitido se o relatório deve incluir detalhes de todos os "
+"tipos de blocos. "
+
+#: lms/djangoapps/instructor/views/api.py:1175
+msgid "User-friendly text describing current status of report generation."
+msgstr ""
+"Texto amigável para o Usuário descrevendo o status atual da geração do "
+"relatório."
+
+#: lms/djangoapps/instructor/views/api.py:1178
+msgid ""
+"A unique id for the report generation task. It can be used to query the "
+"latest report generation status."
+msgstr ""
+"Uma identificação exclusiva para a tarefa de geração de relatórios. Ela pode"
+" ser usada para consultar o status da última geração de relatórios."
+
+#: lms/djangoapps/instructor/views/api.py:1204
+msgid ""
+"The provided parameters were invalid. Make sure you've provided at least one"
+" valid usage key for `problem_locations`."
+msgstr ""
+"Os parâmetros fornecidos eram inválidos. Verifique se você forneceu pelo "
+"menos uma chave de uso válida para `problem_locations`."
+
+#: lms/djangoapps/instructor/views/api.py:1207
+#: lms/djangoapps/instructor/views/api.py:2537
+#: lms/djangoapps/instructor/views/api.py:2747
+msgid "The requesting user is not authenticated."
+msgstr "O usuário solicitante não está autenticado."
+
+#: lms/djangoapps/instructor/views/api.py:1208
+#: lms/djangoapps/instructor/views/api.py:2538
+#: lms/djangoapps/instructor/views/api.py:2748
+msgid "The requesting user lacks access to the course."
+msgstr "O usuário solicitante não tem acesso ao curso."
+
+#: lms/djangoapps/instructor/views/api.py:1354
+#: lms/djangoapps/instructor_task/api_helper.py:109
+msgid "problem responses"
+msgstr "respostas do problema"
+
 #: lms/djangoapps/instructor/views/api.py:1360
 msgid "Could not find problem with this location."
 msgstr "Não foi possível encontrar problema com esta localização."
@@ -3967,6 +4745,11 @@ msgstr "Total de certificados emitidos"
 #: lms/djangoapps/instructor/views/api.py:1429
 msgid "Date Report Run"
 msgstr "Execução de relatório de data."
+
+#: lms/djangoapps/instructor/views/api.py:1479
+#: lms/djangoapps/instructor_task/api_helper.py:110
+msgid "enrolled learner profile"
+msgstr "perfil do estudante matriculado"
 
 #: lms/djangoapps/instructor/views/api.py:1508
 #, python-brace-format
@@ -4053,9 +4836,21 @@ msgstr "Endereço para correspondência"
 msgid "Goals"
 msgstr "Objetivos"
 
+#: lms/djangoapps/instructor/views/api.py:1545
+msgid "Enrollment Mode"
+msgstr "Modo de Matrícula"
+
+#: lms/djangoapps/instructor/views/api.py:1546
+msgid "Last Login"
+msgstr "Último Login"
+
 #: lms/djangoapps/instructor/views/api.py:1547
 msgid "Date Joined"
 msgstr "Data de inscrição"
+
+#: lms/djangoapps/instructor/views/api.py:1548
+msgid "External User Key"
+msgstr "Chave de usuário externo"
 
 #: lms/djangoapps/instructor/views/api.py:1566
 msgid "Cohort"
@@ -4080,6 +4875,11 @@ msgstr "País"
 msgid "Country"
 msgstr "País"
 
+#: lms/djangoapps/instructor/views/api.py:1625
+#: lms/djangoapps/instructor_task/api_helper.py:111
+msgid "enrollment"
+msgstr "matrícula"
+
 #: lms/djangoapps/instructor/views/api.py:1691
 msgid "The file must contain a 'cohort' column containing cohort names."
 msgstr ""
@@ -4090,6 +4890,40 @@ msgid "The file must contain a 'username' column, an 'email' column, or both."
 msgstr ""
 "O arquivo deve conter uma coluna 'nome de usuário', uma coluna 'e-mail', ou "
 "ambas."
+
+#: lms/djangoapps/instructor/views/api.py:1796
+#: lms/djangoapps/instructor_task/api_helper.py:113
+msgid "survey"
+msgstr "pesquisa"
+
+#: lms/djangoapps/instructor/views/api.py:1821
+#: lms/djangoapps/instructor_task/api_helper.py:114
+msgid "proctored exam results"
+msgstr "resultados do exame supervisionado"
+
+#: lms/djangoapps/instructor/views/api.py:1851
+msgid "Anonymized User IDs"
+msgstr "IDs de usuário anônimos"
+
+#: lms/djangoapps/instructor/views/api.py:1888
+#, python-brace-format
+msgid "Enrollment status for {student}: active"
+msgstr "Status da matrícula para {student}: ativo"
+
+#: lms/djangoapps/instructor/views/api.py:1890
+#, python-brace-format
+msgid "Enrollment status for {student}: inactive"
+msgstr "Status da matrícula para {student}: inativo"
+
+#: lms/djangoapps/instructor/views/api.py:1895
+#, python-brace-format
+msgid "Enrollment status for {student}: pending"
+msgstr "Status da matrícula para {student}: pendente"
+
+#: lms/djangoapps/instructor/views/api.py:1897
+#, python-brace-format
+msgid "Enrollment status for {student}: never enrolled"
+msgstr "Status da matrícula para {student}: nunca matriculado"
 
 #: lms/djangoapps/instructor/views/api.py:2043
 msgid "Module does not exist."
@@ -4133,6 +4967,107 @@ msgid "Cannot rescore with all_students and unique_student_identifier."
 msgstr ""
 "Não é permitida reavaliação com todos_estudantes e "
 "identificador_único_estudante."
+
+#: lms/djangoapps/instructor/views/api.py:2455
+msgid "Current status of task."
+msgstr "Status atual da tarefa."
+
+#: lms/djangoapps/instructor/views/api.py:2456
+msgid "Identifies the kind of task being performed, e.g. rescoring."
+msgstr ""
+"Identificamos o tipo de tarefa que está sendo executada, por exemplo, "
+"reavaliação."
+
+#: lms/djangoapps/instructor/views/api.py:2458
+msgid "The date and time when the task was created."
+msgstr "A data e a hora em que a tarefa foi criada."
+
+#: lms/djangoapps/instructor/views/api.py:2461
+msgid ""
+"The input parameters for the task. The format and content of this data will "
+"depend on the kind of task being performed. For instanceit may contain the "
+"problem locations for a problem resources task."
+msgstr ""
+"Os parâmetros de entrada para a tarefa. O formato e o conteúdo desses dados "
+"dependerão do tipo de tarefa que está sendo realizada. Por exemplo, pode "
+"conter as localizações de problemas para uma tarefa de recursos de "
+"problemas."
+
+#: lms/djangoapps/instructor/views/api.py:2465
+msgid "The username of the user who initiated this task."
+msgstr "O nome de usuário do usuário que iniciou esta tarefa."
+
+#: lms/djangoapps/instructor/views/api.py:2466
+msgid "The last knows state of the celery task."
+msgstr "O último estado conhecido da tarefa de celery."
+
+#: lms/djangoapps/instructor/views/api.py:2467
+msgid "Task duration information, if known"
+msgstr "Informações de duração da Tarefa, caso você conheça"
+
+#: lms/djangoapps/instructor/views/api.py:2468
+msgid "User-friendly task status information, if available."
+msgstr "Informações de status de tarefa fáceis de usar, se disponíveis."
+
+#: lms/djangoapps/instructor/views/api.py:2477
+msgid "List of instructor tasks."
+msgstr "Lista de tarefas do instrutor."
+
+#: lms/djangoapps/instructor/views/api.py:2539
+#: lms/djangoapps/instructor/views/api.py:2749
+msgid "The requested course does not exist."
+msgstr "O curso solicitado não existe."
+
+#: lms/djangoapps/instructor/views/api.py:2711
+msgid "URL from which report can be downloaded."
+msgstr "URL da qual o relatório pode ser baixado."
+
+#: lms/djangoapps/instructor/views/api.py:2712
+msgid "Name of report."
+msgstr "Nome do relatório"
+
+#: lms/djangoapps/instructor/views/api.py:2713
+msgid "HTML anchor tag that contains the name and link."
+msgstr "Marca de âncora HTML que contém o nome e o link."
+
+#: lms/djangoapps/instructor/views/api.py:2722
+msgid "List of report downloads"
+msgstr "Lista de baixas de relatórios"
+
+#: lms/djangoapps/instructor/views/api.py:2736
+msgid "ID for the course whose reports need to be listed."
+msgstr "Identificação do curso cujos relatórios precisam ser listados."
+
+#: lms/djangoapps/instructor/views/api.py:2742
+msgid ""
+"Filter results to only return details of for the report with the specified "
+"name."
+msgstr ""
+"Filtrar os resultados para retornar apenas os detalhes do relatório com o "
+"nome especificado."
+
+#: lms/djangoapps/instructor/views/api.py:2866
+#: lms/djangoapps/instructor_task/api_helper.py:115
+msgid "ORA data"
+msgstr "Dados ORA"
+
+#: lms/djangoapps/instructor/views/api.py:2898
+msgid "ORA summary"
+msgstr "resumo ORA"
+
+#: lms/djangoapps/instructor/views/api.py:2927
+msgid "Attachments archive is being created."
+msgstr "O arquivo de anexos criou."
+
+#: lms/djangoapps/instructor/views/api.py:2948
+#: lms/djangoapps/instructor_task/api_helper.py:116
+msgid "grade"
+msgstr "nota"
+
+#: lms/djangoapps/instructor/views/api.py:2976
+#: lms/djangoapps/instructor_task/api_helper.py:108
+msgid "problem grade"
+msgstr "nota do problema"
 
 #: lms/djangoapps/instructor/views/api.py:3269
 #, python-brace-format
@@ -4203,12 +5138,39 @@ msgstr ""
 "O registro não está no formato correto. Por favor adicione um nome de "
 "usuário e endereço de e-mail válidos."
 
+#: lms/djangoapps/instructor/views/api.py:3854
+#, python-brace-format
+msgid ""
+"Student {user} is not enrolled in this course. Please check your spelling "
+"and retry."
+msgstr ""
+"O estudante {user} não está matriculado neste curso. Verifique a ortografia "
+"e tente novamente."
+
+#: lms/djangoapps/instructor/views/api.py:3861
+#, python-brace-format
+msgid ""
+"Student {user} is already on the certificate invalidation list and cannot be"
+" added to the certificate exception list."
+msgstr ""
+"O aluno {user} já está na lista de invalidação de Certificado e não pode ser"
+" adicionado à lista de exceção de Certificado."
+
 #: lms/djangoapps/instructor/views/api.py:3867
 #, python-brace-format
 msgid "Student (username/email={user}) already in certificate exception list."
 msgstr ""
 "O estudante (username/email={user})  já está na lista de exceção do "
 "cerificado"
+
+#: lms/djangoapps/instructor/views/api.py:3903
+#, python-brace-format
+msgid ""
+"Error occurred removing the allowlist entry for student {student}. Please "
+"refresh the page and try again"
+msgstr ""
+"Ocorreu um erro ao remover a entrada da lista de permissões para o aluno "
+"{student}. Atualize a página e tente novamente"
 
 #: lms/djangoapps/instructor/views/api.py:3921
 msgid ""
@@ -4227,6 +5189,16 @@ msgstr ""
 "{user} não existe no LMS, Por favor verifique a ortografia e tente "
 "novamente."
 
+#: lms/djangoapps/instructor/views/api.py:3996
+msgid "Invalid data, generate_for must be \"new\" or \"all\"."
+msgstr "Os dados são inválidos, e o generate_for deve ser \"novo\" ou \"todos\"."
+
+#: lms/djangoapps/instructor/views/api.py:4004
+msgid "Certificate generation started for students on the allowlist."
+msgstr ""
+"A geração de certificados foi iniciada para os alunos da lista de "
+"permissões."
+
 #: lms/djangoapps/instructor/views/api.py:4057
 #, python-brace-format
 msgid "user \"{user}\" in row# {row}"
@@ -4236,6 +5208,17 @@ msgstr "usuário \"{user}\" em linha# {row}"
 #, python-brace-format
 msgid "user \"{username}\" in row# {row}"
 msgstr "usuário \"{username}\" em linha# {row}"
+
+#: lms/djangoapps/instructor/views/api.py:4168
+#, python-brace-format
+msgid ""
+"The student {student} appears on the Certificate Exception list in course "
+"{course}. Please remove them from the Certificate Exception list before "
+"attempting to invalidate their certificate."
+msgstr ""
+"O aluno {student} aparece na lista de Exceções de Certificado no curso "
+"{course}. Remova-os da lista de exceções de Certificado antes de tentar "
+"invalidar o Certificado."
 
 #: lms/djangoapps/instructor/views/api.py:4229
 #, python-brace-format
@@ -4367,10 +5350,31 @@ msgstr "Download de dados"
 msgid "Analytics"
 msgstr "Estatísticas"
 
+#: lms/djangoapps/instructor/views/instructor_dashboard.py:811
+#: lms/djangoapps/instructor/views/serializers_v2.py:139
+msgid "Open Responses"
+msgstr "Respostas Abertas"
+
 #. Translators: number sent refers to the number of emails sent
 #: lms/djangoapps/instructor/views/instructor_task_helpers.py:80
 msgid "0 sent"
 msgstr "0 enviado"
+
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:90
+#, python-brace-format
+msgid "{num_emails} sent"
+msgid_plural "{num_emails} sent"
+msgstr[0] "{num_emails} enviados"
+msgstr[1] "{num_emails} enviados"
+msgstr[2] "{num_emails} enviados"
+
+#: lms/djangoapps/instructor/views/instructor_task_helpers.py:99
+#, python-brace-format
+msgid "{num_emails} failed"
+msgid_plural "{num_emails} failed"
+msgstr[0] "{num_emails} falhar"
+msgstr[1] "{num_emails} falhar"
+msgstr[2] "{num_emails} falhar"
 
 #: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
 msgid "Complete"
@@ -4446,6 +5450,10 @@ msgstr "Houve um problema ao analisar a data:"
 msgid "Couldn't find module for url: {0}"
 msgstr "Não foi possível encontrar o módulo para o url: {0}"
 
+#: lms/djangoapps/instructor/views/tools.py:171
+msgid "Could not find student enrollment in the course."
+msgstr "Não foi possível encontrar a matrícula do aluno no curso."
+
 #: lms/djangoapps/instructor/views/tools.py:199
 #, python-brace-format
 msgid "Unit {0} has no due date to extend."
@@ -4477,15 +5485,61 @@ msgstr "Usuários com prorrogação de data de entrega para {0}"
 msgid "Due date extensions for {0} {1} ({2})"
 msgstr "Prorrogação da data de entrega para {0} {1} ({2})"
 
+#: lms/djangoapps/instructor_task/api_helper.py:32
+msgid "Requested task is already running"
+msgstr "A tarefa solicitada já está em execução"
+
+#: lms/djangoapps/instructor_task/api_helper.py:45
+msgid "Error occured. Please try again later."
+msgstr "Ocorreu um erro. Por favor, tente novamente mais tarde."
+
+#: lms/djangoapps/instructor_task/api_helper.py:112
+msgid "detailed enrollment"
+msgstr "matrícula detalhada"
+
+#: lms/djangoapps/instructor_task/api_helper.py:123
+#, python-brace-format
+msgid ""
+"The {report_type} report is being created. To view the status of the report,"
+" see Pending Tasks below. You will be able to download the report when it is"
+" complete."
+msgstr ""
+"O relatório {report_type} está criando. Para ver o status do relatório, "
+"consulte Tarefas pendentes abaixo. Você poderá baixar o relatório quando "
+"estiver completado."
+
+#: lms/djangoapps/instructor_task/api_helper.py:359
+msgid "This component cannot be rescored."
+msgstr "Este componente não pode ser reavaliar."
+
+#: lms/djangoapps/instructor_task/api_helper.py:374
+msgid "This component does not support score override."
+msgstr "Este componente não suporta a substituição de nota."
+
+#: lms/djangoapps/instructor_task/api_helper.py:378
+msgid "Scores must be between 0 and the value of the problem."
+msgstr "A pontuação deve ter valor entre 0 e o valor do problema."
+
 #: lms/djangoapps/instructor_task/api_helper.py:393
 msgid "Not all problems in entrance exam support re-scoring."
 msgstr "Nem todos os problemas no Exame de Admissão permitem a reavaliação."
+
+#: lms/djangoapps/instructor_task/models.py:115
+msgid "An error has occurred. Task was not created."
+msgstr "Ocorreu um erro. Não criaram a Tarefa."
 
 #. Translators: This is a past-tense verb that is inserted into task progress
 #. messages as {action}.
 #: lms/djangoapps/instructor_task/tasks.py:82
 msgid "rescored"
 msgstr "reavaliada"
+
+#. Translators: This is a past-tense verb that is inserted into task progress
+#. messages as {action}.
+#: lms/djangoapps/instructor_task/tasks.py:96
+#: lms/djangoapps/instructor_task/tasks_helper/module_state.py:67
+msgid "overridden"
+msgstr "sobrescrito"
 
 #. Translators: This is a past-tense verb that is inserted into task progress
 #. messages as {action}.
@@ -4531,6 +5585,18 @@ msgstr "Certificados gerados."
 #: lms/djangoapps/instructor_task/tasks.py:313
 msgid "cohorted"
 msgstr "agrupado"
+
+#. Translators: This is a past-tense verb that is inserted into task progress
+#. messages as {action}.
+#. An example of such a message is: "Progress: {action} {succeeded} of
+#. {attempted} so far"
+#: lms/djangoapps/instructor_task/tasks.py:326
+msgid "generate_anonymized_id"
+msgstr "generate_anonymized_id"
+
+#: lms/djangoapps/instructor_task/tasks.py:349
+msgid "compressed"
+msgstr "comprimido"
 
 #: lms/djangoapps/instructor_task/views.py:106
 #: lms/djangoapps/instructor_task/views.py:111
@@ -4712,6 +5778,10 @@ msgstr "(de um total de {total})"
 #: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/base_body.html:103
 msgid "Programs"
 msgstr "Programas"
+
+#: lms/djangoapps/learner_dashboard/programs.py:155
+msgid "Program Details"
+msgstr "Detalhes do programa"
 
 #: lms/djangoapps/lms_xblock/mixin.py:23
 msgid ""
