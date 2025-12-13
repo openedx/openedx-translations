@@ -5,6 +5,7 @@
 # 
 # Translators:
 # Brian Smith, 2025
+# Transifex Bot <>, 2025
 # Eden Huthmacher, 2025
 # 
 msgid ""
@@ -36,6 +37,10 @@ msgstr "Pembaruan kursus tidak ditemukan."
 #: cms/djangoapps/contentstore/errors.py:10
 msgid "We only support uploading a .tar.gz file."
 msgstr "Kami hanya mendukung unggahan berkas .tar.gz."
+
+#: cms/djangoapps/contentstore/errors.py:17
+msgid "Unsafe archive file. Aborting import."
+msgstr "Arsip tidak aman. Membatalkan impor."
 
 #: cms/djangoapps/contentstore/git_export_utils.py:36
 #, python-brace-format
@@ -294,6 +299,15 @@ msgstr "Ujian Masuk - Subbagian"
 #: cms/djangoapps/contentstore/views/entrance_exam.py:253
 msgid "Completed Course Entrance Exam"
 msgstr "Telah Menyelesaikan Ujian Masuk Kursus"
+
+#: cms/djangoapps/contentstore/views/import_export.py:150
+#, python-brace-format
+msgid ""
+"We support uploading files in one of the following formats: "
+"{IMPORTABLE_FILE_TYPES}"
+msgstr ""
+"Kami mendukung pengunggahan berkas dalam salah satu format berikut: "
+"{IMPORTABLE_FILE_TYPES}"
 
 #: cms/djangoapps/contentstore/views/library.py:247
 #, python-brace-format
@@ -2361,6 +2375,11 @@ msgstr ""
 "Permintaan pengembalian dana telah diajukan untuk {username} ({email}). "
 "Untuk memproses permintaan ini, silakan kunjungi tautan(s) di bawah ini."
 
+#: lms/djangoapps/course_api/blocks/transformers/milestones.py:195
+#: openedx/core/djangoapps/content/learning_sequences/api/processors/special_exams.py:92
+msgid "Timed Exam"
+msgstr "Ujian Berwaktu"
+
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/footer.html:47
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/head.html:24
 #: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/base_body.html:82
@@ -2768,6 +2787,34 @@ msgstr ""
 "Pilih pelatihan yang Anda inginkan untuk mendapatkan sertifikat "
 "terverifikasi. Jika pelatihan tidak muncul dalam daftar, pastikan Anda "
 "mendaftar di jalur audit untuk pelatihan tersebut."
+
+#: lms/djangoapps/courseware/views/views.py:2264
+msgid "I certify that: "
+msgstr "Saya menyatakan bahwa: "
+
+#: lms/djangoapps/courseware/views/views.py:2271
+msgid ""
+"Paying the verified certificate fee for the above course would cause me "
+"economic hardship"
+msgstr ""
+"Membayar biaya sertifikat terverifikasi untuk kursus di atas akan "
+"menyebabkan kesulitan ekonomi bagi saya"
+
+#: lms/djangoapps/courseware/views/views.py:2283
+msgid ""
+"I will work diligently to complete the course work and receive a certificate"
+msgstr ""
+"Saya akan bekerja dengan tekun untuk menyelesaikan pekerjaan kursus dan "
+"menerima sertifikat."
+
+#: lms/djangoapps/courseware/views/views.py:2295
+#, python-brace-format
+msgid ""
+"I have read, understand, and will abide by the {honor_code_link} for the edX"
+" Site"
+msgstr ""
+"Saya telah membaca, memahami, dan akan mematuhi {honor_code_link} untuk "
+"Situs edX"
 
 #: lms/djangoapps/discussion/django_comment_client/base/views.py:559
 #: lms/djangoapps/discussion/django_comment_client/base/views.py:629
@@ -4667,13 +4714,118 @@ msgstr ""
 "Anda harus menghapus beberapa bookmark sebelum Anda dapat menandai halaman "
 "baru."
 
+#: openedx/core/djangoapps/catalog/models.py:34
+msgid ""
+"Specified in seconds. Enable caching of API responses by setting this to a "
+"value greater than 0."
+msgstr ""
+"Ditentukan dalam hitungan detik. Aktifkan caching respons API dengan "
+"menyetelnya ke nilai yang lebih besar dari 0."
+
+#: openedx/core/djangoapps/catalog/models.py:39
+msgid "Long Term Cache Time To Live"
+msgstr "Long Term Cache Time To Live"
+
+#: openedx/core/djangoapps/catalog/models.py:42
+msgid ""
+"Specified in seconds (defaults to 86400s, 24hr). In some cases the cache "
+"does needs to be refreshed less frequently. Enable long term caching of API "
+"responses by setting this to a value greater than 0."
+msgstr ""
+"Ditentukan dalam detik (default 86400s, 24 jam). Dalam beberapa kasus, cache"
+" perlu diperbarui lebih jarang. Aktifkan caching jangka panjang dari respons"
+" API dengan mengatur ini ke nilai lebih besar dari 0."
+
+#: openedx/core/djangoapps/catalog/models.py:53
+msgid ""
+"Username created for Course Catalog Integration, e.g. "
+"lms_catalog_service_user."
+msgstr ""
+"Nama Pengguna created for Course Catalog Integration, e.g. "
+"lms_catalog_service_user."
+
+#: openedx/core/djangoapps/catalog/models.py:61
+msgid ""
+"Maximum number of records in paginated response of a single request to "
+"catalog service."
+msgstr ""
+"Maximum number of records in paginated response of a single request to "
+"catalog service."
+
+#: openedx/core/djangoapps/config_model_utils/admin.py:53
+msgid ""
+"If any of these values are left empty or \"Unknown\", then their value at "
+"runtime will be retrieved from the next most specific context that applies. "
+"For example, if \"Enabled\" is left as \"Unknown\" in the course context, "
+"then that course will be Enabled only if the org that it is in is Enabled."
+msgstr ""
+"Jika salah satu dari nilai-nilai ini dibiarkan kosong atau \"Tidak "
+"Diketahui\", maka nilainya saat runtime akan diambil dari konteks paling "
+"spesifik berikutnya yang berlaku. Sebagai contoh, jika \"Diaktifkan\" "
+"dibiarkan sebagai \"Tidak Diketahui\" dalam konteks kursus, maka kursus "
+"tersebut akan Diaktifkan hanya jika organisasi tempat kursus itu berada "
+"Diaktifkan."
+
+#: openedx/core/djangoapps/config_model_utils/models.py:43
+#, python-format
+msgid "%(value)s should have the form ORG+COURSE"
+msgstr "%(value)s should have the form ORG+COURSE"
+
 #: openedx/core/djangoapps/config_model_utils/models.py:65
 msgid "Enabled"
 msgstr "Aktif"
 
+#: openedx/core/djangoapps/config_model_utils/models.py:72
+msgid "Configure values for all course runs associated with this site."
+msgstr ""
+"Konfigurasikan nilai untuk semua pelaksanaan kursus yang terkait dengan "
+"situs ini."
+
+#: openedx/core/djangoapps/config_model_utils/models.py:81
+msgid ""
+"Configure values for all course runs associated with this Organization. This"
+" is the organization string (i.e. edX, MITx)."
+msgstr ""
+"Konfigurasikan nilai untuk semua pelaksanaan kursus yang terkait dengan "
+"Organisasi ini. Ini adalah string organisasi (yaitu edX, MITx)."
+
+#: openedx/core/djangoapps/config_model_utils/models.py:90
+msgid "Course in Org"
+msgstr "Course in Org"
+
+#: openedx/core/djangoapps/config_model_utils/models.py:92
+msgid ""
+"Configure values for all course runs associated with this course. This is "
+"should be formatted as 'org+course' (i.e. MITx+6.002x, HarvardX+CS50)."
+msgstr ""
+"Konfigurasikan nilai untuk semua sesi kursus yang terkait dengan kursus ini."
+" Ini harus diformat sebagai 'org+course' (misalnya MITx+6.002x, "
+"HarvardX+CS50)."
+
 #: openedx/core/djangoapps/config_model_utils/models.py:102
 msgid "Course Run"
 msgstr "Kursus Berjalan"
+
+#: openedx/core/djangoapps/config_model_utils/models.py:104
+msgid ""
+"Configure values for this course run. This should be formatted as the "
+"CourseKey (i.e. course-v1://MITx+6.002x+2019_Q1)"
+msgstr ""
+"Konfigurasikan values for this course run. This should be formatted as the "
+"CourseKey (i.e. course-v1://MITx+6.002x+2019_Q1)"
+
+#: openedx/core/djangoapps/config_model_utils/models.py:344
+msgid "Configuration may not be specified at more than one level at once."
+msgstr ""
+"Konfigurasi tidak boleh ditentukan pada lebih dari satu level sekaligus."
+
+#: openedx/core/djangoapps/content/learning_sequences/admin.py:31
+msgid "Courses with Errors"
+msgstr "Courses with Errors"
+
+#: openedx/core/djangoapps/content/learning_sequences/apps.py:10
+msgid "Learning Sequences and Outlines"
+msgstr "Learning Sequences and Outlines"
 
 #: openedx/core/djangoapps/content_libraries/api/blocks.py:301
 msgid "Library cannot have more than {} Components."
@@ -4693,6 +4845,136 @@ msgstr ""
 msgid "An XBlock with ID '{usage_key}' already exists."
 msgstr "Sebuah XBlock dengan ID '{usage_key}' sudah ada."
 
+#: openedx/core/djangoapps/content_libraries/api/libraries.py:533
+msgid "Cannot change or remove the access level for the only admin."
+msgstr "Cannot change or remove the access level for the only admin."
+
+#: openedx/core/djangoapps/content_libraries/constants.py:16
+msgid "Creative Commons Attribution 4.0"
+msgstr "Creative Commons Attribution 4.0"
+
+#: openedx/core/djangoapps/content_libraries/constants.py:17
+msgid "Creative Commons Attribution-NonCommercial 4.0"
+msgstr "Creative Commons Attribution-NonCommercial 4.0"
+
+#: openedx/core/djangoapps/content_libraries/constants.py:18
+msgid "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0"
+msgstr "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0"
+
+#: openedx/core/djangoapps/content_libraries/constants.py:19
+msgid "Creative Commons Attribution-NonCommercial-ShareAlike 4.0"
+msgstr "Creative Commons Attribution-NonCommercial-ShareAlike 4.0"
+
+#: openedx/core/djangoapps/content_libraries/constants.py:20
+msgid "Creative Commons Attribution-NoDerivatives 4.0"
+msgstr "Creative Commons Attribution-NoDerivatives 4.0"
+
+#: openedx/core/djangoapps/content_libraries/constants.py:21
+msgid "Creative Commons Attribution-ShareAlike 4.0"
+msgstr "Creative Commons Attribution-ShareAlike 4.0"
+
+#: openedx/core/djangoapps/content_libraries/models.py:201
+msgid "Administer users and author content"
+msgstr "Kelola pengguna dan buat konten"
+
+#: openedx/core/djangoapps/content_libraries/models.py:202
+msgid "Author content"
+msgstr "Author content"
+
+#: openedx/core/djangoapps/content_libraries/models.py:223
+msgid "One and only one of 'user' and 'group' must be set."
+msgstr "One and only one of 'user' and 'group' must be set."
+
+#: openedx/core/djangoapps/content_libraries/models.py:251
+msgid "Task was created, but not queued to run."
+msgstr "Tugas telah dibuat, tetapi tidak dijadwalkan untuk dijalankan."
+
+#: openedx/core/djangoapps/content_libraries/models.py:252
+msgid "Task was created and queued to run."
+msgstr "Tugas telah dibuat dan dijadwalkan untuk dijalankan."
+
+#: openedx/core/djangoapps/content_libraries/models.py:253
+msgid "Task is running."
+msgstr "Task is running."
+
+#: openedx/core/djangoapps/content_libraries/models.py:254
+msgid "Task finished, but some blocks failed to import."
+msgstr "Tugas selesai, tetapi beberapa blok gagal diimpor."
+
+#: openedx/core/djangoapps/content_libraries/models.py:255
+msgid "Task finished successfully."
+msgstr "Tugas selesai dengan sukses."
+
+#: openedx/core/djangoapps/content_libraries/models.py:263
+msgid "The state of the block import task."
+msgstr "The state of the block import task."
+
+#: openedx/core/djangoapps/content_libraries/models.py:268
+msgid "progress"
+msgstr "kemajuan"
+
+#: openedx/core/djangoapps/content_libraries/models.py:269
+msgid "A float from 0.0 to 1.0 representing the task progress."
+msgstr "A float from 0.0 to 1.0 representing the task progress."
+
+#: openedx/core/djangoapps/content_libraries/models.py:276
+msgid "ID of the imported course."
+msgstr "ID of the imported course."
+
+#. Translators: 'Open edX' is a trademark, please keep this untranslated
+#: openedx/core/djangoapps/content_libraries/models.py:353
+msgid "open edx user"
+msgstr "open edx user"
+
+#: openedx/core/djangoapps/content_libraries/models.py:358
+msgid "lti platform identifier"
+msgstr "lti platform identifier"
+
+#: openedx/core/djangoapps/content_libraries/models.py:359
+msgid "The LTI platform identifier to which this profile belongs to."
+msgstr "Pengidentifikasi platform LTI yang menjadi milik profil ini."
+
+#: openedx/core/djangoapps/content_libraries/models.py:365
+msgid "client identifier"
+msgstr "client identifier"
+
+#: openedx/core/djangoapps/content_libraries/models.py:366
+msgid "The LTI client identifier generated by the LTI platform."
+msgstr "Pengidentifikasi klien LTI yang dihasilkan oleh platform LTI."
+
+#: openedx/core/djangoapps/content_libraries/models.py:372
+msgid ""
+"Identifies the entity that initiated the launch request, commonly a user."
+msgstr ""
+"Mengidentifikasi entitas yang memulai permintaan peluncuran, biasanya "
+"seorang pengguna."
+
+#: openedx/core/djangoapps/content_libraries/models.py:475
+msgid ""
+"The authorized LTI profile that launched the resource (identifies the user)."
+msgstr ""
+"The authorized LTI profile that launched the resource (identifies the user)."
+
+#: openedx/core/djangoapps/content_libraries/models.py:486
+msgid ""
+"The LTI platform unique identifier of this resource, also known as the "
+"\"resource link id\"."
+msgstr ""
+"The LTI platform unique identifier of this resource, also known as the "
+"\"resource link id\"."
+
+#: openedx/core/djangoapps/content_libraries/models.py:499
+msgid "If AGS was enabled during launch, this should hold the lineitem ID."
+msgstr "If AGS was enabled during launch, this should hold the lineitem ID."
+
+#: openedx/core/djangoapps/content_libraries/rest_api/libraries.py:340
+msgid "We could not find a user with that email address."
+msgstr "Kami tidak dapat menemukan pengguna dengan alamat email tersebut."
+
+#: openedx/core/djangoapps/content_libraries/rest_api/libraries.py:344
+msgid "This user already has access to this library."
+msgstr "This user already has access to this library."
+
 #: openedx/core/djangoapps/content_libraries/rest_api/libraries.py:803
 msgid "This field is required."
 msgstr "Kolom ini wajib diisi."
@@ -4705,10 +4987,362 @@ msgstr "Memuat"
 msgid "Expired"
 msgstr "Kedaluwarsa"
 
+#: openedx/core/djangoapps/content_staging/models.py:43
+msgid "Staged Content"
+msgstr "Staged Content"
+
+#: openedx/core/djangoapps/content_staging/models.py:55
+msgid ""
+"\n"
+"            What type of content is staged. Only OLX content is supported, and\n"
+"            this field must be the same as the root tag of the OLX.\n"
+"            e.g. \"video\" if a video is staged, or \"vertical\" for a unit.\n"
+"        "
+msgstr ""
+"\n"
+"            \n"
+"Jenis konten apa yang dipentaskan. Hanya konten OLX yang didukung, dan\n"
+"bidang ini harus sama dengan tag akar dari OLX.\n"
+"Misalnya, \"video\" jika video dipentaskan, atau \"vertikal\" untuk unit.\n"
+"\n"
+"        "
+
+#: openedx/core/djangoapps/content_staging/models.py:116
+msgid "Original usage key/ID of the thing that is in the clipboard."
+msgstr "Original usage key/ID of the thing that is in the clipboard."
+
+#: openedx/core/djangoapps/content_tagging/models/base.py:24
+msgid "owner"
+msgstr "pemilik"
+
+#: openedx/core/djangoapps/cors_csrf/models.py:21
+msgid ""
+"List of domains that are allowed to make cross-domain requests to this site."
+"  Please list each domain on its own line."
+msgstr ""
+"daftar dari domain yang boleh membuat request cross-domain ke website ini. "
+"Harap daftarkan setiap domain sebagai barisnya sendiri"
+
+#: openedx/core/djangoapps/course_groups/cohorts.py:97
+msgid "Default Group"
+msgstr "Grup Bawaan"
+
+#: openedx/core/djangoapps/course_groups/cohorts.py:388
+msgid "You cannot create two cohorts with the same name"
+msgstr "Anda tidak dapat membuat dua kelompok dengan nama yang sama"
+
+#: openedx/core/djangoapps/course_groups/cohorts.py:553
+msgid ""
+"There must be one cohort to which students can automatically be assigned."
+msgstr ""
+"Harus ada satu kelompok yang dapat secara otomatis ditugaskan kepada siswa."
+
+#: openedx/core/djangoapps/course_groups/views.py:204
+msgid "A cohort with the same name already exists."
+msgstr "Kohort dengan nama yang sama sudah ada."
+
+#: openedx/core/djangoapps/course_live/models.py:21
+msgid "If disabled, the LTI in the associated course will be disabled."
+msgstr "Jika dinonaktifkan, LTI dalam kursus terkait akan dinonaktifkan."
+
+#: openedx/core/djangoapps/course_live/models.py:28
+msgid "The LTI configuration data for this course/provider."
+msgstr "The LTI konfigurasi data untuk course/provider ini."
+
+#: openedx/core/djangoapps/course_live/models.py:33
+#: openedx/core/djangoapps/programs/models.py:57
+msgid "LTI provider"
+msgstr "LTI provider"
+
+#: openedx/core/djangoapps/course_live/models.py:38
+msgid "True, if LTI credential are provided by Org globally"
+msgstr "True, if LTI credential are provided by Org globally"
+
+#: openedx/core/djangoapps/course_live/plugins.py:25
+#: openedx/core/djangoapps/course_live/tab.py:47
+msgid "Live"
+msgstr "Live"
+
+#: openedx/core/djangoapps/course_live/plugins.py:26
+msgid "Enable in-platform video conferencing by configuring live"
+msgstr "Enable in-platform video conferencing by configuring live"
+
+#: openedx/core/djangoapps/credentials/apps.py:18
+msgid "Credentials"
+msgstr "Credentials"
+
+#: openedx/core/djangoapps/credentials/models.py:37
+msgid "Internal Service URL"
+msgstr "URL Layanan Internal"
+
+#: openedx/core/djangoapps/credentials/models.py:41
+msgid "Public Service URL"
+msgstr "Public Service URL"
+
+#: openedx/core/djangoapps/credentials/models.py:46
+msgid "Enable Learner Issuance"
+msgstr "Enable Learner Issuance"
+
+#: openedx/core/djangoapps/credentials/models.py:49
+msgid "Enable issuance of credentials via Credential Service."
+msgstr "Enable issuance of credentials via Credential Service."
+
+#: openedx/core/djangoapps/credentials/models.py:53
+msgid "Enable Authoring of Credential in Studio"
+msgstr "Enable Authoring of Credential in Studio"
+
+#: openedx/core/djangoapps/credentials/models.py:56
+msgid "Enable authoring of Credential Service credentials in Studio."
+msgstr "Enable authoring of Credential Service credentials in Studio."
+
+#: openedx/core/djangoapps/credit/email_utils.py:92
+msgid "Course Credit Eligibility"
+msgstr "Course Credit Eligibility"
+
+#: openedx/core/djangoapps/credit/email_utils.py:95
+#, python-brace-format
+msgid "You are eligible for credit from {providers_string}"
+msgstr "You are eligible for credit from {providers_string}"
+
+#. Translators: The join of two university names (e.g., Harvard and MIT).
+#: openedx/core/djangoapps/credit/email_utils.py:295
+#, python-brace-format
+msgid "{first_provider} and {second_provider}"
+msgstr "{first_provider} dan {second_provider}"
+
+#. Translators: The join of three or more university names. The first of these
+#. formatting strings
+#. represents a comma-separated list of names (e.g., MIT, Harvard, Dartmouth).
+#: openedx/core/djangoapps/credit/email_utils.py:302
+#, python-brace-format
+msgid "{first_providers}, and {last_provider}"
+msgstr "{first_providers}, dan {last_provider}"
+
+#: openedx/core/djangoapps/credit/exceptions.py:77
+#, python-brace-format
+msgid "[{username}] is not eligible for credit for [{course_key}]."
+msgstr "[{username}] is not eligible for credit for [{course_key}]."
+
+#: openedx/core/djangoapps/credit/exceptions.py:86
+#, python-brace-format
+msgid "[{course_key}] is not a valid course key."
+msgstr "[{course_key}] bukanlah kunci kursus yang valid."
+
+#: openedx/core/djangoapps/credit/models.py:55
+msgid ""
+"Unique identifier for this credit provider. Only alphanumeric characters and"
+" hyphens (-) are allowed. The identifier is case-sensitive."
+msgstr ""
+"Pengidentifikasi unik untuk penyedia kredit ini. Hanya karakter alfanumerik "
+"dan tanda hubung (-) yang diperbolehkan. Pengidentifikasi bersifat case-"
+"sensitive."
+
+#: openedx/core/djangoapps/credit/models.py:63
+msgid "Whether the credit provider is currently enabled."
+msgstr "Apakah penyedia kredit saat ini diaktifkan."
+
+#: openedx/core/djangoapps/credit/models.py:68
+msgid "Name of the credit provider displayed to users"
+msgstr "Nama penyedia kredit ditampilkan kepada pengguna"
+
+#: openedx/core/djangoapps/credit/models.py:95
+msgid ""
+"URL from the credit provider where the user can check the status of his or "
+"her request for credit.  This is displayed to students *after* they have "
+"requested credit."
+msgstr ""
+"URL dari penyedia kredit tempat pengguna dapat memeriksa status permintaan "
+"kredit mereka. Ini ditampilkan kepada siswa *setelah* mereka mengajukan "
+"permintaan kredit."
+
+#: openedx/core/djangoapps/credit/models.py:104
+msgid "Description for the credit provider displayed to users."
+msgstr "Deskripsi untuk penyedia kredit yang ditampilkan kepada pengguna."
+
+#: openedx/core/djangoapps/credit/models.py:112
+msgid ""
+"Plain text or html content for displaying further steps on receipt page "
+"*after* paying for the credit to get credit for a credit course against a "
+"credit provider."
+msgstr ""
+"Plain text atau konten html untuk menampilkan langkah-langkah selanjutnya "
+"pada halaman tanda terima *setelah* membayar kredit untuk mendapatkan kredit"
+" untuk kursus kredit terhadap penyedia kredit."
+
+#: openedx/core/djangoapps/credit/models.py:121
+msgid ""
+"Plain text or html content for displaying custom message inside credit "
+"eligibility email content which is sent when user has met all credit "
+"eligibility requirements."
+msgstr ""
+"Plain text atau konten html untuk menampilkan pesan khusus di dalam konten "
+"email kelayakan kredit yang dikirim ketika pengguna telah memenuhi semua "
+"persyaratan kelayakan kredit."
+
+#: openedx/core/djangoapps/credit/models.py:140
+msgid "Thumbnail image url of the credit provider."
+msgstr "Thumbnail image url of the credit provider."
+
+#: openedx/core/djangoapps/credit/models.py:449
+msgid "Credit requirement statuses"
+msgstr "Credit requirement statuses"
+
+#: openedx/core/djangoapps/credit/models.py:560
+msgid "Deadline for purchasing and requesting credit."
+msgstr "Deadline for purchasing and requesting credit."
+
+#: openedx/core/djangoapps/dark_lang/views.py:51
+msgid "Preview Language Administration"
+msgstr "Preview Language Administration"
+
+#: openedx/core/djangoapps/dark_lang/views.py:90
+msgid "Language not provided"
+msgstr "Language not provided"
+
 #: openedx/core/djangoapps/dark_lang/views.py:96
 #, python-brace-format
 msgid "Language set to {preview_language}"
 msgstr "Bahasa disetel ke {preview_language}"
+
+#: openedx/core/djangoapps/dark_lang/views.py:108
+msgid "Language reset to the default"
+msgstr "Language reset to the default"
+
+#: openedx/core/djangoapps/debug/views.py:50
+msgid "This is a test message"
+msgstr "This is a test message"
+
+#: openedx/core/djangoapps/debug/views.py:51
+msgid "This is a success message"
+msgstr "This is a success message"
+
+#: openedx/core/djangoapps/debug/views.py:52
+msgid "This is a test warning"
+msgstr "This is a test warning"
+
+#: openedx/core/djangoapps/discussions/models.py:126
+#, python-brace-format
+msgid ""
+"{provider} requires that LTI advanced sharing be enabled for your course, as"
+" this provider uses email address and username to personalize the "
+"experience. Please contact {support_contact} to enable this feature."
+msgstr ""
+"{provider} requires that LTI advanced sharing be enabled for your course, as"
+" this provider uses email address and nama pengguna to personalize the "
+"experience. Please contact {support_contact} to enable this feature."
+
+#: openedx/core/djangoapps/discussions/models.py:134
+msgid "technical support"
+msgstr "dukungan teknis"
+
+#: openedx/core/djangoapps/discussions/models.py:334
+#, python-brace-format
+msgid "Comma-separated list of providers to allow, eg: {choices}"
+msgstr "Comma-separated list of providers to allow, eg: {choices}"
+
+#: openedx/core/djangoapps/discussions/models.py:342
+msgid "Allow List"
+msgstr "Allow List"
+
+#: openedx/core/djangoapps/discussions/models.py:353
+#, python-brace-format
+msgid "Comma-separated list of providers to deny, eg: {choices}"
+msgstr "Comma-separated list of providers to deny, eg: {choices}"
+
+#: openedx/core/djangoapps/discussions/models.py:361
+msgid "Deny List"
+msgstr "Deny List"
+
+#. Translators: A key specifying a course, library, program,
+#. website, or some other collection of content where learning
+#. happens.
+#: openedx/core/djangoapps/discussions/models.py:423
+#: openedx/core/djangoapps/discussions/models.py:570
+msgid "Learning Context Key"
+msgstr "Learning Context Key"
+
+#: openedx/core/djangoapps/discussions/models.py:427
+msgid ""
+"If disabled, the discussions in the associated learning context/course will "
+"be disabled."
+msgstr ""
+"Jika dinonaktifkan, diskusi dalam konteks pembelajaran/kursus terkait akan "
+"dinonaktifkan."
+
+#: openedx/core/djangoapps/discussions/models.py:434
+msgid ""
+"The Posting availability in discussions whether it will be enabled, "
+"scheduled or indefinitely disabled."
+msgstr ""
+"The Posting availability in discussions whether it will be enabled, "
+"scheduled or indefinitely disabled."
+
+#: openedx/core/djangoapps/discussions/models.py:442
+msgid "The LTI configuration data for this context/provider."
+msgstr "The data konfigurasi LTI for this context/provider."
+
+#: openedx/core/djangoapps/discussions/models.py:447
+msgid ""
+"If enabled, discussion topics will be created for each non-graded unit in "
+"the course. A UI for discussions will show up with each unit."
+msgstr ""
+"Jika diaktifkan, topik diskusi akan dibuat untuk setiap unit yang tidak "
+"dinilai dalam kursus. Antarmuka pengguna untuk diskusi akan muncul dengan "
+"setiap unit."
+
+#: openedx/core/djangoapps/discussions/models.py:453
+msgid ""
+"If enabled, discussion topics will be created for graded units as well."
+msgstr ""
+"Jika diaktifkan, topik diskusi juga akan dibuat untuk unit yang dinilai."
+
+#: openedx/core/djangoapps/discussions/models.py:457
+msgid ""
+"If enabled, discussions will need to be manually enabled for each unit."
+msgstr ""
+"Jika diaktifkan, diskusi perlu diaktifkan secara manual untuk setiap unit."
+
+#: openedx/core/djangoapps/discussions/models.py:462
+msgid "The plugin configuration data for this context/provider."
+msgstr "Data konfigurasi plugin untuk konteks/penyedia ini."
+
+#: openedx/core/djangoapps/discussions/models.py:468
+msgid "The discussion tool/provider's id"
+msgstr "The discussion tool/provider's id"
+
+#: openedx/core/djangoapps/discussions/models.py:582
+msgid "Title for discussion topic."
+msgstr "Judul untuk topik diskusi."
+
+#: openedx/core/djangoapps/discussions/models.py:589
+msgid "Group for divided discussions."
+msgstr "Group for divided discussions."
+
+#: openedx/core/djangoapps/discussions/models.py:598
+msgid ""
+"Discussion context ID in external forum provider. e.g. commentable_id for "
+"cs_comments_service."
+msgstr ""
+"Discussion context ID in external forum provider. e.g. commentable_id for "
+"cs_comments_service."
+
+#: openedx/core/djangoapps/discussions/models.py:602
+msgid "Whether this topic should be shown in-context in the course."
+msgstr "Apakah topik ini harus ditampilkan dalam konteks di dalam kursus."
+
+#: openedx/core/djangoapps/discussions/models.py:606
+msgid "Ordering of this topic in its learning context"
+msgstr "Penempatan topik ini dalam konteks pembelajarannya"
+
+#: openedx/core/djangoapps/discussions/models.py:610
+msgid "Additional context for this topic, such as its section, and subsection"
+msgstr ""
+"Additional context for this topic, such as its section, and subsection"
+
+#: openedx/core/djangoapps/discussions/plugins.py:24
+msgid ""
+"Encourage participation and engagement in your course with discussions."
+msgstr "Dorong partisipasi dan keterlibatan dalam kursus Anda dengan diskusi."
 
 #: openedx/core/djangoapps/django_comment_common/models.py:25
 msgid "Administrator"
@@ -4739,9 +5373,46 @@ msgstr ""
 msgid "The course key for the restricted course."
 msgstr "Kunci mata pelajaran untuk mata pelajaran terbatas."
 
+#: openedx/core/djangoapps/embargo/models.py:144
+msgid "The message to show when a user is blocked from enrollment."
+msgstr "Pesan untuk menunjukkan ketika pengguna diblokir dari pendaftaran."
+
+#: openedx/core/djangoapps/embargo/models.py:151
+msgid "The message to show when a user is blocked from accessing a course."
+msgstr "Pesan untuk menunjukkan ketika pengguna diblok dari mengakses kursus."
+
+#: openedx/core/djangoapps/embargo/models.py:157
+msgid ""
+"Allow users who enrolled in an allowed country to access restricted courses "
+"from excluded countries."
+msgstr ""
+"Membolehkan pengguna yang mendaftar di negara dengan izin untuk mengakses "
+"kursus yang dibatasi dari negara yang dikecualikan."
+
 #: openedx/core/djangoapps/embargo/models.py:380
 msgid "Two character ISO country code."
 msgstr "Kode negara ISO dua karakter."
+
+#: openedx/core/djangoapps/embargo/models.py:426
+msgid ""
+"Whether to include or exclude the given course. If whitelist countries are "
+"specified, then ONLY users from whitelisted countries will be able to access"
+" the course.  If blacklist countries are specified, then users from "
+"blacklisted countries will NOT be able to access the course."
+msgstr ""
+"Apakah akan menyertakan atau mengecualikan kursus yang diberikan. Jika "
+"negara daftar putih ditentukan, maka HANYA pengguna dari negara yang "
+"terdaftar putih yang dapat mengakses kursus. Jika negara daftar hitam "
+"ditentukan, maka pengguna dari negara yang terdaftar hitam TIDAK akan dapat "
+"mengakses kursus."
+
+#: openedx/core/djangoapps/embargo/models.py:435
+msgid "The course to which this rule applies."
+msgstr "Aturan ini berlaku pada kursus ini."
+
+#: openedx/core/djangoapps/embargo/models.py:441
+msgid "The country to which this rule applies."
+msgstr "Aturan ini berlaku pada negara ini."
 
 #: openedx/core/djangoapps/embargo/models.py:515
 #, python-brace-format
@@ -4753,6 +5424,43 @@ msgstr "Daftar putihkan {country} untuk {course}"
 msgid "Blacklist {country} for {course}"
 msgstr "Daftar hitamkan {country} untuk {course}"
 
+#: openedx/core/djangoapps/notifications/admin.py:16
+msgid "Notification App"
+msgstr "Notifikasi App"
+
+#: openedx/core/djangoapps/notifications/admin.py:37
+msgid "Notification Type"
+msgstr "Notifikasi Type"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:69
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> commented on your response to the "
+"post <{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> memberikan komentar pada tanggapan "
+"Anda di postingan <{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:82
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> commented on "
+"<{strong}>{author_name}</{strong}> response to your post "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> memberikan komentar pada tanggapan "
+"<{strong}>{author_name}</{strong}> di postingan Anda "
+"<{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:96
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> responded to your post "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> menanggapi postingan Anda "
+"<{strong}>{post_title}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:98
 #, python-brace-format
 msgid ""
@@ -4762,6 +5470,33 @@ msgstr ""
 "<{p}><{strong}>{replier_name}</{strong}> dan lainnya telah menanggapi "
 "postingan Anda <{strong}>{post_title}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:117
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{username}</{strong}> posted "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{username}</{strong}> posted "
+"<{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:137
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{username}</{strong}> asked "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{username}</{strong}> asked "
+"<{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:151
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> responded to a post you’re "
+"following: <{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> merespons sebuah postingan yang "
+"Anda ikuti: <{strong}>{post_title}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:153
 #, python-brace-format
 msgid ""
@@ -4770,6 +5505,23 @@ msgid ""
 msgstr ""
 "<{p}><{strong}>{replier_name}</{strong}> dan lain-lain menanggapi sebuah "
 "postingan yang Anda ikuti: <{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:189
+#, python-brace-format
+msgid ""
+"<p><strong>{username}’s </strong> {content_type} has been reported <strong> "
+"{content}</strong></p>"
+msgstr ""
+"<p><strong>{username}’s </strong> {content_type} has been reported <strong> "
+"{content}</strong></p>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:345
+msgid ""
+"Notifications for responses and comments on your posts, and the ones you’re "
+"following, including endorsements to your responses and on your posts."
+msgstr ""
+"Notifikasi untuk tanggapan dan komentar pada postingan Anda, serta yang Anda"
+" ikuti, termasuk dukungan untuk tanggapan Anda dan pada postingan Anda."
 
 #: openedx/core/djangoapps/notifications/email/utils.py:441
 #: openedx/features/course_experience/plugins.py:34
@@ -4791,6 +5543,40 @@ msgstr "Tidak pernah"
 msgid "View"
 msgstr "Tampilkan"
 
+#: openedx/core/djangoapps/notifications/views.py:174
+msgid "Invalid app name."
+msgstr "Invalid app name."
+
+#: openedx/core/djangoapps/notifications/views.py:184
+msgid "Notifications marked as seen."
+msgstr "Notifikasi marked as seen."
+
+#: openedx/core/djangoapps/notifications/views.py:223
+msgid "Notification marked read."
+msgstr "Notifikasi telah ditandai sebagai dibaca."
+
+#: openedx/core/djangoapps/notifications/views.py:235
+msgid "Notifications marked read."
+msgstr "Notifikasi telah ditandai sebagai dibaca."
+
+#: openedx/core/djangoapps/notifications/views.py:237
+msgid "Invalid app_name or notification_id."
+msgstr "Invalid app_name or notification_id."
+
+#: openedx/core/djangoapps/oauth_dispatch/models.py:81
+msgid ""
+"Comma-separated list of scopes that this application will be allowed to "
+"request."
+msgstr ""
+"Daftar cakupan yang dipisahkan koma yang dapat diminta oleh aplikasi ini."
+
+#: openedx/core/djangoapps/oauth_dispatch/models.py:88
+msgid ""
+"Comma-separated list of filters that this application will be allowed to "
+"request."
+msgstr ""
+"Daftar filter yang dipisahkan koma yang dapat diminta oleh aplikasi ini."
+
 #: openedx/core/djangoapps/oauth_dispatch/models.py:141
 msgid "Content Provider"
 msgstr "Penyedia Konten"
@@ -4798,6 +5584,67 @@ msgstr "Penyedia Konten"
 #: openedx/core/djangoapps/password_policy/apps.py:22
 msgid "Password Policy"
 msgstr "Kebijakan Kata Sandi"
+
+#: openedx/core/djangoapps/password_policy/compliance.py:76
+#, python-brace-format
+msgid ""
+"{strong_tag_open}We recently changed our password "
+"requirements{strong_tag_close}{break_line_tag}Your current password does not"
+" meet the new security requirements. We just sent a password-reset message "
+"to the email address associated with this account. Thank you for helping us "
+"keep your data safe."
+msgstr ""
+"{strong_tag_open}Kami baru-baru ini mengubah persyaratan sandi "
+"kami{strong_tag_close}{break_line_tag}Sandi Anda saat ini tidak memenuhi "
+"persyaratan keamanan baru. Kami baru saja mengirimkan pesan pengaturan ulang"
+" sandi ke alamat email yang terkait dengan akun ini. Terima kasih telah "
+"membantu kami menjaga keamanan data Anda."
+
+#: openedx/core/djangoapps/password_policy/compliance.py:89
+#, python-brace-format
+msgid ""
+"{strong_tag_open}Required Action: Please update your "
+"password{strong_tag_close}{break_line_tag}As of {deadline}, {platform_name} "
+"will require all learners to have complex passwords. Your current password "
+"does not meet these requirements. To reset your password, go to to "
+"{anchor_tag_open}Account Settings{anchor_tag_close}."
+msgstr ""
+"{strong_tag_open}Required Action: Please update your "
+"sandi{strong_tag_close}{break_line_tag}As of {deadline}, {platform_name} "
+"will require all learners to have complex sandi. Your current sandi does not"
+" meet these requirements. To reset your sandi, go to to "
+"{anchor_tag_open}Account Settings{anchor_tag_close}."
+
+#: openedx/core/djangoapps/profile_images/images.py:98
+#, python-brace-format
+msgid "The file must be smaller than {image_max_size} in size."
+msgstr "Ukuran berkas harus lebih kecil daripada {image_max_size}."
+
+#: openedx/core/djangoapps/profile_images/images.py:105
+#, python-brace-format
+msgid "The file must be at least {image_min_size} in size."
+msgstr "Berkas harus setidaknya berukuran {image_min_size}."
+
+#: openedx/core/djangoapps/profile_images/images.py:116
+#, python-brace-format
+msgid "The file must be one of the following types: {valid_file_types}."
+msgstr "The file must be one of the following types: {valid_file_types}."
+
+#: openedx/core/djangoapps/profile_images/images.py:124
+msgid ""
+"The Content-Type header for this file does not match the file data. The file"
+" may be corrupted."
+msgstr ""
+"Header Content-Type untuk file ini tidak sesuai dengan data file. File "
+"mungkin rusak."
+
+#: openedx/core/djangoapps/profile_images/images.py:133
+msgid ""
+"The file name extension for this file does not match the file data. The file"
+" may be corrupted."
+msgstr ""
+"Ekstensi nama file untuk file ini tidak sesuai dengan data file. File "
+"mungkin rusak."
 
 #: openedx/core/djangoapps/profile_images/images.py:242
 msgid "bytes"
@@ -4811,9 +5658,33 @@ msgstr "KB"
 msgid "MB"
 msgstr "MB"
 
+#: openedx/core/djangoapps/profile_images/views.py:136
+msgid "No file provided for profile image"
+msgstr "No file provided for profile image"
+
+#: openedx/core/djangoapps/programs/models.py:25
+msgid "Path used to construct URLs to programs marketing pages (e.g., \"/foo\")."
+msgstr "Path used to construct URLs to programs marketing pages (e.g., \"/foo\")."
+
+#: openedx/core/djangoapps/programs/models.py:41
+msgid "Program UUID"
+msgstr "Program UUID"
+
+#: openedx/core/djangoapps/programs/models.py:45
+msgid "If disabled, the LTI in the associated program will be disabled."
+msgstr "Jika dinonaktifkan, LTI dalam program terkait akan dinonaktifkan."
+
+#: openedx/core/djangoapps/programs/models.py:52
+msgid "The LTI configuration data for this program/provider."
+msgstr "The LTI konfigurasi data for this program/provider."
+
 #: openedx/core/djangoapps/schedules/admin.py:62
 msgid "Known Error Case"
 msgstr "Kasus Kesalahan Diketahui"
+
+#: openedx/core/djangoapps/schedules/admin.py:68
+msgid "Schedule start < course start"
+msgstr "Schedule start < course start"
 
 #: openedx/core/djangoapps/schedules/admin.py:81
 msgid "Course Id"
@@ -4839,6 +5710,14 @@ msgstr "Jadwal"
 #: openedx/core/djangoapps/schedules/models.py:23
 msgid "Indicates if this schedule is actively used"
 msgstr "Menandakan jadwal ini aktif digunakan"
+
+#: openedx/core/djangoapps/schedules/models.py:27
+msgid "Date this schedule went into effect"
+msgstr "Date this schedule went into effect"
+
+#: openedx/core/djangoapps/schedules/models.py:35
+msgid "Deadline by which the learner must upgrade to a verified seat"
+msgstr "Deadline by which the learner must upgrade to a verified seat"
 
 #: openedx/core/djangoapps/schedules/models.py:46
 msgid "Schedule"
@@ -4879,14 +5758,88 @@ msgstr ""
 msgid "Welcome to week %(week_num)s"
 msgstr "Selamat datang di Minggu %(week_num)s"
 
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:18
+#, python-brace-format
+msgid ""
+"We hope you're enjoying {start_strong}{course_name}{end_strong}! We want to "
+"let you know what you can look forward to in the coming weeks:"
+msgstr ""
+"Semoga Anda menikmati {start_strong}{course_name}{end_strong}! Berikut "
+"adalah yang dapat Anda nantikan dalam beberapa minggu ke depan:"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:31
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.txt:13
+msgid ""
+"We encourage you to spend time with the course each week. Your focused "
+"attention will pay off in the end!"
+msgstr ""
+"Kami mendorong Anda untuk meluangkan waktu dengan kursus setiap minggu. "
+"Perhatian Anda yang terfokus akan membuahkan hasil pada akhirnya!"
+
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:39
 msgid "Resume your course now"
 msgstr "Lanjutkan kursus anda sekarang"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.txt:4
+#, python-format
+msgid ""
+"We hope you're enjoying %(course_name)s! We want to let you know what you "
+"can look forward to in the coming weeks:"
+msgstr ""
+"Semoga Anda menikmati %(course_name)s! Kami ingin memberi tahu Anda apa yang"
+" dapat Anda nantikan dalam beberapa minggu ke depan:"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/subject.txt:4
+#, python-format
+msgid "%(course_name)s Weekly Update"
+msgstr "%(course_name)s Weekly Update"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:8
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:32
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.txt:5
+#, python-format
+msgid ""
+"Many %(platform_name)s learners are completing more problems every week, and"
+" participating in the discussion forums. What do you want to do to keep "
+"learning?"
+msgstr ""
+"Banyak pelajar di %(platform_name)s menyelesaikan lebih banyak masalah "
+"setiap minggu, dan berpartisipasi dalam forum diskusi. Apa yang ingin Anda "
+"lakukan untuk terus belajar?"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:15
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.txt:11
+#, python-format
+msgid ""
+"Many %(platform_name)s learners in %(course_name)s are completing more "
+"problems every week, and participating in the discussion forums. What do you"
+" want to do to keep learning?"
+msgstr ""
+"Banyak pelajar %(platform_name)s di %(course_name)s menyelesaikan lebih "
+"banyak masalah setiap minggu, dan berpartisipasi dalam forum diskusi. Apa "
+"yang ingin Anda lakukan untuk terus belajar?"
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:27
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/subject.txt:3
 msgid "Keep up the momentum!"
 msgstr "Jaga momentum!"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:38
+#, python-brace-format
+msgid ""
+"Many {platform_name} learners in {start_strong}{course_name}{end_strong} are"
+" completing more problems every week, and participating in the discussion "
+"forums. What do you want to do to keep learning?"
+msgstr ""
+"Banyak pelajar {platform_name} di {start_strong}{course_name}{end_strong} "
+"menyelesaikan lebih banyak masalah setiap minggu, dan berpartisipasi dalam "
+"forum diskusi. Apa yang ingin Anda lakukan untuk terus belajar?"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:47
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.txt:9
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.txt:15
+msgid "Keep learning"
+msgstr "Tetap belajar"
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:8
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:5
@@ -4916,6 +5869,28 @@ msgstr ""
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:27
 msgid "Keep learning today"
 msgstr "Tetap belajar hari ini"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:31
+#, python-brace-format
+msgid ""
+"Remember when you enrolled in {start_strong}{course_name}{end_strong}, and "
+"other courses on {platform_name}? We do, and we’re glad to have you! Come "
+"see what everyone is learning."
+msgstr ""
+"Ingatkah Anda mendaftar di {start_strong}{course_name}{end_strong}, dan "
+"beberapa kursus lain di {platform_name}? Kami ingat, dan kami gembira "
+"bersama Anda. Yuk lihat apa yang sedang dipelajari peserta lain."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:37
+#, python-brace-format
+msgid ""
+"Remember when you enrolled in {start_strong}{course_name}{end_strong} on "
+"{platform_name}? We do, and we’re glad to have you! Come see what everyone "
+"is learning."
+msgstr ""
+"Ingatkah Anda mendaftar di {start_strong}{course_name}{end_strong} di "
+"{platform_name}? Kami ingat, dan kami senang bersama Anda. Yuk lihat apa "
+"yang sedang dipelajari peserta lain."
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:46
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:10
@@ -4968,6 +5943,41 @@ msgstr ""
 msgid "Upgrade now"
 msgstr "Upgrade sekarang"
 
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:39
+#, python-format, python-brace-format
+msgid ""
+"We hope you are enjoying learning with us so far on "
+"{start_strong}%(platform_name)s{end_strong}! A verified certificate allows "
+"you to highlight your new knowledge and skills. An %(platform_name)s "
+"certificate is official and easily shareable."
+msgstr ""
+"Kami berharap Anda senang belajar bersama kami di "
+"{start_strong}%(platform_name)s{end_strong}! Sertifikat terverifikasi "
+"memungkinkan Anda untuk menyorot pengetahuan dan keterampilan baru Anda. "
+"Sertifikat %(platform_name)s resmi dan mudah dibagikan."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:46
+#, python-brace-format
+msgid ""
+"We hope you are enjoying learning with us so far in "
+"{start_strong}{first_course_name}{end_strong}! A verified certificate allows"
+" you to highlight your new knowledge and skills. An {platform_name} "
+"certificate is official and easily shareable."
+msgstr ""
+"Kami berharap Anda menikmati belajar bersama kami sejauh ini di "
+"{start_strong}{first_course_name}{end_strong}! Sertifikat terverifikasi "
+"memungkinkan Anda menyoroti pengetahuan dan keterampilan baru Anda. "
+"Sertifikat {platform_name} resmi dan mudah dibagikan."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:55
+#, python-format, python-brace-format
+msgid ""
+"Upgrade by "
+"{start_strong}%(user_schedule_upgrade_deadline_time)s{end_strong}."
+msgstr ""
+"Upgrade by "
+"{start_strong}%(user_schedule_upgrade_deadline_time)s{end_strong}."
+
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:63
 msgid "You are eligible to upgrade in these courses:"
 msgstr "Anda berhak mengupgrade kursus ini:"
@@ -4994,6 +6004,20 @@ msgid "Upgrade to earn a verified certificate in %(first_course_name)s"
 msgstr ""
 "Upgrade untuk mendapatkan sertifikat terverifikasi dalam "
 "%(first_course_name)s"
+
+#: openedx/core/djangoapps/theming/views.py:78
+#, python-brace-format
+msgid "Site theme changed to {site_theme}"
+msgstr "Site theme changed to {site_theme}"
+
+#: openedx/core/djangoapps/theming/views.py:83
+#, python-brace-format
+msgid "Theme {site_theme} does not exist"
+msgstr "Theme {site_theme} does not exist"
+
+#: openedx/core/djangoapps/theming/views.py:87
+msgid "Site theme reverted to the default"
+msgstr "Site theme reverted to the default"
 
 #: openedx/core/djangoapps/theming/views.py:138
 msgid "Theming Administration"
@@ -5029,6 +6053,18 @@ msgstr ""
 "Alamat email {email_address} sudah memiliki akun. Coba dengan alamat email "
 "lainnya."
 
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:66
+msgid "This email is associated to a retired account."
+msgstr "Email ini terkait dengan akun yang sudah tidak aktif."
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:69
+msgid ""
+"The password you entered is on a list of known compromised passwords. Please"
+" choose a different one."
+msgstr ""
+"Sandi yang Anda masukkan ada dalam daftar sandi yang diketahui telah "
+"dikompromikan. Silakan pilih yang lain."
+
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:72
 #, python-brace-format
 msgid ""
@@ -5055,9 +6091,45 @@ msgstr "Masukkan alamat email anda minimal {min} karakter."
 msgid "Enter your full name"
 msgstr "Masukkan nama lengkap anda."
 
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:97
+msgid "Enter your first name"
+msgstr "Masukkan nama depan Anda."
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:98
+msgid "Enter your last name"
+msgstr "Masukkan nama belakang Anda."
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:99
+msgid "The email addresses do not match"
+msgstr "Alamat email tidak sesuai."
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:100
+msgid "Enter your confirm email"
+msgstr "Silakan masukkan email konfirmasi Anda"
+
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:101
 msgid "Select your country or region of residence"
 msgstr "Pilih negara atau daerah tempat tinggal."
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:102
+msgid "Select your profession"
+msgstr "Pilih profesi anda."
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:103
+msgid "Select your specialty"
+msgstr "Pilih keahlian anda."
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:104
+msgid "Enter your profession"
+msgstr "Masukkan profesi Anda"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:105
+msgid "Enter your specialty"
+msgstr "Masukkan spesialisasi Anda"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:106
+msgid "Enter your state"
+msgstr "Masukkan negara bagian Anda"
 
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:116
 msgid ""
@@ -5282,6 +6354,12 @@ msgstr "Alamat Surat"
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:865
 msgid "State/Province/Region"
 msgstr "Provinsi"
+
+#. Translators: This label appears above a dropdown menu to select
+#. the user's work experience
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:376
+msgid "Work experience"
+msgstr "Pengalaman Kerja"
 
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:14
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.txt:2
