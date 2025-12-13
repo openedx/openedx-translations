@@ -22,9 +22,54 @@ msgstr ""
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
+#: cms/djangoapps/api/v1/serializers/course_runs.py:49
+msgid "Course team user does not exist"
+msgstr "O usuário da equipe do curso não existe"
+
+#: cms/djangoapps/contentstore/admin.py:47
+#, python-brace-format
+msgid ""
+"Number of course outline regenerations successfully requested: {regenerates}"
+msgstr ""
+"Número de regenerações de Esboço de curso solicitadas com sucesso: "
+"{regenerates}"
+
+#: cms/djangoapps/contentstore/admin.py:51
+msgid "Regenerate selected course outlines"
+msgstr "Regenere os esboços selecionados do curso"
+
+#: cms/djangoapps/contentstore/admin.py:59
+msgid "All course outline regenerations successfully requested."
+msgstr ""
+"Todas as regenerações do esboço do curso foram solicitadas com sucesso."
+
+#: cms/djangoapps/contentstore/admin.py:60
+msgid "Regenerate *all* course outlines"
+msgstr "Regenerem *todos* os esboços do curso"
+
 #: cms/djangoapps/contentstore/asset_storage_handlers.py:535
 msgid "Upload completed"
 msgstr "Carregamento concluído"
+
+#: cms/djangoapps/contentstore/asset_storage_handlers.py:579
+#, python-brace-format
+msgid ""
+"File {filename} exceeds maximum size of {maximum_size_in_megabytes} MB."
+msgstr ""
+"O arquivo {filename} excede o tamanho máximo de {maximum_size_in_megabytes} "
+"MB."
+
+#: cms/djangoapps/contentstore/course_group_config.py:27
+msgid ""
+"The groups in this configuration can be mapped to cohorts in the Instructor "
+"Dashboard."
+msgstr ""
+"Os grupos nesta configuração podem ser mapeados no Painel de controle do "
+"instrutor."
+
+#: cms/djangoapps/contentstore/course_group_config.py:30
+msgid "Content Groups"
+msgstr "Grupos de conteúdo"
 
 #: cms/djangoapps/contentstore/course_group_config.py:65
 #: cms/djangoapps/contentstore/views/certificate_manager.py:92
@@ -38,6 +83,10 @@ msgstr "deve ter o nome da configuração"
 #: cms/djangoapps/contentstore/course_group_config.py:76
 msgid "must have at least one group"
 msgstr "é necessário possuir ao menos um grupo"
+
+#: cms/djangoapps/contentstore/course_group_config.py:114
+msgid "unable to load this type of group configuration"
+msgstr "Não conseguimos carregar este tipo de configuração de grupo."
 
 #: cms/djangoapps/contentstore/course_info_model.py:74
 #: cms/djangoapps/contentstore/course_info_model.py:159
@@ -60,14 +109,58 @@ msgstr "Ocorreu um erro geral de endereçamento"
 msgid "(Unnamed)"
 msgstr "(anônimo)"
 
+#: cms/djangoapps/contentstore/errors.py:6
+msgid "Aborting import because a course with this id: {} already exists."
+msgstr ""
+"Importação abortada porque já existe um curso com esta identificação do "
+"curso: {}."
+
+#: cms/djangoapps/contentstore/errors.py:7
+msgid "Permission denied. You do not have write access to this course."
+msgstr "Permissão negada. Você não tem acesso de gravação a este curso."
+
 #: cms/djangoapps/contentstore/errors.py:8
 #, python-brace-format
 msgid "Could not find the {0} file in the package."
 msgstr "Não foi possível encontrar o  arquivo {0} no pacote."
 
+#: cms/djangoapps/contentstore/errors.py:9
+msgid "Uploaded Tar file not found. Try again."
+msgstr "Arquivo Tar enviado não encontrado. Tente novamente."
+
 #: cms/djangoapps/contentstore/errors.py:10
 msgid "We only support uploading a .tar.gz file."
 msgstr "Apenas arquivos .tar.gz podem ser carregados."
+
+#: cms/djangoapps/contentstore/errors.py:11
+msgid "Aborting import since a library with this id already exists."
+msgstr ""
+"Aborte a importação, pois já existe uma biblioteca com esta identificação."
+
+#: cms/djangoapps/contentstore/errors.py:12
+msgid "Course olx validation failed. Please check your email."
+msgstr "A validação do curso olx falhou. Por favor, verifique o seu e-mail."
+
+#: cms/djangoapps/contentstore/errors.py:13
+msgid "Permission denied"
+msgstr "Permissão negada"
+
+#: cms/djangoapps/contentstore/errors.py:14
+msgid "Unknown error while importing course."
+msgstr "Erro desconhecido durante a importação do curso."
+
+#: cms/djangoapps/contentstore/errors.py:15
+msgid "An Unknown error occurred during the unpacking step."
+msgstr "Ocorreu um erro desconhecido durante a etapa de descompactação."
+
+#: cms/djangoapps/contentstore/errors.py:16
+#, python-brace-format
+msgid "Unknown User ID: {0}"
+msgstr "ID do usuário desconhecido: {0}"
+
+#: cms/djangoapps/contentstore/errors.py:18
+msgid "User permission denied."
+msgstr "Permissão de Usuário negada."
 
 #: cms/djangoapps/contentstore/git_export_utils.py:36
 #, python-brace-format
@@ -77,6 +170,14 @@ msgid ""
 msgstr ""
 "GIT_REPO_EXPORT_DIR não foi definido ou o caminho {0} não existe, por favor "
 "crie-o, ou configure um caminho diferente para GIT_REPO_EXPORT_DIR"
+
+#: cms/djangoapps/contentstore/git_export_utils.py:39
+msgid ""
+"Non writable git url provided. Expecting something like: "
+"git@github.com:openedx/openedx-demo-course.git"
+msgstr ""
+"URL git não é gravável fornecida. Esperando algo como: "
+"git@github.com:openedx/openedx-demo-course.git"
 
 #: cms/djangoapps/contentstore/git_export_utils.py:41
 msgid ""
@@ -132,11 +233,24 @@ msgstr "Esta faltando um branch na clonagem recente"
 msgid "Vertical"
 msgstr "Vertical"
 
+#: cms/djangoapps/contentstore/helpers.py:214
+msgid "Section"
+msgstr "Seção"
+
+#: cms/djangoapps/contentstore/helpers.py:216
+msgid "Subsection"
+msgstr "Subseção"
+
 #: cms/djangoapps/contentstore/helpers.py:218
 #: lms/djangoapps/instructor/views/tools.py:241
 #: lms/djangoapps/instructor/views/tools.py:253 xmodule/unit_block.py:41
 msgid "Unit"
 msgstr "Unidade"
+
+#: cms/djangoapps/contentstore/helpers.py:225
+#: cms/djangoapps/contentstore/views/component.py:283
+msgid "Problem"
+msgstr "Problema"
 
 #: cms/djangoapps/contentstore/management/commands/git_export.py:33
 msgid ""
@@ -174,9 +288,116 @@ msgstr "Falhou"
 msgid "Completed"
 msgstr "Concluído"
 
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/advanced_settings.py:47
+msgid "Marks a field as deprecated."
+msgstr "Marca um campo como obsoleto."
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/advanced_settings.py:48
+msgid "User-friendly display name for the field"
+msgstr "Nome de exibição amigável para o campo"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/advanced_settings.py:49
+msgid "Help text that describes the setting."
+msgstr "Texto de ajuda que descreve a configuração."
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:14
+msgid "Tab type"
+msgstr "Tab type"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:15
+msgid "Default name for the tab displayed to users"
+msgstr "Nome padrão da tab exibida aos usuários"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:18
+msgid "True if it's possible to hide the tab for a course"
+msgstr "Verdadeiro se for possível ocultar a tab para um curso"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:21
+msgid "True the tab is hidden for the course"
+msgstr "Verdadeiro se a aba estiver oculta para o curso"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:25
+msgid "True if it's possible to reorder the tab in the list of tabs"
+msgstr "Verdadeiro se for possível reordenar a tab na lista de tabs"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:29
+msgid "True if this tab should be displayed only for instructors"
+msgstr "Verdadeiro se esta aba deve ser exibida apenas para instrutores"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:33
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:37
+msgid "Name of the tab displayed to users. Overrides title."
+msgstr "Nome da tab exibida aos usuários. Substitui o título."
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:41
+msgid "Additional settings specific to the tab"
+msgstr "Configurações adicionais específicas da tab"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:74
+msgid "ID of tab to update"
+msgstr "Identificação da tab a ser atualizada"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:75
+msgid "Location (Usage Key) of tab to update"
+msgstr "Localização (chave de uso) da tab a ser atualizada"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:89
+msgid "Need to supply either a valid tab_id or a tab_location."
+msgstr "Precisa fornecer ou um tab_id ou um tab_location válido."
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:100
+msgid "True to hide the tab, and False to show it."
+msgstr "Verdadeiro para ocultar a aba, e falso para mostrar."
+
+#: cms/djangoapps/contentstore/rest_api/v0/views/tabs.py:112
+msgid "Change the visibility of tabs in a course."
+msgstr "Altere a visibilidade da tab em um curso."
+
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:117
+msgid "The information you entered is incorrect."
+msgstr "As informações inseridas estão incorretas."
+
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:139
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:229
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:254
+#: xmodule/video_block/video_handlers.py:482
+#, python-brace-format
+msgid "The following parameters are required: {missing}."
+msgstr "Os seguintes parâmetros são: {missing}."
+
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:206
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:292
+#: xmodule/video_block/video_handlers.py:623
+msgid ""
+"There is a problem with this transcript file. Try to upload a different "
+"file."
+msgstr ""
+"Há um problema com este arquivo de transcrição. Tente enviar um arquivo "
+"diferente."
+
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:234
+#: xmodule/video_block/video_handlers.py:486
+#, python-brace-format
+msgid "A transcript with the \"{language_code}\" language code already exists."
+msgstr "A transcrição com o código de linguagem \"{language_code}\" já existe."
+
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:238
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:221
+#: xmodule/video_block/video_handlers.py:490
+msgid "A transcript file is required."
+msgstr "Um arquivo de transcrição é necessário."
+
 #: cms/djangoapps/contentstore/utils.py:857
 msgid "Deleted Group"
 msgstr "Grupo deletado"
+
+#. Translators: This is building up a list of groups. It is marked for
+#. translation because of the
+#. comma, which is used as a separator between each group.
+#: cms/djangoapps/contentstore/utils.py:925
+#, python-brace-format
+msgid "{previous_groups}, {current_group}"
+msgstr "{previous_groups}, {current_group}"
 
 #: cms/djangoapps/contentstore/utils.py:1088
 #: cms/djangoapps/contentstore/views/block.py:277
@@ -209,6 +430,36 @@ msgstr "Subindo"
 msgid "In Progress"
 msgstr "Em Progresso"
 
+#. Translators: This is the status for a video that the servers have
+#. successfully processed
+#: cms/djangoapps/contentstore/video_storage_handlers.py:123
+#: openedx/core/djangoapps/content_staging/data.py:21
+msgid "Ready"
+msgstr "Pronto"
+
+#. Translators: This is the status for a video that is uploaded completely
+#: cms/djangoapps/contentstore/video_storage_handlers.py:125
+msgid "Uploaded"
+msgstr "Enviado"
+
+#. Translators: This is the status for a video that is cancelled during upload
+#. by user
+#: cms/djangoapps/contentstore/video_storage_handlers.py:129
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. Translators: This is the status for a video which has failed
+#. due to being flagged as a duplicate by an external or internal CMS
+#: cms/djangoapps/contentstore/video_storage_handlers.py:132
+msgid "Failed Duplicate"
+msgstr "Falha duplicada"
+
+#. Translators: This is the status for a video which has duplicate token for
+#. youtube
+#: cms/djangoapps/contentstore/video_storage_handlers.py:134
+msgid "YouTube Duplicate"
+msgstr "Duplicado do Youtube"
+
 #. Translators: This is the status for a video for which an invalid
 #. processing token was provided in the course settings
 #: cms/djangoapps/contentstore/video_storage_handlers.py:137
@@ -225,6 +476,23 @@ msgstr "Importado"
 #: cms/djangoapps/contentstore/video_storage_handlers.py:141
 msgid "Unknown"
 msgstr "Desconhecido"
+
+#. Translators: This is the status for a video that is having its
+#. transcription in progress on servers
+#: cms/djangoapps/contentstore/video_storage_handlers.py:143
+msgid "Transcription in Progress"
+msgstr "Transcrição em andamento"
+
+#. Translators: This is the status for a video whose transcription is complete
+#: cms/djangoapps/contentstore/video_storage_handlers.py:145
+msgid "Transcript Ready"
+msgstr "Transcrição pronta"
+
+#. Translators: This is the status for a video whose transcription job was
+#. failed for some languages
+#: cms/djangoapps/contentstore/video_storage_handlers.py:147
+msgid "Partial Failure"
+msgstr "Falha Parcial"
 
 #. Translators: This is the header for a CSV file column
 #. containing URLs for video encodings for the named profile
