@@ -8490,6 +8490,11 @@ msgstr ""
 msgid "Notifications for new announcements and updates from the course team."
 msgstr "Notificações para novos anúncios e atualizações da equipe do curso."
 
+#: openedx/core/djangoapps/notifications/email/utils.py:441
+#: openedx/features/course_experience/plugins.py:34
+msgid "Updates"
+msgstr "Atualizações"
+
 #: openedx/core/djangoapps/notifications/email/utils.py:463
 msgid "discussion"
 msgstr "discussão"
@@ -9299,6 +9304,16 @@ msgstr ""
 "Este é apenas um email informativo. Se você não iniciou esta solicitação, "
 "entre em contato com %(contact_email)s."
 
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.html:38
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.txt:19
+#, python-format
+msgid "Best, %(platform_name)s"
+msgstr "Atenciosamente, %(platform_name)s"
+
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/subject.txt:4
+msgid "Your Account Has Been Queued For Deletion"
+msgstr "Sua Conta está na Fila para apagar"
+
 #. Translators: This label appears above a dropdown menu used to select
 #. the user's highest completed level of education.
 #. Translators: This label appears above a dropdown menu on the registration
@@ -9416,19 +9431,106 @@ msgstr "Estado/Província/Região"
 msgid "Work experience"
 msgstr "Experiência de trabalho"
 
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:10
+msgid "Password reset"
+msgstr "Redefinição de senha"
+
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:14
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.txt:2
+#, python-format
+msgid ""
+"You're receiving this e-mail because you requested a password reset for your"
+" user account at %(platform_name)s."
+msgstr ""
+"Você está recebendo este e-mail, porque você pediu uma redefinição de senha "
+"para sua conta de usuário no %(platform_name)s."
+
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:22
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.txt:5
+#, python-format
+msgid ""
+"However, there is currently no user account associated with your email "
+"address: %(email_address)s."
+msgstr ""
+"No entanto, não há atualmente uma conta de usuário associada ao seu endereço"
+" de e-mail: %(email_address)s."
+
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:28
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.txt:7
+msgid "If you did not request this change, you can ignore this email."
+msgstr "Se você não solicitou essa alteração, ignore este e-mail."
+
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:37
+msgid "Reset my password"
+msgstr "Redefina minha senha"
+
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.txt:9
 msgid "Please go to the following page and choose a new password:"
 msgstr "Por favor, acesse a próxima página e defina uma nova senha:"
+
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/subject.txt:3
+#, python-format
+msgid "Password reset on %(platform_name)s"
+msgstr "Senha redefinida em %(platform_name)s"
+
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordresetsuccess/email/body.html:10
+msgid "Password reset success"
+msgstr "Sucesso na redefinição de senha"
 
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordresetsuccess/email/body.html:14
 #, python-format
 msgid "Hello %(name)s,"
 msgstr "Olá %(name)s,"
 
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordresetsuccess/email/body.html:19
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordresetsuccess/email/body.txt:3
+#, python-format
+msgid ""
+"This is to confirm that you have successfully changed your password "
+"associated with %(platform_name)s account. Please sign-in to your account."
+msgstr ""
+"Isto é para confirmar que você alterou com sucesso sua senha associada à "
+"conta %(platform_name)s. Por favor entre em sua conta."
+
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordresetsuccess/email/body.txt:2
 #, python-format
 msgid "Hello %(name)s, "
 msgstr "Olá %(name)s, "
+
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordresetsuccess/email/subject.txt:3
+#, python-format
+msgid "Password reset completed on %(platform_name)s"
+msgstr "A redefinição da senha foi completada em %(platform_name)s"
+
+#: openedx/core/djangoapps/user_authn/views/auto_auth.py:96
+msgid "Superuser creation not allowed"
+msgstr "Não se permite a criação de superusuário"
+
+#: openedx/core/djangoapps/user_authn/views/auto_auth.py:115
+msgid "Account modification not allowed."
+msgstr "Não autorizamos a modificação na Conta."
+
+#: openedx/core/djangoapps/user_authn/views/auto_auth.py:125
+#: openedx/core/djangoapps/user_authn/views/register.py:715
+msgid "Account creation not allowed."
+msgstr "Não é permitido criar Conta."
+
+#: openedx/core/djangoapps/user_authn/views/login.py:91
+#, python-brace-format
+msgid ""
+"You've successfully signed in to your {provider_name} account, but this "
+"account isn't linked with your {platform_name} account yet. {blank_lines}Use"
+" your {platform_name} username and password to sign in to {platform_name} "
+"below, and then link your {platform_name} account with {provider_name} from "
+"your dashboard. {blank_lines}If you don't have an account on {platform_name}"
+" yet, click {register_label_strong} at the top of the page."
+msgstr ""
+"Você acessou com sucesso sua Conta {provider_name}, mas ela não está "
+"vinculada com sua Conta {platform_name}. {blank_lines}Use seu nome de "
+"usuário {platform_name} e senha para entrar em {platform_name}, e então "
+"vincule sua Conta {platform_name} com {provider_name} no Painel de controle."
+" {blank_lines}Se você não tem uma Conta em {platform_name}, clique em "
+"{register_label_strong}, localizado no alto da página."
 
 #: openedx/core/djangoapps/user_authn/views/login.py:102
 msgid "Register"
@@ -9440,9 +9542,42 @@ msgstr ""
 "Ocorreu um erro na recepção das suas informações de acesso. Por favor, "
 "envie-nos um e-mail."
 
+#: openedx/core/djangoapps/user_authn/views/login.py:172
+#, python-brace-format
+msgid ""
+"To protect your account, it’s been temporarily locked. Try again in "
+"{locked_out_period} minutes.{li_start}To be on the safe side, you can reset "
+"your password {link_start}here{link_end} before you try again."
+msgstr ""
+"Para proteger sua conta, ela foi temporariamente bloqueada. Tente novamente "
+"em {locked_out_period} minutos.{li_start}Para sua segurança, você pode "
+"redefinir sua senha {link_start}aqui{link_end} antes de tentar novamente."
+
 #: openedx/core/djangoapps/user_authn/views/login.py:243
 msgid "Too many failed login attempts. Try again later."
 msgstr "Muitas tentativas de acesso sem sucesso. Tente novamente mais tarde."
+
+#: openedx/core/djangoapps/user_authn/views/login.py:285
+#, python-brace-format
+msgid ""
+"Email or password is incorrect.{li_start}You have {remaining_attempts} more "
+"sign-in attempts before your account is temporarily "
+"locked.{li_end}{li_start}If you've forgotten your password, click "
+"{link_start}here{link_end} to reset.{li_end}"
+msgstr ""
+"O e-mail ou a senha estão incorretos.{li_start}Você tem mais "
+"{remaining_attempts} tentativas de login antes que sua Conta seja "
+"temporariamente bloqueada.{li_end}{li_start}Se você esqueceu sua senha, "
+"clique {link_start}aqui{link_end} para redefinir.{li_end}"
+
+#: openedx/core/djangoapps/user_authn/views/login.py:393
+#, python-brace-format
+msgid ""
+"As {allowed_domain} user, You must login with your {allowed_domain} "
+"{link_start}{provider} account{link_end}."
+msgstr ""
+"Como usuário {allowed_domain}, você deve fazer login com sua "
+"{allowed_domain} {link_start}Conta {provider}{link_end}."
 
 #. Translators: These instructions appear on the login form, immediately
 #. below a field meant to hold the user's email address.
@@ -9490,6 +9625,28 @@ msgstr ""
 msgid "Password reset unsuccessful"
 msgstr "A redefinição de senha não foi realizada"
 
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:415
+msgid "Error in resetting your password."
+msgstr "Houve um problema ao redefinir sua senha."
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:445
+msgid "Error in resetting your password. Please try again."
+msgstr "Há um erro ao alterar sua senha. Por favor, tente novamente."
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:470
+#, python-brace-format
+msgid ""
+"{html_start}Password Creation Complete{html_end}Your password has been "
+"created. {bold_start}{email}{bold_end} is now your primary login email."
+msgstr ""
+"{html_start}Criação de Senha Concluída{html_end}Sua senha foi criada. "
+"{bold_start}{email}{bold_end} agora é seu principal e-mail de login."
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:664
+msgid "Some error occurred during password change. Please try again"
+msgstr ""
+"Ocorreu algum erro durante a alteração da senha. Por favor, tente novamente"
+
 #: openedx/core/djangoapps/user_authn/views/password_reset.py:668
 msgid "No email address provided."
 msgstr "Nenhum endereço de e-mail fornecido."
@@ -9520,9 +9677,17 @@ msgstr "O token de acesso fornecido já está associado com outro usuário."
 msgid "The provided access_token is not valid."
 msgstr "O código de acesso fornecido não é válido."
 
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:107
+msgid "Full Name cannot contain the following characters: < >"
+msgstr "Nome completo não pode conter os seguintes caracteres: < >"
+
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:147
 msgid "A properly formatted e-mail is required"
 msgstr "É necessário um endereço de e-mail válido"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:148
+msgid "Your legal name must be a minimum of one character long"
+msgstr "Seu nome legal deve ter no mínimo um caractere"
 
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:161
 #, python-format
@@ -9573,16 +9738,117 @@ msgstr "Você não está preenchendo um ou mais campos"
 msgid "Unauthorized email address."
 msgstr "Endereço de e-mail não autorizado"
 
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:275
+#, python-brace-format
+msgid ""
+"It looks like {email} belongs to an existing account. Try again with a "
+"different email address."
+msgstr ""
+"Parece que {email} já pertence a uma conta existente. Tente novamente com um"
+" endereço de e-mail diferente."
+
+#. Translators: These instructions appear on the registration form,
+#. immediately
+#. below a field meant to hold the user's email address.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:510
+msgid "This is what you will use to login."
+msgstr "Isto é o que você irá utilizar para entrar."
+
+#. Translators: These instructions appear on the registration form,
+#. immediately
+#. below a field meant to hold the user's full name.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:560
+msgid "This name will be used on any certificates that you earn."
+msgstr "Este nome será utilizado em qualquer certificado que você obtiver."
+
+#. Translators: This label appears above a field on the registration form
+#. meant to hold the user's public username.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:581
+msgid "Public Username"
+msgstr "Nome De Usuário público"
+
+#. Translators: These instructions appear on the registration form,
+#. immediately
+#. below a field meant to hold the user's public username.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:586
+msgid ""
+"The name that will identify you in your courses. It cannot be changed later."
+msgstr ""
+"O nome que irá identificá-lo em seus cursos. Não pode ser alterado "
+"posteriormente."
+
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:702
 #, python-brace-format
 msgid "I agree that {platform_name} may send me marketing messages."
 msgstr "Concordo que {platform_name} possa me enviar mensagens de marketing."
+
+#. Translators: This label appears above a dropdown menu on the registration
+#. form used to select the country in which the user lives.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:967
+msgid "Country or Region of Residence"
+msgstr "País ou região de residência"
+
+#. Translators: These instructions appear on the registration form,
+#. immediately
+#. below a field meant to hold the user's country.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:978
+msgid "The country or region where you live."
+msgstr "O país ou região onde você mora."
 
 #. Translators: This is a legal document users must agree to
 #. in order to register a new account.
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:1016
 msgid "Terms of Service and Honor Code"
 msgstr "Termos do Serviço e Código de Honra"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1022
+#, python-brace-format
+msgid ""
+"I agree to the {platform_name} "
+"{terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end}"
+msgstr ""
+"Eu concordo com {platform_name} "
+"{terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end}"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1045
+#, python-brace-format
+msgid ""
+"By creating an account, you agree to the                   "
+"{terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end}"
+"                   and you acknowledge that {platform_name} and each Member "
+"process your personal data in accordance                   with the "
+"{privacy_policy_link_start}Privacy Policy{privacy_policy_link_end}."
+msgstr ""
+"Criando sua Conta, você concorda com os                   "
+"{terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end}"
+"                   e confirma que o {platform_name} e cada Membro processam "
+"seus dados pessoais de acordo                   com a "
+"{privacy_policy_link_start}Política de Privacidade{privacy_policy_link_end}."
+
+#. Translators: "Terms of service" is a legal document users must agree to
+#. in order to register a new account.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1087
+#, python-brace-format
+msgid ""
+"I agree to the {platform_name} "
+"{tos_link_start}{terms_of_service}{tos_link_end}"
+msgstr ""
+"Eu concordo com o {platform_name} "
+"{tos_link_start}{terms_of_service}{tos_link_end}"
+
+#: openedx/core/djangoapps/user_authn/views/utils.py:53
+msgid "Create Account"
+msgstr "Criar Conta"
+
+#: openedx/core/djangoapps/util/user_messages.py:104
+#, python-brace-format
+msgid "{header_open}{title}{header_close}{body}"
+msgstr "{header_open}{title}{header_close}{body}"
+
+#: openedx/core/djangoapps/util/user_messages.py:241
+#, python-brace-format
+msgid "{header_open}{title}{header_close}"
+msgstr "{header_open}{title}{header_close}"
 
 #: openedx/core/djangoapps/util/user_messages.py:256
 msgid "Dismiss"
@@ -9664,6 +9930,47 @@ msgstr ""
 "{exception_message}: Não foi possível encontrar as transcrições enviadas: "
 "{user_filename}"
 
+#: openedx/core/djangoapps/video_pipeline/models.py:33
+msgid "Oauth client name of VEM service."
+msgstr "Nome do cliente Oauth do serviço VEM."
+
+#: openedx/core/djangoapps/video_pipeline/models.py:38
+msgid "video encode manager API URL."
+msgstr "URL da API do gerenciador de codificação de vídeo."
+
+#: openedx/core/djangoapps/video_pipeline/models.py:46
+msgid "Username created for VEM Integration, e.g. vem_service_user."
+msgstr ""
+"O usuário criou o nome de usuário para integração VEM, por exemplo, "
+"vem_service_user."
+
+#: openedx/core/djangoapps/waffle_utils/models.py:28
+#: openedx/core/djangoapps/waffle_utils/models.py:91
+msgid "Force On"
+msgstr "Forçar Ligado"
+
+#: openedx/core/djangoapps/waffle_utils/models.py:28
+#: openedx/core/djangoapps/waffle_utils/models.py:91
+msgid "Force Off"
+msgstr "Desligar Forçado"
+
+#: openedx/core/djangoapps/xblock/runtime/mixin.py:65
+msgid ""
+"This content is only accessible to registered learners. Sign in or register "
+"to view it."
+msgstr ""
+"Este conteúdo é acessível apenas para estudantes registrados. Faça login ou "
+"registre-se para visualizá-lo."
+
+#: openedx/core/djangoapps/xblock/runtime/mixin.py:69
+msgid "This content is only accessible to enrolled learners. "
+msgstr "Este conteúdo é acessível apenas para estudantes matriculados. "
+
+#: openedx/core/lib/api/view_utils.py:159
+#, python-brace-format
+msgid "The about me field must be at most {BIO_MAX_LENGTH} characters long."
+msgstr "O campo sobre mim deve ter no máximo {BIO_MAX_LENGTH} caracteres."
+
 #: openedx/core/lib/api/view_utils.py:161
 msgid "This value is invalid."
 msgstr "O valor é inválido."
@@ -9671,6 +9978,16 @@ msgstr "O valor é inválido."
 #: openedx/core/lib/api/view_utils.py:214
 msgid "This field is not editable"
 msgstr "Este campo não é editável"
+
+#: openedx/core/lib/gating/api.py:71
+#, python-format
+msgid "%(min_score)s is not a valid grade percentage"
+msgstr "%(min_score)s não é uma percentagem válida para nota"
+
+#: openedx/core/lib/gating/api.py:186
+#, python-brace-format
+msgid "Gating milestone for {usage_key}"
+msgstr "Marco de portagem para {usage_key}"
 
 #: openedx/core/lib/license/mixin.py:26
 msgid "License"
@@ -9683,9 +10000,301 @@ msgstr ""
 "A licença define como o conteúdo para este bloqueio pode ser compartilhado e"
 " reusado."
 
+#: openedx/features/calendar_sync/ics.py:36
+#, python-brace-format
+msgid "{assignment} is due for {course}."
+msgstr "{assignment} está devido para {course}."
+
+#: openedx/features/calendar_sync/plugins.py:21
+msgid "Calendar Sync"
+msgstr "sincronização de calendário"
+
+#: openedx/features/calendar_sync/plugins.py:42
+msgid "Unsubscribe from calendar updates"
+msgstr "Cancelar inscrição nas atualizações de calendário"
+
+#: openedx/features/calendar_sync/plugins.py:45
+msgid "Subscribe to calendar updates"
+msgstr "Assinar atualizações de calendário"
+
+#: openedx/features/calendar_sync/utils.py:16
+#, python-brace-format
+msgid "Sync {course} to your calendar"
+msgstr "Sincronizar {course} com seu calendário"
+
+#: openedx/features/calendar_sync/utils.py:17
+#, python-brace-format
+msgid ""
+"Sticking to a schedule is the best way to ensure that you successfully "
+"complete your self-paced course. This schedule for {course} will help you "
+"stay on track!"
+msgstr ""
+"Cumprir um cronograma é a melhor maneira de garantir que você conclua com "
+"sucesso seu curso individualizado. Esta programação para {course} ajudará "
+"você a se manter na faixa!"
+
+#: openedx/features/calendar_sync/utils.py:20
+msgid ""
+"Once you sync your course schedule to your calendar, any updates to the "
+"course from your instructor will be automatically reflected. You can remove "
+"the course from your calendar at any time."
+msgstr ""
+"Depois de sincronizar a programação do curso com o calendário, todas as "
+"atualizações do curso feitas pelo instrutor serão refletidas "
+"automaticamente. Você pode remover o curso do seu calendário a qualquer "
+"momento."
+
+#: openedx/features/calendar_sync/utils.py:33
+#, python-brace-format
+msgid "{course} dates have been updated on your calendar"
+msgstr "{course} as datas foram atualizadas em seu calendário"
+
+#: openedx/features/calendar_sync/utils.py:34
+msgid ""
+"You have successfully shifted your course schedule and your calendar is up "
+"to date."
+msgstr ""
+"Você alterou com sucesso a programação do seu curso e seu calendário está "
+"atualizado."
+
+#: openedx/features/content_type_gating/models.py:27
+#: openedx/features/course_duration_limits/models.py:36
+msgid "Enabled As Of"
+msgstr "Ativado a partir de"
+
+#: openedx/features/content_type_gating/models.py:30
+#: openedx/features/course_duration_limits/models.py:39
+msgid ""
+"If the configuration is Enabled, then all enrollments created after this "
+"date and time (user local time) will be affected."
+msgstr ""
+"Se a configuração for Ativada, todas as matrículas criadas após essa data e "
+"hora (hora local do usuário) serão afetadas."
+
+#: openedx/features/content_type_gating/models.py:36
+msgid "Studio Override Enabled"
+msgstr "Substituição habilitada no Studio"
+
+#: openedx/features/content_type_gating/models.py:39
+msgid ""
+"Allow Feature Based Enrollment visibility to be overriden on a per-component"
+" basis in Studio."
+msgstr ""
+"Permitir que a visibilidade da Matrícula Baseada em Funcionalidade seja "
+"substituída por Componente no Studio."
+
+#: openedx/features/content_type_gating/models.py:91
+#: openedx/features/course_duration_limits/models.py:91
+msgid "enabled_as_of must be set when enabled is True"
+msgstr "Você deve definir enabled_as_of quando habilitar é VERDADEIRO."
+
+#: openedx/features/content_type_gating/partitions.py:70
+msgid "Partition for segmenting users by access to gated content types"
+msgstr ""
+"Partição para segmentar usuários por acesso a tipos de conteúdo bloqueados"
+
+#: openedx/features/content_type_gating/partitions.py:117
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:10
+msgid "Graded assessments are available to Verified Track learners."
+msgstr ""
+"As avaliações para graduação estão disponíveis para os estudantes da trilha "
+"verificada."
+
+#: openedx/features/content_type_gating/partitions.py:119
+msgid ""
+"Graded assessments are available to Verified Track learners. Upgrade to "
+"Unlock."
+msgstr ""
+"As avaliações para graduação estão disponíveis para os estudantes da trilha "
+"verificada. Atualize para desbloquear."
+
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:3
+msgid "Content available only to verified track learners"
+msgstr "Conteúdo disponível somente para estudantes da trilha verificada"
+
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:7
+msgid "Verified Track Access"
+msgstr "Acesso à Faixa Verificada"
+
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:15
+msgid "Upgrade to unlock"
+msgstr "Atualizar para desbloquear"
+
+#: openedx/features/course_duration_limits/access.py:32
+#, python-brace-format
+msgid "Access expired on {expiration_date}"
+msgstr "Acesso expirou em {expiration_date}"
+
+#: openedx/features/course_duration_limits/access.py:35
+#, python-brace-format
+msgid "Access to {course_name} expired on {expiration_date}"
+msgstr "Acesso à {course_name} expirou em {expiration_date}"
+
+#: openedx/features/course_duration_limits/access.py:40
+#, python-brace-format
+msgid "Access to the course you were looking for expired on {expiration_date}"
+msgstr ""
+"O acesso ao curso que você estava procurando expirou em {expiration_date}"
+
+#: openedx/features/course_duration_limits/access.py:158
+#, python-brace-format
+msgid ""
+"This learner does not have access to this course. Their access expired on "
+"{expiration_date}."
+msgstr ""
+"Este estudante não tem acesso a este curso. O acesso deles expirou em "
+"{expiration_date}."
+
+#: openedx/features/course_duration_limits/access.py:164
+#, python-brace-format
+msgid ""
+"{strong_open}Audit Access Expires "
+"{expiration_date}{strong_close}{line_break}You lose all access to this "
+"course, including your progress, on {expiration_date}."
+msgstr ""
+"{strong_open} O acesso de avaliação expira {expiration_date} {strong_close} "
+"{line_break} Você perderá todo o acesso a este curso, incluindo seu "
+"progresso, em {expiration_date}."
+
+#: openedx/features/course_duration_limits/access.py:167
+#, python-brace-format
+msgid ""
+"{line_break}Upgrade by {upgrade_deadline} to get unlimited access to the "
+"course as long as it exists on the site. {a_open}Upgrade "
+"now{sronly_span_open} to retain access past "
+"{expiration_date}{span_close}{a_close}"
+msgstr ""
+"{line_break} Atualize até {upgrade_deadline} para ter acesso ilimitado ao "
+"curso, desde que ele exista no site. {a_open} Atualize agora "
+"{sronly_span_open} para reter o acesso após {expiration_date} {span_close} "
+"{a_close}"
+
+#: openedx/features/course_experience/api/v1/views.py:60
+msgid "'course_key' is required."
+msgstr "'course_key' é obrigatório."
+
+#: openedx/features/course_experience/api/v1/views.py:69
+#: openedx/features/course_experience/api/v1/views.py:72
+msgid "View all dates"
+msgstr "Ver todas as datas"
+
+#: openedx/features/course_experience/api/v1/views.py:70
+msgid ""
+"Your due dates have been successfully shifted to help you stay on track."
+msgstr ""
+"Suas datas de vencimento foram alteradas com sucesso para ajudá-lo a "
+"permanecer na faixa certa."
+
+#: openedx/features/course_experience/api/v1/views.py:73
+msgid "Deadlines successfully reset."
+msgstr "Prazos redefinidos com sucesso."
+
+#: openedx/features/discounts/admin.py:22
+msgid ""
+"These define the context to disable lms-controlled discounts on. If no "
+"values are set, then the configuration applies globally. If a single value "
+"is set, then the configuration applies to all courses within that context. "
+"At most one value can be set at a time.<br>If multiple contexts apply to a "
+"course (for example, if configuration is specified for the course "
+"specifically, and for the org that the course is in, then the more specific "
+"context overrides the more general context."
+msgstr ""
+"Eles definem o contexto para desabilitar descontos controlados por lms. Se "
+"nenhum valor for definido, a configuração será aplicada globalmente. Se um "
+"único valor for definido, a configuração se aplica a todos os cursos nesse "
+"contexto. No máximo um valor pode ser definido por vez.<br> Se vários "
+"contextos se aplicarem a um curso (por exemplo, se a configuração for "
+"especificada especificamente para o curso e para a organização em que o "
+"curso está inserido, o contexto mais específico substituirá o contexto mais "
+"geral."
+
+#: openedx/features/discounts/admin.py:54
+msgid ""
+"These define the context to configure the percentage for the first purchase "
+"discount.If multiple contexts apply to a course (for example, if "
+"configuration is specified for the course specifically, and for the org that"
+" the course is in, then the more specific context overrides the more general"
+" context."
+msgstr ""
+"Eles definem o contexto para configurar a porcentagem para o primeiro "
+"desconto de compra. Se vários contextos se aplicarem a um curso (por "
+"exemplo, se a configuração for especificada para o curso especificamente, e "
+"para a organização em que o curso está, então o contexto mais específico "
+"substitui o contexto mais geral."
+
+#: openedx/features/discounts/utils.py:142
+#, python-brace-format
+msgid ""
+"{s_sr}Original price: {s_op}{original_price}{e_p}, discount price: "
+"{e_sr}{formatted_discount_price}"
+msgstr ""
+"{s_sr}Preço original: {s_op}{original_price}{e_p}, preço com desconto: "
+"{e_sr}{formatted_discount_price}"
+
+#: openedx/features/enterprise_support/admin/forms.py:13
+msgid "CSV File"
+msgstr "Arquivo CSV"
+
+#: openedx/features/enterprise_support/admin/forms.py:14
+msgid ""
+"CSV file should have 3 columns having names lms_user_id, course_id, "
+"opportunity_id"
+msgstr ""
+"O arquivo CSV deve ter 3 colunas com nomes lms_user_id, course_id, "
+"opportunity_id"
+
+#: openedx/features/enterprise_support/admin/views.py:66
+#, python-brace-format
+msgid ""
+"Enrollment attributes were not updated for records at following line numbers"
+" in csv because no enrollment found for these records: {error_line_numbers}"
+msgstr ""
+"Os atributos de matrícula não foram atualizados para registros nos seguintes"
+" números de linha em csv porque nenhuma matrícula foi encontrada para estes "
+"registros: {error_line_numbers}"
+
+#: openedx/features/enterprise_support/api.py:903
+#, python-brace-format
+msgid ""
+"You have access to the {bold_start}{enterprise_name}{bold_end} dashboard. To"
+" access the courses available to you through {enterprise_name}, "
+"{link_start}visit the {enterprise_name} dashboard{link_end}."
+msgstr ""
+"Você tem acesso ao Painel de controle "
+"{bold_start}{enterprise_name}{bold_end}. Para acessar os cursos disponíveis "
+"para você por meio de {enterprise_name}, {link_start}visite o Painel de "
+"controle de {enterprise_name}{link_end}."
+
+#: openedx/features/enterprise_support/api.py:1004
+#, python-brace-format
+msgid "Enrollment in {course_title} was not complete."
+msgstr "Matrícula em {course_title} não estava completa."
+
+#: openedx/features/enterprise_support/api.py:1008
+#, python-brace-format
+msgid ""
+"If you have concerns about sharing your data, please contact your "
+"administrator at {enterprise_customer_name}."
+msgstr ""
+"Se você tiver dúvidas sobre o compartilhamento de seus dados, entre em "
+"contato com seu administrador em {enterprise_customer_name}."
+
 #: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:15
 msgid "Home"
 msgstr "Página inicial"
+
+#: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:17
+msgid "Enterprise Course Enrollments"
+msgstr "Matrículas no Curso Enterprise"
+
+#: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:18
+msgid "Override Enrollment Attributes"
+msgstr "Substituir atributos de matrícula"
+
+#: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:25
+msgid "Upload CSV to override enrollment attributes for learners"
+msgstr ""
+"Enviar CSV para substituir os atributos de matrícula para os estudantes"
 
 #: openedx/features/enterprise_support/utils.py:178
 #, python-brace-format
@@ -9700,9 +10309,62 @@ msgstr ""
 "aprendizado para acessar {platform_name}.{line_break}{line_break}Detalhes do"
 " erro:{line_break}{error_message}"
 
+#: openedx/features/enterprise_support/utils.py:200
+#, python-brace-format
+msgid ""
+"Thank you for joining {platform_name}. Just a couple steps before you start "
+"learning!"
+msgstr ""
+"Obrigado por se unir a {platform_name}. Só mais alguns passos antes de "
+"começar a aprender!"
+
 #: openedx/features/enterprise_support/utils.py:205
 msgid "Continue"
 msgstr "Continuar"
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:127
+msgid "Shift due dates"
+msgstr "Mudar datas de entrega"
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:134
+msgid ""
+"It looks like you missed some important deadlines based on our suggested "
+"schedule."
+msgstr ""
+"Parece que você perdeu alguns prazos importantes com base em nosso "
+"cronograma sugerido."
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:135
+msgid ""
+"To keep yourself on track, you can update this schedule and shift the past "
+"due assignments into the future. Don’t worry—you won’t lose any of the "
+"progress you’ve made when you shift your due dates."
+msgstr ""
+"Para se manter no caminho certo, você pode atualizar esse cronograma e "
+"transferir as atribuições vencidas para o futuro. Não se preocupe — você não"
+" perderá nada do progresso que fez ao alterar as datas de vencimento."
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:145
+#, python-brace-format
+msgid "Try again ({attempts} attempt remaining)"
+msgid_plural "Try again ({attempts} attempts remaining)"
+msgstr[0] "Tente novamente ({attempts} tentativa restante)"
+msgstr[1] "Tente novamente ({attempts} tentativas restantes)"
+msgstr[2] "Tente novamente ({attempts} tentativas restantes)"
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:150
+#, python-brace-format
+msgid "You have used {attempts} of {max_attempts} attempts for this problem."
+msgstr "Você usou {attempts} de {max_attempts} tentativas para este problema."
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:155
+msgid "Try again (unlimited attempts)"
+msgstr "Tente novamente (tentativas ilimitadas)"
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:156
+#, python-brace-format
+msgid "You have used {attempts} of unlimited attempts for this problem."
+msgstr "Você usou {attempts} de tentativas ilimitadas para este problema."
 
 #: themes/red-theme/lms/templates/ace_common/edx_ace/common/base_body.html:70
 msgid "Sign In"
@@ -9736,6 +10398,10 @@ msgid "Cannot rescore problems with possible file submissions"
 msgstr ""
 "Não foi possível reavaliar os problemas com os possíveis envios de arquivos"
 
+#: xmodule/capa/capa_problem.py:616
+msgid "Question {}"
+msgstr "Questão {}"
+
 #: xmodule/capa/capa_problem.py:750 xmodule/capa_block.py:1397
 msgid "Incorrect"
 msgstr "Incorreto"
@@ -9764,9 +10430,35 @@ msgstr "incompleto"
 msgid "unanswered"
 msgstr "não respondida"
 
+#: xmodule/capa/inputtypes.py:95
+msgid "submitted"
+msgstr "enviado"
+
 #: xmodule/capa/inputtypes.py:96
 msgid "processing"
 msgstr "processando"
+
+#. Translators: these are tooltips that indicate the state of an assessment
+#. question
+#: xmodule/capa/inputtypes.py:100
+msgid "This answer is correct."
+msgstr "Esta resposta está correta."
+
+#: xmodule/capa/inputtypes.py:101
+msgid "This answer is incorrect."
+msgstr "Esta resposta está incorreta."
+
+#: xmodule/capa/inputtypes.py:102
+msgid "This answer is partially correct."
+msgstr "Esta resposta está parcialmente correta."
+
+#: xmodule/capa/inputtypes.py:103
+msgid "This answer is being processed."
+msgstr "Esta resposta está sendo processada."
+
+#: xmodule/capa/inputtypes.py:105
+msgid "Not yet answered."
+msgstr "Não respondida ainda."
 
 #: xmodule/capa/inputtypes.py:439
 msgid "Select an option"
@@ -9806,6 +10498,11 @@ msgid ""
 msgstr ""
 "Sua resposta foi enviada. Assim que a sua tarefa for avaliada, esta mensagem"
 " será substituída pelo parecer do avaliador."
+
+#: xmodule/capa/inputtypes.py:814
+#, python-brace-format
+msgid "{programming_language} editor"
+msgstr "Editor de {programming_language}"
 
 #: xmodule/capa/inputtypes.py:817
 msgid "Press ESC then TAB or click outside of the code editor to exit"
@@ -9860,6 +10557,20 @@ msgstr "{input_type}: marcação inesperada {tag_name}"
 #, python-brace-format
 msgid "Expected a {expected_tag} tag; got {given_tag} instead"
 msgstr "Era esperada a marcação {expected_tag}, mas {given_tag} foi obtida."
+
+#. Translators: index here could be 1,2,3 and so on
+#: xmodule/capa/responsetypes.py:256
+#, python-brace-format
+msgid "Question {index}"
+msgstr "Questão {index}"
+
+#: xmodule/capa/responsetypes.py:367
+msgid "Correct:"
+msgstr "Correto:"
+
+#: xmodule/capa/responsetypes.py:369
+msgid "Incorrect:"
+msgstr "A resposta está incorreta:"
 
 #: xmodule/capa/responsetypes.py:412 xmodule/capa_block.py:792
 #: xmodule/capa_block.py:809
@@ -9926,6 +10637,12 @@ msgstr "Houve um problema com a resposta da equipe para este problema."
 #, python-brace-format
 msgid "Could not interpret '{student_answer}' as a number."
 msgstr "Não foi possível interpretar '{student_answer}' como um número."
+
+#: xmodule/capa/responsetypes.py:1615
+#, python-brace-format
+msgid "Factorial function evaluated outside its domain:'{student_answer}'"
+msgstr ""
+"A Função Fatorial foi avaliada fora do seu domínio: '{student_answer}'"
 
 #: xmodule/capa/responsetypes.py:1623
 #, python-brace-format
@@ -10040,6 +10757,15 @@ msgstr "Avaliador externo"
 msgid "Math Expression Input"
 msgstr "Entrada de Expressão Matemática"
 
+#: xmodule/capa/responsetypes.py:3084
+#, python-brace-format
+msgid ""
+"Factorial function not permitted in answer for this problem. Provided answer"
+" was: {bad_input}"
+msgstr ""
+"Função Fatorial não é permitida em respostas para este problema. A resposta "
+"dada foi: {bad_input}"
+
 #: xmodule/capa/responsetypes.py:3092
 #, python-brace-format
 msgid "Invalid input: Could not parse '{bad_input}' as a formula."
@@ -10102,6 +10828,21 @@ msgstr "A resposta da equipe não pôde ser interpretada como um número."
 #, python-brace-format
 msgid "Could not interpret '{given_answer}' as a number."
 msgstr "Não foi possível interpretar '{given_answer}' como um número."
+
+#: xmodule/capa/safe_exec/remote_exec.py:118
+msgid ""
+"Codejail API Service is unavailable. Please try again in a few minutes."
+msgstr ""
+"O serviço API Codejail não está disponível. Por favor, tente novamente em "
+"alguns minutos."
+
+#: xmodule/capa/safe_exec/remote_exec.py:124
+msgid "Codejail API Service invalid response."
+msgstr "Resposta inválida do serviço Codejail API."
+
+#: xmodule/capa/safe_exec/remote_exec.py:130
+msgid "Invalid JSON response received from codejail api service."
+msgstr "O serviço codejail api recebeu uma resposta JSON inválida."
 
 #: xmodule/capa/templates/codeinput.html:6
 msgid "Code Editor"
@@ -10190,6 +10931,18 @@ msgstr ""
 "Período posterior à data de vencimento durante o qual o envio de tarefas "
 "será aceito"
 
+#: xmodule/capa_block.py:220 xmodule/modulestore/inheritance.py:103
+msgid "Show Results"
+msgstr "Mostrar Resultados"
+
+#: xmodule/capa_block.py:222
+msgid ""
+"Defines when to show whether a learner's answer to the problem is correct. "
+"Configured on the subsection."
+msgstr ""
+"Definem quando mostrar se a resposta de um estudante ao problema está "
+"correta. Configurado na subseção."
+
 #: xmodule/capa_block.py:228 xmodule/capa_block.py:239
 #: xmodule/capa_block.py:283
 msgid "Always"
@@ -10231,6 +10984,10 @@ msgstr "Finalizada"
 msgid "Correct or Past Due"
 msgstr "Correto ou Atrasado"
 
+#: xmodule/capa_block.py:247
+msgid "After Some Number of Attempts"
+msgstr "Após algum número de tentativas"
+
 #: xmodule/capa_block.py:248
 msgid "After All Attempts"
 msgstr "Após todas as tentativas"
@@ -10242,6 +10999,18 @@ msgstr "Depois de todas as tentativas ou corrigidas"
 #: xmodule/capa_block.py:250
 msgid "Attempted"
 msgstr "Após tentativa"
+
+#: xmodule/capa_block.py:254
+msgid "Show Answer: Number of Attempts"
+msgstr "Mostrar a Resposta: número de tentativas"
+
+#: xmodule/capa_block.py:256
+msgid ""
+"Number of times the student must attempt to answer the question before the "
+"Show Answer button appears."
+msgstr ""
+"Número de vezes que o aluno deve tentar responder à pergunta antes que o "
+"botão Mostrar Resposta apareça."
 
 #: xmodule/capa_block.py:263
 msgid "Whether to force the save button to appear on the page"
@@ -10294,6 +11063,14 @@ msgstr "Dicionário para manutenção do status de tipos de entrada"
 #: xmodule/capa_block.py:300
 msgid "Dictionary with the current student responses"
 msgstr "Dicionário com as respostas atuais do aluno"
+
+#: xmodule/capa_block.py:306
+msgid "Dictionary with the current student score"
+msgstr "Dicionário com a pontuação atual do aluno"
+
+#: xmodule/capa_block.py:311
+msgid "Whether or not the answers have been saved since last submit"
+msgstr "Se as respostas foram salvas desde o último envio ou não"
 
 #: xmodule/capa_block.py:313
 msgid "Whether the student has answered the problem"
@@ -10382,9 +11159,17 @@ msgstr ""
 "O status deste problema mudou desde que esta página foi carregada. Por "
 "favor, atualize a página."
 
+#: xmodule/capa_block.py:790 xmodule/capa_block.py:807
+msgid "Answer ID"
+msgstr "Identificação da resposta"
+
 #: xmodule/capa_block.py:791 xmodule/capa_block.py:808
 msgid "Question"
 msgstr "Pergunta"
+
+#: xmodule/capa_block.py:795
+msgid "Correct Answer"
+msgstr "Resposta Correta"
 
 #: xmodule/capa_block.py:1043
 msgid "Submitting"
@@ -10408,6 +11193,16 @@ msgid "If this error persists, please contact the course staff."
 msgstr ""
 "Se o erro persistir, por favor, entre em contato com a equipe do curso."
 
+#. Translators: {previous_hints} is the HTML of hints that have already been
+#. generated, {hint_number_prefix}
+#. is a header for this hint, and {hint_text} is the text of the hint itself.
+#. This string is being passed to translation only for possible reordering of
+#. the placeholders.
+#: xmodule/capa_block.py:1231
+#, python-brace-format
+msgid "{previous_hints}{list_start_tag}{strong_text}{hint_text}</li>"
+msgstr "{previous_hints}{list_start_tag}{strong_text}{hint_text}</li>"
+
 #. Translators: e.g. "Hint 1 of 3: " meaning we are showing the first of three
 #. hints.
 #. This text is shown in bold before the accompanying hint text.
@@ -10416,11 +11211,55 @@ msgstr ""
 msgid "Hint ({hint_num} of {hints_count}): "
 msgstr "Sugestão ({hint_num} de {hints_count}):"
 
+#: xmodule/capa_block.py:1318
+#, python-brace-format
+msgid ""
+"Your answers were previously saved. Click '{button_name}' to grade them."
+msgstr ""
+"Suas respostas foram salvas anteriormente. Clique '{button_name}' para "
+"corrigi-las."
+
+#: xmodule/capa_block.py:1394
+#, python-brace-format
+msgid "Incorrect ({progress} point)"
+msgid_plural "Incorrect ({progress} points)"
+msgstr[0] "Incorreto ({progress} ponto)"
+msgstr[1] "Incorreta ({progress} pontos)"
+msgstr[2] "Incorreta ({progress} pontos)"
+
+#: xmodule/capa_block.py:1401
+#, python-brace-format
+msgid "Correct ({progress} point)"
+msgid_plural "Correct ({progress} points)"
+msgstr[0] "Correto ({progress} ponto)"
+msgstr[1] "Correto ({progress} pontos)"
+msgstr[2] "Correto ({progress} pontos)"
+
+#: xmodule/capa_block.py:1408
+#, python-brace-format
+msgid "Partially correct ({progress} point)"
+msgid_plural "Partially correct ({progress} points)"
+msgstr[0] "Parcialmente correta ({progress} ponto)"
+msgstr[1] "Parcialmente correta ({progress} pontos)"
+msgstr[2] "Parcialmente correta ({progress} pontos)"
+
+#: xmodule/capa_block.py:1413
+msgid "Partially Correct"
+msgstr "Parcialmente correto"
+
+#: xmodule/capa_block.py:1415
+msgid "Answer submitted."
+msgstr "Resposta submetida."
+
 #. Translators: 'closed' means the problem's due date has passed. You may no
 #. longer attempt to solve the problem.
 #: xmodule/capa_block.py:1809 xmodule/capa_block.py:2131
 msgid "Problem is closed."
 msgstr "O problema está encerrado."
+
+#: xmodule/capa_block.py:1815
+msgid "Problem must be reset before it can be submitted again."
+msgstr "O problema deve ser reiniciado antes de poder ser enviado novamente."
 
 #: xmodule/capa_block.py:1825
 #, python-brace-format
@@ -10444,6 +11283,22 @@ msgstr[0] "{num_hour} horas"
 msgstr[1] "{num_hour} horas"
 msgstr[2] "{num_hour} horas"
 
+#: xmodule/capa_block.py:2016
+#, python-brace-format
+msgid "{num_minute} minute"
+msgid_plural "{num_minute} minutes"
+msgstr[0] "{num_minute} minuto"
+msgstr[1] "{num_minute} minutos"
+msgstr[2] "{num_minute} minutos"
+
+#: xmodule/capa_block.py:2022
+#, python-brace-format
+msgid "{num_second} second"
+msgid_plural "{num_second} seconds"
+msgstr[0] "{num_second} segundo"
+msgstr[1] "{num_second} segundos"
+msgstr[2] "{num_second} segundos"
+
 #: xmodule/capa_block.py:2140
 msgid "Problem needs to be reset prior to save."
 msgstr "O problema deve ser redefinido antes de salvar."
@@ -10461,6 +11316,17 @@ msgstr ""
 "Suas respostas foram salvas mas não avaliadas. Clique '{button_name}' para "
 "corrigi-las."
 
+#. Translators: 'closed' means the problem's due date has passed. You may no
+#. longer attempt to solve the problem.
+#: xmodule/capa_block.py:2180
+msgid "You cannot select Reset for a problem that is closed."
+msgstr ""
+"Você não pode selecionar Redefinir para um problema que esteja fechado."
+
+#: xmodule/capa_block.py:2189
+msgid "You must submit an answer before you can select Reset."
+msgstr "Você deve enviar uma resposta antes de selecionar Redefinir."
+
 #. Translators: 'rescoring' refers to the act of re-submitting a student's
 #. solution so it can get a new score.
 #: xmodule/capa_block.py:2244
@@ -10470,6 +11336,85 @@ msgstr "A definição do problema não suporta uma nova correção."
 #: xmodule/capa_block.py:2250
 msgid "Problem must be answered before it can be graded again."
 msgstr "O problema deve ser respondido para poder ser avaliado novamente."
+
+#: xmodule/conditional_block.py:91
+msgid "Conditional"
+msgstr "Condicional"
+
+#: xmodule/conditional_block.py:95
+msgid "List of urls of children that are references to external modules"
+msgstr "Lista de urls filhas que são referências a módulos externos"
+
+#: xmodule/conditional_block.py:100
+msgid "Source Components"
+msgstr "Componentes de origem"
+
+#: xmodule/conditional_block.py:101
+msgid ""
+"The component location IDs of all source components that are used to "
+"determine whether a learner is shown the content of this conditional block. "
+"Copy the component location ID of a component from its Settings dialog in "
+"Studio."
+msgstr ""
+"Os identificações de localização do componente de todos os componentes de "
+"origem que são usados para determinar se o conteúdo deste bloco condicional "
+"é mostrado a um estudante. Copie a identificação do local do componente de "
+"um componente de sua caixa de diálogo Configurações no Studio."
+
+#: xmodule/conditional_block.py:108
+msgid "Conditional Attribute"
+msgstr "Atributos condicionais"
+
+#: xmodule/conditional_block.py:109
+msgid ""
+"The attribute of the source components that determines whether a learner is "
+"shown the content of this conditional block."
+msgstr ""
+"O atributo dos componentes de origem que determina se o conteúdo deste bloco"
+" condicional é mostrado a um estudante."
+
+#: xmodule/conditional_block.py:118
+msgid "Conditional Value"
+msgstr "Valor condicional"
+
+#: xmodule/conditional_block.py:119
+msgid ""
+"The value that the conditional attribute of the source components must match"
+" before a learner is shown the content of this conditional block."
+msgstr ""
+"O valor que o atributo condicional dos componentes de origem deve "
+"corresponder antes que um estudante veja o conteúdo deste bloco condicional."
+
+#: xmodule/conditional_block.py:126
+msgid "Blocked Content Message"
+msgstr "Conteúdo de mensagem bloqueado"
+
+#: xmodule/conditional_block.py:127
+#, python-brace-format
+msgid ""
+"The message that is shown to learners when not all conditions are met to "
+"show the content of this conditional block. Include {link} in the text of "
+"your message to give learners a direct link to required units. For example, "
+"'You must complete {link} before you can access this unit'."
+msgstr ""
+"A mensagem que é mostrada aos estudantes quando nem todas as condições são "
+"atendidas para mostrar o conteúdo desse bloco condicional. Inclua {link} no "
+"texto da sua mensagem para dar aos estudantes um link direto para as "
+"unidades necessárias. Por exemplo, 'Você deve completar {link} antes de "
+"poder acessar esta unidade'."
+
+#: xmodule/conditional_block.py:131
+#, python-brace-format
+msgid "You must complete {link} before you can access this unit."
+msgstr "Você deve completar {link} antes de acessar essa postagem."
+
+#: xmodule/conditional_block.py:376
+msgid "This component has no source components configured yet."
+msgstr "Este Componente ainda não possui Componentes de origem configurados."
+
+#: xmodule/conditional_block.py:378
+msgid "Configure list of sources"
+msgstr "Configure a lista de origens"
 
 #: xmodule/course_block.py:349
 msgid "LTI Passports"
@@ -10483,6 +11428,13 @@ msgstr ""
 "Entre os passaportes para as ferramentas de curso LTI no seguinte formato: "
 "\"id:chave_cliente:segredo_cliente\"."
 
+#: xmodule/course_block.py:354
+msgid ""
+"List of Textbook objects with (title, url) for textbooks used in this course"
+msgstr ""
+"Lista de objetos de livro-texto com (title, url) para livro-texto usado "
+"neste curso"
+
 #: xmodule/course_block.py:359
 msgid "Slug that points to the wiki for this course"
 msgstr "Espaço que direciona para o wiki deste curso."
@@ -10495,9 +11447,17 @@ msgstr "A data para inscrições nessa aula está aberta"
 msgid "Date that enrollment for this class is closed"
 msgstr "A data em que as inscrições para essa aula estará fechada"
 
+#: xmodule/course_block.py:367
+msgid "Start time when this block is visible"
+msgstr "Hora de início quando este bloco estiver visível"
+
 #: xmodule/course_block.py:371
 msgid "Date that this class ends"
 msgstr "Data de término da aula"
+
+#: xmodule/course_block.py:373
+msgid "Date that certificates become available to learners"
+msgstr "Data que os Certificados se tornam disponíveis aos estudantes"
 
 #: xmodule/course_block.py:377
 msgid "Cosmetic Course Display Price"
@@ -10512,6 +11472,20 @@ msgstr ""
 "O Custo apresentado aos alunos para participarem no Curso. Caso uma taxa de "
 "inscrição for definida por um administrador na base de dados, esta taxa será"
 " o Custo apresentado ao público ao invés deste."
+
+#: xmodule/course_block.py:386
+msgid "Course Advertised Start"
+msgstr "Início do Curso Anunciado"
+
+#: xmodule/course_block.py:388
+msgid ""
+"Enter the text that you want to use as the advertised starting time frame "
+"for the course, such as \"Winter 2018\". If you enter null for this value, "
+"the start date that you have set for this course is used."
+msgstr ""
+"Digite o texto que você deseja usar como o período de início anunciado para "
+"o curso, como \"Inverno 2018\". Se você inserir null para esse valor, será "
+"usada a data de início definida para este curso."
 
 #: xmodule/course_block.py:395
 msgid "Pre-Requisite Courses"
@@ -10538,6 +11512,10 @@ msgid ""
 msgstr ""
 "Digite verdadeiro ou falso. Quando verdadeiro, os alunos podem ver a "
 "calculadora no curso."
+
+#: xmodule/course_block.py:411
+msgid "Enter the name of the course as it should appear in the course list."
+msgstr "Digite o nome do curso como deve aparecer na lista de cursos."
 
 #: xmodule/course_block.py:413
 msgid "Course Display Name"
@@ -10593,6 +11571,37 @@ msgstr ""
 msgid "Discussion Topic Mapping"
 msgstr "Mapeamento do Tópico de Discussão"
 
+#: xmodule/course_block.py:445
+msgid ""
+"Enter discussion categories in the following format: \"CategoryName\": "
+"{\"id\": \"i4x-InstitutionName-CourseNumber-course-CourseRun\"}. For "
+"example, one discussion category may be \"Lydian Mode\": {\"id\": "
+"\"i4x-UniversityX-MUS101-course-2015_T1\"}. The \"id\" value for each "
+"category must be unique. In \"id\" values, the only special characters that "
+"are supported are underscore, hyphen, and period. You can also specify a "
+"category as the default for new posts in the Discussion page by setting its "
+"\"default\" attribute to true. For example, \"Lydian Mode\": {\"id\": "
+"\"i4x-UniversityX-MUS101-course-2015_T1\", \"default\": true}."
+msgstr ""
+"Insira as categorias de Discussão no seguinte formato: \"NomeDaCategoria\": "
+"{\"identificação\": \"i4x-InstitutionName-CourseNumber-course-CourseRun\"}. "
+"Por exemplo, uma categoria de Discussão pode ser \"Modo Lídio\": "
+"{\"identificação\": \"i4x-UniversityX-MUS101-course-2015_T1\"}. O valor "
+"\"identificação\" para cada categoria deve ser exclusivo. Nos valores "
+"\"identificação\", os únicos caracteres especiais suportados são sublinhado,"
+" hífen e ponto final. Você também pode especificar uma categoria como padrão"
+" para novas postagens na página Discussão definindo seu atributo \"default\""
+" como verdadeiro. Por exemplo, \"Modo Lídio\": {\"identificação\": "
+"\"i4x-UniversityX-MUS101-course-2015_T1\", \"default\": true}."
+
+#: xmodule/course_block.py:457
+msgid "Discussions Plugin Settings"
+msgstr "Configurações do plug-in de Discussão"
+
+#: xmodule/course_block.py:459
+msgid "Settings for discussions plugins."
+msgstr "Configurações para plugins de discussão."
+
 #: xmodule/course_block.py:467
 msgid "Course Announcement Date"
 msgstr "Data de Anúncio do Curso"
@@ -10619,6 +11628,14 @@ msgstr ""
 msgid "Course Is New"
 msgstr "O Curso é Novo"
 
+#: xmodule/course_block.py:482
+msgid ""
+"Enter true or false. If true, the course appears in the list of new courses,"
+" and a New! badge temporarily appears next to the course image."
+msgstr ""
+"Digite verdadeiro ou falso. Se verdadeiro, o curso aparece na lista de novos"
+" cursos e um Novo! selo aparece temporariamente ao lado da imagem do curso."
+
 #: xmodule/course_block.py:488
 msgid "Mobile Course Available"
 msgstr "Curso disponível em Dispositivo Móvel"
@@ -10634,6 +11651,15 @@ msgstr ""
 #: xmodule/course_block.py:494
 msgid "Video Upload Credentials"
 msgstr "Credenciais do Envio de Vídeo"
+
+#: xmodule/course_block.py:496
+#, python-brace-format
+msgid ""
+"Enter the unique identifier for your course's video files provided by "
+"{platform_name}."
+msgstr ""
+"Digite o identificador exclusivo para os arquivos de vídeo do seu curso "
+"fornecido por {platform_name}."
 
 #: xmodule/course_block.py:501
 msgid "Course Not Graded"
@@ -10666,6 +11692,16 @@ msgstr "Lista de dicionários contendo configuraçôes apostila_pdf"
 msgid "HTML Textbooks"
 msgstr "Livros Didáticos em HTML"
 
+#: xmodule/course_block.py:519
+msgid ""
+"For HTML textbooks that appear as separate tabs in the course, enter the "
+"name of the tab (usually the title of the book) as well as the URLs and "
+"titles of each chapter in the book."
+msgstr ""
+"Para livros-texto em HTML que aparecem como tabs separadas no curso, insira "
+"o nome da tab (geralmente o título do livro), bem como os URLs e títulos de "
+"cada capítulo no livro."
+
 #: xmodule/course_block.py:525
 msgid "Remote Gradebook"
 msgstr "Boletim virtual"
@@ -10686,6 +11722,23 @@ msgstr ""
 #: xmodule/course_block.py:536
 msgid "Enable CCX"
 msgstr "Habilitar CCX"
+
+#. Translators: Custom Courses for edX (CCX) is an edX feature for re-using
+#. course content. CCX Coach is
+#. a role created by a course Instructor to enable a person (the "Coach") to
+#. manage the custom course for
+#. his students.
+#: xmodule/course_block.py:541
+#, python-brace-format
+msgid ""
+"Allow course instructors to assign CCX Coach roles, and allow coaches to "
+"manage Custom Courses on {platform_name}. When false, Custom Courses cannot "
+"be created, but existing Custom Courses will be preserved."
+msgstr ""
+"Permita que os instrutores do curso designem a função de instrutor CCX e "
+"permita que os instrutores gerenciem cursos Customizados em {platform_name}."
+" Quando falso, os cursos Customizados não podem ser criados, mas os cursos "
+"Customizados existentes serão preservados."
 
 #. Translators: Custom Courses for edX (CCX) is an edX feature for re-using
 #. course content.
@@ -10732,6 +11785,18 @@ msgstr ""
 msgid "Advanced Module List"
 msgstr "Lista de Módulos Avançados"
 
+#: xmodule/course_block.py:573
+msgid "Enter the names of the advanced modules to use in your course."
+msgstr "Insira os nomes dos módulos avançados para usar em seu curso."
+
+#: xmodule/course_block.py:579
+msgid ""
+"True if timezones should be shown on dates in the course. Deprecated in "
+"favor of due_date_display_format."
+msgstr ""
+"Verdadeiro se os fusos horários devem ser mostrados nas datas do curso. "
+"Depreciado em favor de due_date_display_format."
+
 #: xmodule/course_block.py:585
 msgid "Due Date Display Format"
 msgstr "Formato de Exibição das Datas de Encerramento"
@@ -10771,6 +11836,14 @@ msgstr ""
 msgid "Certificates Display Behavior"
 msgstr "Forma de Visualização dos Certificados"
 
+#: xmodule/course_block.py:611
+msgid ""
+"This field, together with certificate_available_date will determine when a "
+"user can see their certificate for the course"
+msgstr ""
+"Este campo, junto com certificate_available_date, determinará quando um "
+"usuário pode ver seu certificado para o curso"
+
 #: xmodule/course_block.py:618
 msgid "Course About Page Image"
 msgstr "Imagem da Página Sobre o Curso "
@@ -10785,9 +11858,53 @@ msgstr ""
 "na página Arquivos & Uploads. Você também pode definir a imagem de curso na "
 "página Configurações e Detalhes."
 
+#: xmodule/course_block.py:629
+msgid "Course Banner Image"
+msgstr "Imagem do banner do curso"
+
+#: xmodule/course_block.py:631
+msgid ""
+"Edit the name of the banner image file. You can set the banner image on the "
+"Settings & Details page."
+msgstr ""
+"Editar o nome do arquivo de imagem do banner. Você pode configurar a imagem "
+"do banner na página de Configurações e detalhes."
+
+#: xmodule/course_block.py:639
+msgid "Course Video Thumbnail Image"
+msgstr "Imagem de miniatura do vídeo do curso"
+
+#: xmodule/course_block.py:641
+msgid ""
+"Edit the name of the video thumbnail image file. You can set the video "
+"thumbnail image on the Settings & Details page."
+msgstr ""
+"Editar o nome do arquivo de imagem de miniatura do vídeo. Você pode definir "
+"a imagem da miniatura do vídeo na página Configurações e detalhes."
+
+#: xmodule/course_block.py:651
+msgid ""
+"Use this setting only when generating PDF certificates. Between quotation "
+"marks, enter the short name of the type of certificate that students receive"
+" when they complete the course. For instance, \"Certificate\"."
+msgstr ""
+"Use essa configuração somente ao gerar certificados PDF. Entre aspas, insira"
+" o nome abreviado do tipo de certificado que os alunos recebem quando "
+"concluem o curso. Por exemplo, \"Certificado\"."
+
 #: xmodule/course_block.py:655
 msgid "Certificate Name (Short)"
 msgstr "Nome do Certificado (abreviado)"
+
+#: xmodule/course_block.py:661
+msgid ""
+"Use this setting only when generating PDF certificates. Between quotation "
+"marks, enter the long name of the type of certificate that students receive "
+"when they complete the course. For instance, \"Certificate of Achievement\"."
+msgstr ""
+"Use essas configurações somente ao gerar certificados PDF. Entre aspas, "
+"insira o nome longo do tipo de certificado que os alunos recebem quando "
+"concluem o curso. Por exemplo, \"Certificado de Conquista\"."
 
 #: xmodule/course_block.py:665
 msgid "Certificate Name (Long)"
@@ -10867,9 +11984,32 @@ msgstr "Permite ocultar a guia de progresso."
 msgid "Course Organization Display String"
 msgstr "Exibição da Organização do Curso"
 
+#: xmodule/course_block.py:734
+msgid ""
+"Enter the course organization that you want to appear in the course. This "
+"setting overrides the organization that you entered when you created the "
+"course. To use the organization that you entered when you created the "
+"course, enter null."
+msgstr ""
+"Entre na organização do curso que você deseja que apareça no curso. Essa "
+"configuração substitui a organização que você inseriu quando criou o curso. "
+"Para usar a organização que você inseriu quando criou o curso, insira null."
+
 #: xmodule/course_block.py:742
 msgid "Course Number Display String"
 msgstr "Exibição do Número do Curso"
+
+#: xmodule/course_block.py:744
+msgid ""
+"Enter the course number that you want to appear in the course. This setting "
+"overrides the course number that you entered when you created the course. To"
+" use the course number that you entered when you created the course, enter "
+"null."
+msgstr ""
+"Digite o número do curso que você deseja que apareça no curso. Essas "
+"Configurações substituem o número do curso inserido quando você criou o "
+"curso. Para usar o número do curso que você inseriu ao criar o curso, insira"
+" null."
 
 #: xmodule/course_block.py:753
 msgid "Course Maximum Student Enrollment"
@@ -10886,6 +12026,14 @@ msgstr ""
 #: xmodule/course_block.py:762
 msgid "Allow Public Wiki Access"
 msgstr "Permitir Acesso Público ao Wiki"
+
+#: xmodule/course_block.py:764
+msgid ""
+"Enter true or false. If true, students can view the course wiki even if "
+"they're not enrolled in the course."
+msgstr ""
+"Digite verdadeiro ou falso. Se verdadeiro, os alunos podem visualizar o wiki"
+" do curso mesmo que não estejam matriculados no curso."
 
 #: xmodule/course_block.py:772
 msgid "Invitation Only"
@@ -10973,6 +12121,10 @@ msgstr ""
 msgid "Entrance Exam ID"
 msgstr "Identificação do Teste de Entrada"
 
+#: xmodule/course_block.py:840
+msgid "Content block identifier (location) of entrance exam."
+msgstr "Identificador do bloco de Conteúdo (localização) do vestibular."
+
 #: xmodule/course_block.py:846
 msgid "Social Media Sharing URL"
 msgstr "URL de compartilhamento de Mídia social"
@@ -11016,6 +12168,19 @@ msgstr ""
 "supervisionados serão habilitados em seu curso. Observe que ativar os exames"
 " supervisionados, também ativará os exames cronometrados."
 
+#: xmodule/course_block.py:886
+msgid "Proctoring Provider"
+msgstr "Provedor de Supervisão"
+
+#: xmodule/course_block.py:888
+#, python-brace-format
+msgid ""
+"Enter the proctoring provider you want to use for this course run. Choose "
+"from the following options: {available_providers}."
+msgstr ""
+"Digite o provedor de supervisão que você deseja usar para este curso. "
+"Escolha entre as seguintes opções: {available_providers}."
+
 #: xmodule/course_block.py:902
 msgid "Proctoring Exam Escalation Contact"
 msgstr "Contato para escalação do exame de supervisão"
@@ -11030,6 +12195,23 @@ msgstr ""
 " supervisão. Insira um endereço de e-mail para ser contatado pela equipe de "
 "suporte sempre que houver escalonamentos (por exemplo, apelações, revisões "
 "atrasadas etc.)."
+
+#: xmodule/course_block.py:914
+msgid "Allow Opting Out of Proctored Exams"
+msgstr "Permitir a exclusão de exames supervisionados"
+
+#: xmodule/course_block.py:916
+msgid ""
+"Enter true or false. If this value is true, learners can choose to take "
+"proctored exams without proctoring. If this value is false, all learners "
+"must take the exam with proctoring. This setting only applies if proctored "
+"exams are enabled for the course."
+msgstr ""
+"Digite verdadeiro ou falso. Se esse valor for verdadeiro, os estudantes "
+"podem optar por fazer exames supervisionados sem supervisão. Se este valor "
+"for falso, todos os estudantes devem fazer o exame com supervisão. Esta "
+"configuração só se aplica se os exames supervisionados estiverem habilitados"
+" para o curso."
 
 #: xmodule/course_block.py:926
 msgid "Create Zendesk Tickets For Suspicious Proctored Exam Attempts"
