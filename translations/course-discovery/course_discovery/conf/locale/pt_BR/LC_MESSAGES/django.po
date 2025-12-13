@@ -130,6 +130,15 @@ msgstr "Não foi possível definir dados de funcionamento do curso: {}"
 msgid "Can only update status, ofac restrictions, and ofac comment"
 msgstr "Só pode atualizar status, restrições de ofac e comentário de ofac"
 
+#: apps/api/v1/views/course_runs.py:363
+#, python-brace-format
+msgid ""
+"The course run type '{course_run_type}' is not valid for this course type "
+"'{course_type}'."
+msgstr ""
+"O tipo de funcionamento do curso '{course_run_type}' não é válido para este "
+"tipo de curso '{course_type}'."
+
 #: apps/api/v1/views/course_runs.py:381
 msgid "Course run is in review. Editing disabled."
 msgstr "Estamos revisando o funcionamento do curso. Edição desabilitada."
@@ -553,9 +562,17 @@ msgstr "demonstração"
 msgid "other"
 msgstr "outro"
 
+#: apps/course_metadata/choices.py:54
+msgid "Course Create"
+msgstr "Curso Criar"
+
 #: apps/course_metadata/choices.py:55
 msgid "Partial Update"
 msgstr "Atualização parcial"
+
+#: apps/course_metadata/choices.py:56
+msgid "Course Rerun"
+msgstr "Repetição do funcionamento do curso"
 
 #: apps/course_metadata/choices.py:57
 msgid "Course Editor Update"
@@ -584,6 +601,10 @@ msgstr "Falhou"
 #: apps/course_metadata/choices.py:69
 msgid "Partially Completed"
 msgstr "Parcialmente Concluído"
+
+#: apps/course_metadata/choices.py:70
+msgid "Errored"
+msgstr "Com erro"
 
 #: apps/course_metadata/choices.py:74
 msgid "Honor"
@@ -2027,13 +2048,33 @@ msgstr ""
 msgid "Course uuids"
 msgstr "uuids do curso"
 
+#: apps/course_metadata/models.py:5044
+msgid "User who uploaded the file"
+msgstr "Usuário que enviou o arquivo"
+
+#: apps/course_metadata/models.py:5049
+msgid "Summary of the task"
+msgstr "Resumo da tarefa"
+
 #: apps/course_metadata/models.py:5052
 msgid "Task Type"
 msgstr "Tipo de Tarefa"
 
+#: apps/course_metadata/models.py:5055
+msgid "Type of Bulk Task to be performed"
+msgstr "Tipo de Tarefa em massa a ser executada"
+
 #: apps/course_metadata/models.py:5058
 msgid "Status"
 msgstr "Situação"
+
+#: apps/course_metadata/models.py:5061
+msgid "Status of the Bulk Task"
+msgstr "Status da Tarefa em massa"
+
+#: apps/course_metadata/models.py:5069
+msgid "Identifier of the celery task associated with this bulk task"
+msgstr "Identificador da tarefa de \"celery\" associada a esta tarefa em massa"
 
 #: apps/course_metadata/salesforce.py:78
 msgid "Attempted to query Salesforce with no client for partner={}"
