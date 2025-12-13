@@ -261,6 +261,11 @@ msgstr "Problema"
 msgid "Library Content"
 msgstr "Conteúdo da Biblioteca"
 
+#: cms/djangoapps/contentstore/helpers.py:229
+#: cms/djangoapps/contentstore/views/component.py:288
+msgid "Problem Bank"
+msgstr "Banco de Problemas"
+
 #: cms/djangoapps/contentstore/management/commands/git_export.py:33
 msgid ""
 "Take the specified course and attempt to export it to a git repository\n"
@@ -657,6 +662,10 @@ msgstr "Vídeo"
 #: cms/djangoapps/contentstore/views/component.py:285
 msgid "Open Response"
 msgstr "Resposta Aberta"
+
+#: cms/djangoapps/contentstore/views/component.py:286
+msgid "Legacy Library"
+msgstr "Biblioteca Legado"
 
 #: cms/djangoapps/contentstore/views/component.py:289
 msgid "Drag and Drop"
@@ -1177,9 +1186,25 @@ msgstr[2] " Existem {count} blocos filhos."
 msgid "Dictionary with the available tags"
 msgstr "Dicionário com as Tags disponíveis"
 
+#: cms/lib/xblock/upstream_sync.py:72
+msgid "Content is not linked to a Content Library."
+msgstr "Conteúdo não está vinculado a uma biblioteca de conteúdo."
+
+#: cms/lib/xblock/upstream_sync.py:257
+msgid "Cannot update content because it does not belong to a course."
+msgstr "Não é possível atualizar conteúdo porque ele não pertence a um curso."
+
+#: cms/lib/xblock/upstream_sync.py:267
+msgid "Reference to linked library item is malformed"
+msgstr "A referência ao item de biblioteca linkado está malformada"
+
 #: cms/lib/xblock/upstream_sync.py:290
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "Vinculado `upstream_key` não é um link válido"
+
+#: cms/lib/xblock/upstream_sync_block.py:108
+msgid "Linked library item could not be loaded: {}"
+msgstr "O item da biblioteca vinculada não pôde ser carregado: {}"
 
 #: cms/templates/admin/base_site.html:4 lms/templates/admin/base_site.html:3
 msgid "Django site admin"
@@ -4236,6 +4261,17 @@ msgid "Provide additional course content and resources with custom pages"
 msgstr ""
 "Forneça conteúdo e recursos adicionais do curso com páginas customizadas"
 
+#: lms/djangoapps/courseware/plugins.py:271
+msgid "Flexible Peer Grading for ORAs"
+msgstr "Classificação por pares flexível para ORAs"
+
+#: lms/djangoapps/courseware/plugins.py:272
+msgid ""
+"Course level settings for Flexible Peer Grading Open Response Assessments."
+msgstr ""
+"Configurações de nível de curso para Avaliações de Resposta Aberta com "
+"Avaliação Flexível por Pares."
+
 #: lms/djangoapps/courseware/tabs.py:36
 #: lms/djangoapps/courseware/views/views.py:2250
 #: openedx/features/course_experience/__init__.py:108 xmodule/tabs.py:490
@@ -4404,6 +4440,22 @@ msgstr "O certificado já foi criado."
 msgid "Certificate is being created."
 msgstr "O certificado está sendo criado."
 
+#: lms/djangoapps/courseware/views/views.py:2062
+msgid ""
+"We plan to use this information to evaluate your application for financial assistance and to further develop our financial assistance program. \n"
+"Please note that while assistance is available in most courses that offer verified certificates, a few courses and programs are not eligible. You must complete a separate application for each course you take. You may be approved for financial assistance five (5) times each year (based on 12-month period from you first approval). \n"
+"To apply for financial assistance: \n"
+"1. Enroll in the audit track for an eligible course that offers Verified Certificates. \n"
+"2. Complete this application. \n"
+"3. Check your email, please allow 4 weeks for your application to be processed."
+msgstr ""
+"Planejamos usar essas informações para avaliar sua solicitação de assistência financeira e desenvolver ainda mais nosso programa de assistência financeira. \n"
+"Observe que, embora a assistência esteja disponível na maioria dos cursos que oferecem Certificados verificados, alguns cursos e programas não são elegíveis. Você deve preencher uma inscrição separada para cada curso que fizer. Você pode ser aprovado para assistência financeira cinco (5) vezes por ano (com base no Período de 12 meses a partir da sua primeira aprovação). \n"
+"Para solicitar assistência financeira: \n"
+"1. Matricule-se na faixa de ouvinte de um curso qualificado que ofereça Certificados verificados. \n"
+"2. Preencha este requerimento. \n"
+"3. Verifique seu e-mail. Aguarde 4 semanas para que sua solicitação seja processada."
+
 #: lms/djangoapps/courseware/views/views.py:2257
 msgid ""
 "Select the course for which you want to earn a verified certificate. If the "
@@ -4484,6 +4536,16 @@ msgstr "seu"
 msgid "their"
 msgstr "deles"
 
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/commentnotification/push/body.txt:2
+#, python-format
+msgid "%(comment_username)s commented to %(thread_title)s:"
+msgstr "%(comment_username)s comentário para %(thread_title)s:"
+
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/commentnotification/push/title.txt:2
+#, python-format
+msgid "Comment to %(thread_title)s"
+msgstr "Comentário para %(thread_title)s"
+
 #: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.html:24
 #: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.txt:18
 msgid "Go to Discussion"
@@ -4520,6 +4582,15 @@ msgstr "%(comment_username)s responde a <b>%(thread_title)s</b>:"
 #, python-format
 msgid "Response to %(thread_title)s"
 msgstr "Resposta para: %(thread_title)s"
+
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/responsenotification/push/body.txt:2
+#, python-format
+msgid ""
+"%(comment_username)s replied to %(thread_title)s: "
+"%(comment_body|truncatechars:200)s"
+msgstr ""
+"%(comment_username)s responde a %(thread_title)s: "
+"%(comment_body|truncatechars:200)s"
 
 #: lms/djangoapps/discussion/views.py:80
 msgid "Access to this discussion is restricted to team members and staff."
@@ -4975,6 +5046,10 @@ msgstr "O módulo não existe."
 msgid "An error occurred while deleting the score."
 msgstr "Ocorreu um erro ao excluir a pontuação."
 
+#: lms/djangoapps/instructor/views/api.py:2056
+msgid "An error occurred while attempting to reset for all students."
+msgstr "Ocorreu um erro ao tentar redefinir para todos os alunos."
+
 #: lms/djangoapps/instructor/views/api.py:2116
 #: lms/djangoapps/instructor/views/api.py:2355
 msgid "Course has no entrance exam section."
@@ -5425,6 +5500,16 @@ msgstr "Concluída"
 #: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
 msgid "Incomplete"
 msgstr "Incompleto"
+
+#: lms/djangoapps/instructor/views/serializer.py:31
+#: lms/djangoapps/instructor/views/serializer.py:89
+msgid "Role name"
+msgstr "Nome da Função"
+
+#: lms/djangoapps/instructor/views/serializer.py:38
+#: lms/djangoapps/instructor/views/serializer.py:99
+msgid "Invalid role name."
+msgstr "Nome de função inválido."
 
 #: lms/djangoapps/instructor/views/serializer.py:496
 msgid "Whether to reset for all students."
@@ -6492,6 +6577,22 @@ msgstr "Você foi convidado para um teste beta de %(course_name)s"
 msgid "Dear %(full_name)s,"
 msgstr "Caro %(full_name)s,"
 
+#: lms/templates/instructor/edx_ace/addbetatester/push/body.txt:4
+#, python-format
+msgid ""
+"You have been invited to be a beta tester for %(course_name)s at "
+"%(site_name)s."
+msgstr ""
+"Você foi convidado para ser um testador beta de %(course_name)s em "
+"%(site_name)s."
+
+#: lms/templates/instructor/edx_ace/addbetatester/push/title.txt:3
+#, python-format
+msgid ""
+"You have been invited to a beta test for %(course_name)s at %(site_name)s."
+msgstr ""
+"Você foi convidado para um teste beta para %(course_name)s em %(site_name)s."
+
 #: lms/templates/instructor/edx_ace/allowedenroll/email/body.html:12
 #, python-format
 msgid "You have been invited to %(course_name)s"
@@ -6594,6 +6695,20 @@ msgstr ""
 msgid "You have been invited to register for %(course_name)s"
 msgstr "Você foi convidado a se registrar em %(course_name)s"
 
+#: lms/templates/instructor/edx_ace/allowedenroll/push/body.txt:3
+#, python-format
+msgid ""
+"You have been enrolled in %(course_name)s at %(site_name)s. This course will"
+" now appear on your %(site_name)s dashboard."
+msgstr ""
+"Você foi matriculado em %(course_name)s em %(site_name)s. Este curso agora "
+"aparecerá no seu painel de controle %(site_name)s."
+
+#: lms/templates/instructor/edx_ace/allowedenroll/push/title.txt:3
+#, python-format
+msgid "You have been invited to register for %(course_name)s."
+msgstr "Você foi convidado a se registrar para %(course_name)s."
+
 #: lms/templates/instructor/edx_ace/allowedunenroll/email/body.html:12
 #: lms/templates/instructor/edx_ace/allowedunenroll/email/subject.txt:3
 #: lms/templates/instructor/edx_ace/allowedunenroll/push/title.txt:3
@@ -6616,6 +6731,15 @@ msgstr ""
 #: lms/templates/instructor/edx_ace/allowedunenroll/email/body.txt:1
 msgid "Dear Student,"
 msgstr "Prezado aluno,"
+
+#: lms/templates/instructor/edx_ace/allowedunenroll/push/body.txt:3
+#, python-format
+msgid ""
+"You have been unenrolled from the course %(course_name)s. Please disregard "
+"the invitation previously sent."
+msgstr ""
+"Você foi desmatriculado do curso %(course_name)s. Por favor, desconsidere o "
+"convite enviado anteriormente."
 
 #: lms/templates/instructor/edx_ace/enrolledunenroll/email/body.html:21
 #: lms/templates/instructor/edx_ace/enrolledunenroll/email/body.txt:3
@@ -6645,6 +6769,15 @@ msgid "This email was automatically sent from %(site_name)s to %(full_name)s"
 msgstr ""
 "Este e-mail foi enviado automaticamente de %(site_name)s para %(full_name)s"
 
+#: lms/templates/instructor/edx_ace/enrolledunenroll/push/body.txt:4
+#, python-format
+msgid ""
+"You have been unenrolled from %(course_name)s at %(site_name)s. This course "
+"will no longer appear on your %(site_name)s dashboard."
+msgstr ""
+"Você foi desmatriculado de %(course_name)s em %(site_name)s. Este curso não "
+"aparecerá mais no seu Painel de controle %(site_name)s."
+
 #: lms/templates/instructor/edx_ace/enrollenrolled/email/body.html:21
 #: lms/templates/instructor/edx_ace/enrollenrolled/email/body.txt:3
 #, python-format
@@ -6660,6 +6793,12 @@ msgstr ""
 #: lms/templates/instructor/edx_ace/enrollenrolled/email/body.html:27
 msgid "Access the Course Materials Now"
 msgstr "Acesso agora os materiais do curso"
+
+#: lms/templates/instructor/edx_ace/enrollenrolled/push/body.txt:4
+#, python-format
+msgid "You have been invited to join %(course_name)s at %(site_name)s."
+msgstr ""
+"Você foi convidado para participar de %(course_name)s em %(site_name)s."
 
 #: lms/templates/instructor/edx_ace/removebetatester/email/body.html:12
 #, python-format
@@ -6701,6 +6840,24 @@ msgstr ""
 #, python-format
 msgid "You have been removed from a beta test for %(course_name)s"
 msgstr "Você foi removido de um teste beta para %(course_name)s"
+
+#: lms/templates/instructor/edx_ace/removebetatester/push/body.txt:4
+#, python-format
+msgid ""
+"You have been removed as a beta tester for %(course_name)s at %(site_name)s."
+" This course will remain on your dashboard, but you will no longer be part "
+"of the beta testing group."
+msgstr ""
+"Você foi removido como um testador beta para %(course_name)s em "
+"%(site_name)s. Este curso permanecerá no seu Painel de controle, mas você "
+"não fará mais parte do grupo de teste beta."
+
+#: lms/templates/instructor/edx_ace/removebetatester/push/title.txt:3
+#, python-format
+msgid ""
+"You have been removed as a beta tester for %(course_name)s at %(site_name)s."
+msgstr ""
+"Você foi removido como testador beta de %(course_name)s em %(site_name)s"
 
 #: lms/templates/logout.html:9 lms/templates/logout.html:36
 msgid "You have signed out."
@@ -7885,6 +8042,11 @@ msgid ""
 "The authorized LTI profile that launched the resource (identifies the user)."
 msgstr "O perfil LTI autorizado que lançou o recurso (identifica o usuário)."
 
+#: openedx/core/djangoapps/content_libraries/models.py:480
+msgid ""
+"The usage key string of the resource serving the content of this launch."
+msgstr "A sequência de chaves de uso fornece o conteúdo deste lançamento."
+
 #: openedx/core/djangoapps/content_libraries/models.py:486
 msgid ""
 "The LTI platform unique identifier of this resource, also known as the "
@@ -8437,6 +8599,22 @@ msgstr "Aplicativo de notificação"
 msgid "Notification Type"
 msgstr "Tipo de notificação"
 
+#: openedx/core/djangoapps/notifications/admin.py:71
+msgid ""
+"Search by username, course_id. Specify fields with username: or course_id: prefixes. If no prefix is specified, search will be done on username. \n"
+"Examples: \n"
+" - testuser (default username search) \n"
+" - username:testuser (username keyword search) \n"
+" - course_id:course-v1:edX+DemoX+Demo_Course (course_id keyword search) \n"
+" - username:testuser, course_id:course-v1:edX+DemoX+Demo_Course (combined keyword search) \n"
+msgstr ""
+"Pesquise por nome de usuário, identificação do curso. Especifique campos com prefixos nome de usuário: ou identificação do curso:. Se nenhum prefixo for especificado, a pesquisa será feita por nome de usuário. \n"
+"Exemplos: \n"
+" - testuser (pesquisa de nome de usuário padrão) \n"
+" - nome de usuário:testuser (pesquisa por palavra-chave de nome de usuário) \n"
+" - identificação do curso:course-v1:edX+DemoX+Demo_Course (pesquisa por palavra-chave identificação do curso) \n"
+" - nome de usuário:testuser, identificação do curso:course-v1:edX+DemoX+Demo_Course (pesquisa combinada de palavras-chave) \n"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:69
 #, python-brace-format
 msgid ""
@@ -8484,6 +8662,15 @@ msgstr ""
 "<{p}><{strong}>{username}</{strong}> postou "
 "<{strong}>{post_title}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:118
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> and others started new "
+"discussions</{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> e outros iniciaram nova "
+"discussão</{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:137
 #, python-brace-format
 msgid ""
@@ -8511,6 +8698,17 @@ msgstr ""
 "<{p}><{strong}>{replier_name}</{strong}> e outros responderam a uma "
 "publicação que você está seguindo: <{strong}>{post_title}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:168
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> commented on "
+"<{strong}>{author_name}</{strong}> response in a post you’re following "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> comentou na resposta de "
+"<{strong}>{author_name}</{strong}> em uma publicação que você está "
+"acompanhando <{strong}>{post_title}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:189
 #, python-brace-format
 msgid ""
@@ -8519,6 +8717,38 @@ msgid ""
 msgstr ""
 "<p><strong>{username}</strong> {content_type} foi relatado "
 "<strong>{content}</strong></p>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:206
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}'s</{strong}> response has been endorsed in "
+"your post <{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}>A resposta de <{strong}>{replier_name}</{strong}> endossou sua "
+"publicação <{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:221
+#, python-brace-format
+msgid ""
+"<{p}>Your response has been endorsed on the post "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}>Sua resposta foi endossada na publicação "
+"<{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:239
+#, python-brace-format
+msgid "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
+msgstr "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:277
+#, python-brace-format
+msgid ""
+"<{p}>You have received {points_earned} out of {points_possible} on your "
+"assessment: <{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>Você recebeu {points_earned} de {points_possible} em sua avaliação: "
+"<{strong}>{ora_name}</{strong}></{p}>"
 
 #: openedx/core/djangoapps/notifications/base_notification.py:345
 msgid ""
@@ -8531,6 +8761,10 @@ msgstr ""
 #: openedx/core/djangoapps/notifications/base_notification.py:355
 msgid "Notifications for new announcements and updates from the course team."
 msgstr "Notificações para novos anúncios e atualizações da equipe do curso."
+
+#: openedx/core/djangoapps/notifications/base_notification.py:364
+msgid "Notifications for submission grading."
+msgstr "Notificações para classificação de envios."
 
 #: openedx/core/djangoapps/notifications/email/utils.py:441
 #: openedx/features/course_experience/plugins.py:34
@@ -8568,6 +8802,17 @@ msgstr "Visualizar"
 #: openedx/core/djangoapps/notifications/templates/notifications/immediate_email_content.html:8
 msgid "Unsubscribe"
 msgstr "Cancelar inscrição"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:5
+msgid "Email Digest Preferences Updated"
+msgstr "Preferências do Email Digest foram atualizadas"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:9
+msgid ""
+"You have successfully unsubscribed from email digest for learning activity"
+msgstr ""
+"Você com sucesso cancelou a inscrição no resumo de e-mail para atividade de "
+"aprendizagem"
 
 #: openedx/core/djangoapps/notifications/views.py:174
 msgid "Invalid app name."
@@ -9089,6 +9334,10 @@ msgid ""
 msgstr ""
 "Parece que {email_address} já faz parte de uma conta existente. Tente "
 "novamente com um endereço de e-mail diferente."
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:64
+msgid "This email is already associated with an existing account"
+msgstr "Este e-mail já está associado a uma conta existente"
 
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:66
 msgid "This email is associated to a retired account."
@@ -9743,6 +9992,13 @@ msgstr "É necessário um endereço de e-mail válido"
 msgid "Your legal name must be a minimum of one character long"
 msgstr "Seu nome legal deve ter no mínimo um caractere"
 
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:149
+#, python-format
+msgid ""
+"Your legal name is too long. It must not exceed %(max_length)s characters"
+msgstr ""
+"Seu nome legal é muito longo. Não deve exceder %(max_length)s caracteres"
+
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:161
 #, python-format
 msgid "Email cannot be more than %(limit_value)s characters long"
@@ -9800,6 +10056,10 @@ msgid ""
 msgstr ""
 "Parece que {email} já pertence a uma conta existente. Tente novamente com um"
 " endereço de e-mail diferente."
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:311
+msgid "Registration from this country is not allowed due to restrictions."
+msgstr "O registro deste país não é permitido devido a restrições."
 
 #. Translators: These instructions appear on the registration form,
 #. immediately
@@ -10384,6 +10644,10 @@ msgstr ""
 #: openedx/features/enterprise_support/utils.py:205
 msgid "Continue"
 msgstr "Continuar"
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:121
+msgid "The deadline to complete this assignment has passed."
+msgstr "O prazo para concluir este trabalho já passou."
 
 #: openedx/features/personalized_learner_schedules/call_to_action.py:127
 msgid "Shift due dates"
@@ -12592,6 +12856,12 @@ msgid "The lowest {drop_count} {section_type} scores are dropped."
 msgstr ""
 "As {drop_count} pontuações mais baixas em {section_type} são descartadas."
 
+#. Translators: "Homework Average = 0%"
+#: xmodule/graders.py:436
+#, python-brace-format
+msgid "{section_type} Average = {percent:.2%}"
+msgstr "{section_type} Média = {percent:.2%}"
+
 #. Translators: Avg is short for Average
 #: xmodule/graders.py:441
 #, python-brace-format
@@ -12684,6 +12954,29 @@ msgstr ""
 "Determinam se um botão 'Redefinir Problemas' é exibido, para que os usuários"
 " possam redefinir suas respostas e embaralhar novamente os itens "
 "selecionados."
+
+#: xmodule/item_bank_block.py:480
+#, python-brace-format
+msgid ""
+"The problem bank has been configured to show {count} problems. Please "
+"specify a positive number of problems, or specify -1 to show all problems."
+msgstr ""
+"O banco de problemas foi configurado para mostrar {count} problemas. "
+"Especifique um número positivo de problemas, ou especifique -1 para mostrar "
+"todos os problemas."
+
+#: xmodule/item_bank_block.py:484 xmodule/item_bank_block.py:496
+msgid "Edit the problem bank configuration."
+msgstr "Editar a configuração do banco de questões."
+
+#: xmodule/item_bank_block.py:492
+#, python-brace-format
+msgid ""
+"The problem bank has been configured to show {count} problems, but only "
+"{actual} have been selected."
+msgstr ""
+"O banco de problemas foi configurado para mostrar {count} problemas, mas "
+"apenas {actual} foram selecionados."
 
 #: xmodule/library_content_block.py:52
 msgid "Any Type"
@@ -13570,6 +13863,37 @@ msgstr ""
 #: xmodule/tabs.py:398 xmodule/tabs.py:433
 msgid "External Discussion"
 msgstr "Discussão Externa"
+
+#: xmodule/templates/item_bank/author_view.html:32
+#, python-brace-format
+msgid ""
+"Press {link_start}View{link_end} to preview, sync/update, and/or remove the "
+"selected components."
+msgstr ""
+"Pressione {link_start}View{link_end} para mostrar, sincronizar/atualizar "
+"e/ou remover os Componentes selecionados."
+
+#: xmodule/templates/item_bank/author_view.html:38
+#, python-brace-format
+msgid ""
+"Press {link_start}Edit{link_end} to configure how many will be shown and "
+"other settings."
+msgstr ""
+"Pressione {link_start}Editar{link_end} para configurar quantos serão "
+"mostrados e outras configurações."
+
+#: xmodule/templates/item_bank/author_view.html:44
+msgid "You have not selected any components yet."
+msgstr "Você ainda não selecionou nenhum componente."
+
+#: xmodule/templates/item_bank/author_view_add.html:11
+#, python-brace-format
+msgid ""
+"{button_start}Add components{button_end} from a content library to this "
+"problem bank."
+msgstr ""
+"{button_start} Adicione componentes {button_end} de uma biblioteca de "
+"conteúdo a este banco de problemas."
 
 #: xmodule/vertical_block.py:45
 msgid "Enable in-context discussions for the Unit"
