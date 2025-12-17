@@ -313,9 +313,30 @@ msgstr ""
 "utile pour parcourir les blocs amont de la bibliothèque qui n'existent pas "
 "encore."
 
+#: cms/djangoapps/contentstore/models.py:163
+msgid "Component Link"
+msgstr "Lien de composant"
+
+#: cms/djangoapps/contentstore/models.py:164
+msgid "Component Links"
+msgstr "Liens de composants"
+
 #: cms/djangoapps/contentstore/models.py:190
 msgid "The component must be published to access `published_at`"
 msgstr "Le composant doit être publié pour accéder à `published_at`"
+
+#: cms/djangoapps/contentstore/models.py:329
+msgid ""
+"Upstream block key (e.g. lct:...), this value cannot be null and is useful "
+"to track upstream library blocks that do not exist yet or were deleted."
+msgstr ""
+"Clé du bloc en amont (par exemple lct :...), cette valeur ne peut être nulle"
+" et est utile pour parcourir les blocs de la bibliothèque en amont qui "
+"n'existent pas encore ou qui ont été supprimés."
+
+#: cms/djangoapps/contentstore/models.py:337
+msgid "Container Links"
+msgstr "Liens de Conteneur"
 
 #: cms/djangoapps/contentstore/models.py:363
 msgid "The container must be published to access `published_at`"
@@ -1257,6 +1278,10 @@ msgstr "Dictionnaire avec les balises disponibles"
 #: cms/lib/xblock/upstream_sync.py:72
 msgid "Content is not linked to a Content Library."
 msgstr "Le Contenu n'est pas lié à une bibliothèque de Contenu."
+
+#: cms/lib/xblock/upstream_sync.py:255
+msgid "Downstream is not an XBlock or is missing required UpstreamSyncMixin"
+msgstr "Downstream n'est pas un XBlock ou manque UpstreamSyncMixin"
 
 #: cms/lib/xblock/upstream_sync.py:259
 msgid "Cannot update content because it does not belong to a course."
@@ -3969,6 +3994,12 @@ msgstr "Télécharger l'application iOS sur l'Apple Store"
 msgid "Download the Android app on the Google Play Store"
 msgstr "Téléchargez l'application Android sur le Google Play Store"
 
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/footer.html:174
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/footer.html:174
+msgid "edX is the trusted platform for education and learning"
+msgstr ""
+"edX est la plateforme de confiance pour l'éducation et l'apprentissage"
+
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/footer.html:180
 #: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/base_body.html:240
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/footer.html:180
@@ -5694,6 +5725,24 @@ msgstr "Nom du rôle"
 #: lms/djangoapps/instructor/views/serializer.py:99
 msgid "Invalid role name."
 msgstr "Nom de rôle non valide."
+
+#: lms/djangoapps/instructor/views/serializer.py:344
+msgid "The URL name of the problem to reset."
+msgstr "Le nom de l'URL de l'exercice à réinitialiser."
+
+#: lms/djangoapps/instructor/views/serializer.py:346
+#: lms/djangoapps/instructor/views/serializer.py:567
+msgid "Problem URL name cannot be blank."
+msgstr "Le nom de l'URL de l'exercice ne peut pas être vide."
+
+#: lms/djangoapps/instructor/views/serializer.py:351
+msgid "Whether to reset the problem for all students."
+msgstr "S'il faut réinitialiser l'exercice pour tous les apprenants."
+
+#: lms/djangoapps/instructor/views/serializer.py:361
+#: lms/djangoapps/instructor/views/serializer.py:508
+msgid "unique student identifier."
+msgstr "identifiant unique de l'étudiant."
 
 #: lms/djangoapps/instructor/views/serializer.py:496
 msgid "Whether to reset for all students."
@@ -8982,6 +9031,24 @@ msgstr ""
 msgid "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
 msgstr "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:256
+#, python-brace-format
+msgid ""
+"<{p}>You have a new open response submission awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>Vous avez une nouvelle réponse ouverte en attente d'examen pour "
+"<{strong}>{ora_name}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:258
+#, python-brace-format
+msgid ""
+"<{p}>You have multiple submissions awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>Vous avez plusieurs réponses en attente d'examen pour "
+"<{strong}>{ora_name}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:277
 #, python-brace-format
 msgid ""
@@ -9015,6 +9082,19 @@ msgstr ""
 msgid "Notifications for submission grading."
 msgstr "Notifications pour le classement des réponses."
 
+#: openedx/core/djangoapps/notifications/email/tasks.py:144
+msgid "New Course Update"
+msgstr "Mise à jour des nouveaux cours"
+
+#: openedx/core/djangoapps/notifications/email/tasks.py:152
+msgid ""
+"You are receiving this email because you are enrolled in the edX course "
+msgstr "Vous recevez cet email parce que vous êtes inscrit dans le cours edX "
+
+#: openedx/core/djangoapps/notifications/email/utils.py:136
+msgid "Total Notifications"
+msgstr "Total Notifications"
+
 #: openedx/core/djangoapps/notifications/email/utils.py:212
 msgid "Today"
 msgstr "Aujourd'hui"
@@ -9032,6 +9112,14 @@ msgstr "Notes"
 msgid "discussion"
 msgstr "discussion"
 
+#: openedx/core/djangoapps/notifications/email/utils.py:464
+msgid "update"
+msgstr "mise à jour"
+
+#: openedx/core/djangoapps/notifications/email/utils.py:465
+msgid "assessment"
+msgstr "évaluation"
+
 #: openedx/core/djangoapps/notifications/email_notifications.py:17
 msgid "Weekly"
 msgstr "Hebdomadaire"
@@ -9046,15 +9134,57 @@ msgstr "immédiatement"
 msgid "Never"
 msgstr "Jamais"
 
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_content.html:15
+msgid "View all"
+msgstr "Voir tout"
+
 #: openedx/core/djangoapps/notifications/templates/notifications/digest_content.html:50
 #: openedx/core/djangoapps/notifications/templates/notifications/immediate_email_content.html:27
 msgid "View"
 msgstr "Voir"
 
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_content.html:63
+msgid "more"
+msgstr "plus"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:38
+msgid ""
+"You are receiving this email because you have subscribed to email digest"
+msgstr ""
+"Vous recevez cet e-mail parce que vous vous êtes abonné à l'email digest"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:43
+msgid "Notification Settings"
+msgstr "Paramètres de notification"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:46
+msgid "Unsubscribe from email digest for learning activity"
+msgstr ""
+"Se désabonner de la liste d'adresses électroniques pour l'activité "
+"d'apprentissage"
+
 #: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:12
 #: openedx/core/djangoapps/notifications/templates/notifications/immediate_email_content.html:8
 msgid "Unsubscribe"
 msgstr "Se désabonner"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:25
+msgid "Weekly Notifications Digest"
+msgstr "Résumé des notifications hebdomadaires"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:27
+msgid "Daily Notifications Digest"
+msgstr "Résumé des notifications quotidiennes"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/body.txt:4
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/subject.txt:4
+msgid "Weekly Notifications Digest for the Week of"
+msgstr "Recueil des notifications hebdomadaires pour la semaine du"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/body.txt:6
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/subject.txt:6
+msgid "Daily Notifications Digest for"
+msgstr "Résumé des notifications quotidiennes pour"
 
 #: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:5
 msgid "Email Digest Preferences Updated"
@@ -9273,6 +9403,32 @@ msgid ""
 msgstr ""
 "Il s'agit d'un courriel d'activation de compte acheminé pour "
 "%(routed_profile_name)s (%(routed_user_email)s) : %(routed_profile_name)s"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:36
+msgid "Welcome to edX. It’s time for your next career move"
+msgstr "Bienvenue sur edX. C'est le moment d'entamer votre prochaine carrière"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:62
+msgid "Resume your course "
+msgstr "Reprendre le cours "
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:82
+msgid "Your focused attention will pay off in the end!"
+msgstr "Votre attention concentrée finira par porter ses fruits !"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:84
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:101
+msgid ""
+"With self-paced courses, you learn on your own schedule. It’s a good idea to"
+" spend time with the course each week and check in with your goals often."
+msgstr ""
+"Avec les cours à rythme libre, vous apprenez à votre rythme. Il est "
+"conseillé de consacrer du temps au cours chaque semaine et de vérifier "
+"régulièrement vos objectifs."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:100
+msgid "Your focused attention will pay off in the end! "
+msgstr "Votre attention concentrée finira par porter ses fruits ! "
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.txt:4
 #, python-format
@@ -11802,6 +11958,14 @@ msgstr ""
 "informer MathWorks immédiatement si vous pensez que la clé est exposée ou "
 "compromise. Pour obtenir une clé pour votre cours ou pour signaler un "
 "problème, veuillez contacter moocsupport@mathworks.com"
+
+#: xmodule/capa_block.py:348
+msgid ""
+"Indicates if the problem was edited using the Markdown editor in the "
+"Authoring MFE."
+msgstr ""
+"Indique si l'exercice a été modifié à l'aide de l'éditeur Markdown dans "
+"l'EMF auteur."
 
 #: xmodule/capa_block.py:440
 msgid ""
