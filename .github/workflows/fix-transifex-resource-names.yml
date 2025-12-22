@@ -3,7 +3,6 @@
 name: Fix Transifex resource names and slugs
 
 on:
-  workflow_dispatch:  # by request
   push:  # after adding repositories to the openedx-translations repo
     branches: [ main ]
     paths:
@@ -11,6 +10,23 @@ on:
       - '.github/workflows/extract-translation-source-files.yml'
   schedule:  # Also run monthly just in case there's a stall slug/name update
     - cron: '0 0 1 * *'
+  workflow_dispatch:  # by request
+    inputs:
+      release_name:
+        description: 'Release name e.g. redwood, sumac, , etc or main for the latest project (defaults to "main").'
+        required: true
+        default: main
+        type: string
+      dry_run:
+        description: 'Dry run: If true, will not make any changes to Transifex'
+        required: false
+        default: true
+        type: boolean
+      force_suffix:
+        description: 'Force suffix: If true, will force suffix to be added to the resource Transifex slug'
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   resource-names:
@@ -19,18 +35,32 @@ jobs:
     steps:
       # Clones the openedx-translations repo
       - name: clone openedx/openedx-translations
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 
       # Sets up Python
       - name: setup python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.8'
+          python-version: '3.12'
 
       # Run the script
       - name: Fix transifex automatic resource names
         env:
           TRANSIFEX_API_TOKEN: ${{ secrets.TRANSIFEX_API_TOKEN }}
+          RELEASE: ${{ inputs.release_name }}
         run: |
           make translations_scripts_requirements
-          make fix_transifex_resource_names
+
+          if [[ "${{ inputs.dry_run }}" == "true" ]]; then
+            if [[ "${{ inputs.force_suffix }}" == "true" ]]; then
+              make fix_force_suffix_dry_run_transifex_resource_names;
+            else
+              make fix_dry_run_transifex_resource_names;
+            fi
+          else
+            if [[ "${{ inputs.force_suffix }}" == "true" ]]; then
+              make fix_force_suffix_transifex_resource_names;
+            else
+              make fix_transifex_resource_names;
+            fi
+          fi

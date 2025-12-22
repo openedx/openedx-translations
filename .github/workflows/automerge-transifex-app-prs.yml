@@ -12,11 +12,11 @@ jobs:
     # Merges the pull request
     steps:
       - name: clone repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: merge pull request
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@v3
         id: mergePR
         env:
           # secrets can't be used in job conditionals, so we set them to env here

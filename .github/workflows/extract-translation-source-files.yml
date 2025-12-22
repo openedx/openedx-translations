@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/github-script@v6
+      - uses: actions/github-script@v7
         id: generate_repo_matrix
         with:
           script: |
@@ -40,7 +40,6 @@ jobs:
               'credentials',
               'credentials-themes',
               'DoneXBlock',
-              'ecommerce',
               'edx-ace',
               'edx-bulk-grades',
               'edx-enterprise',
@@ -66,35 +65,46 @@ jobs:
               'frontend-app-publisher',
               'frontend-app-account',
               'frontend-app-authn',
+              'frontend-app-catalog',
               'frontend-app-communications',
               'frontend-app-course-authoring',
               'frontend-app-discussions',
-              'frontend-app-ecommerce',
               'frontend-app-enterprise-public-catalog',
               'frontend-app-gradebook',
               'frontend-app-learner-dashboard',
               'frontend-app-learner-record',
               'frontend-app-learning',
               'frontend-app-library-authoring',
+              'frontend-app-ora',
               'frontend-app-ora-grading',
-              'frontend-app-payment',
               'frontend-app-profile',
-              'frontend-app-program-console',
               'frontend-app-support-tools',
               'frontend-component-footer',
               'frontend-component-header',
-              'frontend-lib-content-components',
               'frontend-lib-special-exams',
               'frontend-platform',
               'paragon',
               'studio-frontend',
               'frontend-app-learner-portal-enterprise',
+              'frontend-enterprise',
             ];
 
             const allGenericRepos = [
               {
                 repo: 'tutor-contrib-aspects',
-                transifex_file_path: 'transifex_input.yaml'
+                transifex_file_path: 'transifex_input.yaml',
+              },
+              {
+                repo: 'openedx-app-ios',
+                transifex_file_path: 'I18N/I18N/en.lproj/Localizable.strings',
+                before_extract: 'make translation_requirements',
+                ref: 'develop',  // TODO: Use main branch https://github.com/openedx/openedx-translations/issues/6395
+              },
+              {
+                repo: 'openedx-app-android',
+                transifex_file_path: 'i18n/src/main/res/values/strings.xml',
+                before_extract: 'make translation_requirements',
+                ref: 'develop',  // TODO: Use main branch https://github.com/openedx/openedx-translations/issues/6395
               },
             ]
 
@@ -154,7 +164,7 @@ jobs:
       id: date
       run: echo $BRANCH
     - name: clone openedx/openedx-translations
-      uses: actions/checkout@v3
+      uses: actions/checkout@v6
 
     # creates the branch where all the translations will be added to
     - name: make and push a new branch
@@ -177,7 +187,7 @@ jobs:
     steps:
       # Clones the openedx-translations repo
       - name: clone openedx/openedx-translations
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           ref: ${{ needs.setup-branch.outputs.branch }}
 
@@ -187,7 +197,7 @@ jobs:
 
       # Clones the  repository
       - name: clone ${{ github.repository_owner }}/${{ matrix.repo }}
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           repository: ${{ github.repository_owner }}/${{ matrix.repo }}
           ref: ${{ github.event.inputs.ref }}
@@ -204,10 +214,10 @@ jobs:
 
       # Setup Python
       - name: setup python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         id: setup_python
         with:
-          python-version: '3.8'
+          python-version: '3.12'
           cache: pip
           # The `edx-platf*rm` wildcard will be expanded to `edx-platform` if its requirement file exists,
           # otherwise it will be omitted
@@ -314,7 +324,6 @@ jobs:
       max-parallel: 1
       matrix:
         # repos missing extract_translations target in makefile:
-        # * frontend-enterprise?
         # * frontend-build?
         # * frontend-app-learner-portal-programs
         # * frontend-component-cookie-policy-banner
@@ -328,13 +337,13 @@ jobs:
     steps:
       # Clones the openedx-translations repo
       - name: clone openedx/openedx-translations
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           ref: ${{ needs.setup-branch.outputs.branch }}
 
       # Clones the  repository
       - name: clone ${{ github.repository_owner }}/${{ matrix.repo }}
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           repository: ${{ github.repository_owner }}/${{ matrix.repo }}
           ref: ${{ github.event.inputs.ref }}
@@ -342,7 +351,7 @@ jobs:
 
       # Sets up node/npm
       - name: setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: 16
 
@@ -395,27 +404,34 @@ jobs:
     steps:
       # Clones the openedx-translations repo
       - name: clone openedx/openedx-translations
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           ref: ${{ needs.setup-branch.outputs.branch }}
 
       # Clones the  repository
       - name: clone ${{ github.repository_owner }}/${{ matrix.repository_config.repo }}
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           repository: ${{ github.repository_owner }}/${{ matrix.repository_config.repo }}
-          ref: ${{ github.event.inputs.ref }}
+          ref: ${{ github.event.inputs.ref || matrix.repository_config.ref }}
           path: translations/${{ matrix.repository_config.repo }}
 
       # Sets up Python
       - name: setup python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.8'
+          python-version: '3.12'
 
       # Installs Python requirements from translations.txt
       - name: install requirements
         run: pip install -r requirements/translations.txt
+
+      - name: run optional pre-extraction step
+        if: "${{ matrix.repository_config.before_extract }}"
+        run: |
+          # If the repository has additional requirements or processing steps run them
+          cd translations/${{ matrix.repository_config.repo }}
+          ${{ matrix.repository_config.before_extract }}
 
       # Extracts the translation source files
       - name: extract translation source files
@@ -459,7 +475,7 @@ jobs:
     steps:
       # Clones the openedx-translations repo on the automated/extract-translation-source-files-# branch
       - name: clone openedx/openedx-translations
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           ref: ${{ needs.setup-branch.outputs.branch }}
           fetch-depth: 0

@@ -1,0 +1,44 @@
+# This workflow runs release_project_sync.py on demand
+
+name: Sync reviews and tags into release project
+
+on:
+  workflow_dispatch:  # by request
+    inputs:
+      release:
+        description: 'Release name: e.g. zebrawood'
+        required: true
+        type: string
+      language:
+        description: 'Language code e.g. "ar" or "zh_CN". Leave empty to sync all resources.'
+        required: false
+        default: ''
+        type: string
+      resource:
+        description: 'Resource name e.g. "AudioXBlock" or "frontend-app-learning". Leave empty to sync all languages'
+        required: false
+        default: ''
+        type: string
+
+jobs:
+  release-project-sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Clones the openedx-translations repo
+      - name: clone openedx/openedx-translations
+        uses: actions/checkout@v6
+
+      # Sets up Python
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Run the script
+      - name: Sync reviews for release project
+        env:
+          TRANSIFEX_API_TOKEN: ${{ secrets.TRANSIFEX_API_TOKEN }}
+        run: |
+          make translations_scripts_requirements
+          python ./scripts/release_project_sync.py --resource="${{ inputs.resource }}" --language="${{ inputs.language }}" "${{ inputs.release }}"

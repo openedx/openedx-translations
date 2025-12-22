@@ -1,42 +1,74 @@
-# Validate the po files to ensure translation files are compilable.
+# Validate the translation files to ensure translation files are compilable.
 
-name: Validate translation PO files
+name: Validate translation files
 
 on:
   - pull_request
 
 jobs:
-  validate-po-files:
+  validate-translation-files:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: write
+    strategy:
+      matrix:
+        file-type: [po, json]
+    name: validate-${{ matrix.file-type }}-files
     steps:
-      # Define .po filepaths, so we can skip this action unless a .po
-      # file has been modified in this diff
-      - uses: dorny/paths-filter@v2
+      # Define translation filepaths, so we can skip this action unless a
+      # translation file has been modified in this diff
+      - uses: dorny/paths-filter@v3
         id: filter
         with:
+          list-files: shell
           filters: |
-            pofiles:
-              - '**.po'
+            changedtranslations:
+              - 'translations/**/*.${{ matrix.file-type }}'
 
       # Clones the openedx-translations repo
       - name: clone openedx/openedx-translations
-        if: steps.filter.outputs.pofiles == 'true'
-        uses: actions/checkout@v3
+        if: steps.filter.outputs.changedtranslations == 'true'
+        uses: actions/checkout@v6
 
-      - name: Install gettext
-        if: steps.filter.outputs.pofiles == 'true'
+      - name: Install msgfmt from gettext for po-file validation
+        if: steps.filter.outputs.changedtranslations == 'true' && matrix.file-type == 'po'
         run: |
           sudo apt install -y gettext
 
-      - name: Validate translation files
+      - name: setup python
+        if: steps.filter.outputs.changedtranslations == 'true'
+        uses: actions/setup-python@v5
+        id: setup_python
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements/translations.txt
+
+      - name: Install python requirements
+        if: steps.filter.outputs.changedtranslations == 'true'
+        run: |
+          python --version
+          make translations_scripts_requirements
+
+      - name: Setup node
+        if: steps.filter.outputs.changedtranslations == 'true' && matrix.file-type == 'json'
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install nodejs requirements
+        if: steps.filter.outputs.changedtranslations == 'true' && matrix.file-type == 'json'
+        run: |
+          npm clean-install
+
+      - name: Validate ${{ matrix.file-type }} translation files
         id: validate_translation_files
-        if: steps.filter.outputs.pofiles == 'true'
+        if: steps.filter.outputs.changedtranslations == 'true'
         run: |
           has_validation_errors=0
-          python scripts/validate_translation_files.py 2>validation_errors.txt || has_validation_errors=1
+          python scripts/validate_translation_files.py --types ${{ matrix.file-type }} ${{ steps.filter.outputs.changedtranslations_files }} 2>validation_errors.txt || has_validation_errors=1
           cat validation_errors.txt
 
           {
@@ -51,15 +83,17 @@ jobs:
         # Due to GitHub Actions security reasons posting a comment isn't possible on fork pull requests.
         # This shouldn't be an issue, because bots writes directly to this repository.
         if: ${{ always() && !github.event.pull_request.head.repo.fork }}
-        uses: mshick/add-pr-comment@7c0890544fb33b0bdd2e59467fbacb62e028a096
+        uses: mshick/add-pr-comment@b8f338c590a895d50bcbfa6c5859251edc8952fc
         with:
+          # enable multiple sticky comments depending on file types.
+          message-id: 'validate-translation-files-${{ matrix.file-type }}'
           message: |
-            :white_check_mark: All translation files are valid.
+            :white_check_mark: All `.${{ matrix.file-type }}` translation files are valid.
 
             This comment has been posted by the `validate-translation-files.yml` GitHub Actions workflow.
 
           message-failure: |
-            :warning: There are errors in the translation files:
+            :warning: There are errors in the `.${{ matrix.file-type }}` translation files:
 
             ```
             ${{ steps.validate_translation_files.outputs.VALIDATION_ERRORS || 'No errors were reported.' }}

@@ -12,7 +12,7 @@ jobs:
     steps:
       # Define which file extensions, when touched, should trigger the
       # Python tests, so we can skip this Action if we've only touched .po files
-      - uses: dorny/paths-filter@v2
+      - uses: dorny/paths-filter@v3
         id: filter
         with:
           filters: |
@@ -24,7 +24,16 @@ jobs:
 
       # Clones the openedx-translations repo
       - name: clone openedx/openedx-translations
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
+
+      - name: Setup node for testing
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install nodejs requirements
+        run: |
+          npm clean-install
 
       - name: Install gettext
         if: steps.filter.outputs.non_pofiles == 'true'
@@ -34,9 +43,9 @@ jobs:
       # Sets up Python
       - name: setup python
         if: steps.filter.outputs.non_pofiles == 'true'
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.8'
+          python-version: '3.12'
 
       # Run the script
       - name: run python tests
