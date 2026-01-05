@@ -6,6 +6,7 @@
 # Translators:
 # Translators:
 # Brian Smith, 2025
+# Elita Leilande, 2026
 # 
 msgid ""
 msgstr ""
@@ -13,8 +14,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-30 00:32+0000\n"
 "PO-Revision-Date: 2025-11-17 07:23+0000\n"
-"Last-Translator: Brian Smith, 2025\n"
-"Language-Team: Latvian (https://app.transifex.com/open-edx/teams/301281/lv/)\n"
+"Last-Translator: Elita Leilande, 2026\n"
+"Language-Team: Latvian (https://app.transifex.com/open-edx/teams/6205/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -124,6 +125,15 @@ msgstr "Neizdevās iestatīt kursa izpildes datus: {}"
 #: apps/api/v1/views/course_runs.py:328
 msgid "Can only update status, ofac restrictions, and ofac comment"
 msgstr "Var atjaunināt tikai statusu, ofac ierobežojumus un ofac komentārus"
+
+#: apps/api/v1/views/course_runs.py:363
+#, python-brace-format
+msgid ""
+"The course run type '{course_run_type}' is not valid for this course type "
+"'{course_type}'."
+msgstr ""
+"Kursa izpildes veids '{course_run_type}' nav derīgs šim kursa veidam "
+"'{course_type}'."
 
 #: apps/api/v1/views/course_runs.py:381
 msgid "Course run is in review. Editing disabled."
@@ -544,9 +554,49 @@ msgstr "demo"
 msgid "other"
 msgstr "cits"
 
+#: apps/course_metadata/choices.py:54
+msgid "Course Create"
+msgstr "Kursa izveide"
+
+#: apps/course_metadata/choices.py:55
+msgid "Partial Update"
+msgstr "Daļējs atjauninājums"
+
+#: apps/course_metadata/choices.py:56
+msgid "Course Rerun"
+msgstr "Kursa atkārtojums"
+
+#: apps/course_metadata/choices.py:57
+msgid "Course Editor Update"
+msgstr "Kursu redaktora atjauninājums"
+
+#: apps/course_metadata/choices.py:64
+msgid "Pending"
+msgstr "Gaida"
+
 #: apps/course_metadata/choices.py:65 apps/course_metadata/choices.py:76
 msgid "Verified"
 msgstr "Verificēts"
+
+#: apps/course_metadata/choices.py:66
+msgid "Processing"
+msgstr "Apstrāde"
+
+#: apps/course_metadata/choices.py:67
+msgid "Completed"
+msgstr "Pabeigts"
+
+#: apps/course_metadata/choices.py:68
+msgid "Failed"
+msgstr "Neveiksmīgs"
+
+#: apps/course_metadata/choices.py:69
+msgid "Partially Completed"
+msgstr "Daļēji pabeigts"
+
+#: apps/course_metadata/choices.py:70
+msgid "Errored"
+msgstr "Kļūdas"
 
 #: apps/course_metadata/choices.py:74
 msgid "Honor"
@@ -1415,6 +1465,16 @@ msgstr ""
 msgid "Estimated number of weeks needed to complete this course run."
 msgstr "Aptuvenais nedēļu skaits, kas nepieciešams šī kursa pabeigšanai."
 
+#: apps/course_metadata/models.py:2329
+msgid ""
+"A JSON dict detailing the available translations and transcriptions for this"
+" run. The dict has two keys: translation_languages and "
+"transcription_languages."
+msgstr ""
+"JSON diktāts ar detalizētu informāciju par pieejamajiem tulkojumiem un "
+"transkripcijām šai darbībai. Dict ir divas atslēgas: translation_languages "
+"un transcription_languages."
+
 #: apps/course_metadata/models.py:2336
 msgid "Total number of learners who have enrolled in this course run"
 msgstr "Kopējais kursa dalībnieku skaits, kuri ir reģistrējušies šajā kursā"
@@ -1770,7 +1830,7 @@ msgstr "Zvans"
 
 #: apps/course_metadata/models.py:4289
 msgid "Certificate"
-msgstr "Sertifikāts"
+msgstr "Apliecinājums"
 
 #: apps/course_metadata/models.py:4290
 msgid "Checkmark"
@@ -1909,6 +1969,10 @@ msgstr ""
 msgid "It expects the data will be provided in a csv file format "
 msgstr "Tā paredz, ka dati tiks sniegti csv faila formātā "
 
+#: apps/course_metadata/models.py:4738
+msgid "A csv file containing uuid of the courses to be archived"
+msgstr "csv fails, kurā ir arhivējamo kursu uuid."
+
 #: apps/course_metadata/models.py:4752 apps/course_metadata/models.py:4765
 #: apps/course_metadata/models.py:4778 apps/course_metadata/models.py:4813
 #: apps/course_metadata/models.py:4826 apps/course_metadata/models.py:4845
@@ -1964,6 +2028,34 @@ msgstr "Pievienojiet novirzīšanas no visiām publicētajām kursa URL pāradre
 #: apps/course_metadata/models.py:4979 apps/taxonomy_support/models.py:55
 msgid "Course uuids"
 msgstr "Kursa uuids"
+
+#: apps/course_metadata/models.py:5044
+msgid "User who uploaded the file"
+msgstr "Lietotājs, kas augšupielādējis failu"
+
+#: apps/course_metadata/models.py:5049
+msgid "Summary of the task"
+msgstr "Uzdevuma kopsavilkums"
+
+#: apps/course_metadata/models.py:5052
+msgid "Task Type"
+msgstr "Uzdevuma veids"
+
+#: apps/course_metadata/models.py:5055
+msgid "Type of Bulk Task to be performed"
+msgstr "Veicamā liela apjoma uzdevuma veids"
+
+#: apps/course_metadata/models.py:5058
+msgid "Status"
+msgstr "Statuss"
+
+#: apps/course_metadata/models.py:5061
+msgid "Status of the Bulk Task"
+msgstr "Lielapjoma uzdevuma statuss"
+
+#: apps/course_metadata/models.py:5069
+msgid "Identifier of the celery task associated with this bulk task"
+msgstr "Ar šo lielapjoma uzdevumu saistītā selerijas uzdevuma identifikators"
 
 #: apps/course_metadata/salesforce.py:78
 msgid "Attempted to query Salesforce with no client for partner={}"
@@ -2032,6 +2124,130 @@ msgid ""
 msgstr ""
 "%(user_name)s vietnē %(time)s sniedza šādu komentāru par %(course_name)s "
 "%(date)s"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:7
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:3
+#: apps/course_metadata/templates/course_metadata/email/go_live.html:9
+#: apps/course_metadata/templates/course_metadata/email/go_live.txt:3
+msgid "Hi Course Team,"
+msgstr "Sveiki, kursa komanda,"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:12
+#, python-format
+msgid ""
+"\n"
+"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
+"        "
+msgstr ""
+"\n"
+"        Šis ir automātisks atgādinājums, ka kursa \"%(course_name)s\" (kursa atslēga: %(course_key)s) beigas ir plānotas %(days)s, %(course_end_date)s.\n"
+"        "
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:16
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:16
+msgid ""
+"To ensure uninterrupted learner access and enrollment, please take one of "
+"the following actions:"
+msgstr ""
+"Lai nodrošinātu nepārtrauktu izglītojamo piekļuvi un reģistrāciju, lūdzu, "
+"veiciet kādu no šādām darbībām:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:19
+#, python-format
+msgid ""
+"\n"
+"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
+"        "
+msgstr ""
+"\n"
+"        Šis ir automātisks atgādinājums, ka kurss \"%(course_name)s\" (kursa atslēga: %(course_key)s) ir oficiāli beidzies no %(course_end_date)s.\n"
+"        "
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:23
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:18
+msgid ""
+"If this was intentional, no action is needed. However, if this course was "
+"meant to remain available, you have two options to restore access:"
+msgstr ""
+"Ja tas ir noticis apzināti, nekādas darbības nav nepieciešamas. Tomēr, ja "
+"šim kursam bija paredzēts saglabāt pieejamību, jums ir divas iespējas "
+"atjaunot piekļuvi:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:29
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:21
+msgid ""
+"Extend the current course run’s end date if the same course is meant to "
+"remain available."
+msgstr ""
+"Pagarināt pašreizējā kursa beigu datumu, ja tas pats kurss ir paredzēts arī "
+"turpmāk."
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:31
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:22
+msgid ""
+"Create a new course run if you are planning to offer this course again with "
+"updated content, pacing, or a new cohort of learners."
+msgstr ""
+"Izveidojiet jaunu kursu, ja plānojat atkārtoti piedāvāt šo kursu ar "
+"atjauninātu saturu, tempu vai jaunu izglītojamo grupu."
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:32
+msgid "Visit the Course in Publisher"
+msgstr "Apmeklējiet kursu Publisher"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:37
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:25
+msgid "You can review and modify the course end settings here:"
+msgstr "Šeit varat pārskatīt un mainīt kursa beigu iestatījumus:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:41
+#, python-format
+msgid ""
+"\n"
+"        If no action is taken, the course will no longer be available for enrollment or access by learners on \n"
+"        <a href=\"%(partner_marketing_site_url)s\">%(partner_marketing_site_url)s</a> after the end date.\n"
+"        "
+msgstr ""
+"\n"
+"        Ja netiks veiktas nekādas darbības, kurss vairs nebūs pieejams uzņemšanai vai piekļuvei izglītojamajiem. \n"
+"        <a href=\"%(partner_marketing_site_url)s\">%(partner_marketing_site_url)s</a> pēc beigu datuma.\n"
+"        "
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:47
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:34
+msgid "Thanks"
+msgstr "Paldies"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:6
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"Šis ir automātisks atgādinājums, ka kursa \"%(course_name)s\" (kursa atslēga: %(course_key)s) beigas ir plānotas %(days)s, %(course_end_date)s.\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:10
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"Šis ir automātisks atgādinājums, ka kurss \"%(course_name)s\" (kursa atslēga: %(course_key)s) ir oficiāli beidzies no %(course_end_date)s.\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:23
+msgid "Visit the Course in Publisher:"
+msgstr "Apmeklējiet kursu izdevniecībā:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:29
+#, python-format
+msgid ""
+"\n"
+"If no action is taken, the course will no longer be available for enrollment or access by learners on %(partner_marketing_site_url)s after the end date.\n"
+msgstr ""
+"\n"
+"Ja netiks veiktas nekādas darbības, pēc beigu datuma kurss vairs nebūs pieejams reģistrēšanai vai piekļuvei no %(partner_marketing_site_url)s.\n"
 
 #: apps/course_metadata/templates/course_metadata/email/go_live.html:17
 #: apps/course_metadata/templates/course_metadata/email/go_live.txt:7
