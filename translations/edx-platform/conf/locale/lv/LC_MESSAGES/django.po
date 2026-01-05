@@ -1080,6 +1080,19 @@ msgstr "Vārdnīca ar pieejamajiem tagiem"
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "Saistītā `upstream_key` nav derīga atslēga"
 
+#: cms/lib/xblock/upstream_sync.py:290
+#, python-brace-format
+msgid ""
+"Content type mismatch: {downstream_id} ({downstream_type}) cannot be linked "
+"to {upstream_id}."
+msgstr ""
+"Satura tipa nesakritība: {downstream_id} ({downstream_type}) nevar saistīt "
+"ar {upstream_id}."
+
+#: cms/lib/xblock/upstream_sync_block.py:108
+msgid "Linked library item could not be loaded: {}"
+msgstr "Nebija iespējams ielādēt saistītās bibliotēkas elementu: {}"
+
 #: cms/templates/admin/base_site.html:4 lms/templates/admin/base_site.html:3
 msgid "Django site admin"
 msgstr "Django vietnes administrators"
@@ -3718,6 +3731,29 @@ msgstr "Laika eksāmens"
 msgid "Exam"
 msgstr "Eksāmens"
 
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:49
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"                    You set a goal of learning {start_bold}%(days_per_week)s time a week in %(course_name)s{end_bold}. Now it’s up to you to make those goals a reality.\n"
+"                    "
+msgid_plural ""
+"\n"
+"                    You set a goal of learning {start_bold}%(days_per_week)s times a week in %(course_name)s{end_bold}. Now it’s up to you to make those goals a reality.\n"
+"                "
+msgstr[0] ""
+"\n"
+"                    Jūs izvirzāt mērķi mācīties {start_bold}%(days_per_week)s reizes nedēļā %(course_name)s{end_bold} . Tagad jūsu ziņā ir šos mērķus īstenot.\n"
+"                "
+msgstr[1] ""
+"\n"
+"                    Jūs izvirzāt mērķi mācīties {start_bold}%(days_per_week)s laiku nedēļā %(course_name)s{end_bold} . Tagad jūsu ziņā ir šos mērķus īstenot.\n"
+"                    "
+msgstr[2] ""
+"\n"
+"                    Jūs izvirzāt mērķi mācīties {start_bold}%(days_per_week)s reizes nedēļā %(course_name)s{end_bold} . Tagad jūsu ziņā ir šos mērķus īstenot.\n"
+"                "
+
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:144
 msgid ""
 "\n"
@@ -5154,6 +5190,11 @@ msgstr "pakāpe"
 #: lms/djangoapps/instructor_task/api_helper.py:108
 msgid "problem grade"
 msgstr "uzdevumu vērtējums"
+
+#: lms/djangoapps/instructor/views/api.py:3210
+#, python-brace-format
+msgid "Could not find student matching identifier: {student}"
+msgstr "Neizdevās atrast izglītojamo, kas atbilst identifikatoram: {student}"
 
 #: lms/djangoapps/instructor/views/api.py:3230
 #, python-brace-format
@@ -8576,6 +8617,15 @@ msgstr ""
 "<{p}><{strong}>{username}</{strong}> ievietoja "
 "<{strong}>{post_title}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:66
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> and others started new "
+"discussions</{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> un citi uzsāka jaunas "
+"diskusijas</{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:85
 #, python-brace-format
 msgid ""
@@ -8594,6 +8644,17 @@ msgstr ""
 "<{p}><{strong}>{replier_name}</{strong}> atbildēja uz ierakstu, kuram jūs "
 "sekojat: <{strong}>{post_title}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:114
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> commented on "
+"<{strong}>{author_name}</{strong}> response in a post you’re following "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> komentēja:   atbilde uz ziņu, kuru "
+"jūs sekojat <{strong}>{author_name}</{strong}> "
+"<{strong}>{post_title}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:135
 #, python-brace-format
 msgid ""
@@ -8602,6 +8663,62 @@ msgid ""
 msgstr ""
 "<p>Ir ziņots <strong>par {username}</strong> {content_type} "
 "<strong>{content}</strong></p>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:152
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}'s</{strong}> response has been endorsed in "
+"your post <{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}s</{strong}> atbilde ir apstiprināta jūsu "
+"amatā. <{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:167
+#, python-brace-format
+msgid ""
+"<{p}>Your response has been endorsed on the post "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}>Jūsu atbilde ir apstiprināta amatā "
+"<{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:185
+#, python-brace-format
+msgid "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
+msgstr "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:202
+#, python-brace-format
+msgid ""
+"<{p}>You have a new open response submission awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>Jums ir jauns atvērtas atbildes iesniegums, kas gaida izskatīšanu par "
+"<{strong}>{ora_name}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:204
+#, python-brace-format
+msgid ""
+"<{p}>You have multiple submissions awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>Jums ir vairāki iesniegumi, kas gaida pārskatīšanu, lai "
+"<{strong}>{ora_name}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:223
+#, python-brace-format
+msgid ""
+"<{p}>You have received {points_earned} out of {points_possible} on your "
+"assessment: <{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>Jūsu novērtējums ir {points_earned} no {points_possible}: "
+"<{strong}>{ora_name}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:243
+#, python-brace-format
+msgid "<{p}>Your instructor posted <{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}>Jūsu instruktors publicēja <{strong}>{post_title}</{strong}></{p}>"
 
 #: openedx/core/djangoapps/notifications/base_notification.py:256
 msgid ""
@@ -12543,6 +12660,12 @@ msgstr "{section_type} {index} Neizlaists — 0% (?/?)"
 msgid "The lowest {drop_count} {section_type} scores are dropped."
 msgstr "Zemākie {drop_count} {section_type} rādītāji tiek samazināti."
 
+#. Translators: "Homework Average = 0%"
+#: xmodule/graders.py:436
+#, python-brace-format
+msgid "{section_type} Average = {percent:.2%}"
+msgstr "{section_type} Vidējais = {procentu:.2%}"
+
 #. Translators: Avg is short for Average
 #: xmodule/graders.py:441
 #, python-brace-format
@@ -12632,6 +12755,25 @@ msgid ""
 msgstr ""
 "Nosaka, vai tiek rādīta poga Atiestatīt uzdevumi, lai lietotāji varētu "
 "atiestatīt atbildes un mainīt atlasītos vienumus."
+
+#: xmodule/item_bank_block.py:474
+#, python-brace-format
+msgid ""
+"The problem bank has been configured to show {count} problems. Please "
+"specify a positive number of problems, or specify -1 to show all problems."
+msgstr ""
+"Problēmu banka ir konfigurēta tā, lai parādītu {count} problēmas. Lūdzu, "
+"norādiet pozitīvu problēmu skaitu vai norādiet -1, lai parādītu visas "
+"problēmas."
+
+#: xmodule/item_bank_block.py:486
+#, python-brace-format
+msgid ""
+"The problem bank has been configured to show {count} problems, but only "
+"{actual} have been selected."
+msgstr ""
+"Problēmu banka ir konfigurēta tā, lai rādītu {count} problēmas, bet ir "
+"atlasītas tikai {actual}."
 
 #: xmodule/library_content_block.py:51
 msgid "Any Type"
@@ -13479,6 +13621,33 @@ msgstr "Šajā satura eksperimentā ir uzdevumi, kas ietekmē satura redzamību.
 #: xmodule/tabs.py:398 xmodule/tabs.py:433
 msgid "External Discussion"
 msgstr "Ārējā diskusija"
+
+#: xmodule/templates/item_bank/author_view.html:32
+#, python-brace-format
+msgid ""
+"Press {link_start}View{link_end} to preview, sync/update, and/or remove the "
+"selected components."
+msgstr ""
+"Nospiediet {link_start}Skatīt{link_end}, lai pārskatītu, "
+"sinhronizētu/atjauninātu un/vai noņemtu atlasītos komponentus."
+
+#: xmodule/templates/item_bank/author_view.html:38
+#, python-brace-format
+msgid ""
+"Press {link_start}Edit{link_end} to configure how many will be shown and "
+"other settings."
+msgstr ""
+"Nospiediet {link_start}Rediģēt{link_end}, lai konfigurētu, cik daudz tiks "
+"rādīts, un citus iestatījumus."
+
+#: xmodule/templates/item_bank/author_view_add.html:11
+#, python-brace-format
+msgid ""
+"{button_start}Add components{button_end} from a content library to this "
+"problem bank."
+msgstr ""
+"{button_start}Pievienojiet šai problēmu bankai komponentus{button_end} no "
+"satura bibliotēkas."
 
 #: xmodule/vertical_block.py:45
 msgid "Enable in-context discussions for the Unit"
@@ -18806,6 +18975,15 @@ msgstr ""
 msgid "{email} has requested {studio_name} course creator privileges on edge"
 msgstr "{email} ir pieprasījis {studio_name} kursa veidotāja privilēģijas."
 
+#: cms/templates/emails/course_creator_admin_user_pending.txt:2
+#, python-brace-format
+msgid ""
+"User '{user}' with e-mail {email} has requested {studio_name} course creator"
+" privileges."
+msgstr ""
+"Lietotājs '{lietotājs}' ar e-pasta adresi {email} ir pieprasījis "
+"{studio_name} kursa izveidotāja tiesības."
+
 #: cms/templates/emails/course_creator_admin_user_pending.txt:5
 msgid "To grant or deny this request, use the course creator admin table."
 msgstr ""
@@ -18857,6 +19035,15 @@ msgstr ""
 "Izmantojiet šo URL, lai apskatītu uzdevuma informāciju vai lejupielādētu "
 "izveidotos failus: {detail_url}"
 
+#: cms/templates/emails/user_task_complete_email.txt:8
+#, python-brace-format
+msgid ""
+"Your {task_name} task has completed with the status '{task_status}'. Sign in"
+" to view the details of your task."
+msgstr ""
+"Jūsu {task_name} uzdevums ir pabeigts ar statusu '{task_status}'. "
+"Pierakstieties, lai apskatītu detalizētu informāciju par savu uzdevumu."
+
 #: cms/templates/emails/user_task_complete_email.txt:12
 #, python-brace-format
 msgid ""
@@ -18878,6 +19065,12 @@ msgstr "Kļūdas: "
 #: cms/templates/emails/user_task_complete_email.txt:31
 msgid "Warnings: "
 msgstr "Brīdinājumi: "
+
+#: cms/templates/emails/user_task_complete_email_subject.txt:5
+#, python-brace-format
+msgid "{platform_name} {studio_name}: Course Optimizer Status Update"
+msgstr ""
+"{platform_name} {studio_name}: Kursu optimizatora statusa atjaunināšana"
 
 #: cms/templates/emails/user_task_complete_email_subject.txt:9
 #, python-brace-format
@@ -21318,6 +21511,17 @@ msgid ""
 msgstr ""
 "Izmantojiet bulttaustiņus, lai pārvietotos pa padomiem, vai tab taustiņu, "
 "lai atgrieztos kalkulatorā."
+
+#: lms/templates/calculator/toggle_calculator.html:27
+#, python-brace-format
+msgid ""
+"For detailed information, see {math_link_start}Entering Mathematical and "
+"Scientific Expressions{math_link_end} in the {guide_link_start}Open edX "
+"Guide for Students{guide_link_end}."
+msgstr ""
+"Sīkāku informāciju skatiet {math_link_start}Matemātisko un zinātnisko "
+"izteicienu ievadīšana{math_link_end} vietnē {guide_link_start}Open edX Guide"
+" for Students{guide_link_end}."
 
 #: lms/templates/calculator/toggle_calculator.html:36
 msgid "Tips"
