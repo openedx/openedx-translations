@@ -7,6 +7,7 @@
 # Translators:
 # Brian Smith, 2025
 # Eden Huthmacher, 2025
+# Gerardo Núñez, 2026
 # 
 msgid ""
 msgstr ""
@@ -14,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-13 00:33+0000\n"
 "PO-Revision-Date: 2023-05-10 00:48+0000\n"
-"Last-Translator: Eden Huthmacher, 2025\n"
+"Last-Translator: Gerardo Núñez, 2026\n"
 "Language-Team: Hindi (https://app.transifex.com/open-edx/teams/6205/hi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -118,6 +119,10 @@ msgstr "आपके पास {remaining_time} रीमेनिंग है"
 #: api.py:1654
 msgid "your course"
 msgstr "आपका कोर्स"
+
+#: api.py:2238
+msgid "Taking As Proctored Exam"
+msgstr "प्रोक्टोरेड परीक्षा के रूप में ले रहे हैं"
 
 #: api.py:2243
 msgid "Proctored Option Available"
@@ -251,6 +256,24 @@ msgstr ""
 "```\n"
 "    "
 
+#: templates/emails/proctoring_attempt_unsatisfactory_email.html:25
+#, python-format
+msgid ""
+"\n"
+"        To appeal your proctored exam results, please reach out with any relevant information\n"
+"        about your exam at \n"
+"        <a href=\"%(contact_url)s\">\n"
+"            %(contact_url_text)s\n"
+"        </a>.\n"
+"    "
+msgstr ""
+"\n"
+"        अपने प्रेरित परीक्षा परिणाम के विरुद्ध अपील करने के लिए, कृपया अपनी परीक्षा के बारे में किसी भी प्रासंगिक जानकारी के साथ संपर्क करें, \n"
+"<a href=\"%(contact_url)s\">\n"
+"    %(contact_url_text)s\n"
+"</a>.\n"
+"    "
+
 #: templates/onboarding_exam/entrance.html:5
 msgid ""
 "\n"
@@ -271,6 +294,16 @@ msgstr ""
 "        \n"
 "भविष्य में तेज़ पहुंच के लिए अपनी ऑनबोर्डिंग प्रोफ़ाइल बनाएं\n"
 "\n"
+"      "
+
+#: templates/onboarding_exam/entrance.html:28
+msgid ""
+"\n"
+"        Practice taking a proctored test\n"
+"      "
+msgstr ""
+"\n"
+"        प्रॉक्टर्ड टेस्ट का अभ्यास करें\n"
 "      "
 
 #: templates/onboarding_exam/entrance.html:34
@@ -358,6 +391,22 @@ msgstr ""
 "    आपने इस ऑनबोर्डिंग एक्जाम को सबमिट किया है\n"
 "  "
 
+#: templates/onboarding_exam/submitted.html:29
+msgid ""
+"\n"
+"      If you already have an onboarding profile approved through another course,\n"
+"      this submission will not be reviewed. You may retry this exam at any time\n"
+"      to validate that your setup still meets the requirements for proctoring.\n"
+"    "
+msgstr ""
+"\n"
+"      यदि आपके पास पहले से ही किसी अन्य पाठ्यक्रम के माध्यम से स्वीकृत ऑनबोर्डिंग प्रोफ़ाइल है,\n"
+"\n"
+"तो इस सबमिशन की समीक्षा नहीं की जाएगी। आप यह सत्यापित करने के लिए किसी भी समय इस परीक्षा का पुनः प्रयास कर सकते हैं\n"
+"\n"
+"कि आपका सेटअप अभी भी प्रॉक्टरिंग की आवश्यकताओं को पूरा करता है।\n"
+"    "
+
 #: templates/onboarding_exam/submitted.html:36
 msgid ""
 "\n"
@@ -407,6 +456,16 @@ msgstr ""
 "\n"
 "          आपको ऑनलाइन प्रॉक्टरिंग सॉफ़्टवेयर स्थापित करने और अपनी पहचान सत्यापित करने के चरणों के माध्यम से मार्गदर्शन किया जाएगा।\n"
 "        "
+
+#: templates/practice_exam/error.html:5
+msgid ""
+"\n"
+"        There was a problem with your practice proctoring session\n"
+"      "
+msgstr ""
+"\n"
+"        आपके अभ्यास प्रॉक्टरिंग सत्र में समस्या आई थी\n"
+"      "
 
 #: templates/practice_exam/error.html:13
 msgid ""
@@ -575,6 +634,16 @@ msgstr ""
 msgid "End My Exam"
 msgstr "मेरी परीक्षा समाप्त करें"
 
+#: templates/proctored_exam/expired.html:4 templates/timed_exam/expired.html:4
+msgid ""
+"\n"
+"      The due date for this exam has passed\n"
+"    "
+msgstr ""
+"\n"
+"      इस परीक्षा की नियत तारीख बीत चुकी है\n"
+"    "
+
 #: templates/proctored_exam/expired.html:9 templates/timed_exam/expired.html:9
 msgid ""
 "\n"
@@ -651,6 +720,18 @@ msgstr ""
 "%(platform_name)s से।\n"
 "    "
 
+#: templates/proctored_exam/inactive_account.html:21
+#, python-format
+msgid ""
+"\n"
+"        If you cannot find this email, you can <a href=\"%(reset_link)s\" target=\"_blank\">reset your password</a> to\n"
+"        activate your account.\n"
+"      "
+msgstr ""
+"\n"
+"        यदि आपको यह ईमेल नहीं मिल रहा है, तो आप <a href=\"%(reset_link)s\" target=\"_blank\">अपना पासवर्ड रीसेट</a> कर सकते हैं और अपना खाता सक्रिय करें।\n"
+"      "
+
 #: templates/proctored_exam/inactive_account.html:26
 msgid ""
 "\n"
@@ -709,6 +790,16 @@ msgstr "स्टार्ट सिस्टम चेक"
 #: templates/proctored_exam/instructions.html:36
 msgid "Start Exam"
 msgstr "परीक्षा प्रारंभ करें"
+
+#: templates/proctored_exam/instructions.html:40
+msgid ""
+"\n"
+"          Step 1\n"
+"        "
+msgstr ""
+"\n"
+"          स्टेप 1\n"
+"        "
 
 #: templates/proctored_exam/instructions.html:45
 msgid ""
@@ -835,6 +926,19 @@ msgstr ""
 "      आपकी ऑनबोर्डिंग परीक्षा सभी आवश्यकताओं को पूरा करने में विफल रही।\n"
 "    "
 
+#: templates/proctored_exam/onboarding_error.html:38
+#, python-format
+msgid ""
+"\n"
+"      Proctoring for your exam is provided via %(provider_name)s.\n"
+"      If you have questions about the status of your onboarding exam, contact\n"
+"      <a href=\"mailto:%(integration_specific_email)s\">%(integration_specific_email)s</a>.\n"
+"    "
+msgstr ""
+"\n"
+"      आपकी परीक्षा के लिए प्रॉक्टरिंग %(provider_name)s के माध्यम से प्रदान की जाती है। यदि आपकी ऑनबोर्डिंग परीक्षा की स्थिति के बारे में आपके कोई प्रश्न हैं, तो संपर्क करें <a href=\"mailto:%(integration_specific_email)s\">%(integration_specific_email)s</a>।\n"
+"    "
+
 #: templates/proctored_exam/pending-prerequisites.html:9
 msgid ""
 "\n"
@@ -957,6 +1061,20 @@ msgstr ""
 "      प्रोक्टर्ड परीक्षा नियम\n"
 "    "
 
+#: templates/proctored_exam/ready_to_start.html:23
+msgid ""
+"\n"
+"         You must adhere to the following rules while you complete this exam.\n"
+"         <strong>If you violate these rules, you will receive a score of 0 on the exam, and you will not be eligible for academic course credit.\n"
+"         </strong></br>\n"
+"      "
+msgstr ""
+"\n"
+"         इस परीक्षा को पूरा करते समय आपको निम्नलिखित नियमों का पालन करना होगा।\n"
+"         <strong>यदि आप इन नियमों का उल्लंघन करते हैं, तो आपको परीक्षा में 0 अंक प्राप्त होगा, और आप अकादमिक पाठ्यक्रम क्रेडिट के लिए पात्र नहीं होंगे।\n"
+"         </strong></br>\n"
+"      "
+
 #: templates/proctored_exam/ready_to_start.html:29
 #, python-format
 msgid ""
@@ -1036,6 +1154,18 @@ msgstr "हाँ, मैं अपनी प्रॉक्टर्ड पर�
 #: templates/proctored_exam/ready_to_submit.html:16
 msgid "Ending Exam"
 msgstr "परीक्षा समाप्त"
+
+#: templates/proctored_exam/ready_to_submit.html:21
+msgid ""
+"\n"
+"        No, I'd like to continue working\n"
+"      "
+msgstr ""
+"\n"
+"        \n"
+"नहीं, मैं काम करना जारी रखना चाहूँगा\n"
+"\n"
+"      "
 
 #: templates/proctored_exam/rejected.html:5
 msgid ""
@@ -1229,6 +1359,18 @@ msgid ""
 msgstr ""
 "\n"
 "      अपनी परीक्षा सबमिट करने के बाद, हम आपकी परीक्षा को ग्रेड करेंगे।\n"
+"    "
+
+#: templates/timed_exam/ready_to_submit.html:19
+msgid ""
+"\n"
+"      Yes, submit my timed exam.\n"
+"    "
+msgstr ""
+"\n"
+"      \n"
+"हाँ, मैं अपनी समयबद्ध परीक्षा सबमिट करता हूँ।\n"
+"\n"
 "    "
 
 #: templates/timed_exam/ready_to_submit.html:25
