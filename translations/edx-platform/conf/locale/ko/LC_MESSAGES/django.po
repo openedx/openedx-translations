@@ -293,9 +293,33 @@ msgid ""
 msgstr ""
 "업스트림 블록 사용 키, 이 값은 null일 수 없으며 아직 존재하지 않는 업스트림 라이브러리 블록을 추적하는 데 유용합니다."
 
+#: cms/djangoapps/contentstore/models.py:163
+msgid "Component Link"
+msgstr "구성 요소 링크"
+
+#: cms/djangoapps/contentstore/models.py:164
+msgid "Component Links"
+msgstr "구성 요소 링크"
+
 #: cms/djangoapps/contentstore/models.py:190
 msgid "The component must be published to access `published_at`"
 msgstr "구성 요소는 `published_at`에 접근하기 위해 게시되어야 합니다."
+
+#: cms/djangoapps/contentstore/models.py:329
+msgid ""
+"Upstream block key (e.g. lct:...), this value cannot be null and is useful "
+"to track upstream library blocks that do not exist yet or were deleted."
+msgstr ""
+"업스트림 블록 키(예: lct:...), 이 값은 null일 수 없으며 아직 존재하지 않거나 삭제된 업스트림 라이브러리 블록을 추적하는 "
+"데 유용합니다."
+
+#: cms/djangoapps/contentstore/models.py:336
+msgid "Container Link"
+msgstr "컨테이너 링크"
+
+#: cms/djangoapps/contentstore/models.py:337
+msgid "Container Links"
+msgstr "컨테이너 링크"
 
 #: cms/djangoapps/contentstore/models.py:363
 msgid "The container must be published to access `published_at`"
@@ -1149,6 +1173,10 @@ msgstr "사용 가능한 태그가 있는 사전"
 msgid "Content is not linked to a Content Library."
 msgstr "콘텐츠가 콘텐츠 라이브러리에 연결되어 있지 않습니다."
 
+#: cms/lib/xblock/upstream_sync.py:255
+msgid "Downstream is not an XBlock or is missing required UpstreamSyncMixin"
+msgstr "Downstream이 XBlock이 아니거나 필수 UpstreamSyncMixin이 없습니다."
+
 #: cms/lib/xblock/upstream_sync.py:259
 msgid "Cannot update content because it does not belong to a course."
 msgstr "과정에 속하지 않기 때문에 콘텐츠를 업데이트할 수 없습니다."
@@ -1157,9 +1185,32 @@ msgstr "과정에 속하지 않기 때문에 콘텐츠를 업데이트할 수 �
 msgid "Reference to linked library item is malformed"
 msgstr "연결된 라이브러리 항목에 대한 참조가 잘못되었습니다."
 
+#: cms/lib/xblock/upstream_sync.py:275
+msgid ""
+"Updating content with children is not yet supported unless the upstream is a"
+" container."
+msgstr "업스트림이 컨테이너가 아닌 한, 자식이 있는 콘텐츠를 업데이트하는 기능은 아직 지원되지 않습니다."
+
+#: cms/lib/xblock/upstream_sync.py:281
+msgid "Linked upstream library block was not found in the system"
+msgstr "시스템에서 연결된 상류 라이브러리 블록을 찾을 수 없습니다."
+
+#: cms/lib/xblock/upstream_sync.py:288
+msgid "Linked upstream library container was not found in the system"
+msgstr "시스템에서 연결된 상류 라이브러리 컨테이너를 찾을 수 없습니다."
+
 #: cms/lib/xblock/upstream_sync.py:292
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "연결된 `upstream_key`는 유효한 키가 아닙니다."
+
+#: cms/lib/xblock/upstream_sync.py:301
+#, python-brace-format
+msgid ""
+"Content type mismatch: {downstream_id} ({downstream_type}) cannot be linked "
+"to {upstream_id}."
+msgstr ""
+"콘텐츠 유형 불일치: {downstream_id} ( {downstream_type} )을 {upstream_id} 에 연결할 수 "
+"없습니다."
 
 #: cms/lib/xblock/upstream_sync_block.py:108
 msgid "Linked library item could not be loaded: {}"
@@ -5104,6 +5155,24 @@ msgstr "역할 이름"
 msgid "Invalid role name."
 msgstr "잘못된 역할 이름입니다."
 
+#: lms/djangoapps/instructor/views/serializer.py:344
+msgid "The URL name of the problem to reset."
+msgstr "재설정할 문제의 URL 이름입니다."
+
+#: lms/djangoapps/instructor/views/serializer.py:346
+#: lms/djangoapps/instructor/views/serializer.py:567
+msgid "Problem URL name cannot be blank."
+msgstr "문제가 있는 URL 이름은 비워둘 수 없습니다."
+
+#: lms/djangoapps/instructor/views/serializer.py:351
+msgid "Whether to reset the problem for all students."
+msgstr "모든 학생의 문제를 재설정할지 여부."
+
+#: lms/djangoapps/instructor/views/serializer.py:361
+#: lms/djangoapps/instructor/views/serializer.py:508
+msgid "unique student identifier."
+msgstr "고유 학생 식별자."
+
 #: lms/djangoapps/instructor/views/serializer.py:496
 msgid "Whether to reset for all students."
 msgstr "모든 학생의 설정을 초기화할지 여부."
@@ -7458,6 +7527,22 @@ msgid ""
 "<{strong}>{post_title}</{strong}></{p}>"
 msgstr "<{p}>귀하의 응답이 게시물에 승인되었습니다 <strong>{post_title}</strong></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:258
+#, python-brace-format
+msgid ""
+"<{p}>You have a new open response submission awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>검토를 기다리는 새로운 공개 응답 제출이 있습니다 <{strong}>{ora_name}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:260
+#, python-brace-format
+msgid ""
+"<{p}>You have multiple submissions awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}> 에 대한 검토 대기 중인 제출물이 여러 개 있습니다. {ora_name}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:366
 msgid "Notifications for submission grading."
 msgstr "제출물 채점에 대한 알림."
@@ -7885,6 +7970,12 @@ msgstr "여러 번 시도해야 하는 문제에 대해 학생이 제출 사이�
 #: xmodule/capa_block.py:338
 msgid "Problem Weight"
 msgstr "문제 무게"
+
+#: xmodule/capa_block.py:363
+msgid ""
+"Indicates if the problem was edited using the Markdown editor in the "
+"Authoring MFE."
+msgstr "Authoring MFE의 Markdown 편집기를 사용하여 문제가 편집되었는지 여부를 나타냅니다."
 
 #: xmodule/capa_block.py:808 xmodule/capa_block.py:825
 msgid "Question"
