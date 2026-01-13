@@ -8,6 +8,7 @@
 # Transifex Bot <>, 2025
 # Eden Huthmacher, 2025
 # Brian Smith, 2025
+# Gerardo Núñez, 2026
 # 
 msgid ""
 msgstr ""
@@ -15,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-12 00:35+0000\n"
 "PO-Revision-Date: 2023-01-26 15:39+0000\n"
-"Last-Translator: Brian Smith, 2025\n"
+"Last-Translator: Gerardo Núñez, 2026\n"
 "Language-Team: Hungarian (https://app.transifex.com/open-edx/teams/6205/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -80,6 +81,10 @@ msgstr "A korlátozás típusa nem lehet üres"
 #: apps/api/serializers.py:1775
 msgid "Dictionary mapping course IDs to boolean values"
 msgstr "Kurzusazonosítók szótár alapú leképezése logikai értékekhez"
+
+#: apps/api/serializers.py:2242
+msgid "Languages that course runs in this program are offered in."
+msgstr "A programban elérhető kurzusok nyelvei."
 
 #: apps/api/serializers.py:2246
 msgid ""
@@ -201,6 +206,10 @@ msgstr "Katalógus neve"
 #: apps/catalogs/models.py:18
 msgid "Query to retrieve Course Run catalog contents"
 msgstr "Lekérdezés a kurzusfutam katalógus tartalmának lekéréséhez"
+
+#: apps/catalogs/models.py:22
+msgid "Query to retrieve Program catalog contents"
+msgstr "Lekérdezi a programkatalógus tartalmát"
 
 #: apps/catalogs/models.py:25
 msgid "Include archived courses"
@@ -389,6 +398,10 @@ msgstr "Salesforce jelszó"
 msgid "Salesforce Organization Id"
 msgstr "Salesforce szervezetazonosító"
 
+#: apps/core/models.py:145
+msgid "Salesforce Security Token"
+msgstr "Salesforce biztonsági token"
+
 #: apps/core/models.py:149
 msgid "Is a Salesforce Sandbox?"
 msgstr "Salesforce Sandbox?"
@@ -406,6 +419,10 @@ msgstr ""
 "Hiba történt a(z) {model} marketingoldalra való közzététele során. Kérjük, "
 "próbálja meg újra. Ha a hiba továbbra is fennáll, vegye fel a kapcsolatot a "
 "mérnöki csapattal."
+
+#: apps/course_metadata/admin.py:65
+msgid "eligible for one-click purchase"
+msgstr "egy kattintásos vásárlásra jogosult"
 
 #: apps/course_metadata/admin.py:70
 msgid "Yes"
@@ -595,9 +612,17 @@ msgstr "Vezetői oktatás"
 msgid "Paid Executive Education"
 msgstr "Fizetett vezetői oktatás"
 
+#: apps/course_metadata/choices.py:80
+msgid "Unpaid Executive Education"
+msgstr "Nem fizetett vezetői oktatás"
+
 #: apps/course_metadata/choices.py:81
 msgid "Paid Bootcamp"
 msgstr "Fizetős bootcamp"
+
+#: apps/course_metadata/choices.py:82
+msgid "Unpaid Bootcamp"
+msgstr "Ingyenes bootcamp"
 
 #: apps/course_metadata/choices.py:86
 msgid "Platform"
@@ -622,6 +647,10 @@ msgstr "Hosszú"
 #: apps/course_metadata/choices.py:108
 msgid "Short Course"
 msgstr "Rövid kurzus"
+
+#: apps/course_metadata/choices.py:109
+msgid "Sprint"
+msgstr "Rövid tanfolyam"
 
 #: apps/course_metadata/choices.py:110
 msgid "Course Stack"
@@ -821,6 +850,10 @@ msgstr "Tanfolyam visszamenőleges kitöltéshez."
 msgid "KEY"
 msgstr "KULCS"
 
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:29
+msgid "Organization to backpopulate."
+msgstr "Szervezet visszamenőleges kitöltésre."
+
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:35
 msgid ""
 "CourseType/CourseRunType mismatches to allow. Specify like course-type-"
@@ -855,6 +888,10 @@ msgstr "A megadott kurzusfutás típus slug [{rt_slug}] nem létezik."
 #, python-brace-format
 msgid "Supplied Course Type slug [{ct_slug}] does not exist."
 msgstr "A megadott kurzustípus slug [{ct_slug}] nem létezik."
+
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:89
+msgid "No courses found. Did you specify an argument?"
+msgstr "Nincsenek találatok. Megadott egy érvet?"
 
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:101
 #, python-brace-format
@@ -902,6 +939,10 @@ msgstr "Hibás argumentum: \"{}\", az UUID-k nem lehetnek egyenlőek"
 #: apps/course_metadata/management/commands/delete_person_dups.py:85
 msgid "Deleting"
 msgstr "Törlés"
+
+#: apps/course_metadata/management/commands/delete_person_dups.py:85
+msgid "Would delete"
+msgstr "Törölnék"
 
 #: apps/course_metadata/management/commands/delete_person_dups.py:86
 msgid "Name"
@@ -1014,6 +1055,14 @@ msgstr "Ha kitöltött, ez a mező felülírja a platformon lévő nevet."
 #: apps/course_metadata/models.py:249
 msgid "Spanish Description"
 msgstr "Spanyol leírás"
+
+#: apps/course_metadata/models.py:250
+msgid ""
+"For seo, this field allows for alternate spanish description to be manually "
+"inputted"
+msgstr ""
+"Ez a mező lehetővé teszi, hogy a spanyol leírás alternatív változata "
+"manuálisan megadva legyen az SEO érdekében."
 
 #: apps/course_metadata/models.py:275 apps/course_metadata/models.py:1529
 #: apps/course_metadata/models.py:2372
@@ -1252,6 +1301,10 @@ msgstr "Nemzetközi érték leadenként"
 #: apps/course_metadata/models.py:1303
 msgid "International value per lead in U.S. dollars."
 msgstr "Nemzetközi érték leadenként amerikai dollárban."
+
+#: apps/course_metadata/models.py:1308
+msgid "U.S. Value Per Click"
+msgstr "U.S. Kattintásonkénti érték"
 
 #: apps/course_metadata/models.py:1309
 msgid "U.S. value per click in U.S. dollars."
@@ -1495,6 +1548,10 @@ msgid ""
 msgstr ""
 "A felülvizsgálat utáni ülőhelytípus-váltás nem támogatott. Kérjük, forduljon"
 " projektkoordinátorához további segítségért, ha szükséges."
+
+#: apps/course_metadata/models.py:3159
+msgid "Change careers"
+msgstr "Karrierváltoztatás"
 
 #: apps/course_metadata/models.py:3160
 msgid "Job advancement"
@@ -1752,6 +1809,10 @@ msgstr ""
 "Keresési kártya rangsorolásának megjelenítése (pl. \"#1 az Egyesült "
 "Államokban\")"
 
+#: apps/course_metadata/models.py:4199
+msgid "Cost display for search card (e.g. \"$9,999\""
+msgstr "A keresőkártya költségmegjelenítése (pl. \"$9 999\""
+
 #: apps/course_metadata/models.py:4205
 msgid "Number of courses for search card (e.g. \"11 Courses\""
 msgstr "Kurzusok száma a keresőkártyán (pl. \"11 kurzus\")"
@@ -1778,6 +1839,10 @@ msgstr "Csengő"
 #: apps/course_metadata/models.py:4289
 msgid "Certificate"
 msgstr "Bizonyítvány"
+
+#: apps/course_metadata/models.py:4290
+msgid "Checkmark"
+msgstr "Pipa"
 
 #: apps/course_metadata/models.py:4291
 msgid "Clock"
@@ -1846,6 +1911,10 @@ msgstr "Az időpont, amikor a határidő lejár (pl. 23:59 EST)."
 #: apps/course_metadata/models.py:4388
 msgid "Describes what the cost is for (e.g. Tuition)"
 msgstr "Meghatározza, hogy mire vonatkozik a költség (pl. tandíj)"
+
+#: apps/course_metadata/models.py:4392
+msgid "String-based field stating how much the cost is (e.g. $1000)."
+msgstr "Szöveges mező, amely megadja, hogy mennyi a költség (pl. 1000 USD)."
 
 #: apps/course_metadata/models.py:4435
 msgid ""
@@ -1991,6 +2060,11 @@ msgstr "A tömeges feladat állapota"
 msgid "Identifier of the celery task associated with this bulk task"
 msgstr ""
 "A zöldségfeladat azonosítója, amely ehhez a tömeges feladathoz kapcsolódik."
+
+#: apps/course_metadata/salesforce.py:78
+msgid "Attempted to query Salesforce with no client for partner={}"
+msgstr ""
+"Megpróbáltam lekérdezni a Salesforce-t kliens nélkül a partner számára={}"
 
 #: apps/course_metadata/salesforce.py:237
 msgid "Unable to associate a case for comments for {}"
@@ -2387,6 +2461,10 @@ msgstr ""
 "   A(z) '%(course_name)s' kurzust az edX sikeresen átnézte, és most már készen áll a közzétételre. A kurzus közzététele %(course_publish_date)s lesz.\n"
 "    A kurzus bemutató oldalának előnézetéhez kattintson ide: %(course_preview_url)s\n"
 
+#: apps/course_metadata/utils.py:391
+msgid "Special characters not allowed in Course Number."
+msgstr "A kurzus számában nem megengedettek a karakterek."
+
 #: apps/course_metadata/validators.py:30
 #, python-brace-format
 msgid "Invalid HTML received: {0}"
@@ -2405,6 +2483,10 @@ msgstr "A(z) {0} címke nem engedélyezett"
 #, python-brace-format
 msgid "{0} attribute is not allowed on the {1} tag"
 msgstr "A(z) {0} attribútum nem engedélyezett a(z) {1} címkén"
+
+#: apps/course_metadata/views.py:38
+msgid "Update excluded course runs"
+msgstr "Frissítse a kizárt kurzusfutamokat"
 
 #: apps/course_metadata/views.py:45
 msgid "The program was changed successfully."
