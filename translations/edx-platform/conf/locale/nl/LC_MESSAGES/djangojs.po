@@ -1140,6 +1140,10 @@ msgstr "Inschakelen"
 msgid "Not yet"
 msgstr "Nog niet"
 
+#: cms/static/js/views/modals/course_outline_modals.js:338
+msgid "Share {display_name} subsection"
+msgstr "Deel de subsectie {display_name}"
+
 #: cms/static/js/views/modals/course_outline_modals.js:973
 msgid "All Learners and Staff"
 msgstr "Alle leerlingen en medewerkers"
@@ -1160,6 +1164,14 @@ msgstr "Basis"
 #: cms/static/js/views/modals/course_outline_modals.js:1402
 msgid "Visibility"
 msgstr "Zichtbaarheid"
+
+#: cms/static/js/views/modals/course_outline_modals.js:1487
+msgid "Full Page"
+msgstr "Volledige pagina"
+
+#: cms/static/js/views/modals/course_outline_modals.js:1492
+msgid "Embed Link"
+msgstr "Link insluiten"
 
 #. Translators: "title" is the name of the current component being edited.
 #: cms/static/js/views/modals/edit_xblock.js:23
@@ -7065,6 +7077,14 @@ msgstr ""
 msgid "Subsection Visibility"
 msgstr "Zichtbaarheid van subsecties"
 
+#: cms/templates/js/content-visibility-editor.underscore:7
+msgid ""
+"To hide the subsections and keep them accesible through links, you must "
+"adjust it from the section that contains them."
+msgstr ""
+"Om de subsecties te verbergen en toegankelijk te houden via links, moet u "
+"deze aanpassen vanuit de sectie die ze bevat."
+
 #: cms/templates/js/content-visibility-editor.underscore:13
 msgid "Show entire subsection"
 msgstr "Gehele subsectie weergeven"
@@ -7220,6 +7240,22 @@ msgstr "Voorwaarde: %(prereq_display_name)s"
 msgid "Contains staff only content"
 msgstr "Bevat alleen inhoud voor het personeel"
 
+#: cms/templates/js/course-outline.underscore:60
+msgid ""
+"Hidden in the course outline, but sections are accessible for your learners "
+"through their separate link."
+msgstr ""
+"Verborgen in het cursusoverzicht, maar secties zijn toegankelijk voor uw "
+"studenten via een aparte link."
+
+#: cms/templates/js/course-outline.underscore:63
+msgid ""
+"Subsections are not navigable between each other, they can only be accessed "
+"through their link."
+msgstr ""
+"Subsecties zijn niet onderling navigeerbaar, ze zijn alleen toegankelijk via"
+" hun link."
+
 #: cms/templates/js/course-outline.underscore:71
 msgid "Unpublished changes to live content"
 msgstr "Niet-gepubliceerde wijzigingen in live inhoud"
@@ -7359,6 +7395,10 @@ msgstr "De subsectie is verborgen na de einddatum van de cursus"
 #: cms/templates/js/course-outline.underscore:412
 msgid "Subsection is hidden after due date"
 msgstr "Subsectie is verborgen na de vervaldatum"
+
+#: cms/templates/js/course-outline.underscore:428
+msgid "Share"
+msgstr "Deel"
 
 #: cms/templates/js/course-outline.underscore:442
 #, python-format
@@ -7613,6 +7653,14 @@ msgstr "Maak discussie mogelijk"
 msgid "Topics for unpublished units would not be created"
 msgstr "Er worden geen onderwerpen voor niet-gepubliceerde eenheden gemaakt"
 
+#: cms/templates/js/discussion-editor.underscore:16
+msgid "Please enable discussions for graded units from the"
+msgstr "Schakel discussies in voor beoordeelde eenheden in."
+
+#: cms/templates/js/discussion-editor.underscore:24
+msgid "Discussion Configuration"
+msgstr "Discussieconfiguratie"
+
 #: cms/templates/js/due-date-editor.underscore:3
 msgid "Due Date:"
 msgstr "Deadline:"
@@ -7674,10 +7722,23 @@ msgstr ""
 "Sluit de inhoud van uw subsecties rechtstreeks in op een pagina met behulp "
 "van een iframe en bekijk deze zonder de LMS-kop- en voettekst."
 
+#: cms/templates/js/embed-link-share-link-editor.underscore:11
+#: cms/templates/js/full-page-share-link-editor.underscore:11
+msgid "Click to copy link to clipboard"
+msgstr "Klik op om de link naar het klembord te kopiëren"
+
 #: cms/templates/js/embed-link-share-link-editor.underscore:15
 #: cms/templates/js/full-page-share-link-editor.underscore:15
 msgid "Copy link"
 msgstr "Kopieer link"
+
+#: cms/templates/js/full-page-share-link-editor.underscore:5
+msgid ""
+"When sharing this link with your learners, they will see the content of the "
+"subsection along with the header and footer of your LMS."
+msgstr ""
+"Wanneer u deze link met uw leerlingen deelt, zien zij de inhoud van de "
+"subsectie samen met de kop- en voettekst van uw LMS."
 
 #: cms/templates/js/grading-editor.underscore:1
 msgid "Grading"
@@ -8217,6 +8278,45 @@ msgstr "Zichtbaarheid van eenheden"
 #: cms/templates/js/staff-lock-editor.underscore:6
 msgid "Section Visibility"
 msgstr "Sectiezichtbaarheid"
+
+#: cms/templates/js/staff-lock-editor.underscore:14
+msgid "Visible to learners"
+msgstr "Zichtbaar voor leerlingen"
+
+#: cms/templates/js/staff-lock-editor.underscore:16
+msgid ""
+"It is visible to learners, ensuring that all learners can view its contents."
+msgstr ""
+"Het is zichtbaar voor leerlingen en zorgt ervoor dat alle leerlingen de "
+"inhoud ervan kunnen bekijken."
+
+#: cms/templates/js/staff-lock-editor.underscore:22
+msgid "Hide in Course Outline, accessible via Link"
+msgstr "Verbergen in cursusoverzicht, toegankelijk via link"
+
+#: cms/templates/js/staff-lock-editor.underscore:24
+msgid ""
+"It is intentionally hidden from standard navigation, ensuring that only "
+"individuals with the link can view its contents."
+msgstr ""
+"Het is opzettelijk verborgen voor de standaardnavigatie, zodat alleen "
+"personen met de link de inhoud ervan kunnen bekijken."
+
+#: cms/templates/js/staff-lock-editor.underscore:27
+msgid ""
+"If you make this section visible in the table of content, learners will be "
+"able to see its content."
+msgstr ""
+"Als u dit gedeelte zichtbaar maakt in de inhoudsopgave, kunnen leerlingen de"
+" inhoud ervan zien."
+
+#: cms/templates/js/staff-lock-editor.underscore:40
+msgid ""
+"It is intentionally hidden from learners, ensuring that only the course "
+"staff can view its contents."
+msgstr ""
+"Het is opzettelijk verborgen voor studenten, zodat alleen het "
+"cursuspersoneel de inhoud ervan kan zien."
 
 #: cms/templates/js/staff-lock-editor.underscore:45
 msgid ""
