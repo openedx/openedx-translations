@@ -685,6 +685,11 @@ msgstr "ομάδα μαθημάτων"
 msgid "Legal review requested: {title}"
 msgstr "Ζητήθηκε νομικός έλεγχος: {title}"
 
+#: apps/course_metadata/emails.py:234
+#, python-brace-format
+msgid "Course URL for {title}"
+msgstr "Διεύθυνση URL μαθήματος για {title}"
+
 #: apps/course_metadata/emails.py:280
 #, python-brace-format
 msgid "Review requested: {key} - {title}"
@@ -1189,6 +1194,14 @@ msgstr ""
 "Αυτό το πεδίο περιέχει τον τύπο μάρκετινγκ εξωτερικού μαθήματος που είναι "
 "συγκεκριμένος για τις σειρές προϊόντων"
 
+#: apps/course_metadata/models.py:1002
+msgid ""
+"Determines weather the course should be displayed on the owning "
+"organization's page"
+msgstr ""
+"Καθορίζει εάν το μάθημα θα πρέπει να εμφανίζεται στη σελίδα του οργανισμού "
+"που το κατέχει."
+
 #: apps/course_metadata/models.py:1073
 msgid "A list of major works by this person. Must be valid HTML."
 msgstr ""
@@ -1323,6 +1336,18 @@ msgstr ""
 msgid "If checked, the About Page will have a meta tag with noindex value"
 msgstr ""
 "Εάν επιλεγεί, η Λίγα Λόγια Για Εμάς θα έχει μια μετα-ετικέτα με τιμή noindex"
+
+#: apps/course_metadata/models.py:1585
+msgid "Watchers"
+msgstr "Παρατηρητές"
+
+#: apps/course_metadata/models.py:1587
+msgid ""
+"The list of email addresses that will be notified if any of the course runs "
+"is published or scheduled."
+msgstr ""
+"Δημοσιεύτηκε ή προγραμματιστεί η λίστα με τις διευθύνσεις email που θα "
+"ειδοποιηθούν σε περίπτωση διεξαγωγής μαθημάτων."
 
 #: apps/course_metadata/models.py:1832
 msgid "Future"
@@ -1888,6 +1913,14 @@ msgstr ""
 "Αναμένει ότι τα δεδομένα θα παρέχονται σε μορφή αρχείου csv με την πρώτη "
 "σειρά να περιέχει όλες τις κεφαλίδες."
 
+#: apps/course_metadata/models.py:4837
+msgid "Open Courses"
+msgstr "Ανοιχτά Μαθήματα"
+
+#: apps/course_metadata/models.py:4838
+msgid "2U Executive Education Courses"
+msgstr "2U Μαθήματα Εκπαίδευσης Στελεχών"
+
 #: apps/course_metadata/models.py:4850 apps/course_metadata/models.py:4954
 msgid "Course UUIDs"
 msgstr "UUID μαθημάτων"
@@ -2132,6 +2165,43 @@ msgstr ""
 #, python-format
 msgid "View the course run in Publisher: %(course_page_url)s"
 msgstr "Δείτε το μάθημα που εκτελείται στον Publisher: %(course_page_url)s"
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.html:8
+#, python-format
+msgid ""
+"\n"
+"        Course '%(course_name)s' has been successfully reviewed by edX and is now published on %(course_publish_date)s. To see live course, go here: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
+msgstr ""
+"\n"
+"        \n"
+"Το μάθημα '%(course_name)s' έχει ελεγχθεί με επιτυχία από το edX και τώρα δημοσιεύεται στο %(course_publish_date)s. Για να δείτε ζωντανά το μάθημα, μεταβείτε εδώ: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"\n"
+"    "
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.html:12
+#, python-format
+msgid ""
+"\n"
+"        Course '%(course_name)s' has been successfully reviewed by edX and is now ready for publication. The course will be published on %(course_publish_date)s.\n"
+"        To see a preview of the Course About Page, go here: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
+msgstr ""
+"\n"
+"        ```\n"
+"Το μάθημα '%(course_name)s' ελέγχθηκε με επιτυχία από το edX και είναι τώρα έτοιμο για δημοσίευση. Το μάθημα θα δημοσιευτεί στις %(course_publish_date)s.\n"
+"Για να δείτε μια προεπισκόπηση της σελίδας Λίγα Λόγια Για Εμάς, μεταβείτε εδώ: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"```\n"
+"    "
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.txt:4
+#, python-format
+msgid ""
+"\n"
+"    Course '%(course_name)s' has been successfully reviewed by edX and is now published on %(course_publish_date)s. To see live course, go here: %(course_marketing_url)s\n"
+msgstr ""
+"\n"
+"    Το μάθημα '%(course_name)s' έχει ελεγχθεί με επιτυχία από το edX και τώρα δημοσιεύεται στο %(course_publish_date)s. Για να δείτε ζωντανά το μάθημα, μεταβείτε εδώ: %(course_marketing_url)s\n"
 
 #: apps/course_metadata/utils.py:391
 msgid "Special characters not allowed in Course Number."
