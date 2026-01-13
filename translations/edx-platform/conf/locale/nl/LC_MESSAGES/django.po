@@ -273,11 +273,36 @@ msgstr ""
 "Volg de opgegeven cursus en probeer deze naar een git-repository te exporteren\n"
 ". De cursusdirectory moet al een Git-repository zijn. Gebruik: git_export <course_loc> <git_url>"
 
+#: cms/djangoapps/contentstore/models.py:163
+msgid "Component Link"
+msgstr "Onderdeel Link"
+
+#: cms/djangoapps/contentstore/models.py:164
+msgid "Component Links"
+msgstr "Koppelingen naar onderdelen"
+
 #: cms/djangoapps/contentstore/models.py:190
 msgid "The component must be published to access `published_at`"
 msgstr ""
 "De component moet gepubliceerd worden om toegang te krijgen tot "
 "`published_at`."
+
+#: cms/djangoapps/contentstore/models.py:329
+msgid ""
+"Upstream block key (e.g. lct:...), this value cannot be null and is useful "
+"to track upstream library blocks that do not exist yet or were deleted."
+msgstr ""
+"Upstream blok sleutel (bijv. lct:...), deze waarde kan niet nul zijn en is "
+"nuttig om upstream bibliotheekblokken op te sporen die nog niet bestaan of "
+"werden verwijderd."
+
+#: cms/djangoapps/contentstore/models.py:336
+msgid "Container Link"
+msgstr "Containerlink"
+
+#: cms/djangoapps/contentstore/models.py:337
+msgid "Container Links"
+msgstr "Links naar containers"
 
 #: cms/djangoapps/contentstore/models.py:363
 msgid "The container must be published to access `published_at`"
@@ -1191,6 +1216,10 @@ msgstr "Woordenboek met de beschikbare tags"
 msgid "Content is not linked to a Content Library."
 msgstr "Inhoud is niet gekoppeld aan een inhoudsbibliotheek."
 
+#: cms/lib/xblock/upstream_sync.py:255
+msgid "Downstream is not an XBlock or is missing required UpstreamSyncMixin"
+msgstr "Downstream is geen XBlock of ontbreekt vereiste UpstreamSyncMixin"
+
 #: cms/lib/xblock/upstream_sync.py:259
 msgid "Cannot update content because it does not belong to a course."
 msgstr "Kan inhoud niet bijwerken omdat deze niet bij een cursus hoort."
@@ -1199,9 +1228,35 @@ msgstr "Kan inhoud niet bijwerken omdat deze niet bij een cursus hoort."
 msgid "Reference to linked library item is malformed"
 msgstr "Verwijzing naar gekoppeld bibliotheekitem is misvormd"
 
+#: cms/lib/xblock/upstream_sync.py:275
+msgid ""
+"Updating content with children is not yet supported unless the upstream is a"
+" container."
+msgstr ""
+"Het bijwerken van inhoud met kinderen wordt nog niet ondersteund, tenzij de "
+"upstream een container is."
+
+#: cms/lib/xblock/upstream_sync.py:281
+msgid "Linked upstream library block was not found in the system"
+msgstr "Gekoppeld upstream bibliotheekblok niet gevonden in het systeem"
+
+#: cms/lib/xblock/upstream_sync.py:288
+msgid "Linked upstream library container was not found in the system"
+msgstr ""
+"Gekoppelde upstream bibliotheekcontainer is niet gevonden in het systeem"
+
 #: cms/lib/xblock/upstream_sync.py:292
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "Gekoppelde `upstream_key` is geen geldige sleutel"
+
+#: cms/lib/xblock/upstream_sync.py:301
+#, python-brace-format
+msgid ""
+"Content type mismatch: {downstream_id} ({downstream_type}) cannot be linked "
+"to {upstream_id}."
+msgstr ""
+"Content type mismatch: {downstream_id} ({downstream_type}) kan niet aan "
+"{upstream_id} worden gekoppeld."
 
 #: cms/lib/xblock/upstream_sync_block.py:108
 msgid "Linked library item could not be loaded: {}"
