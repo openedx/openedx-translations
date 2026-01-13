@@ -30,6 +30,10 @@ msgstr "belsőleg felülvizsgálva"
 msgid "All Unreviewed"
 msgstr "Minden ellenőrizetlen"
 
+#: admin.py:122
+msgid "All Unreviewed Failures"
+msgstr "Minden nem ellenőrzött hiba"
+
 #: admin.py:142
 msgid "active proctored exams"
 msgstr "aktív felügyelt vizsgák"
@@ -86,9 +90,21 @@ msgstr "Elutasítva"
 msgid "Error"
 msgstr "Hiba"
 
+#: admin.py:407
+msgid "Onboarding Missing"
+msgstr "Az integráció hiányzik"
+
 #: admin.py:408
 msgid "Onboarding Failed"
 msgstr "Az onboarding sikertelen"
+
+#: admin.py:409
+msgid "Onboarding Pending"
+msgstr "Folyamatban lévő bevezetés"
+
+#: admin.py:410
+msgid "Onboarding Expired"
+msgstr "Az onboarding lejárt"
 
 #: api.py:824 views.py:1297
 #, python-brace-format
@@ -98,6 +114,11 @@ msgstr "Önnek {remaining_time} van hátra"
 #: api.py:1654
 msgid "your course"
 msgstr "képzésed"
+
+#: api.py:1745
+#, python-brace-format
+msgid "Proctoring Results For {course_name} {exam_name}"
+msgstr "Felügyeleti eredmények a(z) {course_name} {exam_name} vizsgához"
 
 #: api.py:2238
 msgid "Taking As Proctored Exam"
@@ -150,6 +171,10 @@ msgstr "Beilleszkedési státusz kérdés"
 #: models.py:391
 msgid "Taking as Proctored"
 msgstr "Proktorként történő részvétel"
+
+#: models.py:395
+msgid "Is Sample Attempt"
+msgstr "Ez minta próbálkozás"
 
 #: models.py:413
 msgid "Is Resumable"
@@ -326,6 +351,10 @@ msgstr ""
 "<a href=\"mailto:%(integration_specific_email)s\">%(integration_specific_email)s</a>.\n"
 "      "
 
+#: templates/onboarding_exam/entrance.html:58
+msgid "Continue to onboarding"
+msgstr "Folytatás az onboardinghoz"
+
 #: templates/onboarding_exam/entrance.html:62
 msgid ""
 "\n"
@@ -334,6 +363,16 @@ msgid ""
 msgstr ""
 "\n"
 "    Ön végig lesz vezetve az online felügyeleti szoftver beállításán és a személyazonosság ellenőrzésén.\n"
+"  "
+
+#: templates/onboarding_exam/error.html:4
+msgid ""
+"\n"
+"    Error: There was a problem with your onboarding session\n"
+"  "
+msgstr ""
+"\n"
+"    Hiba: Probléma merült fel az onboarding munkamenet során\n"
 "  "
 
 #: templates/onboarding_exam/error.html:13
@@ -346,6 +385,27 @@ msgstr ""
 "\n"
 "    A felügyelt vizsgája véget ért, mielőtt befejezte volna ezt a bevezető vizsgát.  \n"
 "Újra kell próbálnia ezt a bevezető vizsgát.\n"
+"  "
+
+#: templates/onboarding_exam/ready_to_submit.html:6
+#, python-format
+msgid ""
+"\n"
+"      You are taking \"%(exam_display_name)s\" as an onboarding exam. You must click “Yes, end my proctored exam” and submit your proctoring session to complete onboarding.\n"
+"    "
+msgstr ""
+"\n"
+"      Ön a(z) \"%(exam_display_name)s\" vizsgát veszi fel bevezető vizsgaként. Kattintson az „Igen, fejezzem be a felügyelt vizsgámat” gombra, és küldje el a felügyeleti munkamenetét a bevezetés befejezéséhez.\n"
+"    "
+
+#: templates/onboarding_exam/rejected.html:5
+msgid ""
+"\n"
+"    Your onboarding session was reviewed, but did not pass all requirements\n"
+"  "
+msgstr ""
+"\n"
+"    Az Ön bevezető ülése felülvizsgálatra került, de nem felelt meg minden követelménynek.\n"
 "  "
 
 #: templates/onboarding_exam/rejected.html:12
@@ -408,6 +468,18 @@ msgstr ""
 "ezért győződjön meg róla, hogy ez az e-mail hozzá lett adva a beérkező levelek szűrőjéhez.\n"
 "    "
 
+#: templates/onboarding_exam/submitted.html:29
+msgid ""
+"\n"
+"      If you already have an onboarding profile approved through another course,\n"
+"      this submission will not be reviewed. You may retry this exam at any time\n"
+"      to validate that your setup still meets the requirements for proctoring.\n"
+"    "
+msgstr ""
+"\n"
+"      Ha már van egy másik kurzus által jóváhagyott onboarding profilod, ezt a beküldést nem fogják felülvizsgálni. Bármikor újra megpróbálhatod ezt a vizsgát, hogy ellenőrizd, a beállításaid továbbra is megfelelnek-e a felügyeleti követelményeknek.\n"
+"    "
+
 #: templates/onboarding_exam/submitted.html:36
 msgid ""
 "\n"
@@ -423,6 +495,16 @@ msgstr ""
 #: templates/onboarding_exam/submitted.html:41
 msgid "I understand and want to reset this onboarding exam."
 msgstr "Megértem, és újra szeretném kezdeni ezt a bevezető vizsgát."
+
+#: templates/onboarding_exam/verified.html:4
+msgid ""
+"\n"
+"    Your onboarding profile was reviewed successfully\n"
+"  "
+msgstr ""
+"\n"
+"    Az ön bevezető profilját sikeresen átnéztük.\n"
+"  "
 
 #: templates/onboarding_exam/verified.html:11
 msgid ""
@@ -1169,6 +1251,16 @@ msgstr "Igen, fejezzük be a felügyelt vizsgámat."
 msgid "Ending Exam"
 msgstr "Vizsga befejezése"
 
+#: templates/proctored_exam/ready_to_submit.html:21
+msgid ""
+"\n"
+"        No, I'd like to continue working\n"
+"      "
+msgstr ""
+"\n"
+"        Nem, szeretném folytatni a munkát\n"
+"      "
+
 #: templates/proctored_exam/rejected.html:5
 msgid ""
 "\n"
@@ -1332,6 +1424,16 @@ msgstr ""
 "      Győződjön meg arról, hogy minden feladatnál kiválasztotta a „Beküldés” opciót, mielőtt leadja a vizsgáját.\n"
 "    "
 
+#: templates/timed_exam/ready_to_submit.html:14
+msgid ""
+"\n"
+"      After you submit your exam, your exam will be graded.\n"
+"    "
+msgstr ""
+"\n"
+"      Miután leadja a vizsgáját, értékeljük a vizsgáját.\n"
+"    "
+
 #: templates/timed_exam/ready_to_submit.html:19
 msgid ""
 "\n"
@@ -1341,6 +1443,16 @@ msgstr ""
 "\n"
 "      Igen, küldje be az időzített vizsgámat.\n"
 "    "
+
+#: templates/timed_exam/ready_to_submit.html:25
+msgid ""
+"\n"
+"        No, I want to continue working.\n"
+"      "
+msgstr ""
+"\n"
+"        Nem, szeretnék folytatni a munkát.\n"
+"      "
 
 #: templates/timed_exam/submitted.html:6
 msgid ""
@@ -1424,6 +1536,10 @@ msgstr "Hiányzó kötelező lekérdezési paraméter: course_id"
 #: views.py:694 views.py:875
 msgid "There is no onboarding exam related to this course id."
 msgstr "Nincs ehhez a kurzusazonosítóhoz kapcsolódó bevezető vizsga."
+
+#: views.py:723
+msgid "There is no onboarding exam accessible to this user."
+msgstr "Nincs hozzáférhető bevezető vizsga ehhez a felhasználóhoz."
 
 #: views.py:773
 #, python-brace-format
