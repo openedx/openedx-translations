@@ -2630,6 +2630,27 @@ msgstr "Команда %(platform_name)s"
 msgid "Hello %(full_name)s"
 msgstr "Вітаємо, %(full_name)s"
 
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.txt:3
+#, python-format
+msgid ""
+"You are enrolled in %(course_name)s at %(platform_name)s. This course "
+"contains proctored exams."
+msgstr ""
+"Ви записані на %(course_name)s, що розміщений на %(platform_name)s. Цей курс"
+" містить іспити під наглядом."
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.txt:5
+#, python-format
+msgid ""
+"Proctored exams are timed exams that you take while proctoring software "
+"monitors your computer's desktop, webcam video, and audio. Your course uses "
+"%(proctoring_provider)s software for proctoring."
+msgstr ""
+"Іспити під наглядом – це іспити, які Ви складаєте за обмежений час, тоді як "
+"програмне забезпечення контролює робочий стіл Вашого комп’ютера, відео та "
+"аудіо з веб-камери. Ваш курс використовує програмне забезпечення "
+"%(proctoring_provider)s для прокторингу."
+
 #: common/templates/student/edx_ace/proctoringrequirements/email/body.txt:7
 msgid ""
 "Carefully review the system requirements as well as the steps to take a "
@@ -2637,6 +2658,28 @@ msgid ""
 msgstr ""
 "Уважно ознайомтеся з вимогами системи та інструкціями щодо проходження "
 "контрольованого іспиту, щоб упевнитися у своїй готовності."
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.txt:9
+#, python-format
+msgid ""
+"To view proctoring instructions and requirements, please visit: "
+"%(proctoring_requirements_url)s"
+msgstr ""
+"Щоб переглянути інструкції та вимоги до проведення прокторингу, відвідайте: "
+"%(proctoring_requirements_url)s"
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.txt:14
+#, python-format
+msgid ""
+"This email was automatically sent from %(platform_name)s to %(full_name)s."
+msgstr ""
+"Це повідомлення електронної пошти було автоматично надіслано з "
+"%(platform_name)s до %(full_name)s."
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/subject.txt:3
+#, python-format
+msgid "Proctoring requirements for %(course_name)s"
+msgstr "Вимоги до прокторингу для %(course_name)s"
 
 #: common/templates/student/edx_ace/recoveryemailcreate/email/body.html:10
 msgid "Create Recovery Email"
@@ -3050,6 +3093,21 @@ msgstr ""
 "честі {platform_name} і завершив всі необхідні задачі даного курсу у "
 "відповідності з його керівними принципами."
 
+#. Translators:  This text describes the 'ID Verified' course certificate
+#. type, which is a higher level of
+#. verification offered by edX.  This type of verification is useful for
+#. professional education/certifications
+#: lms/djangoapps/certificates/views/webview.py:80
+#, python-brace-format
+msgid ""
+"A {cert_type} certificate signifies that a learner has agreed to abide by "
+"the honor code established by {platform_name} and has completed all of the "
+"required tasks for this course under its guidelines. "
+msgstr ""
+"{cert_type} Сертифікат означає, що учень зобов'язався виконувати Кодекс "
+"Честі {platform_name} і завершив всі необхідні задачі даного курсу у "
+"відповідності з його керівними принципами. "
+
 #: lms/djangoapps/certificates/views/webview.py:86
 #, python-brace-format
 msgid ""
@@ -3336,6 +3394,11 @@ msgstr ""
 "Користувач {username} ({email}) подав запит на повернення коштів. Для "
 "обробки цього запиту, будь ласка, перейдіть по посиланню (посиланням) нижче."
 
+#: lms/djangoapps/course_api/blocks/transformers/milestones.py:191
+#: openedx/core/djangoapps/content/learning_sequences/api/processors/special_exams.py:88
+msgid "Practice Exam"
+msgstr "Тренувальний iспит"
+
 #: lms/djangoapps/course_api/blocks/transformers/milestones.py:193
 #: openedx/core/djangoapps/content/learning_sequences/api/processors/special_exams.py:90
 msgid "Proctored Exam"
@@ -3358,6 +3421,25 @@ msgstr "Ви майже закінчили!"
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.txt:3
 msgid "There's still time to reach your goal"
 msgstr "Ще є час досягти своєї мети."
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.txt:5
+#, python-format
+msgid ""
+"You set a goal of learning %(days_per_week)s times a week in "
+"%(course_name)s. You're not quite there, but there's still time to reach "
+"that goal!"
+msgstr ""
+"Ви поставили собі за мету вчитися %(days_per_week)s разів на тиждень в "
+"рамках курсу %(course_name)s. Ви ще не досягли поставленої цілі, але у Вас "
+"ще є час!"
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.txt:9
+msgid ""
+"Remember, you can always change your learning goal. The best goal is one "
+"that you can stick to.  "
+msgstr ""
+"Ви завжди можете змінювати навчальну ціль. Найкраща ціль – це та, якої Ви "
+"можете досягнути.  "
 
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/footer.html:47
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/head.html:24
@@ -3416,6 +3498,64 @@ msgstr "Завантажте iOS додаток у Apple Store"
 #: themes/red-theme/lms/templates/ace_common/edx_ace/common/base_body.html:153
 msgid "Download the Android app on the Google Play Store"
 msgstr "Завантажте Android додаток у Google Play Store"
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/footer.html:180
+#: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/base_body.html:240
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/footer.html:180
+msgid "Unsubscribe from these emails."
+msgstr "Скасуйте підписку на ці електронні адреси."
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/subject.txt:3
+#, python-format
+msgid "You've almost reached your goal in %(course_name)s"
+msgstr "Ви майже досягли встановленої цілі для курсу %(course_name)s"
+
+#: lms/djangoapps/course_home_api/admin.py:21
+msgid ""
+"These define the context to disable the frontend-app-learning progress "
+"page.If no values are set, then the configuration applies globally. If a "
+"single value is set, then the configuration applies to all courses within "
+"that context. At most one value can be set at a time.<br>If multiple "
+"contexts apply to a course (for example, if configuration is specified for "
+"the course specifically, and for the org that the course is in, then the "
+"more specific context overrides the more general context."
+msgstr ""
+"Вони визначають контекст для вимкнення сторінки прогресу в інтерфейсі "
+"користувача. Якщо значення не встановлені, тоді конфігурація застосовується "
+"глобально. Якщо встановлено одне значення, то конфігурація застосовується до"
+" всіх курсів у цьому контексті. Одночасно може бути встановлено щонайбільше "
+"одне значення.<br>Якщо до курсу застосовується декілька контекстів "
+"(наприклад, якщо конфігурація вказана для курсу конкретно та для "
+"організації, в якій знаходиться курс, то конкретніший контекст перевизначає "
+"більш загальний контекст."
+
+#: lms/djangoapps/course_home_api/admin.py:33
+#: openedx/features/discounts/admin.py:34
+msgid ""
+"If any of these values is left empty or \"Unknown\", then their value at "
+"runtime will be retrieved from the next most specific context that applies. "
+"For example, if \"Disabled\" is left as \"Unknown\" in the course context, "
+"then that course will be Disabled only if the org that it is in is Disabled."
+msgstr ""
+"Якщо будь-яке з цих значень залишається порожнім або \"Unknown\", їх "
+"значення під час виконання буде отримано з наступного найбільш конкретного "
+"контексту, який застосовується. Наприклад, якщо в контексті курсу значення "
+"\"відключений\" залишено як \"Unknown\", тоді цей курс буде відключений, "
+"лише якщо організація, в якій він знаходиться, відключена."
+
+#: lms/djangoapps/course_home_api/models.py:22
+#: openedx/features/discounts/models.py:25
+msgid "Disabled"
+msgstr "Відключений"
+
+#: lms/djangoapps/course_home_api/outline/serializers.py:33
+#, python-brace-format
+msgid "({number} Question)"
+msgid_plural "({number} Questions)"
+msgstr[0] "({number} питання)"
+msgstr[1] "({number} питань)"
+msgstr[2] "({number} питань)"
+msgstr[3] "({number} питань)"
 
 #: lms/djangoapps/course_home_api/outline/views.py:293
 #, python-brace-format
@@ -3521,6 +3661,12 @@ msgstr ""
 "увійдіть з обліковим записом '{enrollment_enterprise_name}', щоб отримати "
 "доступ до курсу."
 
+#: lms/djangoapps/courseware/access_response.py:280
+msgid "You must give Data Sharing Consent for the course"
+msgstr ""
+"Для участі в цьому курсі Вам потрібно надати згоду на спільний доступ до "
+"Даних."
+
 #: lms/djangoapps/courseware/access_response.py:291
 msgid "You must be logged in to see this course"
 msgstr "Ви повинні увійти в систему, щоб переглянути цей курс"
@@ -3538,6 +3684,10 @@ msgstr "Фінансова Допомога"
 msgid "Assignment"
 msgstr "Завдання"
 
+#: lms/djangoapps/courseware/courses.py:743
+msgid "Open Response Assessment"
+msgstr "Оцінка відкритої відповіді"
+
 #: lms/djangoapps/courseware/courses.py:766
 msgid ""
 "This Open Response Assessment's due dates are set by your instructor and "
@@ -3545,6 +3695,22 @@ msgid ""
 msgstr ""
 "Термін здачі цього оцінювання з відкритою відповіддю встановлений вашим "
 "викладачем і не може бути змінений."
+
+#: lms/djangoapps/courseware/courses.py:777
+msgid "Self Assessment"
+msgstr "Самооцінка"
+
+#: lms/djangoapps/courseware/courses.py:779
+msgid "Peer Assessment"
+msgstr "Взаємне Оцінювання"
+
+#: lms/djangoapps/courseware/courses.py:781
+msgid "Staff Assessment"
+msgstr "Оцінка викладача"
+
+#: lms/djangoapps/courseware/courses.py:783
+msgid "Submission"
+msgstr "Подання"
 
 #. Translators: 'absolute' is a date such as "Jan 01,
 #. 2020". 'relative' is a fuzzy description of the time until
@@ -3603,6 +3769,10 @@ msgstr ""
 #: lms/djangoapps/courseware/date_summary.py:404
 msgid "You lose all access to this course, including your progress."
 msgstr "Ви втрачаєте доступ до цього курсу, включаючи свій прогрес."
+
+#: lms/djangoapps/courseware/date_summary.py:408
+msgid "Audit Access Expires"
+msgstr "Термін дії Аудіт доступу закінчується"
 
 #: lms/djangoapps/courseware/date_summary.py:420
 msgid "Certificate Available"
@@ -3679,6 +3849,15 @@ msgstr ""
 "Для отримання підтвердженого сертифікату вам необхідно пройти підтвердження "
 "особи до зазначеної дати."
 
+#: lms/djangoapps/courseware/masquerade.py:188
+#, python-brace-format
+msgid ""
+"There is no user with the username or email address \"{user_identifier}\" "
+"enrolled in this course."
+msgstr ""
+"На цьому курсі немає користувачів з іменем користувача чи адресою "
+"електронної пошти \"{user_identifier}\" записаного на цей курс."
+
 #: lms/djangoapps/courseware/masquerade.py:402
 msgid ""
 "This user does not have access to this content because"
@@ -3716,6 +3895,18 @@ msgstr "Вимкнути динамічне оновлення дедлайна 
 msgid "Internal API Base URL"
 msgstr "Базова URL-адреса внутрішнього API"
 
+#: lms/djangoapps/courseware/models.py:564
+msgid "Financial Assistance Backend API Base URL."
+msgstr "Базова частина URL-адреси API бекенду фінансової підтримки."
+
+#: lms/djangoapps/courseware/models.py:572
+msgid ""
+"Username created for Financial Assistance Backend, e.g. "
+"financial_assistance_service_user."
+msgstr ""
+"Ім’я користувача, створено для бекенду фінансової підтримки, наприклад "
+"financial_assistance_service_user."
+
 #: lms/djangoapps/courseware/models.py:577
 msgid "Percentage of courses allowed to use edx-financial-assistance"
 msgstr ""
@@ -3737,6 +3928,13 @@ msgstr "Підтримуйте зацікавленість та прогрес 
 msgid "Textbooks"
 msgstr "Підручники"
 
+#: lms/djangoapps/courseware/plugins.py:75
+msgid ""
+"Create and manage a library of course readings, textbooks, and chapters."
+msgstr ""
+"Створюйте та управляйте бібліотекою матеріалів курсу: статтями, "
+"підручниками, розділами."
+
 #: lms/djangoapps/courseware/plugins.py:125
 msgid "Calculator"
 msgstr "Калькулятор"
@@ -3744,6 +3942,27 @@ msgstr "Калькулятор"
 #: lms/djangoapps/courseware/plugins.py:126
 msgid "Provide an in-course calculator for simple and complex calculations."
 msgstr "Надайте калькулятор у курсі для простих і складних обчислень."
+
+#: lms/djangoapps/courseware/plugins.py:173
+msgid "Proctoring"
+msgstr "Прокторинг"
+
+#: lms/djangoapps/courseware/plugins.py:174
+msgid ""
+"Maintain exam integrity by enabling a proctoring solution for your course"
+msgstr ""
+"Забезпечте чесне складання екзаменів, дозволивши рішення для прокторингу "
+"вашого курсу."
+
+#: lms/djangoapps/courseware/plugins.py:219
+msgid "Custom pages"
+msgstr "Власні сторінки"
+
+#: lms/djangoapps/courseware/plugins.py:220
+msgid "Provide additional course content and resources with custom pages"
+msgstr ""
+"Дайте додатковий контент та ресурси для Вашого курсу за допомогою власних "
+"сторінок"
 
 #: lms/djangoapps/courseware/plugins.py:271
 msgid "Flexible Peer Grading for ORAs"
@@ -4040,10 +4259,37 @@ msgstr "%(comment_username)s залишили коментар до %(thread_tit
 msgid "Comment to %(thread_title)s"
 msgstr "Коментар на адресу %(thread_title)s"
 
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.html:12
+#, python-format
+msgid ""
+"\n"
+"                        %(course_name)s: Reported content awaits review\n"
+"                    "
+msgstr ""
+"\n"
+"                        %(course_name)s: Переданий контент очікує на розгляд\n"
+"                    "
+
 #: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.html:24
 #: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.txt:18
 msgid "Go to Discussion"
 msgstr "Перейти до обговорення"
+
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.txt:4
+#, python-format
+msgid "%(course_name)s: Reported content awaits review"
+msgstr "%(course_name)s: Переданий контент очікує на розгляд"
+
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/subject.txt:3
+#, python-format
+msgid " %(course_name)s %(course_id)s moderator content for review "
+msgstr " %(course_name)s %(course_id)s контент на розгляд модератора "
+
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/responsenotification/email/body.html:11
+#, python-format, python-brace-format
+msgid "%(comment_username)s replied to {start_tag}%(thread_title)s{end_tag}:"
+msgstr ""
+"%(comment_username)s відповів(-ла) {start_tag}%(thread_title)s{end_tag}:"
 
 #: lms/djangoapps/discussion/templates/discussion/edx_ace/responsenotification/email/body.html:24
 #: lms/djangoapps/discussion/templates/discussion/edx_ace/responsenotification/email/body.txt:16
@@ -4069,6 +4315,10 @@ msgid ""
 msgstr ""
 "%(comment_username)s відповів на %(thread_title)s: "
 "%(comment_body|truncatechars:200)s"
+
+#: lms/djangoapps/discussion/views.py:80
+msgid "Access to this discussion is restricted to team members and staff."
+msgstr "Доступ до цього обговорення обмежений лише членам групи та персоналу."
 
 #: lms/djangoapps/edxnotes/helpers.py:117
 #: lms/djangoapps/edxnotes/helpers.py:148
@@ -4176,6 +4426,42 @@ msgstr ""
 "Дані у рядку #{row_num} повинні мати рівно 4 колонки: email, ім’я "
 "користувача, повне ім’я, та країна."
 
+#: lms/djangoapps/instructor/views/api.py:429
+msgid ""
+"Course is not cohorted but cohort provided. Ignoring cohort assignment for "
+"all users."
+msgstr ""
+"Курс не розділяється на когорти, але когорту надано. Ігнорування завдання "
+"когорти для всіх користувачів."
+
+#: lms/djangoapps/instructor/views/api.py:444
+#, python-brace-format
+msgid ""
+"Cohort name not found: {cohort}. Ignoring cohort assignment for all users."
+msgstr ""
+"Назва когорти не знайдена: {cohort}. Ми ігноруємо завдання, специфічні для "
+"когорт, для всіх користувачів."
+
+#: lms/djangoapps/instructor/views/api.py:461
+#, python-brace-format
+msgid ""
+"Invalid course mode: {mode}. Falling back to the default mode, or keeping "
+"the current mode in case the user is already enrolled."
+msgstr ""
+"Неправильно вказаний режим курсу: {mode}. Буде використовуватись режим за "
+"замовчуванням, або поточний режим, у випадку, якщо користувач вже записаний "
+"на курс."
+
+#: lms/djangoapps/instructor/views/api.py:467
+#, python-brace-format
+msgid ""
+"Invalid course mode: {mode}.  Failling back to {default_mode}, or resetting "
+"to {default_mode} in case the user is already enrolled."
+msgstr ""
+"Неправильно вказаний режим курсу: {mode}. Використовується режим "
+"{default_mode}, або поточний режим {default_mode}, у випадку, якщо "
+"користувач вже записаний на курс."
+
 #: lms/djangoapps/instructor/views/api.py:485
 #: lms/djangoapps/instructor/views/api.py:547
 #: lms/djangoapps/instructor/views/api.py:582
@@ -4213,6 +4499,63 @@ msgstr ""
 "Помилка '{error}' при надсиланні листа новому користувачу (електронна пошта "
 "користувача={email}).  Без листа слухач не зможе увійти в систему. Будь "
 "ласка, зв'яжіться зі службою підтримки для додаткової інформації."
+
+#: lms/djangoapps/instructor/views/api.py:1147
+msgid ""
+"A usage key location for a section or a problem. If the location is a block "
+"that contains other blocks, (such as the course, section, subsection, or "
+"unit blocks) then all blocks under that block will be included in the "
+"report."
+msgstr ""
+"Місцеположення ключа використання для розділу чи задачі. Якщо "
+"місцеположенням є блок, що містить інші блоки (наприклад, блоки курсу, "
+"розділу, субсекції, розділу), тоді до доповіді буде включено всі блоки."
+
+#: lms/djangoapps/instructor/views/api.py:1156
+msgid "A list of usage keys for the blocks to include in the report. "
+msgstr ""
+"Список ключів використання для блоків, які необхідно долучити до доповіді. "
+
+#: lms/djangoapps/instructor/views/api.py:1164
+msgid ""
+"A list of problem/block types to generate the report for. This field can be "
+"omitted if the report should include details of allblock types. "
+msgstr ""
+"Список задач/типів блоків, для яких потрібно згенерувати звіт. Це поле можна"
+" пропустити, якщо звіт повинен включати деталі щодо всіх типів блоків. "
+
+#: lms/djangoapps/instructor/views/api.py:1175
+msgid "User-friendly text describing current status of report generation."
+msgstr ""
+"Простий для розуміння текст, що описує поточний статус створення звіту."
+
+#: lms/djangoapps/instructor/views/api.py:1178
+msgid ""
+"A unique id for the report generation task. It can be used to query the "
+"latest report generation status."
+msgstr ""
+"Унікальний id задачі створення звіту. Його можна використовувати для "
+"отримання статусу створення останнього звіту."
+
+#: lms/djangoapps/instructor/views/api.py:1204
+msgid ""
+"The provided parameters were invalid. Make sure you've provided at least one"
+" valid usage key for `problem_locations`."
+msgstr ""
+"Надані параметри були хибними. Переконайтеся, що ви дали принаймні один "
+"дійсний ключ для `problem_locations`."
+
+#: lms/djangoapps/instructor/views/api.py:1207
+#: lms/djangoapps/instructor/views/api.py:2537
+#: lms/djangoapps/instructor/views/api.py:2747
+msgid "The requesting user is not authenticated."
+msgstr "Запитуючий користувач не автентифікований."
+
+#: lms/djangoapps/instructor/views/api.py:1208
+#: lms/djangoapps/instructor/views/api.py:2538
+#: lms/djangoapps/instructor/views/api.py:2748
+msgid "The requesting user lacks access to the course."
+msgstr "У користувача, який надсилає запит, немає доступу до цього курсу."
 
 #: lms/djangoapps/instructor/views/api.py:1354
 #: lms/djangoapps/instructor_task/api_helper.py:109
@@ -4341,6 +4684,10 @@ msgstr "Останній вхід"
 msgid "Date Joined"
 msgstr "Дата приєднання"
 
+#: lms/djangoapps/instructor/views/api.py:1548
+msgid "External User Key"
+msgstr "Ключ зовнішнього користувача"
+
 #: lms/djangoapps/instructor/views/api.py:1566
 msgid "Cohort"
 msgstr "Когорта"
@@ -4392,6 +4739,10 @@ msgstr "огляд"
 #: lms/djangoapps/instructor_task/api_helper.py:114
 msgid "proctored exam results"
 msgstr "результати контрольованих іспитів"
+
+#: lms/djangoapps/instructor/views/api.py:1851
+msgid "Anonymized User IDs"
+msgstr "Анонімні ідентифікатори користувачів"
 
 #: lms/djangoapps/instructor/views/api.py:1888
 #, python-brace-format
@@ -4459,19 +4810,96 @@ msgid "Cannot rescore with all_students and unique_student_identifier."
 msgstr ""
 "Неможливо перезарахувати бали з all_students і unique_student_identifier."
 
+#: lms/djangoapps/instructor/views/api.py:2455
+msgid "Current status of task."
+msgstr "Поточний статус завдання."
+
+#: lms/djangoapps/instructor/views/api.py:2456
+msgid "Identifies the kind of task being performed, e.g. rescoring."
+msgstr ""
+"Визначає тип завдання, яке виконується, наприклад, перерахування балів."
+
+#: lms/djangoapps/instructor/views/api.py:2457
+msgid "The celery ID for the task."
+msgstr "ID завдання."
+
+#: lms/djangoapps/instructor/views/api.py:2458
+msgid "The date and time when the task was created."
+msgstr "Дата і час створення завдання."
+
+#: lms/djangoapps/instructor/views/api.py:2461
+msgid ""
+"The input parameters for the task. The format and content of this data will "
+"depend on the kind of task being performed. For instanceit may contain the "
+"problem locations for a problem resources task."
+msgstr ""
+"Вхідні параметри для завдання. Формат і контент цих даних залежатиме від "
+"типу виконуваного завдання. Наприклад, він може містити місцеположення задач"
+" для завдання ресурсів."
+
+#: lms/djangoapps/instructor/views/api.py:2465
+msgid "The username of the user who initiated this task."
+msgstr "Ім’я користувача, який ініціював це завдання."
+
+#: lms/djangoapps/instructor/views/api.py:2466
+msgid "The last knows state of the celery task."
+msgstr "Актуальний стан завдання celery."
+
+#: lms/djangoapps/instructor/views/api.py:2467
+msgid "Task duration information, if known"
+msgstr "Інформація про тривалість завдання, якщо вона відома"
+
+#: lms/djangoapps/instructor/views/api.py:2468
+msgid "User-friendly task status information, if available."
+msgstr ""
+"Інформація про статус завдання, якщо така є, у зручному для користувача "
+"вигляді."
+
+#: lms/djangoapps/instructor/views/api.py:2477
+msgid "List of instructor tasks."
+msgstr "Список завдань викладача."
+
 #: lms/djangoapps/instructor/views/api.py:2539
 #: lms/djangoapps/instructor/views/api.py:2749
 msgid "The requested course does not exist."
 msgstr "Запитуваний курс не існує."
 
+#: lms/djangoapps/instructor/views/api.py:2711
+msgid "URL from which report can be downloaded."
+msgstr "URL-адреса, з якої можна завантажити звіт."
+
 #: lms/djangoapps/instructor/views/api.py:2712
 msgid "Name of report."
 msgstr "Назва звіту."
+
+#: lms/djangoapps/instructor/views/api.py:2713
+msgid "HTML anchor tag that contains the name and link."
+msgstr "Мітка HTML якоря, що містить ім'я та посилання."
+
+#: lms/djangoapps/instructor/views/api.py:2722
+msgid "List of report downloads"
+msgstr "Список завантажень звітів"
+
+#: lms/djangoapps/instructor/views/api.py:2736
+msgid "ID for the course whose reports need to be listed."
+msgstr "ID курсу, звіти якого потрібно долучити."
+
+#: lms/djangoapps/instructor/views/api.py:2742
+msgid ""
+"Filter results to only return details of for the report with the specified "
+"name."
+msgstr ""
+"Фільтрувати результати пошуку таким чином, щоб вони включали лише деталі "
+"звіту з вказаною назвою."
 
 #: lms/djangoapps/instructor/views/api.py:2866
 #: lms/djangoapps/instructor_task/api_helper.py:115
 msgid "ORA data"
 msgstr "Дані ORA"
+
+#: lms/djangoapps/instructor/views/api.py:2898
+msgid "ORA summary"
+msgstr "Огляд ORA"
 
 #: lms/djangoapps/instructor/views/api.py:2927
 msgid "Attachments archive is being created."
@@ -4557,11 +4985,38 @@ msgstr ""
 "Ця запис неправильного формату. Будь ласка, введіть ім'я користувача чи "
 "адресу електронної пошти."
 
+#: lms/djangoapps/instructor/views/api.py:3854
+#, python-brace-format
+msgid ""
+"Student {user} is not enrolled in this course. Please check your spelling "
+"and retry."
+msgstr ""
+"Студент {user} не записаний на цей курс. Будь ласка, перевірте правильність "
+"введення і повторіть спробу."
+
+#: lms/djangoapps/instructor/views/api.py:3861
+#, python-brace-format
+msgid ""
+"Student {user} is already on the certificate invalidation list and cannot be"
+" added to the certificate exception list."
+msgstr ""
+"Студент {user} уже перебуває у списку тих, чиї Сертифікати недійсні. Тому "
+"його неможливо додати до списку тих, чиї Сертифікати буде виключено."
+
 #: lms/djangoapps/instructor/views/api.py:3867
 #, python-brace-format
 msgid "Student (username/email={user}) already in certificate exception list."
 msgstr ""
 "Слухач (username/email={user}) виключений із списку власників сертифікатів."
+
+#: lms/djangoapps/instructor/views/api.py:3903
+#, python-brace-format
+msgid ""
+"Error occurred removing the allowlist entry for student {student}. Please "
+"refresh the page and try again"
+msgstr ""
+"Під час видалення дозвільного запису для студента {student} сталася помилка."
+" Будь ласка, оновіть сторінку та повторіть спробу."
 
 #: lms/djangoapps/instructor/views/api.py:3921
 msgid ""
@@ -4584,6 +5039,10 @@ msgstr ""
 msgid "Invalid data, generate_for must be \"new\" or \"all\"."
 msgstr "Неприпустимі дані, generate_for повинно бути \"new\" або \"all\"."
 
+#: lms/djangoapps/instructor/views/api.py:4004
+msgid "Certificate generation started for students on the allowlist."
+msgstr "Розпочато генерацію сертифікатів для слухачів з дозвільного списку."
+
 #: lms/djangoapps/instructor/views/api.py:4057
 #, python-brace-format
 msgid "user \"{user}\" in row# {row}"
@@ -4593,6 +5052,17 @@ msgstr "користувач «{user}» в {row} рядку"
 #, python-brace-format
 msgid "user \"{username}\" in row# {row}"
 msgstr "ім’я користувача «{username}» в {row} рядку"
+
+#: lms/djangoapps/instructor/views/api.py:4168
+#, python-brace-format
+msgid ""
+"The student {student} appears on the Certificate Exception list in course "
+"{course}. Please remove them from the Certificate Exception list before "
+"attempting to invalidate their certificate."
+msgstr ""
+"Студент {student} є у списку виключень щодо випуску Сертифікатів для курсу "
+"{course}. Будь ласка, видаліть його з цього списку перш ніж зробити "
+"недійсним його Сертифікат."
 
 #: lms/djangoapps/instructor/views/api.py:4229
 #, python-brace-format
@@ -4855,6 +5325,10 @@ msgstr "Неможливо опрацювати дату:"
 #, python-brace-format
 msgid "Couldn't find module for url: {0}"
 msgstr "Неможливо знайти модуль за адресою: {0}"
+
+#: lms/djangoapps/instructor/views/tools.py:171
+msgid "Could not find student enrollment in the course."
+msgstr "Не вдалося знайти запис студента на курс."
 
 #: lms/djangoapps/instructor/views/tools.py:199
 #, python-brace-format
@@ -5174,6 +5648,10 @@ msgstr " (з {total})"
 msgid "Programs"
 msgstr "Програми"
 
+#: lms/djangoapps/learner_dashboard/programs.py:155
+msgid "Program Details"
+msgstr "Деталі програми"
+
 #: lms/djangoapps/lms_xblock/mixin.py:23
 msgid ""
 "This component's access settings refer to deleted or invalid group "
@@ -5208,6 +5686,19 @@ msgid ""
 msgstr ""
 "Налаштування доступу до цього компонента суперечать налаштуванням доступу "
 "вищої категорії."
+
+#: lms/djangoapps/lms_xblock/mixin.py:56
+msgid "Whether to display this block in the table of contents"
+msgstr "Показує цей блок в змісті"
+
+#. Translators: "TOC" stands for "Table of Contents"
+#: lms/djangoapps/lms_xblock/mixin.py:62
+msgid ""
+"What format this block is in (used for deciding which grader to apply, and "
+"what to show in the TOC)"
+msgstr ""
+"В якому форматі цей блок (використовується для рішення про те, яку систему "
+"оцінки застосовувати, і що показувати в змісті)"
 
 #: lms/djangoapps/lms_xblock/mixin.py:67
 msgid "Course Chrome"
@@ -5278,6 +5769,18 @@ msgstr ""
 "Списки груп, на які будуть поділені студенти для вивчення експериментальних "
 "матеріалів."
 
+#: lms/djangoapps/lti_provider/models.py:39
+msgid ""
+"When checked, the LTI content will load only for learners who have an "
+"account in this instance. This is required only for linking learner accounts"
+" with the LTI consumer. See the Open edX LTI Provider documentation for more"
+" details."
+msgstr ""
+"Якщо позначено, контент LTI завантажуватиметься лише для учнів, які мають "
+"обліковий запис у цьому інстансі. Це потрібно лише для пов'язування "
+"облікових записів учнів зі споживачем LTI. Додаткову інформацію див. у "
+"документації Open edX LTI Provider."
+
 #: lms/djangoapps/lti_provider/models.py:44
 msgid ""
 "When checked, the platform will automatically use any personal information "
@@ -5287,6 +5790,10 @@ msgstr ""
 "Коли встановлено прапорець, платформа автоматично використовуватиме будь-яку"
 " особисту інформацію, надану через LTI, для створення облікового запису. В "
 "іншому випадку буде створено анонімний обліковий запис."
+
+#: lms/djangoapps/program_enrollments/models.py:57
+msgid "One of user or external_user_key must not be null."
+msgstr "Один з user або external_user_key не повинен бути нульовим."
 
 #: lms/djangoapps/support/views/index.py:16
 msgid "View and regenerate certificates."
@@ -5323,6 +5830,22 @@ msgstr "Записи на Основі Функцій"
 #: lms/djangoapps/support/views/index.py:36
 msgid "View feature based enrollment settings"
 msgstr "Переглянути налаштування реєстрації на основі функцій"
+
+#: lms/djangoapps/support/views/index.py:40
+msgid "Link Program Enrollments"
+msgstr "Посилання на записи в Програмі"
+
+#: lms/djangoapps/support/views/index.py:41
+msgid "Link LMS users to program enrollments"
+msgstr "Пов’яжіть користувачів Навчальної системи з записами в програмах"
+
+#: lms/djangoapps/support/views/index.py:45
+msgid "Program Enrollments Inspector Tool"
+msgstr "Інструмент інспектора записів програми"
+
+#: lms/djangoapps/support/views/index.py:46
+msgid "Find information related to a learner's program enrollments"
+msgstr "Знайти інформацію, пов’язану із записами на програму учня"
 
 #: lms/djangoapps/support/views/manage_user.py:35
 msgid "username"
@@ -5472,6 +5995,10 @@ msgstr "Ви не можете залишити команду, якою кер�
 msgid "Show existing user tour"
 msgstr "Показати наявну інструкцію для користувача"
 
+#: lms/djangoapps/user_tours/models.py:20
+msgid "Show new user tour"
+msgstr "Показати ознайомлюючі матеріали для нового користувача"
+
 #: lms/djangoapps/user_tours/models.py:21
 msgid "Do not show user tour"
 msgstr "Не показувати ознайомлюючі матеріали"
@@ -5572,6 +6099,17 @@ msgstr "Ви дійсно бажаєте скасувати вилучення �
 #: xmodule/capa_block.py:1050
 msgid "Submit"
 msgstr "Надіслати"
+
+#: lms/templates/bulk_email/edx_ace/bulkemail/email/body.html:18
+#, python-format
+msgid ""
+"\n"
+"            This email was automatically sent from %(platform_name)s.\n"
+"          "
+msgstr ""
+"\n"
+"            Це повідомлення електронної пошти було автоматично надіслано з %(platform_name)s.\n"
+"          "
 
 #: lms/templates/bulk_email/edx_ace/bulkemail/email/body.html:33
 msgid "here"
@@ -6092,6 +6630,29 @@ msgstr "Вийшли"
 msgid "You have signed out."
 msgstr "Ви вийшли."
 
+#: lms/templates/logout.html:12
+#, python-format, python-brace-format
+msgid ""
+"{start_anchor}%(tpa_logout_url)s{middle_anchor}Click here{end_anchor} to "
+"delete your single signed on (SSO) session."
+msgstr ""
+"{start_anchor}%(tpa_logout_url)s{middle_anchor}Натисніть тут,{end_anchor} "
+"щоб видалити Ваш сеанс єдиного входу (SSO)."
+
+#: lms/templates/logout.html:26
+msgid "We are signing you in."
+msgstr "Вас авторизовують."
+
+#: lms/templates/logout.html:30
+msgid ""
+"\n"
+"                  This may take a minute. If you are not redirected, go to the home page.\n"
+"                "
+msgstr ""
+"\n"
+"                  Це може зайняти хвилину. Якщо вас не переспрямовують, перейдіть на домашню сторінку.\n"
+"                "
+
 #: lms/templates/logout.html:39
 #, python-format, python-brace-format
 msgid ""
@@ -6193,6 +6754,86 @@ msgstr "найкращий,"
 #, python-format
 msgid "Hello %(full_name)s, "
 msgstr "Вітаємо, %(full_name)s"
+
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:10
+msgid "ID Verification Approved"
+msgstr "Верифікація ID затверджена"
+
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:19
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:3
+#, python-format
+msgid "Your %(platform_name)s ID verification photos have been approved."
+msgstr "Ваші %(platform_name)s ID фото схвалено."
+
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:23
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:4
+#, python-format
+msgid ""
+"Your approval status remains valid for two years, and it will expire "
+"%(expiration_datetime)s."
+msgstr ""
+"Статус підтвердження особи залишається чинним протягом двох років, і він "
+"втратить чинність через %(expiration_datetime)s."
+
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:29
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:6
+msgid "Enjoy your studies,"
+msgstr "Насолоджуйтесь навчанням,"
+
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/subject.txt:3
+#, python-format
+msgid "Your %(platform_name)s ID verification was approved!"
+msgstr "Ваш ID на %(platform_name)s підтверджено!"
+
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:10
+msgid "Expired ID Verification"
+msgstr "ID посвідчення особи втратив чинність"
+
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:18
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.txt:3
+#, python-format
+msgid "Your %(platform_name)s ID verification has expired. "
+msgstr "Термін дії ID посвідчення особи на %(platform_name)s закінчився. "
+
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:23
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.txt:5
+msgid ""
+"You must have a valid ID verification to take proctored exams and qualify "
+"for certificates."
+msgstr ""
+"Ви повинні мати дійсне ID, щоб скласти іспити під наглядом та отримати право"
+" на отримання сертифікатів."
+
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:24
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.txt:6
+msgid ""
+"Follow the link below to submit your photos and renew your ID verification."
+msgstr "За посиланням нижче подайте свої фото та поновіть вашу ID перевірку."
+
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:25
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.txt:7
+msgid "You can also do this from your dashboard."
+msgstr "Ви також можете зробити це на сторінці з вашими курсами."
+
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:29
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.txt:9
+#, python-format
+msgid "Resubmit Verification : %(lms_verification_link)s "
+msgstr ""
+"Повторно надіслати документи на перевірку: %(Навчальна "
+"система_verification_link)s "
+
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:33
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.txt:10
+#, python-format
+msgid "ID verification FAQ : %(help_center_link)s "
+msgstr "Поширені запитання щодо підтвердження ID : %(help_center_link)s "
+
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/subject.txt:3
+#, python-format
+msgid "Your %(platform_name)s Verification has Expired"
+msgstr ""
+"Термін дії документу посвідчення вашої особи на %(platform_name)s закінчився"
 
 #: lms/templates/verify_student/edx_ace/verificationsubmitted/email/body.html:19
 #: lms/templates/verify_student/edx_ace/verificationsubmitted/email/body.txt:3
@@ -6483,6 +7124,17 @@ msgstr "Підказка з Wiki"
 msgid "Wiki Syntax Help"
 msgstr "Допомога по синтаксису вікі"
 
+#: lms/templates/wiki/includes/cheatsheet.html:15
+#, python-brace-format
+msgid ""
+"This wiki uses {start_strong}Markdown{end_strong} for styling. There are "
+"several useful guides online. See any of the links below for in-depth "
+"details:"
+msgstr ""
+"Ця вікі використовує {start_strong}Markdown{end_strong} для стилізації. В "
+"онлайн є кілька корисних керівництв користувача. Зверніться до будь-якого з "
+"наступних посилань за детальною інформацією:"
+
 #: lms/templates/wiki/includes/cheatsheet.html:18
 msgid "Markdown: Basics"
 msgstr "Markdown: Основи"
@@ -6570,6 +7222,15 @@ msgstr "Список"
 #: lms/templates/wiki/includes/cheatsheet.html:59
 msgid "Quotes"
 msgstr "Цитати"
+
+#: lms/templates/wiki/includes/editor_widget.html:4
+#, python-brace-format
+msgid ""
+"Markdown syntax is allowed. See the {start_link}cheatsheet{end_link} for "
+"help."
+msgstr ""
+"Можна використовувати синтаксис розмітки. Дивіться "
+"{start_link}підказку{end_link} для допомоги."
 
 #: lms/templates/wiki/plugins/attachments/index.html:4
 msgid "Attachments"
@@ -6796,6 +7457,11 @@ msgstr ""
 "Я і моя компанія приймають {link_start}{platform_name} умови обслуговування "
 "API {link_end}."
 
+#: openedx/core/djangoapps/auth_exchange/forms.py:72
+#, python-format
+msgid "'%s' is not a valid scope."
+msgstr "'%s' не є дійсним обсягом.'"
+
 #: openedx/core/djangoapps/bookmarks/apps.py:18
 #: openedx/features/course_bookmarks/plugins.py:39
 #: openedx/features/course_bookmarks/views/course_bookmarks.py:93
@@ -6891,13 +7557,84 @@ msgstr ""
 "Максимальна кількість записів, відображених по сторінкам, від одного запиту "
 "до служби каталогу."
 
+#: openedx/core/djangoapps/config_model_utils/admin.py:41
+#, python-brace-format
+msgid ""
+"These define the context to enable this configuration on. If no values are "
+"set, then the configuration applies globally. If a single value is set, then"
+" the configuration applies to all courses within that context. At most one "
+"value can be set at a time.{br}If multiple contexts apply to a course (for "
+"example, if configuration is specified for the course specifically, and for "
+"the org that the course is in, then the more specific context overrides the "
+"more general context."
+msgstr ""
+"Вони визначають контекст, щоб дозволити цю конфігурацію. Якщо значення не "
+"встановлені, то конфігурація застосовується глобально. Якщо встановлено одне"
+" значення, то конфігурація застосовується до всіх курсів у цьому контексті. "
+"Одночасно може бути встановлено щонайбільше одне значення.{br}Якщо до курсу "
+"застосовується кілька контекстів (наприклад, якщо конфігурація вказана "
+"спеціально для курсу та для організації, в якій знаходиться курс, тоді більш"
+" конкретний контекст перевизначає більш загальний контекст."
+
+#: openedx/core/djangoapps/config_model_utils/admin.py:53
+msgid ""
+"If any of these values are left empty or \"Unknown\", then their value at "
+"runtime will be retrieved from the next most specific context that applies. "
+"For example, if \"Enabled\" is left as \"Unknown\" in the course context, "
+"then that course will be Enabled only if the org that it is in is Enabled."
+msgstr ""
+"Якщо будь-яке з цих значень залишається порожнім або \"Невідомим\", то їхнє "
+"значення під час виконання буде вилучено з наступного найбільш конкретного "
+"контексту, який застосовується. Наприклад, якщо \"Увімкнено\" залишилося як "
+"\"Невідомо\" в контексті курсу, то цей курс буде Ввімкнено, лише якщо "
+"організація, в якій вона знаходиться, Увімкнена."
+
+#: openedx/core/djangoapps/config_model_utils/models.py:43
+#, python-format
+msgid "%(value)s should have the form ORG+COURSE"
+msgstr "%(value)s повинен мати форма ORG+COURSE"
+
 #: openedx/core/djangoapps/config_model_utils/models.py:65
 msgid "Enabled"
 msgstr "Включено"
 
+#: openedx/core/djangoapps/config_model_utils/models.py:72
+msgid "Configure values for all course runs associated with this site."
+msgstr ""
+"Конфігуруйте значення для всіх запусків курсу, пов'язаних з цим сайтом."
+
+#: openedx/core/djangoapps/config_model_utils/models.py:81
+msgid ""
+"Configure values for all course runs associated with this Organization. This"
+" is the organization string (i.e. edX, MITx)."
+msgstr ""
+"Конфігуруйте значення для всіх запусків курсу, пов'язаних з цією "
+"організацією. Це рядок організації (тобто edX, MITx)."
+
+#: openedx/core/djangoapps/config_model_utils/models.py:90
+msgid "Course in Org"
+msgstr "Курс в Org"
+
+#: openedx/core/djangoapps/config_model_utils/models.py:92
+msgid ""
+"Configure values for all course runs associated with this course. This is "
+"should be formatted as 'org+course' (i.e. MITx+6.002x, HarvardX+CS50)."
+msgstr ""
+"Конфігуруйте значення для всіх запусків курсу, пов'язаних із цим курсом. Це "
+"має бути відформатовано як \"org+course\" (наприклад MITx+6.002x, "
+"HarvardX+CS50)."
+
 #: openedx/core/djangoapps/config_model_utils/models.py:102
 msgid "Course Run"
 msgstr "Запуск курсу"
+
+#: openedx/core/djangoapps/config_model_utils/models.py:104
+msgid ""
+"Configure values for this course run. This should be formatted as the "
+"CourseKey (i.e. course-v1://MITx+6.002x+2019_Q1)"
+msgstr ""
+"Конфігуруйте значення для цього запуску курсу. Це має бути відформатовано як"
+" CourseKey (наприклад course-v1://MITx+6.002x+2019_Q1)"
 
 #: openedx/core/djangoapps/config_model_utils/models.py:344
 msgid "Configuration may not be specified at more than one level at once."
@@ -6907,6 +7644,14 @@ msgstr ""
 #: openedx/core/djangoapps/content/learning_sequences/admin.py:26
 msgid "Error Status"
 msgstr "Статус помилок"
+
+#: openedx/core/djangoapps/content/learning_sequences/admin.py:31
+msgid "Courses with Errors"
+msgstr "Курси з Помилки"
+
+#: openedx/core/djangoapps/content/learning_sequences/apps.py:10
+msgid "Learning Sequences and Outlines"
+msgstr "Навчальні порядки та зміст"
 
 #: openedx/core/djangoapps/content/search/models.py:28
 msgid ""
@@ -6936,9 +7681,52 @@ msgstr ""
 msgid "An XBlock with ID '{usage_key}' already exists."
 msgstr "XBlock з ідентифікатором '{usage_key}' вже існує."
 
+#: openedx/core/djangoapps/content_libraries/api/libraries.py:533
+msgid "Cannot change or remove the access level for the only admin."
+msgstr ""
+"Неможливо змінити або видалити рівень доступу для єдиного адміністратора."
+
 #: openedx/core/djangoapps/content_libraries/constants.py:15
 msgid "All Rights Reserved."
 msgstr "Всі права захищені."
+
+#: openedx/core/djangoapps/content_libraries/constants.py:16
+msgid "Creative Commons Attribution 4.0"
+msgstr "Creative Commons Attribution 4.0"
+
+#: openedx/core/djangoapps/content_libraries/constants.py:17
+msgid "Creative Commons Attribution-NonCommercial 4.0"
+msgstr ""
+"Публічна ліцензія Creative Commons з вказаним авторством - некомерційна, "
+"версії 4.0"
+
+#: openedx/core/djangoapps/content_libraries/constants.py:18
+msgid "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0"
+msgstr ""
+"Публічна ліцензія Creative Commons з вказаним авторством - некомерційна, без"
+" похідних, версії 4.0"
+
+#: openedx/core/djangoapps/content_libraries/constants.py:19
+msgid "Creative Commons Attribution-NonCommercial-ShareAlike 4.0"
+msgstr ""
+"Публічна ліцензія Creative Commons з вказаним авторством - некомерційна, на "
+"тих же умовах, версії 4.0"
+
+#: openedx/core/djangoapps/content_libraries/constants.py:20
+msgid "Creative Commons Attribution-NoDerivatives 4.0"
+msgstr ""
+"Публічна ліцензія Creative Commons з вказаним авторством, без похідних, "
+"версії 4.0"
+
+#: openedx/core/djangoapps/content_libraries/constants.py:21
+msgid "Creative Commons Attribution-ShareAlike 4.0"
+msgstr ""
+"Публічна ліцензія Creative Commons з вказаним авторством, на тих же умовах, "
+"версії 4.0"
+
+#: openedx/core/djangoapps/content_libraries/models.py:201
+msgid "Administer users and author content"
+msgstr "Управління користувачами та адміністратором контентом"
 
 #: openedx/core/djangoapps/content_libraries/models.py:202
 msgid "Author content"
@@ -6948,32 +7736,125 @@ msgstr "Авторський контент"
 msgid "Read-only"
 msgstr "Лише для читання"
 
+#: openedx/core/djangoapps/content_libraries/models.py:223
+msgid "One and only one of 'user' and 'group' must be set."
+msgstr "Встановіть один і тільки один із \"user\" та \"група\"."
+
+#: openedx/core/djangoapps/content_libraries/models.py:251
+msgid "Task was created, but not queued to run."
+msgstr "Завдання створено, але не поставлено в чергу для виконання."
+
+#: openedx/core/djangoapps/content_libraries/models.py:252
+msgid "Task was created and queued to run."
+msgstr "Завдання створено та поставлено в чергу на виконання."
+
 #: openedx/core/djangoapps/content_libraries/models.py:253
 msgid "Task is running."
 msgstr "Завдання виконується."
+
+#: openedx/core/djangoapps/content_libraries/models.py:254
+msgid "Task finished, but some blocks failed to import."
+msgstr "Завдання виконано, але деякі блоки не вдалося імпортувати."
+
+#: openedx/core/djangoapps/content_libraries/models.py:255
+msgid "Task finished successfully."
+msgstr "Завдання виконано успішно."
+
+#: openedx/core/djangoapps/content_libraries/models.py:262
+msgid "state"
+msgstr "Статус"
+
+#: openedx/core/djangoapps/content_libraries/models.py:263
+msgid "The state of the block import task."
+msgstr "Стан завдання щодо імпорту блоку."
 
 #: openedx/core/djangoapps/content_libraries/models.py:268
 msgid "progress"
 msgstr "прогрес"
 
+#: openedx/core/djangoapps/content_libraries/models.py:269
+msgid "A float from 0.0 to 1.0 representing the task progress."
+msgstr ""
+"Число з плаваючою точкою від 0,0 до 1,0, яке показує прогрес завдання."
+
 #: openedx/core/djangoapps/content_libraries/models.py:275
 msgid "course ID"
 msgstr "ID курсу"
+
+#: openedx/core/djangoapps/content_libraries/models.py:276
+msgid "ID of the imported course."
+msgstr "ID курсу, що було імпортовано."
 
 #. Translators: 'Open edX' is a trademark, please keep this untranslated
 #: openedx/core/djangoapps/content_libraries/models.py:353
 msgid "open edx user"
 msgstr "користувач open edx"
 
+#: openedx/core/djangoapps/content_libraries/models.py:358
+msgid "lti platform identifier"
+msgstr "Ідентифікатор платформи LTI"
+
+#: openedx/core/djangoapps/content_libraries/models.py:359
+msgid "The LTI platform identifier to which this profile belongs to."
+msgstr ""
+"Ідентифікатор платформи сумісності учбових інструментів (LTI), який належить"
+" цей профіль."
+
 #: openedx/core/djangoapps/content_libraries/models.py:365
 msgid "client identifier"
 msgstr "ідентифікатор клієнта"
+
+#: openedx/core/djangoapps/content_libraries/models.py:366
+msgid "The LTI client identifier generated by the LTI platform."
+msgstr ""
+"Платформа LTI генерує клієнтський ідентифікатор сумісності учбових "
+"інструментів (LTI)."
+
+#: openedx/core/djangoapps/content_libraries/models.py:371
+msgid "subject identifier"
+msgstr "Ідентифікатор суб’єкта"
+
+#: openedx/core/djangoapps/content_libraries/models.py:372
+msgid ""
+"Identifies the entity that initiated the launch request, commonly a user."
+msgstr "Ідентифікує ініціатора запиту на запуск, зазвичай користувача."
+
+#: openedx/core/djangoapps/content_libraries/models.py:475
+msgid ""
+"The authorized LTI profile that launched the resource (identifies the user)."
+msgstr ""
+"Авторизований LTI профіль, що запустив ресурс (ідентифікує користувача)."
 
 #: openedx/core/djangoapps/content_libraries/models.py:480
 msgid ""
 "The usage key string of the resource serving the content of this launch."
 msgstr ""
 "Рядок ключа використання ресурсу, що обслуговує контент цього запуску."
+
+#: openedx/core/djangoapps/content_libraries/models.py:486
+msgid ""
+"The LTI platform unique identifier of this resource, also known as the "
+"\"resource link id\"."
+msgstr ""
+"Унікальний ідентифікатор цього ресурсу на платформі LTI, що також "
+"називається \"ID посилання на ресурс\"."
+
+#: openedx/core/djangoapps/content_libraries/models.py:493
+msgid "The LTI platform descriptive title for this resource."
+msgstr "Описова назва цього ресурсу на платформі LTI."
+
+#: openedx/core/djangoapps/content_libraries/models.py:499
+msgid "If AGS was enabled during launch, this should hold the lineitem ID."
+msgstr ""
+"Якщо під час запуску було дозволено AGS, тут має бути рядок ID предмету."
+
+#: openedx/core/djangoapps/content_libraries/rest_api/libraries.py:340
+msgid "We could not find a user with that email address."
+msgstr "Не вдалося знайти користувача з цією електронною адресою."
+
+#: openedx/core/djangoapps/content_libraries/rest_api/libraries.py:344
+msgid "This user already has access to this library."
+msgstr "Цей користувач вже має доступ до цієї бібліотеки."
 
 #: openedx/core/djangoapps/content_libraries/rest_api/libraries.py:803
 msgid "This field is required."
@@ -6987,9 +7868,43 @@ msgstr "Завантаження"
 msgid "Expired"
 msgstr "Термін дії минув"
 
+#: openedx/core/djangoapps/content_staging/models.py:43
+msgid "Staged Content"
+msgstr "Контент, що готовий до публікації"
+
+#: openedx/core/djangoapps/content_staging/models.py:55
+msgid ""
+"\n"
+"            What type of content is staged. Only OLX content is supported, and\n"
+"            this field must be the same as the root tag of the OLX.\n"
+"            e.g. \"video\" if a video is staged, or \"vertical\" for a unit.\n"
+"        "
+msgstr ""
+"\n"
+"            Тип контенту, що готовий до публікації. Підтримується тільки контент OLX, і це поле має містити те саме значення, що і коренева мітка OLX.\n"
+"            Наприклад, якщо це відео-контент, то \"video\", а якщо блок - то \"vertical\".\n"
+"        "
+
 #: openedx/core/djangoapps/content_staging/models.py:72
 msgid "Content tags applied to these blocks"
 msgstr "Контентні теги, застосовані до цих блоків"
+
+#: openedx/core/djangoapps/content_staging/models.py:116
+msgid "Original usage key/ID of the thing that is in the clipboard."
+msgstr ""
+"Оригінальний користувацький ключ/ID даних, що містяться у буфері обміну."
+
+#: openedx/core/djangoapps/content_tagging/models/base.py:24
+msgid "owner"
+msgstr "власник"
+
+#: openedx/core/djangoapps/content_tagging/models/base.py:33
+msgid ""
+"Organization that is related to this taxonomy.If None, then this taxonomy is"
+" related to all organizations."
+msgstr ""
+"Організація, що пов’язана з цією класифікацією. Якщо вказано \"Відсутня\", "
+"тоді ця класифікація стосується всіх організацій."
 
 #: openedx/core/djangoapps/cors_csrf/models.py:21
 msgid ""
@@ -7018,10 +7933,38 @@ msgstr ""
 msgid "A cohort with the same name already exists."
 msgstr "Група з такою назвою вже існує."
 
+#: openedx/core/djangoapps/course_live/models.py:21
+msgid "If disabled, the LTI in the associated course will be disabled."
+msgstr "Якщо відключено, то LTI у пов’язаному курсі буде відключений."
+
+#: openedx/core/djangoapps/course_live/models.py:28
+msgid "The LTI configuration data for this course/provider."
+msgstr "Конфігураційні дані LTI для цього курсу/провайдера."
+
+#: openedx/core/djangoapps/course_live/models.py:33
+#: openedx/core/djangoapps/programs/models.py:57
+msgid "LTI provider"
+msgstr "Провайдер LTI"
+
+#: openedx/core/djangoapps/course_live/models.py:34
+#: openedx/core/djangoapps/programs/models.py:58
+msgid "The LTI provider's id"
+msgstr "ID провайдера LTI"
+
+#: openedx/core/djangoapps/course_live/models.py:38
+msgid "True, if LTI credential are provided by Org globally"
+msgstr "Має значення \"Істина\", якщо облікові дані надаються Org глобально."
+
 #: openedx/core/djangoapps/course_live/plugins.py:25
 #: openedx/core/djangoapps/course_live/tab.py:47
 msgid "Live"
 msgstr "Наживо"
+
+#: openedx/core/djangoapps/course_live/plugins.py:26
+msgid "Enable in-platform video conferencing by configuring live"
+msgstr ""
+"Увімкніть функцію проведення відео конференцій, конфігуруючи функцію "
+"\"Наживо\"."
 
 #: openedx/core/djangoapps/credentials/apps.py:18
 msgid "Credentials"
@@ -7210,6 +8153,150 @@ msgstr "Це тестове попередження"
 msgid "This is a test error"
 msgstr "Це тестова помилка"
 
+#: openedx/core/djangoapps/discussions/models.py:126
+#, python-brace-format
+msgid ""
+"{provider} requires that LTI advanced sharing be enabled for your course, as"
+" this provider uses email address and username to personalize the "
+"experience. Please contact {support_contact} to enable this feature."
+msgstr ""
+"{provider} вимагає, щоб для цього курсу функція розширеного обміну даними "
+"LTI була увімкнена, адже цей провайдер використовує адреси електронної пошти"
+" та імена користувачів для персоналізації користувацької взаємодії. Будь "
+"ласка, зв’яжіться зі службою підтримки {support_contact} для увімкнення цієї"
+" особливості."
+
+#: openedx/core/djangoapps/discussions/models.py:134
+msgid "technical support"
+msgstr "технічна підтримка"
+
+#: openedx/core/djangoapps/discussions/models.py:334
+#, python-brace-format
+msgid "Comma-separated list of providers to allow, eg: {choices}"
+msgstr ""
+"Список дозволених провайдерів, розділений комами, наприклад: {choices}"
+
+#: openedx/core/djangoapps/discussions/models.py:342
+msgid "Allow List"
+msgstr "Список дозволених провайдерів"
+
+#: openedx/core/djangoapps/discussions/models.py:353
+#, python-brace-format
+msgid "Comma-separated list of providers to deny, eg: {choices}"
+msgstr ""
+"Список заборонених провайдерів, розділений комами, наприклад: {choices}"
+
+#: openedx/core/djangoapps/discussions/models.py:361
+msgid "Deny List"
+msgstr "Список заборонених"
+
+#. Translators: A key specifying a course, library, program,
+#. website, or some other collection of content where learning
+#. happens.
+#: openedx/core/djangoapps/discussions/models.py:423
+#: openedx/core/djangoapps/discussions/models.py:570
+msgid "Learning Context Key"
+msgstr "Ключ навчального середовища"
+
+#: openedx/core/djangoapps/discussions/models.py:427
+msgid ""
+"If disabled, the discussions in the associated learning context/course will "
+"be disabled."
+msgstr ""
+"Якщо відключений, то обговорення у пов’язаному навчальному середовищі/курсі "
+"буде відключено."
+
+#: openedx/core/djangoapps/discussions/models.py:442
+msgid "The LTI configuration data for this context/provider."
+msgstr "Конфігураційні дані LTI для цього середовища/провайдера."
+
+#: openedx/core/djangoapps/discussions/models.py:447
+msgid ""
+"If enabled, discussion topics will be created for each non-graded unit in "
+"the course. A UI for discussions will show up with each unit."
+msgstr ""
+"Якщо дозволено, то для кожного неоцінюваного блоку в межах курсу буде "
+"створено відповідні теми у функціоналі обговорення. Разом з кожним блоком "
+"буде відображено інтерфейс функціоналу обговорення."
+
+#: openedx/core/djangoapps/discussions/models.py:453
+msgid ""
+"If enabled, discussion topics will be created for graded units as well."
+msgstr ""
+"Якщо дозволено, то для кожного оцінюваного блоку в межах курсу також "
+"створюватимуться відповідні теми у функціоналі обговорення."
+
+#: openedx/core/djangoapps/discussions/models.py:457
+msgid ""
+"If enabled, discussions will need to be manually enabled for each unit."
+msgstr ""
+"Якщо дозволено, обговорення потрібно буде вручну дозволити для кожного "
+"блоку."
+
+#: openedx/core/djangoapps/discussions/models.py:462
+msgid "The plugin configuration data for this context/provider."
+msgstr "Конфігураційні дані плагіна для цього середовища/провайдера."
+
+#: openedx/core/djangoapps/discussions/models.py:467
+msgid "Discussion provider"
+msgstr "Провайдер обговорення"
+
+#: openedx/core/djangoapps/discussions/models.py:468
+msgid "The discussion tool/provider's id"
+msgstr "ID інструмента/провайдера обговорення"
+
+#: openedx/core/djangoapps/discussions/models.py:571
+msgid "Context key for context in which this discussion topic exists."
+msgstr "Контекстний ключ для середовища теми обговорення."
+
+#: openedx/core/djangoapps/discussions/models.py:578
+msgid ""
+"Usage key for in-context discussion topic. Set to null for course-level "
+"topics."
+msgstr ""
+"Користувацький ключ для обговорення теми в межах контексту. Встановіть "
+"значення на \"null\" для тем рівня курсу в цілому."
+
+#: openedx/core/djangoapps/discussions/models.py:582
+msgid "Title for discussion topic."
+msgstr "Заголовок для теми обговорення."
+
+#: openedx/core/djangoapps/discussions/models.py:589
+msgid "Group for divided discussions."
+msgstr "Група для розмежованих обговорень."
+
+#: openedx/core/djangoapps/discussions/models.py:593
+msgid "Provider id for discussion provider."
+msgstr "ID провайдера для обговорення."
+
+#: openedx/core/djangoapps/discussions/models.py:598
+msgid ""
+"Discussion context ID in external forum provider. e.g. commentable_id for "
+"cs_comments_service."
+msgstr ""
+"ID контексту обговорення на зовнішньому форумі. Наприклад, commentable_id "
+"для cs_comments_service."
+
+#: openedx/core/djangoapps/discussions/models.py:602
+msgid "Whether this topic should be shown in-context in the course."
+msgstr "Показуємо цю тему у контексті курсу."
+
+#: openedx/core/djangoapps/discussions/models.py:606
+msgid "Ordering of this topic in its learning context"
+msgstr "Упорядкування цієї теми в межах навчального контексту."
+
+#: openedx/core/djangoapps/discussions/models.py:610
+msgid "Additional context for this topic, such as its section, and subsection"
+msgstr ""
+"Додатковий контекст для обраної теми, наприклад, розділу чи підсекцій."
+
+#: openedx/core/djangoapps/discussions/plugins.py:24
+msgid ""
+"Encourage participation and engagement in your course with discussions."
+msgstr ""
+"Заохочуйте слухачів до активної участі у вашому курсі за допомогою "
+"обговорень."
+
 #: openedx/core/djangoapps/django_comment_common/models.py:25
 msgid "Administrator"
 msgstr "Адміністратор"
@@ -7298,6 +8385,35 @@ msgstr "Додаток для отримання сповіщень"
 msgid "Notification Type"
 msgstr "Типи сповіщення"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:71
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> commented on your response to the "
+"post <{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> залишає коментар до Вашої відповіді"
+" на допис <{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:84
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> commented on "
+"<{strong}>{author_name}</{strong}> response to your post "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> залишив коментар до відповіді "
+"<{strong}>{author_name}</{strong}> на допис "
+"<{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:98
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> responded to your post "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> відповів на ваш допис "
+"<{strong}>{post_title}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:100
 #, python-brace-format
 msgid ""
@@ -7305,6 +8421,15 @@ msgid ""
 "post <{strong}>{post_title}</{strong}></{p}>"
 msgstr ""
 "<{p}><{strong}>{replier_name}</{strong}>, та інші відповіли на ваш допис "
+"<{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:119
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{username}</{strong}> posted "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{username}</{strong}> опублікував "
 "<{strong}>{post_title}</{strong}></{p}>"
 
 #: openedx/core/djangoapps/notifications/base_notification.py:120
@@ -7315,6 +8440,24 @@ msgid ""
 msgstr ""
 "<{p}><{strong}>{replier_name}</{strong}> та інші розпочали нові "
 "обговорення</{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:139
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{username}</{strong}> asked "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{username}</{strong}> задала наступне запитання "
+"<{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:153
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> responded to a post you’re "
+"following: <{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> відповів на допис, за яким ти "
+"слідкуєш: <{strong}>{post_title}</{strong}></{p}>"
 
 #: openedx/core/djangoapps/notifications/base_notification.py:155
 #, python-brace-format
@@ -7394,6 +8537,15 @@ msgid ""
 msgstr ""
 "<{p}>Ви отримали {points_earned} з {points_possible} за оцінку: "
 "<{strong}>{ora_name}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:347
+msgid ""
+"Notifications for responses and comments on your posts, and the ones you’re "
+"following, including endorsements to your responses and on your posts."
+msgstr ""
+"Сповіщення про відповіді та коментарі до Ваші дописи, а також тих дописів, "
+"на які Ви підписалися, включно з вподобаннями Ваших відповідей та "
+"публікацій."
 
 #: openedx/core/djangoapps/notifications/base_notification.py:357
 msgid "Notifications for new announcements and updates from the course team."
@@ -7492,6 +8644,10 @@ msgstr ""
 msgid "Invalid app name."
 msgstr "Недійсна назва застосунку."
 
+#: openedx/core/djangoapps/notifications/views.py:184
+msgid "Notifications marked as seen."
+msgstr "Сповіщення позначено як переглянуті."
+
 #: openedx/core/djangoapps/notifications/views.py:223
 msgid "Notification marked read."
 msgstr "Сповіщення відмічено як прочитане."
@@ -7500,6 +8656,10 @@ msgstr "Сповіщення відмічено як прочитане."
 msgid "Notifications marked read."
 msgstr "Сповіщення відмічено як прочитані."
 
+#: openedx/core/djangoapps/notifications/views.py:237
+msgid "Invalid app_name or notification_id."
+msgstr "Недійсне застосування_name чи notification_id."
+
 #: openedx/core/djangoapps/oauth_dispatch/models.py:81
 msgid ""
 "Comma-separated list of scopes that this application will be allowed to "
@@ -7507,6 +8667,13 @@ msgid ""
 msgstr ""
 "Список областей, розділених комами, які будуть  дозволенi застосуванню цій "
 "програмі"
+
+#: openedx/core/djangoapps/oauth_dispatch/models.py:88
+msgid ""
+"Comma-separated list of filters that this application will be allowed to "
+"request."
+msgstr ""
+"Список фільтрів, розділених комами, які цей додаток зможе застосувати."
 
 #: openedx/core/djangoapps/oauth_dispatch/models.py:141
 msgid "Content Provider"
@@ -7601,6 +8768,14 @@ msgstr ""
 msgid "Program UUID"
 msgstr "UUID Програми"
 
+#: openedx/core/djangoapps/programs/models.py:45
+msgid "If disabled, the LTI in the associated program will be disabled."
+msgstr "Якщо відключено, то LTI у пов’язаній програмі буде відключено."
+
+#: openedx/core/djangoapps/programs/models.py:52
+msgid "The LTI configuration data for this program/provider."
+msgstr "Дані конфігурації LTI для цієї програми/провайдера."
+
 #: openedx/core/djangoapps/schedules/admin.py:62
 msgid "Known Error Case"
 msgstr "Відомий випадок помилки"
@@ -7690,9 +8865,32 @@ msgstr ""
 msgid "Welcome to week %(week_num)s"
 msgstr "Вітаємо на тижні%(week_num)s"
 
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:18
+#, python-brace-format
+msgid ""
+"We hope you're enjoying {start_strong}{course_name}{end_strong}! We want to "
+"let you know what you can look forward to in the coming weeks:"
+msgstr ""
+"Сподіваємося, що вам подобається {start_strong}{course_name}{end_strong}! "
+"Хочемо повідомити, що ви можете очікувати в найближчі тижні:"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:31
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.txt:13
+msgid ""
+"We encourage you to spend time with the course each week. Your focused "
+"attention will pay off in the end!"
+msgstr ""
+"Радимо вам проводити час на курсі щотижня. Ваша зосереджена увага зрештою "
+"окупиться!"
+
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:39
 msgid "Resume your course now"
 msgstr "Продовжити ваш курс зараз"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/subject.txt:4
+#, python-format
+msgid "%(course_name)s Weekly Update"
+msgstr "%(course_name)s Щотижневе оновлення"
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:8
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:32
@@ -7722,6 +8920,17 @@ msgstr ""
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/subject.txt:3
 msgid "Keep up the momentum!"
 msgstr "Слідкуйте за імпульсом!"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:38
+#, python-brace-format
+msgid ""
+"Many {platform_name} learners in {start_strong}{course_name}{end_strong} are"
+" completing more problems every week, and participating in the discussion "
+"forums. What do you want to do to keep learning?"
+msgstr ""
+"Багато учнів на {platform_name} у {start_strong}{course_name}{end_strong}, "
+"щотижня вирішують більше задач і приймають активну участь у обговореннях на "
+"Обговореннях. Що ви хочете робити, щоб продовжувати вчитися?"
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:47
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.txt:9
