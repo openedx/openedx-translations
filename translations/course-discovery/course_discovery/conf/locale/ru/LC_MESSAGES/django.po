@@ -49,18 +49,34 @@ msgstr ""
 msgid "Start date cannot be after the End date"
 msgstr "Дата начала не может быть позже даты окончания"
 
+#: apps/api/serializers.py:1028
+msgid "Term cannot be changed"
+msgstr "Термин нельзя изменить"
+
 #: apps/api/serializers.py:1048
 msgid "Language in which the course is administered"
 msgstr "Язык, на котором ведется курс "
+
+#: apps/api/serializers.py:1152
+msgid "Course cannot be changed for an existing course run"
+msgstr "Курс не может быть изменен для существующего запуска курса"
 
 #: apps/api/serializers.py:1157
 msgid "Minimum effort cannot be greater than Maximum effort"
 msgstr "Минимальное усилие не может превышать максимальное усилие"
 
+#: apps/api/serializers.py:1159
+msgid "Minimum effort and Maximum effort cannot be the same"
+msgstr "Минимальные усилия и максимальные усилия не могут быть одинаковыми."
+
 #: apps/api/serializers.py:1205
 msgid "Dictionary mapping course run IDs to boolean values"
 msgstr ""
 "Словарное отображение прохождения курса идентификаторы по булевым значениям"
+
+#: apps/api/serializers.py:1309
+msgid "Restriction Type cannot be empty"
+msgstr "Тип ограничения не может быть пустым."
 
 #: apps/api/serializers.py:1775
 msgid "Dictionary mapping course IDs to boolean values"
@@ -77,24 +93,97 @@ msgstr ""
 "Языки, на которых проводится курс в рамках этой программы, имеют доступные "
 "расшифровки."
 
+#: apps/api/utils.py:346
+#, python-brace-format
+msgid ""
+"An error occurred while setting the course run image for [{key}] in studio. "
+"All other fields were successfully saved in Studio."
+msgstr ""
+"Произошла ошибка при настройке изображения для запуска курса [{key}] в "
+"студии. Все остальные поля были успешно сохранены в студии."
+
+#: apps/api/v1/exceptions.py:13
+msgid "Specifying both editable=1 and a q parameter is not supported."
+msgstr "Указания параметров editable=1 и q не поддерживаются."
+
+#: apps/api/v1/views/comments.py:34
+msgid "You must include a course_uuid in your query parameters."
+msgstr "Вы должны включить course_uuid в параметры запроса."
+
 #: apps/api/v1/views/comments.py:58 apps/api/v1/views/courses.py:205
 #, python-brace-format
 msgid "Missing value for: [{name}]. "
 msgstr "Отсутствует значение для: [{name}]."
 
+#: apps/api/v1/views/comments.py:60 apps/api/v1/views/courses.py:216
+msgid "Incorrect data sent. "
+msgstr "Неверные данные отправлены. "
+
+#: apps/api/v1/views/course_runs.py:49
+msgid "Failed to set course run data: {}"
+msgstr "Мы не смогли установить данные о запуске курса: {}"
+
+#: apps/api/v1/views/course_runs.py:328
+msgid "Can only update status, ofac restrictions, and ofac comment"
+msgstr "Можно обновлять только статус, ofac ограничения и ofac комментарий"
+
+#: apps/api/v1/views/course_runs.py:381
+msgid "Course run is in review. Editing disabled."
+msgstr "Запуск курса проходит разбор. Редактирование отключено."
+
 #: apps/api/v1/views/course_runs.py:388
 msgid "Invalid parameter"
 msgstr "Неверный параметр"
+
+#: apps/api/v1/views/courses.py:62
+msgid "Failed to set data: {}"
+msgstr "Не удалось установить данные: {}"
 
 #: apps/api/v1/views/courses.py:207
 #, python-brace-format
 msgid "Organization [{org}] does not exist. "
 msgstr "Организация [{org}] не существует. "
 
+#: apps/api/v1/views/courses.py:209
+#, python-brace-format
+msgid "Course Type [{course_type}] does not exist. "
+msgstr "Тип курса [{course_type}] не существует. "
+
 #: apps/api/v1/views/courses.py:212
 #, python-brace-format
 msgid "Product Source [{product_source}] does not exist. "
 msgstr "Источник продукта [{product_source}] не существует. "
+
+#: apps/api/v1/views/courses.py:229
+#, python-brace-format
+msgid "A course with key [{key}] already exists."
+msgstr "Курс с ключом [{key}] уже существует."
+
+#: apps/api/v1/views/courses.py:237
+#, python-brace-format
+msgid ""
+"Course creation was unsuccessful. The course URL slug ‘[{url_slug}]’ is "
+"already in use. Please update this field and try again."
+msgstr ""
+"Не удалось создать курс. URL адрес курса \"[{url_slug}]\" уже используется. "
+"Обновите это поле и попробуйте еще раз."
+
+#: apps/api/v1/views/courses.py:298
+msgid ""
+"Switching entitlement types after being reviewed is not supported. Please "
+"reach out to your project coordinator for additional help if necessary."
+msgstr ""
+"Смена прав после проверки не поддерживается. Если необходимо, обратитесь к "
+"координатору проекта за дополнительной помощью."
+
+#: apps/api/v1/views/courses.py:408
+#, python-brace-format
+msgid ""
+"Course edit was unsuccessful. The course URL slug ‘[{url_slug}]’ is already "
+"in use. Please update this field and try again."
+msgstr ""
+"Не удалось редактировать курс. URL адрес курса \"[{url_slug}]\" уже "
+"используется. Обновите это поле и попробуйте еще раз."
 
 #: apps/api/views.py:58
 msgid "You are not permitted to access the API documentation."
@@ -103,6 +192,18 @@ msgstr "Вы не имеете доступа к документации API."
 #: apps/catalogs/models.py:17
 msgid "Catalog name"
 msgstr "название каталога"
+
+#: apps/catalogs/models.py:18
+msgid "Query to retrieve Course Run catalog contents"
+msgstr "Запрос на получение контента каталога запуска курса"
+
+#: apps/catalogs/models.py:22
+msgid "Query to retrieve Program catalog contents"
+msgstr "Запрос на получение контента каталога Программы"
+
+#: apps/catalogs/models.py:25
+msgid "Include archived courses"
+msgstr "Включить архивированные курсы"
 
 #: apps/core/admin.py:17
 msgid "Personal info"
@@ -135,6 +236,17 @@ msgid ""
 msgstr ""
 "Настроить URL-адреса маркетингового сайта, которые будут использоваться для "
 "сбора данных и создания URL-адресов."
+
+#: apps/core/admin.py:58
+msgid "Analytics Configuration"
+msgstr "Конфигурация аналитики"
+
+#: apps/core/admin.py:59
+msgid ""
+"Configure the analytics API that will be used to retrieve enrollment data"
+msgstr ""
+"Настройте API аналитики, который будет использоваться для получения данных "
+"зачисления."
 
 #. Translators: 'period_choices' is a list of possible values, like ('second',
 #. 'minute', 'hour')
@@ -180,6 +292,10 @@ msgstr ""
 msgid "Courses API URL"
 msgstr "URL-адрес API Курсов"
 
+#: apps/core/models.py:59
+msgid "Course Mode API URL"
+msgstr "URL режима курса API"
+
 #: apps/core/models.py:60
 msgid "E-Commerce API URL"
 msgstr "URL-адрес API Эл. Коммерции"
@@ -212,9 +328,41 @@ msgstr "Пароль пользователя API Маркетингового �
 msgid "Studio URL"
 msgstr "Студия url"
 
+#: apps/core/models.py:75
+msgid "Publisher URL"
+msgstr "URL издателя"
+
+#: apps/core/models.py:76
+msgid ""
+"The base URL of your publisher service, if used. Example: "
+"https://publisher.example.com/"
+msgstr ""
+"Основной url службы издателя, если используется. Пример: "
+"https://publisher.example.com/"
+
 #: apps/core/models.py:79
 msgid "LMS URL"
 msgstr "Система управления обучением url"
+
+#: apps/core/models.py:81
+msgid "LMS Admin URL"
+msgstr "URL-адрес Панели администрирования СУО"
+
+#: apps/core/models.py:82
+msgid ""
+"The public URL of your LMS Django admin. Example: https://lms-"
+"internal.example.com/admin"
+msgstr ""
+"Публичный url-адрес Панели администрирования СУО Django. Пример: "
+"https://lms-internal.example.com/admin"
+
+#: apps/core/models.py:84
+msgid "Analytics API URL"
+msgstr "URL-адрес API Аналитики"
+
+#: apps/core/models.py:85
+msgid "Analytics Access Token"
+msgstr "Токен API аналитики"
 
 #: apps/core/models.py:94
 msgid "Partner"
@@ -243,6 +391,10 @@ msgstr "Токен безопасности Salesforce"
 #: apps/core/models.py:149
 msgid "Is a Salesforce Sandbox?"
 msgstr "Salesforce является  Sandbox-ом?"
+
+#: apps/core/models.py:155
+msgid "Case Record Type Id"
+msgstr "Идентификатор типа записи обращения"
 
 #: apps/course_metadata/admin.py:38
 #, python-brace-format
@@ -274,6 +426,19 @@ msgstr "Включаемые в курс занятия"
 msgid "Edit link"
 msgstr "Изменить ссылку"
 
+#: apps/course_metadata/admin.py:897
+msgid "Edit course run exclusions"
+msgstr "Редактировать исключения запусков курса"
+
+#: apps/course_metadata/admin.py:899
+msgid "(save and continue editing to create a link)"
+msgstr "(сохранить и продолжить редактировать для создания ссылки)"
+
+#: apps/course_metadata/admin.py:1037
+#, python-format
+msgid "Successfully %(status)s %(count)d %(items)s."
+msgstr "Успешно %(status)s %(count)d %(items)s."
+
 #: apps/course_metadata/algolia_models.py:116
 #: apps/course_metadata/algolia_models.py:667
 msgid "Available now"
@@ -298,6 +463,14 @@ msgstr "Доступно по подписке"
 #: apps/course_metadata/choices.py:36
 msgid "Unpublished"
 msgstr "Не опубликовано"
+
+#: apps/course_metadata/choices.py:7
+msgid "Awaiting Review from Legal"
+msgstr "Ожидает рецензирования от Юридического"
+
+#: apps/course_metadata/choices.py:8
+msgid "Awaiting Internal Review"
+msgstr "Ожидает внутреннего разбора"
 
 #: apps/course_metadata/choices.py:9
 msgid "Reviewed"
@@ -365,6 +538,22 @@ msgstr "Профессиональный"
 msgid "Executive Education"
 msgstr "Обучение для руководителей"
 
+#: apps/course_metadata/choices.py:79
+msgid "Paid Executive Education"
+msgstr "Платное обучение руководителей"
+
+#: apps/course_metadata/choices.py:80
+msgid "Unpaid Executive Education"
+msgstr "Неоплачиваемое обучение руководителей"
+
+#: apps/course_metadata/choices.py:81
+msgid "Paid Bootcamp"
+msgstr "Платный учебный курс"
+
+#: apps/course_metadata/choices.py:82
+msgid "Unpaid Bootcamp"
+msgstr "Неоплачиваемый учебный курс"
+
 #: apps/course_metadata/choices.py:86
 msgid "Platform"
 msgstr "Платформа"
@@ -372,6 +561,106 @@ msgstr "Платформа"
 #: apps/course_metadata/choices.py:87
 msgid "Organization"
 msgstr "Организация"
+
+#: apps/course_metadata/choices.py:91
+msgid "Short"
+msgstr "Короткий"
+
+#: apps/course_metadata/choices.py:92
+msgid "Medium"
+msgstr "Середина"
+
+#: apps/course_metadata/choices.py:93
+msgid "Long"
+msgstr "Длинный"
+
+#: apps/course_metadata/choices.py:108
+msgid "Short Course"
+msgstr "Краткий курс"
+
+#: apps/course_metadata/choices.py:109
+msgid "Sprint"
+msgstr "Спринт"
+
+#: apps/course_metadata/choices.py:110
+msgid "Course Stack"
+msgstr "Стек курса"
+
+#: apps/course_metadata/data_loaders/course_type.py:27
+#, python-brace-format
+msgid ""
+"Existing course type {type} for {key} ({id}) doesn't match its own "
+"entitlements."
+msgstr ""
+"Существующий тип курса {type} для {key} ({id}) не соответствует его "
+"собственным правам."
+
+#: apps/course_metadata/data_loaders/course_type.py:61
+#, python-brace-format
+msgid ""
+"Existing run type {run_type} for {key} ({id}) doesn't match course type "
+"{type}.Skipping type."
+msgstr ""
+"Существующий тип запуска {run_type} по {key} ({id}) не соответствует типу "
+"курса: {type}. Пропустить тип."
+
+#: apps/course_metadata/data_loaders/course_type.py:75
+#, python-brace-format
+msgid ""
+"Existing run type {run_type} for {key} ({id}) doesn't match its own seats."
+msgstr ""
+"Существующий тип занятия {run_type} для {key} ({id}) не соответствует "
+"собственным местам."
+
+#: apps/course_metadata/data_loaders/course_type.py:91
+#, python-brace-format
+msgid "Course {key} ({id}) matched type {type}"
+msgstr "Курс {key} ({id}) соответствует типу {type}"
+
+#: apps/course_metadata/data_loaders/course_type.py:101
+#, python-brace-format
+msgid "Could not convert course {key} ({id}) to type {type}"
+msgstr "Не удалось преобразовать курс {key} ({id}) в тип {type}"
+
+#: apps/course_metadata/emails.py:37
+#, python-brace-format
+msgid ""
+"Not sending notification email for template {template} because no "
+"organization is defined for course {course}"
+msgstr ""
+"Не удается отправить уведомление по электронной почте для шаблона "
+"{template}, так как для курса {course} не определена организация"
+
+#: apps/course_metadata/emails.py:42
+#, python-brace-format
+msgid ""
+"Not sending notification email for template {template} because no project "
+"coordinator is defined for organization {org}"
+msgstr ""
+"Не удается отправить уведомление по электронной почте для шаблона "
+"{template}, так как для организации {org} не определен координатор проекта"
+
+#: apps/course_metadata/emails.py:96
+#, python-brace-format
+msgid ""
+"Not sending notification email for template {template} because no publisher "
+"URL is defined for partner {partner}"
+msgstr ""
+"Не удается отправить уведомление по электронной почте для шаблона "
+"{template}, так как для партнера {partner} не определен URL издателя"
+
+#: apps/course_metadata/emails.py:104
+#, python-brace-format
+msgid ""
+"Not sending notification email for template {template} because no studio URL"
+" is defined for partner {partner}"
+msgstr ""
+"Не удается отправить уведомление по электронной почте для шаблона "
+"{template}, так как не определен URL студии для партнера {partner}"
+
+#: apps/course_metadata/emails.py:170
+msgid "legal team"
+msgstr "официальная команда"
 
 #: apps/course_metadata/emails.py:212
 msgid "course team"
@@ -382,10 +671,30 @@ msgstr "команда курса"
 msgid "Legal review requested: {title}"
 msgstr "Требуется юридический запрос: {title}"
 
+#: apps/course_metadata/emails.py:280
+#, python-brace-format
+msgid "Review requested: {key} - {title}"
+msgstr "Запрошено рецензирование: {key} - {title}"
+
 #: apps/course_metadata/emails.py:292
 #, python-brace-format
 msgid "Review complete: {title}"
 msgstr "рецензирование завершено {title}"
+
+#: apps/course_metadata/emails.py:308
+#, python-brace-format
+msgid "Published: {title}"
+msgstr "Опубликовано: {title}"
+
+#: apps/course_metadata/emails.py:312
+#, python-brace-format
+msgid "Published: {key} - {title}"
+msgstr "Опубликовано: {key} - {title}"
+
+#: apps/course_metadata/emails.py:327
+#, python-brace-format
+msgid "Comment added: {title}"
+msgstr "Комментарий добавлен: {title}"
 
 #. Translators: "letters" means latin letters: a-z and A-Z.
 #: apps/course_metadata/fields.py:33
@@ -401,6 +710,32 @@ msgid "Programs can only be activated if they have a banner image."
 msgstr ""
 "Активация программ возможна только в том случае, если у них есть изображение"
 " баннера."
+
+#: apps/course_metadata/management/commands/add_tag_to_courses.py:15
+msgid "Tag to add to courses"
+msgstr "Тег для добавления к курсу"
+
+#: apps/course_metadata/management/commands/add_tag_to_courses.py:16
+msgid "UUIDs of courses to tag"
+msgstr "UUID идентификаторов курсов для тега"
+
+#: apps/course_metadata/management/commands/add_tag_to_courses.py:18
+msgid ""
+"Use arguments from the TagCourseUUIDsConfig model instead of the command "
+"line."
+msgstr ""
+"Используйте аргументы из модели TagCourseUUIDsConfig вместо командной "
+"строки."
+
+#: apps/course_metadata/management/commands/add_tag_to_courses.py:27
+msgid "Missing required arguments"
+msgstr "Пропущены обязательные аргументы"
+
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:10
+msgid "Backpopulate new-style CourseType and CourseRunType where possible."
+msgstr ""
+"Выполните резервное заполнение в новом стиле CourseType и CourseRunType, где"
+" это возможно сделать."
 
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:16
 #: apps/course_metadata/management/commands/delete_person_dups.py:33
