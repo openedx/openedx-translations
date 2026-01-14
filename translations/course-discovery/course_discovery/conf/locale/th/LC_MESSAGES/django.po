@@ -544,9 +544,17 @@ msgstr "อื่น"
 msgid "Course Create"
 msgstr "การสร้างหลักสูตร"
 
+#: apps/course_metadata/choices.py:55
+msgid "Partial Update"
+msgstr "อัพเดตบางส่วน"
+
 #: apps/course_metadata/choices.py:56
 msgid "Course Rerun"
 msgstr "การรีรันหลักสูตร"
+
+#: apps/course_metadata/choices.py:57
+msgid "Course Editor Update"
+msgstr "อัปเดตบรรณาธิการหลักสูตร"
 
 #: apps/course_metadata/choices.py:64
 msgid "Pending"
@@ -1601,6 +1609,99 @@ msgstr "ยกเลิก"
 #: apps/course_metadata/templates/admin/course_metadata/refresh_program_skills.html:7
 msgid "Home"
 msgstr "หน้าหลัก"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:7
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:3
+#: apps/course_metadata/templates/course_metadata/email/go_live.html:9
+#: apps/course_metadata/templates/course_metadata/email/go_live.txt:3
+msgid "Hi Course Team,"
+msgstr "สวัสดีทีมงานคอร์ส,"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:16
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:16
+msgid ""
+"To ensure uninterrupted learner access and enrollment, please take one of "
+"the following actions:"
+msgstr ""
+"เพื่อให้แน่ใจว่าผู้เรียน เข้าใช้ และการลงทะเบียนได้อย่างต่อเนื่อง "
+"โปรดดำเนินการอย่างใดอย่างหนึ่งต่อไปนี้:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:29
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:21
+msgid ""
+"Extend the current course run’s end date if the same course is meant to "
+"remain available."
+msgstr ""
+"ขยายวันที่สิ้นสุดหลักสูตรปัจจุบันออกไปหากหลักสูตรเดิมยังคงเปิดให้ใช้งานอยู่"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:31
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:22
+msgid ""
+"Create a new course run if you are planning to offer this course again with "
+"updated content, pacing, or a new cohort of learners."
+msgstr ""
+"สร้างหลักสูตรใหม่หากคุณกำลังวางแผนที่จะเสนอหลักสูตรนี้อีกครั้งพร้อมด้วยเนื้อหาที่อัปเดต"
+" จังหวะ หรือกลุ่มผู้เรียนใหม่"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:32
+msgid "Visit the Course in Publisher"
+msgstr "เยี่ยมชมหลักสูตรใน Publisher"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:37
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:25
+msgid "You can review and modify the course end settings here:"
+msgstr "คุณสามารถตรวจสอบและปรับเปลี่ยนการตั้งค่าการสิ้นสุดหลักสูตรได้ที่นี่:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:41
+#, python-format
+msgid ""
+"\n"
+"        If no action is taken, the course will no longer be available for enrollment or access by learners on \n"
+"        <a href=\"%(partner_marketing_site_url)s\">%(partner_marketing_site_url)s</a> after the end date.\n"
+"        "
+msgstr ""
+"\n"
+"        หากไม่มีการดำเนินการใดๆ หลักสูตรจะไม่สามารถสมัครหรือเข้าใช้โดยผู้เรียนได้อีกต่อไป  \n"
+"<a href=\"%(partner_marketing_site_url)s\">%(partner_marketing_site_url)s</a> หลังจากวันที่สิ้นสุด\n"
+"        "
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:47
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:34
+msgid "Thanks"
+msgstr "ขอบคุณ"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:6
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"นี่เป็นการแจ้งเตือนอัตโนมัติว่าหลักสูตร \"%(course_name)s\" (รหัสหลักสูตร: %(course_key)s) มีกำหนดสิ้นสุดใน %(days)s ใน %(course_end_date)s.\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:10
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"นี่เป็นการแจ้งเตือนอัตโนมัติว่าหลักสูตร \"%(course_name)s\" (รหัสหลักสูตร: %(course_key)s) ได้สิ้นสุดลงอย่างเป็นทางการแล้วในวันที่ %(course_end_date)s.\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:23
+msgid "Visit the Course in Publisher:"
+msgstr "เยี่ยมชมหลักสูตรใน Publisher:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:29
+#, python-format
+msgid ""
+"\n"
+"If no action is taken, the course will no longer be available for enrollment or access by learners on %(partner_marketing_site_url)s after the end date.\n"
+msgstr ""
+"\n"
+"\n"
+"หากไม่มีการดำเนินการใดๆ หลักสูตรจะไม่สามารถลงทะเบียนหรือเข้าใช้โดยผู้เรียนได้บน %(partner_marketing_site_url)s หลังจากวันที่สิ้นสุด\n"
+"\n"
 
 #: apps/course_metadata/templates/course_metadata/email/go_live.html:17
 #: apps/course_metadata/templates/course_metadata/email/go_live.txt:7
