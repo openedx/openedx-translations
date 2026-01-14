@@ -79,6 +79,10 @@ msgstr "ཉུང་མཐའ་དང་མང་མཐའི་གྲངས་
 msgid "Restriction Type cannot be empty"
 msgstr "དམ་རྒྱ་ཅན་གྱི་རིགས་ནི་སྟོང་བར་འཇོག་མི་རུང་།"
 
+#: apps/api/serializers.py:1775
+msgid "Dictionary mapping course IDs to boolean values"
+msgstr "ཚིག་མཛོད་ཀྱིས་སློབ་ཚན་གྱི་ཨང་རྟགས་དེ་བུ་ལིན་རིན་ཐང་ལ་ས་ཁྲ་བཟོས་པ།"
+
 #: apps/api/serializers.py:2242
 msgid "Languages that course runs in this program are offered in."
 msgstr "ལས་རིམ་འདིའི་ནང་གི་སློབ་ཚན་རྣམས་སྐད་ཡིག་འདི་དག་གི་ནང་ཡོད།"
@@ -121,6 +125,10 @@ msgstr "ཚད་ལྡན་མ་ཡིན་པའི་གཞི་གྲང
 #: apps/api/v1/views/course_runs.py:49
 msgid "Failed to set course run data: {}"
 msgstr "སློབ་ཚན་མཁོ་གཏོང་གི་གནས་ཚུལ་བསྒྲིགས་ཐུབ་མ་སོང་། {}"
+
+#: apps/api/v1/views/course_runs.py:328
+msgid "Can only update status, ofac restrictions, and ofac comment"
+msgstr "གནས་བབ་དང་, ofac ཡི་ཚད་བཀག, ofac ཡི་མཆན་བཅས་ཁོ་ན་རིམ་སྤར་བྱ་ཆོག"
 
 #: apps/api/v1/views/course_runs.py:381
 msgid "Course run is in review. Editing disabled."
@@ -674,6 +682,23 @@ msgstr ""
 "ད་ལྟ་གནས་ཡོད་པའི་སློབ་ཚན་རིགས་ {type} {key} ( {id} ) "
 "འདི་རང་ཉིད་ཀྱི་ཐོབ་ཐང་དང་མཐུན་གྱི་མི་འདུག"
 
+#: apps/course_metadata/data_loaders/course_type.py:61
+#, python-brace-format
+msgid ""
+"Existing run type {run_type} for {key} ({id}) doesn't match course type "
+"{type}.Skipping type."
+msgstr ""
+"ད་ལྟའི་རྒྱུག་པའི་རིགས་ {run_type} ནི {key} ( {id} ) ལ་སློབ་ཚན་རིགས་ {type} "
+"དང་མཐུན་མི་ཐུབ།"
+
+#: apps/course_metadata/data_loaders/course_type.py:75
+#, python-brace-format
+msgid ""
+"Existing run type {run_type} for {key} ({id}) doesn't match its own seats."
+msgstr ""
+"ད་ལྟའི་རྒྱུག་པའི་རིགས་ {run_type} འདི་ {key} ( {id} ) "
+"དེ་རང་ཉིད་ཀྱི་སྡོད་གནས་དང་མཐུན་མི་ཐུབ།"
+
 #: apps/course_metadata/data_loaders/course_type.py:91
 #, python-brace-format
 msgid "Course {key} ({id}) matched type {type}"
@@ -792,9 +817,21 @@ msgstr "སློབ་ཚན་ཁག་ལ་བསྡུས་འགྲེལ
 msgid "UUIDs of courses to tag"
 msgstr "བསྡུས་འགྲེལ་འགོད་ཕྱིར་སློབ་ཚན་རྣམས་ཀྱི་ UUIDs"
 
+#: apps/course_metadata/management/commands/add_tag_to_courses.py:18
+msgid ""
+"Use arguments from the TagCourseUUIDsConfig model instead of the command "
+"line."
+msgstr ""
+"བརྡ་བཀོད་གྲལ་ཐིག་གི་ཚབ་ཏུ་ TagCourseUUIDsConfig "
+"དཔེ་གཞིའི་སྒྲུབ་བྱེད་བེད་སྤྱོད་བྱེད།"
+
 #: apps/course_metadata/management/commands/add_tag_to_courses.py:27
 msgid "Missing required arguments"
 msgstr "དགོས་ངེས་ཀྱི་ཚིག་གནད་ཚང་མི་འདུག"
+
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:10
+msgid "Backpopulate new-style CourseType and CourseRunType where possible."
+msgstr "ཐུབ་ན་སློབ་ཚན་གྱི་རིགས་དང་སློབ་ཚན་གྱི་རིགས་གསར་པ་ཕྱིར་འཐེན་བྱེད།"
 
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:15
 msgid "CODE"
@@ -841,6 +878,14 @@ msgstr ""
 #: apps/course_metadata/management/commands/delete_person_dups.py:38
 msgid "Actually commit the changes to the database."
 msgstr "དོན་དམ་གྱིས་བསྒྱུར་བཅོས་བྱས་པ་རྣམས་གཞི་གྲངས་མཛོད་ཀྱི་ནང་ལ་ཉར།"
+
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:46
+msgid ""
+"Use arguments from the BackpopulateCourseTypeConfig model instead of the "
+"command line."
+msgstr ""
+"བརྡ་བཀོད་གྲལ་ཐིག་གི་ཚབ་ཏུ་ BackpopulateCourseTypeConfig "
+"དཔེ་གཞི་ནས་སྒྲུབ་བྱེད་བེད་སྤྱོད་བྱེད།"
 
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:64
 msgid "You must specify --partner"
@@ -889,6 +934,26 @@ msgstr "UUID:TARGET_UUID རྣམ་པའི་ནང་བསུབ་དག�
 #: apps/course_metadata/management/commands/delete_person_dups.py:32
 msgid "PARTNER"
 msgstr "མཉམ་འབྲེལ།"
+
+#: apps/course_metadata/management/commands/delete_person_dups.py:43
+msgid ""
+"Use arguments from the DeletePersonDupsConfig model instead of the command "
+"line."
+msgstr ""
+"བརྡ་བཀོད་གྲལ་ཐིག་གི་ཚབ་ཏུ་ DeletePersonDupsConfig "
+"དཔེ་གཞི་ནས་སྒྲུབ་བྱེད་བེད་སྤྱོད་བྱེད།"
+
+#: apps/course_metadata/management/commands/delete_person_dups.py:60
+msgid "Malformed argument \"{}\", should be in form of UUID:TARGET_UUID"
+msgstr ""
+"ནོར་འཁྲུལ་ཅན་གྱི་སྒྲུབ་རྟགས་ &quot;{}&quot;, དེ་ UUID:TARGET_UUID "
+"ཡི་རྣམ་པ་ཡིན་དགོས།"
+
+#: apps/course_metadata/management/commands/delete_person_dups.py:62
+msgid "Malformed argument \"{}\", UUIDs cannot be equal"
+msgstr ""
+"དབྱིབས་ནོར་འཁྲུལ་ཅན་གྱི་སྒྲུབ་རྟགས་ &quot;{}&quot;, UUIDs "
+"འདྲ་མཉམ་ཆགས་མི་ཐུབ།"
 
 #: apps/course_metadata/management/commands/delete_person_dups.py:85
 msgid "Deleting"
@@ -953,6 +1018,14 @@ msgstr "སློབ་ཚན་ཡོངས་ལ་བསྐྱར་མཐུ
 msgid "Redirects to remove"
 msgstr "བསྐྱར་བསུབ་ལ་བསྐྱར་མཐུད་བྱེད།"
 
+#: apps/course_metadata/management/commands/remove_redirects_from_courses.py:25
+msgid ""
+"Use arguments from the RemoveRedirectsConfig model instead of the command "
+"line."
+msgstr ""
+"བརྡ་བཀོད་གྲལ་ཐིག་གི་ཚབ་ཏུ་ RemoveRedirectsConfig "
+"དཔེ་གཞི་ནས་སྒྲུབ་བྱེད་བེད་སྤྱོད་བྱེད།"
+
 #: apps/course_metadata/management/commands/remove_redirects_from_courses.py:32
 msgid "Invalid arguments"
 msgstr "ཚུལ་དང་མི་མཐུན་པའི་གཞུང་ཚིག"
@@ -1009,6 +1082,22 @@ msgstr ""
 msgid "Spanish Description"
 msgstr "སི་པན་སྐད་ཡིག་ནང་འགྲེལ་བཤད།"
 
+#: apps/course_metadata/models.py:250
+msgid ""
+"For seo, this field allows for alternate spanish description to be manually "
+"inputted"
+msgstr ""
+"seo ལ་མཚོན་ན། ས་སྒོ་འདིས་སི་པན་གྱི་འགྲེལ་བཤད་གཞན་ཞིག་ལག་ཐོག་ནས་འཇུག་ཆོག"
+
+#: apps/course_metadata/models.py:275 apps/course_metadata/models.py:1529
+#: apps/course_metadata/models.py:2372
+msgid ""
+"Pick a tag from the suggestions. To make a new tag, add a comma after the "
+"tag name."
+msgstr ""
+"བསམ་འཆར་ནང་ནས་མིང་རྟགས་འདེམས། "
+"རྟགས་གསར་པ་བཟོ་དགོས་ན་མིང་གྱི་རྗེས་སུ་ཚེག་བསྣན།"
+
 #: apps/course_metadata/models.py:279
 msgid "Automatically generate course run keys"
 msgstr "སློབ་ཚན་གྱི་གཙོ་ཚིག་རང་འགུལ་གྱིས་བཟོས།"
@@ -1021,6 +1110,13 @@ msgstr ""
 "དར་རྟགས་འདིའི་སྒོ་ཕྱེས་ན་སློབ་ཚན་གསར་པ་ཞིག་འཁོར་རྒྱུགས་ཀྱི་གནད་ཚིག་དེ་རང་འགུལ་གྱིས་བཟོ་ཡོང་།"
 " "
 "དར་རྟགས་འདིའི་སྒོ་བརྒྱབ་ན་སློབ་ཚན་གསར་པ་ཞིག་འཁོར་རྒྱུགས་ཀྱི་གནད་ཚིག་དེ་རང་ཉིད་ཀྱིས་ལག་སྒྲིག་བྱེད་དགོས་པ་ཡིན།"
+
+#: apps/course_metadata/models.py:287
+msgid ""
+"This field signifies if any of this org's courses are in the enterprise "
+"subscription catalog"
+msgstr ""
+"ས་ཁོངས་འདིའི་སློབ་ཚན་གང་རུང་ཞིག་ཁེ་ལས་ཀྱི་མངགས་ཉོའི་ཐོ་གཞུང་ནང་ཡོད་མེད་སྟོན་གྱི་ཡོད།"
 
 #: apps/course_metadata/models.py:306
 msgid "The timestamp of the last time the organization data was modified."
@@ -1130,6 +1226,19 @@ msgstr "བརྗོད་གཞིའི་དཔེ་མཚོན་འགྱ
 msgid "SEO Meta tags for Products"
 msgstr "ཐོན་རྫས་ཀྱི་ SEO Meta Tags"
 
+#: apps/course_metadata/models.py:881
+msgid ""
+"The ID of the Taxi Form (by 2U) that would be rendered in place of the "
+"hubspot capture form"
+msgstr ""
+"2Uཡིས་གནས་འཛིན་པའི་ཡིག་ཆའི་ཚབ་ཏུ་བསྟན་རྒྱུ་ཡིག་ཆའི་ཨང་རྟགས་གླ་འཁོར་གྱི་དེ་རེད།"
+
+#: apps/course_metadata/models.py:887
+msgid ""
+"The grouping of the Taxi Form (by 2U) that would be rendered instead of the "
+"hubspot capture form"
+msgstr "གླ་འཁོར་གྱི་འབྲི་ཤོག་གི་སྡེ་ཚན་བཟོ་བ་(2U)།"
+
 #: apps/course_metadata/models.py:933
 msgid "The URL of the paid landing page on external site"
 msgstr "ཕྱིའི་དྲ་ཚིགས་ཀྱི་གླ་ཆ་སྤྲོད་པའི་དྲ་ངོས་ཀྱི་དྲ་ཐག"
@@ -1159,6 +1268,11 @@ msgstr "ཐོན་རྫས་མི་འདྲ་བ་ཞིག་གི་
 #: apps/course_metadata/models.py:966
 msgid "Course override"
 msgstr "སློབ་ཚན་གྱི་དམིགས་བཀར་ཟུར་འཇོག"
+
+#: apps/course_metadata/models.py:967
+msgid "This field allows for override the default course term"
+msgstr ""
+"ས་ཁོངས་འདི་སློབ་ཚན་གྱི་སྔོན་སྒྲིག་ཐ་སྙད་བཀག་འགོག་བྱེད་ཆོག་པའི་ཐབས་ལ་གནང་བ་རེད།"
 
 #: apps/course_metadata/models.py:993
 msgid ""
@@ -1384,6 +1498,15 @@ msgid ""
 msgstr ""
 "འདས་པའི་ཟླ་བ་དྲུག་གི་ནང་སློབ་ཚན་འདིར་འཛུལ་ཞུགས་བྱས་པའི་སློབ་མའི་བསྡོམས་འབོར།"
 
+#: apps/course_metadata/models.py:2353
+msgid ""
+"Whether this run should be hidden from API responses.  Do not edit here - "
+"this value will be overwritten by the \"Course Visibility In Catalog\" field"
+" in Studio via Refresh Course Metadata."
+msgstr ""
+"APIལན་འདེབས་ལས་རྒྱུག་འདི་གསང་བ་བྱེད་དགོས་སམ། འདིར་རྩོམ་སྒྲིག་མ་བྱེད། "
+"སློབ་ཚན་གྱི་མེ་ཊ་ཌེ་ཊ་གསར་བརྗེ་བརྒྱུད་ནས་Studioནང་གི་\"སློབ་ཚན་གྱི་ཐོ་གཞུང་ནང་མཐོང་ཐུབ་པ་\"ཞེས་པའི་ས་ཁོངས་ཀྱིས་རིན་ཐང་འདི་བརྗེ་སྒྱུར་བྱེད།"
+
 #: apps/course_metadata/models.py:2359
 msgid "Indicates whether the course relation has been manually overridden."
 msgstr "སློབ་ཚན་གྱི་འབྲེལ་བ་དེ་ལག་ཐོག་ནས་བཅོས་སྒྲིག་བྱས་ཡོད་མེད་ཀྱི་བརྡ་སྟོན།"
@@ -1397,6 +1520,18 @@ msgstr ""
 "དམིགས་བསལ་གྱི་སློབ་ཚན་འདི་འཁྲིད་པའི་འགྲེལ་བརྗོད། "
 "གལ་སྲིད་ཚན་པ་འདི་སྟོང་པར་བཞག་ན་སློབ་ཚན་གཙོ་བོ་འདིའི་གྲུབ་འབྲས་དེ་རང་སོར་འཇོག་རྒྱུ་ཡིན།"
 
+#: apps/course_metadata/models.py:2379 apps/course_metadata/models.py:3553
+msgid "Add OFAC restriction text to the FAQ section of the Marketing site"
+msgstr ""
+"ཚོང་གཉེར་དྲ་ཚིགས་ཀྱི་དྲི་བ་དྲིས་ལན་ཚན་པར་OFACཚད་བཀག་ཡི་གེ་ཁ་སྣོན་བྱེད་རོགས།"
+
+#: apps/course_metadata/models.py:2399
+msgid ""
+"This calculated field signifies if this course run is in the enterprise "
+"subscription catalog"
+msgstr ""
+"སློབ་ཚན་འདི་ཁེ་ལས་ཀྱི་མངགས་ཉོའི་ཐོ་གཞུང་ནང་ཡོད་མེད་མཚོན་གྱི་རྩིས་རྒྱག་ས་སྒོ་རེད།"
+
 #: apps/course_metadata/models.py:2753 apps/course_metadata/models.py:2766
 msgid "Current"
 msgstr "མིག་སྔར།"
@@ -1404,6 +1539,14 @@ msgstr "མིག་སྔར།"
 #: apps/course_metadata/models.py:2755
 msgid "Starting Soon"
 msgstr "འགོ་མི་འགྱངས་པར་རྩོམ་རྒྱུ་ཡིན།"
+
+#: apps/course_metadata/models.py:2805
+msgid ""
+"Switching seat types after being reviewed is not supported. Please reach out"
+" to your project coordinator for additional help if necessary."
+msgstr ""
+"བསྐྱར་ཞིབ་བྱས་རྗེས་རྐུབ་སྟེགས་རིགས་བརྗེ་སྒྱུར་མི་ཐུབ། "
+"གལ་ཏེ་དགོས་གལ་བྱུང་ན་ཁྱེད་རང་གི་ལས་གཞིའི་འབྲེལ་མཐུད་པ་ལ་རོགས་རམ་ཁ་སྣོན་གནང་རོགས།"
 
 #: apps/course_metadata/models.py:3159
 msgid "Change careers"
@@ -1429,6 +1572,18 @@ msgstr "རྒྱུན་འདྲིའི་དྲི་བ་ཁག"
 msgid "The user-facing display title for this Program."
 msgstr "ལས་རིམ་འདིའི་ནང་སྤྱོད་མཁན་ཐུན་མོང་གིས་མཐོང་བའི་མཚན་བྱང་།"
 
+#: apps/course_metadata/models.py:3376
+msgid "A brief, descriptive subtitle for the Program."
+msgstr "ལས་རིམ་གྱི་འགྲེལ་བརྗོད་ཀྱི་ཡན་ལག་མདོར་བསྡུས།"
+
+#: apps/course_metadata/models.py:3378
+msgid "A brief hook for the marketing website"
+msgstr "ཉོ་ཚོང་དྲ་ཚིགས་ཀྱི་མདོར་བསྡུས།"
+
+#: apps/course_metadata/models.py:3381
+msgid "The lifecycle status of this Program."
+msgstr "ལས་རིམ་འདིའི་མི་ཚེའི་གནས་ཚུལ།"
+
 #: apps/course_metadata/models.py:3393
 msgid ""
 "If this box is not checked, courses will be ordered as in the courses select"
@@ -1448,6 +1603,20 @@ msgstr ""
 #: apps/course_metadata/models.py:3434
 msgid "DEPRECATED: Use the card image field"
 msgstr "བེད་མེད་དུ་གྱུར་བ། བྱང་བུའི་འདྲ་པར་གྱི་ཚན་པ་བཀོལ་སྤྱོད།"
+
+#: apps/course_metadata/models.py:3441
+msgid ""
+"This field can be used by API clients to determine the order in which "
+"instructors will be displayed on program pages. Instructors in this list "
+"should appear before all others associated with this programs courses runs."
+msgstr ""
+"ས་ཁོངས་འདི་APIཚོང་ཤག་གིས་ལས་རིམ་ཤོག་ངོས་སྟེང་སློབ་སྟོན་པ་གང་འདྲ་བཀྲམ་སྟོན་བྱེད་པའི་གོ་རིམ་གཏན་འབེབས་བྱེད་པར་བེད་སྤྱོད་གཏོང་ཐུབ།"
+" "
+"ཐོ་གཞུང་འདིའི་ནང་དུ་ཡོད་པའི་སློབ་སྟོན་པ་རྣམས་ལས་རིམ་འདི་དང་འབྲེལ་བའི་སློབ་ཚན་གཞན་ཚང་མ་འགོ་མ་བཙུགས་གོང་དུ་ཐོན་དགོས།"
+
+#: apps/course_metadata/models.py:3452
+msgid "The description of credit redemption for courses in program"
+msgstr "ལས་རིམ་ནང་གི་སློབ་ཚན་གྱི་བུ་ལོན་སྐྱིན་ཚབ་ཀྱི་འགྲེལ་བཤད།"
 
 #: apps/course_metadata/models.py:3457
 msgid "Allow courses in this program to be purchased in a single transaction"
@@ -1473,6 +1642,71 @@ msgstr ""
 "འདས་པའི་ཟླ་བ་དྲུག་གི་རིང་ལ་ལས་རིམ་འདིའི་ནང་གི་སློབ་ཚན་རྣམས་ལ་ཞུགས་ཐོ་བཀོད་ཟིན་པའི་སློབ་གཉེར་བ་སྤྱིའི་བསྡོམས་འབོར།"
 " "
 
+#: apps/course_metadata/models.py:3474
+msgid ""
+"Number of credits a learner will earn upon successful completion of the "
+"program"
+msgstr "སློབ་མ་ཞིག་གིས་ལས་རིམ་མཐར་ཕྱིན་རྗེས་ཐོབ་པའི་སློབ་ཚན་གྱི་གྲངས།"
+
+#: apps/course_metadata/models.py:3478
+msgid ""
+"This calculated field signifies if all the courses in this program are "
+"included in the enterprise subscription catalog "
+msgstr ""
+"ལས་རིམ་འདིའི་སློབ་ཚན་ཚང་མ་ཁེ་ལས་ཀྱི་མངགས་ཉོའི་ཐོ་གཞུང་ནང་ཚུད་ཡོད་མེད་མཚོན་གྱི་རྩིས་རྒྱག་པའི་ས་ཁོངས་འདི་ཡིན།"
+" "
+
+#: apps/course_metadata/models.py:3482
+msgid ""
+"A field to override Organization short code alias specific for this program."
+msgstr ""
+"ལས་རིམ་འདིའི་ཆེད་དུ་དམིགས་བསལ་གྱི་སྒྲིག་འཛུགས་ཀྱི་ཨང་གྲངས་ཐུང་ཐུང་མིང་གཞན་དེ་བཀག་འགོག་བྱེད་པའི་ས་ཁོངས།"
+
+#: apps/course_metadata/models.py:3489
+msgid "A field to override Organization logo specific for this program."
+msgstr ""
+"ལས་རིམ་འདིའི་ཆེད་དུ་དམིགས་བསལ་གྱི་སྒྲིག་འཛུགས་ཀྱི་རྟགས་མཚན་བཀག་འགོག་བྱེད་པའི་ས་ཁོངས།"
+
+#: apps/course_metadata/models.py:3493
+msgid ""
+"Primary subject field specific for this program. Useful field in case there "
+"are no courses associated with this program."
+msgstr ""
+"ལས་རིམ་འདིའི་ཆེད་དུ་སློབ་ཚན་གཙོ་བོ་ཡོད་པའི་ཁྱབ་ཁོངས་དེ་ཕན་ཐོགས་ཡོད། "
+"ལས་རིམ་འདི་དང་འབྲེལ་བའི་སློབ་ཚན་མེད་ན་ཕན་ཐོགས་ཡོད།"
+
+#: apps/course_metadata/models.py:3498
+msgid ""
+"Level type specific for this program. Useful field in case there are no "
+"courses associated with this program."
+msgstr ""
+"ལས་རིམ་འདིའི་ཆེད་དུ་དམིགས་བསལ་གྱི་རིམ་པ་རིགས། "
+"ལས་རིམ་འདི་དང་འབྲེལ་བའི་སློབ་ཚན་མེད་ན་ཕན་ཐོགས་པའི་ས་ཁོངས།"
+
+#: apps/course_metadata/models.py:3503
+msgid ""
+"Language code specific for this program. Useful field in case there are no "
+"courses associated with this program."
+msgstr ""
+"ལས་རིམ་འདིའི་ཆེད་དུ་དམིགས་བསལ་གྱི་སྐད་ཡིག་ཨང་རྟགས། "
+"ལས་རིམ་འདི་དང་འབྲེལ་བའི་སློབ་ཚན་མེད་ན་ཕན་ཐོགས་པའི་ས་ཁོངས།"
+
+#: apps/course_metadata/models.py:3537
+msgid ""
+"Useful field to overwrite the duration of a program. It can be a text "
+"describing a period of time, Ex: 6-9 months."
+msgstr ""
+"ལས་རིམ་ཞིག་གི་དུས་ཡུན་བརྗེ་སྒྱུར་བྱེད་པའི་ས་ཁོངས་ཡིན། "
+"དུས་ཡུན་ཞིག་བརྗོད་པའི་ཡིག་ཆ་ཡིན་ཆོག དཔེར་ན། ཟླ་བ་༦ནས་༩བར།"
+
+#: apps/course_metadata/models.py:3546
+msgid ""
+"Pick a tag/label from the suggestions. To make a new tag, add a comma after "
+"the tag name."
+msgstr ""
+"བསམ་འཆར་ནང་ནས་མིང་བྱང་འདེམས། "
+"རྟགས་གསར་པ་བཟོ་དགོས་ན་རྟགས་མིང་གྱི་རྗེས་སུ་ཚེག་བསྣན།"
+
 #: apps/course_metadata/models.py:3557
 msgid "The last time this program was modified."
 msgstr "མཐའ་མའི་སྐབས་ལས་རིམ་འདི་བཟོ་བཅོས་བྱས་འདུག"
@@ -1492,6 +1726,45 @@ msgstr "གནས་རིམ་ཨང་གི་ནང་དོན་ཅི་
 #: apps/course_metadata/models.py:4047
 msgid "From where the rank is obtained"
 msgstr "གནས་རིམ་འདི་གང་ནས་ཐོབ་པ་ཡིན་ནམ།"
+
+#: apps/course_metadata/models.py:4097
+msgid "Overall program ranking (e.g. \"#1 in the U.S.\")"
+msgstr ""
+"ལས་རིམ་གྱི་སྤྱིའི་གནས་རིམ་(དཔེར་ན། &quot;ཨ་རིའི་ནང་ཨང་གྲངས་དང་པ་&quot;)"
+
+#: apps/course_metadata/models.py:4111
+msgid "Provide a campus image for the header of the degree"
+msgstr "ཤེས་ཚད་ཀྱི་མགོ་བརྗོད་ལ་སློབ་རའི་པར་རིས་མཁོ་སྤྲོད་བྱེད།"
+
+#: apps/course_metadata/models.py:4117
+msgid "Provide a background image for the title section of the degree"
+msgstr "ཤེས་ཚད་ཀྱི་ཁ་བྱང་དུམ་བུའི་རྒྱབ་ལྗོངས་པར་རིས་མཁོ་འདོན་བྱེད།"
+
+#: apps/course_metadata/models.py:4122
+msgid "The fine print that displays at the Tuition section's bottom"
+msgstr "སློབ་ཡོན་སྡེ་ཚན་གྱི་མཇུག་ཏུ་མངོན་པའི་ཡིག་གཟུགས་ཕྲ་མོ་དེ།"
+
+#: apps/course_metadata/models.py:4127
+msgid "The fine print that displays at the Deadline section's bottom"
+msgstr "དུས་བཀག་ཚན་པའི་མཇུག་ཏུ་མངོན་པའི་ཡིག་གཟུགས་ཕྲ་མོ་དེ།"
+
+#: apps/course_metadata/models.py:4134
+msgid "The sailthru email list name to capture leads"
+msgstr "སྣེ་ཁྲིད་པ་འཛིན་པའི་ཆེད་དུ་སེ་ཐུ་ཡིག་ཟམ་ཐོ་གཞུང་གི་མིང་།"
+
+#: apps/course_metadata/models.py:4148
+msgid "Please provide an image file for the lead capture banner."
+msgstr ""
+"སྐུ་མཁྱེན། "
+"གཙོ་བོའི་པར་ལེན་དར་ཆའི་ཆེད་དུ་པར་རིས་ཡིག་ཆ་ཞིག་མཁོ་སྤྲོད་གནང་རོགས།"
+
+#: apps/course_metadata/models.py:4151
+msgid "The Hubspot form ID for the lead capture form"
+msgstr "གཙོ་བོ་འཛིན་བཟུང་བྱེད་པའི་འབྲི་ཤོག་གི་ཧབ་སི་པོཊ་འབྲི་ཤོག་ཨང་རྟགས།"
+
+#: apps/course_metadata/models.py:4157
+msgid "URL to micromasters landing page"
+msgstr "མའི་ཀོ་རོ་མ་སི་ཊར་གྱི་དྲ་ཚིགས་ཀྱི་URL"
 
 #: apps/course_metadata/models.py:4163
 msgid "Micromasters verbose title"
@@ -1526,6 +1799,20 @@ msgstr "བྱང་བུ་འཚོལ་བཤེར་གྱི་རིན
 #: apps/course_metadata/models.py:4205
 msgid "Number of courses for search card (e.g. \"11 Courses\""
 msgstr "བྱང་བུ་འཚོལ་ཞིབ་བྱས་པའི་སློབ་ཚན་གྱི་གྲངས་ཀ།（དཔེར་ན། \"སློབ་ཚན། ༡༡\""
+
+#: apps/course_metadata/models.py:4213
+msgid ""
+"Designates whether the degree should be displayed on the owning "
+"organization's page"
+msgstr "བདག་དབང་ཚོགས་པའི་ཤོག་ངོས་སུ་ཤེས་ཚད་མངོན་དགོས་མིན་གཏན་འཁེལ་བྱེད།"
+
+#: apps/course_metadata/models.py:4232
+msgid "The redirect URL of the degree on external site"
+msgstr "ཕྱིའི་དྲ་ཚིགས་སྟེང་གི་ཤེས་ཚད་ལུ་སླར་ཡང་ཁ་ཕྱོགས་ཁ་བྱང་།"
+
+#: apps/course_metadata/models.py:4237
+msgid "The URL of the landing page on external site"
+msgstr "ཕྱིའི་དྲ་ཚིགས་སྟེང་གི་འབྱོར་ཤོག་གི་ཁ་བྱང་།"
 
 #: apps/course_metadata/models.py:4288
 msgid "Bell"
@@ -1612,6 +1899,10 @@ msgid "String-based field stating how much the cost is (e.g. $1000)."
 msgstr ""
 "ཚིག་དུམ་གཞིར་བཞག་སྟེ་ཚན་པ་འདིས་སྟོན་བཞིན་པའི་རིན་གོང་ནི་ (དཔེར་ན། $1000)."
 
+#: apps/course_metadata/models.py:4443
+msgid "A high-level overview of the degree's courseware."
+msgstr "ཤེས་ཚད་ཀྱི་སློབ་ཚན་གྱི་བསླབ་གཞི་ལ་ཚད་མཐོའི་ཕྱོགས་བསྡུས།"
+
 #: apps/course_metadata/models.py:4568
 msgid "Organization name"
 msgstr "ཚོགས་པའི་མིང་།"
@@ -1638,11 +1929,40 @@ msgstr "དྲ་ཤོག"
 msgid "Others"
 msgstr "གཞན།"
 
+#: apps/course_metadata/models.py:4685
+#, python-brace-format
+msgid ""
+"Partner {partner_key} and course partner {course_partner_key} do not match "
+"when attempting to save url slug {url_slug}"
+msgstr ""
+"{partner_key} མཉམ་ལས་རོགས་དང་ {course_partner_key} "
+"སློབ་ཚན་གྱི་མཉམ་ལས་རོགས་ཟླ url {url_slug} ཉར་ཚགས་བྱེད་སྐབས་མཐུན་མི་ཐུབ།"
+
+#: apps/course_metadata/models.py:4705
+#, python-brace-format
+msgid ""
+"Partner {partner_key} and course partner {course_partner_key} do not match "
+"when attempting to save url redirect {url_path}"
+msgstr ""
+"མཉམ་ལས་རོགས་ {partner_key} དང་སློབ་ཚན་གྱི་མཉམ་ལས་རོགས་ {course_partner_key} "
+"url བསྐྱར་ལོག་ཉར་ཚགས་བྱེད་སྐབས་མཐུན་མི་ཐུབ།"
+
 #: apps/course_metadata/models.py:4726
 msgid "It expects the data will be provided in a csv file format "
 msgstr ""
 "དེས་གཞི་གྲངས་དེ་csvཡིག་ཆའི་རྣམ་པའི་ཐོག་ནས་མཁོ་སྤྲོད་བྱ་རྒྱུའི་རེ་བ་བྱེད་ཀྱི་ཡོད།"
 " "
+
+#: apps/course_metadata/models.py:4752 apps/course_metadata/models.py:4765
+#: apps/course_metadata/models.py:4778 apps/course_metadata/models.py:4813
+#: apps/course_metadata/models.py:4826 apps/course_metadata/models.py:4845
+#: apps/course_metadata/models.py:4865 apps/course_metadata/models.py:4880
+#: apps/course_metadata/models.py:5033
+msgid ""
+"It expects the data will be provided in a csv file format with first row "
+"containing all the headers."
+msgstr ""
+"དེས་གྲངས་ཐོ་དེ་csvཡིག་ཆའི་རྣམ་གཞག་ནང་མགོ་ཡིག་ཚང་མ་ཡོད་པའི་གྲལ་ཐིག་དང་པོའི་ནང་དུ་སྤྲོད་རྒྱུའི་རེ་བ་བྱེད་ཀྱི་ཡོད།"
 
 #: apps/course_metadata/models.py:4837
 msgid "Open Courses"
@@ -1668,9 +1988,21 @@ msgstr "སློབ་ཚན་གནས་ཚུལ་གྱི་ IDs"
 msgid "Profile Image UUIDs"
 msgstr "ངོ་སྤྲོད་སྙིང་བསྡུས་ཀྱི་འདྲ་པར་ UUIDs"
 
+#: apps/course_metadata/models.py:4953
+msgid "Tag"
+msgstr "མཚོན་རྟགས།"
+
+#: apps/course_metadata/models.py:4969
+msgid "Remove All Redirects"
+msgstr "ཕྱིར་གཏོང་ཚང་མ་མེད་པར་བཟོས།"
+
 #: apps/course_metadata/models.py:4970
 msgid "Url Paths"
 msgstr "Url ཡི་བརྒྱུད་ལམ།"
+
+#: apps/course_metadata/models.py:4978
+msgid "Add redirects from all published course url slugs"
+msgstr "དཔེ་སྐྲུན་བྱས་པའི་སློབ་ཚན་གྱི་url slugsཚང་མ་ནས་བསྐྱར་དུ་ཁ་སྣོན་བྱེད།"
 
 #: apps/course_metadata/models.py:4979 apps/taxonomy_support/models.py:55
 msgid "Course uuids"
@@ -1699,6 +2031,10 @@ msgstr "གནས་བབས།"
 #: apps/course_metadata/models.py:5061
 msgid "Status of the Bulk Task"
 msgstr "སྒྲིག་སྟངས་ཆ་སྙོམས་ཀྱི་གནས་ཚད།"
+
+#: apps/course_metadata/salesforce.py:237
+msgid "Unable to associate a case for comments for {}"
+msgstr "{} ཡི་མཆན་འགྲེལ་ལ་གྱོད་གཞི་འབྲེལ་མཐུད་བྱེད་མི་ཐུབ།"
 
 #: apps/course_metadata/templates/admin/course_metadata/course_run.html:37
 msgid "Cancel"
