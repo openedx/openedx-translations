@@ -306,9 +306,34 @@ msgstr ""
 "Upstream bloka izmantošanas atslēga, šī vērtība nevar būt nulle, un tā ir "
 "noderīga, lai izsekotu vēl neeksistējošus upstream bibliotēkas blokus."
 
+#: cms/djangoapps/contentstore/models.py:163
+msgid "Component Link"
+msgstr "Sastāvdaļu saite"
+
+#: cms/djangoapps/contentstore/models.py:164
+msgid "Component Links"
+msgstr "Sastāvdaļu saites"
+
 #: cms/djangoapps/contentstore/models.py:190
 msgid "The component must be published to access `published_at`"
 msgstr "Komponentam jābūt publicētam, lai piekļūtu `published_at`"
+
+#: cms/djangoapps/contentstore/models.py:329
+msgid ""
+"Upstream block key (e.g. lct:...), this value cannot be null and is useful "
+"to track upstream library blocks that do not exist yet or were deleted."
+msgstr ""
+"Upstream bloka atslēga (piemēram, lct:...), šī vērtība nevar būt nulle, un "
+"tā ir noderīga, lai izsekotu augšupējiem bibliotēkas blokiem, kas vēl "
+"nepastāv vai ir dzēsti."
+
+#: cms/djangoapps/contentstore/models.py:336
+msgid "Container Link"
+msgstr "Konteineru saite"
+
+#: cms/djangoapps/contentstore/models.py:337
+msgid "Container Links"
+msgstr "Konteineru saites"
 
 #: cms/djangoapps/contentstore/models.py:363
 msgid "The container must be published to access `published_at`"
@@ -1227,6 +1252,10 @@ msgstr "Vārdnīca ar pieejamajiem tagiem"
 msgid "Content is not linked to a Content Library."
 msgstr "Saturs nav saistīts ar satura bibliotēku."
 
+#: cms/lib/xblock/upstream_sync.py:255
+msgid "Downstream is not an XBlock or is missing required UpstreamSyncMixin"
+msgstr "Downstream nav ir XBlock vai nav nepieciešamā UpstreamSyncMixin"
+
 #: cms/lib/xblock/upstream_sync.py:259
 msgid "Cannot update content because it does not belong to a course."
 msgstr "Nevar atjaunināt saturu, jo tas nepieder kursam."
@@ -1235,9 +1264,34 @@ msgstr "Nevar atjaunināt saturu, jo tas nepieder kursam."
 msgid "Reference to linked library item is malformed"
 msgstr "Atsauce uz saistītajiem bibliotēkas elementiem ir kļūdaini veidota"
 
+#: cms/lib/xblock/upstream_sync.py:275
+msgid ""
+"Updating content with children is not yet supported unless the upstream is a"
+" container."
+msgstr ""
+"Satura atjaunināšana ar bērniem pagaidām netiek atbalstīta, ja vien "
+"augšupējais posms nav konteiners."
+
+#: cms/lib/xblock/upstream_sync.py:281
+msgid "Linked upstream library block was not found in the system"
+msgstr "Sistēmā nav atrasts sasaistītais augšupvērstās bibliotēkas bloks"
+
+#: cms/lib/xblock/upstream_sync.py:288
+msgid "Linked upstream library container was not found in the system"
+msgstr "Sistēmā nav atrasts saistītais augšupejošās bibliotēkas konteiners"
+
 #: cms/lib/xblock/upstream_sync.py:292
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "Saistītā `upstream_key` nav derīga atslēga"
+
+#: cms/lib/xblock/upstream_sync.py:301
+#, python-brace-format
+msgid ""
+"Content type mismatch: {downstream_id} ({downstream_type}) cannot be linked "
+"to {upstream_id}."
+msgstr ""
+"Satura tipa nesakritība: {downstream_id} ({downstream_type}) nevar saistīt "
+"ar {upstream_id}."
 
 #: cms/lib/xblock/upstream_sync_block.py:108
 msgid "Linked library item could not be loaded: {}"
@@ -5613,6 +5667,24 @@ msgstr "Lomas nosaukums"
 msgid "Invalid role name."
 msgstr "Nederīgs lomas nosaukums."
 
+#: lms/djangoapps/instructor/views/serializer.py:344
+msgid "The URL name of the problem to reset."
+msgstr "Atiestatāmās problēmas URL nosaukums ir."
+
+#: lms/djangoapps/instructor/views/serializer.py:346
+#: lms/djangoapps/instructor/views/serializer.py:567
+msgid "Problem URL name cannot be blank."
+msgstr "Problēma URL nosaukumam nedrīkst būt tukšs."
+
+#: lms/djangoapps/instructor/views/serializer.py:351
+msgid "Whether to reset the problem for all students."
+msgstr "Vai jāatjauno problēmu visiem skolēniem."
+
+#: lms/djangoapps/instructor/views/serializer.py:361
+#: lms/djangoapps/instructor/views/serializer.py:508
+msgid "unique student identifier."
+msgstr "unikāls skolēna identifikators."
+
 #: lms/djangoapps/instructor/views/serializer.py:496
 msgid "Whether to reset for all students."
 msgstr "Vai atiestatīt visiem studentiem."
@@ -8873,6 +8945,24 @@ msgstr ""
 msgid "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
 msgstr "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:258
+#, python-brace-format
+msgid ""
+"<{p}>You have a new open response submission awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>Jums ir jauns atvērtas atbildes iesniegums, kas gaida izskatīšanu par "
+"<{strong}>{ora_name}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:260
+#, python-brace-format
+msgid ""
+"<{p}>You have multiple submissions awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>Jums ir vairāki iesniegumi, kas gaida pārskatīšanu, lai "
+"<{strong}>{ora_name}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:279
 #, python-brace-format
 msgid ""
@@ -11616,6 +11706,14 @@ msgstr ""
 "kursiem un nekavējoties paziņojiet MathWorks, ja uzskatāt, ka atslēga ir "
 "atklāta vai apdraudēta. Lai saņemtu atslēgu savam kursam vai ziņotu par "
 "problēmu, lūdzu, sazinieties ar moocsupport@mathworks.com."
+
+#: xmodule/capa_block.py:363
+msgid ""
+"Indicates if the problem was edited using the Markdown editor in the "
+"Authoring MFE."
+msgstr ""
+"Norāda, vai problēma ir rediģēta, izmantojot Markdown redaktoru autoru "
+"veidošanas MFE."
 
 #: xmodule/capa_block.py:455
 msgid ""
