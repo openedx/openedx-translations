@@ -292,9 +292,31 @@ msgid ""
 "upstream library blocks that do not exist yet"
 msgstr "上游區塊使用鍵，該值不能為空，用於追蹤尚不存在的上游庫塊"
 
+#: cms/djangoapps/contentstore/models.py:163
+msgid "Component Link"
+msgstr "組件連結"
+
+#: cms/djangoapps/contentstore/models.py:164
+msgid "Component Links"
+msgstr "組件連結"
+
 #: cms/djangoapps/contentstore/models.py:190
 msgid "The component must be published to access `published_at`"
 msgstr "组件必须发表才能访问 `published_at`"
+
+#: cms/djangoapps/contentstore/models.py:329
+msgid ""
+"Upstream block key (e.g. lct:...), this value cannot be null and is useful "
+"to track upstream library blocks that do not exist yet or were deleted."
+msgstr "上游塊鍵（例如 lct:...），該值不能為空，用於追蹤尚不存在或已刪除的上游庫塊。"
+
+#: cms/djangoapps/contentstore/models.py:336
+msgid "Container Link"
+msgstr "容器連結"
+
+#: cms/djangoapps/contentstore/models.py:337
+msgid "Container Links"
+msgstr "容器連結"
 
 #: cms/djangoapps/contentstore/models.py:363
 msgid "The container must be published to access `published_at`"
@@ -1157,6 +1179,10 @@ msgstr "帶有可用標籤的字典"
 msgid "Content is not linked to a Content Library."
 msgstr "內容未連結到內容庫。"
 
+#: cms/lib/xblock/upstream_sync.py:255
+msgid "Downstream is not an XBlock or is missing required UpstreamSyncMixin"
+msgstr "Downstream 不是 XBlock 或缺少必需的 UpstreamSyncMixin"
+
 #: cms/lib/xblock/upstream_sync.py:259
 msgid "Cannot update content because it does not belong to a course."
 msgstr "無法更新內容，因為它不屬於課程。"
@@ -1165,9 +1191,30 @@ msgstr "無法更新內容，因為它不屬於課程。"
 msgid "Reference to linked library item is malformed"
 msgstr "對連結庫項目的引用格式錯誤"
 
+#: cms/lib/xblock/upstream_sync.py:275
+msgid ""
+"Updating content with children is not yet supported unless the upstream is a"
+" container."
+msgstr "除非上游是容器，否則尚不支援更新帶有子項的內容。"
+
+#: cms/lib/xblock/upstream_sync.py:281
+msgid "Linked upstream library block was not found in the system"
+msgstr "系統中未找到連結的上游庫塊"
+
+#: cms/lib/xblock/upstream_sync.py:288
+msgid "Linked upstream library container was not found in the system"
+msgstr "系統中未找到連結的上游庫容器"
+
 #: cms/lib/xblock/upstream_sync.py:292
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "連結的 `upstream_key` 不是有效的鍵"
+
+#: cms/lib/xblock/upstream_sync.py:301
+#, python-brace-format
+msgid ""
+"Content type mismatch: {downstream_id} ({downstream_type}) cannot be linked "
+"to {upstream_id}."
+msgstr "內容類型不符： {downstream_id} （ {downstream_type} ）無法連結到{upstream_id} 。"
 
 #: cms/lib/xblock/upstream_sync_block.py:108
 msgid "Linked library item could not be loaded: {}"
@@ -5113,6 +5160,24 @@ msgstr "角色名稱"
 msgid "Invalid role name."
 msgstr "角色名稱無效。"
 
+#: lms/djangoapps/instructor/views/serializer.py:344
+msgid "The URL name of the problem to reset."
+msgstr "要重設的問題的 URL 名稱。"
+
+#: lms/djangoapps/instructor/views/serializer.py:346
+#: lms/djangoapps/instructor/views/serializer.py:567
+msgid "Problem URL name cannot be blank."
+msgstr "問題 URL 名稱不能為空。"
+
+#: lms/djangoapps/instructor/views/serializer.py:351
+msgid "Whether to reset the problem for all students."
+msgstr "是否為所有學生重置該問題。"
+
+#: lms/djangoapps/instructor/views/serializer.py:361
+#: lms/djangoapps/instructor/views/serializer.py:508
+msgid "unique student identifier."
+msgstr "唯一的學生識別碼。"
+
 #: lms/djangoapps/instructor/views/serializer.py:496
 msgid "Whether to reset for all students."
 msgstr "是否要为所有学生重置。"
@@ -8137,6 +8202,20 @@ msgstr "<{p}>您的回覆已在帖子 <{strong}>{post_title}</{strong}></{p}>"
 msgid "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
 msgstr "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:258
+#, python-brace-format
+msgid ""
+"<{p}>You have a new open response submission awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr "<{p}>您有一個新的開放式回應提交正在等待審核 <{strong}>{ora_name}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:260
+#, python-brace-format
+msgid ""
+"<{p}>You have multiple submissions awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr "<{p}>您有多個提交內容等待審核<{strong}>{ora_name}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:279
 #, python-brace-format
 msgid ""
@@ -10653,6 +10732,12 @@ msgid ""
 msgstr ""
 "輸入 MathWorks 提供的用於存取 MATLAB 託管服務的 API 金鑰。此密鑰僅供本課程在指定期限內獨家使用。請不要與其他課程共用 API "
 "金鑰，如果您認為金鑰已洩露或洩露，請立即通知 MathWorks。如需課程密鑰或報告問題，請聯絡 moocsupport@mathworks.com"
+
+#: xmodule/capa_block.py:363
+msgid ""
+"Indicates if the problem was edited using the Markdown editor in the "
+"Authoring MFE."
+msgstr "指示是否使用 Authoring MFE 中的 Markdown 編輯器編輯了問題。"
 
 #: xmodule/capa_block.py:455
 msgid ""
