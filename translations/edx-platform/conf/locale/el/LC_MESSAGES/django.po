@@ -6324,6 +6324,12 @@ msgstr "Επίτρεψε"
 msgid "Error"
 msgstr "Σφάλμα"
 
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:11
+#: lms/templates/support/edx_ace/wholecoursereset/email/subject.txt:3
+#, python-format
+msgid "The course %(course_title)s has been reset !"
+msgstr "Το μάθημα %(course_title)s έχει μηδενιστεί!"
+
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.html:16
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:14
 #: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:14
@@ -6333,6 +6339,28 @@ msgstr "Σφάλμα"
 #, python-format
 msgid "Hello %(full_name)s,"
 msgstr "Αγαπητέ/αγαπητή %(full_name)s,"
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:21
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:3
+#, python-format
+msgid ""
+"Your progress in course %(course_title)s has been reset on your behalf."
+msgstr ""
+"Η πρόοδός σας στο μάθημα %(course_title)s έχει μηδενιστεί εκ μέρους σας."
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:25
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:4
+msgid ""
+"You will be able to re-attempt this course and earn a verified certificate "
+"upon successful completion."
+msgstr ""
+"Θα μπορείτε να δοκιμάσετε ξανά αυτό το μάθημα και να κερδίσετε ένα "
+"επαληθευμένο πιστοποιητικό μετά την επιτυχή ολοκλήρωση."
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:31
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:6
+msgid "Best,"
+msgstr "Καλύτερος,"
 
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:2
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:2
@@ -7255,6 +7283,17 @@ msgstr "Μαθήματα με λάθη"
 msgid "Learning Sequences and Outlines"
 msgstr "Ακολουθίες και σχεδιαγράμματα μάθησης"
 
+#: openedx/core/djangoapps/content/search/models.py:28
+msgid ""
+"Numeric ID for each Course / Library context. This ID will generally require"
+" fewer bits than the full LearningContextKey, allowing more courses and "
+"libraries to be represented in content search filters."
+msgstr ""
+"Αριθμητικό αναγνωριστικό για κάθε πλαίσιο μαθήματος / βιβλιοθήκης. Αυτό το "
+"αναγνωριστικό θα απαιτεί γενικά λιγότερα bit από το πλήρες "
+"LearningContextKey, επιτρέποντας την αναπαράσταση περισσότερων μαθημάτων και"
+" βιβλιοθηκών στα φίλτρα αναζήτησης περιεχομένου."
+
 #: openedx/core/djangoapps/content_libraries/api/blocks.py:301
 msgid "Library cannot have more than {} Components."
 msgstr "Η βιβλιοθήκη δεν μπορεί να έχει περισσότερα από {} στοιχεία."
@@ -7445,6 +7484,10 @@ msgstr "έχει λήξει"
 #: openedx/core/djangoapps/content_staging/models.py:43
 msgid "Staged Content"
 msgstr "Σταδιακό Περιεχόμενο"
+
+#: openedx/core/djangoapps/content_staging/models.py:72
+msgid "Content tags applied to these blocks"
+msgstr "Οι ετικέτες Περιεχομένου εφαρμόζονται σε αυτά τα μπλοκ"
 
 #: openedx/core/djangoapps/content_staging/models.py:116
 msgid "Original usage key/ID of the thing that is in the clipboard."
@@ -8084,6 +8127,18 @@ msgstr "Ενημερώσεις"
 #: openedx/core/djangoapps/notifications/email/utils.py:469
 msgid "discussion"
 msgstr "συζήτηση"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:16
+msgid "Daily"
+msgstr "Καθημερινά"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:17
+msgid "Weekly"
+msgstr "Εβδομαδιαία"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:18
+msgid "Immediately"
+msgstr "Αμέσως"
 
 #: openedx/core/djangoapps/notifications/email_notifications.py:19
 #: xmodule/capa_block.py:244 xmodule/capa_block.py:261
@@ -9643,6 +9698,15 @@ msgstr ""
 "Μια άδεια καθορίζει πώς το περιεχόμενο αυτού του μπλοκ μπορεί να μοιραστεί "
 "και να επαναχρησιμοποιηθεί."
 
+#: openedx/core/lib/teams_config.py:386
+#, python-brace-format
+msgid "Team Group: {team_set_name}"
+msgstr "Ομάδα ομάδας: {team_set_name}"
+
+#: openedx/core/lib/teams_config.py:387
+msgid "Partition for segmenting users by team-set"
+msgstr "Διαμέρισμα για τμηματοποίηση χρηστών ανά ομάδα ομάδων"
+
 #: openedx/features/calendar_sync/ics.py:36
 #, python-brace-format
 msgid "{assignment} is due for {course}."
@@ -10567,6 +10631,34 @@ msgstr ""
 "απαντήσει σε αυτήν την εξέταση. Αν δεν έχει οριστεί η τιμή, επιτρέπονται "
 "άπειρες προσπάθειες."
 
+#: xmodule/capa_block.py:216
+msgid "Grading Method"
+msgstr "Μέθοδος βαθμολόγησης"
+
+#: xmodule/capa_block.py:218
+msgid ""
+"Define the grading method for this problem. By default, it's the score of "
+"the last submission made by the student."
+msgstr ""
+"Ορίστε τη μέθοδο βαθμολόγησης για αυτό το πρόβλημα. Από προεπιλογή, είναι η "
+"βαθμολογία της τελευταίας υποβολής που έγινε από τον μαθητή."
+
+#: xmodule/capa_block.py:224 xmodule/capa_block.py:528
+msgid "Last Score"
+msgstr "Τελευταία βαθμολογία"
+
+#: xmodule/capa_block.py:225 xmodule/capa_block.py:529
+msgid "First Score"
+msgstr "Πρώτο σκορ"
+
+#: xmodule/capa_block.py:226 xmodule/capa_block.py:530
+msgid "Highest Score"
+msgstr "Υψηλότερο σκόρ"
+
+#: xmodule/capa_block.py:227 xmodule/capa_block.py:531
+msgid "Average Score"
+msgstr "Μέσος όρος"
+
 #: xmodule/capa_block.py:230
 msgid "Date that this problem is due by"
 msgstr "Ημερομηνία προθεσμίας για το πρόβλημα αυτό"
@@ -10704,6 +10796,10 @@ msgstr "Δεδομένα XML για το πρόβλημα"
 msgid "Dictionary with the correctness of current student answers"
 msgstr "Λεξικό με την ορθότητα των τρεχουσών απαντήσεων των φοιτητών"
 
+#: xmodule/capa_block.py:313
+msgid "List of correctness maps for each attempt"
+msgstr "Λίστα χαρτών ορθότητας για κάθε προσπάθεια"
+
 #: xmodule/capa_block.py:314
 msgid "Dictionary for maintaining the state of inputtypes"
 msgstr "Λεξικό επίβλεψης της κατάστασης των εισαγόμενων τύπων"
@@ -10712,9 +10808,17 @@ msgstr "Λεξικό επίβλεψης της κατάστασης των ει�
 msgid "Dictionary with the current student responses"
 msgstr "Λεξικό με τις τρέχουσες απαντήσεις των φοιτητών"
 
+#: xmodule/capa_block.py:317
+msgid "List of student answers for each attempt"
+msgstr "Λίστα απαντήσεων των μαθητών για κάθε προσπάθεια"
+
 #: xmodule/capa_block.py:321
 msgid "Dictionary with the current student score"
 msgstr "Λεξικό με την τρέχουσα βαθμολογία σπουδαστή"
+
+#: xmodule/capa_block.py:323
+msgid "List of scores for each attempt"
+msgstr "Λίστα βαθμολογιών για κάθε προσπάθεια"
 
 #: xmodule/capa_block.py:326
 msgid "Whether or not the answers have been saved since last submit"
