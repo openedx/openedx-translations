@@ -4744,6 +4744,16 @@ msgstr "votre"
 msgid "their"
 msgstr "leur"
 
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/commentnotification/push/body.txt:2
+#, python-format
+msgid "%(comment_username)s commented to %(thread_title)s:"
+msgstr "%(comment_username)s a commenté %(thread_title)s :"
+
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/commentnotification/push/title.txt:2
+#, python-format
+msgid "Comment to %(thread_title)s"
+msgstr "Commentaire sur %(thread_title)s"
+
 #: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.html:12
 #, python-format
 msgid ""
@@ -4791,6 +4801,15 @@ msgstr "%(comment_username)s a répondu à <b>%(thread_title)s</b>:"
 #, python-format
 msgid "Response to %(thread_title)s"
 msgstr "Réponse à %(thread_title)s"
+
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/responsenotification/push/body.txt:2
+#, python-format
+msgid ""
+"%(comment_username)s replied to %(thread_title)s: "
+"%(comment_body|truncatechars:200)s"
+msgstr ""
+"%(comment_username)s a répondu à %(thread_title)s : "
+"%(comment_body|truncatechars:200)s"
 
 #: lms/djangoapps/discussion/views.py:80
 msgid "Access to this discussion is restricted to team members and staff."
@@ -5244,6 +5263,12 @@ msgstr "Le module n'existe pas."
 msgid "An error occurred while deleting the score."
 msgstr "Une erreur est survenue lors de la suppression de la note."
 
+#: lms/djangoapps/instructor/views/api.py:2056
+msgid "An error occurred while attempting to reset for all students."
+msgstr ""
+"Une erreur s&#39;est produite lors de la tentative de réinitialisation pour "
+"tous les étudiants."
+
 #: lms/djangoapps/instructor/views/api.py:2116
 #: lms/djangoapps/instructor/views/api.py:2355
 msgid "Course has no entrance exam section."
@@ -5694,6 +5719,16 @@ msgstr "Complété"
 #: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
 msgid "Incomplete"
 msgstr "Incomplet"
+
+#: lms/djangoapps/instructor/views/serializer.py:31
+#: lms/djangoapps/instructor/views/serializer.py:89
+msgid "Role name"
+msgstr "Nom du rôle"
+
+#: lms/djangoapps/instructor/views/serializer.py:38
+#: lms/djangoapps/instructor/views/serializer.py:99
+msgid "Invalid role name."
+msgstr "Nom de rôle non valide."
 
 #: lms/djangoapps/instructor/views/serializer.py:496
 msgid "Whether to reset for all students."
@@ -6788,6 +6823,14 @@ msgstr ""
 #, python-format
 msgid "You have been invited to a beta test for %(course_name)s"
 msgstr "Vous avez été invité à un bêta-test de %(course_name)s"
+
+#: lms/templates/instructor/edx_ace/addbetatester/push/body.txt:3
+#: lms/templates/instructor/edx_ace/enrolledunenroll/push/body.txt:3
+#: lms/templates/instructor/edx_ace/enrollenrolled/push/body.txt:3
+#: lms/templates/instructor/edx_ace/removebetatester/push/body.txt:3
+#, python-format
+msgid "Dear %(full_name)s,"
+msgstr "Cher %(full_name)s,"
 
 #: lms/templates/instructor/edx_ace/addbetatester/push/body.txt:4
 #, python-format
@@ -8307,6 +8350,13 @@ msgid ""
 "The authorized LTI profile that launched the resource (identifies the user)."
 msgstr "Le profil autorisé qui a lancé la ressource (identifie l'usager)."
 
+#: openedx/core/djangoapps/content_libraries/models.py:480
+msgid ""
+"The usage key string of the resource serving the content of this launch."
+msgstr ""
+"La chaîne de clé d&#39;utilisation de la ressource servant le contenu de ce "
+"lancement."
+
 #: openedx/core/djangoapps/content_libraries/models.py:486
 msgid ""
 "The LTI platform unique identifier of this resource, also known as the "
@@ -8968,6 +9018,17 @@ msgstr ""
 "<{p}><{strong}>{replier_name}</{strong}> et d'autres ont répondu à un "
 "message que vous suivez : <{strong}>{post_title}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:170
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> commented on "
+"<{strong}>{author_name}</{strong}> response in a post you’re following "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> a commenté "
+"<{strong}>{author_name}</{strong}>, la réponse dans un message que vous "
+"suivez <{strong}>{post_title}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:191
 #, python-brace-format
 msgid ""
@@ -8976,6 +9037,38 @@ msgid ""
 msgstr ""
 "<p>le {content_type} de <strong>{username}</strong> a été signalé "
 "<strong>{content}</strong></p>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:208
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}'s</{strong}> response has been endorsed in "
+"your post <{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}'s</{strong}> réponse a été approuvée dans "
+"votre message <{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:223
+#, python-brace-format
+msgid ""
+"<{p}>Your response has been endorsed on the post "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}>Votre réponse a été approuvée sur le post "
+"<{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:241
+#, python-brace-format
+msgid "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
+msgstr "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:279
+#, python-brace-format
+msgid ""
+"<{p}>You have received {points_earned} out of {points_possible} on your "
+"assessment: <{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>Vous avez reçu {points_earned} sur {points_possible} lors de votre "
+"évaluation : <{strong}>{ora_name}</{strong}></{p}>"
 
 #: openedx/core/djangoapps/notifications/base_notification.py:347
 msgid ""
@@ -8991,6 +9084,10 @@ msgid "Notifications for new announcements and updates from the course team."
 msgstr ""
 "Notifications pour les nouvelles annonces et mises à jour de l'équipe du "
 "cours."
+
+#: openedx/core/djangoapps/notifications/base_notification.py:366
+msgid "Notifications for submission grading."
+msgstr "Notifications pour noter les soumissions."
 
 #: openedx/core/djangoapps/notifications/email/tasks.py:279
 msgid ""
@@ -10944,6 +11041,10 @@ msgstr ""
 #: openedx/features/enterprise_support/utils.py:205
 msgid "Continue"
 msgstr "Continuer"
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:121
+msgid "The deadline to complete this assignment has passed."
+msgstr "La date limite pour terminer cette tâche est passée."
 
 #: openedx/features/personalized_learner_schedules/call_to_action.py:127
 msgid "Shift due dates"
