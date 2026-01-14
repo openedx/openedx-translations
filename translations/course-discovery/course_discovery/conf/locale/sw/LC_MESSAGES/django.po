@@ -560,9 +560,17 @@ msgstr "nyingine"
 msgid "Course Create"
 msgstr "Unda Kozi"
 
+#: apps/course_metadata/choices.py:55
+msgid "Partial Update"
+msgstr "Usasishaji Sehemu"
+
 #: apps/course_metadata/choices.py:56
 msgid "Course Rerun"
 msgstr "Rudia Kozi"
+
+#: apps/course_metadata/choices.py:57
+msgid "Course Editor Update"
+msgstr "Sasisho la Mhariri wa Kozi"
 
 #: apps/course_metadata/choices.py:64
 msgid "Pending"
@@ -777,6 +785,15 @@ msgstr "Iliyochapishwa: {key} - {title}"
 #, python-brace-format
 msgid "Comment added: {title}"
 msgstr "Maoni yameongezwa: {title}"
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: apps/course_metadata/fields.py:33
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, slashes, underscores or"
+" hyphens."
+msgstr ""
+"Weka &quot;slug&quot; halali inayojumuisha herufi, nambari, mikwaju, mistari"
+" chini au vistari."
 
 #: apps/course_metadata/forms.py:102
 msgid "Programs can only be activated if they have a banner image."
@@ -2073,6 +2090,122 @@ msgid ""
 msgstr ""
 "%(user_name)s alitoa maoni yafuatayo kwenye %(course_name)s %(date)s kwa "
 "%(time)s"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:7
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:3
+#: apps/course_metadata/templates/course_metadata/email/go_live.html:9
+#: apps/course_metadata/templates/course_metadata/email/go_live.txt:3
+msgid "Hi Course Team,"
+msgstr "Hi Timu ya kozi,"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:16
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:16
+msgid ""
+"To ensure uninterrupted learner access and enrollment, please take one of "
+"the following actions:"
+msgstr ""
+"Ili kuhakikisha ufikiaji na uandikishaji wa wanafunzi bila kukatizwa, "
+"tafadhali chukua mojawapo ya hatua zifuatazo:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:19
+#, python-format
+msgid ""
+"\n"
+"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
+"        "
+msgstr ""
+"\n"
+"        Hiki ni kikumbusho cha kiotomatiki kwamba kozi \"%(course_name)s\" (Ufunguo wa Kozi: %(course_key)s) imekamilika rasmi kuanzia %(course_end_date)s.\n"
+"        "
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:23
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:18
+msgid ""
+"If this was intentional, no action is needed. However, if this course was "
+"meant to remain available, you have two options to restore access:"
+msgstr ""
+"Ikiwa hii ilikuwa ya makusudi, hakuna hatua inahitajika. Hata hivyo, ikiwa "
+"kozi hii ilikusudiwa kubaki inapatikana, una chaguo mbili za kurejesha "
+"ufikiaji:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:29
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:21
+msgid ""
+"Extend the current course run’s end date if the same course is meant to "
+"remain available."
+msgstr ""
+"Ongeza tarehe ya mwisho ya kozi ya sasa ikiwa kozi hiyo hiyo inakusudiwa "
+"kubaki inapatikana."
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:31
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:22
+msgid ""
+"Create a new course run if you are planning to offer this course again with "
+"updated content, pacing, or a new cohort of learners."
+msgstr ""
+"Unda kozi mpya ikiwa unapanga kutoa kozi hii tena ukiwa na maudhui "
+"yaliyosasishwa, mwendo kasi au kundi jipya la wanafunzi."
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:32
+msgid "Visit the Course in Publisher"
+msgstr "Tembelea Kozi katika Mchapishaji"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:37
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:25
+msgid "You can review and modify the course end settings here:"
+msgstr "Unaweza kukagua na kurekebisha mipangilio ya mwisho wa kozi hapa:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:41
+#, python-format
+msgid ""
+"\n"
+"        If no action is taken, the course will no longer be available for enrollment or access by learners on \n"
+"        <a href=\"%(partner_marketing_site_url)s\">%(partner_marketing_site_url)s</a> after the end date.\n"
+"        "
+msgstr ""
+"\n"
+"        Ikiwa hakuna hatua itachukuliwa, kozi haitapatikana tena kwa uandikishaji au ufikiaji wa wanafunzi kwenye \n"
+"<a href=\"%(partner_marketing_site_url)s\">%(partner_marketing_site_url)s</a> baada ya tarehe ya mwisho.\n"
+"        "
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:47
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:34
+msgid "Thanks"
+msgstr "Asante"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:6
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"```\n"
+"Hiki ni kikumbusho cha kiotomatiki kwamba kozi \"%(course_name)s\" (Ufunguo wa Kozi: %(course_key)s) imeratibiwa kumalizika kwa %(days)s kwenye %(course_end_date)s.\n"
+"\n"
+"```\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:10
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"Hiki ni kikumbusho cha kiotomatiki kwamba kozi \"%(course_name)s\" (Ufunguo wa Kozi: %(course_key)s) imekamilika rasmi kuanzia %(course_end_date)s.\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:23
+msgid "Visit the Course in Publisher:"
+msgstr "Tembelea Kozi katika Mchapishaji:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:29
+#, python-format
+msgid ""
+"\n"
+"If no action is taken, the course will no longer be available for enrollment or access by learners on %(partner_marketing_site_url)s after the end date.\n"
+msgstr ""
+"\n"
+"Ikiwa hakuna hatua itachukuliwa, kozi haitapatikana tena kwa uandikishaji au ufikiaji wa wanafunzi kwenye %(partner_marketing_site_url)s baada ya tarehe ya mwisho.\n"
 
 #: apps/course_metadata/templates/course_metadata/email/go_live.html:17
 #: apps/course_metadata/templates/course_metadata/email/go_live.txt:7
