@@ -1020,6 +1020,28 @@ msgstr "Data la care s-a actualizat ultima dată starea"
 msgid "Current course creator state"
 msgstr "Starea actuală a creatorului cursului"
 
+#: cms/djangoapps/course_creators/models.py:51
+msgid ""
+"Optional notes about this user (for example, why course creation access was "
+"denied)"
+msgstr ""
+"Note opționale despre acest utilizator (de exemplu, de ce a fost refuzat "
+"accesul la crearea cursurilor)"
+
+#: cms/djangoapps/course_creators/models.py:54
+msgid "Organizations under which the user is allowed to create courses."
+msgstr "Organizații în cadrul cărora utilizatorul are voie să creeze cursuri."
+
+#: cms/djangoapps/course_creators/models.py:57
+msgid "Grant the user the permission to create courses in ALL organizations"
+msgstr ""
+"Acordați utilizatorului permisiunea de a crea cursuri în TOATE organizațiile"
+
+#: cms/djangoapps/models/settings/course_metadata.py:235
+#, python-brace-format
+msgid "Incorrect format for field '{name}'. {detailed_message}"
+msgstr "Format incorect pentru câmpul '{name}'. {detailed_message}"
+
 #: cms/djangoapps/modulestore_migrator/models.py:52
 msgid "Key of the content source (a course or a legacy library)"
 msgstr "Cheia sursei de conținut (un curs sau o bibliotecă veche)"
@@ -1132,9 +1154,37 @@ msgstr[0] " Are {count} blocuri de copii."
 msgstr[1] " Sunt {count} blocuri de copii."
 msgstr[2] " Sunt {count} blocuri de copii."
 
+#: cms/lib/xblock/tagging/tagging.py:21
+msgid "Dictionary with the available tags"
+msgstr "Dicționar cu etichetele disponibile"
+
 #: cms/lib/xblock/upstream_sync.py:292
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "Cheia `upstream_key` legată nu este o cheie validă"
+
+#: cms/templates/admin/base_site.html:4 lms/templates/admin/base_site.html:3
+msgid "Django site admin"
+msgstr "Administratorul site-ului Django"
+
+#: cms/templates/admin/base_site.html:6 lms/templates/admin/base_site.html:5
+msgid "Django administration"
+msgstr "administrația Django"
+
+#: cms/templates/admin/base_site.html:11 lms/templates/admin/base_site.html:10
+msgid "View site"
+msgstr "Vizualizează site-ul"
+
+#: cms/templates/admin/base_site.html:16 lms/templates/admin/base_site.html:15
+msgid "Documentation"
+msgstr "Documentare"
+
+#: cms/templates/admin/base_site.html:20 lms/templates/admin/base_site.html:19
+msgid "Log out"
+msgstr "Deconectați-vă"
+
+#: cms/urls.py:30
+msgid "Studio Administration"
+msgstr "Administrare Studio"
 
 #: common/djangoapps/course_modes/admin.py:40
 #: common/djangoapps/course_modes/models.py:60
@@ -1146,6 +1196,16 @@ msgstr "Modul"
 msgid "Verification Deadline"
 msgstr "Termenul limită de verificare"
 
+#: common/djangoapps/course_modes/admin.py:51
+msgid ""
+"OPTIONAL: After this date/time, users will no longer be able to submit "
+"photos for verification.  This appies ONLY to modes that require "
+"verification."
+msgstr ""
+"OPȚIONAL: După această dată/oră, utilizatorii nu vor mai putea trimite "
+"fotografii pentru verificare. Acest lucru se aplică DOAR modurilor care "
+"necesită verificare."
+
 #: common/djangoapps/course_modes/helpers.py:42
 msgid "You're enrolled as a verified student"
 msgstr "Ești înscris/ă ca cursant verificat"
@@ -1153,6 +1213,14 @@ msgstr "Ești înscris/ă ca cursant verificat"
 #: common/djangoapps/course_modes/helpers.py:43
 msgid "Verified"
 msgstr "Verificat"
+
+#: common/djangoapps/course_modes/helpers.py:45
+msgid "ID Verified Ribbon/Badge"
+msgstr "Panglică/Insignă ID verificată"
+
+#: common/djangoapps/course_modes/helpers.py:47
+msgid "You're enrolled as an honor code student"
+msgstr "Ești înscris ca student cu codul de onoare"
 
 #: common/djangoapps/course_modes/helpers.py:48
 #: lms/djangoapps/branding/api.py:329 lms/djangoapps/branding/api.py:404
@@ -1164,6 +1232,10 @@ msgstr "Cod de distincție"
 #: common/djangoapps/course_modes/helpers.py:50
 msgid "You're enrolled as a professional education student"
 msgstr "Ești înscris/ă ca cursant la educație profesională"
+
+#: common/djangoapps/course_modes/helpers.py:51
+msgid "Professional Ed"
+msgstr "Ed. profesională"
 
 #: common/djangoapps/course_modes/models.py:63 xmodule/annotatable_block.py:69
 #: xmodule/capa_block.py:196 xmodule/conditional_block.py:88
@@ -1183,6 +1255,119 @@ msgstr "Preț"
 msgid "Upgrade Deadline"
 msgstr "Termen limită pentru upgrade"
 
+#: common/djangoapps/course_modes/models.py:83
+msgid ""
+"OPTIONAL: After this date/time, users will no longer be able to enroll in "
+"this mode. Leave this blank if users can enroll in this mode until "
+"enrollment closes for the course."
+msgstr ""
+"OPȚIONAL: După această dată/oră, utilizatorii nu se vor mai putea înscrie în"
+" acest mod. Lăsați necompletat dacă utilizatorii se pot înscrie în acest mod"
+" până la încheierea înscrierii la curs."
+
+#: common/djangoapps/course_modes/models.py:94
+msgid "Lock upgrade deadline date"
+msgstr "Blocați data limită pentru upgrade"
+
+#: common/djangoapps/course_modes/models.py:96
+msgid ""
+"OPTIONAL: Set to True to lock in the explicitly defined upgrade deadline "
+"date. Set to False if there is no upgrade deadline or to use the default "
+"upgrade deadline."
+msgstr ""
+"OPTIONAL: Setați la Adevărat pentru a bloca data limită de actualizare "
+"definită în mod explicit. Setați la Fals dacă nu există un termen limită de "
+"actualizare sau pentru a utiliza termenul implicit de actualizare."
+
+#: common/djangoapps/course_modes/models.py:121
+msgid ""
+"OPTIONAL: This is the SKU (stock keeping unit) of this mode in the external "
+"ecommerce service.  Leave this blank if the course has not yet been migrated"
+" to the ecommerce service."
+msgstr ""
+"OPTIONAL: Acesta este SKU (unitatea de stocare) a acestui mod în serviciul "
+"de comerț electronic extern. Lăsați necompletat dacă cursul nu a fost încă "
+"migrat la serviciul de comerț electronic."
+
+#: common/djangoapps/course_modes/models.py:133
+msgid ""
+"OPTIONAL: This is the Android SKU registered on play store for this mode of "
+"the course. Leave this blank if the course has not yet been migrated to the "
+"ecommerce service."
+msgstr ""
+"OPTIONAL: Acesta este SKU-ul Android înregistrat în Play Store pentru acest "
+"mod al cursului. Lăsați necompletat dacă cursul nu a fost încă migrat la "
+"serviciul de comerț electronic."
+
+#: common/djangoapps/course_modes/models.py:145
+msgid ""
+"OPTIONAL: This is the iOS SKU registered on app store for this mode of the "
+"course.  Leave this blank if the course has not yet been migrated to the "
+"ecommerce service."
+msgstr ""
+"OPTIONAL: Acesta este SKU-ul iOS înregistrat în magazinul de aplicații "
+"pentru acest mod al cursului. Lăsați necompletat dacă cursul nu a fost încă "
+"migrat la serviciul de comerț electronic."
+
+#: common/djangoapps/course_modes/models.py:158
+msgid ""
+"This is the bulk SKU (stock keeping unit) of this mode in the external "
+"ecommerce service."
+msgstr ""
+"Acesta este blocul SKU (unitate de evidență a stocurilor) a acestei "
+"modalități în serviciul extern ecommerce."
+
+#: common/djangoapps/course_modes/models.py:249
+msgid ""
+"Professional education modes are not allowed to have expiration_datetime "
+"set."
+msgstr ""
+"Modurile de educație profesională nu au permisiunea de a avea "
+"expiration_datetime setată."
+
+#: common/djangoapps/course_modes/models.py:258
+#, python-brace-format
+msgid ""
+"The {course_mode} course mode has a minimum price of {min_price}. You must "
+"set a price greater than or equal to {min_price}."
+msgstr ""
+"Modul de curs {course_mode} are un preț minim de {min_price}. Trebuie să "
+"setați un preț mai mare sau egal cu {min_price}."
+
+#. Translators: This will look like '$50', where {currency_symbol} is a symbol
+#. such as '$' and {price} is a
+#. numerical amount in that currency. Adjust this display as needed for your
+#. language.
+#: common/djangoapps/course_modes/models.py:925
+#, python-brace-format
+msgid "{currency_symbol}{price}"
+msgstr "{currency_symbol}{price}"
+
+#. Translators: This refers to the cost of the course. In this case, the
+#. course costs nothing so it is free.
+#: common/djangoapps/course_modes/models.py:928
+msgid "Free"
+msgstr "Gratuit"
+
+#: common/djangoapps/course_modes/models.py:983
+msgid ""
+"The time period before a course ends in which a course mode will expire"
+msgstr ""
+"Perioada de timp înainte de încheierea unui curs în care un mod de curs va "
+"expira"
+
+#: common/djangoapps/course_modes/views.py:268
+msgid "Enrollment is closed"
+msgstr "Înscrierea este închisă"
+
+#: common/djangoapps/course_modes/views.py:283
+msgid "Enrollment mode not supported"
+msgstr "Modul de înregistrare nu este acceptat"
+
+#: common/djangoapps/course_modes/views.py:323
+msgid "No selected price or selected price is too low."
+msgstr "Prețul selectat este prea mic sau nu a fost selectat niciun preț."
+
 #: common/djangoapps/student/admin.py:319
 #, python-format
 msgid "Successfully reverted %(count)d selected history entry."
@@ -1200,6 +1385,15 @@ msgstr[0] "Au fost șterse cu succes %(count)d intrări de istoric selectate."
 msgstr[1] "Ștergerea cu succes a %(count)d intrări de istoric selectate."
 msgstr[2] "Ștergerea cu succes a %(count)d intrări de istoric selectate."
 
+#: common/djangoapps/student/admin.py:520
+msgid "User profile"
+msgstr "Profil de utilizator"
+
+#: common/djangoapps/student/admin.py:527
+#: common/djangoapps/student/admin.py:528
+msgid "Account recovery"
+msgstr "Recuperarea contului"
+
 #. Translators: This label appears above a field on the login form
 #. meant to hold the user's password.
 #. Translators: This label appears above a field on the registration form
@@ -1209,6 +1403,107 @@ msgstr[2] "Ștergerea cu succes a %(count)d intrări de istoric selectate."
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:609
 msgid "Password"
 msgstr "Parolă"
+
+#: common/djangoapps/student/admin.py:545
+msgid ""
+"Raw passwords are not stored, so there is no way to see this user's "
+"password."
+msgstr ""
+"Parolele brute nu sunt stocate, deci nu există nicio modalitate de a vedea "
+"parola acestui utilizator."
+
+#: common/djangoapps/student/admin.py:657
+#, python-format
+msgid "%(count)d student account was unlocked."
+msgid_plural "%(count)d student accounts were unlocked."
+msgstr[0] "%(count)d contul de student a fost deblocat."
+msgstr[1] "%(count)d conturile studenților au fost deblocate."
+msgstr[2] "%(count)d conturile studenților au fost deblocate."
+
+#: common/djangoapps/student/admin.py:714
+#, python-brace-format
+msgid ""
+"Please add a key/value 'THIRD_PARTY_AUTH_ONLY_DOMAIN/{site_email_domain}' in"
+" SiteConfiguration model's site_values field."
+msgstr ""
+"Vă rugăm să adăugați o cheie/valoare "
+"„THIRD_PARTY_AUTH_ONLY_DOMAIN/{site_email_domain}” în câmpul site_values al "
+"modelului SiteConfiguration."
+
+#: common/djangoapps/student/admin.py:719
+#, python-brace-format
+msgid "Email doesn't have {allowed_site_email_domain} domain name."
+msgstr "E-mailul nu are {allowed_site_email_domain} nume de domeniu."
+
+#: common/djangoapps/student/admin.py:722
+msgid "User with this email doesn't exist in system."
+msgstr "Utilizatorul cu acest e-mail nu există în sistem."
+
+#: common/djangoapps/student/helpers.py:77
+#: common/djangoapps/student/helpers.py:725
+#, python-brace-format
+msgid "An account with the Email '{email}' already exists."
+msgstr "Un cont cu adresa de email '{email}' există deja."
+
+#: common/djangoapps/student/helpers.py:78
+#, python-brace-format
+msgid "An account with the Public Username '{username}' already exists."
+msgstr "Un cont cu numele de utilizator public „{username}” există deja."
+
+#: common/djangoapps/student/middleware.py:32
+#, python-brace-format
+msgid ""
+"Your account has been disabled. If you believe this was done in error, "
+"please contact us at {support_email}"
+msgstr ""
+"Contul dvs. a fost dezactivat. Dacă credeți că acest lucru a fost făcut din "
+"greșeală, vă rugăm să ne contactați la {support_email}"
+
+#: common/djangoapps/student/middleware.py:38
+msgid "Disabled Account"
+msgstr "Contul este dezactivat"
+
+#: common/djangoapps/student/models/course_enrollment.py:1656
+msgid "Namespace of enrollment attribute"
+msgstr "Spațiul de nume al atributului de înscriere"
+
+#: common/djangoapps/student/models/course_enrollment.py:1660
+msgid "Name of the enrollment attribute"
+msgstr "Nume al atributului de înscriere"
+
+#: common/djangoapps/student/models/course_enrollment.py:1664
+msgid "Value of the enrollment attribute"
+msgstr "Valoarea atributului de înscriere"
+
+#: common/djangoapps/student/models/course_enrollment.py:1738
+msgid ""
+"The window of time after enrolling during which users can be granted a "
+"refund, represented in microseconds. The default is 14 days."
+msgstr ""
+"Perioada de timp după înscriere în care utilizatorilor le se poate acorda o "
+"rambursare, reprezentată în microsecunde. Valoarea implicită este de 14 "
+"zile."
+
+#: common/djangoapps/student/models/course_enrollment.py:1760
+msgid ""
+"It expect that the data will be provided in a csv file format with"
+"                     first row being the header and columns will be as "
+"follows:                     user_id, username, email, course_id, "
+"is_verified, verification_date"
+msgstr ""
+"Așteptăm ca datele să fie furnizate într-un format de fișier csv, primul "
+"rând fiind antetul, iar coloanele vor fi după cum urmează: user_id, "
+"username, email, identificatorul cursului, is_verified, data verificării."
+
+#: common/djangoapps/student/models/course_enrollment.py:1774
+msgid ""
+"It expect that the data will be provided in a csv file format with"
+"                     first row being the header and columns will be as "
+"follows:                     course_id, username, mode"
+msgstr ""
+"Se așteaptă ca datele să fie furnizate într-un format de fișier csv, primul "
+"rând fiind antetul și coloanele vor fi după cum urmează: curs_id, nume de "
+"utilizator, mod"
 
 #: common/djangoapps/student/models/user.py:463
 msgid "Male"
@@ -1235,6 +1530,10 @@ msgstr "Master sau diplomă profesională"
 msgid "Bachelor's degree"
 msgstr "Diploma de Licență"
 
+#: common/djangoapps/student/models/user.py:480
+msgid "Associate degree"
+msgstr "Gradul de asociat"
+
 #: common/djangoapps/student/models/user.py:481
 msgid "Secondary/high school"
 msgstr "Liceu"
@@ -1257,9 +1556,408 @@ msgstr "Fără educație formală"
 msgid "Other education"
 msgstr "Alt tip de educație"
 
+#: common/djangoapps/student/models/user.py:1364
+#, python-brace-format
+msgid "{platform_name} Honor Code Certificate for {course_name}"
+msgstr "{platform_name} Certificatul Codului de Onoare pentru {course_name}"
+
+#: common/djangoapps/student/models/user.py:1365
+#, python-brace-format
+msgid "{platform_name} Verified Certificate for {course_name}"
+msgstr "{platform_name} Certificat verificat pentru {course_name}"
+
+#: common/djangoapps/student/models/user.py:1366
+#: common/djangoapps/student/models/user.py:1367
+#, python-brace-format
+msgid "{platform_name} Professional Certificate for {course_name}"
+msgstr "{platform_name} Certificat profesional pentru {course_name}"
+
+#: common/djangoapps/student/models/user.py:1373
+msgid ""
+"Your organization ID (if your organization has an existing page on LinkedIn)"
+" e.g 1337. If not provided, will default to sending Platform Name (e.g. edX)"
+" instead."
+msgstr ""
+"id-ul organizației dvs. (dacă organizația dvs. are o pagină existentă pe "
+"LinkedIn) de exemplu 1337. Dacă nu este furnizat, se va trimite implicit "
+"Numele platformei (de exemplu, edX)."
+
+#: common/djangoapps/student/models/user.py:1446
+#, python-brace-format
+msgid "{platform_name} Certificate for {course_name}"
+msgstr "{platform_name} Certificat pentru {course_name}"
+
+#: common/djangoapps/student/models/user.py:1539
+#: common/djangoapps/student/models/user.py:1571
+msgid "The ISO 639-1 language code for this language."
+msgstr "Codul de limbă ISO 639-1 pentru această limbă."
+
+#: common/djangoapps/student/models/user.py:1602
+msgid "Name of the UTM cookie"
+msgstr "Nume cookie-ului UTM"
+
+#: common/djangoapps/student/models/user.py:1607
+msgid "Name of the affiliate cookie"
+msgstr "Nume al cookie-ului afiliat"
+
+#: common/djangoapps/student/models/user.py:1630
+msgid "Name of this user attribute."
+msgstr "Nume al acestui atribut de utilizator."
+
+#: common/djangoapps/student/models/user.py:1631
+msgid "Value of this user attribute."
+msgstr "Valoarea acestui atribut de utilizator."
+
+#: common/djangoapps/student/models/user.py:1696
+msgid "Secondary email address"
+msgstr "Adresă de e-mail secundară"
+
+#: common/djangoapps/student/models/user.py:1697
+msgid "Secondary email address to recover linked account."
+msgstr "Adresă de e-mail secundară pentru a recupera contul conectat."
+
+#: common/djangoapps/student/models/user.py:1744
+msgid ""
+"An employee (a user whose email has current site's domain name) whose email "
+"exists in this model, can be able to login from login screen through email "
+"and password. And if any employee's email doesn't exist in this model then "
+"that employee can login via third party authentication backend only."
+msgstr ""
+"Un angajat (un utilizator al cărui e-mail are numele de domeniu actual al "
+"site-ului) al cărui e-mail există în acest model, se poate autentifica din "
+"ecranul de autentificare prin e-mail și parolă. Și dacă e-mailul vreunui "
+"angajat nu există în acest model, atunci acel angajat se poate autentifica "
+"numai prin backend de autentificare terță parte."
+
+#: common/djangoapps/student/models/user.py:1759
+msgid ""
+"It expect that the data will be provided in a csv file format with"
+"                     first row being the header and columns will be as "
+"follows:                     username, current_email, desired_email"
+msgstr ""
+"Se așteaptă ca datele să fie furnizate într-un format de fișier csv, primul "
+"rând fiind antetul și coloanele vor fi după cum urmează: nume de utilizator,"
+" e-mail_actual, e-mail_dorit"
+
+#: common/djangoapps/student/models/user.py:1941
+msgid "Add a reason"
+msgstr "Adaugă un motiv"
+
 #: common/djangoapps/student/views/dashboard.py:143
 msgid " and "
 msgstr " și "
+
+#: common/djangoapps/student/views/dashboard.py:286
+msgid "Photos are mismatched"
+msgstr "Fotografiile sunt nepotrivite"
+
+#: common/djangoapps/student/views/dashboard.py:287
+msgid "Name missing from ID photo"
+msgstr "Nume lipsește din fotografia de ID"
+
+#: common/djangoapps/student/views/dashboard.py:288
+msgid "ID photo not provided"
+msgstr "Poza ID nu este furnizată"
+
+#: common/djangoapps/student/views/dashboard.py:289
+msgid "ID is invalid"
+msgstr "ID-ul este nevalid"
+
+#: common/djangoapps/student/views/dashboard.py:290
+msgid "Learner photo is blurry"
+msgstr "Fotografia elevului este neclară"
+
+#: common/djangoapps/student/views/dashboard.py:291
+msgid "Name on ID does not match name on account"
+msgstr "Numele de pe id nu se potrivește cu numele de pe cont"
+
+#: common/djangoapps/student/views/dashboard.py:292
+msgid "Learner photo not provided"
+msgstr "Fotografia cursantului nu este furnizată"
+
+#: common/djangoapps/student/views/dashboard.py:293
+msgid "ID photo is blurry"
+msgstr "Fotografia de ID este neclară"
+
+#: common/djangoapps/student/views/dashboard.py:607
+#, python-brace-format
+msgid ""
+"Check your {email_start}{email}{email_end} inbox for an account activation "
+"link from {platform_name}. If you need help, contact "
+"{link_start}{platform_name} Support{link_end}."
+msgstr ""
+"Verificați-vă căsuța de e-mail {email_start}{email}{email_end} pentru un "
+"link de activare a contului de la {platform_name}. Dacă aveți nevoie de "
+"ajutor, contactați {link_start}{platform_name} Support{link_end}."
+
+#: common/djangoapps/student/views/dashboard.py:632
+#, python-brace-format
+msgid ""
+"Add a recovery email to retain access when single-sign on is not available. "
+"Go to {link_start}your Account Settings{link_end}."
+msgstr ""
+"Reclamă un e-mail de recuperare pentru a păstra accesul atunci când "
+"conectarea unică nu este disponibilă. Accesați {link_start}Setările contului"
+" personal{link_end}."
+
+#: common/djangoapps/student/views/dashboard.py:643
+msgid ""
+"Recovery email is not activated yet. Kindly visit your email and follow the "
+"instructions to activate it."
+msgstr ""
+"E-mailul de recuperare nu a fost activat încă. Vă rugăm să vă vizitați "
+"e-mailul și să urmați instrucțiunile pentru a-l activa."
+
+#: common/djangoapps/student/views/dashboard.py:765
+#, python-brace-format
+msgid "The course you are looking for does not start until {date}."
+msgstr "Cursul pe care îl căutați nu începe până la {date}."
+
+#: common/djangoapps/student/views/dashboard.py:769
+#, python-brace-format
+msgid "The course you are looking for is closed for enrollment as of {date}."
+msgstr ""
+"Cursul pe care îl căutați este închis pentru înscriere începând cu {date}."
+
+#: common/djangoapps/student/views/management.py:369
+msgid "Course id not specified"
+msgstr "Identificatorul cursului nu a fost specificat"
+
+#: common/djangoapps/student/views/management.py:380
+msgid "Invalid course id"
+msgstr "ID-ul cursului nevalid"
+
+#: common/djangoapps/student/views/management.py:395
+msgid "Course id is invalid"
+msgstr "Identificatorul cursului nu este valid"
+
+#: common/djangoapps/student/views/management.py:430
+msgid "Could not enroll"
+msgstr "Nu s-a putut înscrie"
+
+#: common/djangoapps/student/views/management.py:450
+msgid "Unenrollment is currently disabled"
+msgstr "Anularea înscrierii este în prezent dezactivată"
+
+#: common/djangoapps/student/views/management.py:454
+msgid "You are not enrolled in this course"
+msgstr "Nu sunteți înscris la acest curs"
+
+#: common/djangoapps/student/views/management.py:458
+msgid "Your certificate prevents you from unenrolling from this course"
+msgstr "Certificatul dvs. vă împiedică să vă dezabonați de la acest curs"
+
+#: common/djangoapps/student/views/management.py:469
+msgid "Enrollment action is invalid"
+msgstr "Acțiunea de înscriere este nevalidă"
+
+#: common/djangoapps/student/views/management.py:512
+msgid "Please enter a username"
+msgstr "Vă rugăm să introduceți un nume de utilizator"
+
+#: common/djangoapps/student/views/management.py:517
+msgid "Please choose an option"
+msgstr "Vă rugăm să alegeți o opțiune"
+
+#: common/djangoapps/student/views/management.py:524
+msgid "User with username {} does not exist"
+msgstr "Utilizatorul cu numele de utilizator {} nu există"
+
+#: common/djangoapps/student/views/management.py:532
+msgid "Successfully disabled {}'s account"
+msgstr "Contul lui {} a fost dezactivat cu succes"
+
+#: common/djangoapps/student/views/management.py:536
+msgid "Successfully reenabled {}'s account"
+msgstr "Contul lui {} a fost reactivat cu succes"
+
+#: common/djangoapps/student/views/management.py:539
+msgid "Unexpected account status"
+msgstr "Starea neașteptată a contului"
+
+#: common/djangoapps/student/views/management.py:615
+#, python-brace-format
+msgid ""
+"{html_start}This {account_or_email} has already been "
+"{activated_or_confirmed}.{html_end}"
+msgstr ""
+"{html_start} Acest {account_or_email} a fost deja {activated_or_confirmed} ."
+" {html_end}"
+
+#: common/djangoapps/student/views/management.py:640
+#, python-brace-format
+msgid ""
+"{html_start}Success! You have {activated_or_confirmed} your "
+"{account_or_email}.{html_end}You will now receive email updates and alerts "
+"from us related to the courses you are enrolled in. Sign In to continue."
+msgstr ""
+"{html_start}Succes! Ați activat sau confirmat {account_or_email}.{html_end} "
+"Veți primi acum actualizări prin e-mail și alerte de la noi legate de "
+"cursurile la care sunteți înscriși. Conectați-vă pentru a continua."
+
+#: common/djangoapps/student/views/management.py:731
+#: common/djangoapps/student/views/management.py:746
+msgid "Valid e-mail address required."
+msgstr "Este necesară o adresă de e-mail validă."
+
+#: common/djangoapps/student/views/management.py:734
+#: common/djangoapps/student/views/management.py:751
+msgid "Old email is the same as the new email."
+msgstr "E-mailul vechi este același cu cel nou."
+
+#: common/djangoapps/student/views/management.py:755
+msgid "Cannot be same as your sign in email address."
+msgstr "Nu poate fi identică cu adresa dvs. de e-mail de conectare."
+
+#: common/djangoapps/student/views/management.py:825
+msgid "Unable to send email activation link. Please try again later."
+msgstr ""
+"Nu se poate trimite linkul de activare prin e-mail. Vă rugăm să încercați "
+"din nou mai târziu."
+
+#: common/djangoapps/third_party_auth/admin.py:73
+msgid "Deleted the selected configuration(s)."
+msgstr "Ștergeți configurațiile selectate."
+
+#: common/djangoapps/third_party_auth/admin.py:93
+msgid "Delete the selected configuration"
+msgstr "Șterge configurația selectată"
+
+#: common/djangoapps/third_party_auth/middleware.py:45
+msgid "Unable to connect with the external provider, please try again"
+msgstr ""
+"Nu se poate conecta la furnizorul extern, vă rugăm să încercați din nou"
+
+#: common/djangoapps/third_party_auth/models.py:86
+msgid "Authentication with {} is currently unavailable."
+msgstr "Autentificarea cu {} este momentan indisponibilă."
+
+#: common/djangoapps/third_party_auth/models.py:148
+msgid ""
+"Secondary providers are displayed less prominently, in a separate list of "
+"\"Institution\" login providers."
+msgstr ""
+"Furnizorii secundari sunt afișați mai puțin vizibil, într-o listă separată "
+"de furnizori de autentificare „Instituție”."
+
+#: common/djangoapps/third_party_auth/models.py:158
+msgid ""
+"optional. If this provider is an Organization, this attribute can be used "
+"reference users in that Organization"
+msgstr ""
+"opțional. Dacă acest furnizor este o organizație, acest atribut poate fi "
+"utilizat de utilizatori pentru referință din acea organizație."
+
+#: common/djangoapps/third_party_auth/models.py:167
+msgid "The Site that this provider configuration belongs to."
+msgstr "Site-ul căruia îi aparține această configurație de furnizor."
+
+#: common/djangoapps/third_party_auth/models.py:174
+#: common/djangoapps/third_party_auth/models.py:721
+msgid ""
+"If this option is enabled, users that visit a \"TPA hinted\" URL for this "
+"provider (e.g. a URL ending with `?tpa_hint=[provider_name]`) will be "
+"forwarded directly to the login URL of the provider instead of being first "
+"prompted with a login dialog."
+msgstr ""
+"Dacă această opțiune este activată, utilizatorii care vizitează o adresă URL"
+" „indicată TPA” pentru acest furnizor (de exemplu, o adresă URL care se "
+"termină cu `?tpa_hint=[provider_name]`) vor fi redirecționați direct către "
+"adresa URL de conectare a furnizorului, în loc să li se solicite mai întâi "
+"un dialog de conectare."
+
+#: common/djangoapps/third_party_auth/models.py:182
+#: common/djangoapps/third_party_auth/models.py:729
+msgid ""
+"If this option is enabled, users will not be asked to confirm their details "
+"(name, email, etc.) during the registration process. Only select this option"
+" for trusted providers that are known to provide accurate user information."
+msgstr ""
+"Dacă această opțiune este activată, utilizatorilor nu li se va cere să-și "
+"confirme detaliile (nume, e-mail etc.) în timpul procesului de înregistrare."
+" Selectează această opțiune numai pentru furnizorii de încredere despre care"
+" se știe că oferă informații exacte despre utilizator."
+
+#: common/djangoapps/third_party_auth/models.py:190
+#: common/djangoapps/third_party_auth/models.py:737
+msgid ""
+"If this option is selected, users will not be required to confirm their "
+"email, and their account will be activated immediately upon registration."
+msgstr ""
+"Dacă această opțiune este selectată, utilizatorilor nu li se va cere să-și "
+"confirme adresa de e-mail, iar contul lor va fi activat imediat după "
+"înregistrare."
+
+#: common/djangoapps/third_party_auth/models.py:197
+msgid ""
+"If this option is selected, users will be sent a welcome email upon "
+"registration."
+msgstr ""
+"Dacă această opțiune este selectată, utilizatorilor li se va trimite un "
+"e-mail de bun venit la înregistrare."
+
+#: common/djangoapps/third_party_auth/models.py:203
+msgid ""
+"If this option is not selected, users will not be presented with the "
+"provider as an option to authenticate with on the login screen, but manual "
+"authentication using the correct link is still possible."
+msgstr ""
+"Dacă această opțiune nu este selectată, utilizatorilor nu li se va prezenta "
+"furnizorul ca opțiune pentru a se autentifica pe ecranul de autentificare, "
+"dar autentificarea manuală folosind linkul corect este totuși posibilă."
+
+#: common/djangoapps/third_party_auth/models.py:214
+msgid ""
+"If this option is set, then users logging in using this SSO provider will "
+"have their session length limited to no longer than this value. If set to 0 "
+"(zero), the session will expire upon the user closing their browser. If left"
+" blank, the Django platform session default length will be used."
+msgstr ""
+"Dacă această opțiune este setată, atunci utilizatorii care se conectează "
+"folosind acest furnizor SSO vor avea durata sesiunii limitată la nu mai mult"
+" de această valoare. Dacă este setată la 0 (zero), sesiunea va expira după "
+"ce utilizatorul își închide browserul. Dacă este lăsată necompletată, va fi "
+"utilizată durata implicită a sesiunii platformei Django."
+
+#: common/djangoapps/third_party_auth/models.py:223
+#: common/djangoapps/third_party_auth/models.py:744
+msgid ""
+"If this option is selected, users will be directed to the registration page "
+"immediately after authenticating with the third party instead of the login "
+"page."
+msgstr ""
+"Dacă această opțiune este selectată, utilizatorii vor fi direcționați către "
+"pagina de înregistrare imediat după autentificarea cu terța parte, în locul "
+"paginii de conectare."
+
+#: common/djangoapps/third_party_auth/models.py:230
+msgid ""
+"Synchronize user profile data received from the identity provider with the "
+"edX user account on each SSO login. The user will be notified if the email "
+"address associated with their account is changed as a part of this "
+"synchronization."
+msgstr ""
+"Sincronizați datele profilului utilizatorului primite de la furnizorul de "
+"identitate cu contul de utilizator edX la fiecare conectare SSO. "
+"Utilizatorul va fi notificat dacă adresa de e-mail asociată contului său "
+"este schimbată ca parte a acestei sincronizări."
+
+#: common/djangoapps/third_party_auth/models.py:244
+msgid ""
+"IDPs with this set to True will be excluded from the dropdown IDP selection "
+"in the EnterpriseCustomer Django Admin form."
+msgstr ""
+"IDP-urile cu această setare la True vor fi excluse din lista derulantă IDP "
+"din formularul EnterpriseCustomer Django administrator."
+
+#: common/djangoapps/third_party_auth/models.py:479
+msgid "The Site that this SAML configuration belongs to."
+msgstr "Site-ul căruia îi aparține această configurație SAML."
+
+#: common/djangoapps/third_party_auth/models.py:574
+#, python-brace-format
+msgid "{platform_name} Support"
+msgstr "{platform_name} Support"
 
 #: common/djangoapps/third_party_auth/models.py:629
 msgid "A configuration nickname."
@@ -1268,6 +1966,37 @@ msgstr "O poreclă de configurație."
 #: common/djangoapps/third_party_auth/templates/third_party_auth/post_custom_auth_entry.html:5
 msgid "Please wait"
 msgstr "Vă rugăm să așteptați"
+
+#. Translators: the translation for "LONG_DATE_FORMAT" must be a format
+#. string for formatting dates in a long form.  For example, the
+#. American English form is "%A, %B %d %Y".
+#. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:145
+msgid "LONG_DATE_FORMAT"
+msgstr "LONG_DATE_FORMAT"
+
+#. Translators: the translation for "DATE_TIME_FORMAT" must be a format
+#. string for formatting dates with times.  For example, the American
+#. English form is "%b %d, %Y at %H:%M".
+#. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:153
+msgid "DATE_TIME_FORMAT"
+msgstr "DATE_TIME_FORMAT"
+
+#. Translators: the translation for "SHORT_DATE_FORMAT" must be a
+#. format string for formatting dates in a brief form.  For example,
+#. the American English form is "%b %d %Y".
+#. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:189
+msgid "SHORT_DATE_FORMAT"
+msgstr "SHORT_DATE_FORMAT"
+
+#. Translators: the translation for "TIME_FORMAT" must be a format
+#. string for formatting times.  For example, the American English
+#. form is "%H:%M:%S". See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:201
+msgid "TIME_FORMAT"
+msgstr "TIME_FORMAT"
 
 #. Translators: This is an AM/PM indicator for displaying times.  It is
 #. used for the %p directive in date-time formats. See http://strftime.org
@@ -1310,6 +2039,14 @@ msgid "Wednesday"
 msgstr "Miercuri"
 
 #. Translators: this is a weekday name that will be used when displaying
+#. dates, as in "Thursday Februrary 13, 2014". It is used for the %A
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:286
+msgctxt "weekday name"
+msgid "Thursday"
+msgstr "joi"
+
+#. Translators: this is a weekday name that will be used when displaying
 #. dates, as in "Friday Februrary 14, 2014". It is used for the %A
 #. directive in date-time formats. See http://strftime.org for details.
 #: common/djangoapps/util/date_utils.py:290
@@ -1324,6 +2061,14 @@ msgstr "Vineri"
 msgctxt "weekday name"
 msgid "Saturday"
 msgstr "Sâmbătă"
+
+#. Translators: this is a weekday name that will be used when displaying
+#. dates, as in "Sunday Februrary 16, 2014". It is used for the %A
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:298
+msgctxt "weekday name"
+msgid "Sunday"
+msgstr "duminică"
 
 #. Translators: this is an abbreviated weekday name that will be used when
 #. displaying dates, as in "Mon Feb 10, 2014". It is used for the %a
@@ -1382,12 +2127,28 @@ msgid "Sun"
 msgstr "Du"
 
 #. Translators: this is an abbreviated month name that will be used when
+#. displaying dates, as in "Jan 10, 2014". It is used for the %b
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:336
+msgctxt "abbreviated month name"
+msgid "Jan"
+msgstr "Jan"
+
+#. Translators: this is an abbreviated month name that will be used when
 #. displaying dates, as in "Feb 10, 2014". It is used for the %b
 #. directive in date-time formats. See http://strftime.org for details.
 #: common/djangoapps/util/date_utils.py:340
 msgctxt "abbreviated month name"
 msgid "Feb"
 msgstr "Feb"
+
+#. Translators: this is an abbreviated month name that will be used when
+#. displaying dates, as in "Mar 10, 2014". It is used for the %b
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:344
+msgctxt "abbreviated month name"
+msgid "Mar"
+msgstr "Mar"
 
 #. Translators: this is an abbreviated month name that will be used when
 #. displaying dates, as in "Apr 10, 2014". It is used for the %b
@@ -1406,6 +2167,14 @@ msgid "May"
 msgstr "May"
 
 #. Translators: this is an abbreviated month name that will be used when
+#. displaying dates, as in "Jun 10, 2014". It is used for the %b
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:356
+msgctxt "abbreviated month name"
+msgid "Jun"
+msgstr "Iunie"
+
+#. Translators: this is an abbreviated month name that will be used when
 #. displaying dates, as in "Jul 10, 2014". It is used for the %b
 #. directive in date-time formats. See http://strftime.org for details.
 #: common/djangoapps/util/date_utils.py:360
@@ -1420,6 +2189,14 @@ msgstr "Iul"
 msgctxt "abbreviated month name"
 msgid "Aug"
 msgstr "Aug"
+
+#. Translators: this is an abbreviated month name that will be used when
+#. displaying dates, as in "Sep 10, 2014". It is used for the %b
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:368
+msgctxt "abbreviated month name"
+msgid "Sep"
+msgstr "Septembrie"
 
 #. Translators: this is an abbreviated month name that will be used when
 #. displaying dates, as in "Oct 10, 2014". It is used for the %b
@@ -1486,6 +2263,14 @@ msgid "May"
 msgstr "May"
 
 #. Translators: this is a month name that will be used when displaying
+#. dates, as in "June 10, 2014". It is used for the %B directive in
+#. date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:407
+msgctxt "month name"
+msgid "June"
+msgstr "iunie"
+
+#. Translators: this is a month name that will be used when displaying
 #. dates, as in "July 10, 2014". It is used for the %B directive in
 #. date-time formats. See http://strftime.org for details.
 #: common/djangoapps/util/date_utils.py:411
@@ -1525,6 +2310,333 @@ msgctxt "month name"
 msgid "November"
 msgstr "Noiembrie"
 
+#. Translators: this is a month name that will be used when displaying
+#. dates, as in "December 10, 2014". It is used for the %B directive in
+#. date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:431
+msgctxt "month name"
+msgid "December"
+msgstr "decembrie"
+
+#: common/djangoapps/util/file.py:67
+#, python-brace-format
+msgid "The file must end with the extension '{file_types}'."
+msgid_plural ""
+"The file must end with one of the following extensions: '{file_types}'."
+msgstr[0] "Fișierul trebuie să se încheie cu extensia „{file_types}”."
+msgstr[1] ""
+"Fișierul trebuie să se încheie cu una dintre următoarele extensii: "
+"„{file_types}”."
+msgstr[2] ""
+"Fișierul trebuie să se încheie cu una dintre următoarele extensii: "
+"„{file_types}”."
+
+#: common/djangoapps/util/file.py:73
+#, python-brace-format
+msgid "Maximum upload file size is {file_size} bytes."
+msgstr "Dimensiunea maximă a fișierului de încărcare este {file_size} octeți."
+
+#: common/djangoapps/util/milestones_helpers.py:60
+#, python-brace-format
+msgid "Course {course_id} requires {prerequisite_course_id}"
+msgstr "Cursul {course_id} necesită {prerequisite_course_id}"
+
+#: common/djangoapps/util/milestones_helpers.py:67
+#: openedx/core/lib/gating/api.py:191
+msgid "System defined milestone"
+msgstr "Etapă definită de sistem"
+
+#: common/djangoapps/util/password_policy_validators.py:68
+#, python-brace-format
+msgid ""
+"Your password must contain {length_instruction}, including "
+"{complexity_instructions}."
+msgstr ""
+"Parola trebuie să conțină {length_instruction}, inclusiv "
+"{complexity_instructions}."
+
+#: common/djangoapps/util/password_policy_validators.py:73
+#, python-brace-format
+msgid "Your password must contain {length_instruction}."
+msgstr "Parola trebuie să conțină {length_instruction}."
+
+#: common/djangoapps/util/password_policy_validators.py:101
+msgid "Invalid password."
+msgstr "Parolă invalidă."
+
+#: common/djangoapps/util/password_policy_validators.py:149
+#, python-format
+msgid "at least %(min_length)d character"
+msgid_plural "at least %(min_length)d characters"
+msgstr[0] "cel puțin %(min_length)d caracter"
+msgstr[1] "cel puțin %(min_length)d caractere"
+msgstr[2] "cel puțin %(min_length)d caractere"
+
+#: common/djangoapps/util/password_policy_validators.py:175
+#, python-format
+msgid ""
+"This password is too long. It must contain no more than %(max_length)d "
+"character."
+msgid_plural ""
+"This password is too long. It must contain no more than %(max_length)d "
+"characters."
+msgstr[0] ""
+"Această parolă este prea lungă. Nu trebuie să conțină mai mult de "
+"%(max_length)d caractere."
+msgstr[1] ""
+"Această parolă este prea lungă. Nu trebuie să conțină mai mult de "
+"%(max_length)d caractere."
+msgstr[2] ""
+"Această parolă este prea lungă. Nu trebuie să conțină mai mult de "
+"%(max_length)d caractere."
+
+#: common/djangoapps/util/password_policy_validators.py:185
+#, python-format
+msgid "Your password must contain no more than %(max_length)d character."
+msgid_plural ""
+"Your password must contain no more than %(max_length)d characters."
+msgstr[0] ""
+"Parola dvs. nu trebuie să conțină mai mult de caracterele %(max_length)d ."
+msgstr[1] ""
+"Parola dvs. nu trebuie să conțină mai mult de %(max_length)d caractere."
+msgstr[2] ""
+"Parola dvs. nu trebuie să conțină mai mult de %(max_length)d caractere."
+
+#: common/djangoapps/util/password_policy_validators.py:213
+#, python-format
+msgid "This password must contain at least %(min_alphabetic)d letter."
+msgid_plural "This password must contain at least %(min_alphabetic)d letters."
+msgstr[0] ""
+"Această parolă trebuie să conțină cel puțin litere %(min_alphabetic)d ."
+msgstr[1] ""
+"Această parolă trebuie să conțină cel puțin %(min_alphabetic)d litere."
+msgstr[2] ""
+"Această parolă trebuie să conțină cel puțin %(min_alphabetic)d litere."
+
+#: common/djangoapps/util/password_policy_validators.py:223
+#, python-format
+msgid "Your password must contain at least %(min_alphabetic)d letter."
+msgid_plural "Your password must contain at least %(min_alphabetic)d letters."
+msgstr[0] ""
+"Parola dvs. trebuie să conțină cel puțin litere %(min_alphabetic)d ."
+msgstr[1] ""
+"Parola dvs. trebuie să conțină cel puțin %(min_alphabetic)d litere."
+msgstr[2] ""
+"Parola dvs. trebuie să conțină cel puțin %(min_alphabetic)d litere."
+
+#: common/djangoapps/util/password_policy_validators.py:231
+#, python-format
+msgid "%(num)d letter"
+msgid_plural "%(num)d letters"
+msgstr[0] "%(num)d scrisoare"
+msgstr[1] "%(num)d litere"
+msgstr[2] "%(num)d litere"
+
+#: common/djangoapps/util/password_policy_validators.py:261
+#, python-format
+msgid "This password must contain at least %(min_numeric)d number."
+msgid_plural "This password must contain at least %(min_numeric)d numbers."
+msgstr[0] ""
+"Această parolă trebuie să conțină cel puțin numărul %(min_numeric)d ."
+msgstr[1] ""
+"Această parolă trebuie să conțină cel puțin %(min_numeric)d numere."
+msgstr[2] ""
+"Această parolă trebuie să conțină cel puțin %(min_numeric)d numere."
+
+#: common/djangoapps/util/password_policy_validators.py:271
+#, python-format
+msgid "Your password must contain at least %(min_numeric)d number."
+msgid_plural "Your password must contain at least %(min_numeric)d numbers."
+msgstr[0] "Parola dvs. trebuie să conțină cel puțin numărul %(min_numeric)d ."
+msgstr[1] "Parola dvs. trebuie să conțină cel puțin %(min_numeric)d numere."
+msgstr[2] "Parola dvs. trebuie să conțină cel puțin %(min_numeric)d numere."
+
+#: common/djangoapps/util/password_policy_validators.py:279
+#, python-format
+msgid "%(num)d number"
+msgid_plural "%(num)d numbers"
+msgstr[0] "numărul %(num)d"
+msgstr[1] "%(num)d numerele"
+msgstr[2] "%(num)d numerele"
+
+#: common/djangoapps/util/password_policy_validators.py:309
+#, python-format
+msgid "This password must contain at least %(min_upper)d uppercase letter."
+msgid_plural ""
+"This password must contain at least %(min_upper)d uppercase letters."
+msgstr[0] ""
+"Această parolă trebuie să conțină cel puțin %(min_upper)d literă mare."
+msgstr[1] ""
+"Această parolă trebuie să conțină cel puțin %(min_upper)d litere mari."
+msgstr[2] ""
+"Această parolă trebuie să conțină cel puțin %(min_upper)d litere mari."
+
+#: common/djangoapps/util/password_policy_validators.py:319
+#, python-format
+msgid "Your password must contain at least %(min_upper)d uppercase letter."
+msgid_plural ""
+"Your password must contain at least %(min_upper)d uppercase letters."
+msgstr[0] ""
+"Parola dvs. trebuie să conțină cel puțin %(min_upper)d litere mari."
+msgstr[1] ""
+"Parola dvs. trebuie să conțină cel puțin %(min_upper)d litere mari."
+msgstr[2] ""
+"Parola dvs. trebuie să conțină cel puțin %(min_upper)d litere mari."
+
+#: common/djangoapps/util/password_policy_validators.py:327
+#, python-format
+msgid "%(num)d uppercase letter"
+msgid_plural "%(num)d uppercase letters"
+msgstr[0] "%(num)d literă mare"
+msgstr[1] "%(num)d litere mari"
+msgstr[2] "%(num)d litere mari"
+
+#: common/djangoapps/util/password_policy_validators.py:357
+#, python-format
+msgid "This password must contain at least %(min_lower)d lowercase letter."
+msgid_plural ""
+"This password must contain at least %(min_lower)d lowercase letters."
+msgstr[0] ""
+"Această parolă trebuie să conțină cel puțin %(min_lower)d literă mică."
+msgstr[1] ""
+"Această parolă trebuie să conțină cel puțin %(min_lower)d litere mici."
+msgstr[2] ""
+"Această parolă trebuie să conțină cel puțin %(min_lower)d litere mici."
+
+#: common/djangoapps/util/password_policy_validators.py:367
+#, python-format
+msgid "Your password must contain at least %(min_lower)d lowercase letter."
+msgid_plural ""
+"Your password must contain at least %(min_lower)d lowercase letters."
+msgstr[0] ""
+"Parola dvs. trebuie să conțină cel puțin %(min_lower)d literă mică."
+msgstr[1] ""
+"Parola dvs. trebuie să conțină cel puțin %(min_lower)d litere mici."
+msgstr[2] ""
+"Parola dvs. trebuie să conțină cel puțin %(min_lower)d litere mici."
+
+#: common/djangoapps/util/password_policy_validators.py:375
+#, python-format
+msgid "%(num)d lowercase letter"
+msgid_plural "%(num)d lowercase letters"
+msgstr[0] "%(num)d literă mică"
+msgstr[1] "%(num)d litere mici"
+msgstr[2] "%(num)d litere mici"
+
+#: common/djangoapps/util/password_policy_validators.py:406
+#, python-format
+msgid ""
+"This password must contain at least %(min_punctuation)d punctuation mark."
+msgid_plural ""
+"This password must contain at least %(min_punctuation)d punctuation marks."
+msgstr[0] ""
+"Această parolă trebuie să conțină cel puțin %(min_punctuation)d semne de "
+"punctuație."
+msgstr[1] ""
+"Această parolă trebuie să conțină cel puțin %(min_punctuation)d semne de "
+"punctuație."
+msgstr[2] ""
+"Această parolă trebuie să conțină cel puțin %(min_punctuation)d semne de "
+"punctuație."
+
+#: common/djangoapps/util/password_policy_validators.py:416
+#, python-format
+msgid ""
+"Your password must contain at least %(min_punctuation)d punctuation mark."
+msgid_plural ""
+"Your password must contain at least %(min_punctuation)d punctuation marks."
+msgstr[0] ""
+"Parola dvs. trebuie să conțină cel puțin %(min_punctuation)d semn de "
+"punctuație."
+msgstr[1] ""
+"Parola dvs. trebuie să conțină cel puțin %(min_punctuation)d semne de "
+"punctuație."
+msgstr[2] ""
+"Parola dvs. trebuie să conțină cel puțin %(min_punctuation)d semne de "
+"punctuație."
+
+#: common/djangoapps/util/password_policy_validators.py:424
+#, python-format
+msgid "%(num)d punctuation mark"
+msgid_plural "%(num)d punctuation marks"
+msgstr[0] "%(num)d semn de punctuație"
+msgstr[1] "%(num)d semne de punctuație"
+msgstr[2] "%(num)d semne de punctuație"
+
+#: common/djangoapps/util/password_policy_validators.py:454
+#, python-format
+msgid "This password must contain at least %(min_symbol)d symbol."
+msgid_plural "This password must contain at least %(min_symbol)d symbols."
+msgstr[0] ""
+"Această parolă trebuie să conțină cel puțin simbolul %(min_symbol)d."
+msgstr[1] ""
+"Această parolă trebuie să conțină cel puțin %(min_symbol)d simboluri."
+msgstr[2] ""
+"Această parolă trebuie să conțină cel puțin %(min_symbol)d simboluri."
+
+#: common/djangoapps/util/password_policy_validators.py:464
+#, python-format
+msgid "Your password must contain at least %(min_symbol)d symbol."
+msgid_plural "Your password must contain at least %(min_symbol)d symbols."
+msgstr[0] ""
+"Parola dvs. trebuie să conțină cel puțin simboluri %(min_symbol)d ."
+msgstr[1] "Parola dvs. trebuie să conțină cel puțin %(min_symbol)d simboluri."
+msgstr[2] "Parola dvs. trebuie să conțină cel puțin %(min_symbol)d simboluri."
+
+#: common/djangoapps/util/password_policy_validators.py:472
+#, python-format
+msgid "%(num)d symbol"
+msgid_plural "%(num)d symbols"
+msgstr[0] "simbol %(num)d"
+msgstr[1] "simboluri %(num)d"
+msgstr[2] "simboluri %(num)d"
+
+#: common/djangoapps/xblock_django/admin.py:22
+msgid ""
+"To disable the XBlock and prevent rendering in the LMS, leave \"Enabled\" "
+"deselected; for clarity, update XBlockStudioConfiguration support state "
+"accordingly."
+msgstr ""
+"Pentru a dezactiva XBlock și a preveni redarea în LMS, lăsați „Activat” "
+"deselectat; pentru claritate, actualizați în mod corespunzător starea de "
+"suport pentru XBlockStudioConfiguration."
+
+#: common/djangoapps/xblock_django/admin.py:27
+msgid ""
+"Only XBlocks listed in a course's Advanced Module List can be flagged as "
+"deprecated. Remember to update XBlockStudioConfiguration support state "
+"accordingly, as deprecated does not impact whether or not new XBlock "
+"instances can be created in Studio."
+msgstr ""
+"Doar XBlock-urile enumerate în Lista de module Avansate a unui curs pot fi "
+"marcate ca depreciate. Nu uitați să actualizați în consecință starea de "
+"suport pentru XBlockStudioConfiguration, deoarece depreciat nu influențează "
+"dacă pot fi create sau nu noi instanțe XBlock în Studio."
+
+#: common/djangoapps/xblock_django/admin.py:45
+msgid ""
+"XBlock/template combinations that are disabled cannot be edited in Studio, "
+"regardless of support level. Remember to also check if all instances of the "
+"XBlock are disabled in XBlockConfiguration."
+msgstr ""
+"Combinațiile XBlock/șabloane care sunt dezactivate nu pot fi editate în "
+"Studio, indiferent de nivelul de suport. Nu uitați să verificați și dacă "
+"toate instanțele XBlock sunt dezactivate în XBlockConfiguration."
+
+#: common/djangoapps/xblock_django/admin.py:52
+msgid ""
+"Enabled XBlock/template combinations with full or provisional support can "
+"always be created in Studio. Unsupported XBlock/template combinations "
+"require course author opt-in."
+msgstr ""
+"Combinațiile XBlock/șabloane activate cu suport complet sau provizoriu pot "
+"fi oricând create în Studio. Combinațiile XBlock/șabloane neacceptate "
+"necesită înscrierea autorului cursului."
+
+#: common/djangoapps/xblock_django/models.py:27
+msgid "show deprecation messaging in Studio"
+msgstr "afișează mesajele de depreciere în Studio"
+
 #: common/djangoapps/xblock_django/models.py:65
 msgid "Fully Supported"
 msgstr "Complet susținut"
@@ -1533,6 +2645,15 @@ msgstr "Complet susținut"
 msgid "Provisionally Supported"
 msgstr "Susținută provizoriu"
 
+#: common/djangoapps/xblock_django/models.py:67
+msgid "Unsupported"
+msgstr "Neacceptat"
+
+#: common/templates/admin/student/loginfailures/change_form_template.html:7
+#: common/templates/admin/student/loginfailures/change_form_template.html:22
+msgid "Unlock Account"
+msgstr "Deblochează contul"
+
 #: common/templates/admin/student/loginfailures/change_form_template.html:13
 #: common/templates/admin/student/loginfailures/change_form_template.html:29
 #: lms/templates/wiki/edit.html:47 lms/templates/wiki/history.html:203
@@ -1540,6 +2661,15 @@ msgstr "Susținută provizoriu"
 #: lms/templates/wiki/includes/cheatsheet.html:5
 msgid "Close"
 msgstr "Închide"
+
+#: common/templates/student/edx_ace/accountactivation/email/body.html:13
+#, python-format
+msgid ""
+"This is a routed Account Activation email for %(routed_user)s "
+"(%(routed_user_email)s): %(routed_profile_name)s"
+msgstr ""
+"Acesta este un e-mail de activare a contului direcționat pentru "
+"%(routed_user)s (%(routed_user_email)s): %(routed_profile_name)s"
 
 #: common/templates/student/edx_ace/accountactivation/email/body.html:23
 msgid "Account activation"
@@ -1555,6 +2685,10 @@ msgstr ""
 "Încă un pas! Dă click pe butonul de mai jos pentru a-ți activa contul "
 "%(platform_name)s și a accesa cursurile. Activarea contului este obligatorie"
 " pentru a avea acces la toate resursele."
+
+#: common/templates/student/edx_ace/accountactivation/email/body.html:33
+msgid "Activate your account"
+msgstr "Activați-vă contul"
 
 #: common/templates/student/edx_ace/accountactivation/email/body.html:42
 #: common/templates/student/edx_ace/accountactivation/email/body.txt:6
@@ -1573,6 +2707,18 @@ msgstr ""
 "contact de pe platformă sau scrie-ne direct la {start_anchor_web} "
 "%(support_url)s {end_anchor}."
 
+#: common/templates/student/edx_ace/accountactivation/email/body.html:64
+#: common/templates/student/edx_ace/accountactivation/email/body.txt:10
+#, python-format
+msgid ""
+"This email message was automatically sent by %(lms_url)s because someone "
+"attempted to create an account on %(platform_name)s using this email "
+"address."
+msgstr ""
+"Acest mesaj de e-mail a fost trimis automat de %(lms_url)s deoarece cineva a"
+" încercat să creeze un cont pe %(platform_name)s folosind această adresă de "
+"e-mail."
+
 #: common/templates/student/edx_ace/accountactivation/email/body.txt:2
 #, python-format
 msgid ""
@@ -1584,6 +2730,25 @@ msgstr ""
 "%(platform_name)s și a accesa cursurile. Activarea contului este obligatorie"
 " pentru a avea acces la toate resursele."
 
+#: common/templates/student/edx_ace/accountactivation/email/body.txt:8
+#, python-format
+msgid ""
+"If you need help, please use our web form at %(support_url)s or email "
+"%(support_email)s."
+msgstr ""
+"Dacă aveți nevoie de ajutor, vă rugăm să utilizați formularul nostru web la "
+"%(support_url)s sau e-mail %(support_email)s."
+
+#: common/templates/student/edx_ace/accountactivation/email/subject.txt:3
+#, python-format
+msgid "Action Required: Activate your %(platform_name)s account"
+msgstr "Acțiune necesară: activează-ți contul %(platform_name)s"
+
+#: common/templates/student/edx_ace/accountrecovery/email/body.html:10
+#: common/templates/student/edx_ace/accountrecovery/email/body.html:39
+msgid "Create Password"
+msgstr "Creează parola"
+
 #: common/templates/student/edx_ace/accountrecovery/email/body.html:14
 #: common/templates/student/edx_ace/accountrecovery/email/body.txt:2
 #, python-format
@@ -1593,6 +2758,26 @@ msgid ""
 msgstr ""
 "Primești acest e-mail deoarece ai solicitat crearea unei parole pentru "
 "contul tău pe %(platform_name)s."
+
+#: common/templates/student/edx_ace/accountrecovery/email/body.html:21
+#: common/templates/student/edx_ace/accountrecovery/email/body.txt:4
+#, python-format
+msgid ""
+"We've restored access to your %(platform_name)s account using the recovery "
+"email you provided at registration."
+msgstr ""
+"Am restabilit accesul la contul dvs. %(platform_name)s folosind e-mailul de "
+"recuperare pe care l-ați furnizat la înregistrare."
+
+#: common/templates/student/edx_ace/accountrecovery/email/body.html:28
+#: common/templates/student/edx_ace/accountrecovery/email/body.txt:6
+#, python-format
+msgid ""
+"Once you've created a password [below], you will be able to log in to "
+"%(platform_name)s with this email (%(email)s) and your new password."
+msgstr ""
+"După ce ați creat o parolă [mai jos], vă veți putea conecta în "
+"%(platform_name)s cu acest e-mail (%(email)s) și noua parolă."
 
 #: common/templates/student/edx_ace/accountrecovery/email/body.html:34
 #: common/templates/student/edx_ace/accountrecovery/email/body.txt:8
@@ -1605,16 +2790,107 @@ msgstr ""
 "Dacă nu ai solicitat această modificare, poți ignora acest e-mail - parola "
 "nu a fost schimbată încă."
 
+#: common/templates/student/edx_ace/accountrecovery/email/body.txt:12
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.txt:15
+msgid "Thanks for using our site!"
+msgstr "Vă mulțumim că folosiți site-ul nostru!"
+
 #: common/templates/student/edx_ace/accountrecovery/email/body.txt:13
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.txt:17
 #, python-format
 msgid "The %(platform_name)s Team"
 msgstr " %(platform_name)sEchipei "
 
+#: common/templates/student/edx_ace/accountrecovery/email/subject.txt:3
+#, python-format
+msgid "Password creation on %(platform_name)s"
+msgstr "Crearea parolei pe %(platform_name)s"
+
+#: common/templates/student/edx_ace/emailchange/email/body.html:10
+msgid "Email Change"
+msgstr "Schimbarea e-mailului"
+
+#: common/templates/student/edx_ace/emailchange/email/body.html:14
+#: common/templates/student/edx_ace/emailchange/email/body.txt:2
+#, python-format
+msgid ""
+"We received a request to change the e-mail associated with your "
+"%(platform_name)s account from %(old_email)s to %(new_email)s. If this is "
+"correct, please confirm your new e-mail address by visiting:"
+msgstr ""
+"Am primit o solicitare de modificare a adresei de e-mail asociată contului "
+"dumneavoastră %(platform_name)s din %(old_email)s în %(new_email)s. Dacă "
+"acest lucru este corect, vă rugăm să confirmați noua adresă de e-mail "
+"vizitând:"
+
+#: common/templates/student/edx_ace/emailchange/email/body.html:20
+msgid "Confirm Email Change"
+msgstr "Confirmați modificarea e-mailului"
+
+#: common/templates/student/edx_ace/emailchange/email/body.html:26
+#: common/templates/student/edx_ace/emailchange/email/body.txt:6
+#, python-format
+msgid ""
+"If you didn't request this, you don't need to do anything; you won't receive"
+" any more email from us. Please do not reply to this e-mail; if you require "
+"assistance, check the help section of the %(platform_name)s web site."
+msgstr ""
+"Dacă nu ai cerut acest lucru, nu trebuie să faci nimic; nu vei mai primi "
+"niciun e-mail de la noi. Te rugăm să nu răspunzi la acest e-mail; dacă aveți"
+" nevoie de asistență, verificați secțiunea de ajutor a platformei "
+"%(platform_name)s."
+
 #: common/templates/student/edx_ace/emailchange/email/subject.txt:3
 #, python-format
 msgid "Request to change %(platform_name)s account e-mail"
 msgstr "Solicită schimbarea e-mailului contului %(platform_name)s"
+
+#: common/templates/student/edx_ace/emailchangeconfirmation/email/body.html:11
+#: common/templates/student/edx_ace/emailchangeconfirmation/email/subject.txt:3
+#, python-format
+msgid "Email Change Confirmation for %(platform_name)s"
+msgstr "Confirmarea modificării e-mailului pentru %(platform_name)s"
+
+#: common/templates/student/edx_ace/emailchangeconfirmation/email/body.html:16
+#: common/templates/student/edx_ace/emailchangeconfirmation/email/body.txt:2
+#, python-format
+msgid ""
+"This is to confirm that you changed the e-mail associated with "
+"%(platform_name)s from %(old_email)s to %(new_email)s. If you did not make "
+"this request, please contact us immediately. Contact information is listed "
+"at:"
+msgstr ""
+"Acest lucru este pentru a confirma că ați schimbat e-mailul asociat cu "
+"%(platform_name)s din %(old_email)s în %(new_email)s. Dacă nu ați făcut "
+"această solicitare, vă rugăm să ne contactați imediat. Informațiile de "
+"contact sunt listate la:"
+
+#: common/templates/student/edx_ace/emailchangeconfirmation/email/body.html:25
+#: common/templates/student/edx_ace/emailchangeconfirmation/email/body.txt:6
+msgid ""
+"We keep a log of old e-mails, so if this request was unintentional, we can "
+"investigate."
+msgstr ""
+"Păstrăm un jurnal de e-mailuri vechi, așa că dacă această solicitare a fost "
+"neintenționată, putem investiga."
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.html:38
+#, python-format
+msgid ""
+"\n"
+"                    Proctored exams are timed exams that you take while proctoring software monitors your computer's desktop, webcam video, and audio. Your course uses %(proctoring_provider)s software for proctoring.\n"
+"                "
+msgstr ""
+"\n"
+"                    Examenele supravegheate sunt examene cronometrate pe care le susțineți în timp ce software-ul de supraveghere monitorizează desktopul computerului, video webcam și audio. Cursul dumneavoastră folosește software-ul %(proctoring_provider)s pentru supraveghere.\n"
+"                "
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.html:60
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.txt:11
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:38
+#: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.txt:12
+msgid "Thank you,"
+msgstr "mulțumesc,"
 
 #: common/templates/student/edx_ace/recoveryemailcreate/email/body.html:18
 #: common/templates/student/edx_ace/recoveryemailcreate/email/body.txt:4
