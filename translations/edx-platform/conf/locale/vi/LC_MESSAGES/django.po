@@ -307,9 +307,30 @@ msgstr ""
 "Khóa sử dụng khối thượng nguồn, giá trị này không thể để giá trị null và hữu"
 " ích để theo dõi các khối thư viện thượng nguồn chưa tồn tại"
 
+#: cms/djangoapps/contentstore/models.py:163
+msgid "Component Link"
+msgstr "Thành Phần liên kết"
+
+#: cms/djangoapps/contentstore/models.py:164
+msgid "Component Links"
+msgstr "Thành Phần liên kết"
+
 #: cms/djangoapps/contentstore/models.py:190
 msgid "The component must be published to access `published_at`"
 msgstr "Thành phần phải được xuất bản để truy cập `published_at`"
+
+#: cms/djangoapps/contentstore/models.py:329
+msgid ""
+"Upstream block key (e.g. lct:...), this value cannot be null and is useful "
+"to track upstream library blocks that do not exist yet or were deleted."
+msgstr ""
+"Khóa khối thượng nguồn (ví dụ: lct:...), giá trị này không thể để giá trị "
+"null và hữu ích để theo dõi các khối thư viện thượng nguồn chưa tồn tại hoặc"
+" đã bị xóa."
+
+#: cms/djangoapps/contentstore/models.py:337
+msgid "Container Links"
+msgstr "Liên kết Container"
 
 #: cms/djangoapps/contentstore/models.py:363
 msgid "The container must be published to access `published_at`"
@@ -1229,6 +1250,10 @@ msgstr "Từ điển với các thẻ có sẵn"
 msgid "Content is not linked to a Content Library."
 msgstr "nội dung không được liên kết với Thư viện nội dung ."
 
+#: cms/lib/xblock/upstream_sync.py:255
+msgid "Downstream is not an XBlock or is missing required UpstreamSyncMixin"
+msgstr "Downstream không phải là XBlock hoặc thiếu UpstreamSyncMixin bắt buộc"
+
 #: cms/lib/xblock/upstream_sync.py:259
 msgid "Cannot update content because it does not belong to a course."
 msgstr "Không thể cập nhật nội dung vì nó không thuộc về khóa học nào."
@@ -1237,9 +1262,36 @@ msgstr "Không thể cập nhật nội dung vì nó không thuộc về khóa h
 msgid "Reference to linked library item is malformed"
 msgstr "Tham chiếu đến mục thư viện được liên kết bị lỗi"
 
+#: cms/lib/xblock/upstream_sync.py:275
+msgid ""
+"Updating content with children is not yet supported unless the upstream is a"
+" container."
+msgstr ""
+"Việc cập nhật nội dung có chứa các phần tử con hiện chưa được hỗ trợ trừ khi"
+" phần tử gốc là một vùng chứa."
+
+#: cms/lib/xblock/upstream_sync.py:281
+msgid "Linked upstream library block was not found in the system"
+msgstr ""
+"Không tìm thấy khối thư viện thượng nguồn được liên kết trong hệ thống"
+
+#: cms/lib/xblock/upstream_sync.py:288
+msgid "Linked upstream library container was not found in the system"
+msgstr ""
+"Không tìm thấy container thư viện thượng nguồn được liên kết trong hệ thống."
+
 #: cms/lib/xblock/upstream_sync.py:292
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "Khóa `upstream_key` được liên kết không hợp lệ"
+
+#: cms/lib/xblock/upstream_sync.py:301
+#, python-brace-format
+msgid ""
+"Content type mismatch: {downstream_id} ({downstream_type}) cannot be linked "
+"to {upstream_id}."
+msgstr ""
+"mismatch loại nội dung: {downstream_id} ( {downstream_type} ) không thể liên"
+" kết tới {upstream_id} ."
 
 #: cms/lib/xblock/upstream_sync_block.py:108
 msgid "Linked library item could not be loaded: {}"
