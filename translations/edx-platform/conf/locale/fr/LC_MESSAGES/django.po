@@ -9,8 +9,8 @@
 # Omar Al-Ithawi <i@omardo.com>, 2025
 # Brian Smith, 2026
 # edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2026
-# Gerardo Núñez, 2026
 # Eden Huthmacher, 2026
+# Gerardo Núñez, 2026
 # 
 msgid ""
 msgstr ""
@@ -18,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: openedx-translation@googlegroups.com\n"
 "POT-Creation-Date: 2023-06-13 08:00+0000\n"
 "PO-Revision-Date: 2023-11-20 11:35+0000\n"
-"Last-Translator: Eden Huthmacher, 2026\n"
+"Last-Translator: Gerardo Núñez, 2026\n"
 "Language-Team: French (https://app.transifex.com/open-edx/teams/6205/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -866,6 +866,10 @@ msgstr "Examen d&#39;entrée - Sous-section"
 #: cms/djangoapps/contentstore/views/entrance_exam.py:253
 msgid "Completed Course Entrance Exam"
 msgstr "Examen d'entrée au cours terminé"
+
+#: cms/djangoapps/contentstore/views/export_git.py:47
+msgid "Course successfully exported to git repository"
+msgstr "Cours bien exporté vers le dépôt (git)"
 
 #: cms/djangoapps/contentstore/views/import_export.py:150
 #, python-brace-format
@@ -1924,6 +1928,10 @@ msgstr "Identifiant du cours invalide"
 msgid "Course id is invalid"
 msgstr "Identifiant du cours invalide"
 
+#: common/djangoapps/student/views/management.py:430
+msgid "Could not enroll"
+msgstr "Impossible de s'inscrire"
+
 #: common/djangoapps/student/views/management.py:450
 msgid "Unenrollment is currently disabled"
 msgstr "La désinscription est actuellement désactivée"
@@ -2175,6 +2183,14 @@ msgstr "Un pseudo de configuration."
 msgid "Please wait"
 msgstr "Veuillez patienter"
 
+#. Translators: the translation for "LONG_DATE_FORMAT" must be a format
+#. string for formatting dates in a long form.  For example, the
+#. American English form is "%A, %B %d %Y".
+#. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:145
+msgid "LONG_DATE_FORMAT"
+msgstr "LONG_DATE_FORMAT"
+
 #. Translators: the translation for "DATE_TIME_FORMAT" must be a format
 #. string for formatting dates with times.  For example, the American
 #. English form is "%b %d, %Y at %H:%M".
@@ -2271,6 +2287,14 @@ msgid "Tue"
 msgstr "Mar"
 
 #. Translators: this is an abbreviated weekday name that will be used when
+#. displaying dates, as in "Wed Feb 12, 2014". It is used for the %a
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:313
+msgctxt "abbreviated weekday name"
+msgid "Wed"
+msgstr "Mer"
+
+#. Translators: this is an abbreviated weekday name that will be used when
 #. displaying dates, as in "Thu Feb 13, 2014". It is used for the %a
 #. directive in date-time formats. See http://strftime.org for details.
 #: common/djangoapps/util/date_utils.py:317
@@ -2325,6 +2349,14 @@ msgstr "Mar"
 msgctxt "abbreviated month name"
 msgid "Apr"
 msgstr "Avr."
+
+#. Translators: this is an abbreviated month name that will be used when
+#. displaying dates, as in "May 10, 2014". It is used for the %b
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:352
+msgctxt "abbreviated month name"
+msgid "May"
+msgstr "Mai"
 
 #. Translators: this is an abbreviated month name that will be used when
 #. displaying dates, as in "Jun 10, 2014". It is used for the %b
@@ -3036,6 +3068,28 @@ msgstr ""
 "\n"
 "                    \n"
 "Bonjour %(full_name)s,\n"
+"                "
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.html:29
+#, python-format
+msgid ""
+"\n"
+"                    You are enrolled in %(course_name)s at %(platform_name)s. This course contains proctored exams.\n"
+"                "
+msgstr ""
+"\n"
+"                    Vous êtes inscrit à %(course_name)s à %(platform_name)s. Ce cours contient des examens surveillés.\n"
+"                "
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.html:38
+#, python-format
+msgid ""
+"\n"
+"                    Proctored exams are timed exams that you take while proctoring software monitors your computer's desktop, webcam video, and audio. Your course uses %(proctoring_provider)s software for proctoring.\n"
+"                "
+msgstr ""
+"\n"
+"                    Les examens surveillés sont des examens chronométrés que vous passez pendant que le logiciel de surveillance surveille le bureau de votre ordinateur, la vidéo de votre webcam et l'audio. Votre cours utilise le logiciel %(proctoring_provider)s pour la surveillance.\n"
 "                "
 
 #: common/templates/student/edx_ace/proctoringrequirements/email/body.html:60
@@ -4129,6 +4183,13 @@ msgstr "Objectif du cours mis à jour avec succès."
 #: lms/djangoapps/course_wiki/views.py:125 lms/templates/wiki/base.html:6
 msgid "Wiki"
 msgstr "Wiki"
+
+#: lms/djangoapps/course_wiki/plugins/course_app.py:32
+msgid ""
+"Enable learners to access, and collaborate on course-related information."
+msgstr ""
+"Activer les apprenants pour accéder aux informations liées au cours et "
+"collaborer sur celles-ci."
 
 #. Translators: this string includes wiki markup.  Leave the ** and the _
 #. alone.
@@ -5505,6 +5566,12 @@ msgid ""
 msgstr ""
 "Veuillez sélectionner les statuts de certificat qui se trouvent dans "
 "l'entrée \"certificate_statuses\" des données POST."
+
+#: lms/djangoapps/instructor/views/api.py:3692
+#, python-format
+msgid "This student (%s) is already allowed to skip the entrance exam."
+msgstr ""
+"Cet apprenant (%s) est déjà autorisé à passer l&#39;examen d&#39;entrée."
 
 #: lms/djangoapps/instructor/views/api.py:3740
 msgid "Please select certificate statuses from the list only."
@@ -7046,6 +7113,17 @@ msgid ""
 msgstr ""
 "Vous avez été désinscrit du cours %(course_name)s. Veuillez ne pas tenir "
 "compte de l'invitation envoyée précédemment."
+
+#: lms/templates/instructor/edx_ace/enrolledunenroll/email/body.html:12
+#, python-format
+msgid ""
+"\n"
+"                    You have been unenrolled from %(course_name)s\n"
+"                "
+msgstr ""
+"\n"
+"                    Vous avez été désinscrit de %(course_name)s\n"
+"                "
 
 #: lms/templates/instructor/edx_ace/enrolledunenroll/email/body.html:21
 #: lms/templates/instructor/edx_ace/enrolledunenroll/email/body.txt:3
@@ -10291,6 +10369,11 @@ msgstr "Création de superutilisateur non autorisée"
 msgid "Account modification not allowed."
 msgstr "Modification de compte non autorisée."
 
+#: openedx/core/djangoapps/user_authn/views/auto_auth.py:125
+#: openedx/core/djangoapps/user_authn/views/register.py:715
+msgid "Account creation not allowed."
+msgstr "La création d'un Compte n'est pas autorisée."
+
 #: openedx/core/djangoapps/user_authn/views/login.py:91
 #, python-brace-format
 msgid ""
@@ -10996,6 +11079,10 @@ msgstr ""
 "Vos échéances ont été bien décalées pour vous aider à rester sur le bon "
 "parcours."
 
+#: openedx/features/course_experience/api/v1/views.py:73
+msgid "Deadlines successfully reset."
+msgstr "Ils ont bien réinitialisé les délais."
+
 #: openedx/features/discounts/admin.py:22
 msgid ""
 "These define the context to disable lms-controlled discounts on. If no "
@@ -11252,6 +11339,10 @@ msgstr "sans réponse"
 #: xmodule/capa/inputtypes.py:96
 msgid "submitted"
 msgstr "soumis"
+
+#: xmodule/capa/inputtypes.py:97
+msgid "processing"
+msgstr "en cours"
 
 #. Translators: these are tooltips that indicate the state of an assessment
 #. question
@@ -11622,6 +11713,10 @@ msgid "Error in problem specification! Cannot parse rectangle in {sr_coords}"
 msgstr ""
 "Erreur dans la spécification de l'exercice ! Impossible d'analyser les "
 "coordonnées du rectangle {sr_coords}"
+
+#: xmodule/capa/responsetypes.py:3401
+msgid "Annotation Input"
+msgstr "Annotation d&#39;entrée"
 
 #: xmodule/capa/responsetypes.py:3521
 msgid "Checkboxes With Text Input"
@@ -12672,6 +12767,16 @@ msgstr ""
 msgid "Due Date Display Format"
 msgstr "Format d'affichage de l'échéance"
 
+#: xmodule/course_block.py:586
+msgid ""
+"Enter the format for due dates. The default is Mon DD, YYYY. Enter "
+"\"%m-%d-%Y\" for MM-DD-YYYY, \"%d-%m-%Y\" for DD-MM-YYYY, \"%Y-%m-%d\" for "
+"YYYY-MM-DD, or \"%Y-%d-%m\" for YYYY-DD-MM."
+msgstr ""
+"Entrez le format des dates d'échéance. La valeur par défaut est Mon Jj, "
+"AAAA. Saisissez « %m-%d-%Y » pour MM-DD-YYYY, « %d-%m-%Y » pour DD-MM-YYYY, "
+"« %Y-%m-%d » pour AAAA-MM-JJ ou « %Y-%d-%m » pour AAAA-JJ-MM."
+
 #: xmodule/course_block.py:592
 msgid "External Login Domain"
 msgstr "Domaine de connexion externe"
@@ -12777,6 +12882,16 @@ msgstr "Nom du Certificat (long)"
 #: xmodule/course_block.py:669
 msgid "Certificate Web/HTML View Enabled"
 msgstr "Affichage Web/HTML du Certificat activé"
+
+#: xmodule/course_block.py:670
+msgid "If true, certificate Web/HTML views are enabled for the course."
+msgstr "Si vrai, les vues Web/HTML du Certificat activé pour le cours."
+
+#. Translators: This field is the container for course-specific certificate
+#. configuration values
+#: xmodule/course_block.py:677
+msgid "Certificate Web/HTML View Overrides"
+msgstr "Remplacements de la vue Web/HTML du Certificat"
 
 #. Translators: These overrides allow for an alternative configuration of the
 #. certificate web view
@@ -14739,6 +14854,10 @@ msgstr ""
 #: xmodule/video_block/video_xfields.py:199
 msgid "Date of the last view of the bumper"
 msgstr "Date de la dernière vue du pare-chocs"
+
+#: xmodule/video_block/video_xfields.py:203
+msgid "Do not show bumper again"
+msgstr "Ne plus montrer le pare-chocs"
 
 #: xmodule/video_block/video_xfields.py:208
 msgid "Specify whether the video can be accessed publicly by learners."
