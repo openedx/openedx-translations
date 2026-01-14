@@ -5130,6 +5130,12 @@ msgstr "Разрешить"
 msgid "Error"
 msgstr "Ошибка"
 
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:11
+#: lms/templates/support/edx_ace/wholecoursereset/email/subject.txt:3
+#, python-format
+msgid "The course %(course_title)s has been reset !"
+msgstr "Курс %(course_title)s сброшен!"
+
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.html:16
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:14
 #: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:14
@@ -5139,6 +5145,28 @@ msgstr "Ошибка"
 #, python-format
 msgid "Hello %(full_name)s,"
 msgstr "Здравствуйте %(full_name)s, "
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:21
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:3
+#, python-format
+msgid ""
+"Your progress in course %(course_title)s has been reset on your behalf."
+msgstr ""
+"Ваш прогресс по курсу %(course_title)s был обнулен по вашему поручению."
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:25
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:4
+msgid ""
+"You will be able to re-attempt this course and earn a verified certificate "
+"upon successful completion."
+msgstr ""
+"Вы сможете повторно пройти этот курс и получить Сертификат после успешного "
+"завершения курса."
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:31
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:6
+msgid "Best,"
+msgstr "С уважением,"
 
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:2
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:2
@@ -6054,6 +6082,17 @@ msgstr "Курсы с ошибками"
 msgid "Learning Sequences and Outlines"
 msgstr "Эпизоды и структуры обучения"
 
+#: openedx/core/djangoapps/content/search/models.py:28
+msgid ""
+"Numeric ID for each Course / Library context. This ID will generally require"
+" fewer bits than the full LearningContextKey, allowing more courses and "
+"libraries to be represented in content search filters."
+msgstr ""
+"Числовой идентификатор для каждого контекста курса/библиотеки. Для этого "
+"идентификатора обычно требуется меньше битов, чем для полного "
+"LearningContextKey, что позволяет отображать больше курсов и библиотек в "
+"фильтрах поиска контента."
+
 #: openedx/core/djangoapps/content_libraries/api/blocks.py:301
 msgid "Library cannot have more than {} Components."
 msgstr "Библиотека не может содержать более {} Компонент."
@@ -6258,6 +6297,10 @@ msgstr "Истекло"
 #: openedx/core/djangoapps/content_staging/models.py:43
 msgid "Staged Content"
 msgstr "Постановочный контент"
+
+#: openedx/core/djangoapps/content_staging/models.py:72
+msgid "Content tags applied to these blocks"
+msgstr "Теги контента, примененные к этим блокам"
 
 #: openedx/core/djangoapps/content_staging/models.py:116
 msgid "Original usage key/ID of the thing that is in the clipboard."
@@ -6903,6 +6946,18 @@ msgstr "Сегодня"
 #: openedx/features/course_experience/plugins.py:34
 msgid "Updates"
 msgstr "Обновления"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:16
+msgid "Daily"
+msgstr "Ежедневно"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:17
+msgid "Weekly"
+msgstr "Еженедельно"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:18
+msgid "Immediately"
+msgstr "Немедленно"
 
 #: openedx/core/djangoapps/notifications/email_notifications.py:19
 #: xmodule/capa_block.py:244 xmodule/capa_block.py:261
@@ -8436,6 +8491,15 @@ msgstr ""
 "Лицензия определяет условия распространения и использования содержимого "
 "этого блока."
 
+#: openedx/core/lib/teams_config.py:386
+#, python-brace-format
+msgid "Team Group: {team_set_name}"
+msgstr "Группа команда: {team_set_name}"
+
+#: openedx/core/lib/teams_config.py:387
+msgid "Partition for segmenting users by team-set"
+msgstr "Сегмент для сегментации пользователей по набору команд"
+
 #: openedx/features/calendar_sync/ics.py:36
 #, python-brace-format
 msgid "{assignment} is due for {course}."
@@ -9337,6 +9401,34 @@ msgstr ""
 "Определяет, сколько раз можно давать ответ на задание.  Если значение не "
 "установлено, предоставляется неограниченное количество попыток."
 
+#: xmodule/capa_block.py:216
+msgid "Grading Method"
+msgstr "Метод оценки"
+
+#: xmodule/capa_block.py:218
+msgid ""
+"Define the grading method for this problem. By default, it's the score of "
+"the last submission made by the student."
+msgstr ""
+"Определите метод оценки этой задачи. По умолчанию это оценка последней "
+"подачи документов, отправленной учащимся."
+
+#: xmodule/capa_block.py:224 xmodule/capa_block.py:528
+msgid "Last Score"
+msgstr "Последний счет"
+
+#: xmodule/capa_block.py:225 xmodule/capa_block.py:529
+msgid "First Score"
+msgstr "Первый балл"
+
+#: xmodule/capa_block.py:226 xmodule/capa_block.py:530
+msgid "Highest Score"
+msgstr "Наивысший балл"
+
+#: xmodule/capa_block.py:227 xmodule/capa_block.py:531
+msgid "Average Score"
+msgstr "Средний балл"
+
 #: xmodule/capa_block.py:230
 msgid "Date that this problem is due by"
 msgstr "Срок сдачи данного задания"
@@ -9474,6 +9566,10 @@ msgstr "Данные, связанные с заданием, в формате 
 msgid "Dictionary with the correctness of current student answers"
 msgstr "Словарь, определяющий правильность ответов"
 
+#: xmodule/capa_block.py:313
+msgid "List of correctness maps for each attempt"
+msgstr "Список карт правильности для каждой попытки"
+
 #: xmodule/capa_block.py:314
 msgid "Dictionary for maintaining the state of inputtypes"
 msgstr "Словарь для сохранения состояний полей ввода"
@@ -9482,9 +9578,17 @@ msgstr "Словарь для сохранения состояний полей
 msgid "Dictionary with the current student responses"
 msgstr "Словарь, содержащий ответы слушателей"
 
+#: xmodule/capa_block.py:317
+msgid "List of student answers for each attempt"
+msgstr "Список ответов учащихся для каждой попытки"
+
 #: xmodule/capa_block.py:321
 msgid "Dictionary with the current student score"
 msgstr "Словарь с текущей оценкой слушателя"
+
+#: xmodule/capa_block.py:323
+msgid "List of scores for each attempt"
+msgstr "Список очков за каждую попытку"
 
 #: xmodule/capa_block.py:326
 msgid "Whether or not the answers have been saved since last submit"
