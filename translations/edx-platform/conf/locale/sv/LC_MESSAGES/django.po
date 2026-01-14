@@ -995,6 +995,11 @@ msgstr "Användaren {email} är registrerad men har ej aktiverat sitt konto."
 msgid "Invalid `role` specified."
 msgstr "Ogiltig `roll` angiven."
 
+#: cms/djangoapps/contentstore/views/user.py:179
+msgid "You may not remove the last Admin. Add another Admin first."
+msgstr ""
+"Du får ej ta bort senaste Admin. Lägg till ytterligare en Admin först."
+
 #: cms/djangoapps/contentstore/xblock_storage_handlers/create_xblock.py:102
 #: xmodule/library_content_block.py:590
 msgid "Empty"
@@ -1801,6 +1806,10 @@ msgstr "Learnerfotoet är suddigt"
 msgid "Name on ID does not match name on account"
 msgstr "Namn på ID matchar inte namn på konto"
 
+#: common/djangoapps/student/views/dashboard.py:292
+msgid "Learner photo not provided"
+msgstr "Lärarfoto inte tillhandahållet"
+
 #: common/djangoapps/student/views/dashboard.py:293
 msgid "ID photo is blurry"
 msgstr "ID-foto är suddigt"
@@ -1997,6 +2006,19 @@ msgstr ""
 msgid "The Site that this provider configuration belongs to."
 msgstr "Webbplatsen som den här leverantörskonfigurationen tillhör."
 
+#: common/djangoapps/third_party_auth/models.py:174
+#: common/djangoapps/third_party_auth/models.py:721
+msgid ""
+"If this option is enabled, users that visit a \"TPA hinted\" URL for this "
+"provider (e.g. a URL ending with `?tpa_hint=[provider_name]`) will be "
+"forwarded directly to the login URL of the provider instead of being first "
+"prompted with a login dialog."
+msgstr ""
+"Om det här alternativet är aktiverat, skickas användare som besöker en "
+"\"TPA-hintad\" -adress för den här leverantören (t.ex. en URL som slutar med"
+" `?tpa_hint=[provider_name]`) direkt till leverantörens inloggningsadress i "
+"stället för att bli ombedd inloggningsdialog."
+
 #: common/djangoapps/third_party_auth/models.py:182
 #: common/djangoapps/third_party_auth/models.py:729
 msgid ""
@@ -2017,6 +2039,14 @@ msgid ""
 msgstr ""
 "Om det här alternativet väljs, kommer användarna inte att behöva bekräfta "
 "sin e-post, och deras konto blir aktiverat omedelbart vid registrering."
+
+#: common/djangoapps/third_party_auth/models.py:197
+msgid ""
+"If this option is selected, users will be sent a welcome email upon "
+"registration."
+msgstr ""
+"Om det här alternativet väljs, kommer användarna att få ett välkomstmail vid"
+" registrering."
 
 #: common/djangoapps/third_party_auth/models.py:203
 msgid ""
@@ -3517,6 +3547,19 @@ msgstr ""
 #, python-brace-format
 msgid "{partner_short_name} {course_number} Certificate | {platform_name}"
 msgstr "{partner_short_name} {course_number} certifikat | {platform_name}"
+
+#. Translators:  This text fragment appears after the student's name
+#. (displayed in a large font) on the certificate
+#. screen.  The text describes the accomplishment represented by the
+#. certificate information displayed to the user
+#: lms/djangoapps/certificates/views/webview.py:144
+#, python-brace-format
+msgid ""
+"successfully completed, received a passing grade, and was awarded this "
+"{platform_name} {certificate_type} Certificate of Completion in "
+msgstr ""
+"Framgångsrikt genomförde, godkänd och tilldelades detta {platform_name} "
+"{certificate_type} certifikat för slutförandet i "
 
 #. Translators: This text describes the purpose (and therefore, value) of a
 #. course certificate
@@ -5247,6 +5290,10 @@ msgstr ""
 msgid "The username of the user who initiated this task."
 msgstr "Användarnamnet för användaren som initierade denna uppgift."
 
+#: lms/djangoapps/instructor/views/api.py:2466
+msgid "The last knows state of the celery task."
+msgstr "Det senaste kända tillståndet för selleriuppgiften."
+
 #: lms/djangoapps/instructor/views/api.py:2467
 msgid "Task duration information, if known"
 msgstr "Uppgiftens varaktighetsinformation, om känd"
@@ -5949,6 +5996,14 @@ msgid "Problem failed to be {action} for student '{student}'"
 msgstr "Problemet misslyckades med att vara {action} för studentens {student}"
 
 #. Translators: {action} is a past-tense verb that is localized separately.
+#. {student} is a student identifier.  # lint-amnesty, pylint: disable=line-
+#. too-long
+#: lms/djangoapps/instructor_task/views.py:168
+#, python-brace-format
+msgid "Problem successfully {action} for student '{student}'"
+msgstr "Problem med framgång {action} för student {student}"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
 #. {student} is a student identifier.
 #: lms/djangoapps/instructor_task/views.py:174
 #, python-brace-format
@@ -6108,6 +6163,22 @@ msgstr ""
 #: lms/djangoapps/lms_xblock/mixin.py:67
 msgid "Course Chrome"
 msgstr "Kurs Chrome"
+
+#. Translators: DO NOT translate the words in quotes here, they are
+#. specific words for the acceptable values.
+#: lms/djangoapps/lms_xblock/mixin.py:70
+msgid ""
+"Enter the chrome, or navigation tools, to use for the XBlock in the LMS. Valid values are: \n"
+"\"chromeless\" -- to not use tabs or the accordion; \n"
+"\"tabs\" -- to use tabs only; \n"
+"\"accordion\" -- to use the accordion only; or \n"
+"\"tabs,accordion\" -- to use tabs and the accordion."
+msgstr ""
+"Ange krom- eller navigationsverktygen som ska användas för XBlock i LMS. Giltiga värden är: \n"
+"\"kromlösa\" -- för att inte använda flikar eller dragspelet; \n"
+"\"flikar\" -- för att bara använda flikar; \n"
+"\"dragspel\" -- att bara använda dragspelet; eller \n"
+"\"flikar, dragspel\" -- att använda flikar och dragspelet."
 
 #: lms/djangoapps/lms_xblock/mixin.py:79
 msgid "Default Tab"
@@ -6271,6 +6342,10 @@ msgstr "Du måste fylla i en enkät"
 #: lms/djangoapps/teams/models.py:141
 msgid "Optional language the team uses as ISO 639-1 code."
 msgstr "Valfritt språk som teamet använder som ISO 639-1-kod."
+
+#: lms/djangoapps/teams/plugins.py:29 lms/djangoapps/teams/plugins.py:53
+msgid "Teams"
+msgstr "Team"
 
 #: lms/djangoapps/teams/plugins.py:54
 msgid "Leverage teams to allow learners to connect by topic of interest."
@@ -7388,6 +7463,14 @@ msgstr ""
 "Du kan inte radera den här artikeln eftersom du inte har behörighet att "
 "radera artiklar med barn. Försök att ta bort barnen manuellt en-för-en."
 
+#: lms/templates/wiki/delete.html:23
+msgid ""
+"You are deleting an article. This means that its children will be deleted as"
+" well. If you choose to purge, children will also be purged!"
+msgstr ""
+"Du tar bort en artikel. Det innebär att dess barn kommer att raderas också. "
+"Om du väljer att radera, kommer barn också att raderas!"
+
 #: lms/templates/wiki/delete.html:25
 msgid "Articles that will be deleted"
 msgstr "Artiklar som kommer att raderas"
@@ -8261,6 +8344,10 @@ msgstr "Läser in"
 msgid "Expired"
 msgstr "Utgånget"
 
+#: openedx/core/djangoapps/content_staging/models.py:43
+msgid "Staged Content"
+msgstr "Innehåll i vänteläge"
+
 #: openedx/core/djangoapps/content_staging/models.py:55
 msgid ""
 "\n"
@@ -8569,6 +8656,10 @@ msgstr "Tillåt lista"
 msgid "Comma-separated list of providers to deny, eg: {choices}"
 msgstr "Kommaseparerad lista över leverantörer att neka, t.ex.: {choices}"
 
+#: openedx/core/djangoapps/discussions/models.py:361
+msgid "Deny List"
+msgstr "Nekandelista"
+
 #. Translators: A key specifying a course, library, program,
 #. website, or some other collection of content where learning
 #. happens.
@@ -8700,6 +8791,10 @@ msgstr "Stödinstruktör"
 #: openedx/core/djangoapps/django_comment_common/models.py:29
 msgid "Student"
 msgstr "Studerande"
+
+#: openedx/core/djangoapps/embargo/forms.py:46
+msgid "COURSE NOT FOUND.  Please check that the course ID is valid."
+msgstr "KURSEN FINNS INTE. Kontrollera att kursens ID är giltigt."
 
 #: openedx/core/djangoapps/embargo/models.py:137
 msgid "The course key for the restricted course."
@@ -9064,6 +9159,13 @@ msgstr "Daglig notifikationssammanfattning för"
 #: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:5
 msgid "Email Digest Preferences Updated"
 msgstr "E-postsammanfattningens inställningar uppdaterade"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:9
+msgid ""
+"You have successfully unsubscribed from email digest for learning activity"
+msgstr ""
+"Du har framgångsrikt avslutat prenumerationen på e-postsammanfattningar för "
+"lärandeaktiviteter."
 
 #: openedx/core/djangoapps/notifications/views.py:174
 msgid "Invalid app name."
@@ -9791,6 +9893,14 @@ msgstr "Framgång"
 msgid "Actions"
 msgstr "Handlingar"
 
+#: openedx/core/djangoapps/user_api/models.py:444
+msgid ""
+"Comma separated file that have username and user_email of the users that "
+"needs to be retired"
+msgstr ""
+"Komma-separerad fil som innehåller användarnamn och användar_e-post för de "
+"användare som behöver tas bort."
+
 #: openedx/core/djangoapps/user_api/preferences/api.py:253
 #, python-brace-format
 msgid "Delete failed for user preference '{preference_key}'."
@@ -9865,6 +9975,16 @@ msgstr ""
 "inställningar, inklusive borttagning från t. ex. mailinglistor, kan ta upp "
 "till några veckor. Om du vill avstå från e-postmeddelanden snabbare, kan du "
 "avbryta prenumerationen genom att klicka på länken i sidfoten."
+
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.html:31
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.txt:15
+#, python-format
+msgid ""
+"This is an informational email only. If you did not initiate this request, "
+"please contact %(contact_email)s."
+msgstr ""
+"Det här mailet sänds enbart i informationssyfte. Om du inte har begärt den "
+"här ändringen, var god kontakta %(contact_email)s."
 
 #: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.html:38
 #: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.txt:19
@@ -11221,6 +11341,11 @@ msgstr "Kunde inte tolka &quot;{student_answer}&quot; som ett nummer."
 msgid "Factorial function evaluated outside its domain:'{student_answer}'"
 msgstr "Faktoriell funktion utvärderad utanför dess domän: '{student_answer}'"
 
+#: xmodule/capa/responsetypes.py:1617
+#, python-brace-format
+msgid "Invalid math syntax: '{student_answer}'"
+msgstr "Ogiltig matematiksyntax: '{student_answer}'"
+
 #: xmodule/capa/responsetypes.py:1648
 msgid "You may not use complex numbers in range tolerance problems"
 msgstr "Du får inte använda komplexa tal inom toleransproblem"
@@ -12085,6 +12210,10 @@ msgstr "Förkunskapskursnyckel om denna kurs har en förkunskapskurs"
 msgid "Grading policy definition for this class"
 msgstr "Klassificeringspolicydefinition för denna klass"
 
+#: xmodule/course_block.py:404
+msgid "Show Calculator"
+msgstr "Visa kalkylator"
+
 #: xmodule/course_block.py:405
 msgid ""
 "Enter true or false. When true, students can see the calculator in the "
@@ -12780,6 +12909,18 @@ msgstr ""
 msgid "Allow Opting Out of Proctored Exams"
 msgstr "Tillåt att välja bort provisoriska tentor"
 
+#: xmodule/course_block.py:915
+msgid ""
+"Enter true or false. If this value is true, learners can choose to take "
+"proctored exams without proctoring. If this value is false, all learners "
+"must take the exam with proctoring. This setting only applies if proctored "
+"exams are enabled for the course."
+msgstr ""
+"Ange sant eller felaktigt. Om det här värdet är sant kan eleverna välja att "
+"ta provtagningsprov utan att proktorera. Om detta värde är felaktigt måste "
+"alla elever ta provet med proctoring. Denna inställning gäller endast om "
+"provtagna tentor är aktiverade för kursen."
+
 #: xmodule/course_block.py:925
 msgid "Create Zendesk Tickets For Suspicious Proctored Exam Attempts"
 msgstr "Skapa Zendesk-biljetter för misstänkta Proctored Exam-försök"
@@ -12908,6 +13049,20 @@ msgstr "Ange detaljerna för kursinstruktören"
 #: xmodule/course_block.py:1048
 msgid "Add Unsupported Problems and Tools"
 msgstr "Lägga till ostödda problem och verktyg"
+
+#: xmodule/course_block.py:1050
+msgid ""
+"Enter true or false. If true, you can add unsupported problems and tools to "
+"your course in Studio. Unsupported problems and tools are not recommended "
+"for use in courses due to non-compliance with one or more of the base "
+"requirements, such as testing, accessibility, internationalization, and "
+"documentation."
+msgstr ""
+"Ange sant eller felaktigt. Om det är sant kan du lägga till icke-stödda "
+"problem och verktyg för din kurs i Studio. Icke-stödda problem och verktyg "
+"rekommenderas inte för användning i kurser på grund av bristande "
+"överensstämmelse med en eller flera av baskraven, till exempel testning, "
+"tillgänglighet, internationalisering och dokumentation."
 
 #: xmodule/course_block.py:1057
 msgid "Highlights Enabled for Messaging"
@@ -13488,9 +13643,22 @@ msgstr ""
 "Kunde inte tolka anpassad parameter: {custom_parameter}. Bör vara en "
 "\"x=y\"-sträng."
 
+#: xmodule/lti_block.py:974
+#, python-brace-format
+msgid ""
+"Could not parse LTI passport: {lti_passport}. Should be \"id:key:secret\" "
+"string."
+msgstr ""
+"Det gick inte att tolka LTI-passet: {lti_passport}. Bör vara "
+"\"id:nyckel:hemlig\" sträng."
+
 #: xmodule/modulestore/inheritance.py:46 xmodule/seq_block.py:76
 msgid "Due Date"
 msgstr "Förfallodatum"
+
+#: xmodule/modulestore/inheritance.py:47
+msgid "Enter the default date by which problems are due."
+msgstr "Ange standarddatum då problem ska vara lösta."
 
 #: xmodule/modulestore/inheritance.py:52 xmodule/seq_block.py:82
 msgid "Number of Relative Weeks Due By"
@@ -13511,6 +13679,10 @@ msgstr "GIT-URL"
 #: xmodule/modulestore/inheritance.py:70
 msgid "Enter the URL for the course data GIT repository."
 msgstr "Ange webbadressen för kursdata GIT-arkivet."
+
+#: xmodule/modulestore/inheritance.py:74
+msgid "XQA Key"
+msgstr "XQA-nyckel"
 
 #: xmodule/modulestore/inheritance.py:75
 msgid "This setting is not currently supported."
@@ -13652,6 +13824,17 @@ msgstr ""
 #: xmodule/modulestore/inheritance.py:173
 msgid "Enable video auto-advance"
 msgstr "Aktivera automatisk videouppspelning"
+
+#: xmodule/modulestore/inheritance.py:175
+msgid ""
+"Specify whether to show an auto-advance button in videos. If the student "
+"clicks it, when the last video in a unit finishes it will automatically move"
+" to the next unit and autoplay the first video."
+msgstr ""
+"Ange om en knapp för automatisk framspelning ska visas i videoklipp. Om "
+"studenten klickar på den, när det sista videoklippet i en enhet slutförs, "
+"flyttas hen automatiskt till nästa enhet och det första videoklippet spelas "
+"upp automatiskt."
 
 #: xmodule/modulestore/inheritance.py:181
 msgid "Video Pre-Roll"
@@ -14057,6 +14240,15 @@ msgid_plural ""
 "There are no transcript files associated with the {lang} languages."
 msgstr[0] "Det finns ingen transkriptfil kopplad till språket {lang}."
 msgstr[1] "Det finns inga transkriptfiler associerade med språken {lang}."
+
+#: xmodule/video_block/video_block.py:886
+msgid ""
+"The URL for your video. This can be a YouTube URL or a link to an .mp4, "
+".ogg, or .webm video file hosted elsewhere on the Internet."
+msgstr ""
+"URL-adressen för din video. Det här kan vara en YouTube-webbadress eller en "
+"länk till en .mp4-, .ogg- eller .webm-videofil värd på andra ställen på "
+"Internet."
 
 #: xmodule/video_block/video_block.py:888
 msgid "Default Video URL"
