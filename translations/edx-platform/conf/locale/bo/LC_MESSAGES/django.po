@@ -265,6 +265,11 @@ msgstr "དྲི་བ།"
 msgid "Library Content"
 msgstr "དཔེ་མཛོད་ཀྱི་ནང་དོན།"
 
+#: cms/djangoapps/contentstore/helpers.py:229
+#: cms/djangoapps/contentstore/views/component.py:288
+msgid "Problem Bank"
+msgstr "དཀའ་ངལ་ཀྱི་གཞི་ཁང་།"
+
 #: cms/djangoapps/contentstore/management/commands/git_export.py:33
 msgid ""
 "Take the specified course and attempt to export it to a git repository\n"
@@ -285,10 +290,22 @@ msgstr ""
 "གནས་སྐབས་ཀྱི་སློབ་ཚན་ལུ་ཡོད་པའི་སློབ་ཚན་ལྡེ་ཡིག་འདིར xblocks "
 "གི་འབྲེལ་ལམ་བསྐྱར་བཟོ་རོགས། དཔེར་ན། course-v1:edX+DemoX.1+2014"
 
+#: cms/djangoapps/contentstore/management/commands/recreate_upstream_links.py:55
+msgid ""
+"Recreate links for xblocks under all courses. NOTE: this can take long time "
+"depending on number of course and xblocks"
+msgstr ""
+"སློབ་ཚན་ག་རེའི་ནང་དུ xblocks གི་འབྲེལ་ལམ་བསྐྱར་བཟོ་རོགས། དྲིལ་བརྡ། "
+"སློབ་ཚན་དང xblocks གྱི་གྲངས་ཀ་ལྟོས་ནས་དུས་ཚོད་མང་པོ་འགྲོ་བར་བརྗེད་མ་རོགས།"
+
 #: cms/djangoapps/contentstore/management/commands/recreate_upstream_links.py:62
 msgid "Recreate links even for completely processed courses."
 msgstr ""
 "སློབ་ཚན་ཚང་མ་བསྒྲུབས་ཚར་ཡོད་ཀྱི་སློབ་ཚན་རྣམས་ཀྱི་དོན་ལུ་ཡང་ནང་འཁྲིལ་བཟོ་རྒྱུ།."
+
+#: cms/djangoapps/contentstore/management/commands/recreate_upstream_links.py:67
+msgid "Delete all and create links for given course(s)."
+msgstr "གང་རུང་བཏོན་ཞིན་སློབ་ཚན་གྱི་འབྲེལ་ལམ་གསར་བཟོ།"
 
 #: cms/djangoapps/contentstore/models.py:95
 msgid "Upstream context key i.e., learning_package/library key"
@@ -316,6 +333,14 @@ msgid "The component must be published to access `published_at`"
 msgstr ""
 "ཁ་སྐོང་འདི་གིས་ `published_at` "
 "ལ་འཛུལ་སྤྱོད་བྱེད་དགོས་པས་ཁ་སྐོང་འདི་གཞི་བཙུགས་དགོས།"
+
+#: cms/djangoapps/contentstore/models.py:329
+msgid ""
+"Upstream block key (e.g. lct:...), this value cannot be null and is useful "
+"to track upstream library blocks that do not exist yet or were deleted."
+msgstr ""
+"ཡར་འཛེགས་མེད་ཀྱི་ལྡེ་ཡིག (དཔེར་ན། lct:...), འདི་གི་རྣམ་པ་མ་སྟོང་མི་ཆོག "
+"དེ་ཡིན་ནོར་བརྒྱུད་ཀྱི་དཔེ་དེབ་ཀྱི་རྒྱུན་ལམ་མེད་པ་ཡང་ན་བཏོན་བཏང་ཡོད་པའི་སྲུང་སྐྱོབ་ལ་ལེགས་ཤོམ་ཡོད།"
 
 #: cms/djangoapps/contentstore/models.py:336
 msgid "Container Link"
@@ -1178,6 +1203,12 @@ msgstr "གནོན་ཐེབས་རྣམས་ཡོད་པའི་ཚ
 msgid "Content is not linked to a Content Library."
 msgstr "ནང་དོན་དེ་ནི་ནང་དོན་གྱི་དཔེ་མཛོད་ཅིག་ལ་སྦྲེལ་མི་འདུག"
 
+#: cms/lib/xblock/upstream_sync.py:255
+msgid "Downstream is not an XBlock or is missing required UpstreamSyncMixin"
+msgstr ""
+"Downstream གཞི་སྒྲིག་ཆ་ཤས་མ་ཡིན་པ་ཡང་ན་ UpstreamSyncMixin "
+"གི་དགོས་མཁོ་ཡོད་པ་མེད་པ་རེད།"
+
 #: cms/lib/xblock/upstream_sync.py:259
 msgid "Cannot update content because it does not belong to a course."
 msgstr ""
@@ -1186,6 +1217,19 @@ msgstr ""
 #: cms/lib/xblock/upstream_sync.py:269
 msgid "Reference to linked library item is malformed"
 msgstr "འབྲེལ་ཡོད་པའི་དཔེ་ཆ་འབྲེལ་བ་ནི་ནོར་འཁྲུལ་ཅན་ཡིན་པས།"
+
+#: cms/lib/xblock/upstream_sync.py:275
+msgid ""
+"Updating content with children is not yet supported unless the upstream is a"
+" container."
+msgstr ""
+"ཡིག་ཆ་གསར་བཟོ་བྱེད་པ་ནི་སྤྱི་བོ་གཙང་སྒྲིག་བྱེད་མི་ཚུགས་པ་ཡིན་པས། "
+"ཡང་ན་ཡང་དག་གི་སྤྱི་བོ་སྒྲིག་བྱེད་དགོས་ཡོད།"
+
+#: cms/lib/xblock/upstream_sync.py:281
+msgid "Linked upstream library block was not found in the system"
+msgstr ""
+"སྒྲིག་སྒྲིག་བྱས་ཡོད་པའི་ཡིག་ཆའི་སྡེ་ཚན་གྱི་དབྱེ་ཚན་གཞི་བཙུགས་མ་ཡིན་པ་མ་ཐོབ་པར་བྱུང་བ།"
 
 #: cms/lib/xblock/upstream_sync.py:288
 msgid "Linked upstream library container was not found in the system"
@@ -8143,6 +8187,15 @@ msgstr ""
 "<{p}><{strong}>{replier_name}</{strong}> ཁྱེད་ཀྱི་རྩོམ་ཡིག་ལ་ལན་བཏབ་པ། "
 "<{strong}>{post_title}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:120
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> and others started new "
+"discussions</{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> "
+"དང་གཞན་ཚོས་གླེང་བརྙན་གསར་པ་འགོ་བཙུགས་པས།</{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:139
 #, python-brace-format
 msgid ""
@@ -10561,6 +10614,20 @@ msgstr "ཁྱེད་ཀྱི་སློབ་ཚན་གྱི་སྐད
 #: xmodule/course_block.py:862
 msgid "Teams Configuration"
 msgstr "ཚོགས་ཆུང་གི་གྲུབ་ཆ་གོ་སྒྲིག"
+
+#: xmodule/course_block.py:865
+msgid ""
+"Configure team sets, limit team sizes, and set visibility settings using "
+"JSON. See <a target=\"&#95;blank\" "
+"href=\"https://docs.openedx.org/en/latest/educators/references/advanced_features/teams_configuration_options.html>teams"
+" configuration documentation</a> for help and examples."
+msgstr ""
+"རིགས་ཚོགས་སྒྲིག་སྟངས་བཟོ་བཅོས་དང་། རིགས་ཚོགས་ཀྱི་ཚོགས་གྲངས་བཀག་སྡོམ་དང་། "
+"མཐོང་སྣང་སྒྲིག་སྟངས་བཟོ་བཅོས་བྱེད་པར JSON ལག་ལེན་འཐབ། "
+"རིགས་ཚོགས་སྒྲིག་སྟངས་ཡིག་ཆ་ལ་རོགས་སྐྱོར་དང་དཔེ་ཆ་ཚུལ་ལེན་འཐབ། <a "
+"target=\"&#95;blank\" "
+"href=\"https://docs.openedx.org/en/latest/educators/references/advanced_features/teams_configuration_options.html\">teams"
+" configuration documentation</a>."
 
 #: xmodule/course_block.py:874
 msgid "Enable Proctored Exams"
