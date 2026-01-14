@@ -26,6 +26,15 @@ msgstr ""
 msgid "Could not parse serialized rubric"
 msgstr "ไม่สามารถแจงกฎรูบริคที่ต่อเนื่อง"
 
+#: assessment/api/student_training.py:191
+msgid ""
+"If your assignment includes a learner training step, the rubric must have at"
+" least one criterion, and that criterion must have at least one option."
+msgstr ""
+"หากการมอบหมายของคุณมีขั้นตอนการฝึกอบรมผู้เรียน, "
+"รูบริกต้องมีเกณฑ์อย่างน้อยหนึ่งเกณฑ์ "
+"และเกณฑ์นั้นต้องมีอย่างน้อยหนึ่งตัวเลือก"
+
 #: assessment/api/student_training.py:203
 #, python-brace-format
 msgid "Example {example_number} has a validation error: {error}"
@@ -62,10 +71,98 @@ msgstr "ตัวเอง"
 msgid "Staff"
 msgstr "พนักงาน"
 
+#: data.py:584
+#, python-brace-format
+msgid "Criterion {number}: {label}"
+msgstr "เกณฑ์ {number}: {label}"
+
+#: data.py:586
+#, python-brace-format
+msgid "Points {number}"
+msgstr "คะแนน {number}"
+
+#: data.py:587
+#, python-brace-format
+msgid "Median Score {number}"
+msgstr "คะแนนมัธยฐาน {number}"
+
+#: data.py:588
+#, python-brace-format
+msgid "Feedback {number}"
+msgstr "ข้อเสนอแนะ {number}"
+
+#: data.py:917
+msgid "Item ID"
+msgstr "ID ไอเท็ม"
+
+#: data.py:918
+msgid "Submission ID"
+msgstr "รหัสการส่ง"
+
+#: data.py:930
+msgid "Anonymized Student ID"
+msgstr "รหัสนักศึกษาที่ไม่ระบุชื่อ"
+
+#: data.py:961
+msgid "Assessment ID"
+msgstr "รหัสการประเมิน"
+
+#: data.py:962
+msgid "Assessment Scored Date"
+msgstr "วันที่ให้คะแนนการประเมิน"
+
+#: data.py:963
+msgid "Assessment Scored Time"
+msgstr "เวลาที่ให้คะแนนการประเมิน"
+
+#: data.py:964
+msgid "Assessment Type"
+msgstr "ประเภทการประเมิน"
+
+#: data.py:965
+msgid "Anonymous Scorer Id"
+msgstr "รหัสผู้ทำประตูที่ไม่เปิดเผยตัวตน"
+
 #: data.py:967
 #: templates/legacy/staff_area/oa_student_info_assessment_detail.html:59
 msgid "Overall Feedback"
 msgstr "ผลตอบกลับทั้งหมด"
+
+#: data.py:968
+msgid "Assessment Score Earned"
+msgstr "คะแนนการประเมินที่ได้รับ"
+
+#: data.py:969
+msgid "Assessment Scored At"
+msgstr "คะแนนการประเมินที่"
+
+#: data.py:970
+msgid "Date/Time Final Score Given"
+msgstr "วันที่และเวลา คะแนนสุดท้ายที่ได้รับ"
+
+#: data.py:971
+msgid "Final Score Earned"
+msgstr "คะแนนสุดท้ายที่ได้รับ"
+
+#: data.py:972
+msgid "Final Score Possible"
+msgstr "คะแนนสุดท้ายที่เป็นไปได้"
+
+#: data.py:973
+msgid "Feedback Statements Selected"
+msgstr "เลือกคำชี้แจงผลตอบรับแล้ว"
+
+#: data.py:974
+msgid "Feedback on Assessment"
+msgstr "ข้อเสนอแนะเกี่ยวกับการประเมิน"
+
+#: data.py:976
+msgid "Response Files"
+msgstr "ไฟล์ตอบกลับ"
+
+#: data.py:1367
+msgid "No description provided."
+msgstr "ไม่มีคำอธิบาย"
 
 #: data.py:1626 templates/legacy/edit/oa_edit_criterion.html:54
 #: xblock/studio_mixin.py:58
@@ -80,6 +177,17 @@ msgstr "บันทึก"
 msgid "Cancel"
 msgstr "ยกเลิก"
 
+#: templates/legacy/edit/oa_edit_assessment_steps.html:6
+msgid ""
+"Open Response Assessments allow you to configure single or multiple steps in"
+" a rubric based open response assessment sequence. The steps available below"
+" can be enabled, disable, and ordered for a flexible set of pedagogical "
+"needs."
+msgstr ""
+"การประเมินการตอบสนองแบบเปิดช่วยให้คุณสามารถกำหนดค่าขั้นตอนเดียวหรือหลายขั้นตอนในลำดับการประเมินการตอบสนองแบบเปิดตามเกณฑ์การให้คะแนน"
+" ขั้นตอนที่ใช้ได้ด้านล่างนี้สามารถเปิดใช้งาน ปิดใช้งาน "
+"และสั่งซื้อได้สำหรับชุดความต้องการด้านการสอนที่ยืดหยุ่น"
+
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:5
 msgid "Display Name "
 msgstr "ชื่อที่แสดง"
@@ -87,6 +195,42 @@ msgstr "ชื่อที่แสดง"
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:8
 msgid "The display name for this component."
 msgstr "ชื่อที่แสดงสำหรับส่วนประกอบนี้"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:12
+msgid "Text Response"
+msgstr "ข้อความตอบสนอง"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:20
+msgid ""
+"Specify whether learners must include a text based response to this "
+"problem's prompt."
+msgstr "ระบุว่า ผู้เรียนต้องรวมการตอบกลับที่เป็นข้อความต่อปัญหานี้ด้วยหรือไม่"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:25
+msgid "Response Editor"
+msgstr "ตัวแก้ไขการตอบกลับ"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:33
+msgid ""
+"Select which editor learners will use to include a text based response to "
+"this problem's prompt."
+msgstr ""
+"เลือกผู้เรียนที่ใช้ตัวแก้ไขที่จะใช้เพื่อรวมการตอบกลับตามข้อความในข้อความแจ้งของปัญหานี้"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:38
+msgid "File Uploads Response"
+msgstr "การตอบสนองการอัพโหลดไฟล์"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:46
+msgid ""
+"Specify whether learners are able to upload files as a part of their "
+"response."
+msgstr ""
+"ระบุว่าผู้เรียนสามารถการอัพโหลดไฟล์เป็นส่วนหนึ่งของการตอบกลับได้หรือไม่"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:50
+msgid "Allow Multiple Files"
+msgstr "อนุญาตให้หลายไฟล์"
 
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:52
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:93
@@ -106,11 +250,112 @@ msgstr "ผิด"
 msgid "True"
 msgstr "ถูก"
 
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:56
+msgid ""
+"Specify whether learners can upload more than one file. This has no effect "
+"if File Uploads Response is set to None. This is automatically set to True "
+"for Team Assignments. "
+msgstr ""
+"ระบุว่าผู้เรียนสามารถอัพโหลดมากกว่าหนึ่งไฟล์ได้หรือไม่ "
+"สิ่งนี้จะไม่มีผลหากตั้งค่าการตอบสนองการอัพโหลดไฟล์เป็นไม่มี "
+"สิ่งนี้จะถูกตั้งค่าเป็น True โดยอัตโนมัติสำหรับการมอบหมายทีม "
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:58
+msgid "File Upload Types"
+msgstr "ประเภทการอัพโหลดไฟล์"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:60
+msgid "PDF or Image Files"
+msgstr "ไฟล์รูปภาพหรือ PDF"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:61
+msgid "Image Files"
+msgstr "ไฟล์ภาพ"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:62
+msgid "Custom File Types"
+msgstr "ประเภทไฟล์ที่กำหนดเอง"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:66
+msgid ""
+"Specify whether learners can submit files along with their text responses."
+msgstr "ระบุว่าผู้เรียนสามารถส่งไฟล์พร้อมกับข้อความตอบกลับได้หรือไม่"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:70
+msgid "File Types"
+msgstr "ประเภทไฟล์"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:79
+msgid ""
+"Enter the file extensions, separated by commas, that you want learners to be"
+" able to upload. For example: pdf,doc,docx."
+msgstr ""
+"ป้อนนามสกุลไฟล์, คั่นด้วยเครื่องหมายจุลภาค "
+"ที่คุณต้องการให้ผู้เรียนสามารถอัพโหลดได้ ตัวอย่างเช่น pdf, doc, docx"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:84
+msgid ""
+"To add more file extensions, select Custom File Types and enter the full "
+"list of acceptable file extensions to be included."
+msgstr ""
+"หากต้องการเพิ่มนามสกุลไฟล์ ให้เลือกประเภทไฟล์ที่กำหนดเอง "
+"และป้อนรายการนามสกุลไฟล์ที่ยอมรับทั้งหมดที่จะรวมไว้"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:91
+msgid "Allow LaTeX Responses"
+msgstr "อนุญาตการตอบสนองแบบ LaTeX"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:97
+msgid "Specify whether learners can write LaTeX formatted strings"
+msgstr "ระบุว่าผู้เรียนสามารถเขียนสตริงที่จัดรูปแบบ LaTeX ได้หรือไม่"
+
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:102
 #: templates/legacy/leaderboard/oa_leaderboard_show.html:8
 #: templates/legacy/leaderboard/oa_leaderboard_waiting.html:10
 msgid "Top Responses"
 msgstr "คำตอบยอดนิยม"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:104
+msgid " (Disabled)"
+msgstr " (พิการ)"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:117
+msgid ""
+"Specify the number of top scoring responses to display after the learner has"
+" submitted a response. Valid numbers are 0 to 99. If the number is 0, the "
+"Top Responses section does not appear to learners."
+msgstr ""
+"ระบุจำนวนคำตอบที่ได้คะแนนสูงสุดที่จะแสดงหลังจากที่ผู้เรียนส่งคำตอบแล้ว "
+"ตัวเลขที่ถูกต้องคือ 0 ถึง 99 หากตัวเลขเป็น 0 "
+"ส่วนคำตอบยอดนิยมจะไม่ปรากฏให้ผู้เรียนเห็น"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:122
+msgid "When Teams Enabled is set to true, Top Responses will be disabled."
+msgstr ""
+"เมื่อ Teams Enabled ถูกตั้งค่าให้เป็นจริง Top Responses จะถูกปิดใช้งาน"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:129
+msgid "Teams Enabled"
+msgstr "เปิดใช้งานทีมแล้ว"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:136
+msgid "Specify whether team submissions are allowed for this response."
+msgstr "ระบุว่าอนุญาตให้ส่งทีมสำหรับการตอบกลับนี้หรือไม่"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:141
+msgid "Select Team-Set"
+msgstr "เลือกชุดทีม"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:155
+msgid "Show Rubric During Response"
+msgstr "แสดงรูบริกระหว่างการตอบสนอง"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:162
+msgid ""
+"Specify whether learners can see the rubric while they are working on their "
+"response."
+msgstr ""
+"ระบุว่าผู้เรียนสามารถดูเกณฑ์การให้คะแนนในขณะที่กำลังตอบคำถามได้หรือไม่"
 
 #: templates/legacy/edit/oa_edit_criterion.html:6
 #: templates/legacy/staff_area/oa_student_info.html:122
@@ -156,6 +401,14 @@ msgstr "เป็นตัวเลือก"
 msgid "Required"
 msgstr "จำเป็น"
 
+#: templates/legacy/edit/oa_edit_criterion.html:61
+msgid ""
+"Select one of the options above. This describes whether or not the reviewer "
+"will have to provide criterion feedback."
+msgstr ""
+"เลือกหนึ่งในตัวเลือกด้านบน "
+"ข้อมูลนี้จะอธิบายว่าผู้ตรวจทานจะต้องให้คำติชมเกี่ยวกับเกณฑ์หรือไม่"
+
 #: templates/legacy/edit/oa_edit_header_and_validation.html:3
 msgid "Open Response Assessment"
 msgstr "การประเมินการตอบแบบเปิด"
@@ -168,6 +421,14 @@ msgstr "แจ้ง"
 #: templates/legacy/edit/oa_edit_header_and_validation.html:15
 msgid "Rubric"
 msgstr "กฎรูบริค"
+
+#: templates/legacy/edit/oa_edit_header_and_validation.html:22
+msgid "Schedule"
+msgstr "กำหนดการ"
+
+#: templates/legacy/edit/oa_edit_header_and_validation.html:29
+msgid "Assessment steps"
+msgstr "ขั้นตอนการประเมิน"
 
 #: templates/legacy/edit/oa_edit_header_and_validation.html:36
 msgid "Settings"
@@ -193,13 +454,67 @@ msgstr "คำอธิบายตัวเลือก"
 msgid "Step: Peer Assessment"
 msgstr "ขั้นตอน: ประเมินโดยเพื่อน"
 
+#: templates/legacy/edit/oa_edit_peer_assessment.html:15
+msgid ""
+"Peer Assessment allows students to provide feedback to other students and "
+"also receive feedback from others in their final grade. Often, though not "
+"always, this step is preceded by Self Assessment or Learner Training steps."
+msgstr ""
+"การประเมินโดยเพื่อนนักเรียนช่วยให้นักเรียนสามารถให้คำติชมแก่นักเรียนคนอื่นๆ "
+"และยังได้รับคำติชมจากคนอื่นๆ ในเกรดสุดท้ายอีกด้วย บ่อยครั้ง "
+"แม้จะไม่ใช่เสมอไป "
+"ขั้นตอนนี้จะนำหน้าด้วยขั้นตอนการประเมินตนเองหรือการฝึกอบรมผู้เรียน"
+
+#: templates/legacy/edit/oa_edit_peer_assessment.html:18
+msgid ""
+"Configuration: For this step to be configured you must specify the number of"
+" peer reviews a student will be assessed with, and the number of peer a "
+"student must grade. Additional options can be specified."
+msgstr ""
+"การกำหนดค่า: สำหรับการกำหนดค่าขั้นตอนนี้ "
+"คุณจะต้องระบุจำนวนบทวิจารณ์ของเพื่อนที่นักเรียนจะได้รับการประเมิน "
+"และจำนวนเพื่อนที่นักเรียนจะต้องให้คะแนน สามารถระบุตัวเลือกเพิ่มเติมได้"
+
+#: templates/legacy/edit/oa_edit_peer_assessment.html:23
+msgid "View Options & Configuration"
+msgstr "ดูตัวเลือกและการกำหนดค่า"
+
 #: templates/legacy/edit/oa_edit_peer_assessment.html:29
 msgid "Must Grade"
 msgstr "ต้องให้คะแนน"
 
+#: templates/legacy/edit/oa_edit_peer_assessment.html:32
+msgid ""
+"Specify the number of peer assessments that each learner must complete. "
+"Valid numbers are 1 to 99."
+msgstr ""
+"ระบุจำนวนการประเมินเพื่อนที่ผู้เรียนแต่ละคนต้องทำให้เสร็จสิ้น "
+"หมายเลขที่ถูกต้องคือ 1 ถึง 99"
+
 #: templates/legacy/edit/oa_edit_peer_assessment.html:36
 msgid "Graded By"
 msgstr "ให้คะแนนโดย"
+
+#: templates/legacy/edit/oa_edit_peer_assessment.html:39
+msgid ""
+"Specify the number of learners that each response must be assessed by. Valid"
+" numbers are 1 to 99."
+msgstr ""
+"ระบุจำนวนผู้เรียนที่ต้องประเมินแต่ละคำตอบ หมายเลขที่ถูกต้องคือ 1 ถึง 99"
+
+#: templates/legacy/edit/oa_edit_peer_assessment.html:43
+msgid "Enable Flexible Peer Grade Averaging"
+msgstr "เปิดใช้งานการเฉลี่ยเกรดเพื่อนแบบยืดหยุ่น"
+
+#: templates/legacy/edit/oa_edit_peer_assessment.html:49
+#, python-format
+msgid ""
+"When enabled, learners who have received at least 30%% of the required \\"
+msgstr "เมื่อเปิดใช้งาน ผู้เรียนที่ได้รับอย่างน้อย 30% ของที่จำเป็น \\"
+
+#: templates/legacy/edit/oa_edit_peer_assessment_schedule.html:5
+msgid "Peer Assessment Deadlines"
+msgstr "กำหนดเวลาการประเมินเพื่อน"
 
 #: templates/legacy/edit/oa_edit_peer_assessment_schedule.html:10
 #: templates/legacy/edit/oa_edit_self_assessment_schedule.html:10
@@ -211,6 +526,10 @@ msgstr "วันที่เริ่ม"
 msgid "Start Time"
 msgstr "เวลาที่เริ่ม"
 
+#: templates/legacy/edit/oa_edit_peer_assessment_schedule.html:27
+msgid "The date and time when learners can begin assessing peer responses."
+msgstr "วันที่และเวลาที่ผู้เรียนสามารถเริ่มประเมินคำตอบของเพื่อนได้"
+
 #: templates/legacy/edit/oa_edit_peer_assessment_schedule.html:31
 #: templates/legacy/edit/oa_edit_self_assessment_schedule.html:31
 #: templates/legacy/staff_area/oa_staff_area.html:119
@@ -221,6 +540,10 @@ msgstr "วันครบกำหนด"
 #: templates/legacy/edit/oa_edit_self_assessment_schedule.html:40
 msgid "Due Time"
 msgstr "เวลาครบกำหนด"
+
+#: templates/legacy/edit/oa_edit_peer_assessment_schedule.html:48
+msgid "The date and time when all peer assessments must be complete."
+msgstr "วันที่และเวลาที่การประเมินโดยผู้ทรงคุณวุฒิทั้งหมดจะต้องเสร็จสิ้น"
 
 #: templates/legacy/edit/oa_edit_prompt.html:8
 msgid "You cannot delete a prompt after the assignment has been released."
@@ -261,9 +584,25 @@ msgstr "ผลตอบกลับสำหรับคำตอบนี้"
 msgid "Feedback Instructions"
 msgstr "คำแนะนำผลตอบกลับ"
 
+#: templates/legacy/edit/oa_edit_rubric.html:44
+msgid ""
+"Encourage learners to provide feedback on the response they have graded. You"
+" can replace the sample text with your own."
+msgstr ""
+"กระตุ้นให้ผู้เรียนให้ข้อเสนอแนะ การตอบสนองต่อคะแนนที่ได้ "
+"คุณสามารถแทนที่ข้อความตัวอย่างด้วยตัวคุณเอง"
+
 #: templates/legacy/edit/oa_edit_rubric.html:49
 msgid "Default Feedback Text"
 msgstr "ข้อความผลตอบกลับเริ่มต้น"
+
+#: templates/legacy/edit/oa_edit_rubric.html:53
+msgid ""
+"Enter feedback text that learners will see before they enter their own "
+"feedback. Use this text to show learners a good example peer assessment."
+msgstr ""
+"ป้อนข้อความความคิดเห็นที่ผู้เรียนจะเห็นก่อนที่พวกเขาจะป้อนความคิดเห็นของตนเอง"
+" ใช้ข้อความนี้เพื่อแสดงให้ผู้เรียนเห็นตัวอย่างการประเมินที่ดี"
 
 #: templates/legacy/edit/oa_edit_schedule.html:35
 msgid "Response Start Date"
@@ -273,6 +612,10 @@ msgstr "วันเริ่มตอบ"
 msgid "Response Start Time"
 msgstr "เวลาเริ่มตอบ"
 
+#: templates/legacy/edit/oa_edit_schedule.html:57
+msgid "The date and time when learners can begin submitting responses."
+msgstr "วันที่และเวลา ที่ผู้เรียนสามารถเริ่มส่งคำตอบ"
+
 #: templates/legacy/edit/oa_edit_schedule.html:65
 msgid "Response Due Date"
 msgstr "วันกำหนดส่งคำตอบ"
@@ -281,13 +624,108 @@ msgstr "วันกำหนดส่งคำตอบ"
 msgid "Response Due Time"
 msgstr "เวลากำหนดส่งคำตอบ"
 
+#: templates/legacy/edit/oa_edit_schedule.html:87
+msgid "The date and time when learners can no longer submit responses."
+msgstr "วันที่และเวลา ที่ผู้เรียนไม่สามารถตอบกลับได้อีกต่อไป"
+
 #: templates/legacy/edit/oa_edit_self_assessment.html:8
 msgid "Step: Self Assessment"
 msgstr "ขั้นตอน: ประเมินตนเอง"
 
+#: templates/legacy/edit/oa_edit_self_assessment.html:12
+msgid ""
+"Self Assessment asks learners to grade their own submissions against the "
+"rubric."
+msgstr "การประเมินตนเองจะขอให้ผู้เรียนให้คะแนนงานที่ตนเองส่งมาเทียบกับรูบริก"
+
+#: templates/legacy/edit/oa_edit_self_assessment_schedule.html:5
+msgid "Self Assessment Deadlines"
+msgstr "กำหนดเวลาการประเมินตนเอง"
+
+#: templates/legacy/edit/oa_edit_self_assessment_schedule.html:27
+msgid "The date and time when learners can begin assessing their responses."
+msgstr "วันที่และเวลาที่ผู้เรียนสามารถเริ่มประเมินคำตอบได้"
+
+#: templates/legacy/edit/oa_edit_self_assessment_schedule.html:48
+msgid "The date and time when all self assessments must be complete."
+msgstr "วันและเวลาที่การประเมินตนเองทั้งหมดจะต้องเสร็จสิ้น"
+
+#: templates/legacy/edit/oa_edit_staff_assessment.html:8
+msgid "Step: Staff Assessment"
+msgstr "ขั้นตอน: การประเมินพนักงาน"
+
+#: templates/legacy/edit/oa_edit_staff_assessment.html:12
+msgid ""
+"Staff Assessment gates sets the final grade for students if enabled with "
+"other steps, though it can also be used as a standalone step."
+msgstr ""
+"เจ้าหน้าที่ประเมินจะกำหนดเกรดสุดท้ายสำหรับนักเรียนหากเปิดใช้งานด้วยขั้นตอนอื่นๆ"
+" แม้ว่าจะสามารถใช้เป็นขั้นตอนเดี่ยวๆ ก็ได้"
+
+#: templates/legacy/edit/oa_edit_student_training.html:9
+msgid "Step: Learner Training"
+msgstr "ขั้นตอน: การฝึกอบรมผู้เรียน"
+
+#: templates/legacy/edit/oa_edit_student_training.html:14
+msgid ""
+"Learner Training is used to help students practice grading a simulated peer "
+"submission in order to train them on the rubric and ensure learner's "
+"understand the rubric for either Self or Peer Assessment steps."
+msgstr ""
+"การฝึกอบรมผู้เรียนถูกใช้เพื่อช่วยให้นักเรียนฝึกให้คะแนนการส่งเพื่อนจำลอง "
+"เพื่อฝึกอบรมพวกเขาเกี่ยวกับรูบริกและให้แน่ใจว่าผู้เรียนเข้าใจรูบริกสำหรับขั้นตอนการประเมินตนเองหรือเพื่อน"
+
+#: templates/legacy/edit/oa_edit_student_training.html:17
+msgid ""
+"Configuration: For this step to be fully configured you must provide one or "
+"more graded sample responses. Learners must then match this instructor score"
+" to advance and are provided feedback when their score doesn't match the "
+"sample response."
+msgstr ""
+"การกำหนดค่า: เพื่อให้ขั้นตอนนี้ได้รับการกำหนดค่าอย่างสมบูรณ์ "
+"คุณต้องจัดเตรียมตัวอย่างการตอบกลับที่มีระดับอย่างน้อยหนึ่งรายการ "
+"จากนั้นผู้เรียนจะต้องตรงกับคะแนนผู้สอนนี้จึงจะก้าวหน้า "
+"และได้รับคำติชมเมื่อคะแนนไม่ตรงกับคำตอบของกลุ่มตัวอย่าง"
+
+#: templates/legacy/edit/oa_edit_student_training.html:22
+msgid "View / Add Sample Responses"
+msgstr "ดู / เพิ่มตัวอย่างคำตอบ"
+
 #: templates/legacy/edit/oa_edit_student_training.html:32
 msgid "Add Sample Response"
 msgstr "เพิ่มตัวอย่างคำตอบ"
+
+#: templates/legacy/edit/oa_rubric_reuse.html:4
+msgid "Clone Rubric"
+msgstr "โคลนรูบริก"
+
+#: templates/legacy/edit/oa_rubric_reuse.html:7
+msgid ""
+"To clone a rubric from an existing published or unpublished draft, you can "
+"search by the Block ID. Note that cloning is one-way, meaning changes made "
+"after cloning will only affect the rubric being modified, and will not "
+"modify any rubric it was cloned from."
+msgstr ""
+"หากต้องการโคลนเกณฑ์จากร่างที่มีอยู่หรือยังไม่ได้เผยแพร่ "
+"คุณสามารถค้นหาด้วยรหัสบล็อก โปรดทราบว่าการโคลนเป็นแบบทางเดียว "
+"หมายความว่าการเปลี่ยนแปลงที่ทำหลังจากการโคลนจะส่งผลต่อรูบริกที่กำลังแก้ไขเท่านั้น"
+" และจะไม่แก้ไขรูบริกใดๆ ที่ถูกโคลนมา"
+
+#: templates/legacy/edit/oa_rubric_reuse.html:9
+msgid "Block ID For this ORA:"
+msgstr "บล็อก ID สำหรับ ORA นี้:"
+
+#: templates/legacy/edit/oa_rubric_reuse.html:21
+msgid "No other Open Response Assessments found in course"
+msgstr "ไม่พบการประเมินการตอบสนองแบบเปิดอื่นๆ ในหลักสูตร"
+
+#: templates/legacy/edit/oa_rubric_reuse.html:31
+msgid "Clone"
+msgstr "โคลน"
+
+#: templates/legacy/edit/oa_rubric_reuse.html:37
+msgid "Rubric Successfully Cloned from Block ID: "
+msgstr "โคลนรูบริกสำเร็จจาก Block ID: "
 
 #: templates/legacy/edit/oa_training_example.html:7
 msgid "Scored Response"
@@ -311,6 +749,32 @@ msgstr "ไม่ถูกเลือก"
 msgid "points"
 msgstr "คะแนน"
 
+#: templates/legacy/grade/oa_assessment_feedback.html:8
+#, python-format
+msgid ""
+"\n"
+"                %(start_tag)s%(title)s%(end_tag)s%(start_grade_tag)s - %(grade)s%(end_tag)s\n"
+"              "
+msgstr ""
+"\n"
+"                %(start_tag)s %(title)s %(end_tag)s %(start_grade_tag)s - %(grade)s %(end_tag)s\n"
+"              "
+
+#: templates/legacy/grade/oa_assessment_title.html:7
+#, python-format
+msgid ""
+"\n"
+"                      %(assessment_title)s - %(points)s point\n"
+"                  "
+msgid_plural ""
+"\n"
+"                      %(assessment_title)s - %(points)s points\n"
+"                  "
+msgstr[0] ""
+"\n"
+"                      %(assessment_title)s - %(points)s คะแนน\n"
+"                  "
+
 #: templates/legacy/grade/oa_assessment_title.html:24
 #, python-format
 msgid "More information about %(name)s"
@@ -325,14 +789,40 @@ msgstr "ข้อมูลเพิ่มเติมเกี่ยวกับ
 msgid "Your Grade"
 msgstr "เกรดของคุณ"
 
+#: templates/legacy/grade/oa_grade_cancelled.html:19
+#, python-format
+msgid ""
+"\n"
+"                                        %(points_earned)s out of %(points_possible)s\n"
+"                                    "
+msgstr ""
+"\n"
+"                                        %(points_earned)s จาก %(points_possible)s\n"
+"                                    "
+
 #: templates/legacy/grade/oa_grade_cancelled.html:38
 msgid "Your submission has been cancelled."
 msgstr "การส่งของคุณถูกยกเลิกแล้ว"
+
+#: templates/legacy/grade/oa_grade_complete.html:19
+#, python-format
+msgid ""
+"\n"
+"                                            %(points_earned)s out of %(points_possible)s\n"
+"                                        "
+msgstr ""
+"\n"
+"                                            %(points_earned)s จาก %(points_possible)s\n"
+"                                        "
 
 #: templates/legacy/grade/oa_grade_complete.html:38
 #: templates/legacy/response/oa_response.html:29
 msgid "Your Response"
 msgstr "คำตอบของคุณ"
+
+#: templates/legacy/grade/oa_grade_complete.html:41
+msgid "Your Upload"
+msgstr "การอัพโหลดของคุณ"
 
 #: templates/legacy/grade/oa_grade_complete.html:46
 msgid "Assessments of Your Response"
@@ -373,6 +863,10 @@ msgstr "คะแนน"
 msgid "Additional comments on your response"
 msgstr "ความเห็นเพิ่มเติมในคำตอบของคุณ"
 
+#: templates/legacy/grade/oa_grade_complete.html:117
+msgid "Provide feedback on peer assessments"
+msgstr "ให้ข้อเสนอแนะเกี่ยวกับการประเมินโดยเพื่อน"
+
 #: templates/legacy/grade/oa_grade_complete.html:126
 msgid "Submitting Feedback"
 msgstr "ส่งผลตอบกลับ"
@@ -392,6 +886,13 @@ msgid ""
 msgstr ""
 "เต้าหน้าที่หลักสูตรจะสามารถเห็นผลตอบกลับใดๆก็ตามที่คุณส่งมาให้เมื่อเจ้าที่ตรวจสอบบันทึกหลักสูตร"
 
+#: templates/legacy/grade/oa_grade_complete.html:146
+msgid ""
+"Select the statements below that best reflect your experience with peer "
+"assessments."
+msgstr ""
+"เลือกข้อความข้างใต้นี้ที่คิดว่าสะท้อนประสบการณ์การประเมินเพื่อนได้ดีที่สุด"
+
 #: templates/legacy/grade/oa_grade_complete.html:155
 msgid "These assessments were useful."
 msgstr "การประเมินเหล่านี้มีประโยชน์"
@@ -409,6 +910,12 @@ msgstr ""
 msgid "Some comments I received were inappropriate."
 msgstr "บางความเห็นที่ได้รับนั้นไม่เหมาะสม"
 
+#: templates/legacy/grade/oa_grade_complete.html:187
+msgid ""
+"Provide feedback on the grade or comments that you received from your peers."
+msgstr ""
+"แสดงความคิดเห็นเกี่ยวกับเกรดหรือความคิดเห็นที่คุณได้รับจากเพื่อนของคุณ"
+
 #: templates/legacy/grade/oa_grade_complete.html:190
 msgid "I feel the feedback I received was..."
 msgstr "คุณรู้สึกว่าผลตอบกลับที่ได้นั้น..."
@@ -416,6 +923,10 @@ msgstr "คุณรู้สึกว่าผลตอบกลับที่
 #: templates/legacy/grade/oa_grade_complete.html:200
 msgid "We could not submit your feedback"
 msgstr "เราไม่สามารถส่งผลตอบรับของคุณ"
+
+#: templates/legacy/grade/oa_grade_complete.html:206
+msgid "Submit feedback on peer assessments"
+msgstr "ส่งข้อเสนอแนะเกี่ยวกับการประเมินโดยเพื่อน"
 
 #: templates/legacy/grade/oa_grade_incomplete.html:16
 msgid "Not Completed"
@@ -437,14 +948,59 @@ msgstr "คุณยังไม่ได้เริ่มปัญหาข้
 msgid "Waiting for Assessments"
 msgstr "รอการประเมิน"
 
+#: templates/legacy/grade/oa_grade_waiting.html:33
+msgid ""
+"You have completed your steps in the assignment, but some assessments still "
+"need to be done on your response. When the assessments of your response are "
+"complete, you will see feedback from everyone who assessed your response, "
+"and you will receive your final grade."
+msgstr ""
+"คุณทำตามขั้นตอนในการมอบหมายงานเสร็จแล้ว "
+"แต่ยังต้องมีการประเมินบางอย่างเกี่ยวกับการตอบกลับของคุณ "
+"เมื่อการประเมินคำตอบของคุณเสร็จสมบูรณ์ "
+"คุณจะเห็นคำติชมจากทุกคนที่ประเมินคำตอบของคุณ และคุณจะได้รับเกรดสุดท้าย"
+
+#: templates/legacy/instructor_dashboard/oa_grade_available_responses.html:15
+#: templates/legacy/staff_area/oa_staff_area.html:16
+#: templates/legacy/staff_area/oa_staff_area.html:18
+#: templates/legacy/staff_area/oa_staff_area.html:153
+msgid "Grade Available Responses"
+msgstr "เกรดคำตอบที่มีอยู่"
+
+#: templates/legacy/instructor_dashboard/oa_grade_available_responses.html:26
+msgid ""
+"Grade Available Responses is unavailable. This item is not configured for "
+"Staff Assessment."
+msgstr ""
+"การตอบกลับที่มีระดับไม่พร้อมใช้งาน "
+"รายการนี้ไม่ได้รับการกำหนดค่าสำหรับการประเมินพนักงาน"
+
 #: templates/legacy/instructor_dashboard/oa_listing.html:6
 msgid "Please wait"
 msgstr "กรุณารอสักครู่"
+
+#: templates/legacy/instructor_dashboard/oa_waiting_step_details.html:15
+msgid "Waiting Step Details"
+msgstr "รายละเอียดขั้นตอนการรอ"
+
+#: templates/legacy/instructor_dashboard/oa_waiting_step_details.html:24
+msgid ""
+"Waiting Step details view is unavailable. This item is not configured for "
+"peer assessments."
+msgstr ""
+"มุมมองรายละเอียดขั้นตอนการรอไม่พร้อมใช้งาน "
+"รายการนี้ไม่ได้รับการกำหนดค่าสำหรับการประเมินเพื่อน"
 
 #: templates/legacy/leaderboard/oa_leaderboard_show.html:20
 #, python-format
 msgid "%(num_points)s points"
 msgstr "%(num_points)s คะแนน"
+
+#: templates/legacy/leaderboard/oa_leaderboard_show.html:24
+#: templates/legacy/peer/oa_peer_assessment.html:84
+#: templates/legacy/peer/oa_peer_turbo_mode.html:53
+msgid "Your peer's response to the prompt above"
+msgstr "การตอบกลับของเพื่อนของคุณต่อข้อความแจ้งด้านบน"
 
 #: templates/legacy/leaderboard/oa_leaderboard_waiting.html:19
 msgid ""
@@ -454,6 +1010,169 @@ msgstr ""
 "หลังจากเสร็จสิ้นทุกขั้นสำหรับการประเมินครั้งนี้แล้ว "
 "คุณสามารถเห็นคะแนนสูงสุดจากเพื่อนได้"
 
+#: templates/legacy/message/oa_message_cancelled.html:8
+msgid ""
+"Your team’s submission has been cancelled. Your team will receive a grade of"
+" zero unless course staff resets your assessment to allow the team to "
+"resubmit a response."
+msgstr ""
+"เจ้าหน้าที่ประจำหลักสูตรยกเลิกการส่งของทีมของคุณแล้ว "
+"ทีมของคุณจะได้รับคะแนนเป็นศูนย์ "
+"เว้นแต่เจ้าหน้าที่จะรีเซ็ตการประเมินเพื่อให้ทีมส่งคำตอบอีกครั้ง"
+
+#: templates/legacy/message/oa_message_cancelled.html:10
+msgid ""
+"Your submission has been cancelled. You will receive a grade of zero unless "
+"course staff resets your assessment to allow you to resubmit a response."
+msgstr ""
+"การส่งของคุณถูกยกเลิกแล้ว คุณจะได้รับเกรดเป็นศูนย์ "
+"เว้นแต่เจ้าหน้าที่ของหลักสูตรจะรีเซ็ตการประเมินของคุณเพื่อให้คุณส่งคำตอบอีกครั้งได้"
+
+#: templates/legacy/message/oa_message_closed.html:8
+msgid ""
+"This task is not yet available. Check back to complete the assignment once "
+"this section has opened."
+msgstr ""
+"งานนี้ยังไม่มี กลับมาตรวจสอบอีกครั้งเพื่อทำงานให้เสร็จเมื่อเปิดส่วนนี้แล้ว"
+
+#: templates/legacy/message/oa_message_closed.html:10
+msgid ""
+"This assignment has closed. One or more deadlines for this assignment have "
+"passed. You will receive an incomplete grade for this assignment."
+msgstr ""
+"งานนี้ปิดแล้ว กำหนดเวลาหนึ่งหรือหลายรายการสำหรับงานนี้ได้ล่วงเลยไปแล้ว "
+"คุณจะได้รับเกรดที่ไม่สมบูรณ์สำหรับงานนี้"
+
+#: templates/legacy/message/oa_message_complete.html:8
+msgid ""
+"You have completed this assignment. Your final grade will be available when "
+"the assessments of your response are complete."
+msgstr ""
+"คุณทำภารกิจนี้สำเร็จแล้ว "
+"เกรดสุดท้ายของคุณจะสามารถใช้ได้เมื่อการประเมินคำตอบของคุณเสร็จสมบูรณ์"
+
+#: templates/legacy/message/oa_message_complete.html:10
+msgid ""
+"You have completed this assignment. Review your grade and your assessment "
+"details."
+msgstr "คุณทำภารกิจนี้สำเร็จแล้ว ตรวจสอบเกรดและรายละเอียดการประเมินของคุณ"
+
+#: templates/legacy/message/oa_message_incomplete.html:9
+msgid ""
+"This assignment is in progress. Learner training will close soon. Complete "
+"the learner training step to move on."
+msgstr ""
+"งานนี้อยู่ในระหว่างดำเนินการ การฝึกอบรมผู้เรียนจะปิดเร็วๆ นี้ "
+"ทำตามขั้นตอนการฝึกอบรมผู้เรียนให้เสร็จสิ้นเพื่อเดินหน้าต่อไป"
+
+#: templates/legacy/message/oa_message_incomplete.html:11
+msgid ""
+"This assignment is in progress. Complete the learner training step to move "
+"on."
+msgstr ""
+"งานนี้อยู่ในระหว่างดำเนินการ "
+"ทำตามขั้นตอนการฝึกอบรมผู้เรียนให้เสร็จสิ้นเพื่อเดินหน้าต่อไป"
+
+#: templates/legacy/message/oa_message_incomplete.html:15
+#: templates/legacy/message/oa_message_incomplete.html:33
+msgid ""
+"This assignment is in progress. Check back later when the assessment period "
+"has started."
+msgstr ""
+"งานนี้อยู่ในระหว่างดำเนินการ "
+"โปรดกลับมาตรวจสอบในภายหลังเมื่อเริ่มช่วงการประเมินแล้ว"
+
+#: templates/legacy/message/oa_message_incomplete.html:20
+#, python-format
+msgid ""
+"\n"
+"                                    %(start_strong)sThis assignment is in progress. The self assessment step will close soon.%(end_strong)s You still need to complete the %(start_link)sself assessment%(end_link)s step.\n"
+"                                "
+msgstr ""
+"\n"
+"                                    %(start_strong)s งานนี้อยู่ระหว่างดำเนินการ ขั้นตอนการประเมินตนเองจะปิดเร็วๆ นี้ %(end_strong)s คุณยังคงต้องดำเนินการขั้นตอนการประเมินตนเอง %(start_link)sการประเมินตนเอง%(end_link)s ให้เสร็จสิ้น\n"
+"                                "
+
+#: templates/legacy/message/oa_message_incomplete.html:24
+#, python-format
+msgid ""
+"\n"
+"                                    This assignment is in progress. You still need to complete the %(start_link)sself assessment%(end_link)s step.\n"
+"                                "
+msgstr ""
+"\n"
+"                                    ```\n"
+"งานนี้อยู่ในระหว่างดำเนินการ\n"
+"คุณยังคงต้องดำเนินการขั้นตอนการ %(start_link)sประเมินตนเอง%(end_link)s ให้เสร็จสิ้น\n"
+"```\n"
+"                                "
+
+#: templates/legacy/message/oa_message_incomplete.html:38
+#, python-format
+msgid ""
+"\n"
+"                                    This assignment is in progress.%(start_strong)sThe peer assessment step will close soon.%(end_strong)s All submitted peer responses have been assessed. Check back later to see if more learners have submitted responses. You still need to complete the %(start_link)speer assessment%(end_link)s step.\n"
+"                                "
+msgstr ""
+"\n"
+"                                    \n"
+"งานนี้กำลังดำเนินการอยู่ %(start_strong)s ขั้นตอนการประเมินเพื่อนจะปิดเร็วๆ นี้ %(end_strong)s คำตอบของเพื่อนที่ส่งมาทั้งหมดได้รับการประเมินแล้ว โปรดกลับมาตรวจสอบในภายหลังเพื่อดูว่ามีผู้เรียนส่งคำตอบเพิ่มเติมหรือไม่ คุณยังต้องทำการประเมินเพื่อน %(start_link)speer assessment%(end_link)s ให้เสร็จสิ้น\n"
+"                                "
+
+#: templates/legacy/message/oa_message_incomplete.html:42
+#, python-format
+msgid ""
+"\n"
+"                                    This assignment is in progress. All submitted peer responses have been assessed. Check back later to see if more learners have submitted responses. You still need to complete the %(start_link)speer assessment%(end_link)s step.\n"
+"                                "
+msgstr ""
+"\n"
+"                                    ```\n"
+"งานนี้อยู่ในระหว่างดำเนินการ คำตอบของเพื่อนที่ส่งมาทั้งหมดได้รับการประเมินแล้ว โปรดกลับมาตรวจสอบในภายหลังเพื่อดูว่ามีผู้เรียนส่งคำตอบเพิ่มเติมหรือไม่ คุณยังต้องทำการประเมินเพื่อน %(start_link)speer assessment%(end_link)s ให้เสร็จสิ้น\n"
+"```\n"
+"                                "
+
+#: templates/legacy/message/oa_message_incomplete.html:50
+#, python-format
+msgid ""
+"\n"
+"                                    This assignment is in progress. You still need to complete the %(start_link)speer assessment%(end_link)s step.\n"
+"                                "
+msgstr ""
+"\n"
+"                                    \n"
+"งานนี้อยู่ในระหว่างดำเนินการ คุณยังต้องทำการประเมินเพื่อน %(start_link)speer assessment%(end_link)s ให้เสร็จสิ้น\n"
+"\n"
+"                                "
+
+#: templates/legacy/message/oa_message_no_team.html:4
+msgid "Team membership is required to view this assignment"
+msgstr "ต้องเป็นสมาชิกทีมเพื่อดูงานนี้"
+
+#: templates/legacy/message/oa_message_open.html:7
+#, python-format
+msgid ""
+"\n"
+"                    Assignment submissions will close soon. To receive a grade, first provide a response to the prompt, then complete the steps below the %(start_tag)sYour Response%(end_tag)s field.\n"
+"                "
+msgstr ""
+"\n"
+"                    การส่งงานจะปิดเร็ว ๆ นี้ หากต้องการรับเกรด ขั้นแรกให้ตอบกลับคำถาม จากนั้นทำตามขั้นตอนด้านล่างช่อง %(start_tag)sYour Response%(end_tag)s\n"
+"                "
+
+#: templates/legacy/message/oa_message_open.html:11
+#, python-format
+msgid ""
+"\n"
+"                    This assignment has several steps. In the first step, you'll provide a response to the prompt. The other steps appear below the %(start_tag)sYour Response%(end_tag)s field.\n"
+"                "
+msgstr ""
+"\n"
+"                    \n"
+"\n"
+"งานนี้มีหลายขั้นตอน ในขั้นตอนแรก คุณจะต้องตอบกลับข้อความแจ้ง ขั้นตอนอื่นๆ จะปรากฏใต้ช่อง %(start_tag)sYour Response%(end_tag)s\n"
+"                "
+
 #: templates/legacy/message/oa_message_unavailable.html:4
 msgid "Instructions Unavailable"
 msgstr "คำแนะนำใช้งานไม่ได้"
@@ -462,23 +1181,112 @@ msgstr "คำแนะนำใช้งานไม่ได้"
 msgid "The instructions for this step could not be loaded."
 msgstr "ไม่สามารถโหลดคำแนะนำสำหรับขั้นตอนนี้ได้"
 
+#: templates/legacy/oa_base.html:16 templates/openassessmentblock/base.html:22
+msgid ""
+"This assignment has several steps. In the first step, you'll provide a "
+"response to the prompt. The other steps appear below the Your Response "
+"field."
+msgstr ""
+"งานนี้มีหลายขั้นตอน ในขั้นตอนแรก คุณจะต้องตอบกลับข้อความแจ้ง ขั้นตอนอื่นๆ "
+"จะปรากฏใต้ช่องคำตอบของคุณ"
+
 #: templates/legacy/oa_base.html:37 templates/openassessmentblock/base.html:56
 #: templates/openassessmentblock/base.html:105
 msgid "Loading"
 msgstr "กำลังโหลด"
 
+#: templates/legacy/oa_latex_preview.html:6
+msgid "Preview in LaTeX"
+msgstr "ดูตัวอย่างใน LaTeX"
+
+#: templates/legacy/oa_latex_preview.html:9
+msgid "Click to preview your submission in LaTeX."
+msgstr "คลิกเพื่อดูตัวอย่างการส่งของคุณใน LaTeX"
+
+#: templates/legacy/oa_latex_preview.html:14
+msgid "Preview Response"
+msgstr "ดูตัวอย่างการตอบกลับ"
+
 #: templates/legacy/oa_rubric.html:53
 msgid "Comments"
 msgstr "ความคิดเห็น"
+
+#: templates/legacy/oa_submission_answer.html:8
+msgid "The question for this section"
+msgstr "คำถามสำหรับส่วนนี้"
+
+#: templates/legacy/oa_team_uploaded_files.html:9
+msgid "Files that were uploaded by your teammates:"
+msgstr "ไฟล์ที่เพื่อนร่วมทีมของคุณอัพโหลด:"
+
+#: templates/legacy/oa_team_uploaded_files.html:28
+#: templates/legacy/oa_uploaded_file.html:34
+msgid "View the files associated with this submission:"
+msgstr "ดูไฟล์ที่เกี่ยวข้องกับการส่งนี้:"
+
+#: templates/legacy/oa_team_uploaded_files.html:32
+msgid "Uploaded by"
+msgstr "อัพโหลดโดย"
+
+#: templates/legacy/oa_uploaded_file.html:16
+msgid "Files that were uploaded by you:"
+msgstr "ไฟล์ที่ถูกอัพโหลดโดยคุณ:"
+
+#: templates/legacy/oa_uploaded_file.html:48
+msgid ""
+"Caution: These files were uploaded by another course learner and have not "
+"been verified, screened, approved, reviewed, or endorsed by the site "
+"administrator. If you access the files, you do so at your own risk.)"
+msgstr ""
+"ข้อควรระวัง: ไฟล์เหล่านี้ถูกอัพโหลดโดยผู้เรียนรายวิชาอื่น "
+"และไม่ได้รับการรับรอง คัดกรอง อนุมัติ ทบทวน หรือรับรองโดยผู้ดูแลไซต์ "
+"หากคุณเข้าใช้ไฟล์ คุณจะต้องยอมรับความเสี่ยงเอง)"
 
 #: templates/legacy/peer/oa_peer_assessment.html:36
 msgid "Assess Peers"
 msgstr "ประเมินเพื่อน"
 
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "available August 13th, 2014 00:00 UTC (in
+#. 5 days and 45 minutes)"
+#: templates/legacy/peer/oa_peer_assessment.html:44
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"            <span id=\"oa_step_deadline_peer\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+msgstr ""
+"\n"
+"            <span id=\"oa_step_deadline_peer\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "due August 13th, 2014 00:00 UTC (in 5 days
+#. and 45 minutes)"
+#: templates/legacy/peer/oa_peer_assessment.html:51
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"            <span id=\"oa_step_deadline_peer\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+msgstr ""
+"\n"
+"            <span id=\"oa_step_deadline_peer\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+
 #: templates/legacy/peer/oa_peer_assessment.html:75
 #: templates/legacy/peer/oa_peer_turbo_mode.html:45
 msgid "Read and assess the following response from one of your peers."
 msgstr "อ่านและประเมินคำตอบจากหนึ่งในเพื่อนของคุณ"
+
+#: templates/legacy/peer/oa_peer_assessment.html:87
+#: templates/legacy/peer/oa_peer_turbo_mode.html:56
+#: templates/legacy/self/oa_self_assessment.html:70
+#: templates/legacy/staff_area/oa_staff_grade_learners_assessment.html:45
+#: templates/legacy/staff_area/oa_staff_override_assessment.html:38
+#: templates/legacy/staff_area/oa_student_info.html:63
+msgid "Associated Files"
+msgstr "ไฟล์ที่เกี่ยวข้อง"
 
 #: templates/legacy/peer/oa_peer_assessment.html:101
 #: templates/legacy/peer/oa_peer_turbo_mode.html:70
@@ -505,6 +1313,16 @@ msgstr ""
 "\n"
 "            ไม่เสร็จ (%(num_graded)s จาก %(num_must_grade)s)\n"
 "        "
+
+#: templates/legacy/peer/oa_peer_closed.html:35
+msgid ""
+"The due date for this step has passed. This step is now closed. You can no "
+"longer complete peer assessments or continue with this assignment, and you "
+"will receive a grade of Incomplete."
+msgstr ""
+"วันที่ครบกำหนดสำหรับขั้นตอนนี้ผ่านไปแล้ว ขั้นตอนนี้ปิดแล้ว "
+"คุณไม่สามารถทำการประเมินโดยเพื่อนหรือทำงานที่ได้รับมอบหมายนี้ต่อได้อีกต่อไป "
+"และคุณจะได้รับเกรดว่ายังไม่เสร็จสมบูรณ์"
 
 #: templates/legacy/peer/oa_peer_complete.html:13
 msgid "Completed"
@@ -541,6 +1359,14 @@ msgstr ""
 "เสร็จสมบูรณ์ (%(num_graded)s)\n"
 "      "
 
+#: templates/legacy/peer/oa_peer_turbo_mode_waiting.html:38
+msgid ""
+"All submitted peer responses have been assessed. Check back later to see if "
+"more learners have submitted responses."
+msgstr ""
+"คำตอบของเพื่อนที่ส่งมาทั้งหมดได้รับการประเมินแล้ว "
+"โปรดกลับมาตรวจสอบในภายหลังเพื่อดูว่ามีผู้เรียนส่งคำตอบเพิ่มเติมหรือไม่"
+
 #: templates/legacy/peer/oa_peer_unavailable.html:16
 #: templates/legacy/response/oa_response_unavailable.html:17
 #: templates/legacy/self/oa_self_unavailable.html:17
@@ -548,14 +1374,116 @@ msgstr ""
 msgid "Not Available"
 msgstr "ใช้ไม่ได้"
 
+#: templates/legacy/peer/oa_peer_waiting.html:20
+#, python-format
+msgid ""
+"\n"
+"          In Progress (%(review_number)s of %(num_must_grade)s)\n"
+"        "
+msgstr ""
+"\n"
+"          อยู่ระหว่างดำเนินการ (%(review_number)s จาก %(num_must_grade)s)\n"
+"        "
+
+#: templates/legacy/peer/oa_peer_waiting.html:37
+msgid ""
+"All available peer responses have been assessed. Check back later to see if "
+"more learners have submitted responses. You will receive your grade after "
+"you've completed all the steps for this problem and your peers have assessed"
+" your response."
+msgstr ""
+"คำตอบจากเพื่อนที่มีอยู่ทั้งหมดได้รับการประเมินแล้ว "
+"โปรดกลับมาตรวจสอบในภายหลังเพื่อดูว่ามีผู้เรียนส่งคำตอบเพิ่มเติมหรือไม่ "
+"คุณจะได้รับเกรดของคุณหลังจากที่คุณทำตามขั้นตอนทั้งหมดสำหรับปัญหานี้เสร็จสิ้นแล้ว"
+" และเพื่อนของคุณได้ประเมินคำตอบของคุณแล้ว"
+
+#: templates/legacy/response/oa_response.html:27
+msgid "Your Team's Response"
+msgstr "การตอบสนองของทีมของคุณ"
+
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "available August 13th, 2014 (in 5 days and
+#. 45 minutes)"
+#: templates/legacy/response/oa_response.html:39
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"            <span id=\"oa_step_deadline_response\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+msgstr ""
+"\n"
+"            <span id=\"oa_step_deadline_response\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "due August 13th, 2014 (in 5 days and 45
+#. minutes)"
+#: templates/legacy/response/oa_response.html:46
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"            <span id=\"oa_step_deadline_response\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+msgstr ""
+"\n"
+"            <span id=\"oa_step_deadline_response\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+
 #: templates/legacy/response/oa_response.html:54
 #: templates/legacy/self/oa_self_assessment.html:56
 msgid "In Progress"
 msgstr "อยู่ในระหว่างดำเนินการ"
 
+#: templates/legacy/response/oa_response.html:66
+msgid "Enter your team's response to the prompt."
+msgstr "ป้อนคำตอบของทีมของคุณต่อข้อความแจ้ง"
+
+#: templates/legacy/response/oa_response.html:89
+msgid "Enter your response to the prompt."
+msgstr "ป้อนคำตอบของคุณต่อข้อความแจ้ง"
+
 #: templates/legacy/response/oa_response.html:110
 msgid "After you submit your response, you cannot edit it"
 msgstr "หลังจากคุณส่งคำตอบ คุณไม่สามารถแก้ไขได้แล้ว"
+
+#: templates/legacy/response/oa_response.html:120
+msgid "What will this assignment be graded on?"
+msgstr "งานนี้จะถูกให้คะแนนด้วยอะไร?"
+
+#: templates/legacy/response/oa_response.html:134
+msgid "The prompt for this section"
+msgstr "ข้อความแจ้งสำหรับส่วนนี้"
+
+#: templates/legacy/response/oa_response.html:148
+msgid "You are on team "
+msgstr "คุณอยู่ในทีม "
+
+#: templates/legacy/response/oa_response.html:150
+msgid "Team Members: "
+msgstr "สมาชิกในทีม: "
+
+#: templates/legacy/response/oa_response.html:155
+#, python-format
+msgid ""
+"\n"
+"                                              %(team_members_with_external_submissions)s\n"
+"                                              have/has already submitted a response to this assignment with another team,\n"
+"                                              and will not be a part of your team's submission or assignment grade.\n"
+"                                          "
+msgstr ""
+"\n"
+"                                              %(team_members_with_external_submissions)s\n"
+"                                              ได้ส่งการตอบกลับการมอบหมายนี้กับทีมอื่นแล้ว\n"
+"                                              และจะไม่เป็นส่วนหนึ่งของการส่งผลงานหรือเกรดการมอบหมายของทีมของคุณ\n"
+"                                          "
+
+#: templates/legacy/response/oa_response.html:171
+msgid "Team Response "
+msgstr "การตอบสนองของทีม "
+
+#: templates/legacy/response/oa_response.html:173
+msgid "Your Response "
+msgstr "คำตอบของคุณ "
 
 #: templates/legacy/response/oa_response.html:179
 #: templates/legacy/response/oa_response.html:249
