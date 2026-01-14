@@ -311,9 +311,34 @@ msgstr ""
 " și utilă pentru a urmări blocurile din bibliotecă din amonte care nu există"
 " încă"
 
+#: cms/djangoapps/contentstore/models.py:163
+msgid "Component Link"
+msgstr "Componenta Link"
+
+#: cms/djangoapps/contentstore/models.py:164
+msgid "Component Links"
+msgstr "Link-uri Componenta"
+
 #: cms/djangoapps/contentstore/models.py:190
 msgid "The component must be published to access `published_at`"
 msgstr "Componenta trebuie să fie publicată pentru a acces `published_at`"
+
+#: cms/djangoapps/contentstore/models.py:329
+msgid ""
+"Upstream block key (e.g. lct:...), this value cannot be null and is useful "
+"to track upstream library blocks that do not exist yet or were deleted."
+msgstr ""
+"Cheie de bloc din amonte (de ex. lct:...), această valoare nu poate fi nulă "
+"și este utilă pentru a urmări blocurile de bibliotecă din amonte care nu "
+"există încă sau au fost șterse."
+
+#: cms/djangoapps/contentstore/models.py:336
+msgid "Container Link"
+msgstr "Legătura containerului"
+
+#: cms/djangoapps/contentstore/models.py:337
+msgid "Container Links"
+msgstr "Legături pentru containere"
 
 #: cms/djangoapps/contentstore/models.py:363
 msgid "The container must be published to access `published_at`"
@@ -1229,6 +1254,10 @@ msgstr "Dicționar cu etichetele disponibile"
 msgid "Content is not linked to a Content Library."
 msgstr "Conținut nu este legat la o bibliotecă de conținut."
 
+#: cms/lib/xblock/upstream_sync.py:255
+msgid "Downstream is not an XBlock or is missing required UpstreamSyncMixin"
+msgstr "În aval nu este un XBlock sau lipsește UpstreamSyncMixin necesar"
+
 #: cms/lib/xblock/upstream_sync.py:259
 msgid "Cannot update content because it does not belong to a course."
 msgstr "Nu se poate actualiza conținut deoarece nu aparține unui curs."
@@ -1236,6 +1265,23 @@ msgstr "Nu se poate actualiza conținut deoarece nu aparține unui curs."
 #: cms/lib/xblock/upstream_sync.py:269
 msgid "Reference to linked library item is malformed"
 msgstr "Referința la elementul din bibliotecă conectat este incorectă"
+
+#: cms/lib/xblock/upstream_sync.py:275
+msgid ""
+"Updating content with children is not yet supported unless the upstream is a"
+" container."
+msgstr ""
+"Actualizarea conținutului cu elemente copil nu este încă acceptată decât "
+"dacă în amonte este un container."
+
+#: cms/lib/xblock/upstream_sync.py:281
+msgid "Linked upstream library block was not found in the system"
+msgstr "Blocul de bibliotecă conectat în amonte nu a fost găsit în sistem"
+
+#: cms/lib/xblock/upstream_sync.py:288
+msgid "Linked upstream library container was not found in the system"
+msgstr ""
+"Containerul de bibliotecă conectat în amonte nu a fost găsit în sistem"
 
 #: cms/lib/xblock/upstream_sync.py:292
 msgid "Linked `upstream_key` is not a valid key"
@@ -4747,6 +4793,24 @@ msgstr "Nume rolului"
 msgid "Invalid role name."
 msgstr "Nume de rol nevalid."
 
+#: lms/djangoapps/instructor/views/serializer.py:344
+msgid "The URL name of the problem to reset."
+msgstr "numele URL al problemei de resetat."
+
+#: lms/djangoapps/instructor/views/serializer.py:346
+#: lms/djangoapps/instructor/views/serializer.py:567
+msgid "Problem URL name cannot be blank."
+msgstr "numele URL al problemei nu poate fi gol."
+
+#: lms/djangoapps/instructor/views/serializer.py:351
+msgid "Whether to reset the problem for all students."
+msgstr "Să resetați problema pentru toți studenții."
+
+#: lms/djangoapps/instructor/views/serializer.py:361
+#: lms/djangoapps/instructor/views/serializer.py:508
+msgid "unique student identifier."
+msgstr "identificator unic pentru student."
+
 #: lms/djangoapps/instructor/views/serializer.py:496
 msgid "Whether to reset for all students."
 msgstr "Dacă să se reseteze pentru toți studenții."
@@ -7850,6 +7914,24 @@ msgstr ""
 "<{p}>Răspunsul dvs. a fost aprobat pe postare "
 "<{strong}>{post_title}</{strong}>.</{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:258
+#, python-brace-format
+msgid ""
+"<{p}>You have a new open response submission awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>Aveți o nouă trimitere cu răspuns deschis, în așteptarea examinării "
+"pentru <{strong}>{ora_name}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:260
+#, python-brace-format
+msgid ""
+"<{p}>You have multiple submissions awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>Aveți mai multe trimiteri în așteptarea examinării pentru "
+"<{strong}>{ora_name}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:279
 #, python-brace-format
 msgid ""
@@ -9487,6 +9569,14 @@ msgstr ""
 #: xmodule/capa_block.py:338
 msgid "Problem Weight"
 msgstr "Ponderea problemei"
+
+#: xmodule/capa_block.py:363
+msgid ""
+"Indicates if the problem was edited using the Markdown editor in the "
+"Authoring MFE."
+msgstr ""
+"Indică dacă problema a fost editată folosind editorul Markdown în Authoring "
+"MFE."
 
 #: xmodule/capa_block.py:808 xmodule/capa_block.py:825
 msgid "Question"
