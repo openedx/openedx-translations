@@ -389,6 +389,10 @@ msgstr "タブはコースに対して非表示になっています"
 msgid "True if it's possible to reorder the tab in the list of tabs"
 msgstr "タブの一覧でタブの順序を変更できる場合は「True」"
 
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:29
+msgid "True if this tab should be displayed only for instructors"
+msgstr "このタブをインストラクターのみ表示する場合は「True」"
+
 #: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:33
 #: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:37
 msgid "Name of the tab displayed to users. Overrides title."
@@ -514,6 +518,12 @@ msgstr "アップロード済み"
 #: cms/djangoapps/contentstore/video_storage_handlers.py:128
 msgid "Cancelled"
 msgstr "キャンセル済み"
+
+#. Translators: This is the status for a video which has failed
+#. due to being flagged as a duplicate by an external or internal CMS
+#: cms/djangoapps/contentstore/video_storage_handlers.py:131
+msgid "Failed Duplicate"
+msgstr "重複に失敗しました"
 
 #. Translators: This is the status for a video which has duplicate token for
 #. youtube
@@ -919,10 +929,18 @@ msgstr "権限が不十分です"
 msgid "Could not find user by email address '{email}'."
 msgstr "メールアドレス「{email}」でユーザーが見つかりませんでした。"
 
+#: cms/djangoapps/contentstore/views/user.py:149
+msgid "No `role` specified."
+msgstr "`役割`が指定されていません。"
+
 #: cms/djangoapps/contentstore/views/user.py:154
 #, python-brace-format
 msgid "User {email} has registered but has not yet activated their account."
 msgstr "ユーザー {email} は登録しましたが、まだアカウントを有効化していません。"
+
+#: cms/djangoapps/contentstore/views/user.py:175
+msgid "Invalid `role` specified."
+msgstr "指定された「役割」が無効です。"
 
 #: cms/djangoapps/contentstore/views/user.py:179
 msgid "You may not remove the last Admin. Add another Admin first."
@@ -1642,6 +1660,10 @@ msgstr ""
 msgid "Add a reason"
 msgstr "理由を追加"
 
+#: common/djangoapps/student/views/dashboard.py:143
+msgid " and "
+msgstr " と "
+
 #: common/djangoapps/student/views/dashboard.py:286
 msgid "Photos are mismatched"
 msgstr "写真が一致しません"
@@ -2129,6 +2151,14 @@ msgstr "4月"
 msgctxt "abbreviated month name"
 msgid "May"
 msgstr "5月"
+
+#. Translators: this is an abbreviated month name that will be used when
+#. displaying dates, as in "Jun 10, 2014". It is used for the %b
+#. directive in date-time formats. See http://strftime.org for details.
+#: common/djangoapps/util/date_utils.py:356
+msgctxt "abbreviated month name"
+msgid "Jun"
+msgstr "6月"
 
 #. Translators: this is an abbreviated month name that will be used when
 #. displaying dates, as in "Jul 10, 2014". It is used for the %b
@@ -2756,6 +2786,16 @@ msgstr ""
 "システム要件と監督付き試験を受けるための手順を注意深く確認し、準備が整っていることを確認してください。\n"
 "```\n"
 "                "
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.html:53
+msgid ""
+"\n"
+"                Proctoring Instructions and Requirements\n"
+"            "
+msgstr ""
+"\n"
+"                プロクタリングの指示と要件\n"
+"            "
 
 #: common/templates/student/edx_ace/proctoringrequirements/email/body.html:60
 #: common/templates/student/edx_ace/proctoringrequirements/email/body.txt:11
@@ -4021,6 +4061,10 @@ msgid ""
 "Create and manage a library of course readings, textbooks, and chapters."
 msgstr "コースの読書資料、教科書、章を管理し、ライブラリを作成します。"
 
+#: lms/djangoapps/courseware/plugins.py:125
+msgid "Calculator"
+msgstr "電卓"
+
 #: lms/djangoapps/courseware/plugins.py:126
 msgid "Provide an in-course calculator for simple and complex calculations."
 msgstr "コース内で簡単かつ複雑な計算ができる電卓を提供します。"
@@ -4070,6 +4114,10 @@ msgid ""
 "You are enrolled in the audit track for this course. The audit track does "
 "not include a certificate."
 msgstr "このコースの聴講トラックに登録されています。聴講トラックには証明書が含まれていません。"
+
+#: lms/djangoapps/courseware/views/views.py:190
+msgid "Your enrollment: Honor track"
+msgstr "あなたの登録: オナートラック"
 
 #: lms/djangoapps/courseware/views/views.py:191
 msgid ""
@@ -4381,6 +4429,10 @@ msgstr "ノートAPIから不正なデータを受信しました。"
 #: lms/djangoapps/edxnotes/helpers.py:391
 msgid "No endpoint was provided for EdxNotes."
 msgstr "EdxNotesのエンドポイントが提供されていません。"
+
+#: lms/djangoapps/edxnotes/plugins.py:27 lms/djangoapps/edxnotes/plugins.py:57
+msgid "Notes"
+msgstr "メモ"
 
 #: lms/djangoapps/edxnotes/plugins.py:58
 msgid ""
@@ -4814,6 +4866,10 @@ msgstr "すべての学生と一意の学生識別子を使用して再採点す
 #: lms/djangoapps/instructor/views/api.py:2455
 msgid "Current status of task."
 msgstr "タスクの現在の状況。"
+
+#: lms/djangoapps/instructor/views/api.py:2456
+msgid "Identifies the kind of task being performed, e.g. rescoring."
+msgstr "実行されているタスクの種類を特定します。例：再採点。"
 
 #: lms/djangoapps/instructor/views/api.py:2457
 msgid "The celery ID for the task."
@@ -5303,6 +5359,11 @@ msgstr "延長された期限は、元の期限よりも後でなければなり
 msgid "Full Name"
 msgstr "氏名"
 
+#: lms/djangoapps/instructor/views/tools.py:221
+#: lms/djangoapps/instructor/views/tools.py:241
+msgid "Extended Due Date"
+msgstr "期限延長"
+
 #: lms/djangoapps/instructor/views/tools.py:229
 #, python-brace-format
 msgid "Users with due date extensions for {0}"
@@ -5391,6 +5452,12 @@ msgstr "送信済み"
 #: lms/djangoapps/instructor_task/tasks.py:194
 msgid "graded"
 msgstr "採点済み"
+
+#. Translators: This is a past-tense phrase that is inserted into task
+#. progress messages as {action}.
+#: lms/djangoapps/instructor_task/tasks.py:212
+msgid "problem distribution graded"
+msgstr "問題の配布が採点されました"
 
 #. Translators: This is a past-tense verb that is inserted into task progress
 #. messages as {action}.
@@ -5522,6 +5589,14 @@ msgstr "{attempted}人の学生のうち、誰に対しても問題を{action}�
 #, python-brace-format
 msgid "Problem successfully {action} for {attempted} students"
 msgstr "{attempted}人の学生に対して問題が正常に{action}されました"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#. {succeeded} and {attempted} are counts.  # lint-amnesty, pylint:
+#. disable=line-too-long
+#: lms/djangoapps/instructor_task/views.py:194
+#, python-brace-format
+msgid "Problem {action} for {succeeded} of {attempted} students"
+msgstr "{attempted}人の学生のうち{succeeded}人が問題を{action}しました"
 
 #. Translators: {action} is a past-tense verb that is localized separately.
 #: lms/djangoapps/instructor_task/views.py:199
@@ -5794,6 +5869,10 @@ msgstr "チーム"
 #: lms/djangoapps/teams/plugins.py:54
 msgid "Leverage teams to allow learners to connect by topic of interest."
 msgstr "学習者が興味のあるトピックでつながることができるようにチームを活用する。"
+
+#: lms/djangoapps/teams/views.py:417
+msgid "course_id must be provided"
+msgstr "コースIDを提供する必要があります"
 
 #: lms/djangoapps/teams/views.py:427 lms/djangoapps/teams/views.py:1007
 #, python-brace-format
@@ -6112,6 +6191,13 @@ msgstr "開始するには、https://%(site_name)s にアクセスしてくだ�
 #, python-format
 msgid "You may access your course at: %(course_url)s."
 msgstr "あなたのコースには次のURLからアクセスできます: %(course_url)s."
+
+#: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/subject.txt:3
+#: lms/templates/instructor/edx_ace/enrollenrolled/email/subject.txt:3
+#: lms/templates/instructor/edx_ace/enrollenrolled/push/title.txt:3
+#, python-format
+msgid "You have been enrolled in %(course_name)s"
+msgstr "%(course_name)sに登録されました"
 
 #: lms/templates/instructor/edx_ace/addbetatester/email/body.html:12
 #, python-format
@@ -7103,6 +7189,10 @@ msgstr "サイズ"
 msgid "File History"
 msgstr "ファイル履歴"
 
+#: lms/templates/wiki/plugins/attachments/index.html:94
+msgid "Detach"
+msgstr "切り離す"
+
 #: lms/templates/wiki/plugins/attachments/index.html:97
 msgid "Replace"
 msgstr "置換"
@@ -7224,6 +7314,11 @@ msgstr "あなたの組織の連絡先住所。"
 #, python-brace-format
 msgid "The following users do not exist: {usernames}."
 msgstr "存在しないユーザー: {usernames}。"
+
+#: openedx/core/djangoapps/api_admin/forms.py:86
+msgid ""
+"Comma-separated list of usernames which will be able to view this catalog."
+msgstr "ユーザー名のカンマ区切りリストで、このカタログを閲覧できるようになります。"
 
 #: openedx/core/djangoapps/api_admin/models.py:43
 msgid "Denied"
@@ -7451,6 +7546,10 @@ msgstr "使用ID '{usage_key}' のXBlockはすでに存在します。"
 #: openedx/core/djangoapps/content_libraries/api/libraries.py:533
 msgid "Cannot change or remove the access level for the only admin."
 msgstr "唯一の管理者のアクセスレベルを変更または削除することはできません。"
+
+#: openedx/core/djangoapps/content_libraries/constants.py:15
+msgid "All Rights Reserved."
+msgstr "著作権所有。"
 
 #: openedx/core/djangoapps/content_libraries/constants.py:16
 msgid "Creative Commons Attribution 4.0"
@@ -7685,6 +7784,10 @@ msgstr "LTIプロバイダー"
 #: openedx/core/djangoapps/programs/models.py:58
 msgid "The LTI provider's id"
 msgstr "LTIプロバイダーのID"
+
+#: openedx/core/djangoapps/course_live/models.py:38
+msgid "True, if LTI credential are provided by Org globally"
+msgstr "LTI認証情報が組織によってグローバルに提供されている場合は「True」です。"
 
 #: openedx/core/djangoapps/course_live/plugins.py:25
 #: openedx/core/djangoapps/course_live/tab.py:47
@@ -8064,6 +8167,11 @@ msgstr "このルールが適用される国。"
 #, python-brace-format
 msgid "Whitelist {country} for {course}"
 msgstr "{course}に対して{country}をホワイトリストに追加"
+
+#: openedx/core/djangoapps/embargo/models.py:520
+#, python-brace-format
+msgid "Blacklist {country} for {course}"
+msgstr "{country}を{course}から除外する"
 
 #: openedx/core/djangoapps/notifications/admin.py:16
 msgid "Notification App"
@@ -8771,6 +8879,11 @@ msgstr ""
 msgid "You are eligible to upgrade in these courses:"
 msgstr "これらのコースでアップグレードする資格があります。"
 
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:76
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:21
+msgid "Example of a verified certificate"
+msgstr "認定証の例文としてのサンプル"
+
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.txt:19
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.txt:29
 msgid "Upgrade now at"
@@ -9078,6 +9191,10 @@ msgstr "このメールは情報提供のみを目的としています。この
 #, python-format
 msgid "Best, %(platform_name)s"
 msgstr "よろしくお願いいたします, %(platform_name)s"
+
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/subject.txt:4
+msgid "Your Account Has Been Queued For Deletion"
+msgstr "アカウントは削除待ちの状態です"
 
 #. Translators: This label appears above a dropdown menu used to select
 #. the user's highest completed level of education.
@@ -10909,6 +11026,10 @@ msgstr "回答が送信されました。"
 msgid "Problem is closed."
 msgstr "問題は終了しました。"
 
+#: xmodule/capa_block.py:1833
+msgid "Problem must be reset before it can be submitted again."
+msgstr "問題は再提出する前にリセットする必要があります。"
+
 #: xmodule/capa_block.py:1843
 #, python-brace-format
 msgid "You must wait at least {wait} seconds between submissions."
@@ -11730,6 +11851,10 @@ msgid ""
 "there are escalations (e.g. appeals, delayed reviews, etc.)."
 msgstr ""
 "'escalation_email'がプロクタリングバックエンドで設定されている場合に必要です。エスカレーション（例：異議申し立て、レビューの遅延など）が発生した際にサポートチームから連絡を受けるためのメールアドレスを入力してください。"
+
+#: xmodule/course_block.py:913
+msgid "Allow Opting Out of Proctored Exams"
+msgstr "プロクター試験の免除を許可する"
 
 #: xmodule/course_block.py:915
 msgid ""
