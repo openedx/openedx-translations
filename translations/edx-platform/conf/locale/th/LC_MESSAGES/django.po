@@ -6590,6 +6590,12 @@ msgstr "อนุญาต"
 msgid "Error"
 msgstr "ผิดพลาด"
 
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:11
+#: lms/templates/support/edx_ace/wholecoursereset/email/subject.txt:3
+#, python-format
+msgid "The course %(course_title)s has been reset !"
+msgstr "รีเซ็ตหลักสูตร %(course_title)s แล้ว !"
+
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.html:16
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:14
 #: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:14
@@ -6599,6 +6605,26 @@ msgstr "ผิดพลาด"
 #, python-format
 msgid "Hello %(full_name)s,"
 msgstr "สวัสดี %(full_name)s,"
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:21
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:3
+#, python-format
+msgid ""
+"Your progress in course %(course_title)s has been reset on your behalf."
+msgstr "ความคืบหน้าของคุณในหลักสูตร %(course_title)s ถูกรีเซ็ตในนามของคุณแล้ว"
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:25
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:4
+msgid ""
+"You will be able to re-attempt this course and earn a verified certificate "
+"upon successful completion."
+msgstr ""
+"คุณจะสามารถลองหลักสูตรนี้อีกครั้งและได้รับใบรับรองที่ตรวจสอบแล้วเมื่อสำเร็จหลักสูตร"
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:31
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:6
+msgid "Best,"
+msgstr "ดีที่สุด,"
 
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:2
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:2
@@ -7490,6 +7516,16 @@ msgstr "หลักสูตรที่มีข้อผิดพลาด"
 msgid "Learning Sequences and Outlines"
 msgstr "ลำดับการเรียนรู้และโครงร่าง"
 
+#: openedx/core/djangoapps/content/search/models.py:28
+msgid ""
+"Numeric ID for each Course / Library context. This ID will generally require"
+" fewer bits than the full LearningContextKey, allowing more courses and "
+"libraries to be represented in content search filters."
+msgstr ""
+"รหัสตัวเลขสำหรับแต่ละบริบทของหลักสูตร / ห้องสมุด โดยทั่วไป ID "
+"นี้จะต้องใช้บิตน้อยกว่า LearningContextKey แบบเต็ม "
+"ซึ่งช่วยให้สามารถแสดงหลักสูตรและห้องสมุดได้มากขึ้นในตัวกรองการค้นหาเนื้อหา"
+
 #: openedx/core/djangoapps/content_libraries/api/blocks.py:301
 msgid "Library cannot have more than {} Components."
 msgstr "ไลบรารีไม่สามารถมีส่วนประกอบมากกว่า {} รายการได้"
@@ -7680,6 +7716,10 @@ msgstr "หมดอายุแล้ว"
 #: openedx/core/djangoapps/content_staging/models.py:43
 msgid "Staged Content"
 msgstr "เนื้อหาแบบจัดฉาก"
+
+#: openedx/core/djangoapps/content_staging/models.py:72
+msgid "Content tags applied to these blocks"
+msgstr "แท็กเนื้อหานำไปใช้กับบล็อกเหล่านี้"
 
 #: openedx/core/djangoapps/content_staging/models.py:116
 msgid "Original usage key/ID of the thing that is in the clipboard."
@@ -8335,6 +8375,18 @@ msgstr "เกรด"
 #: openedx/core/djangoapps/notifications/email/utils.py:469
 msgid "discussion"
 msgstr "การอภิปราย"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:16
+msgid "Daily"
+msgstr "รายวัน"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:17
+msgid "Weekly"
+msgstr "รายสัปดาห์"
+
+#: openedx/core/djangoapps/notifications/email_notifications.py:18
+msgid "Immediately"
+msgstr "โดยทันที"
 
 #: openedx/core/djangoapps/notifications/email_notifications.py:19
 #: xmodule/capa_block.py:244 xmodule/capa_block.py:261
@@ -9813,6 +9865,15 @@ msgid ""
 msgstr ""
 "ใบอนุญาตกำหนดวิธีการที่เนื้อหาของบล็อกนี้สามารถใช้ร่วมกันและนำกลับมาใหม่"
 
+#: openedx/core/lib/teams_config.py:386
+#, python-brace-format
+msgid "Team Group: {team_set_name}"
+msgstr "กลุ่มทีม: {team_set_name}"
+
+#: openedx/core/lib/teams_config.py:387
+msgid "Partition for segmenting users by team-set"
+msgstr "พาร์ติชั่นสำหรับแบ่งกลุ่มผู้ใช้ตามชุดทีม"
+
 #: openedx/features/calendar_sync/ics.py:36
 #, python-brace-format
 msgid "{assignment} is due for {course}."
@@ -10673,6 +10734,30 @@ msgstr ""
 "กำหนดจำนวนครั้งของนักเรียนที่จะพยายามตอบคำตอบ. ถ้าไม่กำหนด "
 "สามารถตอบได้ไม่จำกัดจำนวนครั้ง"
 
+#: xmodule/capa_block.py:216
+msgid "Grading Method"
+msgstr "วิธีการให้คะแนน"
+
+#: xmodule/capa_block.py:218
+msgid ""
+"Define the grading method for this problem. By default, it's the score of "
+"the last submission made by the student."
+msgstr ""
+"กำหนดวิธีการให้คะแนนสำหรับปัญหานี้ โดยค่าเริ่มต้น "
+"จะเป็นคะแนนของการส่งครั้งล่าสุดที่นักเรียนทำ"
+
+#: xmodule/capa_block.py:224 xmodule/capa_block.py:528
+msgid "Last Score"
+msgstr "คะแนนล่าสุด"
+
+#: xmodule/capa_block.py:225 xmodule/capa_block.py:529
+msgid "First Score"
+msgstr "คะแนนแรก"
+
+#: xmodule/capa_block.py:226 xmodule/capa_block.py:530
+msgid "Highest Score"
+msgstr "คะแนนสูงสุด"
+
 #: xmodule/capa_block.py:227 xmodule/capa_block.py:531
 msgid "Average Score"
 msgstr "คะแนนเฉลี่ย"
@@ -10800,6 +10885,10 @@ msgstr "ข้อมูล XML สำหรับปัญหา"
 msgid "Dictionary with the correctness of current student answers"
 msgstr "พจนานุกรมกับความถูกต้องของคำตอบปัจจุบันของนักเรียน"
 
+#: xmodule/capa_block.py:313
+msgid "List of correctness maps for each attempt"
+msgstr "รายการแผนที่ความถูกต้องสำหรับความพยายามแต่ละครั้ง"
+
 #: xmodule/capa_block.py:314
 msgid "Dictionary for maintaining the state of inputtypes"
 msgstr "พจนานุกรมสำหรับการรักษาสถานะของชนิดของข้อมูลที่ป้อน"
@@ -10808,9 +10897,17 @@ msgstr "พจนานุกรมสำหรับการรักษาส
 msgid "Dictionary with the current student responses"
 msgstr "พจนานุกรมกับคำตอบปัจจุบันของนักเรียน"
 
+#: xmodule/capa_block.py:317
+msgid "List of student answers for each attempt"
+msgstr "รายการคำตอบของนักเรียนสำหรับความพยายามแต่ละครั้ง"
+
 #: xmodule/capa_block.py:321
 msgid "Dictionary with the current student score"
 msgstr "พจนานุกรมที่มีคะแนนนักเรียนปัจจุบัน"
+
+#: xmodule/capa_block.py:323
+msgid "List of scores for each attempt"
+msgstr "รายการคะแนนสำหรับความพยายามแต่ละครั้ง"
 
 #: xmodule/capa_block.py:326
 msgid "Whether or not the answers have been saved since last submit"
