@@ -570,9 +570,17 @@ msgstr "άλλα"
 msgid "Course Create"
 msgstr "Δημιουργία μαθήματος"
 
+#: apps/course_metadata/choices.py:55
+msgid "Partial Update"
+msgstr "Μερική ενημέρωση"
+
 #: apps/course_metadata/choices.py:56
 msgid "Course Rerun"
 msgstr "Επανάληψη μαθήματος"
+
+#: apps/course_metadata/choices.py:57
+msgid "Course Editor Update"
+msgstr "Ενημέρωση συντάκτη μαθημάτων"
 
 #: apps/course_metadata/choices.py:64
 msgid "Pending"
@@ -2152,6 +2160,132 @@ msgid ""
 msgstr ""
 "%(user_name)s έκανε το ακόλουθο σχόλιο στο %(course_name)s %(date)s στο "
 "%(time)s"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:7
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:3
+#: apps/course_metadata/templates/course_metadata/email/go_live.html:9
+#: apps/course_metadata/templates/course_metadata/email/go_live.txt:3
+msgid "Hi Course Team,"
+msgstr "Γεια σας ομάδα μαθημάτων,"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:12
+#, python-format
+msgid ""
+"\n"
+"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
+"        "
+msgstr ""
+"\n"
+"        Πρόκειται για μια αυτοματοποιημένη υπενθύμιση ότι το μάθημα \"%(course_name)s\" (κλειδί μαθήματος: %(course_key)s) έχει προγραμματιστεί να λήξει σε %(days)s στις %(course_end_date)s.\n"
+"        "
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:16
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:16
+msgid ""
+"To ensure uninterrupted learner access and enrollment, please take one of "
+"the following actions:"
+msgstr ""
+"Για να διασφαλίσετε την απρόσκοπτη πρόσβαση και εγγραφή των μαθητών, "
+"παρακαλείστε να προβείτε σε μία από τις ακόλουθες ενέργειες:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:19
+#, python-format
+msgid ""
+"\n"
+"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
+"        "
+msgstr ""
+"\n"
+"        Αυτή είναι μια αυτοματοποιημένη υπενθύμιση ότι το μάθημα \"%(course_name)s\" (Κλειδί μαθήματος: %(course_key)s) έχει λήξει επίσημα από το %(course_end_date)s.\n"
+"        "
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:23
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:18
+msgid ""
+"If this was intentional, no action is needed. However, if this course was "
+"meant to remain available, you have two options to restore access:"
+msgstr ""
+"Εάν αυτό έγινε σκόπιμα, δεν χρειάζεται καμία ενέργεια. Ωστόσο, αν αυτό το "
+"μάθημα επρόκειτο να παραμείνει διαθέσιμο, έχετε δύο επιλογές για να "
+"αποκαταστήσετε την πρόσβαση:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:29
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:21
+msgid ""
+"Extend the current course run’s end date if the same course is meant to "
+"remain available."
+msgstr ""
+"Παρατείνετε την ημερομηνία λήξης της τρέχουσας σειράς μαθημάτων, εάν το ίδιο"
+" μάθημα πρόκειται να παραμείνει διαθέσιμο."
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:31
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:22
+msgid ""
+"Create a new course run if you are planning to offer this course again with "
+"updated content, pacing, or a new cohort of learners."
+msgstr ""
+"Δημιουργήστε μια νέα εκτέλεση μαθήματος εάν σκοπεύετε να προσφέρετε ξανά "
+"αυτό το μάθημα με ενημερωμένο περιεχόμενο, ρυθμό ή μια νέα ομάδα μαθητών."
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:32
+msgid "Visit the Course in Publisher"
+msgstr "Επισκεφθείτε το μάθημα στον Εκδότη"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:37
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:25
+msgid "You can review and modify the course end settings here:"
+msgstr ""
+"Μπορείτε να επανεξετάσετε και να τροποποιήσετε τις ρυθμίσεις τέλους του "
+"μαθήματος εδώ:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:41
+#, python-format
+msgid ""
+"\n"
+"        If no action is taken, the course will no longer be available for enrollment or access by learners on \n"
+"        <a href=\"%(partner_marketing_site_url)s\">%(partner_marketing_site_url)s</a> after the end date.\n"
+"        "
+msgstr ""
+"\n"
+"        Εάν δεν αναληφθεί καμία ενέργεια, το μάθημα δεν θα είναι πλέον διαθέσιμο για εγγραφή ή πρόσβαση από τους εκπαιδευόμενους στο \n"
+"<a href=\"%(partner_marketing_site_url)s\">%(partner_marketing_site_url)s</a> μετά την ημερομηνία λήξης.\n"
+"        "
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:47
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:34
+msgid "Thanks"
+msgstr "Ευχαριστώ"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:6
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"Πρόκειται για μια αυτοματοποιημένη υπενθύμιση ότι το μάθημα \"%(course_name)s\" (κλειδί μαθήματος: %(course_key)s) έχει προγραμματιστεί να λήξει σε %(days)s στις %(course_end_date)s.\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:10
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"Αυτή είναι μια αυτοματοποιημένη υπενθύμιση ότι το μάθημα \"%(course_name)s\" (Κλειδί μαθήματος: %(course_key)s) έχει λήξει επίσημα από το %(course_end_date)s.\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:23
+msgid "Visit the Course in Publisher:"
+msgstr "Επισκεφθείτε το μάθημα στον Εκδότη:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:29
+#, python-format
+msgid ""
+"\n"
+"If no action is taken, the course will no longer be available for enrollment or access by learners on %(partner_marketing_site_url)s after the end date.\n"
+msgstr ""
+"\n"
+"Εάν δεν αναληφθεί καμία ενέργεια, το μάθημα δεν θα είναι πλέον διαθέσιμο για εγγραφή ή πρόσβαση από τους εκπαιδευόμενους στο %(partner_marketing_site_url)s μετά την ημερομηνία λήξης.\n"
 
 #: apps/course_metadata/templates/course_metadata/email/go_live.html:17
 #: apps/course_metadata/templates/course_metadata/email/go_live.txt:7
