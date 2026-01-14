@@ -23,6 +23,30 @@ msgstr ""
 "Language: pl\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
+#: admin.py:112
+msgid "internally reviewed"
+msgstr "wewnętrznie zweryfikowane"
+
+#: admin.py:121
+msgid "All Unreviewed"
+msgstr "Wszystkie niesprawdzone"
+
+#: admin.py:122
+msgid "All Unreviewed Failures"
+msgstr "Wszystkie niesprawdzone awarie"
+
+#: admin.py:142
+msgid "active proctored exams"
+msgstr "aktywne egzaminy nadzorowane"
+
+#: admin.py:197
+msgid "courses with active proctored exams"
+msgstr "kursy z aktywnymi egzaminami nadzorowanymi"
+
+#: admin.py:354
+msgid "Course Id"
+msgstr "Identyfikator kursu"
+
 #: admin.py:392
 msgid "Created"
 msgstr "Utworzono"
@@ -31,13 +55,25 @@ msgstr "Utworzono"
 msgid "Download Software Clicked"
 msgstr "Kliknij pobierz oprogramowanie"
 
+#: admin.py:394
+msgid "Ready To Start"
+msgstr "Gotowy do rozpoczęcia"
+
 #: admin.py:395
 msgid "Started"
 msgstr "Rozpocznij"
 
+#: admin.py:396
+msgid "Ready To Submit"
+msgstr "Gotowy do przesłania"
+
 #: admin.py:397
 msgid "Declined"
 msgstr "Odrzucono"
+
+#: admin.py:398
+msgid "Timed Out"
+msgstr "Przekroczono limit czasu"
 
 #: admin.py:399
 msgid "Submitted"
@@ -59,6 +95,10 @@ msgstr "Odrzucono"
 msgid "Error"
 msgstr "Błąd"
 
+#: admin.py:407
+msgid "Onboarding Missing"
+msgstr "Brakujące wdrożenie"
+
 #: admin.py:408
 msgid "Onboarding Failed"
 msgstr "Wdrożenie nie powiodło się"
@@ -71,9 +111,83 @@ msgstr "Oczekiwanie na wdrożenie"
 msgid "Onboarding Expired"
 msgstr "Wdrożenie wygasło"
 
+#: api.py:824 views.py:1297
+#, python-brace-format
+msgid "you have {remaining_time} remaining"
+msgstr "pozostało Ci {remaining_time}"
+
+#: api.py:1654
+msgid "your course"
+msgstr "Twój kurs"
+
+#: api.py:1745
+#, python-brace-format
+msgid "Proctoring Results For {course_name} {exam_name}"
+msgstr "Wyniki nadzoru dla {course_name} {exam_name}"
+
+#: api.py:2238
+msgid "Taking As Proctored Exam"
+msgstr "Przystąpienie do egzaminu nadzorowanego"
+
+#: api.py:2243
+msgid "Proctored Option Available"
+msgstr "Dostępna opcja nadzorowana"
+
+#: api.py:2248
+msgid "Taking As Open Exam"
+msgstr "Przystąpienie do egzaminu otwartego"
+
+#: api.py:2263
+msgid "Passed Proctoring"
+msgstr "Przeszedł Proctoring"
+
+#: api.py:2268 api.py:2273
+msgid "Failed Proctoring"
+msgstr "Nieudane monitorowanie"
+
+#: api.py:2278
+msgid "Proctored Option No Longer Available"
+msgstr "Opcja nadzorowana nie jest już dostępna"
+
+#: api.py:2287
+msgid "Ungraded Practice Exam"
+msgstr "Nieoceniony egzamin praktyczny"
+
+#: api.py:2292
+msgid "Practice Exam Completed"
+msgstr "Egzamin praktyczny zakończony"
+
+#: api.py:2297
+msgid "Practice Exam Failed"
+msgstr "Egzamin praktyczny niezaliczony"
+
 #: api.py:2305
 msgid "Timed Exam"
 msgstr "Egzamin na czas"
+
+#: api.py:2888
+msgid "Onboarding status question"
+msgstr "Pytanie o status wejścia na pokład"
+
+#: models.py:391
+msgid "Taking as Proctored"
+msgstr "Przystąpienie do egzaminu nadzorowanego"
+
+#: models.py:395
+msgid "Is Sample Attempt"
+msgstr "Próba próbki"
+
+#: models.py:413
+msgid "Is Resumable"
+msgstr "Można wznowić"
+
+#: models.py:418
+msgid "Ready to Resume"
+msgstr "Gotowy do wznowienia"
+
+#: models.py:421
+msgid "Resumed"
+msgstr "Wznowione"
 
 #: models.py:524
 msgid "Additional Time (minutes)"
@@ -82,6 +196,53 @@ msgstr "Dodatkowy czas (minuty)"
 #: models.py:525
 msgid "Review Policy Exception"
 msgstr "Przejrzyj wyjątek od zasad"
+
+#: templates/common/waiting_banner.html:3
+msgid ""
+"\n"
+"        The result will be visible after <strong id=\"wait_deadline\"> Loading... </strong>\n"
+"    "
+msgstr ""
+"\n"
+"        \n"
+"Wynik będzie widoczny po <strong id=\"wait_deadline\"> załadowaniu...</strong>\n"
+"\n"
+"    "
+
+#: templates/emails/proctoring_attempt_satisfactory_email.html:12
+#, python-format
+msgid ""
+"\n"
+"        Your proctored exam \"%(exam_name)s\" in\n"
+"        <a href=\"%(course_url)s\">%(course_name)s</a> was reviewed and you\n"
+"        met all proctoring requirements.\n"
+"    "
+msgstr ""
+"\n"
+"        ```\n"
+"Twój nadzorowany egzamin \"%(exam_name)s\" w\n"
+"<a href=\"%(course_url)s\">%(course_name)s</a> został sprawdzony i spełniłeś wszystkie wymagania nadzoru.\n"
+"```\n"
+"    "
+
+#: templates/emails/proctoring_attempt_satisfactory_email.html:21
+#, python-format
+msgid ""
+"\n"
+"    If you have any questions about your results, you can reach out at \n"
+"        <a href=\"%(contact_url)s\">\n"
+"            %(contact_url_text)s\n"
+"        </a>.\n"
+"    "
+msgstr ""
+"\n"
+"    ```\n"
+"Jeśli masz jakiekolwiek pytania dotyczące wyników, możesz skontaktować się z nami pod adresem \n"
+"        <a href=\"%(contact_url)s\">\n"
+"            %(contact_url_text)s\n"
+"        </a>.\n"
+"```\n"
+"    "
 
 #: templates/emails/proctoring_attempt_submitted_email.html:12
 #, python-format
@@ -103,9 +264,114 @@ msgstr ""
 "```\n"
 "    "
 
+#: templates/emails/proctoring_attempt_unsatisfactory_email.html:12
+#, python-format
+msgid ""
+"\n"
+"        Your proctored exam \"%(exam_name)s\" in\n"
+"        <a href=\"%(course_url)s\">%(course_name)s</a> was reviewed and the\n"
+"        course team has identified one or more violations of the proctored exam rules. Examples\n"
+"        of issues that may result in a rules violation include browsing\n"
+"        the internet, blurry or missing photo identification, using a phone,\n"
+"        or getting help from another person. As a result of the identified issue(s),\n"
+"        you did not successfully meet the proctored exam requirements.\n"
+"    "
+msgstr ""
+"\n"
+"        ```\n"
+"Twój egzamin nadzorowany \"%(exam_name)s\" w\n"
+"<a href=\"%(course_url)s\">%(course_name)s</a> został sprawdzony i\n"
+"zespół kursu zidentyfikował co najmniej jedno naruszenie zasad egzaminu nadzorowanego. Przykłady\n"
+"problemów, które mogą powodować naruszenie zasad, obejmują przeglądanie\n"
+"stron internetowych, zamazany bądź brakujący dokument tożsamości ze zdjęciem, korzystanie z telefonu\n"
+"lub uzyskanie pomocy od innej osoby. W wyniku zidentyfikowanych problemów\n"
+"nie udało Ci się pomyślnie spełnić wymagań egzaminu nadzorowanego.\n"
+"```\n"
+"    "
+
+#: templates/emails/proctoring_attempt_unsatisfactory_email.html:25
+#, python-format
+msgid ""
+"\n"
+"        To appeal your proctored exam results, please reach out with any relevant information\n"
+"        about your exam at \n"
+"        <a href=\"%(contact_url)s\">\n"
+"            %(contact_url_text)s\n"
+"        </a>.\n"
+"    "
+msgstr ""
+"\n"
+"        Aby odwołać się od wyników egzaminu nadzorowanego, przekaż wszelkie istotne informacje o egzaminie pod adresem \n"
+"<a href=\"%(contact_url)s\">\n"
+"%(contact_url_text)s\n"
+"</a>.\n"
+"    "
+
+#: templates/onboarding_exam/entrance.html:5
+msgid ""
+"\n"
+"    Proctoring onboarding exam\n"
+"  "
+msgstr ""
+"\n"
+"    Proctorujący egzamin onboardingowy\n"
+"  "
+
+#: templates/onboarding_exam/entrance.html:12
+msgid ""
+"\n"
+"      Why this is important to you:\n"
+"    "
+msgstr ""
+"\n"
+"      Dlaczego to jest dla Ciebie ważne:\n"
+"    "
+
 #: templates/onboarding_exam/entrance.html:58
 msgid "Continue to onboarding"
 msgstr "Kontynuuj wdrażanie"
+
+#: templates/onboarding_exam/entrance.html:62
+msgid ""
+"\n"
+"    You will be guided through online proctoring software set up and identity verification.\n"
+"  "
+msgstr ""
+"\n"
+"    Zostaniesz poprowadzony przez konfigurację oprogramowania do nadzoru online i weryfikację tożsamości.\n"
+"  "
+
+#: templates/onboarding_exam/error.html:4
+msgid ""
+"\n"
+"    Error: There was a problem with your onboarding session\n"
+"  "
+msgstr ""
+"\n"
+"    Błąd: Wystąpił problem z Twoją sesją wprowadzającą\n"
+"  "
+
+#: templates/onboarding_exam/error.html:13
+msgid ""
+"\n"
+"    Your proctoring session ended before you completed this onboarding exam.\n"
+"    You should retry this onboarding exam.\n"
+"  "
+msgstr ""
+"\n"
+"    Twoja sesja nadzoru zakończyła się przed ukończeniem tego egzaminu wprowadzającego.  \n"
+"Powinieneś spróbować ponownie ten egzamin wprowadzający.\n"
+"  "
+
+#: templates/onboarding_exam/rejected.html:5
+msgid ""
+"\n"
+"    Your onboarding session was reviewed, but did not pass all requirements\n"
+"  "
+msgstr ""
+"\n"
+"    Twoja sesję wprowadzającą sprawdziliśmy, ale nie spełniła wszystkich wymagań\n"
+"  "
 
 #: templates/onboarding_exam/rejected.html:20
 #: templates/onboarding_exam/submitted.html:47
@@ -113,6 +379,12 @@ msgstr "Kontynuuj wdrażanie"
 #: templates/practice_exam/submitted.html:18
 msgid "Retry my exam"
 msgstr "Zdaj egzamin ponownie"
+
+#: templates/onboarding_exam/rejected.html:21
+#: templates/practice_exam/error.html:30
+#: templates/practice_exam/submitted.html:19
+msgid "Resetting Onboarding Exam"
+msgstr "Resetowanie egzaminu wprowadzającego"
 
 #: templates/onboarding_exam/submitted.html:19
 #, python-format
