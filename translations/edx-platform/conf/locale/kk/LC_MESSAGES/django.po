@@ -264,10 +264,35 @@ msgstr ""
 "Көрсетілген курсты қабылдап, оны git репозиторийіне экспорттауға тырысыңыз\n"
 ". Курс каталогы әлдеқашан git репозиторийі болуы керек. Қолданылуы: git_export <course_loc> <git_url>"
 
+#: cms/djangoapps/contentstore/models.py:163
+msgid "Component Link"
+msgstr "Құрамдас сілтеме"
+
+#: cms/djangoapps/contentstore/models.py:164
+msgid "Component Links"
+msgstr "Құрамдас сілтемелер"
+
 #: cms/djangoapps/contentstore/models.py:190
 msgid "The component must be published to access `published_at`"
 msgstr ""
 "Компонентке `published_at` дерегіне қол жеткізу үшін жариялануы керек."
+
+#: cms/djangoapps/contentstore/models.py:329
+msgid ""
+"Upstream block key (e.g. lct:...), this value cannot be null and is useful "
+"to track upstream library blocks that do not exist yet or were deleted."
+msgstr ""
+"Жоғарғы блок кілті (мысалы, lct:...), бұл мән нөл болуы мүмкін емес және әлі"
+" жоқ немесе жойылған жоғары ағындық кітапхана блоктарын бақылау үшін "
+"пайдалы."
+
+#: cms/djangoapps/contentstore/models.py:336
+msgid "Container Link"
+msgstr "Контейнер сілтемесі"
+
+#: cms/djangoapps/contentstore/models.py:337
+msgid "Container Links"
+msgstr "Контейнер сілтемелері"
 
 #: cms/djangoapps/contentstore/models.py:363
 msgid "The container must be published to access `published_at`"
@@ -1136,6 +1161,12 @@ msgstr ""
 "Бұл блокты көшірудің мақсатты нысаны, егер көшіру сәтсіз болса, null мәніне "
 "орнатылады."
 
+#: cms/djangoapps/modulestore_migrator/models.py:249
+msgid "Reason if the block is unsupported and target is set to null"
+msgstr ""
+"Егер блок қолдау таппаса және мақсат null мәніне орнатылса, оның себебін "
+"анықтаңыз."
+
 #: cms/djangoapps/modulestore_migrator/tasks.py:827
 #, python-brace-format
 msgid " It has {count} children block."
@@ -1147,9 +1178,38 @@ msgstr[1] " Онда {count} балалар блок бар."
 msgid "Dictionary with the available tags"
 msgstr "Қол жетімді тегтері бар сөздік"
 
+#: cms/lib/xblock/upstream_sync.py:255
+msgid "Downstream is not an XBlock or is missing required UpstreamSyncMixin"
+msgstr "Downstream XBlock емес немесе қажетті UpstreamSyncMixin жоқ"
+
+#: cms/lib/xblock/upstream_sync.py:275
+msgid ""
+"Updating content with children is not yet supported unless the upstream is a"
+" container."
+msgstr ""
+"Жоғары ағын контейнер болмаса, балалармен мазмұнды жаңартуға әлі қолдау "
+"көрсетілмейді."
+
+#: cms/lib/xblock/upstream_sync.py:281
+msgid "Linked upstream library block was not found in the system"
+msgstr "Байланыстырылған жоғары ағындық кітапхана блогы жүйеде табылмады"
+
+#: cms/lib/xblock/upstream_sync.py:288
+msgid "Linked upstream library container was not found in the system"
+msgstr "Байланыстырылған жоғары ағындық кітапхана контейнері жүйеде табылмады"
+
 #: cms/lib/xblock/upstream_sync.py:292
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "`Байланыстырылған `upstream_key` жарамды кілт емес`"
+
+#: cms/lib/xblock/upstream_sync.py:301
+#, python-brace-format
+msgid ""
+"Content type mismatch: {downstream_id} ({downstream_type}) cannot be linked "
+"to {upstream_id}."
+msgstr ""
+"Мазмұн түрі сәйкессіздігі: {downstream_id} ({downstream_type}) {upstream_id}"
+" байланыстыруға болмайды."
 
 #: cms/templates/admin/base_site.html:4 lms/templates/admin/base_site.html:3
 msgid "Django site admin"
@@ -5464,6 +5524,10 @@ msgstr ""
 msgid "The URL name of the problem to override the score for."
 msgstr "Мәселенің бағасын өзгерту үшін URL атауы."
 
+#: lms/djangoapps/instructor/views/serializer.py:571
+msgid "The overriding score to set."
+msgstr "Орнатылатын негізгі баға."
+
 #: lms/djangoapps/instructor/views/serializers_v2.py:106
 msgid "Enrollments"
 msgstr "Тіркелулер"
@@ -5471,6 +5535,14 @@ msgstr "Тіркелулер"
 #: lms/djangoapps/instructor/views/serializers_v2.py:118
 msgid "Grading"
 msgstr "Бағалау"
+
+#: lms/djangoapps/instructor/views/serializers_v2.py:133
+msgid "Bulk Email"
+msgstr "Жаппай электрондық пошта"
+
+#: lms/djangoapps/instructor/views/serializers_v2.py:149
+msgid "Data Downloads"
+msgstr "Деректерді жүктеулер"
 
 #: lms/djangoapps/instructor/views/serializers_v2.py:403
 #, python-brace-format
@@ -8631,6 +8703,11 @@ msgstr "Апталық хабарламалар дайджесті"
 msgid "Daily Notifications Digest"
 msgstr "Күнделікті хабарламалар дайджесті"
 
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/batched_email/email/body.txt:3
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/batched_email/email/subject.txt:3
+msgid "Recent activity on"
+msgstr "Бұл соңғы әрекет туралы."
+
 #: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/body.txt:4
 #: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/subject.txt:4
 msgid "Weekly Notifications Digest for the Week of"
@@ -9845,6 +9922,10 @@ msgstr "Жауап"
 msgid "or"
 msgstr "немесе"
 
+#: xmodule/capa/responsetypes.py:3808
+msgid "Could not interpret '{html.escape(answer_value)}' as a number."
+msgstr "'{html.escape(answer_value)}' сан ретінде түсіндірілмеді."
+
 #: xmodule/capa/templates/codeinput.html:7
 msgid "Code Editor"
 msgstr "Код редакторы"
@@ -10027,6 +10108,13 @@ msgid "{num_hour} hour"
 msgid_plural "{num_hour} hours"
 msgstr[0] "{num_hour} сағат"
 msgstr[1] "{num_hour} сағат"
+
+#: xmodule/capa_block.py:2032
+#, python-brace-format
+msgid "{num_minute} minute"
+msgid_plural "{num_minute} minutes"
+msgstr[0] "{num_minute} минут"
+msgstr[1] "{num_minute} минут"
 
 #: xmodule/course_block.py:715
 msgid "Allows specification of an external link to replace discussion forums."
@@ -11524,6 +11612,11 @@ msgstr ""
 #: xmodule/video_block/video_block.py:888
 msgid "Default Video URL"
 msgstr "Әдепкі бейне URL мекенжайы"
+
+#: xmodule/video_block/video_handlers.py:469
+#: xmodule/video_block/video_handlers.py:510
+msgid "Runtime does not support transcripts."
+msgstr "Жұмыс уақыты транскрипцияларды қолдамайды."
 
 #: xmodule/video_block/video_handlers.py:528
 msgid "Language is required."
