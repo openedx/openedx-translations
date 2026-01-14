@@ -7423,6 +7423,70 @@ msgid ""
 "There must be one cohort to which students can automatically be assigned."
 msgstr "ต้องมีกลุ่มเดียวที่สามารถกำหนดนักเรียนให้โดยอัตโนมัติ"
 
+#: openedx/core/djangoapps/course_groups/views.py:204
+msgid "A cohort with the same name already exists."
+msgstr "มีกลุ่มที่ชื่อเดียวกันอยู่แล้ว"
+
+#: openedx/core/djangoapps/course_live/models.py:21
+msgid "If disabled, the LTI in the associated course will be disabled."
+msgstr "หากปิดใช้งาน LTI ในหลักสูตรที่เกี่ยวข้อง ระบบจะปิดใช้งาน"
+
+#: openedx/core/djangoapps/course_live/models.py:28
+msgid "The LTI configuration data for this course/provider."
+msgstr "ข้อมูลการกำหนดค่า LTI สำหรับหลักสูตร/ผู้ให้บริการรายนี้"
+
+#: openedx/core/djangoapps/course_live/models.py:33
+#: openedx/core/djangoapps/programs/models.py:57
+msgid "LTI provider"
+msgstr "ผู้ให้บริการ LTI"
+
+#: openedx/core/djangoapps/course_live/models.py:34
+#: openedx/core/djangoapps/programs/models.py:58
+msgid "The LTI provider's id"
+msgstr "รหัสของผู้ให้บริการ LTI"
+
+#: openedx/core/djangoapps/course_live/models.py:38
+msgid "True, if LTI credential are provided by Org globally"
+msgstr "จริง หากองค์กรเป็นผู้ให้ข้อมูลประจำตัว LTI ทั่วโลก"
+
+#: openedx/core/djangoapps/course_live/plugins.py:25
+#: openedx/core/djangoapps/course_live/tab.py:47
+msgid "Live"
+msgstr "สด"
+
+#: openedx/core/djangoapps/course_live/plugins.py:26
+msgid "Enable in-platform video conferencing by configuring live"
+msgstr "เปิดใช้งานการประชุมทางวิดีโอในแพลตฟอร์มโดยการกำหนดค่าแบบสด"
+
+#: openedx/core/djangoapps/credentials/apps.py:18
+msgid "Credentials"
+msgstr "ข้อมูลรับรอง"
+
+#: openedx/core/djangoapps/credentials/models.py:37
+msgid "Internal Service URL"
+msgstr "Internal Service URL"
+
+#: openedx/core/djangoapps/credentials/models.py:41
+msgid "Public Service URL"
+msgstr "Public Service URL"
+
+#: openedx/core/djangoapps/credentials/models.py:53
+msgid "Enable Authoring of Credential in Studio"
+msgstr "Enable Authoring of Credential in Studio"
+
+#: openedx/core/djangoapps/credentials/models.py:56
+msgid "Enable authoring of Credential Service credentials in Studio."
+msgstr "Enable authoring of Credential Service credentials in Studio."
+
+#: openedx/core/djangoapps/credit/email_utils.py:92
+msgid "Course Credit Eligibility"
+msgstr "หลักสูตรที่มีสิทธิ์ได้รับหน่วยกิต"
+
+#: openedx/core/djangoapps/credit/email_utils.py:95
+#, python-brace-format
+msgid "You are eligible for credit from {providers_string}"
+msgstr "You are eligible for credit from {providers_string}"
+
 #. Translators: The join of two university names (e.g., Harvard and MIT).
 #: openedx/core/djangoapps/credit/email_utils.py:295
 #, python-brace-format
@@ -7437,9 +7501,289 @@ msgstr "{first_provider} และ {second_provider}"
 msgid "{first_providers}, and {last_provider}"
 msgstr "{first_providers} และ {last_provider}"
 
+#: openedx/core/djangoapps/credit/exceptions.py:77
+#, python-brace-format
+msgid "[{username}] is not eligible for credit for [{course_key}]."
+msgstr "[{username}] is not eligible for credit for [{course_key}]."
+
+#: openedx/core/djangoapps/credit/exceptions.py:86
+#, python-brace-format
+msgid "[{course_key}] is not a valid course key."
+msgstr "[{course_key}] ไม่ใช่คีย์หลักสูตรที่ถูกต้อง"
+
+#: openedx/core/djangoapps/credit/models.py:55
+msgid ""
+"Unique identifier for this credit provider. Only alphanumeric characters and"
+" hyphens (-) are allowed. The identifier is case-sensitive."
+msgstr ""
+"ระบุชื่อเฉพาะของผู้ให้หน่วยกิต สามารถใช้ได้เพียงตัวอักษร ตัวเลขและขีด (-) "
+"ชื่อผู้ใช้ต้องคำนึงถึงตัวอักษรเล็กใหญ่"
+
+#: openedx/core/djangoapps/credit/models.py:63
+msgid "Whether the credit provider is currently enabled."
+msgstr "ผู้ให้เครดิตที่ให้บริการในปัจจุบัน"
+
+#: openedx/core/djangoapps/credit/models.py:68
+msgid "Name of the credit provider displayed to users"
+msgstr "ชื่อของผู้ให้บริการหน่วยกิตที่จะแสดงต่อกับผู้ใช้"
+
+#: openedx/core/djangoapps/credit/models.py:74
+msgid ""
+"When true, automatically notify the credit provider when a user requests "
+"credit. In order for this to work, a shared secret key MUST be configured "
+"for the credit provider in secure auth settings."
+msgstr ""
+"เมื่อเป็นจริง "
+"ผู้ให้หน่วยกิตจะได้รับการแจ้งโดยอัตโนมัติเมื่อมีผู้ใช้ขอหน่วยกิต "
+"เพื่อที่จะทำงาน "
+"คีย์ลับที่ใช้ร่วมกันจะต้องได้รับการกำหนดค่าสำหรับผู้ให้หน่วยกิตในการตั้งค่ารับรองความปลอดภัย"
+
+#: openedx/core/djangoapps/credit/models.py:84
+msgid ""
+"URL of the credit provider.  If automatic integration is enabled, this will "
+"the the end-point that we POST to to notify the provider of a credit "
+"request.  Otherwise, the user will be shown a link to this URL, so the user "
+"can request credit from the provider directly."
+msgstr ""
+"URL ของผู้ให้หน่วยกิต หากการรวมโดยอัตโนมัติถูกเปิดใช้งาน "
+"นี่จะเป็นจุดสิ้นสุดที่เราโพสต์ไปแจ้งให้ผู้ให้บริการทราบเกี่ยวกับการขอหน่วยกิต"
+" มิฉะนั้นผู้ใช้จะแสดงลิงค์ที่ไปยัง URL "
+"นี้เพื่อให้ผู้ใช้สามารถขอหน่วยกิตจากผู้ให้บริการโดยตรง"
+
+#: openedx/core/djangoapps/credit/models.py:95
+msgid ""
+"URL from the credit provider where the user can check the status of his or "
+"her request for credit.  This is displayed to students *after* they have "
+"requested credit."
+msgstr ""
+"URL จากผู้ให้หน่วยกิตที่ผู้ใช้สามารถตรวจสอบสถานะของคำขอสำหรับหน่วยกิต "
+"ส่วนนี้จะแสดงให้กับนักเรียน *หลังจาก* ที่พวกเขาได้ขอหน่วยกิต"
+
+#: openedx/core/djangoapps/credit/models.py:104
+msgid "Description for the credit provider displayed to users."
+msgstr "รายละเอียดสำหรับผู้ให้หน่วยกิตที่จะแสดงต่อผู้ใช้"
+
+#: openedx/core/djangoapps/credit/models.py:112
+msgid ""
+"Plain text or html content for displaying further steps on receipt page "
+"*after* paying for the credit to get credit for a credit course against a "
+"credit provider."
+msgstr ""
+"ข้อความธรรมดาหรือเนื้อหา html สำหรับแสดงขั้นตอนต่อไปในหน้าใบเสร็จรับเงิน "
+"หลังจากที่ชำระเงินสำหรับหน่วยกิตเพื่อรับหน่วยกิตสำหรับหลักสูตรจากผู้ให้หน่วยกิต"
+
+#: openedx/core/djangoapps/credit/models.py:121
+msgid ""
+"Plain text or html content for displaying custom message inside credit "
+"eligibility email content which is sent when user has met all credit "
+"eligibility requirements."
+msgstr ""
+"ข้อความธรรมดาหรือเนื้อหา html "
+"สำหรับแสดงข้อความที่กำหนดเองภายในเนื้อหาอีเมลแสดงสิทธิ์การได้รับหน่วยกิตที่จะถูกส่งเมื่อผู้ใช้ผ่านทุกคุณสมบัติของสิทธิ์การได้หน่วยกิต"
+
+#: openedx/core/djangoapps/credit/models.py:130
+msgid ""
+"Plain text or html content for displaying custom message inside credit "
+"receipt email content which is sent *after* paying to get credit for a "
+"credit course."
+msgstr ""
+"ข้อความธรรมดาหรือเนื้อหา html "
+"สำหรับแสดงข้อความที่กำหนดเองภายในเนื้อหาอีเมล์ใบเสร็จหน่วยกิตซึ่งจะถูกส่งหลังจากที่จ่ายเงินสำหรับหน่วยกิตของหลักสูตร"
+
+#: openedx/core/djangoapps/credit/models.py:140
+msgid "Thumbnail image url of the credit provider."
+msgstr "URL ภาพขนาดเล็กของผู้ให้หน่วยกิต"
+
+#: openedx/core/djangoapps/credit/models.py:560
+msgid "Deadline for purchasing and requesting credit."
+msgstr "วันสุดท้ายสำหรับจัดซื้อและการขอหน่วยกิต"
+
+#: openedx/core/djangoapps/dark_lang/views.py:51
+msgid "Preview Language Administration"
+msgstr "ดูตัวอย่างการบริหารภาษา"
+
+#: openedx/core/djangoapps/dark_lang/views.py:90
+msgid "Language not provided"
+msgstr "ไม่ได้ระบุภาษา"
+
+#: openedx/core/djangoapps/dark_lang/views.py:96
+#, python-brace-format
+msgid "Language set to {preview_language}"
+msgstr "ตั้งค่าภาษาเป็น {preview_language}"
+
+#: openedx/core/djangoapps/dark_lang/views.py:108
+msgid "Language reset to the default"
+msgstr "ภาษารีเซ็ตเป็นค่าเริ่มต้น"
+
+#: openedx/core/djangoapps/debug/views.py:50
+msgid "This is a test message"
+msgstr "นี่คือข้อความทดสอบ"
+
+#: openedx/core/djangoapps/debug/views.py:51
+msgid "This is a success message"
+msgstr "นี่คือข้อความแห่งความสำเร็จ"
+
+#: openedx/core/djangoapps/debug/views.py:52
+msgid "This is a test warning"
+msgstr "นี่คือคำเตือนการทดสอบ"
+
+#: openedx/core/djangoapps/debug/views.py:53
+msgid "This is a test error"
+msgstr "นี่เป็นข้อผิดพลาดในการทดสอบ"
+
+#: openedx/core/djangoapps/discussions/models.py:126
+#, python-brace-format
+msgid ""
+"{provider} requires that LTI advanced sharing be enabled for your course, as"
+" this provider uses email address and username to personalize the "
+"experience. Please contact {support_contact} to enable this feature."
+msgstr ""
+"{provider} ต้องการให้เปิดใช้งานการแบ่งปัน LTI ขั้นสูงสำหรับหลักสูตรของคุณ "
+"เนื่องจากผู้ให้บริการรายนี้ใช้ที่อยู่อีเมลและชื่อผู้ใช้เพื่อปรับแต่งประสบการณ์"
+" โปรดติดต่อ {support_contact} เพื่อเปิดใช้งานคุณสมบัตินี้"
+
 #: openedx/core/djangoapps/discussions/models.py:134
 msgid "technical support"
 msgstr "การสนับสนุนทางเทคนิค"
+
+#: openedx/core/djangoapps/discussions/models.py:334
+#, python-brace-format
+msgid "Comma-separated list of providers to allow, eg: {choices}"
+msgstr ""
+"รายชื่อผู้ให้บริการที่คั่นด้วยเครื่องหมายจุลภาคที่จะอนุญาต เช่น: {choices}"
+
+#: openedx/core/djangoapps/discussions/models.py:342
+msgid "Allow List"
+msgstr "อนุญาตรายการ"
+
+#: openedx/core/djangoapps/discussions/models.py:353
+#, python-brace-format
+msgid "Comma-separated list of providers to deny, eg: {choices}"
+msgstr ""
+"รายชื่อผู้ให้บริการที่คั่นด้วยเครื่องหมายจุลภาคที่จะปฏิเสธ เช่น: {choices}"
+
+#: openedx/core/djangoapps/discussions/models.py:361
+msgid "Deny List"
+msgstr "ปฏิเสธรายการ"
+
+#. Translators: A key specifying a course, library, program,
+#. website, or some other collection of content where learning
+#. happens.
+#: openedx/core/djangoapps/discussions/models.py:423
+#: openedx/core/djangoapps/discussions/models.py:570
+msgid "Learning Context Key"
+msgstr "คีย์บริบทการเรียนรู้"
+
+#: openedx/core/djangoapps/discussions/models.py:427
+msgid ""
+"If disabled, the discussions in the associated learning context/course will "
+"be disabled."
+msgstr ""
+"หากปิดใช้งาน การสนทนาในบริบท/หลักสูตรการเรียนรู้ที่เกี่ยวข้องจะถูกปิดใช้งาน"
+
+#: openedx/core/djangoapps/discussions/models.py:434
+msgid ""
+"The Posting availability in discussions whether it will be enabled, "
+"scheduled or indefinitely disabled."
+msgstr ""
+"การโพสต์ในการสนทนาจะมีความพร้อมใช้งานหรือไม่ ขึ้นอยู่กับว่าจะเปิดใช้งาน "
+"กำหนดเวลา หรือปิดใช้งานอย่างไม่มีกำหนด"
+
+#: openedx/core/djangoapps/discussions/models.py:442
+msgid "The LTI configuration data for this context/provider."
+msgstr "ข้อมูลการกำหนดค่า LTI สำหรับบริบท/ผู้ให้บริการนี้"
+
+#: openedx/core/djangoapps/discussions/models.py:447
+msgid ""
+"If enabled, discussion topics will be created for each non-graded unit in "
+"the course. A UI for discussions will show up with each unit."
+msgstr ""
+"หากมีการเปิดใช้งาน "
+"ระบบจะสร้างหัวข้อการอภิปรายสำหรับแต่ละหน่วยที่ไม่ได้ให้คะแนนในหลักสูตร และ "
+"UI สำหรับการสนทนาจะปรากฏขึ้นในแต่ละหน่วย"
+
+#: openedx/core/djangoapps/discussions/models.py:453
+msgid ""
+"If enabled, discussion topics will be created for graded units as well."
+msgstr "หากเปิดใช้งาน หัวข้อการสนทนาจะถูกสร้างขึ้นสำหรับหน่วยการให้คะแนนด้วย"
+
+#: openedx/core/djangoapps/discussions/models.py:457
+msgid ""
+"If enabled, discussions will need to be manually enabled for each unit."
+msgstr "หากเปิดใช้งาน จะต้องเปิดใช้งานการอภิปรายด้วยตนเองสำหรับแต่ละหน่วย"
+
+#: openedx/core/djangoapps/discussions/models.py:462
+msgid "The plugin configuration data for this context/provider."
+msgstr "ข้อมูลการกำหนดค่าปลั๊กอินสำหรับบริบท/ผู้ให้บริการนี้"
+
+#: openedx/core/djangoapps/discussions/models.py:467
+msgid "Discussion provider"
+msgstr "ผู้ให้บริการการสนทนา"
+
+#: openedx/core/djangoapps/discussions/models.py:468
+msgid "The discussion tool/provider's id"
+msgstr "เครื่องมือการสนทนา/รหัสผู้ให้บริการ"
+
+#: openedx/core/djangoapps/discussions/models.py:571
+msgid "Context key for context in which this discussion topic exists."
+msgstr "คีย์บริบทสำหรับบริบทที่มีหัวข้อการสนทนานี้อยู่"
+
+#: openedx/core/djangoapps/discussions/models.py:578
+msgid ""
+"Usage key for in-context discussion topic. Set to null for course-level "
+"topics."
+msgstr ""
+"รหัสการใช้งานสำหรับหัวข้อการสนทนาในบริบท ตั้งค่าเป็น null "
+"สำหรับหัวข้อระดับหลักสูตร"
+
+#: openedx/core/djangoapps/discussions/models.py:582
+msgid "Title for discussion topic."
+msgstr "ชื่อเรื่องสำหรับหัวข้อการอภิปราย"
+
+#: openedx/core/djangoapps/discussions/models.py:589
+msgid "Group for divided discussions."
+msgstr "กลุ่มสำหรับการอภิปรายแตกแยก"
+
+#: openedx/core/djangoapps/discussions/models.py:593
+msgid "Provider id for discussion provider."
+msgstr "รหัสผู้ให้บริการสำหรับผู้ให้บริการการสนทนา"
+
+#: openedx/core/djangoapps/discussions/models.py:598
+msgid ""
+"Discussion context ID in external forum provider. e.g. commentable_id for "
+"cs_comments_service."
+msgstr ""
+"ID บริบทการสนทนาในผู้ให้บริการฟอรัมภายนอก เช่น commentable_id สำหรับ "
+"cs_comments_service"
+
+#: openedx/core/djangoapps/discussions/models.py:602
+msgid "Whether this topic should be shown in-context in the course."
+msgstr "หัวข้อนี้ควรแสดงในบริบทในหลักสูตรหรือไม่"
+
+#: openedx/core/djangoapps/discussions/models.py:606
+msgid "Ordering of this topic in its learning context"
+msgstr "การเรียงลำดับหัวข้อนี้ในบริบทการเรียนรู้"
+
+#: openedx/core/djangoapps/discussions/models.py:610
+msgid "Additional context for this topic, such as its section, and subsection"
+msgstr "บริบทเพิ่มเติมสำหรับหัวข้อนี้ เช่น ส่วน และส่วนย่อย"
+
+#: openedx/core/djangoapps/discussions/plugins.py:24
+msgid ""
+"Encourage participation and engagement in your course with discussions."
+msgstr "ส่งเสริมการมีส่วนร่วมและการมีส่วนร่วมในหลักสูตรของคุณด้วยการสนทนา"
+
+#: openedx/core/djangoapps/django_comment_common/models.py:25
+msgid "Administrator"
+msgstr "ผู้ดูแล"
+
+#: openedx/core/djangoapps/django_comment_common/models.py:26
+msgid "Moderator"
+msgstr "ผู้ดำเนินการ"
+
+#: openedx/core/djangoapps/django_comment_common/models.py:27
+msgid "Group Moderator"
+msgstr "ผู้จัดการกลุ่ม"
 
 #: openedx/core/djangoapps/django_comment_common/models.py:28
 msgid "Community TA"
@@ -7448,6 +7792,101 @@ msgstr "กลุ่มผู้ช่วยครู"
 #: openedx/core/djangoapps/django_comment_common/models.py:29
 msgid "Student"
 msgstr "นักเรียน"
+
+#: openedx/core/djangoapps/embargo/forms.py:46
+msgid "COURSE NOT FOUND.  Please check that the course ID is valid."
+msgstr "ไม่พบหลักสูตรนี้ กรุณาเช็ครหัสหลักสูตรที่ถูกต้องอีกครั้ง"
+
+#: openedx/core/djangoapps/embargo/models.py:137
+msgid "The course key for the restricted course."
+msgstr "รหัสหลักสูตรสำหรับหลักสูตรที่ถูกระงับ"
+
+#: openedx/core/djangoapps/embargo/models.py:144
+msgid "The message to show when a user is blocked from enrollment."
+msgstr "ข้อความที่จะแสดงเมื่อผู้ใช้ถูกบล็อคจากการลงทะเบียน"
+
+#: openedx/core/djangoapps/embargo/models.py:151
+msgid "The message to show when a user is blocked from accessing a course."
+msgstr "ข้อความที่จะแสดงเมื่อผู้ใช้ถูกบล็อคจากการเข้าใช้หลักสูตร"
+
+#: openedx/core/djangoapps/embargo/models.py:157
+msgid ""
+"Allow users who enrolled in an allowed country to access restricted courses "
+"from excluded countries."
+msgstr ""
+"อนุญาตให้ผู้ใช้ที่ลงทะเบียนในประเทศที่กำหนดสามารถเข้าใช้หลักสูตรที่ถูกจำกัดไว้สำหรับบางประเทศได้"
+
+#: openedx/core/djangoapps/embargo/models.py:380
+msgid "Two character ISO country code."
+msgstr "รหัสประเทศที่ได้เป็น ISO สองตัวอักษร"
+
+#: openedx/core/djangoapps/embargo/models.py:426
+msgid ""
+"Whether to include or exclude the given course. If whitelist countries are "
+"specified, then ONLY users from whitelisted countries will be able to access"
+" the course.  If blacklist countries are specified, then users from "
+"blacklisted countries will NOT be able to access the course."
+msgstr ""
+"ไม่ว่าจะรวมหรือแยกหลักสูตร. ถ้าระบุประเทศที่อยู่ในรายการอนุญาต, "
+"หลังจากนั้นมีเพียงแค่ผู้ใช้จากประเทศที่อยู่ในรายการอนุญาตที่จะสามารถเข้าใช้หลักสูตรได้."
+" ถ้าประเทศต้องห้ามถูกระบุไว้ "
+"หลังจากนั้นผู้ใช้จากประเทศเหล่านั้นจะไม่สามารถเข้าใช้หลักสูตรได้"
+
+#: openedx/core/djangoapps/embargo/models.py:435
+msgid "The course to which this rule applies."
+msgstr "หลักสูตรที่กฏนี้บังคับใช้"
+
+#: openedx/core/djangoapps/embargo/models.py:441
+msgid "The country to which this rule applies."
+msgstr "ประเทศที่กฏนี้บังคับใช้"
+
+#: openedx/core/djangoapps/embargo/models.py:515
+#, python-brace-format
+msgid "Whitelist {country} for {course}"
+msgstr "ประเทศที่อนุญาต {country} สำหรับ {course}"
+
+#: openedx/core/djangoapps/embargo/models.py:520
+#, python-brace-format
+msgid "Blacklist {country} for {course}"
+msgstr "ประเทศต้องห้าม {country} สำหรับ {course}"
+
+#: openedx/core/djangoapps/notifications/admin.py:16
+msgid "Notification App"
+msgstr "แอพแจ้งเตือน"
+
+#: openedx/core/djangoapps/notifications/admin.py:37
+msgid "Notification Type"
+msgstr "ประเภทการแจ้งเตือน"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:71
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> commented on your response to the "
+"post <{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> "
+"แสดงความคิดเห็นเกี่ยวกับการตอบกลับของคุณต่อโพสต์ "
+"<{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:84
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> commented on "
+"<{strong}>{author_name}</{strong}> response to your post "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> แสดงความคิดเห็นใน "
+"<{strong}>{author_name}</{strong}> ตอบกลับโพสต์ของคุณ "
+"<{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:98
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> responded to your post "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> ตอบกลับโพสต์ของคุณ "
+"<{strong}>{post_title}</{strong}></{p}>"
 
 #: openedx/core/djangoapps/notifications/base_notification.py:100
 #, python-brace-format
@@ -7458,6 +7897,33 @@ msgstr ""
 "<{p}><{strong}>{replier_name}</{strong}> และคนอื่น ๆ ตอบกลับโพสต์ของคุณ "
 "<{strong}>{post_title}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:119
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{username}</{strong}> posted "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{username}</{strong}> โพสต์แล้ว "
+"<{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:139
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{username}</{strong}> asked "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{username}</{strong}> ถาม "
+"<{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:153
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> responded to a post you’re "
+"following: <{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> ตอบกลับโพสต์ที่คุณกำลังติดตาม: "
+"<{strong}>{post_title}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:155
 #, python-brace-format
 msgid ""
@@ -7466,6 +7932,15 @@ msgid ""
 msgstr ""
 "<{p}><{strong}>{replier_name}</{strong}> และคนอื่นๆ "
 "ตอบกลับโพสต์ที่คุณกำลังติดตาม: <{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:347
+msgid ""
+"Notifications for responses and comments on your posts, and the ones you’re "
+"following, including endorsements to your responses and on your posts."
+msgstr ""
+"การแจ้งเตือนสำหรับการตอบกลับและความคิดเห็นในโพสต์ของคุณ "
+"และสิ่งที่คุณกำลังติดตาม "
+"รวมถึงการรับรองการตอบกลับและความคิดเห็นในโพสต์ของคุณ"
 
 #: openedx/core/djangoapps/notifications/email/utils.py:447
 #: openedx/features/course_experience/plugins.py:34
@@ -7496,9 +7971,138 @@ msgstr "ดู"
 msgid "Recent activity on"
 msgstr "กิจกรรมล่าสุดบน"
 
+#: openedx/core/djangoapps/notifications/views.py:174
+msgid "Invalid app name."
+msgstr "ชื่อแอปไม่ถูกต้อง"
+
+#: openedx/core/djangoapps/notifications/views.py:184
+msgid "Notifications marked as seen."
+msgstr "ทำเครื่องหมายการแจ้งเตือนว่าเห็นแล้ว"
+
+#: openedx/core/djangoapps/notifications/views.py:223
+msgid "Notification marked read."
+msgstr "การแจ้งเตือนทำเครื่องหมายว่าอ่านแล้ว"
+
+#: openedx/core/djangoapps/notifications/views.py:235
+msgid "Notifications marked read."
+msgstr "ทำเครื่องหมายการแจ้งเตือนว่าอ่านแล้ว"
+
+#: openedx/core/djangoapps/notifications/views.py:237
+msgid "Invalid app_name or notification_id."
+msgstr "app_name หรือ notification_id ไม่ถูกต้อง"
+
+#: openedx/core/djangoapps/oauth_dispatch/models.py:81
+msgid ""
+"Comma-separated list of scopes that this application will be allowed to "
+"request."
+msgstr ""
+"รายการขอบเขตที่คั่นด้วยเครื่องหมายจุลภาคซึ่งแอปพลิเคชันนี้จะได้รับอนุญาตให้ขอได้"
+
+#: openedx/core/djangoapps/oauth_dispatch/models.py:88
+msgid ""
+"Comma-separated list of filters that this application will be allowed to "
+"request."
+msgstr ""
+"รายการตัวกรองที่คั่นด้วยเครื่องหมายจุลภาคซึ่งแอปพลิเคชันนี้จะได้รับอนุญาตให้ขอได้"
+
+#: openedx/core/djangoapps/oauth_dispatch/models.py:141
+msgid "Content Provider"
+msgstr "ผู้ให้บริการเนื้อหา"
+
+#: openedx/core/djangoapps/password_policy/apps.py:22
+msgid "Password Policy"
+msgstr "นโยบายการตั้งรหัสผ่าน"
+
+#: openedx/core/djangoapps/password_policy/compliance.py:76
+#, python-brace-format
+msgid ""
+"{strong_tag_open}We recently changed our password "
+"requirements{strong_tag_close}{break_line_tag}Your current password does not"
+" meet the new security requirements. We just sent a password-reset message "
+"to the email address associated with this account. Thank you for helping us "
+"keep your data safe."
+msgstr ""
+"{strong_tag_open} เราเพิ่งเปลี่ยนข้อกำหนดรหัสผ่านของเรา {strong_tag_close} "
+"{break_line_tag} รหัสผ่านปัจจุบันของคุณไม่ตรงตามข้อกำหนดด้านความปลอดภัยใหม่ "
+"เราเพิ่งส่งข้อความรีเซ็ตรหัสผ่านไปยังที่อยู่อีเมลที่เชื่อมโยงกับบัญชีผู้ใช้นี้"
+" ขอขอบคุณที่ช่วยเรารักษาข้อมูลของคุณให้ปลอดภัย"
+
+#: openedx/core/djangoapps/password_policy/compliance.py:89
+#, python-brace-format
+msgid ""
+"{strong_tag_open}Required Action: Please update your "
+"password{strong_tag_close}{break_line_tag}As of {deadline}, {platform_name} "
+"will require all learners to have complex passwords. Your current password "
+"does not meet these requirements. To reset your password, go to to "
+"{anchor_tag_open}Account Settings{anchor_tag_close}."
+msgstr ""
+"{strong_tag_open} การดำเนินการที่จำเป็น: โปรดอัปเดตรหัสผ่านของคุณ "
+"{strong_tag_close} {break_line_tag} ตั้งแต่วันที่ {deadline} เป็นต้นไป, "
+"{platform_name} จะกำหนดให้ผู้เรียนทุกคนใช้รหัสผ่านที่ซับซ้อน "
+"รหัสผ่านปัจจุบันของคุณไม่ตรงตามข้อกำหนดเหล่านี้ หากต้องการรีเซ็ตรหัสผ่าน "
+"ให้ไปที่ {anchor_tag_open} การตั้งค่าบัญชี {anchor_tag_close}"
+
+#: openedx/core/djangoapps/profile_images/images.py:98
+#, python-brace-format
+msgid "The file must be smaller than {image_max_size} in size."
+msgstr "ไฟล์ต้องมีขนาดเล็กกว่า {image_max_size}"
+
+#: openedx/core/djangoapps/profile_images/images.py:105
+#, python-brace-format
+msgid "The file must be at least {image_min_size} in size."
+msgstr "ไฟล์ต้องมีขนาดอย่างน้อย {image_min_size}"
+
+#: openedx/core/djangoapps/profile_images/images.py:116
+#, python-brace-format
+msgid "The file must be one of the following types: {valid_file_types}."
+msgstr "ไฟล์ต้องเป็นประเภทใดประเภทหนึ่งต่อไปนี้: {valid_file_types}."
+
+#: openedx/core/djangoapps/profile_images/images.py:124
+msgid ""
+"The Content-Type header for this file does not match the file data. The file"
+" may be corrupted."
+msgstr ""
+"ส่วนหัวของ Content-Type สำหรับไฟล์นี้ไม่ตรงกับข้อมูลในไฟล์ ไฟล์อาจเสียหาย"
+
+#: openedx/core/djangoapps/profile_images/images.py:242
+msgid "bytes"
+msgstr "ไบต์"
+
+#: openedx/core/djangoapps/profile_images/images.py:242
+msgid "KB"
+msgstr "กิโลไบต์"
+
+#: openedx/core/djangoapps/profile_images/images.py:242
+msgid "MB"
+msgstr "เมกะไบต์"
+
+#: openedx/core/djangoapps/profile_images/views.py:136
+msgid "No file provided for profile image"
+msgstr "ไม่มีไฟล์สำหรับรูปโปรไฟล์"
+
+#: openedx/core/djangoapps/programs/models.py:25
+msgid "Path used to construct URLs to programs marketing pages (e.g., \"/foo\")."
+msgstr "เส้นทางที่ใช้ในการสร้าง URL ไปยังหน้าการตลาดของโปรแกรม (เช่น \"/foo\")"
+
 #: openedx/core/djangoapps/programs/models.py:41
 msgid "Program UUID"
 msgstr "โปรแกรม UUID"
+
+#: openedx/core/djangoapps/programs/models.py:45
+msgid "If disabled, the LTI in the associated program will be disabled."
+msgstr "หากปิดใช้งาน LTI ในโปรแกรมที่เกี่ยวข้อง ระบบจะปิดใช้งาน"
+
+#: openedx/core/djangoapps/programs/models.py:52
+msgid "The LTI configuration data for this program/provider."
+msgstr "ข้อมูลการกำหนดค่า LTI สำหรับโปรแกรม/ผู้ให้บริการรายนี้"
+
+#: openedx/core/djangoapps/schedules/admin.py:62
+msgid "Known Error Case"
+msgstr "กรณีข้อผิดพลาดที่ทราบ"
+
+#: openedx/core/djangoapps/schedules/admin.py:68
+msgid "Schedule start < course start"
+msgstr "กำหนดการเริ่ม < เริ่มหลักสูตร"
 
 #: openedx/core/djangoapps/schedules/admin.py:81
 msgid "Course Id"
@@ -7508,13 +8112,46 @@ msgstr "รหัสหลักสูตร"
 msgid "All"
 msgstr "ทั้งหมด"
 
+#: openedx/core/djangoapps/schedules/admin.py:139
+msgid "Experience"
+msgstr "ประสบการณ์"
+
 #: openedx/core/djangoapps/schedules/admin.py:159
 msgid "Course ID"
 msgstr "รหัสหลักสูตร"
 
+#: openedx/core/djangoapps/schedules/apps.py:12
+#: openedx/core/djangoapps/schedules/models.py:47
+msgid "Schedules"
+msgstr "ตารางเวลา"
+
+#: openedx/core/djangoapps/schedules/models.py:23
+msgid "Indicates if this schedule is actively used"
+msgstr "ระบุว่ามีการใช้งานกำหนดการนี้หรือไม่"
+
+#: openedx/core/djangoapps/schedules/models.py:27
+msgid "Date this schedule went into effect"
+msgstr "วันที่กำหนดการนี้มีผลบังคับใช้"
+
+#: openedx/core/djangoapps/schedules/models.py:35
+msgid "Deadline by which the learner must upgrade to a verified seat"
+msgstr "กำหนดเวลาที่ผู้เรียนจะต้องอัปเกรดเป็นที่นั่งที่ได้รับการยืนยันแล้ว"
+
 #: openedx/core/djangoapps/schedules/models.py:46
 msgid "Schedule"
 msgstr "กำหนดการ"
+
+#: openedx/core/djangoapps/schedules/templates/dropdown_filter.html:3
+#, python-format
+msgid " By %(filter_title)s "
+msgstr " โดย %(filter_title)s "
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:9
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:7
+#, python-format
+msgid "Welcome to week %(week_num)s of %(course_name)s!"
+msgstr ""
+"ยินดีต้อนรับในสัปดาห์ที่ %(week_num)s จากทั้งหมด %(course_name)s สัปดาห์"
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:22
 #, python-format
@@ -7524,6 +8161,302 @@ msgid ""
 msgstr ""
 "นี่คืออีเมลยืนยันบัญชีผู้ใช้ที่กำหนดเส้นทางสำหรับ %(routed_profile_name)s ( "
 "%(routed_user_email)s ): %(routed_profile_name)s"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.txt:4
+#, python-format
+msgid ""
+"We hope you're enjoying %(course_name)s! We want to let you know what you "
+"can look forward to in week %(week_num)s:"
+msgstr ""
+"เราหวังว่าคุณจะเพลิดเพลินกับ %(course_name)s! "
+"เราต้องการแจ้งให้คุณทราบว่าคุณสามารถคาดหวังอะไรได้บ้างในสัปดาห์นี้ "
+"%(week_num)s:"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.txt:13
+msgid ""
+"With self-paced courses, you learn on your own schedule. We encourage you to"
+" spend time with the course each week. Your focused attention will pay off "
+"in the end!"
+msgstr ""
+"ด้วยหลักสูตรแบบเรียนด้วยตนเอง คุณจะได้เรียนรู้ตามกำหนดเวลาของคุณเอง "
+"เราขอแนะนำให้คุณใช้เวลากับหลักสูตรในแต่ละสัปดาห์ "
+"ความสนใจที่จดจ่อของคุณจะได้ผลในที่สุด!"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/subject.txt:4
+#, python-format
+msgid "Welcome to week %(week_num)s"
+msgstr "ยินดีต้อนรับสู่สัปดาห์ที่ %(week_num)s"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:18
+#, python-brace-format
+msgid ""
+"We hope you're enjoying {start_strong}{course_name}{end_strong}! We want to "
+"let you know what you can look forward to in the coming weeks:"
+msgstr ""
+"เราหวังว่าคุณจะเพลิดเพลินกับ {start_strong}{course_name}{end_strong}! "
+"เราต้องการแจ้งให้คุณทราบว่าคุณสามารถคาดหวังอะไรได้บ้างในอีกไม่กี่สัปดาห์ข้างหน้า:"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:31
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.txt:13
+msgid ""
+"We encourage you to spend time with the course each week. Your focused "
+"attention will pay off in the end!"
+msgstr ""
+"เราขอแนะนำให้คุณใช้เวลากับหลักสูตรในแต่ละสัปดาห์ "
+"ความสนใจที่จดจ่อของคุณจะได้ผลในที่สุด!"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:39
+msgid "Resume your course now"
+msgstr "กลับไปยังหลักสูตรของคุณตอนนี้"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.txt:4
+#, python-format
+msgid ""
+"We hope you're enjoying %(course_name)s! We want to let you know what you "
+"can look forward to in the coming weeks:"
+msgstr ""
+"เราหวังว่าคุณจะเพลิดเพลินกับ %(course_name)s ! "
+"เราต้องการแจ้งให้คุณทราบว่าคุณสามารถคาดหวังอะไรได้บ้างในอีกไม่กี่สัปดาห์ข้างหน้า:"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/subject.txt:4
+#, python-format
+msgid "%(course_name)s Weekly Update"
+msgstr "การอัพเดทประจำสัปดาห์ของ %(course_name)s"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:8
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:32
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.txt:5
+#, python-format
+msgid ""
+"Many %(platform_name)s learners are completing more problems every week, and"
+" participating in the discussion forums. What do you want to do to keep "
+"learning?"
+msgstr ""
+"ผู้เรียน %(platform_name)s จำนวนมากกำลังทำโจทย์ปัญหามากขึ้นทุกสัปดาห์ "
+"และมีส่วนร่วมในฟอรั่มการสนทนา คุณต้องการทำอะไรเพื่อเรียนรู้ต่อไป?"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:15
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.txt:11
+#, python-format
+msgid ""
+"Many %(platform_name)s learners in %(course_name)s are completing more "
+"problems every week, and participating in the discussion forums. What do you"
+" want to do to keep learning?"
+msgstr ""
+"ผู้เรียน %(platform_name)s จำนวนมากใน %(course_name)s "
+"กำลังแก้ไขปัญหามากขึ้นทุกสัปดาห์ และมีส่วนร่วมในฟอรัมการสนทนา "
+"คุณต้องการทำอะไรเพื่อเรียนรู้ต่อไป?"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:27
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/subject.txt:3
+msgid "Keep up the momentum!"
+msgstr "ติดตามโมเมนตัม!"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:38
+#, python-brace-format
+msgid ""
+"Many {platform_name} learners in {start_strong}{course_name}{end_strong} are"
+" completing more problems every week, and participating in the discussion "
+"forums. What do you want to do to keep learning?"
+msgstr ""
+"ผู้เรียน {platform_name} จำนวนมากใน {start_strong}{course_name}{end_strong} "
+"กำลังแก้ไขปัญหามากขึ้นทุกสัปดาห์ และมีส่วนร่วมในฟอรัมการสนทนา "
+"คุณต้องการทำอะไรเพื่อเรียนรู้ต่อไป?"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:47
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.txt:9
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.txt:15
+msgid "Keep learning"
+msgstr "เรียนต่อไป"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:8
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:5
+#: themes/red-theme/lms/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:6
+#, python-format
+msgid ""
+"Remember when you enrolled in %(course_name)s, and other courses on "
+"%(platform_name)s? We do, and we’re glad to have you! Come see what everyone"
+" is learning."
+msgstr ""
+"จำได้ไหมเมื่อคุณลงทะเบียนใน %(course_name)s และหลักสูตรอื่นๆ บน "
+"%(platform_name)s เราทำและเราดีใจที่มีคุณ! มาดูสิ่งที่ทุกคนกำลังเรียนรู้"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:15
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:12
+#: themes/red-theme/lms/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:13
+#, python-format
+msgid ""
+"Remember when you enrolled in %(course_name)s on %(platform_name)s? We do, "
+"and we’re glad to have you! Come see what everyone is learning."
+msgstr ""
+"จำได้ไหมเมื่อคุณลงทะเบียนใน %(course_name)s บน %(platform_name)s "
+"เราทำและเราดีใจที่มีคุณ! มาดูสิ่งที่ทุกคนกำลังเรียนรู้"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:27
+msgid "Keep learning today"
+msgstr "เรียนต่อไปในวันนี้"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:31
+#, python-brace-format
+msgid ""
+"Remember when you enrolled in {start_strong}{course_name}{end_strong}, and "
+"other courses on {platform_name}? We do, and we’re glad to have you! Come "
+"see what everyone is learning."
+msgstr ""
+"จำได้ไหมเมื่อคุณลงทะเบียนใน {start_strong}{course_name}{end_strong} "
+"และหลักสูตรอื่นๆ บน {platform_name} เราทำและเราดีใจที่มีคุณ! "
+"มาดูสิ่งที่ทุกคนกำลังเรียนรู้"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:37
+#, python-brace-format
+msgid ""
+"Remember when you enrolled in {start_strong}{course_name}{end_strong} on "
+"{platform_name}? We do, and we’re glad to have you! Come see what everyone "
+"is learning."
+msgstr ""
+"จำได้ไหมเมื่อคุณลงทะเบียนใน {start_strong}{course_name}{end_strong} บน "
+"{platform_name}? เราทำและเราดีใจที่มีคุณ! มาดูสิ่งที่ทุกคนกำลังเรียนรู้"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:46
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:10
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:17
+#: themes/red-theme/lms/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:11
+#: themes/red-theme/lms/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:18
+msgid "Start learning now"
+msgstr "เริ่มเรียนตอนนี้"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/subject.txt:4
+#, python-format
+msgid "Keep learning on %(platform_name)s"
+msgstr "เรียนต่อใน %(platform_name)s ต่อไป"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/subject.txt:6
+#, python-format
+msgid "Keep learning in %(course_name)s"
+msgstr "เรียนต่อใน %(course_name)s ต่อไป"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:10
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.txt:5
+#, python-format
+msgid ""
+"We hope you are enjoying learning with us so far on %(platform_name)s! A "
+"verified certificate allows you to highlight your new knowledge and skills. "
+"An %(platform_name)s certificate is official and easily shareable. Upgrade "
+"by %(user_schedule_upgrade_deadline_time)s."
+msgstr ""
+"เราหวังว่าคุณจะเพลิดเพลินกับการเรียนรู้กับเราที่ %(platform_name)s ! "
+"ใบรับรองที่ผ่านการตรวจสอบแล้วช่วยให้คุณเน้นย้ำความรู้และทักษะใหม่ของคุณ "
+"ใบรับรอง %(platform_name)s เป็นทางการและสามารถแชร์ได้อย่างง่ายดาย อัปเกรดโดย"
+" %(user_schedule_upgrade_deadline_time)s"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:20
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.txt:21
+#, python-format
+msgid ""
+"We hope you are enjoying learning with us so far in %(first_course_name)s! A"
+" verified certificate allows you to highlight your new knowledge and skills."
+" An %(platform_name)s certificate is official and easily shareable. Upgrade "
+"by %(user_schedule_upgrade_deadline_time)s."
+msgstr ""
+"เราหวังว่าคุณจะเพลิดเพลินกับการเรียนรู้กับเราใน %(first_course_name)s ! "
+"ใบรับรองที่ผ่านการตรวจสอบแล้วช่วยให้คุณเน้นย้ำความรู้และทักษะใหม่ของคุณ "
+"ใบรับรอง %(platform_name)s เป็นทางการและสามารถแชร์ได้อย่างง่ายดาย อัปเกรดโดย"
+" %(user_schedule_upgrade_deadline_time)s"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:35
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:112
+msgid "Upgrade now"
+msgstr "อัปเกรดตอนนี้"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:39
+#, python-format, python-brace-format
+msgid ""
+"We hope you are enjoying learning with us so far on "
+"{start_strong}%(platform_name)s{end_strong}! A verified certificate allows "
+"you to highlight your new knowledge and skills. An %(platform_name)s "
+"certificate is official and easily shareable."
+msgstr ""
+"เราหวังว่าคุณจะเพลิดเพลินกับการเรียนรู้กับเราที่ {start_strong} "
+"%(platform_name)s {end_strong} ! "
+"ใบรับรองที่ผ่านการตรวจสอบแล้วช่วยให้คุณเน้นย้ำความรู้และทักษะใหม่ของคุณ "
+"ใบรับรอง %(platform_name)s เป็นทางการและสามารถแชร์ได้อย่างง่ายดาย"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:46
+#, python-brace-format
+msgid ""
+"We hope you are enjoying learning with us so far in "
+"{start_strong}{first_course_name}{end_strong}! A verified certificate allows"
+" you to highlight your new knowledge and skills. An {platform_name} "
+"certificate is official and easily shareable."
+msgstr ""
+"เราหวังว่าคุณจะเพลิดเพลินกับการเรียนรู้กับเราใน "
+"{start_strong}{first_course_name}{end_strong} ! "
+"ใบรับรองที่ผ่านการตรวจสอบแล้วช่วยให้คุณเน้นย้ำความรู้และทักษะใหม่ของคุณ "
+"ใบรับรอง {platform_name} เป็นทางการและแชร์ได้ง่าย"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:55
+#, python-format, python-brace-format
+msgid ""
+"Upgrade by "
+"{start_strong}%(user_schedule_upgrade_deadline_time)s{end_strong}."
+msgstr ""
+"อัปเกรดโดย {start_strong} %(user_schedule_upgrade_deadline_time)s "
+"{end_strong}"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:63
+msgid "You are eligible to upgrade in these courses:"
+msgstr "คุณมีสิทธิ์อัปเกรดในหลักสูตรเหล่านี้:"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:76
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:21
+msgid "Example of a verified certificate"
+msgstr "ตัวอย่างใบรับรองที่ตรวจสอบแล้ว"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.txt:19
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.txt:29
+msgid "Upgrade now at"
+msgstr "อัพเกรดได้เลยที่"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/subject.txt:5
+#, python-format
+msgid "Upgrade to earn a verified certificate on %(platform_name)s"
+msgstr "อัปเกรดเพื่อรับใบรับรองที่ตรวจสอบแล้วบน %(platform_name)s"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/subject.txt:7
+#, python-format
+msgid "Upgrade to earn a verified certificate in %(first_course_name)s"
+msgstr "อัปเกรดเพื่อรับใบรับรองที่ตรวจสอบแล้วใน %(first_course_name)s"
+
+#: openedx/core/djangoapps/theming/views.py:78
+#, python-brace-format
+msgid "Site theme changed to {site_theme}"
+msgstr "ธีมของไซต์เปลี่ยนเป็น {site_theme}"
+
+#: openedx/core/djangoapps/theming/views.py:83
+#, python-brace-format
+msgid "Theme {site_theme} does not exist"
+msgstr "ไม่มีธีม {site_theme}"
+
+#: openedx/core/djangoapps/theming/views.py:87
+msgid "Site theme reverted to the default"
+msgstr "ธีมของไซต์เปลี่ยนกลับเป็นค่าเริ่มต้น"
+
+#: openedx/core/djangoapps/theming/views.py:138
+msgid "Theming Administration"
+msgstr "การบริหารงานตามธีม"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:43
+msgid ""
+"Usernames can only contain letters (A-Z, a-z), numerals (0-9), underscores "
+"(_), and hyphens (-)."
+msgstr ""
+"ชื่อผู้ใช้ต้องประกอบด้วยตัวอักษร (A-Z, a-z), ตัวเลข (0-9), อักขระ (_), "
+"และอักขระ (-) เท่านั้น"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:50
+msgid ""
+"Usernames can only contain letters, numerals, and @/./+/-/_ characters."
+msgstr "ชื่อบัญชีต้องประกอบด้วยตัวอักษร ตัวเลข และ อักขระ @/./+/-/_ เท่านั้น"
 
 #. Translators: This message is shown to users who attempt to create a new
 #. account using
@@ -7541,15 +8474,105 @@ msgstr ""
 "ดูเหมือนว่า {email_address} จะเป็นของบัญชีผู้ใช้อื่นที่อยู่ในระบบ "
 "ลองอีกครั้งโดยใช้ที่อยู่อีเมลอื่น"
 
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:66
+msgid "This email is associated to a retired account."
+msgstr "อีเมลนี้เชื่อมโยงกับบัญชีผู้ใช้ที่เลิกใช้แล้ว"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:69
+msgid ""
+"The password you entered is on a list of known compromised passwords. Please"
+" choose a different one."
+msgstr ""
+"รหัสผ่านของคุณอยู่ในรายการรหัสผ่านที่มีการรั่วไหล กรุณาใช้รหัสผ่านอื่น"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:72
+#, python-brace-format
+msgid ""
+"It looks like {username} belongs to an existing account. Try again with a "
+"different username."
+msgstr ""
+"ดูเหมือนว่า {username} จะเป็นของบัญชีผู้ใช้อื่นที่อยู่ในระบบ "
+"ลองอีกครั้งโดยใช้ชื่อผู้ใช้อื่น"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:75
+msgid "It looks like this username is already taken"
+msgstr "ดูเหมือนว่าจะมีคนอื่นใช้ชื่อผู้ใช้นี้แล้ว"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:80
+#, python-brace-format
+msgid "Username must be between {min} and {max} characters long."
+msgstr "ชื่อผู้ใช้ต้องยาวระหว่าง {min} ถึง {max} ตัวอักษร"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:85
+#, python-brace-format
+msgid "Enter a valid email address that contains at least {min} characters."
+msgstr "ป้อนอีเมลที่ถูกต้องซึ่งประกอบด้วยอย่างน้อย {min} ตัวอักษร"
+
 #. Translators: These messages are shown to users who do not enter information
 #. into the required field or enter it incorrectly.
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:96
 msgid "Enter your full name"
 msgstr "ป้อนชื่อเต็มของคุณ"
 
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:97
+msgid "Enter your first name"
+msgstr "กรอกชื่อของคุณ"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:98
+msgid "Enter your last name"
+msgstr "กรอกนามสกุลของคุณ"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:99
+msgid "The email addresses do not match"
+msgstr "ที่อยู่อีเมลไม่ตรงกัน"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:100
+msgid "Enter your confirm email"
+msgstr "กรอกอีเมลยืนยันของคุณ"
+
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:101
 msgid "Select your country or region of residence"
 msgstr "เลือกประเทศหรือภูมิภาคที่คุณอยู่"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:102
+msgid "Select your profession"
+msgstr "เลือกอาชีพของคุณ"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:103
+msgid "Select your specialty"
+msgstr "เลือกความพิเศษของคุณ"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:104
+msgid "Enter your profession"
+msgstr "ป้อนอาชีพของคุณ"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:105
+msgid "Enter your specialty"
+msgstr "ป้อนข้อมูลพิเศษของคุณ"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:107
+msgid "Enter your city"
+msgstr "ป้อนเมืองของคุณ"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:108
+msgid "Tell us your goals"
+msgstr "บอกเป้าหมายของคุณให้เราทราบ"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:109
+msgid "Select the highest level of education you have completed"
+msgstr "เลือกระดับการศึกษาสูงสุดที่คุณสำเร็จการศึกษา"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:110
+msgid "Select your year of birth"
+msgstr "เลือกปีเกิดของคุณ"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:111
+msgid "Select your gender"
+msgstr "เลือกเพศของคุณ"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:112
+msgid "Enter your mailing address"
+msgstr "ป้อนที่อยู่ทางไปรษณีย์ของคุณ"
 
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:116
 msgid ""
@@ -7566,6 +8589,11 @@ msgid ""
 msgstr ""
 "ระบบของเราตรวจพบว่ารหัสผ่านของคุณมีช่องโหว่ "
 "เราขอแนะนำให้คุณเปลี่ยนแปลงเพื่อให้บัญชีผู้ใช้ของคุณมีความปลอดภัย"
+
+#: openedx/core/djangoapps/user_api/accounts/api.py:206
+#, python-brace-format
+msgid "The '{field_name}' field cannot be edited."
+msgstr "ไม่สามารถแก้ไขในช่อง '{field_name}' ได้"
 
 #: openedx/core/djangoapps/user_api/accounts/api.py:438
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:109
@@ -7779,6 +8807,24 @@ msgstr "ชื่อเรื่อง"
 msgid "Job Title"
 msgstr "ชื่อตำแหน่งงาน"
 
+#. Translators: This label appears above a field which allows the
+#. user to input the First Name
+#. Translators: This label appears above a field on the registration form
+#. which allows the user to input the First Name
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:226
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:933
+msgid "First Name"
+msgstr "ชื่อจริง"
+
+#. Translators: This label appears above a field which allows the
+#. user to input the Last Name
+#. Translators: This label appears above a field on the registration form
+#. which allows the user to input the First Name
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:242
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:950
+msgid "Last Name"
+msgstr "นามสกุล"
+
 #. Translators: This label appears above a field
 #. meant to hold the user's mailing address.
 #. Translators: This label appears above a field on the registration form
@@ -7787,6 +8833,17 @@ msgstr "ชื่อตำแหน่งงาน"
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:798
 msgid "Mailing address"
 msgstr "ที่อยู่สำหรับส่งไปรษณีย์"
+
+#. Translators: This label appears above a field
+#. which allows the user to input the State/Province/Region in which they
+#. live.
+#. Translators: This label appears above a field on the registration form
+#. which allows the user to input the State/Province/Region in which they
+#. live.
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:274
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:865
+msgid "State/Province/Region"
+msgstr "รัฐ/จังหวัด/เขต"
 
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:10
 msgid "Password reset"
