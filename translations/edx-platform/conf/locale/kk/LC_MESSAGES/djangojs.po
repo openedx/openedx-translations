@@ -11,9 +11,9 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
 # 
 # Translators:
-# Eden Huthmacher, 2026
-# Ruslan Abrayev, 2026
 # Brian Smith, 2026
+# Ruslan Abrayev, 2026
+# Eden Huthmacher, 2026
 # Gerardo Núñez, 2026
 # 
 #, fuzzy
@@ -59,6 +59,18 @@ msgstr "Studio сіздің жұмысыңызды сақтауда қиынды
 #: lms/static/js/ccx/schedule.js:256 lms/static/js/views/fields.js:72
 msgid "Saving"
 msgstr "Сақтау"
+
+#: cms/static/js/certificates/views/certificate_details.js:46
+msgid "Edit this certificate?"
+msgstr "Осы сертификатты өңдеу керек пе?"
+
+#: cms/static/js/certificates/views/certificate_details.js:47
+msgid ""
+"This certificate has already been activated and is live. Are you sure you "
+"want to continue editing?"
+msgstr ""
+"Бұл сертификат әлдеқашан белсендірілген және белсенді. Өңдеуді "
+"жалғастырғыңыз келетініне сенімдісіз бе?"
 
 #: cms/static/js/certificates/views/signatory_editor.js:137
 #: cms/static/js/views/course_info_update.js:238
@@ -189,6 +201,22 @@ msgstr "Жүктеп салу аяқталды"
 #: cms/static/js/models/course_update.js:12
 msgid "Action required: Enter a valid date."
 msgstr "Әрекет қажет: жарамды күнді енгізіңіз."
+
+#: cms/static/js/models/group.js:41
+msgid "Group name is required"
+msgstr "Топ атауы қажет"
+
+#: cms/static/js/models/group_configuration.js:98
+msgid "There must be at least one group."
+msgstr "Кем дегенде бір топ болуы керек."
+
+#: cms/static/js/models/group_configuration.js:115
+msgid "All groups must have a name."
+msgstr "Барлық топтардың аты болуы керек."
+
+#: cms/static/js/models/group_configuration.js:123
+msgid "All groups must have a unique name."
+msgstr "Барлық топтардың бірегей атауы болуы керек."
 
 #: cms/static/js/models/settings/course_details.js:59
 msgid "The course must have an assigned start date."
@@ -386,6 +414,14 @@ msgstr "Сәтсіз компонентті түзетіңіз"
 msgid "Take me to the main course page"
 msgstr "Мені курстың негізгі бетіне апарыңыз"
 
+#: cms/static/js/views/group_configurations_list.js:20
+msgid "Add your first group configuration"
+msgstr "Бірінші топ конфигурациясын қосыңыз"
+
+#: cms/static/js/views/group_configurations_list.js:22
+msgid "You have not created any group configurations yet."
+msgstr "Сіз әлі ешқандай топ конфигурациясын жасаған жоқсыз."
+
 #: cms/static/js/views/license.js:9
 msgid "You reserve all rights for your work"
 msgstr "Сіз өзіңіздің жұмысыңызға барлық құқықтарды сақтайсыз"
@@ -564,9 +600,20 @@ msgstr "Бірлік"
 msgid "Component"
 msgstr "Құрамдас"
 
+#: cms/static/js/views/move_xblock_list.js:37
+#: cms/templates/js/group-configuration-editor.underscore:30
+msgid "Groups"
+msgstr "Топтар"
+
 #: cms/static/js/views/paged_container.js:260
 msgid "Date added"
 msgstr "Қосылған күні"
+
+#. Translators: "title" is the name of the current component or unit being
+#. edited.
+#: cms/static/js/views/pages/container.js:735
+msgid "Editing access for: {title}"
+msgstr "Келесі үшін өңдеу рұқсаты: {title}"
 
 #: cms/static/js/views/pages/container_subviews.js:232
 msgid ""
@@ -585,6 +632,21 @@ msgstr ""
 "Бірлік бұрын жарияланған және студенттерге берілген болса, ол жасырылған "
 "кезде бөлімге жасаған кез келген өзгертулер енді студенттерге көрінеді. "
 "Жалғастырғыңыз келе ме?"
+
+#. Translators: This refers to a content group that can be linked to a student
+#. cohort.
+#: cms/static/js/views/partition_group_item.js:24
+#: cms/static/js/views/partition_group_list.js:21
+msgid "content group"
+msgstr "мазмұн тобы"
+
+#: cms/static/js/views/partition_group_list.js:23
+msgid "Add your first content group"
+msgstr "Бірінші мазмұн тобыңызды қосыңыз"
+
+#: cms/static/js/views/partition_group_list.js:25
+msgid "You have not created any content groups yet."
+msgstr "Сіз әлі ешқандай мазмұн тобын жасаған жоқсыз."
 
 #: cms/static/js/views/settings/advanced.js:70
 msgid ""
@@ -612,6 +674,12 @@ msgid ""
 msgstr ""
 "Жұмысты бағалау үшін барлық {oldName} ішкі бөлімдерін {newName} етіп өзгерту"
 " керек."
+
+#: cms/static/js/views/uploads.js:30
+#: cms/templates/js/metadata-file-uploader-item.underscore:1
+#: cms/templates/js/video/metadata-translations-item.underscore:5
+msgid "Upload"
+msgstr "Жүктеп салу"
 
 #: cms/static/js/views/validation.js:22
 msgid "You've made some changes"
@@ -1186,9 +1254,49 @@ msgstr "Ескірген"
 msgid "Actions"
 msgstr "Әрекеттер"
 
+#: cms/templates/js/certificate-details.underscore:55
+#: cms/templates/js/certificate-editor.underscore:38
+msgid ""
+"It is strongly recommended that you include four or fewer signatories. If "
+"you include additional signatories, preview the certificate in Print View to"
+" ensure the certificate will print correctly on one page."
+msgstr ""
+"Төрт немесе одан аз қол қоюшыны қосу ұсынылады. Қосымша қол қоюшыларды "
+"қоссаңыз, куәліктің бір бетте дұрыс басып шығарылатынына көз жеткізу үшін "
+"басып шығару көрінісінде куәлікті алдын ала қараңыз."
+
 #: cms/templates/js/certificate-editor.underscore:31
 msgid "Course title"
 msgstr "Курс тақырыбы"
+
+#: cms/templates/js/certificate-editor.underscore:32
+msgid ""
+"Specify an alternative to the official course title to display on "
+"certificates. Leave blank to use the official course title."
+msgstr ""
+"Сертификаттарда көрсету үшін ресми курс тақырыбына балама көрсетіңіз. Ресми "
+"курс атауын пайдалану үшін бос қалдырыңыз."
+
+#: cms/templates/js/certificate-editor.underscore:42
+msgid "(Add signatories for a certificate)"
+msgstr "(Сертификатқа қол қоюшыларды қосыңыз)"
+
+#: cms/templates/js/certificate-web-preview.underscore:13
+msgid "Activate"
+msgstr "Іске қосу"
+
+#: cms/templates/js/content-group-editor.underscore:18
+msgid "This is the name of the group"
+msgstr "Бұл топтың аты"
+
+#: cms/templates/js/content-group-editor.underscore:25
+msgid "This content group is used in one or more units."
+msgstr "Бұл мазмұн тобы бір немесе бірнеше бірлікте пайдаланылады."
+
+#: cms/templates/js/content-group-editor.underscore:40
+#: cms/templates/js/partition-group-details.underscore:35
+msgid "Cannot delete when in use by a unit"
+msgstr "Құрылғы пайдаланған кезде жоя алмайсыз"
 
 #: cms/templates/js/content-visibility-editor.underscore:7
 msgid ""
