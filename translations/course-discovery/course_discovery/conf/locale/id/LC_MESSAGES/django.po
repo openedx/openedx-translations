@@ -7,6 +7,7 @@
 # Translators:
 # Brian Smith, 2025
 # Eden Huthmacher, 2025
+# Gerardo Núñez, 2026
 # 
 msgid ""
 msgstr ""
@@ -14,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-12 00:35+0000\n"
 "PO-Revision-Date: 2023-01-26 15:39+0000\n"
-"Last-Translator: Eden Huthmacher, 2025\n"
+"Last-Translator: Gerardo Núñez, 2026\n"
 "Language-Team: Indonesian (https://app.transifex.com/open-edx/teams/6205/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,6 +71,10 @@ msgstr "Minimum effort dan Maximum effort tidak boleh sama"
 #: apps/api/serializers.py:1205
 msgid "Dictionary mapping course run IDs to boolean values"
 msgstr "Kamus pemetaan kursus mengubah ID menjadi nilai boolean"
+
+#: apps/api/serializers.py:1309
+msgid "Restriction Type cannot be empty"
+msgstr "Restriction Type cannot be empty"
 
 #: apps/api/serializers.py:1775
 msgid "Dictionary mapping course IDs to boolean values"
@@ -192,6 +197,10 @@ msgstr "Anda tidak diperkenankan mengakses dokumentasi API."
 #: apps/catalogs/models.py:17
 msgid "Catalog name"
 msgstr "Nama katalog"
+
+#: apps/catalogs/models.py:18
+msgid "Query to retrieve Course Run catalog contents"
+msgstr "Query to retrieve Course Run catalog contents"
 
 #: apps/catalogs/models.py:25
 msgid "Include archived courses"
@@ -412,6 +421,10 @@ msgstr "Termasuk kursus berjalan"
 msgid "Edit link"
 msgstr "Edit link"
 
+#: apps/course_metadata/admin.py:897
+msgid "Edit course run exclusions"
+msgstr "Edit course run exclusions"
+
 #: apps/course_metadata/admin.py:899
 msgid "(save and continue editing to create a link)"
 msgstr "(save and continue editing to create a link)"
@@ -465,6 +478,10 @@ msgstr "Belum diterbitkan"
 #: apps/course_metadata/choices.py:7
 msgid "Awaiting Review from Legal"
 msgstr "Awaiting Review from Legal"
+
+#: apps/course_metadata/choices.py:8
+msgid "Awaiting Internal Review"
+msgstr "Awaiting Internal Review"
 
 #: apps/course_metadata/choices.py:10 apps/course_metadata/choices.py:23
 #: apps/course_metadata/choices.py:101
@@ -779,6 +796,10 @@ msgstr ""
 "Use arguments from the TagCourseUUIDsConfig model instead of the command "
 "line."
 
+#: apps/course_metadata/management/commands/add_tag_to_courses.py:27
+msgid "Missing required arguments"
+msgstr "Missing required arguments"
+
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:10
 msgid "Backpopulate new-style CourseType and CourseRunType where possible."
 msgstr "Backpopulate new-style CourseType and CourseRunType where possible."
@@ -786,6 +807,11 @@ msgstr "Backpopulate new-style CourseType and CourseRunType where possible."
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:15
 msgid "CODE"
 msgstr "CODE"
+
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:16
+#: apps/course_metadata/management/commands/delete_person_dups.py:33
+msgid "Short code for a partner."
+msgstr "Short code for a partner."
 
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:20
 #: apps/course_metadata/models.py:238 apps/course_metadata/models.py:493
@@ -887,6 +913,10 @@ msgstr ""
 msgid "Malformed argument \"{}\", should be in form of UUID:TARGET_UUID"
 msgstr "Malformed argument \"{}\", should be in form of UUID:TARGET_UUID"
 
+#: apps/course_metadata/management/commands/delete_person_dups.py:62
+msgid "Malformed argument \"{}\", UUIDs cannot be equal"
+msgstr "Malformed argument \"{}\", UUIDs cannot be equal"
+
 #: apps/course_metadata/management/commands/delete_person_dups.py:85
 msgid "Deleting"
 msgstr "Menghapus"
@@ -924,6 +954,11 @@ msgstr "Anda harus menentukan setidaknya satu orang"
 msgid "Publishing course run {key}"
 msgstr "Publishing course run {key}"
 
+#: apps/course_metadata/management/commands/publish_live_course_runs.py:28
+#, python-brace-format
+msgid "Failed to publish {key}"
+msgstr "Failed to publish {key}"
+
 #: apps/course_metadata/management/commands/publish_live_course_runs.py:31
 #, python-brace-format
 msgid "Successfully published {key}"
@@ -936,6 +971,10 @@ msgstr "Satu atau lebih sesi kursus gagal dipublikasikan."
 #: apps/course_metadata/management/commands/remove_redirects_from_courses.py:22
 msgid "Remove all redirects to all courses"
 msgstr "Remove all redirects to all courses"
+
+#: apps/course_metadata/management/commands/remove_redirects_from_courses.py:23
+msgid "Redirects to remove"
+msgstr "Redirects to remove"
 
 #: apps/course_metadata/management/commands/remove_redirects_from_courses.py:25
 msgid ""
@@ -959,6 +998,10 @@ msgstr "Path /course/{url_slug} not in use, nothing to delete"
 #, python-brace-format
 msgid "Path {url_path} not in use, nothing to delete"
 msgstr "Path {url_path} not in use, nothing to delete"
+
+#: apps/course_metadata/management/commands/unpublish_inactive_runs.py:44
+msgid "One or more courses failed to unpublish."
+msgstr "One or more courses failed to unpublish."
 
 #: apps/course_metadata/management/commands/unpublish_inactive_runs.py:50
 #, python-brace-format
@@ -1223,6 +1266,10 @@ msgstr "Nilai internasional per klik dalam dolar AS."
 msgid "Latitude"
 msgstr "Latitude"
 
+#: apps/course_metadata/models.py:1366
+msgid "Longitude"
+msgstr "Garis bujur"
+
 #: apps/course_metadata/models.py:1409
 msgid "Allowlist"
 msgstr "Allowlist"
@@ -1258,6 +1305,14 @@ msgstr "FAQ"
 #: apps/course_metadata/models.py:1504
 msgid "Total number of learners who have enrolled in this course"
 msgstr "Jumlah total peserta yang telah mendaftar di kursus ini"
+
+#: apps/course_metadata/models.py:1509
+msgid ""
+"Total number of learners who have enrolled in this course in the last 6 "
+"months"
+msgstr ""
+"Jumlah total peserta yang telah mendaftar di kursus ini dalam 6 bulan "
+"terakhir"
 
 #: apps/course_metadata/models.py:1523
 msgid "Course number format e.g CS002x, BIO1.1x, BIO1.2x"
@@ -1311,6 +1366,14 @@ msgstr "Past"
 #: apps/course_metadata/models.py:2276 apps/course_metadata/models.py:3369
 msgid "Blocked"
 msgstr "Blocked"
+
+#: apps/course_metadata/models.py:2298
+msgid ""
+"Title specific for this run of a course. Leave this value blank to default "
+"to the parent course's title."
+msgstr ""
+"Title specific for this run of a course. Leave this value blank to default "
+"to the parent course's title."
 
 #: apps/course_metadata/models.py:2307
 msgid ""
@@ -1445,6 +1508,10 @@ msgstr "The user-facing display title for this Program."
 msgid "A brief, descriptive subtitle for the Program."
 msgstr "Sebuah subjudul singkat dan deskriptif untuk Program ini."
 
+#: apps/course_metadata/models.py:3378
+msgid "A brief hook for the marketing website"
+msgstr "A brief hook for the marketing website"
+
 #: apps/course_metadata/models.py:3381
 msgid "The lifecycle status of this Program."
 msgstr "The lifecycle status of this Program."
@@ -1456,6 +1523,14 @@ msgid ""
 msgstr ""
 "If this box is not checked, courses will be ordered as in the courses select"
 " box above."
+
+#: apps/course_metadata/models.py:3408
+msgid ""
+"This field is now deprecated (ECOM-6021).Estimated number of weeks needed to"
+" complete a course run belonging to this program."
+msgstr ""
+"This field is now deprecated (ECOM-6021).Estimated number of weeks needed to"
+" complete a course run belonging to this program."
 
 #: apps/course_metadata/models.py:3434
 msgid "DEPRECATED: Use the card image field"
@@ -1475,6 +1550,10 @@ msgstr ""
 #: apps/course_metadata/models.py:3457
 msgid "Allow courses in this program to be purchased in a single transaction"
 msgstr "Izinkan kursus dalam program ini dibeli dalam satu transaksi"
+
+#: apps/course_metadata/models.py:3464
+msgid "Total number of learners who have enrolled in courses this program"
+msgstr "Jumlah total peserta yang telah mendaftar dalam kursus program ini"
 
 #: apps/course_metadata/models.py:3469
 msgid ""
@@ -1687,6 +1766,10 @@ msgstr "Info"
 msgid "Sitemap"
 msgstr "Sitemap"
 
+#: apps/course_metadata/models.py:4295
+msgid "User"
+msgstr "Pengguna"
+
 #: apps/course_metadata/models.py:4296
 msgid "Dollar"
 msgstr "Dollar"
@@ -1710,6 +1793,10 @@ msgstr "Trophy"
 #: apps/course_metadata/models.py:4304
 msgid "Icon FA class"
 msgstr "Icon FA class"
+
+#: apps/course_metadata/models.py:4305
+msgid "Paired text"
+msgstr "Paired text"
 
 #: apps/course_metadata/models.py:4344
 msgid "Describes the deadline (e.g. Early Admission Deadline)"
@@ -2159,6 +2246,17 @@ msgstr ""
 "Note: Alamat email ini tidak menerima balasan. Untuk pertanyaan atau "
 "komentar, silakan hubungi Koordinator Proyek Anda:"
 
+#: apps/course_metadata/templates/course_metadata/email/reviewed.html:15
+#, python-brace-format
+msgid ""
+"The {link_start}{course_page_url}{link_middle}{course_run_number} course "
+"run{link_end} of {course_name} has been reviewed and approved by "
+"{platform_name}."
+msgstr ""
+"The {link_start}{course_page_url}{link_middle}{course_run_number} course "
+"run{link_end} of {course_name} has been reviewed and approved by "
+"{platform_name}."
+
 #: apps/course_metadata/templates/course_metadata/email/reviewed.html:22
 #: apps/course_metadata/templates/course_metadata/email/reviewed.txt:12
 #, python-format
@@ -2254,6 +2352,10 @@ msgstr "{0} tag is not allowed"
 #, python-brace-format
 msgid "{0} attribute is not allowed on the {1} tag"
 msgstr "{0} attribute is not allowed on the {1} tag"
+
+#: apps/course_metadata/views.py:38
+msgid "Update excluded course runs"
+msgstr "Update excluded course runs"
 
 #: apps/course_metadata/views.py:45
 msgid "The program was changed successfully."
