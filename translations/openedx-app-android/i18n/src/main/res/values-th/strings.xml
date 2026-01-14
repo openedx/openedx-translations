@@ -16,6 +16,11 @@
 	<string name="dashboard.dashboard_all_courses_empty_title">ไม่มีหลักสูตร</string>
 	<string name="dashboard.dashboard_all_courses_empty_description">คุณยังไม่ได้ลงทะเบียนเรียนในหลักสูตรใดๆ คุณต้องการสำรวจแคตตาล็อกหลักสูตรหรือไม่</string>
 	<string name="dashboard.dashboard_find_a_course">ค้นหาหลักสูตร</string>
+	<string name="dashboard.dashboard_no_status_courses">ไม่มีหลักสูตร %1$s</string>
+	<plurals name="dashboard.dashboard_past_due_assignment">
+        <item quantity="other">%1$d งานที่เลยกำหนดชำระ</item>
+    </plurals>
+
 	<string name="app.app_navigation_discovery">ค้นพบ</string>
 	<string name="app.app_navigation_learn">เรียนรู้</string>
 	<string name="app.app_navigation_profile">โปรไฟล์</string>
@@ -41,13 +46,22 @@
 	<string name="auth.auth_accessibility_show_password">แสดงรหัสผ่าน</string>
 	<string name="auth.auth_accessibility_hide_password">ซ่อนรหัสผ่าน</string>
 
+	<string name="profile.profile_full_profile">โปรไฟล์เต็ม</string>
+	<string name="profile.profile_limited_profile">โปรไฟล์จำกัด</string>
 	<string name="profile.profile_edit_profile">แก้ไขโปรไฟล์</string>
 	<string name="profile.profile_delete_profile">ลบบัญชีผู้ใช้</string>
 	<string name="profile.profile_must_be_over">คุณต้องมีอายุมากกว่า 13 ปีจึงจะมีโปรไฟล์ที่สามารถเข้าใช้ข้อมูลได้อย่างเต็มที่</string>
+	<string name="profile.profile_year">ปีที่เกิด</string>
 	<string name="profile.profile_location">ที่ตั้ง</string>
 	<string name="profile.profile_about_me">เกี่ยวกับฉัน</string>
+	<string name="profile.profile_spoken_language">ภาษาในการพูด</string>
+	<string name="profile.profile_switch_to_full">สลับไปที่โปรไฟล์แบบเต็ม</string>
+	<string name="profile.profile_switch_to_limited">เปลี่ยนไปใช้โปรไฟล์แบบจำกัด</string>
+	<string name="profile.profile_delete_account">ลบบัญชีผู้ใช้</string>
+	<string name="profile.profile_you_want_to">คุณแน่ใจหรือว่าคุณต้องการ</string>
 	<string name="profile.profile_delete_your_account">ลบบัญชีผู้ใช้ของคุณเหรอ\?</string>
 	<string name="profile.profile_confirm_action">เพื่อยืนยันการกระทำนี้ โปรดป้อนรหัสผ่านบัญชีผู้ใช้ของคุณ</string>
+	<string name="profile.profile_yes_delete_account">ใช่ ลบบัญชีผู้ใช้</string>
 	<string name="profile.profile_password_is_incorrect">รหัสผ่านไม่ถูกต้อง กรุณาลองอีกครั้ง.</string>
 	<string name="profile.profile_invalid_password">รหัสผ่านสั้นเกินไป</string>
 	<string name="profile.profile_done">เรียบร้อย</string>
@@ -58,7 +72,10 @@
 	<string name="profile.profile_leave">ออกจาก</string>
 	<string name="profile.profile_keep_editing">แก้ไขต่อไป</string>
 	<string name="profile.profile_changes_you_made">การเปลี่ยนแปลงที่คุณทำจะถูกยกเลิก</string>
+	<string name="profile.profile_logout">ออกจากระบบ</string>
 	<string name="profile.profile_logout_dialog_body">คุณแน่ใจว่าคุณต้องการที่จะออกจากระบบ\?</string>
+	<string name="profile.profile_contact_support">ติดต่อฝ่ายสนับสนุน</string>
+	<string name="profile.profile_support_info">สนับสนุน</string>
 	<string name="profile.profile_video">วิดีโอ</string>
 	<string name="profile.profile_dates_and_calendar">วันที่และปฏิทิน</string>
 	<string name="profile.profile_wifi_only_download">ดาวน์โหลดผ่าน Wi-Fi เท่านั้น</string>
@@ -81,6 +98,7 @@
 	<string name="profile.calendar_color_purple">สีม่วง</string>
 	<string name="profile.calendar_color_brown">สีน้ำตาล</string>
 	<string name="profile.calendar_color_accent">สำเนียง</string>
+	<string name="profile.profile_course_dates">วันที่หลักสูตร</string>
 	<string name="profile.profile_color">สี</string>
 	<string name="profile.profile_course_calendar_sync">การซิงค์ปฏิทินหลักสูตร</string>
 	<string name="profile.profile_currently_syncing_events">กำลังซิงค์กิจกรรมกับปฏิทินของคุณ</string>
@@ -112,21 +130,28 @@
 	<string name="core.core_profile">โปรไฟล์</string>
 	<string name="core.core_cancel">ยกเลิก</string>
 	<string name="core.core_search">ค้นหา</string>
+	<string name="core.core_select_value">เลือกค่า</string>
 	<string name="core.core_label_starting">เริ่ม %1$s</string>
+	<string name="core.core_label_ended">สิ้นสุดเมื่อ %1$s</string>
 	<string name="core.core_label_ends">ลงท้ายด้วย %1$s</string>
 	<string name="core.core_label_expires">การเข้าถึงหมดอายุ %1$s</string>
 	<string name="core.core_label_access_expired">การเข้าใช้หมดอายุแล้ว %1$s</string>
+	<string name="core.core_label_expired_on">หมดอายุเมื่อ %1$s</string>
 	<string name="core.core_password">รหัสผ่าน</string>
+	<string name="core.core_assessment_soon">เร็วๆ นี้</string>
 	<string name="core.core_offline">ออฟไลน์</string>
 	<string name="core.core_warning">คำเตือน</string>
 	<string name="core.core_delete">ลบ</string>
 	<string name="core.core_confirm">ยืนยัน</string>
 	<string name="core.core_reload">โหลดซ้ำ</string>
+	<string name="core.core_downloading_in_progress">อยู่ระหว่างการดาวน์โหลด</string>
 	<string name="core.core_video_quality_auto">อัตโนมัติ</string>
 	<string name="core.core_video_quality_auto_description">ที่แนะนำ</string>
 	<string name="core.core_video_quality_p360_description">ลดการใช้ข้อมูล</string>
 	<string name="core.core_video_quality_p720_description">คุณภาพดีที่สุด</string>
 	<string name="core.core_user_not_active">บัญชีผู้ใช้ไม่ได้เปิดใช้งาน กรุณายืนยันบัญชีผู้ใช้ของคุณก่อน</string>
+	<string name="core.core_email_chooser_header">ส่งอีเมลโดยใช้...</string>
+	<string name="core.core_email_client_not_present">ไม่มีการติดตั้งไคลเอนต์อีเมล</string>
 	<string name="core.core_app_upgrade_title">อัปเดตแอป</string>
 	<string name="core.core_app_upgrade_dialog_description">เราขอแนะนำให้คุณอัปเดตเป็นเวอร์ชันล่าสุด อัปเกรดทันทีเพื่อรับฟีเจอร์และการแก้ไขล่าสุด</string>
 	<string name="core.core_app_upgrade_box_description">มีการอัปเดตใหม่! อัปเกรดทันทีเพื่อรับฟีเจอร์และการแก้ไขล่าสุด</string>
@@ -137,9 +162,12 @@
 	<string name="core.core_settings">การตั้งค่า</string>
 	<string name="core.core_app_update_required_title">จำเป็นต้องอัปเดตแอป</string>
 	<string name="core.core_app_update_required_description">แอป OpenEdX เวอร์ชันนี้ล้าสมัยแล้ว หากต้องการเรียนรู้ต่อและรับฟีเจอร์และการแก้ไขล่าสุด โปรดอัปเกรดเป็นเวอร์ชันล่าสุด</string>
+	<string name="core.core_version">เวอร์ชัน: %1$s</string>
 	<string name="core.core_up_to_date">ปัจจุบัน</string>
+	<string name="core.core_tap_to_update_to_version">แตะเพื่ออัปเดตเป็นเวอร์ชัน %1$s</string>
 	<string name="core.core_tap_to_install_required_app_update">แตะเพื่อติดตั้งการอัปเดตแอปที่จำเป็น</string>
 	<string name="core.core_submit">ส่ง</string>
+	<string name="core.core_rate_dialog_title">เพลิดเพลินกับ %1$s \?</string>
 	<string name="core.core_rate_dialog_description">ความคิดเห็นของคุณมีความสำคัญสำหรับเรา คุณจะใช้เวลาสักครู่ให้คะแนนแอปโดยแตะดาวด้านล่างหรือไม่ ขอบคุณสำหรับการสนับสนุน!</string>
 	<string name="core.core_feedback_dialog_title">ปล่อยให้เรารับฟังความคิดเห็น</string>
 	<string name="core.core_feedback_dialog_description">เราเสียใจที่ทราบว่าประสบการณ์การเรียนรู้ของคุณมีปัญหาบางประการ เราขอขอบคุณข้อเสนอแนะทั้งหมด</string>
@@ -155,8 +183,17 @@
 	<string name="core.core_something_went_wrong_description">บางอย่างผิดพลาด</string>
 	<string name="core.core_register">ลงทะเบียน</string>
 	<string name="core.core_sign_in">เข้าสู่ระบบ</string>
+	<!--    Accessibility-->
+	<string name="core.core_accessibility_user_profile_image">รูปโปรไฟล์ %1$s</string>
+	<string name="core.core_accessibility_header_image_for">รูปภาพส่วนหัวสำหรับ %1$s</string>
 	<string name="core.core_accessibility_settings">การตั้งค่า</string>
 	<string name="core.core_accessibility_btn_back">ย้อนกลับ</string>
+	<string name="core.core_accessibility_expandable_arrow">ลูกศรที่ขยายได้</string>
+	<string name="core.core_video_download_to_device">ดาวน์โหลดไปยังอุปกรณ์</string>
+	<string name="core.core_video_downloading_to_device">กำลังดาวน์โหลดวิดีโอ...</string>
+	<string name="core.core_video_downloaded_to_device">เราได้ดาวน์โหลดวิดีโอทั้งหมดแล้ว</string>
+	<string name="core.core_video_remaining_to_download" formatted="false">ที่เหลือ %d, %s รวม</string>
+	<string name="core.core_video_downloaded_subtitle" formatted="false">วิดีโอ %d, %s รวม</string>
 	<string name="core.core_video_streaming_quality">คุณภาพการสตรีมวิดีโอ</string>
 	<string name="core.core_video_download_quality">คุณภาพการดาวน์โหลดวิดีโอ</string>
 	<string name="core.core_manage_account">จัดการบัญชีผู้ใช้</string>
@@ -175,6 +212,8 @@
 	<string name="core.core_remove">ลบ</string>
 	<string name="core.core_downloaded">ดาวน์โหลดแล้ว</string>
 	<string name="core.core_downloading">กำลังดาวน์โหลด</string>
+	<string name="course.course_you_earned_certificate">ขอแสดงความยินดี คุณได้รับใบรับรองหลักสูตรนี้ใน \"%s\"</string>
+	<string name="course.course_view_certificate">ดูใบรับรอง</string>
 	<string name="course.course_navigation_prev">ก่อนหน้า</string>
 	<string name="course.course_navigation_next">ถัดไป</string>
 	<string name="course.course_navigation_finish">เสร็จ</string>
@@ -248,6 +287,7 @@
 
 	<string name="discovery.discovery_Discovery">ค้นพบ</string>
 	<string name="discovery.discovery_discovery_new">ค้นพบสิ่งใหม่ๆ</string>
+	<string name="discovery.discovery_lets_find">เรามาค้นหาสิ่งใหม่ ๆ ให้กับคุณกันเถอะ</string>
 	<string name="discovery.discovery_search_results">ผลการค้นหา</string>
 	<string name="discovery.discovery_start_typing_to_find">เริ่มพิมพ์เพื่อค้นหาหลักสูตร</string>
 	<string name="discovery.discovery_course_details">รายละเอียดหลักสูตร</string>
@@ -255,9 +295,15 @@
 	<string name="discovery.discovery_view_course">ดูหลักสูตร</string>
 	<string name="discovery.discovery_you_cant_enroll">คุณไม่สามารถลงทะเบียนเรียนในหลักสูตรนี้ได้เนื่องจากวันลงทะเบียนสิ้นสุดลงแล้ว</string>
 	<string name="discovery.discovery_no_internet_label">หากต้องการลงทะเบียนในหลักสูตรนี้ โปรดตรวจสอบให้แน่ใจว่าคุณได้เชื่อมต่อกับอินเทอร์เน็ต</string>
+	<string name="discovery.discovery_enrolled_successfully">คุณได้ลงทะเบียนเรียนหลักสูตรนี้เรียบร้อยแล้ว</string>
+	<string name="discovery.discovery_you_are_already_enrolled">คุณได้ลงทะเบียนเรียนในหลักสูตรนี้แล้ว</string>
+	<plurals name="discovery.discovery_found_courses">
+        <item quantity="other">พบหลักสูตร %s ตามคำขอของคุณ</item>
+    </plurals>
 	<!-- Accessibility -->
 	<string name="discovery.discovery_accessibility_play_video">เล่นวิดีโอ</string>
 
+	<string name="whatsnew.whats_new_title">มีอะไรใหม่</string>
 	<string name="whatsnew.whats_new_navigation_previous">ก่อนหน้า</string>
 	<string name="whatsnew.whats_new_navigation_next">ถัดไป</string>
 	<string name="whatsnew.whats_new_navigation_done">เรียบร้อย</string>
@@ -268,13 +314,17 @@
 	<string name="discussion.discussion_posts_following">กระทู้ที่ฉันติดตาม</string>
 	<string name="discussion.discussion_recent_activity">กิจกรรมล่าสุด</string>
 	<string name="discussion.discussion_most_activity">กิจกรรมมากที่สุด</string>
+	<string name="discussion.discussion_most_votes">โหวตมากที่สุด</string>
 	<string name="discussion.discussion_create_post">สร้างการอภิปราย</string>
+	<string name="discussion.discussion_create_question">สร้างคำถาม</string>
 	<string name="discussion.discussion_add_response">เพิ่มการตอบกลับ</string>
+	<string name="discussion.discussion_last_post">กระทู้ล่าสุด: %1$s</string>
 	<string name="discussion.discussion_follow">ติดตาม</string>
 	<string name="discussion.discussion_report">รายงาน</string>
 	<string name="discussion.discussion_unreport">ยกเลิกรายงาน</string>
 	<string name="discussion.discussion_add_comment">เพิ่มความคิดเห็น</string>
 	<string name="discussion.discussion_comments_title">ความคิดเห็น</string>
+	<string name="discussion.discussion_comment_added">ความคิดเห็นเรียบร้อยแล้ว</string>
 	<string name="discussion.discussion_discussion">การอภิปราย</string>
 	<string name="discussion.discussion_question">คำถาม</string>
 	<string name="discussion.discussion_title">ชื่อเรื่อง</string>
@@ -285,11 +335,27 @@
 	<string name="discussion.discussion_select_post_type">เลือกประเภทโพสต์</string>
 	<string name="discussion.discussion_topic">หัวข้อ</string>
 	<string name="discussion.discussion_search_results">ผลการค้นหา</string>
+	<string name="discussion.discussion_start_typing_to_find">เริ่มพิมพ์เพื่อค้นหาเธรด</string>
 	<string name="discussion.discussion_anonymous">นิรนาม</string>
 	<string name="discussion.discussion_no_yet">ยังไม่มีการสนทนา</string>
 	<string name="discussion.discussion_click_button_create_discussion">คลิกปุ่มด้านล่างเพื่อสร้างการสนทนาครั้งแรกของคุณ</string>
 	<string name="discussion.discussion_unnamed_subcategory">หมวดหมู่ย่อยที่ไม่มีชื่อ</string>
+	<plurals name="discussion.discussion_votes">
+        <item quantity="other">%1$d โหวต</item>
+    </plurals>
+	<plurals name="discussion.discussion_comments">
+        <item quantity="other">%1$d ความคิดเห็น</item>
+    </plurals>
+	<plurals name="discussion.discussion_missed_posts">
+        <item quantity="other">%1$d พลาดกระทู้</item>
+    </plurals>
 	<plurals name="discussion.discussion_responses">
         <item quantity="other">%1$d การตอบสนอง</item>
     </plurals>
-	</resources>
+	<plurals name="discussion.discussion_responses_capitalized">
+        <item quantity="other">%1$d ตอบกลับ</item>
+    </plurals>
+	<plurals name="discussion.discussion_found_threads">
+        <item quantity="other">พบโพสต์ %s</item>
+    </plurals>
+</resources>
