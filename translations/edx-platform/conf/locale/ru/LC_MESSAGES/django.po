@@ -274,10 +274,35 @@ msgstr ""
 "Взять указанный учебный курс и попытаться экспортировать его в репозиторий git\n"
 ". Каталог с учебным курсом должен уже существовать в репозитории git. Использование: git_export <course_loc> <git_url>"
 
+#: cms/djangoapps/contentstore/models.py:163
+msgid "Component Link"
+msgstr "Компонент Ссылка"
+
+#: cms/djangoapps/contentstore/models.py:164
+msgid "Component Links"
+msgstr "Компоненты Ссылки"
+
 #: cms/djangoapps/contentstore/models.py:190
 msgid "The component must be published to access `published_at`"
 msgstr ""
 "Компонент должен быть опубликован, чтобы получить доступ к `published_at`"
+
+#: cms/djangoapps/contentstore/models.py:329
+msgid ""
+"Upstream block key (e.g. lct:...), this value cannot be null and is useful "
+"to track upstream library blocks that do not exist yet or were deleted."
+msgstr ""
+"Ключ блока восходящего потока (например, lct:...), это значение не может "
+"быть нулевым и полезно для отслеживания восходящих библиотечных блоков, "
+"которые еще не существуют или были удалены."
+
+#: cms/djangoapps/contentstore/models.py:336
+msgid "Container Link"
+msgstr "Ссылка на контейнер"
+
+#: cms/djangoapps/contentstore/models.py:337
+msgid "Container Links"
+msgstr "Ссылка на контейнеры"
 
 #: cms/djangoapps/contentstore/models.py:363
 msgid "The container must be published to access `published_at`"
@@ -1180,6 +1205,11 @@ msgstr "Словарь тегов"
 msgid "Content is not linked to a Content Library."
 msgstr "Контент не связан с Контент библиотекой."
 
+#: cms/lib/xblock/upstream_sync.py:255
+msgid "Downstream is not an XBlock or is missing required UpstreamSyncMixin"
+msgstr ""
+"Downstream не является XBlock или отсутствует необходимый UpstreamSyncMixin"
+
 #: cms/lib/xblock/upstream_sync.py:259
 msgid "Cannot update content because it does not belong to a course."
 msgstr "Невозможно обновить контент, потому что он не относится к курсу."
@@ -1188,9 +1218,34 @@ msgstr "Невозможно обновить контент, потому чт�
 msgid "Reference to linked library item is malformed"
 msgstr "Ссылка на связанный библиотечный элемент неверно оформлена."
 
+#: cms/lib/xblock/upstream_sync.py:275
+msgid ""
+"Updating content with children is not yet supported unless the upstream is a"
+" container."
+msgstr ""
+"Обновление контента с дочерними элементами пока не поддерживается, если "
+"только восходящий поток не является контейнером."
+
+#: cms/lib/xblock/upstream_sync.py:281
+msgid "Linked upstream library block was not found in the system"
+msgstr "Связанный вышестоящий библиотечный блок не найден в системе"
+
+#: cms/lib/xblock/upstream_sync.py:288
+msgid "Linked upstream library container was not found in the system"
+msgstr "Связанный вышестоящий контейнер библиотеки не найден в системе"
+
 #: cms/lib/xblock/upstream_sync.py:292
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "Связанный `upstream_key` не является допустимым ключом"
+
+#: cms/lib/xblock/upstream_sync.py:301
+#, python-brace-format
+msgid ""
+"Content type mismatch: {downstream_id} ({downstream_type}) cannot be linked "
+"to {upstream_id}."
+msgstr ""
+"несоответствие типов контента: {downstream_id} ({downstream_type}) не может "
+"быть привязано к {upstream_id}."
 
 #: cms/lib/xblock/upstream_sync_block.py:108
 msgid "Linked library item could not be loaded: {}"
@@ -3776,6 +3831,10 @@ msgstr "Экзамен на время"
 msgid "Exam"
 msgstr "Экзамен"
 
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:33
+msgid "There’s still time to reach your goal"
+msgstr "Еще есть время, чтобы достичь своей цели"
+
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:79
 msgid ""
 "\n"
@@ -3894,6 +3953,11 @@ msgstr "Cкачать приложение для iOS с Apple App Store"
 #: themes/red-theme/lms/templates/ace_common/edx_ace/common/base_body.html:153
 msgid "Download the Android app on the Google Play Store"
 msgstr "Скачать приложение для Android с Google Play Store"
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/footer.html:174
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/footer.html:174
+msgid "edX is the trusted platform for education and learning"
+msgstr "edX - надежная платформа для образования и обучения"
 
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/footer.html:180
 #: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/base_body.html:240
@@ -5625,6 +5689,24 @@ msgstr "Название роли"
 #: lms/djangoapps/instructor/views/serializer.py:99
 msgid "Invalid role name."
 msgstr "Недопустимое имя роли."
+
+#: lms/djangoapps/instructor/views/serializer.py:344
+msgid "The URL name of the problem to reset."
+msgstr "Имя URL проблемы для сброса."
+
+#: lms/djangoapps/instructor/views/serializer.py:346
+#: lms/djangoapps/instructor/views/serializer.py:567
+msgid "Problem URL name cannot be blank."
+msgstr "Название URL задачи не может быть пустым."
+
+#: lms/djangoapps/instructor/views/serializer.py:351
+msgid "Whether to reset the problem for all students."
+msgstr "Должны ли мы сбросить проблему для всех учеников."
+
+#: lms/djangoapps/instructor/views/serializer.py:361
+#: lms/djangoapps/instructor/views/serializer.py:508
+msgid "unique student identifier."
+msgstr "уникальный идентификатор студента."
 
 #: lms/djangoapps/instructor/views/serializer.py:496
 msgid "Whether to reset for all students."
@@ -8839,6 +8921,24 @@ msgstr ""
 msgid "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
 msgstr "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:258
+#, python-brace-format
+msgid ""
+"<{p}>You have a new open response submission awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>У вас есть новая заявка с открытым ответом, ожидающая рассмотрения для "
+"<{strong}>{ora_name}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:260
+#, python-brace-format
+msgid ""
+"<{p}>You have multiple submissions awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>У вас есть несколько ответов, ожидающих рецензирования для "
+"<{strong}>{ora_name}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:279
 #, python-brace-format
 msgid ""
@@ -8870,6 +8970,19 @@ msgstr "Уведомления о новых анонсах и обновлен�
 msgid "Notifications for submission grading."
 msgstr "Уведомления об оценке сообщений."
 
+#: openedx/core/djangoapps/notifications/email/tasks.py:267
+msgid "New Course Update"
+msgstr "Обновление нового курса"
+
+#: openedx/core/djangoapps/notifications/email/tasks.py:279
+msgid ""
+"You are receiving this email because you are enrolled in the edX course "
+msgstr "Вы получили это письмо, потому что вы зачислены на курс edX. "
+
+#: openedx/core/djangoapps/notifications/email/utils.py:142
+msgid "Total Notifications"
+msgstr "Всего уведомлений"
+
 #: openedx/core/djangoapps/notifications/email/utils.py:218
 msgid "Today"
 msgstr "Сегодня"
@@ -8879,9 +8992,21 @@ msgstr "Сегодня"
 msgid "Updates"
 msgstr "Обновления"
 
+#: openedx/core/djangoapps/notifications/email/utils.py:448
+msgid "Grades"
+msgstr "Оценка"
+
 #: openedx/core/djangoapps/notifications/email/utils.py:469
 msgid "discussion"
 msgstr "обсуждение"
+
+#: openedx/core/djangoapps/notifications/email/utils.py:470
+msgid "update"
+msgstr "обновление"
+
+#: openedx/core/djangoapps/notifications/email/utils.py:471
+msgid "assessment"
+msgstr "Оценивание"
 
 #: openedx/core/djangoapps/notifications/email_notifications.py:16
 msgid "Daily"
@@ -8911,15 +9036,58 @@ msgstr "Отписаться"
 msgid "Recent activity"
 msgstr "Недавняя активность"
 
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_content.html:15
+msgid "View all"
+msgstr "Показать всё"
+
 #: openedx/core/djangoapps/notifications/templates/notifications/digest_content.html:50
 #: openedx/core/djangoapps/notifications/templates/notifications/immediate_email_content.html:27
 msgid "View"
 msgstr "Просмотр"
 
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_content.html:63
+msgid "more"
+msgstr "подробнее"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:38
+msgid ""
+"You are receiving this email because you have subscribed to email digest"
+msgstr ""
+"Вы получаете это электронное письмо, потому что подписаны на дайджест по "
+"электронной почте."
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:43
+msgid "Notification Settings"
+msgstr "Настройки уведомлений"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:46
+msgid "Unsubscribe from email digest for learning activity"
+msgstr ""
+"Отписаться от рассылки по электронной почте для получения информации об "
+"учебной деятельности"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:25
+msgid "Weekly Notifications Digest"
+msgstr "Еженедельный дайджест уведомлений"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:27
+msgid "Daily Notifications Digest"
+msgstr "Ежедневный дайджест уведомлений"
+
 #: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/batched_email/email/body.txt:3
 #: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/batched_email/email/subject.txt:3
 msgid "Recent activity on"
 msgstr "Недавняя активность на"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/body.txt:4
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/subject.txt:4
+msgid "Weekly Notifications Digest for the Week of"
+msgstr "Еженедельный дайджест уведомлений за неделю"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/body.txt:6
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/subject.txt:6
+msgid "Daily Notifications Digest for"
+msgstr "Ежедневный дайджест уведомлений для"
 
 #: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:5
 msgid "Email Digest Preferences Updated"
@@ -9127,6 +9295,40 @@ msgstr "Согласно %(filter_title)s"
 #, python-format
 msgid "Welcome to week %(week_num)s of %(course_name)s!"
 msgstr "Добро пожаловать на неделю %(week_num)s курса %(course_name)s!"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:22
+#, python-format
+msgid ""
+"This is a routed Account Activation email for %(routed_profile_name)s "
+"(%(routed_user_email)s): %(routed_profile_name)s"
+msgstr ""
+"Это маршрутизированное электронное письмо для активации учётной записи для "
+"%(routed_profile_name)s (%(routed_user_email)s): %(routed_profile_name)s"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:36
+msgid "Welcome to edX. It’s time for your next career move"
+msgstr "Добро пожаловать в edX. Пришло время сделать следующий шаг в карьере"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:62
+msgid "Resume your course "
+msgstr "Возобновление курса "
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:82
+msgid "Your focused attention will pay off in the end!"
+msgstr "Ваше пристальное внимание в конце концов окупится!"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:84
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:101
+msgid ""
+"With self-paced courses, you learn on your own schedule. It’s a good idea to"
+" spend time with the course each week and check in with your goals often."
+msgstr ""
+"На курсах с самообучением вы учитесь по собственному графику. Неплохо "
+"уделять время курсу каждую неделю и часто проверять свои цели."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:100
+msgid "Your focused attention will pay off in the end! "
+msgstr "Ваше пристальное внимание в конце концов окупится! "
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.txt:4
 #, python-format
@@ -11600,6 +11802,14 @@ msgstr ""
 "курсах. Немедленно уведомите MathWorks, если считаете, что ключ стал "
 "известен посторонним. Для получения ключа для вашего курса или отправки "
 "сообщения о проблеме, пожалуйста, свяжитесь с moocsupport@mathworks.com"
+
+#: xmodule/capa_block.py:363
+msgid ""
+"Indicates if the problem was edited using the Markdown editor in the "
+"Authoring MFE."
+msgstr ""
+"Указывает, редактировался ли проблема с помощью редактора markdown в "
+"Authoring MFE."
 
 #: xmodule/capa_block.py:455
 msgid ""
