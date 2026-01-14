@@ -10,6 +10,7 @@
 # edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2024
 # HeliaEnayati, 2024
 # Brian Smith, 2026
+# Gerardo Núñez, 2026
 # 
 msgid ""
 msgstr ""
@@ -17,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: openedx-translation@googlegroups.com\n"
 "POT-Creation-Date: 2023-06-13 08:00+0000\n"
 "PO-Revision-Date: 2023-11-20 11:35+0000\n"
-"Last-Translator: Brian Smith, 2026\n"
+"Last-Translator: Gerardo Núñez, 2026\n"
 "Language-Team: Persian (https://app.transifex.com/open-edx/teams/6205/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -256,6 +257,11 @@ msgstr "مسئله"
 #: cms/djangoapps/contentstore/views/component.py:287
 msgid "Library Content"
 msgstr "محتوای کتاب‌خانه"
+
+#: cms/djangoapps/contentstore/helpers.py:229
+#: cms/djangoapps/contentstore/views/component.py:288
+msgid "Problem Bank"
+msgstr "بانک مشکل"
 
 #: cms/djangoapps/contentstore/management/commands/git_export.py:33
 msgid ""
@@ -644,6 +650,10 @@ msgstr "ویدیو"
 #: cms/djangoapps/contentstore/views/component.py:285
 msgid "Open Response"
 msgstr "پاسخ‌باز"
+
+#: cms/djangoapps/contentstore/views/component.py:286
+msgid "Legacy Library"
+msgstr "کتابخانه میراث"
 
 #: cms/djangoapps/contentstore/views/component.py:289
 msgid "Drag and Drop"
@@ -1158,6 +1168,10 @@ msgstr "ارجاع به آیتم کتابخانه پیوندی نادرست اس
 #: cms/lib/xblock/upstream_sync.py:292
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "کلید `upstream_key` مرتبط یک کلید معتبر نیست"
+
+#: cms/lib/xblock/upstream_sync_block.py:108
+msgid "Linked library item could not be loaded: {}"
+msgstr "مورد کتابخانه پیوند شده بارگیری نشد: {}"
 
 #: cms/templates/admin/base_site.html:4 lms/templates/admin/base_site.html:3
 msgid "Django site admin"
@@ -8594,6 +8608,15 @@ msgstr ""
 "<{p}><{strong}>{username}</{strong}>  ارسال شده  "
 "<{strong}>{post_title}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:120
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> and others started new "
+"discussions</{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> و دیگران بحث های جدیدی را آغاز "
+"کردند</{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:139
 #, python-brace-format
 msgid ""
@@ -9890,6 +9913,13 @@ msgstr "یک ایمیل با فرمت مناسب مورد نیاز است"
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:148
 msgid "Your legal name must be a minimum of one character long"
 msgstr "نام قانونی شما باید حداقل یک نویسه داشته باشد"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:149
+#, python-format
+msgid ""
+"Your legal name is too long. It must not exceed %(max_length)s characters"
+msgstr ""
+"نام قانونی شما خیلی طولانی است. نباید از نویسه‌ها %(max_length)s تجاوز کند"
 
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:161
 #, python-format
@@ -12762,6 +12792,28 @@ msgstr ""
 "تعیین می‌کند که آیا دکمه «بازنشانی مسائل» نشان داده شود یا خیر تا کاربران "
 "بتوانند پاسخ‌های خود را بازنشانی کنند و موارد انتخابی را تغییر دهند."
 
+#: xmodule/item_bank_block.py:480
+#, python-brace-format
+msgid ""
+"The problem bank has been configured to show {count} problems. Please "
+"specify a positive number of problems, or specify -1 to show all problems."
+msgstr ""
+"بانک مشکل برای نمایش مشکلات {count} پیکربندی شده است. لطفاً تعداد مثبتی از "
+"مشکلات را مشخص کنید یا -1 را برای نمایش همه مشکلات مشخص کنید."
+
+#: xmodule/item_bank_block.py:484 xmodule/item_bank_block.py:496
+msgid "Edit the problem bank configuration."
+msgstr "پیکربندی بانک مشکل را ویرایش کنید."
+
+#: xmodule/item_bank_block.py:492
+#, python-brace-format
+msgid ""
+"The problem bank has been configured to show {count} problems, but only "
+"{actual} have been selected."
+msgstr ""
+"بانک مشکل برای نمایش مشکلات {count} پیکربندی شده است، اما فقط {actual} "
+"انتخاب شده است."
+
 #: xmodule/library_content_block.py:57
 msgid "Any Type"
 msgstr "همه انواع"
@@ -13628,6 +13680,61 @@ msgstr "این آزمایش محتوا دارای مشکلاتی است که ر�
 #: xmodule/tabs.py:398 xmodule/tabs.py:433
 msgid "External Discussion"
 msgstr "بحث خارجی"
+
+#: xmodule/templates/item_bank/author_view.html:8
+#: xmodule/templates/item_bank/author_view.html:18
+#, python-format
+msgid ""
+"\n"
+"                Learners will see the selected component:\n"
+"                "
+msgid_plural ""
+"\n"
+"                Learners will see all of the %(num_selected)s selected components, in random order:\n"
+"                "
+msgstr[0] ""
+"\n"
+"                ```\n"
+"زبان آموزان مؤلفه انتخاب شده را خواهند دید:\n"
+"```\n"
+"                "
+msgstr[1] ""
+"\n"
+"                ```\n"
+"زبان آموزان تمام اجزای انتخاب شده %(num_selected)s را به ترتیب تصادفی مشاهده خواهند کرد:\n"
+"```\n"
+"                "
+
+#: xmodule/templates/item_bank/author_view.html:32
+#, python-brace-format
+msgid ""
+"Press {link_start}View{link_end} to preview, sync/update, and/or remove the "
+"selected components."
+msgstr ""
+"برای پیش نمایش، همگام سازی/به روز رسانی و/یا حذف اجزای انتخاب شده، "
+"{link_start}مشاهده{link_end} را فشار دهید."
+
+#: xmodule/templates/item_bank/author_view.html:38
+#, python-brace-format
+msgid ""
+"Press {link_start}Edit{link_end} to configure how many will be shown and "
+"other settings."
+msgstr ""
+"برای پیکربندی تعداد نمایش داده شده و سایر تنظیمات، "
+"{link_start}ویرایش{link_end} فشار دهید."
+
+#: xmodule/templates/item_bank/author_view.html:44
+msgid "You have not selected any components yet."
+msgstr "شما هنوز هیچ جزء را انتخاب نکرده اید."
+
+#: xmodule/templates/item_bank/author_view_add.html:11
+#, python-brace-format
+msgid ""
+"{button_start}Add components{button_end} from a content library to this "
+"problem bank."
+msgstr ""
+"{button_start}Add components{button_end} را از یک کتابخانه محتوا به این بانک"
+" مشکل اضافه کنید."
 
 #: xmodule/vertical_block.py:45
 msgid "Enable in-context discussions for the Unit"
