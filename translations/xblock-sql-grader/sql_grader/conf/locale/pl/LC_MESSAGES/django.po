@@ -21,6 +21,10 @@ msgstr ""
 "Language: pl\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
+#: mixins/grading.py:72
+msgid "We could not execute your query; please try again."
+msgstr "Nie mogliśmy wykonać Twojego zapytania; proszę spróbuj ponownie."
+
 #: mixins/grading.py:89
 msgid "Weight"
 msgstr "Waga"
@@ -37,9 +41,119 @@ msgstr "Wyświetlana nazwa"
 msgid "The display name for this component."
 msgstr "Nazwa wyświetlana tego komponentu."
 
+#: mixins/grading.py:172
+msgid "SQL Problem"
+msgstr "Problem z SQLem"
+
+#: mixins/grading.py:176
+msgid "Dataset"
+msgstr "Zbiór danych"
+
+#: mixins/grading.py:177
+msgid "Which initial dataset/database to be used for queries"
+msgstr "Który początkowy zbiór danych/baza danych ma być używane do zapytań"
+
+#: mixins/grading.py:183
+msgid "Answer Query"
+msgstr "Odpowiedź na zapytanie"
+
+#: mixins/grading.py:184
+msgid "A correct response SQL query"
+msgstr "Prawidłowa odpowiedź na zapytanie SQL"
+
+#: mixins/grading.py:190
+msgid "Verify Query"
+msgstr "Zweryfikuj zapytanie"
+
+#: mixins/grading.py:192
+msgid ""
+"A secondary verification SQL query, to be used if the answer_query modifies "
+"the database (UPDATE, INSERT, DELETE, etc.). Only enter a single SELECT "
+"query here, which is used for matching the answer"
+msgstr ""
+"Wtórne zapytanie SQL weryfikujące, które ma być użyte, jeśli "
+"zapytanie_odpowiedzi modyfikuje bazę danych (UPDATE, INSERT, DELETE itp.). "
+"Wpisz tutaj tylko jedno zapytanie SELECT, które służy do dopasowania "
+"odpowiedzi"
+
+#: mixins/grading.py:202
+msgid "Modification query statements"
+msgstr "Instrukcje zapytania modyfikującego"
+
+#: mixins/grading.py:204
+msgid ""
+"Optional SQL statements, to be executed after the user-submitted query, but "
+"before the verify_query."
+msgstr ""
+"Opcjonalne instrukcje SQL, które mają być wykonane po zapytaniu przesłanym "
+"przez użytkownika, ale przed zapytaniem zweryfikowanym."
+
+#: mixins/grading.py:212
+msgid "Is Ordered?"
+msgstr "Czy zamówiono?"
+
+#: mixins/grading.py:213
+msgid "Should results be in order?"
+msgstr "Czy wyniki powinny być w porządku?"
+
 #: mixins/grading.py:228
 msgid "Prompt"
 msgstr "Podpowiedź"
+
+#: mixins/grading.py:229
+msgid "Explanatory text to accompany the problem"
+msgstr "Tekst objaśniający towarzyszący problemowi"
+
+#: mixins/grading.py:234
+msgid "Submission Query"
+msgstr "Zapytanie o przesłanie"
+
+#: mixins/grading.py:235
+msgid "A Submission Query"
+msgstr "Zapytanie o przesłanie"
+
+#: templates/view.html:6
+#, python-format
+msgid ""
+"\n"
+"            %(score_weighted)s/%(max_score)s point (graded)\n"
+"        "
+msgid_plural ""
+"\n"
+"            %(score_weighted)s/%(max_score)s points (graded)\n"
+"        "
+msgstr[0] ""
+"\n"
+"            %(score_weighted)s/%(max_score)s punkt (stopniowany)\n"
+"        "
+msgstr[1] ""
+"\n"
+"            %(score_weighted)s/%(max_score)s punktów (stopniowane)\n"
+"        "
+msgstr[2] ""
+"\n"
+"            %(score_weighted)s/%(max_score)s punktów (stopniowane)\n"
+"        "
+msgstr[3] ""
+"\n"
+"            %(score_weighted)s/%(max_score)s punktów (stopniowane)\n"
+"        "
+
+#: templates/view.html:12
+msgid "0 points (ungraded)"
+msgstr "0 punktów (bez oceny)"
+
+#: templates/view.html:21
+msgid "Note:"
+msgstr "Uwaga:"
+
+#: templates/view.html:22
+msgid ""
+"Your queries are executed using SQLite, so you must conform to the SQL "
+"constructs supported by SQLite."
+msgstr ""
+"Twoje zapytania są wykonywane przy użyciu SQLite, więc musisz przestrzegać "
+"konstrukcji SQL obsługiwanych przez SQLite."
 
 #: templates/view.html:33
 msgid "Submit"
@@ -60,3 +174,19 @@ msgstr "Błędny"
 #: templates/view.html:55
 msgid "Unanswered"
 msgstr "Bez odpowiedzi"
+
+#: templates/view.html:63
+msgid ""
+"To check your data modification statement, we ran the following query after "
+"your modification:"
+msgstr ""
+"Aby sprawdzić oświadczenie o modyfikacji danych, uruchomiliśmy następujące "
+"zapytanie po dokonaniu modyfikacji:"
+
+#: templates/view.html:75
+msgid "Your Query Result:"
+msgstr "Wynik Twojego zapytania:"
+
+#: templates/view.html:80
+msgid "Expected Query Result:"
+msgstr "Oczekiwany wynik zapytania:"
