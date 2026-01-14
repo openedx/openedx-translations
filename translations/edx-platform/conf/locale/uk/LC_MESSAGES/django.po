@@ -327,6 +327,23 @@ msgid "The component must be published to access `published_at`"
 msgstr ""
 "Компонент має бути опублікований, щоб отримати доступ до `published_at`"
 
+#: cms/djangoapps/contentstore/models.py:329
+msgid ""
+"Upstream block key (e.g. lct:...), this value cannot be null and is useful "
+"to track upstream library blocks that do not exist yet or were deleted."
+msgstr ""
+"Ключ висхідного блоку (наприклад, lct:...), це значення не може бути "
+"нульовим і є корисним для відстеження висхідних блоків бібліотеки, які ще не"
+" існують або були видалені."
+
+#: cms/djangoapps/contentstore/models.py:336
+msgid "Container Link"
+msgstr "Контейнер Посилання"
+
+#: cms/djangoapps/contentstore/models.py:337
+msgid "Container Links"
+msgstr "Контейнерні посилання"
+
 #: cms/djangoapps/contentstore/models.py:363
 msgid "The container must be published to access `published_at`"
 msgstr ""
@@ -1263,6 +1280,10 @@ msgstr "Словник з доступними тегами"
 msgid "Content is not linked to a Content Library."
 msgstr "Контент не пов'язаний з бібліотекою контенту."
 
+#: cms/lib/xblock/upstream_sync.py:255
+msgid "Downstream is not an XBlock or is missing required UpstreamSyncMixin"
+msgstr "Downstream не є XBlock або відсутній необхідний UpstreamSyncMixin"
+
 #: cms/lib/xblock/upstream_sync.py:259
 msgid "Cannot update content because it does not belong to a course."
 msgstr "Неможливо оновити вміст, оскільки він не належить до курсу."
@@ -1271,9 +1292,34 @@ msgstr "Неможливо оновити вміст, оскільки він н
 msgid "Reference to linked library item is malformed"
 msgstr "Посилання на елемент бібліотеки є некоректним"
 
+#: cms/lib/xblock/upstream_sync.py:275
+msgid ""
+"Updating content with children is not yet supported unless the upstream is a"
+" container."
+msgstr ""
+"Оновлення контенту за допомогою дітей поки що не підтримується, якщо "
+"висхідним потоком не є контейнер."
+
+#: cms/lib/xblock/upstream_sync.py:281
+msgid "Linked upstream library block was not found in the system"
+msgstr "Пов'язаний з висхідним потоком блок бібліотеки не знайдено в системі"
+
+#: cms/lib/xblock/upstream_sync.py:288
+msgid "Linked upstream library container was not found in the system"
+msgstr "Пов'язаний контейнер бібліотеки вище за течією не знайдено в системі"
+
 #: cms/lib/xblock/upstream_sync.py:292
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "Пов'язаний `upstream_key` є недійсним ключем"
+
+#: cms/lib/xblock/upstream_sync.py:301
+#, python-brace-format
+msgid ""
+"Content type mismatch: {downstream_id} ({downstream_type}) cannot be linked "
+"to {upstream_id}."
+msgstr ""
+"Невідповідність типів контенту: {downstream_id} ({downstream_type}) не може "
+"бути пов'язано з {upstream_id}."
 
 #: cms/lib/xblock/upstream_sync_block.py:108
 msgid "Linked library item could not be loaded: {}"
@@ -3831,6 +3877,54 @@ msgstr "Іспити з обмеженням по часу"
 msgid "Exam"
 msgstr "Іспит"
 
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:33
+msgid "There’s still time to reach your goal"
+msgstr "Ще є час, щоб досягти своєї мети"
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:49
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"                    You set a goal of learning {start_bold}%(days_per_week)s time a week in %(course_name)s{end_bold}. Now it’s up to you to make those goals a reality.\n"
+"                    "
+msgid_plural ""
+"\n"
+"                    You set a goal of learning {start_bold}%(days_per_week)s times a week in %(course_name)s{end_bold}. Now it’s up to you to make those goals a reality.\n"
+"                "
+msgstr[0] ""
+"\n"
+"                    ```\n"
+"Ви поставили собі за мету вивчати {start_bold}%(days_per_week)s раз на тиждень в %(course_name)s{end_bold}. Тепер від вас залежить, як зробити ці цілі реальністю.\n"
+"```\n"
+"                    "
+msgstr[1] ""
+"\n"
+"                    Ви поставили собі за мету вивчати {start_bold}%(days_per_week)s разів на тиждень в %(course_name)s{end_bold}. Тепер від вас залежить, як зробити ці цілі реальністю.\n"
+"                "
+msgstr[2] ""
+"\n"
+"                    Ви поставили собі за мету вивчати {start_bold}%(days_per_week)s разів на тиждень в %(course_name)s{end_bold}. Тепер від вас залежить, як зробити ці цілі реальністю.\n"
+"                "
+msgstr[3] ""
+"\n"
+"                    Ви поставили собі за мету вивчати {start_bold}%(days_per_week)s разів на тиждень в %(course_name)s{end_bold}. Тепер від вас залежить, як зробити ці цілі реальністю.\n"
+"                "
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:98
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:117
+msgid "Remember: the best goal is one that you can stick to. "
+msgstr "Пам'ятайте: найкраща мета - це та, якої ви можете дотримуватися. "
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:99
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:118
+msgid "You can always"
+msgstr "Ти завжди можеш"
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:101
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:120
+msgid "if you need to."
+msgstr "якщо знадобиться."
+
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.txt:2
 msgid "You're almost there!"
 msgstr "Ви майже закінчили!"
@@ -3915,6 +4009,11 @@ msgstr "Завантажте iOS додаток у Apple Store"
 #: themes/red-theme/lms/templates/ace_common/edx_ace/common/base_body.html:153
 msgid "Download the Android app on the Google Play Store"
 msgstr "Завантажте Android додаток у Google Play Store"
+
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/footer.html:174
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/footer.html:174
+msgid "edX is the trusted platform for education and learning"
+msgstr "edX - надійна платформа для освіти та навчання"
 
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/footer.html:180
 #: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/base_body.html:240
@@ -5067,6 +5166,10 @@ msgstr "Мова"
 msgid "Location"
 msgstr "Місце розташування"
 
+#: lms/djangoapps/instructor/views/api.py:1540
+msgid "Birth Year"
+msgstr "Рік народження"
+
 #. Translators: This label appears above a dropdown menu used to select
 #. the user's gender.
 #. Translators: This label appears above a dropdown menu on the registration
@@ -5335,6 +5438,16 @@ msgstr "оцінка завдання"
 #: lms/djangoapps/instructor/views/api.py:3243
 msgid "All fields must be filled out"
 msgstr "Всі поля повинні бути заповнені"
+
+#: lms/djangoapps/instructor/views/api.py:3249
+#, python-brace-format
+msgid "Could not find student matching identifier: {student}"
+msgstr "Не вдалося знайти відповідний ідентифікатор студента: {student}"
+
+#: lms/djangoapps/instructor/views/api.py:3258
+#: lms/djangoapps/instructor/views/serializers_v2.py:417
+msgid "The extension due date and time format is incorrect"
+msgstr "Розширення кінцева дата та формат часу невірні."
 
 #: lms/djangoapps/instructor/views/api.py:3269
 #, python-brace-format
@@ -8955,6 +9068,11 @@ msgstr ""
 "<{p}>Ви отримали {points_earned} з {points_possible} за оцінку: "
 "<{strong}>{ora_name}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:299
+#, python-brace-format
+msgid "<{p}>Your instructor posted <{strong}>{post_title}</{strong}></{p}>"
+msgstr "<{p}>Ваш викладач опублікував <{strong}>{post_title}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:347
 msgid ""
 "Notifications for responses and comments on your posts, and the ones you’re "
@@ -8972,6 +9090,15 @@ msgstr "Сповіщення про нові оголошення та онов�
 msgid "Notifications for submission grading."
 msgstr "Сповіщення про оцінювання поданих робіт."
 
+#: openedx/core/djangoapps/notifications/email/tasks.py:267
+msgid "New Course Update"
+msgstr "Нове оновлення Курсу"
+
+#: openedx/core/djangoapps/notifications/email/tasks.py:279
+msgid ""
+"You are receiving this email because you are enrolled in the edX course "
+msgstr "Ви отримуєте цей лист, тому що ви записані на edX курс "
+
 #: openedx/core/djangoapps/notifications/email/utils.py:142
 msgid "Total Notifications"
 msgstr "Всього сповіщень"
@@ -8985,9 +9112,21 @@ msgstr "Сьогодні"
 msgid "Updates"
 msgstr "Оновлення"
 
+#: openedx/core/djangoapps/notifications/email/utils.py:448
+msgid "Grades"
+msgstr "Оцінки"
+
 #: openedx/core/djangoapps/notifications/email/utils.py:469
 msgid "discussion"
 msgstr "обговорення"
+
+#: openedx/core/djangoapps/notifications/email/utils.py:470
+msgid "update"
+msgstr "оновлення"
+
+#: openedx/core/djangoapps/notifications/email/utils.py:471
+msgid "assessment"
+msgstr "оцінка"
 
 #: openedx/core/djangoapps/notifications/email_notifications.py:16
 msgid "Daily"
@@ -9041,10 +9180,32 @@ msgstr ""
 msgid "Notification Settings"
 msgstr "Налаштування сповіщень"
 
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:46
+msgid "Unsubscribe from email digest for learning activity"
+msgstr "Відпишіться від розсилки дайджесту для навчальної активності"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:25
+msgid "Weekly Notifications Digest"
+msgstr "Щотижневий дайджест сповіщень"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:27
+msgid "Daily Notifications Digest"
+msgstr "Дайджест щоденних сповіщень"
+
 #: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/batched_email/email/body.txt:3
 #: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/batched_email/email/subject.txt:3
 msgid "Recent activity on"
 msgstr "Остання активність на сайті"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/body.txt:4
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/subject.txt:4
+msgid "Weekly Notifications Digest for the Week of"
+msgstr "Дайджест сповіщень за тиждень"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/body.txt:6
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/subject.txt:6
+msgid "Daily Notifications Digest for"
+msgstr "Дайджест щоденних сповіщень для"
 
 #: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:5
 msgid "Email Digest Preferences Updated"
@@ -9266,6 +9427,23 @@ msgstr ""
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:62
 msgid "Resume your course "
 msgstr "Продовжити ваш курс"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:82
+msgid "Your focused attention will pay off in the end!"
+msgstr "Ваша зосереджена увага окупиться в кінці!"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:84
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:101
+msgid ""
+"With self-paced courses, you learn on your own schedule. It’s a good idea to"
+" spend time with the course each week and check in with your goals often."
+msgstr ""
+"З курсами самостійного навчання ви навчаєтесь за власним графіком. Бажано "
+"проводити час з курсом щотижня і часто перевіряти свої цілі."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:100
+msgid "Your focused attention will pay off in the end! "
+msgstr "Ваша зосереджена увага окупиться в кінці! "
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.txt:4
 #, python-format
