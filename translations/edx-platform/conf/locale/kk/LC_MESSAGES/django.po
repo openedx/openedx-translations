@@ -8623,6 +8623,11 @@ msgstr "Жалпы хабарламалар"
 msgid "Today"
 msgstr "Бүгін"
 
+#: openedx/core/djangoapps/notifications/email/utils.py:447
+#: openedx/features/course_experience/plugins.py:34
+msgid "Updates"
+msgstr "Жаңартулар"
+
 #: openedx/core/djangoapps/notifications/email/utils.py:448
 msgid "Grades"
 msgstr "Бағалар"
@@ -9685,18 +9690,86 @@ msgstr "Құпия сөзді қалпына келтіру сәтті болд�
 msgid "Hello %(name)s,"
 msgstr "Сәлем %(name)s,"
 
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordresetsuccess/email/body.html:19
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordresetsuccess/email/body.txt:3
+#, python-format
+msgid ""
+"This is to confirm that you have successfully changed your password "
+"associated with %(platform_name)s account. Please sign-in to your account."
+msgstr ""
+"Бұл сіздің %(platform_name)s тіркелгісімен байланысты құпия сөзіңізді сәтті "
+"өзгерткеніңізді растау. Тіркелгіңізге кіріңіз."
+
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordresetsuccess/email/body.txt:2
 #, python-format
 msgid "Hello %(name)s, "
 msgstr "Сәлем %(name)s, "
 
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordresetsuccess/email/subject.txt:3
+#, python-format
+msgid "Password reset completed on %(platform_name)s"
+msgstr "Құпия сөзді қалпына келтіру %(platform_name)s күні аяқталды"
+
+#: openedx/core/djangoapps/user_authn/views/auto_auth.py:96
+msgid "Superuser creation not allowed"
+msgstr "Супер пайдаланушы құруға рұқсат етілмейді"
+
+#: openedx/core/djangoapps/user_authn/views/auto_auth.py:115
+msgid "Account modification not allowed."
+msgstr "Есептік жазбаны өзгертуге рұқсат етілмейді."
+
+#: openedx/core/djangoapps/user_authn/views/auto_auth.py:125
+#: openedx/core/djangoapps/user_authn/views/register.py:715
+msgid "Account creation not allowed."
+msgstr "Есептік жазба жасауға рұқсат етілмейді."
+
 #: openedx/core/djangoapps/user_authn/views/login.py:102
 msgid "Register"
 msgstr "Тіркелу"
 
+#: openedx/core/djangoapps/user_authn/views/login.py:138
+msgid "There was an error receiving your login information. Please email us."
+msgstr ""
+"Жүйеге кіру ақпаратыңызды алу кезінде қате орын алды. Бізге электрондық хат "
+"жіберіңіз."
+
+#: openedx/core/djangoapps/user_authn/views/login.py:172
+#, python-brace-format
+msgid ""
+"To protect your account, it’s been temporarily locked. Try again in "
+"{locked_out_period} minutes.{li_start}To be on the safe side, you can reset "
+"your password {link_start}here{link_end} before you try again."
+msgstr ""
+"Есептік жазбаңызды қорғау үшін ол уақытша құлыпталды. {locked_out_period} "
+"минуттан кейін әрекетті қайталаңыз. {li_start} Қауіпсіз болу үшін, қайта "
+"әрекет жасау үшін {link_start}осы жерден{link_end} құпиясөзіңізді қалпына "
+"келтіруге болады."
+
 #: openedx/core/djangoapps/user_authn/views/login.py:243
 msgid "Too many failed login attempts. Try again later."
 msgstr "Тым көп сәтсіз кіру әрекеттері. Әрекетті кейінірек қайталаңыз."
+
+#: openedx/core/djangoapps/user_authn/views/login.py:285
+#, python-brace-format
+msgid ""
+"Email or password is incorrect.{li_start}You have {remaining_attempts} more "
+"sign-in attempts before your account is temporarily "
+"locked.{li_end}{li_start}If you've forgotten your password, click "
+"{link_start}here{link_end} to reset.{li_end}"
+msgstr ""
+"Электрондық пошта немесе құпия сөз дұрыс емес.{li_start}Тіркелгіңіз уақытша "
+"құлыпталғанға дейін сізде тағы {remaining_attempts} кіру әрекеті "
+"бар.{li_end}{li_start}Құпия сөзді ұмытып қалсаңыз, қалпына келтіру үшін "
+"{link_start}осы жердегі{link_end} түймесін басыңыз.{li_end}"
+
+#: openedx/core/djangoapps/user_authn/views/login.py:393
+#, python-brace-format
+msgid ""
+"As {allowed_domain} user, You must login with your {allowed_domain} "
+"{link_start}{provider} account{link_end}."
+msgstr ""
+"{allowed_domain} пайдаланушысы ретінде сіз {allowed_domain} "
+"{link_start}{provider} тіркелгімен{link_end} кіруіңіз керек."
 
 #. Translators: These instructions appear on the login form, immediately
 #. below a field meant to hold the user's email address.
@@ -9710,12 +9783,65 @@ msgid "The email address you used to register with {platform_name}"
 msgstr ""
 "{platform_name} арқылы тіркелу үшін пайдаланған электрондық пошта мекенжайы"
 
+#. Translators: This example email address is used as a placeholder in
+#. a field on the password reset form meant to hold the user's email address.
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:94
+msgid "username@domain.com"
+msgstr "username@domain.com"
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:183
+msgid ""
+"That e-mail address doesn't have an associated user account. Are you sure "
+"you've registered?"
+msgstr ""
+"Бұл электрондық пошта мекенжайы пайдаланушы тіркелгісіне байланыспаған. "
+"Тіркелгеніңізге сенімдісіз бе?"
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:185
+msgid ""
+"The user account associated with this e-mail address cannot reset the "
+"password."
+msgstr ""
+"Осы электрондық пошта мекенжайымен байланыстырылған пайдаланушы тіркелгісі "
+"құпия сөзді қалпына келтіре алмайды."
+
 #: openedx/core/djangoapps/user_authn/views/password_reset.py:307
 #: openedx/core/djangoapps/user_authn/views/password_reset.py:630
 msgid ""
 "Your previous request is in progress, please try again in a few moments."
 msgstr ""
 "Алдыңғы сұрауыңыз орындалуда, бірнеше минуттан кейін әрекетті қайталаңыз."
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:414
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:429
+msgid "Password reset unsuccessful"
+msgstr "Құпия сөзді қалпына келтіру сәтсіз аяқталды"
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:415
+msgid "Error in resetting your password."
+msgstr "Құпия сөзді қалпына келтіру қатесі."
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:445
+msgid "Error in resetting your password. Please try again."
+msgstr "Құпия сөзді қалпына келтіру қатесі. Қайталап көріңіз."
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:470
+#, python-brace-format
+msgid ""
+"{html_start}Password Creation Complete{html_end}Your password has been "
+"created. {bold_start}{email}{bold_end} is now your primary login email."
+msgstr ""
+"{html_start} Құпия сөзді жасау аяқталды {html_end} Құпия сөзіңіз жасалды. "
+"{bold_start} {email} {bold_end} енді сіздің негізгі кіру электрондық "
+"поштаңыз."
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:664
+msgid "Some error occurred during password change. Please try again"
+msgstr "Құпия сөзді өзгерту кезінде қате орын алды. Қайталап көріңіз"
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:668
+msgid "No email address provided."
+msgstr "Электрондық пошта мекенжайы көрсетілмеген."
 
 #: openedx/core/djangoapps/user_authn/views/password_reset.py:746
 msgid ""
@@ -9730,6 +9856,80 @@ msgstr ""
 msgid "Registration using {provider} has timed out."
 msgstr "{provider} арқылы тіркеу уақыты аяқталды."
 
+#: openedx/core/djangoapps/user_authn/views/register.py:329
+msgid "An access_token is required when passing value ({}) for provider."
+msgstr "Провайдер үшін мәнді ({}) беру кезінде access_token қажет."
+
+#: openedx/core/djangoapps/user_authn/views/register.py:342
+msgid "The provided access_token is already associated with another user."
+msgstr ""
+"Берілген access_token басқа пайдаланушымен әлдеқашан байланыстырылған."
+
+#: openedx/core/djangoapps/user_authn/views/register.py:345
+msgid "The provided access_token is not valid."
+msgstr "Берілген access_token жарамсыз."
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:107
+msgid "Full Name cannot contain the following characters: < >"
+msgstr "Толық аты келесі таңбаларды келе алмайды: < >"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:147
+msgid "A properly formatted e-mail is required"
+msgstr "Дұрыс пішімделген электрондық пошта қажет"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:148
+msgid "Your legal name must be a minimum of one character long"
+msgstr "Сіздің заңды атыңыз кемінде бір таңбадан тұруы керек"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:161
+#, python-format
+msgid "Email cannot be more than %(limit_value)s characters long"
+msgstr "Электрондық поштаның ұзындығы %(limit_value)s таңбадан аспауы керек"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:193
+msgid "You must accept the terms of service."
+msgstr "Сіз қызмет көрсету шарттарын қабылдауыңыз керек."
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:197
+msgid "A level of education is required"
+msgstr "Білім деңгейі қажет"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:198
+msgid "Your gender is required"
+msgstr "Сіздің жыныс қажет"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:199
+msgid "Your year of birth is required"
+msgstr "Туған жылыңыз қажет"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:200
+msgid "Your mailing address is required"
+msgstr "Сіздің пошталық мекенжайыңыз қажет"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:201
+msgid "A description of your goals is required"
+msgstr "Сіздің мақсаттарыңыздың сипаттамасы қажет"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:202
+msgid "A city is required"
+msgstr "Қала керек"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:203
+msgid "A country is required"
+msgstr "Ел қажет"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:211
+msgid "To enroll, you must follow the honor code."
+msgstr "Тіркелу үшін құрмет кодын орындау керек."
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:219
+msgid "You are missing one or more required fields"
+msgstr "Сізде бір немесе бірнеше міндетті өрістер жоқ"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:271
+msgid "Unauthorized email address."
+msgstr "Рұқсат етілмеген электрондық пошта мекенжайы."
+
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:275
 #, python-brace-format
 msgid ""
@@ -9739,17 +9939,117 @@ msgstr ""
 "{email} бұрыннан бар тіркелгіге тиесілі сияқты. Басқа электрондық пошта "
 "мекенжайымен әрекетті қайталаңыз."
 
+#. Translators: These instructions appear on the registration form,
+#. immediately
+#. below a field meant to hold the user's email address.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:510
+msgid "This is what you will use to login."
+msgstr "Бұл жүйеге кіру үшін қолданылатын нәрсе."
+
+#. Translators: These instructions appear on the registration form,
+#. immediately
+#. below a field meant to hold the user's full name.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:560
+msgid "This name will be used on any certificates that you earn."
+msgstr "Бұл атау сіз алған кез келген сертификаттарда қолданылады."
+
+#. Translators: This label appears above a field on the registration form
+#. meant to hold the user's public username.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:581
+msgid "Public Username"
+msgstr "Жалпы пайдаланушы аты"
+
+#. Translators: These instructions appear on the registration form,
+#. immediately
+#. below a field meant to hold the user's public username.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:586
+msgid ""
+"The name that will identify you in your courses. It cannot be changed later."
+msgstr "Курстарыңызда сізді анықтайтын ат. Оны кейін өзгерту мүмкін емес."
+
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:702
 #, python-brace-format
 msgid "I agree that {platform_name} may send me marketing messages."
 msgstr ""
 "Мен {platform_name} маркетингтік хабарлар жіберуі мүмкін екеніне келісемін."
 
+#. Translators: This label appears above a dropdown menu on the registration
+#. form used to select the country in which the user lives.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:967
+msgid "Country or Region of Residence"
+msgstr "Тұрғылықты жері немесе аймағы"
+
+#. Translators: These instructions appear on the registration form,
+#. immediately
+#. below a field meant to hold the user's country.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:978
+msgid "The country or region where you live."
+msgstr "Сіз тұратын ел немесе аймақ."
+
 #. Translators: This is a legal document users must agree to
 #. in order to register a new account.
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:1016
 msgid "Terms of Service and Honor Code"
 msgstr "Қызмет көрсету шарттары және Ар-намыс кодексі"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1022
+#, python-brace-format
+msgid ""
+"I agree to the {platform_name} "
+"{terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end}"
+msgstr ""
+"Мен келісемін {platform_name} "
+"{terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end}"
+
+#. Translators: "Terms of Service" is a legal document users must agree to
+#. in order to register a new account.
+#. Translators: "Terms of service" is a legal document users must agree to
+#. in order to register a new account.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1034
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1098
+#, python-brace-format
+msgid "You must agree to the {platform_name} {terms_of_service}"
+msgstr "Сіз {platform_name} {terms_of_service} келісуіңіз керек."
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1045
+#, python-brace-format
+msgid ""
+"By creating an account, you agree to the                   "
+"{terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end}"
+"                   and you acknowledge that {platform_name} and each Member "
+"process your personal data in accordance                   with the "
+"{privacy_policy_link_start}Privacy Policy{privacy_policy_link_end}."
+msgstr ""
+"Тіркелгіні жасау арқылы сіз "
+"{terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end} "
+"келісесіз және {platform_name} және әрбір Мүше сіздің жеке деректеріңізді "
+"{privacy_policy_link_start}Privacy Policy{privacy_policy_link_end} саясатына"
+" сәйкес өңдейтінін мойындайсыз."
+
+#. Translators: "Terms of service" is a legal document users must agree to
+#. in order to register a new account.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1087
+#, python-brace-format
+msgid ""
+"I agree to the {platform_name} "
+"{tos_link_start}{terms_of_service}{tos_link_end}"
+msgstr ""
+"Мен келісемін {platform_name} "
+"{tos_link_start}{terms_of_service}{tos_link_end}"
+
+#: openedx/core/djangoapps/user_authn/views/utils.py:53
+msgid "Create Account"
+msgstr "Аккаунт ашу"
+
+#: openedx/core/djangoapps/util/user_messages.py:104
+#, python-brace-format
+msgid "{header_open}{title}{header_close}{body}"
+msgstr "{header_open} {title} {header_close} {body}"
+
+#: openedx/core/djangoapps/util/user_messages.py:241
+#, python-brace-format
+msgid "{header_open}{title}{header_close}"
+msgstr "{header_open} {title} {header_close}"
 
 #: openedx/core/djangoapps/util/user_messages.py:256
 msgid "Dismiss"
@@ -9830,6 +10130,75 @@ msgstr ""
 "{exception_message} : Жүктеп салынған транскрипттерді табу мүмкін емес: "
 "{user_filename}"
 
+#: openedx/core/djangoapps/video_pipeline/models.py:33
+msgid "Oauth client name of VEM service."
+msgstr "VEM қызметінің Oauth клиент атауы."
+
+#: openedx/core/djangoapps/video_pipeline/models.py:38
+msgid "video encode manager API URL."
+msgstr "бейне кодтау менеджерінің API URL мекенжайы."
+
+#: openedx/core/djangoapps/video_pipeline/models.py:46
+msgid "Username created for VEM Integration, e.g. vem_service_user."
+msgstr ""
+"VEM Integration үшін жасалған пайдаланушы аты, мысалы vem_service_user."
+
+#: openedx/core/djangoapps/waffle_utils/models.py:28
+#: openedx/core/djangoapps/waffle_utils/models.py:91
+msgid "Force On"
+msgstr "Күштеп қосу"
+
+#: openedx/core/djangoapps/waffle_utils/models.py:28
+#: openedx/core/djangoapps/waffle_utils/models.py:91
+msgid "Force Off"
+msgstr "Мәжбүрлеп өшіру"
+
+#: openedx/core/djangoapps/xblock/runtime/mixin.py:65
+msgid ""
+"This content is only accessible to registered learners. Sign in or register "
+"to view it."
+msgstr ""
+"Бұл мазмұн тек тіркелген оқушыларға ғана қолжетімді. Оны көру үшін жүйеге "
+"кіріңіз немесе тіркеліңіз."
+
+#: openedx/core/djangoapps/xblock/runtime/mixin.py:69
+msgid "This content is only accessible to enrolled learners. "
+msgstr "Бұл мазмұн тек тіркелген оқушыларға ғана қолжетімді. "
+
+#: openedx/core/lib/api/view_utils.py:159
+#, python-brace-format
+msgid "The about me field must be at most {BIO_MAX_LENGTH} characters long."
+msgstr "Мен туралы өріс ең көп дегенде {BIO_MAX_LENGTH} таңбадан тұруы керек."
+
+#: openedx/core/lib/api/view_utils.py:161
+msgid "This value is invalid."
+msgstr "Бұл мән жарамсыз."
+
+#: openedx/core/lib/api/view_utils.py:214
+msgid "This field is not editable"
+msgstr "Бұл өрісті өңдеу мүмкін емес"
+
+#: openedx/core/lib/gating/api.py:71
+#, python-format
+msgid "%(min_score)s is not a valid grade percentage"
+msgstr "%(min_score)s жарамды баға пайызы емес"
+
+#: openedx/core/lib/gating/api.py:186
+#, python-brace-format
+msgid "Gating milestone for {usage_key}"
+msgstr "{usage_key} үшін рұқсат беру кезеңі"
+
+#: openedx/core/lib/license/mixin.py:26
+msgid "License"
+msgstr "Лицензия"
+
+#: openedx/core/lib/license/mixin.py:27
+msgid ""
+"A license defines how the contents of this block can be shared and reused."
+msgstr ""
+"Лицензия осы блоктың мазмұнын қалай бөлісуге және қайта пайдалануға "
+"болатындығын анықтайды."
+
 #: openedx/core/lib/teams_config.py:386
 #, python-brace-format
 msgid "Team Group: {team_set_name}"
@@ -9839,13 +10208,269 @@ msgstr "Топ тобы: {team_set_name}"
 msgid "Partition for segmenting users by team-set"
 msgstr "Топтық топ бойынша пайдаланушыларды сегменттеуге арналған бөлім"
 
+#: openedx/features/calendar_sync/ics.py:36
+#, python-brace-format
+msgid "{assignment} is due for {course}."
+msgstr "{assignment} {course} үшін қажет."
+
+#: openedx/features/calendar_sync/plugins.py:21
+msgid "Calendar Sync"
+msgstr "Күнтізбені синхрондау"
+
+#: openedx/features/calendar_sync/plugins.py:42
+msgid "Unsubscribe from calendar updates"
+msgstr "Күнтізбе жаңартуларына жазылудан бас тартыңыз"
+
+#: openedx/features/calendar_sync/plugins.py:45
+msgid "Subscribe to calendar updates"
+msgstr "Күнтізбе жаңартуларына жазылыңыз"
+
+#: openedx/features/calendar_sync/utils.py:16
+#, python-brace-format
+msgid "Sync {course} to your calendar"
+msgstr "{course} күнтізбеңізбен синхрондаңыз"
+
+#: openedx/features/calendar_sync/utils.py:17
+#, python-brace-format
+msgid ""
+"Sticking to a schedule is the best way to ensure that you successfully "
+"complete your self-paced course. This schedule for {course} will help you "
+"stay on track!"
+msgstr ""
+"Кестеге сүйену - өз бетіңізше жүретін курсты сәтті аяқтауыңызды қамтамасыз "
+"етудің ең жақсы жолы. Бұл {course} кестесі сізге жолда қалуға көмектеседі!"
+
+#: openedx/features/calendar_sync/utils.py:20
+msgid ""
+"Once you sync your course schedule to your calendar, any updates to the "
+"course from your instructor will be automatically reflected. You can remove "
+"the course from your calendar at any time."
+msgstr ""
+"Курс кестесін күнтізбеңізбен синхрондағаннан кейін нұсқаушы берген курсқа "
+"қатысты кез келген жаңартулар автоматты түрде көрсетіледі. Курсты кез келген"
+" уақытта күнтізбеңізден жоюға болады."
+
+#: openedx/features/calendar_sync/utils.py:33
+#, python-brace-format
+msgid "{course} dates have been updated on your calendar"
+msgstr "{course} күндері күнтізбеңізде жаңартылды"
+
+#: openedx/features/calendar_sync/utils.py:34
+msgid ""
+"You have successfully shifted your course schedule and your calendar is up "
+"to date."
+msgstr "Сіз курс кестесін сәтті ауыстырдыңыз және күнтізбеңіз жаңартылды."
+
+#: openedx/features/content_type_gating/models.py:27
+#: openedx/features/course_duration_limits/models.py:36
+msgid "Enabled As Of"
+msgstr "Қосылған күні"
+
+#: openedx/features/content_type_gating/models.py:30
+#: openedx/features/course_duration_limits/models.py:39
+msgid ""
+"If the configuration is Enabled, then all enrollments created after this "
+"date and time (user local time) will be affected."
+msgstr ""
+"Егер конфигурация қосылса, осы күннен және уақыттан кейін жасалған барлық "
+"тіркеулерге (пайдаланушының жергілікті уақыты) әсер етеді."
+
+#: openedx/features/content_type_gating/models.py:36
+msgid "Studio Override Enabled"
+msgstr "Studio қайта анықтау қосулы"
+
+#: openedx/features/content_type_gating/models.py:39
+msgid ""
+"Allow Feature Based Enrollment visibility to be overriden on a per-component"
+" basis in Studio."
+msgstr ""
+"Studio бағдарламасында әр құрамдас негізде мүмкіндіктерге негізделген тіркеу"
+" көрінуін өзгертуге рұқсат етіңіз."
+
+#: openedx/features/content_type_gating/partitions.py:70
+msgid "Partition for segmenting users by access to gated content types"
+msgstr ""
+"Шықпаланған мазмұн түрлеріне кіру арқылы пайдаланушыларды сегменттеуге "
+"арналған бөлім"
+
+#: openedx/features/content_type_gating/partitions.py:117
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:10
+msgid "Graded assessments are available to Verified Track learners."
+msgstr "Бағаланатын бағалаулар Расталған Трек оқушыларына қолжетімді."
+
+#: openedx/features/content_type_gating/partitions.py:119
+msgid ""
+"Graded assessments are available to Verified Track learners. Upgrade to "
+"Unlock."
+msgstr ""
+"Бағаланған бағалаулар Verified Track оқушыларына қолжетімді. Құлыпты ашу "
+"үшін жаңартыңыз."
+
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:3
+msgid "Content available only to verified track learners"
+msgstr "Мазмұн тек тексерілген трек тыңдаушыларына қолжетімді"
+
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:7
+msgid "Verified Track Access"
+msgstr "Расталған трекке кіру мүмкіндігі"
+
 #: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:15
 msgid "Upgrade to unlock"
 msgstr "Құлыпты ашу үшін жаңартыңыз"
 
+#: openedx/features/course_duration_limits/access.py:32
+#, python-brace-format
+msgid "Access expired on {expiration_date}"
+msgstr "Қол жеткізу мерзімі {expiration_date} күні аяқталды"
+
+#: openedx/features/course_duration_limits/access.py:35
+#, python-brace-format
+msgid "Access to {course_name} expired on {expiration_date}"
+msgstr "{course_name} қол жеткізу мерзімі {expiration_date} күні аяқталды"
+
+#: openedx/features/course_duration_limits/access.py:40
+#, python-brace-format
+msgid "Access to the course you were looking for expired on {expiration_date}"
+msgstr "Сіз іздеген курсқа кіру мерзімі {expiration_date} күні аяқталды"
+
+#: openedx/features/course_duration_limits/access.py:158
+#, python-brace-format
+msgid ""
+"This learner does not have access to this course. Their access expired on "
+"{expiration_date}."
+msgstr ""
+"Бұл оқушының бұл курсқа кіру мүмкіндігі жоқ. Олардың кіру мерзімі "
+"{expiration_date} күні аяқталды."
+
+#: openedx/features/course_duration_limits/access.py:164
+#, python-brace-format
+msgid ""
+"{strong_open}Audit Access Expires "
+"{expiration_date}{strong_close}{line_break}You lose all access to this "
+"course, including your progress, on {expiration_date}."
+msgstr ""
+"{strong_open} Аудитке қатынасу мерзімі аяқталады {expiration_date} "
+"{strong_close} {line_break} Сіз {expiration_date} жүйесіндегі үлгеріміңізді "
+"қоса алғанда, осы курсқа барлық рұқсатты жоғалтасыз."
+
+#: openedx/features/course_duration_limits/access.py:167
+#, python-brace-format
+msgid ""
+"{line_break}Upgrade by {upgrade_deadline} to get unlimited access to the "
+"course as long as it exists on the site. {a_open}Upgrade "
+"now{sronly_span_open} to retain access past "
+"{expiration_date}{span_close}{a_close}"
+msgstr ""
+"{line_break} Сайтта бар болғанша курсқа шектеусіз қатынас алу үшін "
+"{upgrade_deadline} арқылы жаңартыңыз. {a_open} Бұрынғы рұқсатты сақтау үшін "
+"жаңартыңыз {sronly_span_open} {expiration_date} {span_close} {a_close}"
+
+#: openedx/features/course_experience/api/v1/views.py:60
+msgid "'course_key' is required."
+msgstr "\"course_key\" қажет."
+
+#: openedx/features/course_experience/api/v1/views.py:69
+#: openedx/features/course_experience/api/v1/views.py:72
+msgid "View all dates"
+msgstr "Барлық күндерді көріңіз"
+
+#: openedx/features/course_experience/api/v1/views.py:70
+msgid ""
+"Your due dates have been successfully shifted to help you stay on track."
+msgstr "Сізді жолда ұстау үшін мерзіміңізді сәтті ауыстырдық."
+
+#: openedx/features/course_experience/api/v1/views.py:73
+msgid "Deadlines successfully reset."
+msgstr "Мерзімдері сәтті қалпына келтірілді."
+
+#: openedx/features/discounts/admin.py:22
+msgid ""
+"These define the context to disable lms-controlled discounts on. If no "
+"values are set, then the configuration applies globally. If a single value "
+"is set, then the configuration applies to all courses within that context. "
+"At most one value can be set at a time.<br>If multiple contexts apply to a "
+"course (for example, if configuration is specified for the course "
+"specifically, and for the org that the course is in, then the more specific "
+"context overrides the more general context."
+msgstr ""
+"Бұл lms басқарылатын жеңілдіктерді өшіру үшін мәтінмәнді анықтайды. Ешбір "
+"мән орнатылмаса, конфигурация жаһандық деңгейде қолданылады. Жалғыз мән "
+"орнатылса, конфигурация сол мәтінмәндегі барлық курстарға қолданылады. Бір "
+"уақытта ең көбі бір мәнді орнатуға болады.<br> Курсқа бірнеше мәтінмән "
+"қолданылса (мысалы, конфигурация курс үшін және курс орналасқан ұйым үшін "
+"арнайы көрсетілсе, нақтырақ контекст жалпы контекстті жоғарылатады."
+
+#: openedx/features/discounts/utils.py:142
+#, python-brace-format
+msgid ""
+"{s_sr}Original price: {s_op}{original_price}{e_p}, discount price: "
+"{e_sr}{formatted_discount_price}"
+msgstr ""
+"{s_sr} Бастапқы бағасы: {s_op} {original_price} {e_p} , жеңілдік бағасы: "
+"{e_sr} {formatted_discount_price}"
+
+#: openedx/features/enterprise_support/admin/forms.py:13
+msgid "CSV File"
+msgstr "CSV файлы"
+
+#: openedx/features/enterprise_support/admin/forms.py:14
+msgid ""
+"CSV file should have 3 columns having names lms_user_id, course_id, "
+"opportunity_id"
+msgstr ""
+"CSV файлында lms_user_id, course_id, opportunity_id атаулары бар 3 баған "
+"болуы керек"
+
+#: openedx/features/enterprise_support/admin/views.py:66
+#, python-brace-format
+msgid ""
+"Enrollment attributes were not updated for records at following line numbers"
+" in csv because no enrollment found for these records: {error_line_numbers}"
+msgstr ""
+"Тіркеу атрибуттары csv ішіндегі келесі жол нөмірлеріндегі жазбалар үшін "
+"жаңартылмады, себебі бұл жазбалар үшін тіркеу табылмады: "
+"{error_line_numbers}"
+
+#: openedx/features/enterprise_support/api.py:903
+#, python-brace-format
+msgid ""
+"You have access to the {bold_start}{enterprise_name}{bold_end} dashboard. To"
+" access the courses available to you through {enterprise_name}, "
+"{link_start}visit the {enterprise_name} dashboard{link_end}."
+msgstr ""
+"Сіз {bold_start}{enterprise_name}{bold_end} бақылау тақтасына кіре аласыз. "
+"{enterprise_name} арқылы қолжетімді курстарға қол жеткізу үшін "
+"{link_start}{enterprise_name} бақылау тақтасына{link_end} кіріңіз."
+
+#: openedx/features/enterprise_support/api.py:1004
+#, python-brace-format
+msgid "Enrollment in {course_title} was not complete."
+msgstr "{course_title} тіркеу аяқталмады."
+
+#: openedx/features/enterprise_support/api.py:1008
+#, python-brace-format
+msgid ""
+"If you have concerns about sharing your data, please contact your "
+"administrator at {enterprise_customer_name}."
+msgstr ""
+"Деректеріңізді ортақ пайдалану туралы алаңдасаңыз, "
+"{enterprise_customer_name} бойынша әкімшіңізге хабарласыңыз."
+
 #: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:15
 msgid "Home"
 msgstr "Үй"
+
+#: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:17
+msgid "Enterprise Course Enrollments"
+msgstr "Кәсіпорын курсына жазылулар"
+
+#: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:18
+msgid "Override Enrollment Attributes"
+msgstr "Тіркеу атрибуттарын қайта анықтау"
+
+#: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:25
+msgid "Upload CSV to override enrollment attributes for learners"
+msgstr "Оқушыларға тіркелу атрибуттарын қайта анықтау үшін CSV жүктеп салыңыз"
 
 #: openedx/features/enterprise_support/utils.py:178
 #, python-brace-format
@@ -9859,6 +10484,15 @@ msgstr ""
 "{platform_name} кіру үшін оқу әкімшісіне немесе менеджеріне "
 "хабарласыңыз.{line_break}{line_break}Қате туралы "
 "мәліметтер:{line_break}{error_message}"
+
+#: openedx/features/enterprise_support/utils.py:200
+#, python-brace-format
+msgid ""
+"Thank you for joining {platform_name}. Just a couple steps before you start "
+"learning!"
+msgstr ""
+"{platform_name} қосылғаныңызға рахмет. Оқуды бастамас бұрын бірнеше қадам "
+"қалды!"
 
 #: openedx/features/enterprise_support/utils.py:205
 msgid "Continue"
@@ -9886,9 +10520,40 @@ msgstr ""
 "болашаққа ауыстыруыңызға болады. Уайымдамаңыз - мерзімін ауыстырған кезде "
 "қол жеткізген жетістіктеріңіздің ешқайсысын жоғалтпайсыз."
 
+#: openedx/features/personalized_learner_schedules/call_to_action.py:145
+#, python-brace-format
+msgid "Try again ({attempts} attempt remaining)"
+msgid_plural "Try again ({attempts} attempts remaining)"
+msgstr[0] "Қайталап көріңіз ( {attempts} әрекет қалды)"
+msgstr[1] "Қайталап көріңіз ({attempts} әрекет қалды)"
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:150
+#, python-brace-format
+msgid "You have used {attempts} of {max_attempts} attempts for this problem."
+msgstr ""
+"Бұл мәселе үшін {max_attempts} әрекеттерінің {attempts} әрекетін "
+"пайдаландыңыз."
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:155
+msgid "Try again (unlimited attempts)"
+msgstr "Қайталап көріңіз (шексіз әрекет)"
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:156
+#, python-brace-format
+msgid "You have used {attempts} of unlimited attempts for this problem."
+msgstr "Сіз бұл мәселе үшін {attempts} шектеусіз әрекетті қолдандыңыз."
+
 #: themes/red-theme/lms/templates/ace_common/edx_ace/common/base_body.html:70
 msgid "Sign In"
 msgstr "Кіру"
+
+#: themes/red-theme/lms/templates/ace_common/edx_ace/common/base_body.html:176
+msgid "Our mailing address is"
+msgstr "Біздің пошталық мекенжайымыз"
+
+#: xmodule/annotatable_block.py:48
+msgid "XML data for the annotation"
+msgstr "Аннотацияға арналған XML деректері"
 
 #: xmodule/annotatable_block.py:70 xmodule/capa_block.py:197
 #: xmodule/conditional_block.py:89 xmodule/discussion_block.py:50
@@ -9901,6 +10566,18 @@ msgstr "Кіру"
 msgid "The display name for this component."
 msgstr "Осы құрамдас үшін көрсетілетін атау."
 
+#: xmodule/annotatable_block.py:72
+msgid "Annotation"
+msgstr "Аннотация"
+
+#: xmodule/capa/capa_problem.py:517
+msgid "Cannot rescore problems with possible file submissions"
+msgstr "Ықтимал файлдарды жіберу мәселелерін қайта бағалау мүмкін емес"
+
+#: xmodule/capa/capa_problem.py:616
+msgid "Question {}"
+msgstr "Сұрақ {}"
+
 #: xmodule/capa/capa_problem.py:746 xmodule/capa_block.py:1417
 msgid "Incorrect"
 msgstr "Дұрыс емес"
@@ -9909,10 +10586,266 @@ msgstr "Дұрыс емес"
 msgid "Correct"
 msgstr "Дұрыс"
 
+#: xmodule/capa/inputtypes.py:90
+msgid "correct"
+msgstr "дұрыс"
+
+#: xmodule/capa/inputtypes.py:91
+msgid "incorrect"
+msgstr "дұрыс емес"
+
+#: xmodule/capa/inputtypes.py:92
+msgid "partially correct"
+msgstr "ішінара дұрыс"
+
+#: xmodule/capa/inputtypes.py:93
+msgid "incomplete"
+msgstr "толық емес"
+
+#: xmodule/capa/inputtypes.py:94 xmodule/capa/inputtypes.py:95
+msgid "unanswered"
+msgstr "жауапсыз"
+
+#: xmodule/capa/inputtypes.py:96
+msgid "submitted"
+msgstr "тапсырылды"
+
+#: xmodule/capa/inputtypes.py:97
+msgid "processing"
+msgstr "өңдеу"
+
+#. Translators: these are tooltips that indicate the state of an assessment
+#. question
+#: xmodule/capa/inputtypes.py:101
+msgid "This answer is correct."
+msgstr "Бұл жауап дұрыс."
+
+#: xmodule/capa/inputtypes.py:102
+msgid "This answer is incorrect."
+msgstr "Бұл жауап дұрыс емес."
+
+#: xmodule/capa/inputtypes.py:103
+msgid "This answer is partially correct."
+msgstr "Бұл жауап ішінара дұрыс."
+
+#: xmodule/capa/inputtypes.py:104
+msgid "This answer is being processed."
+msgstr "Бұл жауап өңделуде."
+
+#: xmodule/capa/inputtypes.py:106
+msgid "Not yet answered."
+msgstr "Әлі жауап берген жоқ."
+
+#: xmodule/capa/inputtypes.py:441
+msgid "Select an option"
+msgstr "Опцияны таңдаңыз"
+
+#. Translators: 'ChoiceGroup' is an input type and should not be translated.
+#: xmodule/capa/inputtypes.py:493
+#, python-brace-format
+msgid "ChoiceGroup: unexpected tag {tag_name}"
+msgstr "ChoiceGroup: күтпеген тег {tag_name}"
+
+#: xmodule/capa/inputtypes.py:506 xmodule/capa/inputtypes.py:1704
+msgid "Answer received."
+msgstr "Жауап алынды."
+
+#. Translators: '<choice>' and '<compoundhint>' are tag names and should not
+#. be translated.
+#: xmodule/capa/inputtypes.py:540
+#, python-brace-format
+msgid "Expected a <choice> or <compoundhint> tag; got {given_tag} instead"
+msgstr ""
+"Күтілетін а <choice> немесе <compoundhint> белгі; орнына {given_tag} алды"
+
+#: xmodule/capa/inputtypes.py:726
+msgid ""
+"Your files have been submitted. As soon as your submission is graded, this "
+"message will be replaced with the grader's feedback."
+msgstr ""
+"Файлдарыңыз жіберілді. Жіберілгеннен кейін бұл хабар бағалаушының пікірімен "
+"ауыстырылады."
+
+#: xmodule/capa/inputtypes.py:802
+msgid ""
+"Your answer has been submitted. As soon as your submission is graded, this "
+"message will be replaced with the grader's feedback."
+msgstr ""
+"Жауабыңыз жіберілді. Жіберілгеннен кейін бұл хабар бағалаушының пікірімен "
+"ауыстырылады."
+
+#: xmodule/capa/inputtypes.py:816
+#, python-brace-format
+msgid "{programming_language} editor"
+msgstr "{programming_language} редакторы"
+
+#: xmodule/capa/inputtypes.py:819
+msgid "Press ESC then TAB or click outside of the code editor to exit"
+msgstr ""
+"Шығу үшін ESC, содан кейін TAB пернелерін басыңыз немесе код өңдегішінің "
+"сыртын басыңыз."
+
+#: xmodule/capa/inputtypes.py:847
+msgid ""
+"Submitted. As soon as a response is returned, this message will be replaced "
+"by that feedback."
+msgstr ""
+"Жіберілді. Жауап қайтарылған бойда бұл хабар сол кері байланыспен "
+"ауыстырылады."
+
+#: xmodule/capa/inputtypes.py:872
+#, python-brace-format
+msgid "No response from Xqueue within {xqueue_timeout} seconds. Aborted."
+msgstr ""
+"{xqueue_timeout} секунд ішінде Xqueue қызметінен жауап жоқ. Тоқтатылды."
+
+#: xmodule/capa/inputtypes.py:941
+msgid "Error running code."
+msgstr "Кодты іске қосу қатесі."
+
+#: xmodule/capa/inputtypes.py:980
+msgid "Cannot connect to the queue"
+msgstr "Кезекке қосылу мүмкін емес"
+
+#: xmodule/capa/inputtypes.py:1211 xmodule/capa/inputtypes.py:1294
+msgid "No formula specified."
+msgstr "Формула көрсетілмеген."
+
+#: xmodule/capa/inputtypes.py:1217
+#, python-brace-format
+msgid "Couldn't parse formula: {error_msg}"
+msgstr "Формуланы талдау мүмкін болмады: {error_msg}"
+
+#: xmodule/capa/inputtypes.py:1221 xmodule/capa/inputtypes.py:1316
+msgid "Error while rendering preview"
+msgstr "Алдын ала қарауды көрсету кезінде қате"
+
+#: xmodule/capa/inputtypes.py:1312
+msgid "Sorry, couldn't parse formula"
+msgstr "Кешіріңіз, формуланы талдау мүмкін болмады"
+
+#: xmodule/capa/inputtypes.py:1684
+#, python-brace-format
+msgid "{input_type}: unexpected tag {tag_name}"
+msgstr "{input_type}: күтпеген тег {tag_name}"
+
+#. Translators: a "tag" is an XML element, such as "<b>" in HTML
+#: xmodule/capa/inputtypes.py:1764
+#, python-brace-format
+msgid "Expected a {expected_tag} tag; got {given_tag} instead"
+msgstr "Күтілетін {expected_tag} тегі; орнына {given_tag} алды"
+
+#. Translators: index here could be 1,2,3 and so on
+#: xmodule/capa/responsetypes.py:254
+#, python-brace-format
+msgid "Question {index}"
+msgstr "Сұрақ {index}"
+
+#: xmodule/capa/responsetypes.py:365
+msgid "Correct:"
+msgstr "Дұрыс:"
+
+#: xmodule/capa/responsetypes.py:367
+msgid "Incorrect:"
+msgstr "Дұрыс емес:"
+
 #: xmodule/capa/responsetypes.py:410 xmodule/capa_block.py:809
 #: xmodule/capa_block.py:826
 msgid "Answer"
 msgstr "Жауап"
+
+#: xmodule/capa/responsetypes.py:491
+#, python-brace-format
+msgid "Error {err} in evaluating hint function {hintfn}."
+msgstr "Анықтама функциясын бағалау кезінде {hintfn} қатесі {err} ."
+
+#: xmodule/capa/responsetypes.py:492
+msgid "(Source code line unavailable)"
+msgstr "(Бастапқы код жолы қолжетімсіз)"
+
+#: xmodule/capa/responsetypes.py:493
+#, python-brace-format
+msgid "See XML source line {sourcenum}."
+msgstr "XML бастапқы жолын қараңыз {sourcenum} ."
+
+#: xmodule/capa/responsetypes.py:664
+msgid "Checkboxes"
+msgstr "Құсбелгілер"
+
+#: xmodule/capa/responsetypes.py:991
+msgid "Multiple Choice"
+msgstr "Көп таңдау"
+
+#. Translators: 'shuffle' and 'answer-pool' are attribute names and should not
+#. be translated.
+#: xmodule/capa/responsetypes.py:1208
+msgid "Do not use shuffle and answer-pool at the same time"
+msgstr "Араластыруды және жауап пулын бір уақытта қолданбаңыз"
+
+#. Translators: 'answer-pool' is an attribute name and should not be
+#. translated.
+#: xmodule/capa/responsetypes.py:1291
+msgid "answer-pool value should be an integer"
+msgstr "жауап пулының мәні бүтін сан болуы керек"
+
+#. Translators: 'Choicegroup' is an input type and should not be translated.
+#: xmodule/capa/responsetypes.py:1358
+msgid "Choicegroup must include at least 1 correct and 1 incorrect choice"
+msgstr "Таңдау тобы кемінде 1 дұрыс және 1 қате таңдауды қамтуы керек"
+
+#: xmodule/capa/responsetypes.py:1383
+msgid "True/False Choice"
+msgstr "Ақиқат/жалған таңдау"
+
+#: xmodule/capa/responsetypes.py:1428
+msgid "Dropdown"
+msgstr "Түсіп қалу"
+
+#: xmodule/capa/responsetypes.py:1506
+msgid "Numerical Input"
+msgstr "Сандық енгізу"
+
+#: xmodule/capa/responsetypes.py:1542 xmodule/capa/responsetypes.py:1569
+msgid "There was a problem with the staff answer to this problem."
+msgstr "Қызметкерлер бұл мәселеге жауап бергенде мәселе туындады."
+
+#: xmodule/capa/responsetypes.py:1592
+#, python-brace-format
+msgid "Could not interpret '{student_answer}' as a number."
+msgstr "\"{student_answer}\" сан ретінде түсіндірілмейді."
+
+#: xmodule/capa/responsetypes.py:1610
+#, python-brace-format
+msgid "Factorial function evaluated outside its domain:'{student_answer}'"
+msgstr ""
+"Факторлық функция оның доменінен тыс бағаланады:&#39;{student_answer}&#39;"
+
+#: xmodule/capa/responsetypes.py:1617
+#, python-brace-format
+msgid "Invalid math syntax: '{student_answer}'"
+msgstr "Жарамсыз математика синтаксисі: '{student_answer}'"
+
+#: xmodule/capa/responsetypes.py:1648
+msgid "You may not use complex numbers in range tolerance problems"
+msgstr "Ауқымға төзімділік мәселелерінде күрделі сандарды қолдануға болмайды"
+
+#. Translators: This is an error message for a math problem. If the instructor
+#. provided a
+#. boundary (end limit) for a variable that is a complex number (a + bi), this
+#. message displays.
+#: xmodule/capa/responsetypes.py:1656
+msgid ""
+"There was a problem with the staff answer to this problem: complex boundary."
+msgstr ""
+"Бұл мәселеге қызметкерлердің жауабы бойынша мәселе болды: күрделі шекара."
+
+#. Translators: This is an error message for a math problem. If the instructor
+#. did not
+#. provide a boundary (end limit) for a variable, this message displays.
+#: xmodule/capa/responsetypes.py:1662
+msgid ""
+"There was a problem with the staff answer to this problem: empty boundary."
+msgstr "Бұл мәселеге қызметкерлердің жауабында мәселе туындады: бос шекара."
 
 #. Translators: Separator used in NumericalResponse to display multiple
 #. answers.
@@ -9921,6 +10854,42 @@ msgstr "Жауап"
 #: xmodule/capa/responsetypes.py:1770 xmodule/capa/responsetypes.py:2044
 msgid "or"
 msgstr "немесе"
+
+#: xmodule/capa/responsetypes.py:1847
+msgid "Text Input"
+msgstr "Мәтін енгізу"
+
+#: xmodule/capa/responsetypes.py:2058
+msgid "Custom Evaluated Script"
+msgstr "Теңшелетін бағаланған сценарий"
+
+#: xmodule/capa/responsetypes.py:2191
+msgid "No answer entered!"
+msgstr "Ешқандай жауап енгізілген жоқ!"
+
+#: xmodule/capa/responsetypes.py:2410
+msgid "CustomResponse: check function returned an invalid dictionary!"
+msgstr "CustomResponse: тексеру функциясы жарамсыз сөздікті қайтарды!"
+
+#: xmodule/capa/responsetypes.py:2504
+msgid "Symbolic Math Input"
+msgstr "Символдық математикалық енгізу"
+
+#. Translators: 'SymbolicResponse' is a problem type and should not be
+#. translated.
+#: xmodule/capa/responsetypes.py:2535
+#, python-brace-format
+msgid "An error occurred with SymbolicResponse. The error was: {error_msg}"
+msgstr ""
+"SymbolicResponse қолданбасында қате орын алды. Қате болды: {error_msg}"
+
+#: xmodule/capa/responsetypes.py:2574
+msgid "Code Input"
+msgstr "Код енгізу"
+
+#: xmodule/capa/responsetypes.py:2630
+msgid "No answer provided."
+msgstr "Жауап берілмеген."
 
 #: xmodule/capa/responsetypes.py:3808
 msgid "Could not interpret '{html.escape(answer_value)}' as a number."
