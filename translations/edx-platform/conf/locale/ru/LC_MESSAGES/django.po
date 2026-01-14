@@ -26,9 +26,36 @@ msgstr ""
 msgid "Course team user does not exist"
 msgstr "Такого участника команды курса не существует"
 
+#: cms/djangoapps/contentstore/admin.py:47
+#, python-brace-format
+msgid ""
+"Number of course outline regenerations successfully requested: {regenerates}"
+msgstr ""
+"Количество успешно запрошенных регенераций структуры курса: {regenerates}"
+
+#: cms/djangoapps/contentstore/admin.py:51
+msgid "Regenerate selected course outlines"
+msgstr "Восстановить выбранные структуры курса"
+
+#: cms/djangoapps/contentstore/admin.py:59
+msgid "All course outline regenerations successfully requested."
+msgstr "Все восстановления выбранных структур курса успешно запрошены."
+
+#: cms/djangoapps/contentstore/admin.py:60
+msgid "Regenerate *all* course outlines"
+msgstr "Восстановите *все* структуры курса"
+
 #: cms/djangoapps/contentstore/asset_storage_handlers.py:535
 msgid "Upload completed"
 msgstr "Загрузка завершена"
+
+#: cms/djangoapps/contentstore/asset_storage_handlers.py:579
+#, python-brace-format
+msgid ""
+"File {filename} exceeds maximum size of {maximum_size_in_megabytes} MB."
+msgstr ""
+"Файл {filename} превысил максимальный размер файла "
+"{maximum_size_in_megabytes} МБ."
 
 #: cms/djangoapps/contentstore/course_group_config.py:27
 msgid ""
@@ -80,18 +107,51 @@ msgstr "Во время индексирования произошла ошиб
 msgid "(Unnamed)"
 msgstr "(Без имени)"
 
+#: cms/djangoapps/contentstore/errors.py:6
+msgid "Aborting import because a course with this id: {} already exists."
+msgstr ""
+"Прерывание импорта, так как курс с таким идентификатором курса: {} уже "
+"существует."
+
+#: cms/djangoapps/contentstore/errors.py:7
+msgid "Permission denied. You do not have write access to this course."
+msgstr "Доступ запрещен. У вас нет доступа для записи к этому курсу."
+
 #: cms/djangoapps/contentstore/errors.py:8
 #, python-brace-format
 msgid "Could not find the {0} file in the package."
 msgstr "Не найден {0} в файле пакета."
 
+#: cms/djangoapps/contentstore/errors.py:9
+msgid "Uploaded Tar file not found. Try again."
+msgstr "Загруженный файл Tar не найден. Попробуйте ещё раз."
+
 #: cms/djangoapps/contentstore/errors.py:10
 msgid "We only support uploading a .tar.gz file."
 msgstr "Мы поддерживаем загрузку только файлов .tar.gz."
 
+#: cms/djangoapps/contentstore/errors.py:11
+msgid "Aborting import since a library with this id already exists."
+msgstr ""
+"Прерывание импорта, так как библиотека с таким идентификатором уже "
+"существует."
+
+#: cms/djangoapps/contentstore/errors.py:12
+msgid "Course olx validation failed. Please check your email."
+msgstr ""
+"Проверка курса olx не удалась. Пожалуйста, проверьте свою электронную почту."
+
 #: cms/djangoapps/contentstore/errors.py:13
 msgid "Permission denied"
 msgstr "Доступ запрещён"
+
+#: cms/djangoapps/contentstore/errors.py:14
+msgid "Unknown error while importing course."
+msgstr "Неизвестная ошибка при импорте курса."
+
+#: cms/djangoapps/contentstore/errors.py:15
+msgid "An Unknown error occurred during the unpacking step."
+msgstr "На этапе распаковки произошла неизвестная ошибка."
 
 #: cms/djangoapps/contentstore/errors.py:16
 #, python-brace-format
@@ -102,6 +162,10 @@ msgstr "Неизвестный идентификатор пользовател
 msgid "Unsafe archive file. Aborting import."
 msgstr "Небезопасный архивный файл. Прерывание импорта."
 
+#: cms/djangoapps/contentstore/errors.py:18
+msgid "User permission denied."
+msgstr "Разрешение Пользователя отклонено."
+
 #: cms/djangoapps/contentstore/git_export_utils.py:36
 #, python-brace-format
 msgid ""
@@ -111,6 +175,14 @@ msgstr ""
 "Значение переменной GIT_REPO_EXPORT_DIR не установлено, либо каталог {0} не "
 "существует. Пожалуйста, создайте его либо укажите другой каталог в "
 "переменной GIT_REPO_EXPORT_DIR"
+
+#: cms/djangoapps/contentstore/git_export_utils.py:39
+msgid ""
+"Non writable git url provided. Expecting something like: "
+"git@github.com:openedx/openedx-demo-course.git"
+msgstr ""
+"Предоставлен нередактируемый URL git. Ожидается что-то вроде: "
+"git@github.com:openedx/openedx-demo-course.git"
 
 #: cms/djangoapps/contentstore/git_export_utils.py:41
 msgid ""
@@ -165,11 +237,29 @@ msgstr "Отсутствует ветка в свежем клоне"
 msgid "Vertical"
 msgstr "Вертикальный"
 
+#: cms/djangoapps/contentstore/helpers.py:214
+msgid "Section"
+msgstr "Раздел"
+
+#: cms/djangoapps/contentstore/helpers.py:216
+msgid "Subsection"
+msgstr "Подраздел"
+
 #: cms/djangoapps/contentstore/helpers.py:218
 #: lms/djangoapps/instructor/views/tools.py:241
 #: lms/djangoapps/instructor/views/tools.py:253 xmodule/unit_block.py:41
 msgid "Unit"
 msgstr "Блок"
+
+#: cms/djangoapps/contentstore/helpers.py:225
+#: cms/djangoapps/contentstore/views/component.py:283
+msgid "Problem"
+msgstr "Задача"
+
+#: cms/djangoapps/contentstore/helpers.py:227
+#: cms/djangoapps/contentstore/views/component.py:287
+msgid "Library Content"
+msgstr "Контент библиотеки"
 
 #: cms/djangoapps/contentstore/helpers.py:229
 #: cms/djangoapps/contentstore/views/component.py:288
@@ -212,6 +302,77 @@ msgstr "Неудачно"
 #: cms/djangoapps/contentstore/models.py:558
 msgid "Completed"
 msgstr "Завершено"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/advanced_settings.py:47
+msgid "Marks a field as deprecated."
+msgstr "Помечает поле как устаревшее."
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/advanced_settings.py:48
+msgid "User-friendly display name for the field"
+msgstr "Удобное отображаемое имя для поля"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/advanced_settings.py:49
+msgid "Help text that describes the setting."
+msgstr "Текст справки, описывающий настройки."
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:14
+msgid "Tab type"
+msgstr "Тип вкладки"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:15
+msgid "Default name for the tab displayed to users"
+msgstr "Имя по умолчанию для вкладки, отображаемой для пользователей"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:18
+msgid "True if it's possible to hide the tab for a course"
+msgstr "Если можно скрыть вкладку для курса"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:21
+msgid "True the tab is hidden for the course"
+msgstr "True вкладка скрыта для курса"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:25
+msgid "True if it's possible to reorder the tab in the list of tabs"
+msgstr "True, если можно изменить порядок списка вкладок, изменяя вкладку"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:29
+msgid "True if this tab should be displayed only for instructors"
+msgstr "True, если эта вкладка должна быть видна только для преподавателей"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:33
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:37
+msgid "Name of the tab displayed to users. Overrides title."
+msgstr ""
+"Название вкладки, отображаемой для пользователей. Переопределяет заголовок."
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:41
+msgid "Additional settings specific to the tab"
+msgstr "Дополнительные настройки для вкладки"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:74
+msgid "ID of tab to update"
+msgstr "Идентификатор вкладки для обновления"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:75
+msgid "Location (Usage Key) of tab to update"
+msgstr "Местонахождение (ключ использования) вкладки для обновления"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:89
+msgid "Need to supply either a valid tab_id or a tab_location."
+msgstr "Необходимо указать действительный tab_id или расположение вкладки."
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:100
+msgid "True to hide the tab, and False to show it."
+msgstr ""
+"Значение True, чтобы скрыть вкладку, и значение False, чтобы показать её."
+
+#: cms/djangoapps/contentstore/rest_api/v0/views/tabs.py:112
+msgid "Change the visibility of tabs in a course."
+msgstr "Измените видимость вкладок в курсе."
+
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:117
+msgid "The information you entered is incorrect."
+msgstr "Введенная вами информация не верна."
 
 #: cms/djangoapps/contentstore/transcript_storage_handlers.py:139
 #: cms/djangoapps/contentstore/transcript_storage_handlers.py:229
@@ -289,6 +450,13 @@ msgstr "Загрузка"
 msgid "In Progress"
 msgstr "Выполняется"
 
+#. Translators: This is the status for a video that the servers have
+#. successfully processed
+#: cms/djangoapps/contentstore/video_storage_handlers.py:122
+#: openedx/core/djangoapps/content_staging/data.py:21
+msgid "Ready"
+msgstr "Готово"
+
 #. Translators: This is the status for a video that is uploaded completely
 #: cms/djangoapps/contentstore/video_storage_handlers.py:124
 msgid "Uploaded"
@@ -328,6 +496,21 @@ msgstr "Импортировано"
 #: cms/djangoapps/contentstore/video_storage_handlers.py:140
 msgid "Unknown"
 msgstr "Неизвестно"
+
+#. Translators: This is the status for a video that is having its
+#. transcription in progress on servers
+#: cms/djangoapps/contentstore/video_storage_handlers.py:142
+msgid "Transcription in Progress"
+msgstr "Транскрипция в процессе"
+
+#. Translators: This is the status for a video whose transcription is complete
+#: cms/djangoapps/contentstore/video_storage_handlers.py:144
+msgid "Transcript Ready"
+msgstr "Субтитры готовы"
+
+#: cms/djangoapps/contentstore/video_storage_handlers.py:337
+msgid "An image file is required."
+msgstr "Требуется файл изображения."
 
 #. Translators: This is the header for a CSV file column
 #. containing URLs for video encodings for the named profile
@@ -370,6 +553,64 @@ msgstr "{course}_video_urls"
 msgid "A non zero positive integer is expected"
 msgstr "Ожидаемое ненулевое целое положительное число"
 
+#: cms/djangoapps/contentstore/video_utils.py:42
+msgid "The image must have name, content type, and size information."
+msgstr "Изображение должно иметь имя, тип контента и информацию о размерах."
+
+#: cms/djangoapps/contentstore/video_utils.py:44
+#, python-brace-format
+msgid ""
+"This image file type is not supported. Supported file types are "
+"{supported_file_formats}."
+msgstr ""
+"Этот тип файла изображения не поддерживается. Поддерживаемые типы файлов "
+"{supported_file_formats}."
+
+#: cms/djangoapps/contentstore/video_utils.py:48
+#, python-brace-format
+msgid "This image file must be smaller than {image_max_size}."
+msgstr "Этот файл изображения должен быть меньше, чем {image_max_size}."
+
+#: cms/djangoapps/contentstore/video_utils.py:52
+#, python-brace-format
+msgid "This image file must be larger than {image_min_size}."
+msgstr "Этот файл изображения должен быть больше, чем {image_min_size}."
+
+#: cms/djangoapps/contentstore/video_utils.py:59
+#: cms/djangoapps/contentstore/video_utils.py:61
+msgid ""
+"There is a problem with this image file. Try to upload a different file."
+msgstr ""
+"Возникла проблема с файлом изображения. Попробуйте загрузить другой файл."
+
+#: cms/djangoapps/contentstore/video_utils.py:64
+#, python-brace-format
+msgid ""
+"Recommended image resolution is "
+"{image_file_max_width}x{image_file_max_height}. The minimum resolution is "
+"{image_file_min_width}x{image_file_min_height}."
+msgstr ""
+"Рекомендуемое разрешение изображения составляет "
+"{image_file_max_width}x{image_file_max_height}. Минимальное разрешение "
+"составляет {image_file_min_width}x{image_file_min_height}."
+
+#: cms/djangoapps/contentstore/video_utils.py:72
+#, python-brace-format
+msgid ""
+"This image file must have an aspect ratio of "
+"{video_image_aspect_ratio_text}."
+msgstr ""
+"Этот файл изображения должен иметь соотношение сторон, равное "
+"{video_image_aspect_ratio_text}."
+
+#: cms/djangoapps/contentstore/video_utils.py:79
+msgid ""
+"The image file name can only contain letters, numbers, hyphens (-), and "
+"underscores (_)."
+msgstr ""
+"Имя файла изображения может содержать только буквы, цифры, дефисы (-) и "
+"подчеркивания (_)."
+
 #: cms/djangoapps/contentstore/views/certificate_manager.py:115
 msgid "must have name of the certificate"
 msgstr "должно быть указано название сертификата"
@@ -400,9 +641,22 @@ msgstr "Уровни поддержки {platform_name}:"
 msgid "Discussion"
 msgstr "Обсуждение"
 
+#: cms/djangoapps/contentstore/views/component.py:284
+#: lms/templates/video.html:56
+msgid "Video"
+msgstr "Видео"
+
+#: cms/djangoapps/contentstore/views/component.py:285
+msgid "Open Response"
+msgstr "Ответ в свободной форме"
+
 #: cms/djangoapps/contentstore/views/component.py:286
 msgid "Legacy Library"
 msgstr "Наследная библиотека"
+
+#: cms/djangoapps/contentstore/views/component.py:289
+msgid "Drag and Drop"
+msgstr "Задача на перетаскивание"
 
 #: cms/djangoapps/contentstore/views/component.py:330
 msgid "Blank"
@@ -411,6 +665,11 @@ msgstr "Пустой"
 #: cms/djangoapps/contentstore/views/component.py:333
 msgid "Peer Assessment Only"
 msgstr "Только взаимная оценка"
+
+#: cms/djangoapps/contentstore/views/component.py:337
+#: xmodule/capa_block.py:201
+msgid "Blank Problem"
+msgstr "Пустая проблема"
 
 #: cms/djangoapps/contentstore/views/component.py:462
 #: xmodule/video_block/video_block.py:142
@@ -455,6 +714,14 @@ msgstr ""
 "Невозможно создать курс с именем'{name}'\n"
 "\n"
 "{err}"
+
+#: cms/djangoapps/contentstore/views/course.py:950
+msgid ""
+"User does not have the permission to create courses in this organization or "
+"course creation is disabled"
+msgstr ""
+"Пользователь не имеет разрешения на создание курсов в этой организации, или "
+"создание курсов отключено."
 
 #: cms/djangoapps/contentstore/views/course.py:967
 msgid ""
@@ -509,6 +776,24 @@ msgstr ""
 "Мы поддерживаем загрузку файлов в одном из следующих форматов: "
 "{IMPORTABLE_FILE_TYPES}"
 
+#: cms/djangoapps/contentstore/views/import_export.py:179
+msgid "Some chunks missed during file upload. Please try again"
+msgstr ""
+"Некоторые куски пропущены во время загрузки файла. Пожалуйста, попробуйте "
+"ещё раз."
+
+#: cms/djangoapps/contentstore/views/import_export.py:190
+msgid "File upload failed. Please try again"
+msgstr "Загрузка файла не удалась. Пожалуйста, попробуйте ещё раз"
+
+#: cms/djangoapps/contentstore/views/library.py:240
+msgid ""
+"User does not have the permission to create library in this organization or "
+"course creation is disabled"
+msgstr ""
+"У пользователя нет разрешения на создание библиотеки в этой организации или "
+"создание курсов отключено."
+
 #: cms/djangoapps/contentstore/views/library.py:247
 #, python-brace-format
 msgid "Unable to create library - missing required field '{field}'"
@@ -535,10 +820,37 @@ msgstr ""
 "измените код вашей библиотеки, чтобы он был уникальным в пределах вашей "
 "организации."
 
+#: cms/djangoapps/contentstore/views/library.py:267
+#, python-brace-format
+msgid "'{organization_key}' is not a valid organization identifier."
+msgstr ""
+"'{organization_key}' не является допустимым идентификатором организации."
+
 #: cms/djangoapps/contentstore/views/preview.py:306
 #, python-brace-format
 msgid "Access restricted to: {list_of_groups}"
 msgstr "Доступ разрешён для: {list_of_groups}"
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:195
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:527
+msgid "Transcripts are supported only for \"video\" blocks."
+msgstr "Субтитры поддерживаются только для блоков \"видео\"."
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:198
+msgid "Cannot find item by locator."
+msgstr "Не удалось найти единицу по указателю."
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:219
+msgid "Video locator is required."
+msgstr "Видео локатор обязателен к заполнению."
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:223
+msgid "This transcript file type is not supported."
+msgstr "Этот тип файла субтитров не поддерживается."
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:225
+msgid "Video ID is required."
+msgstr "Требуется идентификатор видео."
 
 #: cms/djangoapps/contentstore/views/transcripts_ajax.py:520
 #: cms/djangoapps/contentstore/views/transcripts_ajax.py:561
@@ -548,6 +860,31 @@ msgstr "Пустые входные видеоданные."
 #: cms/djangoapps/contentstore/views/transcripts_ajax.py:524
 msgid "Can't find item by locator."
 msgstr "По указателю элемент найти не удалось."
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:610
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:664
+msgid "No such transcript."
+msgstr "Таких субтитров нет."
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:634
+msgid "There is a problem with the chosen transcript file."
+msgstr "Возникла проблема с выбором файла субтитров."
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:689
+msgid ""
+"There is a problem with the existing transcript file. Please upload a "
+"different file."
+msgstr ""
+"Возникла проблема с существующим файлом субтитров. Пожалуйста, загрузите "
+"другой файл."
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:710
+msgid "YouTube ID is required."
+msgstr "Требуется идентификатор YouTube."
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:750
+msgid "There is a problem with the YouTube transcript file."
+msgstr "Возникла проблема с файлом субтитров YouTube."
 
 #: cms/djangoapps/contentstore/views/user.py:98
 msgid "Insufficient permissions"
@@ -561,6 +898,13 @@ msgstr "Не удалось найти пользователя по адрес�
 #: cms/djangoapps/contentstore/views/user.py:149
 msgid "No `role` specified."
 msgstr "«Роль» не задана."
+
+#: cms/djangoapps/contentstore/views/user.py:154
+#, python-brace-format
+msgid "User {email} has registered but has not yet activated their account."
+msgstr ""
+"Пользователь {email} зарегистрировался, но ещё не активировал свою учётную "
+"запись."
 
 #: cms/djangoapps/contentstore/views/user.py:175
 msgid "Invalid `role` specified."
@@ -576,6 +920,31 @@ msgstr ""
 #: xmodule/library_content_block.py:590
 msgid "Empty"
 msgstr "Пусто"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:230
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:682
+#, python-brace-format
+msgid "Libraries cannot have more than {limit} components"
+msgstr "Библиотеки не могут содержать более {limit} компонентов"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:436
+#: openedx/core/djangoapps/xblock/rest_api/views.py:341
+msgid "Invalid data"
+msgstr "Неверные данные"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:438
+#: openedx/core/djangoapps/xblock/rest_api/views.py:343
+#, python-brace-format
+msgid "Invalid data ({details})"
+msgstr "Неверные данные ({details})"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:656
+msgid "There was a problem pasting your component."
+msgstr "Не удалось вставить компонент."
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:660
+msgid "Your clipboard is empty or invalid."
+msgstr "Ваш буфер обмена пуст или недействителен."
 
 #: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:803
 #, python-brace-format
@@ -670,6 +1039,16 @@ msgid ""
 "denied)"
 msgstr ""
 "Дополнительные заметки о пользователе (например, почему отказано в доступе)"
+
+#: cms/djangoapps/course_creators/models.py:54
+msgid "Organizations under which the user is allowed to create courses."
+msgstr "Организации, в рамках которых пользователь может создавать курсы."
+
+#: cms/djangoapps/course_creators/models.py:57
+msgid "Grant the user the permission to create courses in ALL organizations"
+msgstr ""
+"Предоставьте пользователю разрешение на создание курсов во ВСЕХ "
+"организациях."
 
 #: cms/djangoapps/models/settings/course_metadata.py:235
 #, python-brace-format
@@ -920,6 +1299,20 @@ msgstr ""
 "записаться на курс в данном режиме. Чтобы разрешить запись в этом режиме до "
 "момента закрытия регистрации, оставьте поле пустым."
 
+#: common/djangoapps/course_modes/models.py:94
+msgid "Lock upgrade deadline date"
+msgstr "Заблокировать крайний срок обновления даты"
+
+#: common/djangoapps/course_modes/models.py:96
+msgid ""
+"OPTIONAL: Set to True to lock in the explicitly defined upgrade deadline "
+"date. Set to False if there is no upgrade deadline or to use the default "
+"upgrade deadline."
+msgstr ""
+"НЕОБЯЗАТЕЛЬНЫЙ: установите True, чтобы заблокировать явно определенную дату "
+"крайнего срока обновления. Установите False, если крайний срок обновления не"
+" установлен или используется крайний срок обновления по умолчанию."
+
 #: common/djangoapps/course_modes/models.py:121
 msgid ""
 "OPTIONAL: This is the SKU (stock keeping unit) of this mode in the external "
@@ -929,6 +1322,26 @@ msgstr ""
 "НЕОБЯЗАТЕЛЬНО: поле SKU (единица учёта запасов) для внешнего сервиса "
 "электронной коммерции. Оставьте пустым, если курс ещё не был добавлен в "
 "сервис электронной коммерции."
+
+#: common/djangoapps/course_modes/models.py:133
+msgid ""
+"OPTIONAL: This is the Android SKU registered on play store for this mode of "
+"the course. Leave this blank if the course has not yet been migrated to the "
+"ecommerce service."
+msgstr ""
+"НЕОБЯЗАТЕЛЬНО: это SKU Android, зарегистрированный в магазине игр для этого "
+"режима курса. Оставьте это поле пустым, если курс еще не был перенесен в "
+"службу электронной коммерции."
+
+#: common/djangoapps/course_modes/models.py:145
+msgid ""
+"OPTIONAL: This is the iOS SKU registered on app store for this mode of the "
+"course.  Leave this blank if the course has not yet been migrated to the "
+"ecommerce service."
+msgstr ""
+"НЕОБЯЗАТЕЛЬНО: это SKU iOS, зарегистрированный в магазине приложений для "
+"этого режима курса. Оставьте это поле пустым, если курс ещё не был перенесен"
+" в службу электронной коммерции."
 
 #: common/djangoapps/course_modes/models.py:158
 msgid ""
@@ -1038,6 +1451,34 @@ msgstr ""
 "Необработанные пароли не сохраняются, поэтому пароль этого пользователя не "
 "отображается."
 
+#: common/djangoapps/student/admin.py:657
+#, python-format
+msgid "%(count)d student account was unlocked."
+msgid_plural "%(count)d student accounts were unlocked."
+msgstr[0] "%(count)d учетная запись студента была разблокирована."
+msgstr[1] "%(count)d учётные записи студентов были разблокированы."
+msgstr[2] "%(count)d учётные записи студентов были разблокированы."
+msgstr[3] "%(count)d учётные записи студентов были разблокированы."
+
+#: common/djangoapps/student/admin.py:714
+#, python-brace-format
+msgid ""
+"Please add a key/value 'THIRD_PARTY_AUTH_ONLY_DOMAIN/{site_email_domain}' in"
+" SiteConfiguration model's site_values field."
+msgstr ""
+"Пожалуйста, добавьте ключ/значение "
+"'THIRD_PARTY_AUTH_ONLY_DOMAIN/{site_email_domain}' в поле site_values модели"
+" SiteConfiguration."
+
+#: common/djangoapps/student/admin.py:719
+#, python-brace-format
+msgid "Email doesn't have {allowed_site_email_domain} domain name."
+msgstr "Е-мейл не имеет {allowed_site_email_domain} доменное имя."
+
+#: common/djangoapps/student/admin.py:722
+msgid "User with this email doesn't exist in system."
+msgstr "Пользователя с такой электронной почтой не существует в системе."
+
 #: common/djangoapps/student/helpers.py:77
 #: common/djangoapps/student/helpers.py:725
 #, python-brace-format
@@ -1081,6 +1522,27 @@ msgid ""
 msgstr ""
 "Период времени в микросекундах после записи на курс, в течение которого "
 "платёж может быть возвращён пользователю.  По умолчанию составляет 14 дней."
+
+#: common/djangoapps/student/models/course_enrollment.py:1760
+msgid ""
+"It expect that the data will be provided in a csv file format with"
+"                     first row being the header and columns will be as "
+"follows:                     user_id, username, email, course_id, "
+"is_verified, verification_date"
+msgstr ""
+"Ожидается, что данные будут предоставлены в формате файла csv, где первая "
+"строка является заголовком, а столбцы следующие: user_id, имя пользователя, "
+"email, идентификатор курса, is_verified, verification_date"
+
+#: common/djangoapps/student/models/course_enrollment.py:1774
+msgid ""
+"It expect that the data will be provided in a csv file format with"
+"                     first row being the header and columns will be as "
+"follows:                     course_id, username, mode"
+msgstr ""
+"Ожидается, что данные будут предоставлены в формате файла csv, где первая "
+"строка будет заголовком, а столбцы будут следующими: идентификатор курса, "
+"имя пользователя, mode"
 
 #: common/djangoapps/student/models/user.py:463
 msgid "Male"
@@ -1153,6 +1615,16 @@ msgstr ""
 "Сертификат повышения квалификации от {platform_name} об окончании курса "
 "«{course_name}»"
 
+#: common/djangoapps/student/models/user.py:1373
+msgid ""
+"Your organization ID (if your organization has an existing page on LinkedIn)"
+" e.g 1337. If not provided, will default to sending Platform Name (e.g. edX)"
+" instead."
+msgstr ""
+"Идентификатор вашей организации (если у вашей организации есть существующая "
+"страница в LinkedIn), например 1337. Если он не указан, по умолчанию будет "
+"отправлено Platform Name (например, edX)."
+
 #: common/djangoapps/student/models/user.py:1446
 #, python-brace-format
 msgid "{platform_name} Certificate for {course_name}"
@@ -1188,6 +1660,33 @@ msgid "Secondary email address to recover linked account."
 msgstr ""
 "Вторичный адрес электронной почты для восстановления связанной учетной "
 "записи."
+
+#: common/djangoapps/student/models/user.py:1744
+msgid ""
+"An employee (a user whose email has current site's domain name) whose email "
+"exists in this model, can be able to login from login screen through email "
+"and password. And if any employee's email doesn't exist in this model then "
+"that employee can login via third party authentication backend only."
+msgstr ""
+"Сотрудник (пользователь c электронной почтой на доменном имени текущего "
+"сайта), чья электронная почта существует в этой модели, может войти в "
+"систему с экрана входа в систему с помощью электронной почты и пароля. И "
+"если электронная почта какого-либо сотрудника не существует в этой модели, "
+"этот сотрудник может войти в систему только через стороннюю аутентификацию."
+
+#: common/djangoapps/student/models/user.py:1759
+msgid ""
+"It expect that the data will be provided in a csv file format with"
+"                     first row being the header and columns will be as "
+"follows:                     username, current_email, desired_email"
+msgstr ""
+"Ожидается, что данные будут предоставлены в формате файла csv, где первая "
+"строка будет заголовком, а столбцы будут следующими: имя пользователя, "
+"current_email, desired_email"
+
+#: common/djangoapps/student/models/user.py:1941
+msgid "Add a reason"
+msgstr "Добавьте причину"
 
 #: common/djangoapps/student/views/dashboard.py:143
 msgid " and "
@@ -1281,6 +1780,10 @@ msgstr "Недопустимый идентификатор курса"
 msgid "Could not enroll"
 msgstr "Не удалось зарегистрироваться на курс"
 
+#: common/djangoapps/student/views/management.py:450
+msgid "Unenrollment is currently disabled"
+msgstr "Отмена регистрации в настоящее время отключена"
+
 #: common/djangoapps/student/views/management.py:454
 msgid "You are not enrolled in this course"
 msgstr "Вы не зарегистрированы на этот курс"
@@ -1318,6 +1821,47 @@ msgstr "Учётная запись пользователя {} успешно �
 #: common/djangoapps/student/views/management.py:539
 msgid "Unexpected account status"
 msgstr "Неожиданный статус учётной записи"
+
+#: common/djangoapps/student/views/management.py:580
+#, python-brace-format
+msgid ""
+"{html_start}Your {account_or_email} could not be "
+"{activated_or_confirmed}{html_end}Something went wrong, please <a "
+"href=\"{support_url}\">contact support</a> to resolve this issue."
+msgstr ""
+"{html_start}Ваш {account_or_email} не может быть "
+"{activated_or_confirmed}{html_end}Что-то пошло не так, обратитесь в <a "
+"href=\"{support_url}\">службу поддержки</a>, чтобы решить эту проблему."
+
+#: common/djangoapps/student/views/management.py:615
+#, python-brace-format
+msgid ""
+"{html_start}This {account_or_email} has already been "
+"{activated_or_confirmed}.{html_end}"
+msgstr ""
+"{html_start}Данный {account_or_email} уже был "
+"{activated_or_confirmed}.{html_end}"
+
+#: common/djangoapps/student/views/management.py:627
+#, python-brace-format
+msgid ""
+"{html_start}Success{html_end} You have {activated_or_confirmed} your "
+"{account_or_email}."
+msgstr ""
+"{html_start}Успешно{html_end} Вы {активировали_или_подтвердили} свой "
+"{account_or_email}"
+
+#: common/djangoapps/student/views/management.py:640
+#, python-brace-format
+msgid ""
+"{html_start}Success! You have {activated_or_confirmed} your "
+"{account_or_email}.{html_end}You will now receive email updates and alerts "
+"from us related to the courses you are enrolled in. Sign In to continue."
+msgstr ""
+"{html_start}Успех! Вы {activated_or_confirmed} "
+"{account_or_email}.{html_end}Теперь вы будете получать по электронной почте "
+"обновления и оповещения о курсах, на которые вы записаны. Чтобы продолжить, "
+"войдите в систему."
 
 #: common/djangoapps/student/views/management.py:731
 #: common/djangoapps/student/views/management.py:746
@@ -1465,6 +2009,14 @@ msgstr ""
 "адрес, привязанный к учетной записи, будет изменен в ходе данной "
 "синхронизации. "
 
+#: common/djangoapps/third_party_auth/models.py:244
+msgid ""
+"IDPs with this set to True will be excluded from the dropdown IDP selection "
+"in the EnterpriseCustomer Django Admin form."
+msgstr ""
+"IDP с установленным значением True будут исключены из раскрывающегося списка"
+" IDP в данной форме EnterpriseCustomer Django Admin."
+
 #: common/djangoapps/third_party_auth/models.py:479
 msgid "The Site that this SAML configuration belongs to."
 msgstr "Сайт, к которому относится конфигурация данного SAML-провайдера."
@@ -1473,6 +2025,10 @@ msgstr "Сайт, к которому относится конфигураци�
 #, python-brace-format
 msgid "{platform_name} Support"
 msgstr "Техподдержка {platform_name}"
+
+#: common/djangoapps/third_party_auth/models.py:629
+msgid "A configuration nickname."
+msgstr "Псевдоним конфигурации."
 
 #: common/djangoapps/third_party_auth/templates/third_party_auth/post_custom_auth_entry.html:5
 msgid "Please wait"
@@ -1829,6 +2385,16 @@ msgctxt "month name"
 msgid "December"
 msgstr "декабря"
 
+#: common/djangoapps/util/file.py:67
+#, python-brace-format
+msgid "The file must end with the extension '{file_types}'."
+msgid_plural ""
+"The file must end with one of the following extensions: '{file_types}'."
+msgstr[0] "Файл должен иметь расширение '{file_types}'."
+msgstr[1] "Файл должен иметь одно из следующих расширений: '{file_types}'."
+msgstr[2] "Файл должен иметь одно из следующих расширений: '{file_types}'."
+msgstr[3] "Файл должен иметь одно из следующих расширений: '{file_types}'."
+
 #: common/djangoapps/util/file.py:73
 #, python-brace-format
 msgid "Maximum upload file size is {file_size} bytes."
@@ -1862,6 +2428,114 @@ msgstr "Ваш пароль должен содержать {length_instruction}
 #: common/djangoapps/util/password_policy_validators.py:101
 msgid "Invalid password."
 msgstr "Неверный пароль."
+
+#: common/djangoapps/util/password_policy_validators.py:149
+#, python-format
+msgid "at least %(min_length)d character"
+msgid_plural "at least %(min_length)d characters"
+msgstr[0] "как минимум символ %(min_length)d"
+msgstr[1] "не меньше %(min_length)d символов"
+msgstr[2] "не меньше %(min_length)d символов"
+msgstr[3] "не меньше %(min_length)d символов"
+
+#: common/djangoapps/util/password_policy_validators.py:175
+#, python-format
+msgid ""
+"This password is too long. It must contain no more than %(max_length)d "
+"character."
+msgid_plural ""
+"This password is too long. It must contain no more than %(max_length)d "
+"characters."
+msgstr[0] ""
+"Данный пароль слишком длинный. Он должен содержать не более %(max_length)d "
+"символов."
+msgstr[1] ""
+"Данный пароль слишком длинный. Он должен содержать не более %(max_length)d "
+"символов."
+msgstr[2] ""
+"Данный пароль слишком длинный. Он должен содержать не более %(max_length)d "
+"символов."
+msgstr[3] ""
+"Данный пароль слишком длинный. Он должен содержать не более %(max_length)d "
+"символов."
+
+#: common/djangoapps/util/password_policy_validators.py:185
+#, python-format
+msgid "Your password must contain no more than %(max_length)d character."
+msgid_plural ""
+"Your password must contain no more than %(max_length)d characters."
+msgstr[0] "Ваш пароль должен содержать не более %(max_length)d символов."
+msgstr[1] "Ваш пароль должен содержать не более %(max_length)d символов."
+msgstr[2] "Ваш пароль должен содержать не более %(max_length)d символов."
+msgstr[3] "Ваш пароль должен содержать не более %(max_length)d символов."
+
+#: common/djangoapps/util/password_policy_validators.py:213
+#, python-format
+msgid "This password must contain at least %(min_alphabetic)d letter."
+msgid_plural "This password must contain at least %(min_alphabetic)d letters."
+msgstr[0] "Этот пароль должен содержать как минимум %(min_alphabetic)d букву."
+msgstr[1] "Данный пароль должен содержать не менее %(min_alphabetic)d букв."
+msgstr[2] "Данный пароль должен содержать не менее %(min_alphabetic)d букв."
+msgstr[3] "Данный пароль должен содержать не менее %(min_alphabetic)d букв."
+
+#: common/djangoapps/util/password_policy_validators.py:223
+#, python-format
+msgid "Your password must contain at least %(min_alphabetic)d letter."
+msgid_plural "Your password must contain at least %(min_alphabetic)d letters."
+msgstr[0] "Ваш пароль должен содержать как минимум %(min_alphabetic)d букву."
+msgstr[1] "Ваш пароль должен содержать не менее %(min_alphabetic)d букв."
+msgstr[2] "Ваш пароль должен содержать не менее %(min_alphabetic)d букв."
+msgstr[3] "Ваш пароль должен содержать не менее %(min_alphabetic)d букв."
+
+#: common/djangoapps/util/password_policy_validators.py:231
+#, python-format
+msgid "%(num)d letter"
+msgid_plural "%(num)d letters"
+msgstr[0] "буква %(num)d"
+msgstr[1] "%(num)d букв"
+msgstr[2] "%(num)d букв"
+msgstr[3] "%(num)d букв"
+
+#: common/djangoapps/util/password_policy_validators.py:261
+#, python-format
+msgid "This password must contain at least %(min_numeric)d number."
+msgid_plural "This password must contain at least %(min_numeric)d numbers."
+msgstr[0] "Данный пароль должен содержать как минимум %(min_numeric)d цифр."
+msgstr[1] "Данный пароль должен содержать как минимум %(min_numeric)d цифр."
+msgstr[2] "Данный пароль должен содержать как минимум %(min_numeric)d цифр."
+msgstr[3] "Данный пароль должен содержать как минимум %(min_numeric)d цифр."
+
+#: common/djangoapps/util/password_policy_validators.py:271
+#, python-format
+msgid "Your password must contain at least %(min_numeric)d number."
+msgid_plural "Your password must contain at least %(min_numeric)d numbers."
+msgstr[0] "Ваш пароль должен содержать как минимум %(min_numeric)d цифру."
+msgstr[1] "Ваш пароль должен содержать как минимум %(min_numeric)d цифр."
+msgstr[2] "Ваш пароль должен содержать как минимум %(min_numeric)d цифр."
+msgstr[3] "Ваш пароль должен содержать как минимум %(min_numeric)d цифр."
+
+#: common/djangoapps/util/password_policy_validators.py:279
+#, python-format
+msgid "%(num)d number"
+msgid_plural "%(num)d numbers"
+msgstr[0] "%(num)d число"
+msgstr[1] "%(num)d числа"
+msgstr[2] "%(num)d числа"
+msgstr[3] "%(num)d числа"
+
+#: common/djangoapps/util/password_policy_validators.py:309
+#, python-format
+msgid "This password must contain at least %(min_upper)d uppercase letter."
+msgid_plural ""
+"This password must contain at least %(min_upper)d uppercase letters."
+msgstr[0] ""
+"Данный пароль должен содержать как минимум %(min_upper)d прописную букву."
+msgstr[1] ""
+"Данный пароль должен содержать как минимум %(min_upper)d заглавные буквы."
+msgstr[2] ""
+"Данный пароль должен содержать как минимум %(min_upper)d заглавные буквы."
+msgstr[3] ""
+"Данный пароль должен содержать как минимум %(min_upper)d заглавные буквы."
 
 #: common/djangoapps/xblock_django/admin.py:22
 msgid ""
