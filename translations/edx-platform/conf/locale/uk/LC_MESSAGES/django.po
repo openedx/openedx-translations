@@ -29,9 +29,25 @@ msgstr ""
 msgid "Course team user does not exist"
 msgstr "Користувач команди курсу не існує"
 
+#: cms/djangoapps/contentstore/admin.py:47
+#, python-brace-format
+msgid ""
+"Number of course outline regenerations successfully requested: {regenerates}"
+msgstr ""
+"Успішно створено наступну кількість запитів на повторне створення структури "
+"курсу: {regenerates}"
+
+#: cms/djangoapps/contentstore/admin.py:51
+msgid "Regenerate selected course outlines"
+msgstr "Створіть повторно зміст обраного курсу"
+
 #: cms/djangoapps/contentstore/admin.py:59
 msgid "All course outline regenerations successfully requested."
 msgstr "Всі запити на відновлення структури курсу успішно виконані."
+
+#: cms/djangoapps/contentstore/admin.py:60
+msgid "Regenerate *all* course outlines"
+msgstr "Повторно створити *всі* змісти курсу"
 
 #: cms/djangoapps/contentstore/asset_storage_handlers.py:535
 msgid "Upload completed"
@@ -530,6 +546,12 @@ msgstr "Скасовано"
 #: cms/djangoapps/contentstore/video_storage_handlers.py:131
 msgid "Failed Duplicate"
 msgstr "Створення копії невдале"
+
+#. Translators: This is the status for a video which has duplicate token for
+#. youtube
+#: cms/djangoapps/contentstore/video_storage_handlers.py:133
+msgid "YouTube Duplicate"
+msgstr "Створити копію на YouTube"
 
 #. Translators: This is the status for a video for which an invalid
 #. processing token was provided in the course settings
@@ -1360,6 +1382,20 @@ msgstr ""
 "зареєструватися в цьому режимі. Залиште це поле порожнім, якщо користувачам "
 "можна зареєструватись у цьому режимі, поки реєстрація на курс не закриється."
 
+#: common/djangoapps/course_modes/models.py:94
+msgid "Lock upgrade deadline date"
+msgstr "Заблокувати дедлайн оновлення"
+
+#: common/djangoapps/course_modes/models.py:96
+msgid ""
+"OPTIONAL: Set to True to lock in the explicitly defined upgrade deadline "
+"date. Set to False if there is no upgrade deadline or to use the default "
+"upgrade deadline."
+msgstr ""
+"НЕОБОВ'ЯЗКОВИЙ: установіть значення на \"Правильно\", щоб зафіксувати чітко "
+"визначений дедлайн оновлення. Встановіть значення на \"ХИБНИЙ\", якщо немає "
+"дедлайну оновлення або щоб використовувати дедлайн за замовчуванням."
+
 #: common/djangoapps/course_modes/models.py:121
 msgid ""
 "OPTIONAL: This is the SKU (stock keeping unit) of this mode in the external "
@@ -1369,6 +1405,26 @@ msgstr ""
 "ОПЦІОНАЛЬНО: Це SKU (ідентифікатор товарної одиниці) цього режиму в "
 "зовнішній службі електронної комерції. Залиште це поле порожнім, якщо курс "
 "ще не було перенесено до служби електронної комерції."
+
+#: common/djangoapps/course_modes/models.py:133
+msgid ""
+"OPTIONAL: This is the Android SKU registered on play store for this mode of "
+"the course. Leave this blank if the course has not yet been migrated to the "
+"ecommerce service."
+msgstr ""
+"НЕОБОВ'ЯЗКОВИЙ: Це ідентифікаційний номер Android, зареєстрований у Play "
+"Store для цього режиму курсу. Залиште це поле порожнім, якщо курс ще не "
+"перенесено до служби електронної комерції."
+
+#: common/djangoapps/course_modes/models.py:145
+msgid ""
+"OPTIONAL: This is the iOS SKU registered on app store for this mode of the "
+"course.  Leave this blank if the course has not yet been migrated to the "
+"ecommerce service."
+msgstr ""
+"НЕОБОВ'ЯЗКОВИЙ: Це ідентифікаційний номер iOS, зареєстрований у AppStore для"
+" цього режиму курсу. Залиште це поле порожнім, якщо курс ще не перенесено до"
+" служби електронної комерції."
 
 #: common/djangoapps/course_modes/models.py:158
 msgid ""
@@ -1384,6 +1440,15 @@ msgid ""
 "set."
 msgstr ""
 "Режиму професійної освіти не дозволено мати встановленої дати закінчення."
+
+#: common/djangoapps/course_modes/models.py:258
+#, python-brace-format
+msgid ""
+"The {course_mode} course mode has a minimum price of {min_price}. You must "
+"set a price greater than or equal to {min_price}."
+msgstr ""
+"Режим курсу {course_mode} має мінімальну ціну {min_price}. Ви повинні "
+"встановити ціну, більшу або рівну {min_price}."
 
 #. Translators: This will look like '$50', where {currency_symbol} is a symbol
 #. such as '$' and {price} is a
@@ -1466,6 +1531,25 @@ msgstr ""
 "Паролі у відкритому вигляді не зберегаються, таким чином неможливо отримати "
 "пароль користувача."
 
+#: common/djangoapps/student/admin.py:657
+#, python-format
+msgid "%(count)d student account was unlocked."
+msgid_plural "%(count)d student accounts were unlocked."
+msgstr[0] "%(count)d обліковий запис студента розблоковано."
+msgstr[1] "%(count)d Облікові записи студентів розблоковано."
+msgstr[2] "%(count)d Облікові записи студентів розблоковано."
+msgstr[3] "%(count)d Облікові записи студентів розблоковано."
+
+#: common/djangoapps/student/admin.py:714
+#, python-brace-format
+msgid ""
+"Please add a key/value 'THIRD_PARTY_AUTH_ONLY_DOMAIN/{site_email_domain}' in"
+" SiteConfiguration model's site_values field."
+msgstr ""
+"Будь ласка, додайте ключ/значення "
+"'THIRD_PARTY_AUTH_ONLY_DOMAIN/{site_email_domain}' у поле site_values моделі"
+" SiteConfiguration."
+
 #: common/djangoapps/student/admin.py:719
 #, python-brace-format
 msgid "Email doesn't have {allowed_site_email_domain} domain name."
@@ -1518,6 +1602,26 @@ msgid ""
 msgstr ""
 "Проміжок часу після реєстрації на курс у мікросекундах, протягом якого "
 "користувачам можуть бути повернуті гроші. Типовим проміжком є 14 днів."
+
+#: common/djangoapps/student/models/course_enrollment.py:1760
+msgid ""
+"It expect that the data will be provided in a csv file format with"
+"                     first row being the header and columns will be as "
+"follows:                     user_id, username, email, course_id, "
+"is_verified, verification_date"
+msgstr ""
+"Очікується, що дані будуть надані у форматі CSV-файлу, де перший рядок буде "
+"заголовком, а стовпці будуть такі: user_id, username, email, id курсу, "
+"is_verified, verification_date."
+
+#: common/djangoapps/student/models/course_enrollment.py:1774
+msgid ""
+"It expect that the data will be provided in a csv file format with"
+"                     first row being the header and columns will be as "
+"follows:                     course_id, username, mode"
+msgstr ""
+"Очікується, що дані будуть надані у форматі CSV-файлу, де перший рядок буде "
+"заголовком, а стовпці: id курсу, username, mode."
 
 #: common/djangoapps/student/models/user.py:463
 msgid "Male"
@@ -1630,6 +1734,28 @@ msgstr "Вторинна адреса електронної пошти"
 msgid "Secondary email address to recover linked account."
 msgstr ""
 "Вторинна адреса електронної пошти для відновлення пов'язаного аккаунту."
+
+#: common/djangoapps/student/models/user.py:1744
+msgid ""
+"An employee (a user whose email has current site's domain name) whose email "
+"exists in this model, can be able to login from login screen through email "
+"and password. And if any employee's email doesn't exist in this model then "
+"that employee can login via third party authentication backend only."
+msgstr ""
+"Співробітник (користувач, електронна пошта якого має доменне ім’я поточного "
+"сайту), електронна пошта якого існує в цій моделі, може входити зі сторінки "
+"входу за допомогою електронної пошти та пароля. І якщо в цій моделі не існує"
+" жодної електронної пошти працівника, тоді цей працівник може входити лише "
+"через бекенд автентифікації третьої сторони."
+
+#: common/djangoapps/student/models/user.py:1759
+msgid ""
+"It expect that the data will be provided in a csv file format with"
+"                     first row being the header and columns will be as "
+"follows:                     username, current_email, desired_email"
+msgstr ""
+"Очікується, що дані будуть надані у форматі файлу csv з першим рядком - "
+"заголовком і наступними стовпцями: username, current_email, desired_email"
 
 #: common/djangoapps/student/models/user.py:1941
 msgid "Add a reason"
@@ -1766,6 +1892,18 @@ msgstr "Обліковий запис {} успішно увімкнений"
 msgid "Unexpected account status"
 msgstr "Неочікуваний статус облікового запису"
 
+#: common/djangoapps/student/views/management.py:580
+#, python-brace-format
+msgid ""
+"{html_start}Your {account_or_email} could not be "
+"{activated_or_confirmed}{html_end}Something went wrong, please <a "
+"href=\"{support_url}\">contact support</a> to resolve this issue."
+msgstr ""
+"{html_start} Ваш {account_or_email} не може бути активованим або "
+"підтвердженим {html_end} Щось пішло не так. Будь ласка, <a "
+"href=\"{support_url}\">зв’яжіться з службою підтримки</a>, щоб вирішити цю "
+"проблему."
+
 #: common/djangoapps/student/views/management.py:615
 #, python-brace-format
 msgid ""
@@ -1774,6 +1912,27 @@ msgid ""
 msgstr ""
 "{html_start} Цей {account_or_email} вже був "
 "{activated_or_confirmed}.{html_end}"
+
+#: common/djangoapps/student/views/management.py:627
+#, python-brace-format
+msgid ""
+"{html_start}Success{html_end} You have {activated_or_confirmed} your "
+"{account_or_email}."
+msgstr ""
+"{html_start} Успішно!{html_end} Ви {activated_or_confirmed} свій "
+"{account_or_email}."
+
+#: common/djangoapps/student/views/management.py:640
+#, python-brace-format
+msgid ""
+"{html_start}Success! You have {activated_or_confirmed} your "
+"{account_or_email}.{html_end}You will now receive email updates and alerts "
+"from us related to the courses you are enrolled in. Sign In to continue."
+msgstr ""
+"{html_start} Успішно! Ви {activated_or_confirmed} ваш "
+"{account_or_email}.{html_end} Тепер Ви отримуватимете на електронну пошту "
+"оновлення і сповіщення, пов’язані з курсами, на які Ви записані. Щоб "
+"продовжити, увійдіть."
 
 #: common/djangoapps/student/views/management.py:731
 #: common/djangoapps/student/views/management.py:746
@@ -1818,6 +1977,14 @@ msgid ""
 "Secondary providers are displayed less prominently, in a separate list of "
 "\"Institution\" login providers."
 msgstr "Другорядні провайдери показані в окремому списку \"Установи\"."
+
+#: common/djangoapps/third_party_auth/models.py:158
+msgid ""
+"optional. If this provider is an Organization, this attribute can be used "
+"reference users in that Organization"
+msgstr ""
+"необов'язковий. Якщо цей провайдер є організацією, цей атрибут можна "
+"використовувати як посилання на користувачів у цій організації"
 
 #: common/djangoapps/third_party_auth/models.py:167
 msgid "The Site that this provider configuration belongs to."
@@ -1914,6 +2081,14 @@ msgstr ""
 "адреса, пов'язана з його обліковим записом, буде змінена під час цієї "
 "синхронізації."
 
+#: common/djangoapps/third_party_auth/models.py:244
+msgid ""
+"IDPs with this set to True will be excluded from the dropdown IDP selection "
+"in the EnterpriseCustomer Django Admin form."
+msgstr ""
+"IDP, для якого встановлено значення \"Вірно\", буде виключено зі спадаючого "
+"меню вибору IDP у формі EnterpriseCustomer Django адміністратор."
+
 #: common/djangoapps/third_party_auth/models.py:479
 msgid "The Site that this SAML configuration belongs to."
 msgstr "Сайт, до якого належить ця конфігурація SAML."
@@ -1922,6 +2097,10 @@ msgstr "Сайт, до якого належить ця конфігурація
 #, python-brace-format
 msgid "{platform_name} Support"
 msgstr "{platform_name} Підтримка"
+
+#: common/djangoapps/third_party_auth/models.py:629
+msgid "A configuration nickname."
+msgstr "Нікнейм конфігурації."
 
 #: common/djangoapps/third_party_auth/templates/third_party_auth/post_custom_auth_entry.html:5
 msgid "Please wait"
@@ -2377,6 +2556,166 @@ msgstr[1] "Ваш пароль має містити принаймні %(min_al
 msgstr[2] "Ваш пароль має містити принаймні %(min_alphabetic)d літер."
 msgstr[3] "Ваш пароль має містити принаймні %(min_alphabetic)d літер."
 
+#: common/djangoapps/util/password_policy_validators.py:231
+#, python-format
+msgid "%(num)d letter"
+msgid_plural "%(num)d letters"
+msgstr[0] "%(num)d літер"
+msgstr[1] "%(num)d літер"
+msgstr[2] "%(num)d літер"
+msgstr[3] "%(num)d літер"
+
+#: common/djangoapps/util/password_policy_validators.py:261
+#, python-format
+msgid "This password must contain at least %(min_numeric)d number."
+msgid_plural "This password must contain at least %(min_numeric)d numbers."
+msgstr[0] "Цей пароль має містити принаймні %(min_numeric)d чисел."
+msgstr[1] "Цей пароль має містити принаймні %(min_numeric)d чисел."
+msgstr[2] "Цей пароль має містити принаймні %(min_numeric)d чисел."
+msgstr[3] "Цей пароль має містити принаймні %(min_numeric)d чисел."
+
+#: common/djangoapps/util/password_policy_validators.py:271
+#, python-format
+msgid "Your password must contain at least %(min_numeric)d number."
+msgid_plural "Your password must contain at least %(min_numeric)d numbers."
+msgstr[0] "Ваш пароль має містити принаймні %(min_numeric)d число."
+msgstr[1] "Ваш пароль має містити принаймні %(min_numeric)d цифр."
+msgstr[2] "Ваш пароль має містити принаймні %(min_numeric)d цифр."
+msgstr[3] "Ваш пароль має містити принаймні %(min_numeric)d цифр."
+
+#: common/djangoapps/util/password_policy_validators.py:279
+#, python-format
+msgid "%(num)d number"
+msgid_plural "%(num)d numbers"
+msgstr[0] "номер %(num)d"
+msgstr[1] "%(num)d чисел"
+msgstr[2] "%(num)d чисел"
+msgstr[3] "%(num)d чисел"
+
+#: common/djangoapps/util/password_policy_validators.py:309
+#, python-format
+msgid "This password must contain at least %(min_upper)d uppercase letter."
+msgid_plural ""
+"This password must contain at least %(min_upper)d uppercase letters."
+msgstr[0] "Цей пароль має містити принаймні %(min_upper)d велику літеру."
+msgstr[1] "Цей пароль має містити принаймні %(min_upper)d великих літер."
+msgstr[2] "Цей пароль має містити принаймні %(min_upper)d великих літер."
+msgstr[3] "Цей пароль має містити принаймні %(min_upper)d великих літер."
+
+#: common/djangoapps/util/password_policy_validators.py:319
+#, python-format
+msgid "Your password must contain at least %(min_upper)d uppercase letter."
+msgid_plural ""
+"Your password must contain at least %(min_upper)d uppercase letters."
+msgstr[0] "Ваш пароль має містити принаймні %(min_upper)d велику літеру."
+msgstr[1] "Ваш пароль має містити принаймні %(min_upper)d великих літер."
+msgstr[2] "Ваш пароль має містити принаймні %(min_upper)d великих літер."
+msgstr[3] "Ваш пароль має містити принаймні %(min_upper)d великих літер."
+
+#: common/djangoapps/util/password_policy_validators.py:327
+#, python-format
+msgid "%(num)d uppercase letter"
+msgid_plural "%(num)d uppercase letters"
+msgstr[0] "%(num)d велика літера"
+msgstr[1] "%(num)d великі літери"
+msgstr[2] "%(num)d великі літери"
+msgstr[3] "%(num)d великі літери"
+
+#: common/djangoapps/util/password_policy_validators.py:357
+#, python-format
+msgid "This password must contain at least %(min_lower)d lowercase letter."
+msgid_plural ""
+"This password must contain at least %(min_lower)d lowercase letters."
+msgstr[0] "Цей пароль має містити принаймні %(min_lower)d малу літеру."
+msgstr[1] "Цей пароль має містити принаймні %(min_lower)d малих літер."
+msgstr[2] "Цей пароль має містити принаймні %(min_lower)d малих літер."
+msgstr[3] "Цей пароль має містити принаймні %(min_lower)d малих літер."
+
+#: common/djangoapps/util/password_policy_validators.py:367
+#, python-format
+msgid "Your password must contain at least %(min_lower)d lowercase letter."
+msgid_plural ""
+"Your password must contain at least %(min_lower)d lowercase letters."
+msgstr[0] "Ваш пароль має містити принаймні %(min_lower)d малу літеру."
+msgstr[1] "Ваш пароль має містити принаймні %(min_lower)d малих літер."
+msgstr[2] "Ваш пароль має містити принаймні %(min_lower)d малих літер."
+msgstr[3] "Ваш пароль має містити принаймні %(min_lower)d малих літер."
+
+#: common/djangoapps/util/password_policy_validators.py:375
+#, python-format
+msgid "%(num)d lowercase letter"
+msgid_plural "%(num)d lowercase letters"
+msgstr[0] "%(num)d мала літера"
+msgstr[1] "%(num)d малі літери"
+msgstr[2] "%(num)d малі літери"
+msgstr[3] "%(num)d малі літери"
+
+#: common/djangoapps/util/password_policy_validators.py:406
+#, python-format
+msgid ""
+"This password must contain at least %(min_punctuation)d punctuation mark."
+msgid_plural ""
+"This password must contain at least %(min_punctuation)d punctuation marks."
+msgstr[0] ""
+"Цей пароль повинен містити принаймні розділовий знак %(min_punctuation)d."
+msgstr[1] ""
+"Цей пароль має містити принаймні %(min_punctuation)d знаків пунктуації."
+msgstr[2] ""
+"Цей пароль має містити принаймні %(min_punctuation)d знаків пунктуації."
+msgstr[3] ""
+"Цей пароль має містити принаймні %(min_punctuation)d знаків пунктуації."
+
+#: common/djangoapps/util/password_policy_validators.py:416
+#, python-format
+msgid ""
+"Your password must contain at least %(min_punctuation)d punctuation mark."
+msgid_plural ""
+"Your password must contain at least %(min_punctuation)d punctuation marks."
+msgstr[0] ""
+"Ваш пароль має містити принаймні розділовий знак %(min_punctuation)d ."
+msgstr[1] ""
+"Ваш пароль має містити принаймні %(min_punctuation)d знаків пунктуації."
+msgstr[2] ""
+"Ваш пароль має містити принаймні %(min_punctuation)d знаків пунктуації."
+msgstr[3] ""
+"Ваш пароль має містити принаймні %(min_punctuation)d знаків пунктуації."
+
+#: common/djangoapps/util/password_policy_validators.py:424
+#, python-format
+msgid "%(num)d punctuation mark"
+msgid_plural "%(num)d punctuation marks"
+msgstr[0] "%(num)d розділовий знак"
+msgstr[1] "%(num)d розділові знаки"
+msgstr[2] "%(num)d розділові знаки"
+msgstr[3] "%(num)d розділові знаки"
+
+#: common/djangoapps/util/password_policy_validators.py:454
+#, python-format
+msgid "This password must contain at least %(min_symbol)d symbol."
+msgid_plural "This password must contain at least %(min_symbol)d symbols."
+msgstr[0] "Цей пароль має містити принаймні мінімум символ %(min_symbol)d."
+msgstr[1] "Цей пароль має містити принаймні %(min_symbol)d символів."
+msgstr[2] "Цей пароль має містити принаймні %(min_symbol)d символів."
+msgstr[3] "Цей пароль має містити принаймні %(min_symbol)d символів."
+
+#: common/djangoapps/util/password_policy_validators.py:464
+#, python-format
+msgid "Your password must contain at least %(min_symbol)d symbol."
+msgid_plural "Your password must contain at least %(min_symbol)d symbols."
+msgstr[0] "Ваш пароль має містити принаймні символ %(min_symbol)d."
+msgstr[1] "Ваш пароль має містити принаймні %(min_symbol)d символів."
+msgstr[2] "Ваш пароль має містити принаймні %(min_symbol)d символів."
+msgstr[3] "Ваш пароль має містити принаймні %(min_symbol)d символів."
+
+#: common/djangoapps/util/password_policy_validators.py:472
+#, python-format
+msgid "%(num)d symbol"
+msgid_plural "%(num)d symbols"
+msgstr[0] "%(num)d символ"
+msgstr[1] "%(num)d символи"
+msgstr[2] "%(num)d символи"
+msgstr[3] "%(num)d символи"
+
 #: common/djangoapps/xblock_django/admin.py:22
 msgid ""
 "To disable the XBlock and prevent rendering in the LMS, leave \"Enabled\" "
@@ -2447,9 +2786,30 @@ msgstr "Розблокувати обліковий запис"
 msgid "Close"
 msgstr "Закрити"
 
+#: common/templates/student/edx_ace/accountactivation/email/body.html:13
+#, python-format
+msgid ""
+"This is a routed Account Activation email for %(routed_user)s "
+"(%(routed_user_email)s): %(routed_profile_name)s"
+msgstr ""
+"Це повідомлення для активації Облікового запису %(routed_user)s "
+"(%(routed_user_email)s): %(routed_profile_name)s"
+
 #: common/templates/student/edx_ace/accountactivation/email/body.html:23
 msgid "Account activation"
 msgstr "Активація облікового запису"
+
+#: common/templates/student/edx_ace/accountactivation/email/body.html:27
+#, python-format
+msgid ""
+"You're almost there! Use the link below to activate your account to access "
+"engaging, high-quality %(platform_name)s courses. Note that you will not be "
+"able to log back into your account until you have activated it."
+msgstr ""
+"Ви майже з нами! Скористайтеся посиланням, щоб активувати свій обліковий "
+"запис та отримати доступ до цікавих та якісних курсів від %(platform_name)s."
+" Треба зауважити, що ви не зможете ввійти до свого облікового запису, доки "
+"ви його не активуєте."
 
 #: common/templates/student/edx_ace/accountactivation/email/body.html:33
 msgid "Activate your account"
@@ -2460,6 +2820,41 @@ msgstr "Активуйте ваш обліковий запис"
 #, python-format
 msgid "Enjoy learning with %(platform_name)s."
 msgstr "Приємного навчання з %(platform_name)s."
+
+#: common/templates/student/edx_ace/accountactivation/email/body.html:50
+#, python-format, python-brace-format
+msgid ""
+"If you need help, please use our web form at "
+"{start_anchor_web}%(support_url)s{end_anchor} or email "
+"{start_anchor_email}%(support_email)s{end_anchor}."
+msgstr ""
+"Якщо Вам потрібна допомога, можете використовувати форму "
+"{start_anchor_web}%(support_url)s{end_anchor} або написати нам на електронну"
+" пошту {start_anchor_email}%(support_email)s{end_anchor}."
+
+#: common/templates/student/edx_ace/accountactivation/email/body.html:64
+#: common/templates/student/edx_ace/accountactivation/email/body.txt:10
+#, python-format
+msgid ""
+"This email message was automatically sent by %(lms_url)s because someone "
+"attempted to create an account on %(platform_name)s using this email "
+"address."
+msgstr ""
+"Це повідомлення було автоматично відправлено з %(lms_url)s, тому що хтось "
+"спробував створити обліковий запис на %(platform_name)s, використовуючи цю "
+"електронну адресу."
+
+#: common/templates/student/edx_ace/accountactivation/email/body.txt:2
+#, python-format
+msgid ""
+"You’re almost there! Use the link below to activate your account to access "
+"engaging, high-quality %(platform_name)s courses. Note that you will not be "
+"able to log back into your account until you have activated it."
+msgstr ""
+"Ви майже з нами! Скористайтеся посиланням, щоб активувати свій обліковий "
+"запис та отримати доступ до цікавих та якісних курсів від %(platform_name)s."
+" Зауважте, що ви не зможете ввійти до свого облікового запису, доки ви його "
+"не активували."
 
 #: common/templates/student/edx_ace/accountactivation/email/body.txt:8
 #, python-format
@@ -2603,6 +2998,28 @@ msgid ""
 msgstr ""
 "У нас зберігається реєстр старих електронних повідомлень, тому якщо цей "
 "запит був зроблений ненавмисно, ми можемо розглянути цю проблему."
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.html:12
+#, python-format
+msgid ""
+"\n"
+"                    Proctoring requirements for %(course_name)s\n"
+"                "
+msgstr ""
+"\n"
+"                    Вимоги щодо прокторингу курсу %(course_name)s\n"
+"                "
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.html:20
+#, python-format
+msgid ""
+"\n"
+"                    Hello %(full_name)s,\n"
+"                "
+msgstr ""
+"\n"
+"                    Вітаємо %(full_name)s,\n"
+"                "
 
 #: common/templates/student/edx_ace/proctoringrequirements/email/body.html:60
 #: common/templates/student/edx_ace/proctoringrequirements/email/body.txt:11
