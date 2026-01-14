@@ -656,6 +656,11 @@ msgstr "ทีมผู้รับผิดชอบหลักสูตร"
 msgid "Legal review requested: {title}"
 msgstr "การตรวจสอบทางกฎหมายที่ร้องขอ: {title}"
 
+#: apps/course_metadata/emails.py:234
+#, python-brace-format
+msgid "Course URL for {title}"
+msgstr "URL หลักสูตรสำหรับ {title}"
+
 #: apps/course_metadata/emails.py:280
 #, python-brace-format
 msgid "Review requested: {key} - {title}"
@@ -1252,6 +1257,18 @@ msgstr ""
 msgid "If checked, the About Page will have a meta tag with noindex value"
 msgstr "หากทำเครื่องหมาย หน้าเกี่ยวกับจะมีเมตาแท็กที่มีค่า noindex"
 
+#: apps/course_metadata/models.py:1585
+msgid "Watchers"
+msgstr "ผู้เฝ้าดู"
+
+#: apps/course_metadata/models.py:1587
+msgid ""
+"The list of email addresses that will be notified if any of the course runs "
+"is published or scheduled."
+msgstr ""
+"รายชื่อที่อยู่อีเมลที่จะได้รับแจ้งหากมีการเผยแพร่หรือกำหนดเวลาการดำเนินหลักสูตรใด"
+" ๆ"
+
 #: apps/course_metadata/models.py:1832
 msgid "Future"
 msgstr "อนาคต"
@@ -1462,3 +1479,38 @@ msgid ""
 msgstr ""
 "หมายเหตุ: นี่คืออีเมลที่ไม่สามารถตอบกลับได้ หากมีคำถามหรือความคิดเห็นใด ๆ "
 "โปรดติดต่อผู้ประสานงานโครงการของคุณที่"
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.html:8
+#, python-format
+msgid ""
+"\n"
+"        Course '%(course_name)s' has been successfully reviewed by edX and is now published on %(course_publish_date)s. To see live course, go here: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
+msgstr ""
+"\n"
+"        หลักสูตร &#39; %(course_name)s &#39; ได้รับการตรวจสอบโดย edX เรียบร้อยแล้ว และขณะนี้ได้รับการเผยแพร่บน %(course_publish_date)s หากต้องการดูหลักสูตรสด ไปที่นี่: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.html:12
+#, python-format
+msgid ""
+"\n"
+"        Course '%(course_name)s' has been successfully reviewed by edX and is now ready for publication. The course will be published on %(course_publish_date)s.\n"
+"        To see a preview of the Course About Page, go here: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
+msgstr ""
+"\n"
+"        ```\n"
+"    หลักสูตร '%(course_name)s' ได้รับการตรวจสอบโดย edX เรียบร้อยแล้ว และพร้อมสำหรับการเผยแพร่ หลักสูตรนี้จะเผยแพร่ในวันที่ %(course_publish_date)s.\n"
+"    หากต้องการดูตัวอย่างหน้าเกี่ยวกับ ไปที่นี่: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"```\n"
+"    "
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.txt:4
+#, python-format
+msgid ""
+"\n"
+"    Course '%(course_name)s' has been successfully reviewed by edX and is now published on %(course_publish_date)s. To see live course, go here: %(course_marketing_url)s\n"
+msgstr ""
+"\n"
+"    หลักสูตร '%(course_name)s' ได้รับการตรวจสอบโดย edX เรียบร้อยแล้ว และขณะนี้ได้รับการเผยแพร่บน %(course_publish_date)s หากต้องการดูหลักสูตรสด ไปที่นี่: %(course_marketing_url)s\n"
