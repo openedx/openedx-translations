@@ -92,9 +92,34 @@ msgstr ""
 "Kitufe cha utumiaji cha sehemu ya juu ya mkondo, thamani hii haiwezi "
 "kubatilishwa na inafaa kufuatilia vizuizi vya maktaba ya juu ambavyo havipo"
 
+#: cms/djangoapps/contentstore/models.py:163
+msgid "Component Link"
+msgstr "Kiungo cha kipengele"
+
+#: cms/djangoapps/contentstore/models.py:164
+msgid "Component Links"
+msgstr "Viungo vya vipengele"
+
 #: cms/djangoapps/contentstore/models.py:190
 msgid "The component must be published to access `published_at`"
 msgstr "Sehemu lazima ichapishwe ili kufikia `published_at`"
+
+#: cms/djangoapps/contentstore/models.py:329
+msgid ""
+"Upstream block key (e.g. lct:...), this value cannot be null and is useful "
+"to track upstream library blocks that do not exist yet or were deleted."
+msgstr ""
+"Kitufe cha kuzuia mkondo cha juu (km lct:...), thamani hii haiwezi "
+"kubatilishwa na ni muhimu kufuatilia vizuizi vya maktaba vya juu ambavyo "
+"havipo au vilivyofutwa."
+
+#: cms/djangoapps/contentstore/models.py:336
+msgid "Container Link"
+msgstr "Kiungo cha Kontena"
+
+#: cms/djangoapps/contentstore/models.py:337
+msgid "Container Links"
+msgstr "Viungo vya Vyombo"
 
 #: cms/djangoapps/contentstore/models.py:363
 msgid "The container must be published to access `published_at`"
@@ -358,6 +383,11 @@ msgstr[1] " Ina {count} vizuizi vya watoto."
 msgid "Content is not linked to a Content Library."
 msgstr "Maudhui hayajaunganishwa na Maktaba ya Maudhui."
 
+#: cms/lib/xblock/upstream_sync.py:255
+msgid "Downstream is not an XBlock or is missing required UpstreamSyncMixin"
+msgstr ""
+"Mtiririko wa chini sio XBlock au inakosa UpstreamSyncMixin inayohitajika"
+
 #: cms/lib/xblock/upstream_sync.py:259
 msgid "Cannot update content because it does not belong to a course."
 msgstr "Haiwezi kusasisha maudhui kwa sababu si ya kozi."
@@ -366,9 +396,37 @@ msgstr "Haiwezi kusasisha maudhui kwa sababu si ya kozi."
 msgid "Reference to linked library item is malformed"
 msgstr "Ссылка на связанный элемент библиотеки имеет неверный формат"
 
+#: cms/lib/xblock/upstream_sync.py:275
+msgid ""
+"Updating content with children is not yet supported unless the upstream is a"
+" container."
+msgstr ""
+"Kusasisha maudhui na watoto bado hakutumiki isipokuwa mkondo wa juu ni "
+"chombo."
+
+#: cms/lib/xblock/upstream_sync.py:281
+msgid "Linked upstream library block was not found in the system"
+msgstr ""
+"Kizuizi cha maktaba ya juu kilichounganishwa hakikupatikana kwenye mfumo"
+
+#: cms/lib/xblock/upstream_sync.py:288
+msgid "Linked upstream library container was not found in the system"
+msgstr ""
+"Chombo kilichounganishwa cha maktaba ya mkondo wa juu hakikupatikana kwenye "
+"mfumo"
+
 #: cms/lib/xblock/upstream_sync.py:292
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "`upstream_key` iliyounganishwa si ufunguo halali"
+
+#: cms/lib/xblock/upstream_sync.py:301
+#, python-brace-format
+msgid ""
+"Content type mismatch: {downstream_id} ({downstream_type}) cannot be linked "
+"to {upstream_id}."
+msgstr ""
+"Aina ya maudhui kutolingana: {downstream_id} ({downstream_type}) haiwezi "
+"kuunganishwa na {upstream_id}."
 
 #: cms/lib/xblock/upstream_sync_block.py:108
 msgid "Linked library item could not be loaded: {}"
@@ -907,6 +965,24 @@ msgstr "Название роли"
 msgid "Invalid role name."
 msgstr "Jina batili la jukumu."
 
+#: lms/djangoapps/instructor/views/serializer.py:344
+msgid "The URL name of the problem to reset."
+msgstr "Jina la URL la tatizo la kuweka upya."
+
+#: lms/djangoapps/instructor/views/serializer.py:346
+#: lms/djangoapps/instructor/views/serializer.py:567
+msgid "Problem URL name cannot be blank."
+msgstr "Jina la URL la tatizo haliwezi kuwa tupu."
+
+#: lms/djangoapps/instructor/views/serializer.py:351
+msgid "Whether to reset the problem for all students."
+msgstr "Ikiwa tatizo litawekwa upya kwa wanafunzi wote."
+
+#: lms/djangoapps/instructor/views/serializer.py:361
+#: lms/djangoapps/instructor/views/serializer.py:508
+msgid "unique student identifier."
+msgstr "kitambulisho cha kipekee cha mwanafunzi."
+
 #: lms/djangoapps/instructor/views/serializer.py:496
 msgid "Whether to reset for all students."
 msgstr "Iwapo kurejesha upya kwa wanafunzi wote."
@@ -1364,6 +1440,24 @@ msgid ""
 msgstr ""
 "<{p}>Jibu lako limeidhinishwa kwenye chapisho "
 "<{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:258
+#, python-brace-format
+msgid ""
+"<{p}>You have a new open response submission awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>Una wasilisho jipya la jibu wazi linalosubiri ukaguzi wa "
+"<{strong}>{ora_name}</{strong}>.</{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:260
+#, python-brace-format
+msgid ""
+"<{p}>You have multiple submissions awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>Una mawasilisho mengi yanayosubiri ukaguzi wa "
+"<{strong}>{ora_name}</{strong}></{p}>"
 
 #: openedx/core/djangoapps/notifications/base_notification.py:279
 #, python-brace-format
@@ -3073,6 +3167,14 @@ msgstr ""
 " zingine na uarifu MathWorks mara moja ikiwa unaamini kuwa ufunguo "
 "umefichuliwa au umeingiliwa. Ili kupata ufunguo wa kozi yako, au kuripoti "
 "tatizo, tafadhali wasiliana na moocsupport@mathworks.com"
+
+#: xmodule/capa_block.py:363
+msgid ""
+"Indicates if the problem was edited using the Markdown editor in the "
+"Authoring MFE."
+msgstr ""
+"Inaonyesha ikiwa tatizo lilihaririwa kwa kutumia kihariri cha Markdown "
+"katika Uandishi wa MFE."
 
 #: xmodule/capa_block.py:455
 msgid ""
