@@ -9068,15 +9068,86 @@ msgstr "Bună, %(name)s, "
 msgid "Password reset completed on %(platform_name)s"
 msgstr "Resetarea parolei a fost finalizată pe %(platform_name)s"
 
+#: openedx/core/djangoapps/user_authn/views/auto_auth.py:96
+msgid "Superuser creation not allowed"
+msgstr "Crearea de superutilizator nu este permisă"
+
+#: openedx/core/djangoapps/user_authn/views/auto_auth.py:115
+msgid "Account modification not allowed."
+msgstr "Modificarea contului nu este permisă."
+
+#: openedx/core/djangoapps/user_authn/views/auto_auth.py:125
+#: openedx/core/djangoapps/user_authn/views/register.py:715
+msgid "Account creation not allowed."
+msgstr "Crearea contului nu este permisă."
+
+#: openedx/core/djangoapps/user_authn/views/login.py:91
+#, python-brace-format
+msgid ""
+"You've successfully signed in to your {provider_name} account, but this "
+"account isn't linked with your {platform_name} account yet. {blank_lines}Use"
+" your {platform_name} username and password to sign in to {platform_name} "
+"below, and then link your {platform_name} account with {provider_name} from "
+"your dashboard. {blank_lines}If you don't have an account on {platform_name}"
+" yet, click {register_label_strong} at the top of the page."
+msgstr ""
+"V-ați conectat cu succes la contul {provider_name}, dar acest cont nu este "
+"conectat încă cu contul dvs. {platform_name}. {blank_lines}Utilizați numele "
+"de utilizator și parola {platform_name} pentru a vă conecta la "
+"{platform_name} de mai jos, apoi conectați-vă contul {platform_name} cu "
+"{provider_name} din tabloul de bord. {blank_lines}Dacă nu aveți încă un cont"
+" pe {platform_name}, faceți clic pe {register_label_strong} în partea de sus"
+" a paginii."
+
 #: openedx/core/djangoapps/user_authn/views/login.py:102
 msgid "Register"
 msgstr "Creează cont"
+
+#: openedx/core/djangoapps/user_authn/views/login.py:138
+msgid "There was an error receiving your login information. Please email us."
+msgstr ""
+"A apărut o eroare la primirea informațiilor dvs. de conectare. Vă rugăm să "
+"ne trimiteți un e-mail."
+
+#: openedx/core/djangoapps/user_authn/views/login.py:172
+#, python-brace-format
+msgid ""
+"To protect your account, it’s been temporarily locked. Try again in "
+"{locked_out_period} minutes.{li_start}To be on the safe side, you can reset "
+"your password {link_start}here{link_end} before you try again."
+msgstr ""
+"Pentru a vă proteja contul, acesta a fost blocat temporar. Încercați din nou"
+" în {locked_out_period} minute. {li_start} Pentru a fi în siguranță, vă "
+"puteți reseta parola {link_start} aici {link_end} înainte de a încerca din "
+"nou."
 
 #: openedx/core/djangoapps/user_authn/views/login.py:243
 msgid "Too many failed login attempts. Try again later."
 msgstr ""
 "Prea multe încercări eșuate de autentificare în cont. Încearcă din nou mai "
 "târziu."
+
+#: openedx/core/djangoapps/user_authn/views/login.py:285
+#, python-brace-format
+msgid ""
+"Email or password is incorrect.{li_start}You have {remaining_attempts} more "
+"sign-in attempts before your account is temporarily "
+"locked.{li_end}{li_start}If you've forgotten your password, click "
+"{link_start}here{link_end} to reset.{li_end}"
+msgstr ""
+"E-mail sau parolă incorecte.{li_start}Mai ai încă {remaining_attempts} "
+"încercări de autentificare înainte de blocarea temporară a contului "
+"tău.{li_end}{li_start}Dacă ai uitat parola, intră {link_start}aici{link_end}"
+" pentru a o reseta.{li_end}"
+
+#: openedx/core/djangoapps/user_authn/views/login.py:393
+#, python-brace-format
+msgid ""
+"As {allowed_domain} user, You must login with your {allowed_domain} "
+"{link_start}{provider} account{link_end}."
+msgstr ""
+"În calitate de utilizator {allowed_domain}, trebuie să vă conectați cu "
+"contul dvs. {allowed_domain} {link_start}{provider} account{link_end}."
 
 #. Translators: These instructions appear on the login form, immediately
 #. below a field meant to hold the user's email address.
@@ -9090,6 +9161,20 @@ msgid "The email address you used to register with {platform_name}"
 msgstr ""
 "Adresa de e-mail pe care ați folosit-o pentru a vă înregistra cu "
 "{platform_name}"
+
+#. Translators: This example email address is used as a placeholder in
+#. a field on the password reset form meant to hold the user's email address.
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:94
+msgid "username@domain.com"
+msgstr "username@domain.com"
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:183
+msgid ""
+"That e-mail address doesn't have an associated user account. Are you sure "
+"you've registered?"
+msgstr ""
+"Acea adresă de e-mail nu are un cont de utilizator asociat. Sunteți sigur că"
+" v-ați înregistrat?"
 
 #: openedx/core/djangoapps/user_authn/views/password_reset.py:185
 msgid ""
@@ -9105,6 +9190,34 @@ msgstr ""
 "Solicitarea dvs. anterioară este în curs, vă rugăm să încercați din nou "
 "peste câteva momente."
 
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:415
+msgid "Error in resetting your password."
+msgstr "Eroare în resetarea parolei."
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:445
+msgid "Error in resetting your password. Please try again."
+msgstr "Eroare în resetarea parolei. Vă rugăm să încercați din nou."
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:470
+#, python-brace-format
+msgid ""
+"{html_start}Password Creation Complete{html_end}Your password has been "
+"created. {bold_start}{email}{bold_end} is now your primary login email."
+msgstr ""
+"{html_start} Parola a fost creată cu succes {html_end} Parola dvs. a fost "
+"creată. {bold_start} {email} {bold_end} este acum e-mailul principal de "
+"conectare."
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:664
+msgid "Some error occurred during password change. Please try again"
+msgstr ""
+"A apărut o eroare în timpul schimbării parolei. Vă rugăm să încercați din "
+"nou"
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:668
+msgid "No email address provided."
+msgstr "Nu a fost furnizată nicio adresă de e-mail."
+
 #: openedx/core/djangoapps/user_authn/views/password_reset.py:746
 msgid ""
 "An error has occurred. Try refreshing the page, or check your internet "
@@ -9118,6 +9231,31 @@ msgstr ""
 msgid "Registration using {provider} has timed out."
 msgstr "Înregistrarea utilizând {provider} a expirat."
 
+#: openedx/core/djangoapps/user_authn/views/register.py:329
+msgid "An access_token is required when passing value ({}) for provider."
+msgstr ""
+"Un access_token este necesar la transmiterea valorii ({}) pentru furnizor."
+
+#: openedx/core/djangoapps/user_authn/views/register.py:342
+msgid "The provided access_token is already associated with another user."
+msgstr "Access_token-ul furnizat este deja asociat cu un alt utilizator."
+
+#: openedx/core/djangoapps/user_authn/views/register.py:345
+msgid "The provided access_token is not valid."
+msgstr "Access_token-ul furnizat nu este valid."
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:107
+msgid "Full Name cannot contain the following characters: < >"
+msgstr "Nume complet nu poate conține următoarele caractere: < >"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:147
+msgid "A properly formatted e-mail is required"
+msgstr "Este necesar să ai un e-mail formatat corespunzător."
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:148
+msgid "Your legal name must be a minimum of one character long"
+msgstr "Numele legal trebuie să conțină minimum un caracter."
+
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:149
 #, python-format
 msgid ""
@@ -9125,6 +9263,55 @@ msgid ""
 msgstr ""
 "Numele tău legal este prea lung. Nu trebuie să depășească %(max_length)s "
 "caractere."
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:161
+#, python-format
+msgid "Email cannot be more than %(limit_value)s characters long"
+msgstr "Emailul nu poate avea mai mult de %(limit_value)s caractere"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:193
+msgid "You must accept the terms of service."
+msgstr "Trebuie să acceptați termenii și condițiile."
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:197
+msgid "A level of education is required"
+msgstr "Este necesar un nivel de educație"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:198
+msgid "Your gender is required"
+msgstr "Genul dvs. este obligatoriu"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:199
+msgid "Your year of birth is required"
+msgstr "Anul tău de naștere este obligatoriu"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:200
+msgid "Your mailing address is required"
+msgstr "Adresa dvs. poștală este necesară"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:201
+msgid "A description of your goals is required"
+msgstr "Este necesară o descriere a obiectivelor dumneavoastră"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:202
+msgid "A city is required"
+msgstr "Este necesar o oraș"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:203
+msgid "A country is required"
+msgstr "Trebuie specificată o țară."
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:211
+msgid "To enroll, you must follow the honor code."
+msgstr "Pentru a vă înscrie, trebuie să urmați codul de onoare."
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:219
+msgid "You are missing one or more required fields"
+msgstr "Vă lipsesc unul sau mai multe câmpuri obligatorii"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:271
+msgid "Unauthorized email address."
+msgstr "Adresă de e-mail neautorizată."
 
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:275
 #, python-brace-format
@@ -9142,6 +9329,13 @@ msgstr ""
 
 #. Translators: These instructions appear on the registration form,
 #. immediately
+#. below a field meant to hold the user's email address.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:510
+msgid "This is what you will use to login."
+msgstr "Acesta este ceea ce veți folosi pentru a vă autentifica."
+
+#. Translators: These instructions appear on the registration form,
+#. immediately
 #. below a field meant to hold the user's full name.
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:560
 msgid "This name will be used on any certificates that you earn."
@@ -9154,17 +9348,49 @@ msgstr ""
 msgid "Public Username"
 msgstr "Nume public de utilizator"
 
+#. Translators: These instructions appear on the registration form,
+#. immediately
+#. below a field meant to hold the user's public username.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:586
+msgid ""
+"The name that will identify you in your courses. It cannot be changed later."
+msgstr ""
+"Este numele cu care te vei identifica în cursuri. Nu poate fi schimbat "
+"ulterior."
+
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:702
 #, python-brace-format
 msgid "I agree that {platform_name} may send me marketing messages."
 msgstr ""
 "Sunt de acord că {platform_name} îmi poate trimite mesaje de marketing."
 
+#. Translators: This label appears above a dropdown menu on the registration
+#. form used to select the country in which the user lives.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:967
+msgid "Country or Region of Residence"
+msgstr "Țara sau regiunea de rezidență"
+
+#. Translators: These instructions appear on the registration form,
+#. immediately
+#. below a field meant to hold the user's country.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:978
+msgid "The country or region where you live."
+msgstr "Țara sau regiunea în care locuiți."
+
 #. Translators: This is a legal document users must agree to
 #. in order to register a new account.
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:1016
 msgid "Terms of Service and Honor Code"
 msgstr "Termeni și condiții și Angajament de Integritate"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1022
+#, python-brace-format
+msgid ""
+"I agree to the {platform_name} "
+"{terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end}"
+msgstr ""
+"Sunt de acord cu {platform_name} "
+"{terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end}"
 
 #. Translators: "Terms of Service" is a legal document users must agree to
 #. in order to register a new account.
@@ -9190,9 +9416,30 @@ msgstr ""
 "{platform_name} prelucrează datele personale în conformitate cu Politica "
 "{privacy_policy_link_end} {privacy_policy_link_start}"
 
+#. Translators: "Terms of service" is a legal document users must agree to
+#. in order to register a new account.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1087
+#, python-brace-format
+msgid ""
+"I agree to the {platform_name} "
+"{tos_link_start}{terms_of_service}{tos_link_end}"
+msgstr ""
+"Sunt de acord cu {platform_name} "
+"{tos_link_start}{terms_of_service}{tos_link_end}"
+
 #: openedx/core/djangoapps/user_authn/views/utils.py:53
 msgid "Create Account"
 msgstr "Creează cont"
+
+#: openedx/core/djangoapps/util/user_messages.py:104
+#, python-brace-format
+msgid "{header_open}{title}{header_close}{body}"
+msgstr "{header_open}{title}{header_close}{body}"
+
+#: openedx/core/djangoapps/util/user_messages.py:241
+#, python-brace-format
+msgid "{header_open}{title}{header_close}"
+msgstr "{header_open}{title}{header_close}"
 
 #: openedx/core/djangoapps/util/user_messages.py:256
 msgid "Dismiss"
@@ -9272,9 +9519,75 @@ msgstr ""
 msgid "{exception_message}: Can't find uploaded transcripts: {user_filename}"
 msgstr "{exception_message}: Nu găsim transcrieri încărcate: {user_filename}"
 
+#: openedx/core/djangoapps/video_pipeline/models.py:33
+msgid "Oauth client name of VEM service."
+msgstr "Numele clientului Oauth al serviciului VEM."
+
+#: openedx/core/djangoapps/video_pipeline/models.py:38
+msgid "video encode manager API URL."
+msgstr "Adresa URL API a managerului de codare video."
+
+#: openedx/core/djangoapps/video_pipeline/models.py:46
+msgid "Username created for VEM Integration, e.g. vem_service_user."
+msgstr ""
+"Nume de utilizator creat pentru integrarea VEM, de exemplu vem_service_user."
+
+#: openedx/core/djangoapps/waffle_utils/models.py:28
+#: openedx/core/djangoapps/waffle_utils/models.py:91
+msgid "Force On"
+msgstr "Force On"
+
+#: openedx/core/djangoapps/waffle_utils/models.py:28
+#: openedx/core/djangoapps/waffle_utils/models.py:91
+msgid "Force Off"
+msgstr "Oprire forțată"
+
+#: openedx/core/djangoapps/xblock/runtime/mixin.py:65
+msgid ""
+"This content is only accessible to registered learners. Sign in or register "
+"to view it."
+msgstr ""
+"Acest conținut este accesibil numai cursanților înregistrați. Conectați-vă "
+"sau înregistrați-vă pentru a-l vizualiza."
+
+#: openedx/core/djangoapps/xblock/runtime/mixin.py:69
+msgid "This content is only accessible to enrolled learners. "
+msgstr "Acest conținut este accesibil numai cursanților înscriși. "
+
+#: openedx/core/lib/api/view_utils.py:159
+#, python-brace-format
+msgid "The about me field must be at most {BIO_MAX_LENGTH} characters long."
+msgstr ""
+"Câmpul despre mine trebuie să aibă cel mult {BIO_MAX_LENGTH} caractere."
+
+#: openedx/core/lib/api/view_utils.py:161
+msgid "This value is invalid."
+msgstr "Această valoare este nevalidă."
+
+#: openedx/core/lib/api/view_utils.py:214
+msgid "This field is not editable"
+msgstr "Acest câmp nu este editabil"
+
+#: openedx/core/lib/gating/api.py:71
+#, python-format
+msgid "%(min_score)s is not a valid grade percentage"
+msgstr "%(min_score)s nu este un procentaj de calificare valid"
+
+#: openedx/core/lib/gating/api.py:186
+#, python-brace-format
+msgid "Gating milestone for {usage_key}"
+msgstr "Etapă de referință pentru {usage_key}"
+
 #: openedx/core/lib/license/mixin.py:26
 msgid "License"
 msgstr "Licență"
+
+#: openedx/core/lib/license/mixin.py:27
+msgid ""
+"A license defines how the contents of this block can be shared and reused."
+msgstr ""
+"O licență definește modul în care conținutul acestui bloc poate fi partajat "
+"și reutilizat."
 
 #: openedx/core/lib/teams_config.py:386
 #, python-brace-format
@@ -9286,13 +9599,175 @@ msgid "Partition for segmenting users by team-set"
 msgstr ""
 "Partiție pentru segmentarea utilizatorilor în funcție de setul de echipă"
 
+#: openedx/features/calendar_sync/ics.py:36
+#, python-brace-format
+msgid "{assignment} is due for {course}."
+msgstr "{assignment} este datorată pentru {course}."
+
 #: openedx/features/calendar_sync/plugins.py:21
 msgid "Calendar Sync"
 msgstr "Sincronizare calendar"
 
+#: openedx/features/calendar_sync/plugins.py:42
+msgid "Unsubscribe from calendar updates"
+msgstr "Dezabonați de la actualizările calendarului"
+
+#: openedx/features/calendar_sync/plugins.py:45
+msgid "Subscribe to calendar updates"
+msgstr "Abonați-vă la actualizările calendarului"
+
+#: openedx/features/calendar_sync/utils.py:16
+#, python-brace-format
+msgid "Sync {course} to your calendar"
+msgstr "Sincronizați {course} în calendarul tău"
+
+#: openedx/features/calendar_sync/utils.py:17
+#, python-brace-format
+msgid ""
+"Sticking to a schedule is the best way to ensure that you successfully "
+"complete your self-paced course. This schedule for {course} will help you "
+"stay on track!"
+msgstr ""
+"Respectarea unui program este cea mai bună modalitate de a vă asigura că vă "
+"finalizați cu succes cursul în ritm propriu. Acest program pentru {course} "
+"vă va ajuta să rămâneți pe drumul cel bun!"
+
+#: openedx/features/calendar_sync/utils.py:20
+msgid ""
+"Once you sync your course schedule to your calendar, any updates to the "
+"course from your instructor will be automatically reflected. You can remove "
+"the course from your calendar at any time."
+msgstr ""
+"După ce vă sincronizați programul de curs cu calendarul dvs., orice "
+"actualizări ale cursului de la instructorul dvs. vor fi reflectate automat. "
+"Puteți elimina oricând cursul din calendar."
+
+#: openedx/features/calendar_sync/utils.py:33
+#, python-brace-format
+msgid "{course} dates have been updated on your calendar"
+msgstr "{course} datele au fost actualizate în calendarul dvs"
+
+#: openedx/features/calendar_sync/utils.py:34
+msgid ""
+"You have successfully shifted your course schedule and your calendar is up "
+"to date."
+msgstr ""
+"Ți-ai schimbat cu succes programul de curs și calendarul tău este "
+"actualizat."
+
+#: openedx/features/content_type_gating/models.py:27
+#: openedx/features/course_duration_limits/models.py:36
+msgid "Enabled As Of"
+msgstr "Activare începând cu"
+
+#: openedx/features/content_type_gating/models.py:30
+#: openedx/features/course_duration_limits/models.py:39
+msgid ""
+"If the configuration is Enabled, then all enrollments created after this "
+"date and time (user local time) will be affected."
+msgstr ""
+"Dacă configurația este Activată, atunci toate înscrierile create după "
+"această dată și oră (ora locală a utilizatorului) vor fi afectate."
+
+#: openedx/features/content_type_gating/models.py:36
+msgid "Studio Override Enabled"
+msgstr "Modificarea Studio este activată"
+
+#: openedx/features/content_type_gating/models.py:39
+msgid ""
+"Allow Feature Based Enrollment visibility to be overriden on a per-component"
+" basis in Studio."
+msgstr ""
+"Permiteți ca vizibilitatea Înregistrării bazate pe funcții să fie înlocuită "
+"pe o Componenta în Studio."
+
+#: openedx/features/content_type_gating/models.py:91
+#: openedx/features/course_duration_limits/models.py:91
+msgid "enabled_as_of must be set when enabled is True"
+msgstr "enabled_as_of trebuie setat când activat este True"
+
+#: openedx/features/content_type_gating/partitions.py:70
+msgid "Partition for segmenting users by access to gated content types"
+msgstr ""
+"Partiție pentru segmentarea utilizatorilor la tipurile de conținut închis"
+
+#: openedx/features/content_type_gating/partitions.py:117
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:10
+msgid "Graded assessments are available to Verified Track learners."
+msgstr "Evaluările notate sunt disponibile pentru cursanții Verified Track."
+
+#: openedx/features/content_type_gating/partitions.py:119
+msgid ""
+"Graded assessments are available to Verified Track learners. Upgrade to "
+"Unlock."
+msgstr ""
+"Evaluările notate sunt disponibile doar pentru cursanții din Parcursul "
+"verificat. Actualizează pentru a debloca."
+
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:3
+msgid "Content available only to verified track learners"
+msgstr "Conținut disponibil doar pentru cursanții din Parcursul verificat."
+
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:7
+msgid "Verified Track Access"
+msgstr "Acces pe pistă verificată"
+
 #: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:15
 msgid "Upgrade to unlock"
 msgstr "Actualizează pentru a debloca"
+
+#: openedx/features/course_duration_limits/access.py:32
+#, python-brace-format
+msgid "Access expired on {expiration_date}"
+msgstr "Acces a expirat pe {expiration_date}"
+
+#: openedx/features/course_duration_limits/access.py:35
+#, python-brace-format
+msgid "Access to {course_name} expired on {expiration_date}"
+msgstr "Acces la {course_name} a expirat pe {expiration_date}"
+
+#: openedx/features/course_duration_limits/access.py:40
+#, python-brace-format
+msgid "Access to the course you were looking for expired on {expiration_date}"
+msgstr ""
+"Accesul la cursurile pe care îl căutați a expirat pe {expiration_date}"
+
+#: openedx/features/course_duration_limits/access.py:158
+#, python-brace-format
+msgid ""
+"This learner does not have access to this course. Their access expired on "
+"{expiration_date}."
+msgstr ""
+"Acest cursant nu are acces la acest curs. Accesul lor a expirat pe "
+"{expiration_date}."
+
+#: openedx/features/course_duration_limits/access.py:164
+#, python-brace-format
+msgid ""
+"{strong_open}Audit Access Expires "
+"{expiration_date}{strong_close}{line_break}You lose all access to this "
+"course, including your progress, on {expiration_date}."
+msgstr ""
+"{strong_open} Accesul de audit va expira {expiration_date} {strong_close} "
+"{line_break} Pierzi tot accesul la aceste cursuri, inclusiv progresul tău, "
+"pe {expiration_date} ."
+
+#: openedx/features/course_duration_limits/access.py:167
+#, python-brace-format
+msgid ""
+"{line_break}Upgrade by {upgrade_deadline} to get unlimited access to the "
+"course as long as it exists on the site. {a_open}Upgrade "
+"now{sronly_span_open} to retain access past "
+"{expiration_date}{span_close}{a_close}"
+msgstr ""
+"{line_break} Faceți upgrade de către {upgrade_deadline} pentru a obține "
+"acces nelimitat la curs atâta timp cât acesta există pe site. {a_open} "
+"Faceți upgrade acum {sronly_span_open} pentru a păstra accesul trecut de "
+"{expiration_date} {span_close} {a_close}"
+
+#: openedx/features/course_experience/api/v1/views.py:60
+msgid "'course_key' is required."
+msgstr "„cheia_curs” este necesară."
 
 #: openedx/features/course_experience/api/v1/views.py:69
 #: openedx/features/course_experience/api/v1/views.py:72
@@ -9306,9 +9781,115 @@ msgstr ""
 "Dăți scadentele au fost modificate cu succes pentru a vă ajuta să rămâneți "
 "pe drumul cel bun."
 
+#: openedx/features/course_experience/api/v1/views.py:73
+msgid "Deadlines successfully reset."
+msgstr "Termenele limită au fost resetate cu succes."
+
+#: openedx/features/discounts/admin.py:22
+msgid ""
+"These define the context to disable lms-controlled discounts on. If no "
+"values are set, then the configuration applies globally. If a single value "
+"is set, then the configuration applies to all courses within that context. "
+"At most one value can be set at a time.<br>If multiple contexts apply to a "
+"course (for example, if configuration is specified for the course "
+"specifically, and for the org that the course is in, then the more specific "
+"context overrides the more general context."
+msgstr ""
+"Acestea să definească contextul pentru a dezactiva reducerile controlate de "
+"lms. Dacă nu sunt setate valori, atunci configurația se aplică la nivel "
+"global. Dacă este setată o singură valoare, atunci configurația se aplică "
+"tuturor cursurilor din acel context. Cel mult o valoare poate fi setată la "
+"un moment dat.<br> Dacă unui curs se aplică mai multe contexte (de exemplu, "
+"dacă configurația este specificată pentru curs în mod specific și pentru "
+"organizația în care se află cursul, atunci contextul mai specific îl "
+"înlocuiește pe contextul mai general."
+
+#: openedx/features/discounts/admin.py:54
+msgid ""
+"These define the context to configure the percentage for the first purchase "
+"discount.If multiple contexts apply to a course (for example, if "
+"configuration is specified for the course specifically, and for the org that"
+" the course is in, then the more specific context overrides the more general"
+" context."
+msgstr ""
+"Acestea definește contextul pentru a configura procentul pentru prima "
+"reducere de achiziție. Dacă unui curs se aplică mai multe contexte (de "
+"exemplu, dacă configurația este specificată în mod specific pentru curs și "
+"pentru organizația în care se află cursul, atunci contextul mai specific îl "
+"înlocuiește pe cel mai general."
+
+#: openedx/features/discounts/utils.py:142
+#, python-brace-format
+msgid ""
+"{s_sr}Original price: {s_op}{original_price}{e_p}, discount price: "
+"{e_sr}{formatted_discount_price}"
+msgstr ""
+"{s_sr} Preț original: {s_op} {original_price} {e_p} , preț redus: {e_sr} "
+"{formatted_discount_price}"
+
+#: openedx/features/enterprise_support/admin/forms.py:13
+msgid "CSV File"
+msgstr "Fișier CSV"
+
+#: openedx/features/enterprise_support/admin/forms.py:14
+msgid ""
+"CSV file should have 3 columns having names lms_user_id, course_id, "
+"opportunity_id"
+msgstr ""
+"Fișierul CSV ar trebui să aibă 3 coloane cu nume lms_user_id, "
+"identificatorul cursului, opportunity_id"
+
+#: openedx/features/enterprise_support/admin/views.py:66
+#, python-brace-format
+msgid ""
+"Enrollment attributes were not updated for records at following line numbers"
+" in csv because no enrollment found for these records: {error_line_numbers}"
+msgstr ""
+"atributele de înscriere nu au fost actualizate pentru înregistrările de la "
+"următoarele numere de rând în csv, deoarece nu a fost găsită nicio înscriere"
+" pentru aceste înregistrări: {error_line_numbers}"
+
+#: openedx/features/enterprise_support/api.py:903
+#, python-brace-format
+msgid ""
+"You have access to the {bold_start}{enterprise_name}{bold_end} dashboard. To"
+" access the courses available to you through {enterprise_name}, "
+"{link_start}visit the {enterprise_name} dashboard{link_end}."
+msgstr ""
+"Aveți acces la tabloul de bord {bold_start}{enterprise_name}{bold_end}. "
+"Pentru a accesa cursurile disponibile prin {enterprise_name}, "
+"{link_start}vizitați tabloul de bord {enterprise_name}{link_end}."
+
+#: openedx/features/enterprise_support/api.py:1004
+#, python-brace-format
+msgid "Enrollment in {course_title} was not complete."
+msgstr "Înscrierea în {course_title} nu s-a completat."
+
+#: openedx/features/enterprise_support/api.py:1008
+#, python-brace-format
+msgid ""
+"If you have concerns about sharing your data, please contact your "
+"administrator at {enterprise_customer_name}."
+msgstr ""
+"Dacă aveți îngrijorări cu privire la partajarea datelor dvs., vă rugăm să "
+"contactați administratorul la {enterprise_customer_name}."
+
 #: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:15
 msgid "Home"
 msgstr "Acasă"
+
+#: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:17
+msgid "Enterprise Course Enrollments"
+msgstr "Înscrieri la cursuri pentru întreprinderi"
+
+#: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:18
+msgid "Override Enrollment Attributes"
+msgstr "Ignorați atributele de înscriere"
+
+#: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:25
+msgid "Upload CSV to override enrollment attributes for learners"
+msgstr ""
+"Încărcați CSV pentru înlocuirea atributelor de înscriere pentru cursanți"
 
 #: openedx/features/enterprise_support/utils.py:178
 #, python-brace-format
@@ -9322,6 +9903,15 @@ msgstr ""
 "canal. Vă rugăm să contactați administratorul sau managerul de învățare "
 "pentru a accesa {platform_name}.{line_break}{line_break}Detalii "
 "eroare:{line_break}{error_message}"
+
+#: openedx/features/enterprise_support/utils.py:200
+#, python-brace-format
+msgid ""
+"Thank you for joining {platform_name}. Just a couple steps before you start "
+"learning!"
+msgstr ""
+"Mulțumim că te-ai alăturat platformei {platform_name}. Au mai rămas doar "
+"câțiva pași de parcurs până să poți începe!"
 
 #: openedx/features/enterprise_support/utils.py:205
 msgid "Continue"
@@ -9354,6 +9944,14 @@ msgstr ""
 "nimic din progresul pe care l-ați făcut atunci când vă schimbați dăți "
 "scadente."
 
+#: openedx/features/personalized_learner_schedules/call_to_action.py:145
+#, python-brace-format
+msgid "Try again ({attempts} attempt remaining)"
+msgid_plural "Try again ({attempts} attempts remaining)"
+msgstr[0] "Încercați din nou ({attempts} încercare rămasă)"
+msgstr[1] "Încercați din nou ({attempts} încercări rămase)"
+msgstr[2] "Încercați din nou ({attempts} încercări rămase)"
+
 #: openedx/features/personalized_learner_schedules/call_to_action.py:150
 #, python-brace-format
 msgid "You have used {attempts} of {max_attempts} attempts for this problem."
@@ -9375,6 +9973,14 @@ msgstr ""
 msgid "Sign In"
 msgstr "Autentificare"
 
+#: themes/red-theme/lms/templates/ace_common/edx_ace/common/base_body.html:176
+msgid "Our mailing address is"
+msgstr "Adresa noastră poștală este"
+
+#: xmodule/annotatable_block.py:48
+msgid "XML data for the annotation"
+msgstr "Datele XML pentru notă (adnotare)"
+
 #: xmodule/annotatable_block.py:70 xmodule/capa_block.py:197
 #: xmodule/conditional_block.py:89 xmodule/discussion_block.py:50
 #: xmodule/html_block.py:58 xmodule/html_block.py:399
@@ -9385,6 +9991,18 @@ msgstr "Autentificare"
 #: xmodule/x_module.py:215
 msgid "The display name for this component."
 msgstr "Numele afișat pentru componenta aceasta."
+
+#: xmodule/annotatable_block.py:72
+msgid "Annotation"
+msgstr "Notă (Adnotare)"
+
+#: xmodule/capa/capa_problem.py:517
+msgid "Cannot rescore problems with possible file submissions"
+msgstr "Nu se pot remedia problemele cu posibilele trimiteri de fișiere"
+
+#: xmodule/capa/capa_problem.py:616
+msgid "Question {}"
+msgstr "Întrebare {}"
 
 #: xmodule/capa/capa_problem.py:746 xmodule/capa_block.py:1417
 msgid "Incorrect"
@@ -9402,15 +10020,251 @@ msgstr "corect"
 msgid "incorrect"
 msgstr "incorect"
 
+#: xmodule/capa/inputtypes.py:92
+msgid "partially correct"
+msgstr "parțial corect"
+
+#: xmodule/capa/inputtypes.py:93
+msgid "incomplete"
+msgstr "incomplet"
+
+#: xmodule/capa/inputtypes.py:94 xmodule/capa/inputtypes.py:95
+msgid "unanswered"
+msgstr "fără răspuns"
+
+#: xmodule/capa/inputtypes.py:96
+msgid "submitted"
+msgstr "trimis"
+
+#: xmodule/capa/inputtypes.py:97
+msgid "processing"
+msgstr "prelucrare"
+
+#. Translators: these are tooltips that indicate the state of an assessment
+#. question
+#: xmodule/capa/inputtypes.py:101
+msgid "This answer is correct."
+msgstr "Acest răspuns este corect."
+
+#: xmodule/capa/inputtypes.py:102
+msgid "This answer is incorrect."
+msgstr "Acest răspuns este incorect."
+
+#: xmodule/capa/inputtypes.py:103
+msgid "This answer is partially correct."
+msgstr "Acest răspuns este parțial corect."
+
+#: xmodule/capa/inputtypes.py:104
+msgid "This answer is being processed."
+msgstr "Acest răspuns este în curs de procesare."
+
+#: xmodule/capa/inputtypes.py:106
+msgid "Not yet answered."
+msgstr "Nu a răspuns încă."
+
 #: xmodule/capa/inputtypes.py:441
 msgid "Select an option"
 msgstr "Alege o opțiune"
+
+#. Translators: 'ChoiceGroup' is an input type and should not be translated.
+#: xmodule/capa/inputtypes.py:493
+#, python-brace-format
+msgid "ChoiceGroup: unexpected tag {tag_name}"
+msgstr "ChoiceGroup: etichetă neașteptată {tag_name}"
+
+#: xmodule/capa/inputtypes.py:506 xmodule/capa/inputtypes.py:1704
+msgid "Answer received."
+msgstr "Răspuns primit."
+
+#: xmodule/capa/inputtypes.py:726
+msgid ""
+"Your files have been submitted. As soon as your submission is graded, this "
+"message will be replaced with the grader's feedback."
+msgstr ""
+"Fișierele dvs. au fost trimise. De îndată ce trimiterea dvs. este notată, "
+"acest mesaj va fi înlocuit cu feedback-ul evaluatorului."
+
+#: xmodule/capa/inputtypes.py:802
+msgid ""
+"Your answer has been submitted. As soon as your submission is graded, this "
+"message will be replaced with the grader's feedback."
+msgstr ""
+"Răspunsul dvs. a fost trimis. De îndată ce trimiterea dvs. este notată, "
+"acest mesaj va fi înlocuit cu feedback-ul evaluatorului."
+
+#: xmodule/capa/inputtypes.py:816
+#, python-brace-format
+msgid "{programming_language} editor"
+msgstr "{programming_language} editor"
 
 #: xmodule/capa/inputtypes.py:819
 msgid "Press ESC then TAB or click outside of the code editor to exit"
 msgstr ""
 "Apăsați ESC, apoi TAB sau faceți clic în afara editorului de cod pentru a "
 "ieși"
+
+#: xmodule/capa/inputtypes.py:847
+msgid ""
+"Submitted. As soon as a response is returned, this message will be replaced "
+"by that feedback."
+msgstr ""
+"Trimis. De îndată ce un răspuns este returnat, acest mesaj va fi înlocuit cu"
+" acel feedback."
+
+#: xmodule/capa/inputtypes.py:872
+#, python-brace-format
+msgid "No response from Xqueue within {xqueue_timeout} seconds. Aborted."
+msgstr "Niciun răspuns de la Xqueue în {xqueue_timeout} secunde. Avortat."
+
+#: xmodule/capa/inputtypes.py:941
+msgid "Error running code."
+msgstr "Eroare la rularea codului."
+
+#: xmodule/capa/inputtypes.py:980
+msgid "Cannot connect to the queue"
+msgstr "Nu se poate conecta la coadă"
+
+#: xmodule/capa/inputtypes.py:1211 xmodule/capa/inputtypes.py:1294
+msgid "No formula specified."
+msgstr "Nicio formulă specificată."
+
+#: xmodule/capa/inputtypes.py:1217
+#, python-brace-format
+msgid "Couldn't parse formula: {error_msg}"
+msgstr "Nu s-a putut analiza formula: {error_msg}"
+
+#: xmodule/capa/inputtypes.py:1221 xmodule/capa/inputtypes.py:1316
+msgid "Error while rendering preview"
+msgstr "Eroare la redarea previzualizării"
+
+#: xmodule/capa/inputtypes.py:1312
+msgid "Sorry, couldn't parse formula"
+msgstr "Ne pare rău, nu am putut analiza formula"
+
+#: xmodule/capa/inputtypes.py:1684
+#, python-brace-format
+msgid "{input_type}: unexpected tag {tag_name}"
+msgstr "{input_type}: etichetă neașteptată {tag_name}"
+
+#. Translators: a "tag" is an XML element, such as "<b>" in HTML
+#: xmodule/capa/inputtypes.py:1764
+#, python-brace-format
+msgid "Expected a {expected_tag} tag; got {given_tag} instead"
+msgstr "Se aștepta o etichetă {expected_tag}; am primit {given_tag} în schimb"
+
+#. Translators: index here could be 1,2,3 and so on
+#: xmodule/capa/responsetypes.py:254
+#, python-brace-format
+msgid "Question {index}"
+msgstr "Întrebarea {index}"
+
+#: xmodule/capa/responsetypes.py:365
+msgid "Correct:"
+msgstr "Corect:"
+
+#: xmodule/capa/responsetypes.py:367
+msgid "Incorrect:"
+msgstr "Incorrect:"
+
+#: xmodule/capa/responsetypes.py:410 xmodule/capa_block.py:809
+#: xmodule/capa_block.py:826
+msgid "Answer"
+msgstr "Răspuns"
+
+#: xmodule/capa/responsetypes.py:491
+#, python-brace-format
+msgid "Error {err} in evaluating hint function {hintfn}."
+msgstr "Eroare {err} în evaluarea funcției de indiciu {hintfn}."
+
+#: xmodule/capa/responsetypes.py:492
+msgid "(Source code line unavailable)"
+msgstr "(Linia de cod sursă indisponibilă)"
+
+#: xmodule/capa/responsetypes.py:493
+#, python-brace-format
+msgid "See XML source line {sourcenum}."
+msgstr "Consultați linia sursă XML {sourcenum}."
+
+#: xmodule/capa/responsetypes.py:664
+msgid "Checkboxes"
+msgstr "Casete de selectare"
+
+#: xmodule/capa/responsetypes.py:991
+msgid "Multiple Choice"
+msgstr "Alegere multiplă"
+
+#. Translators: 'shuffle' and 'answer-pool' are attribute names and should not
+#. be translated.
+#: xmodule/capa/responsetypes.py:1208
+msgid "Do not use shuffle and answer-pool at the same time"
+msgstr "Nu utilizați shuffle și answer-pool în același timp"
+
+#. Translators: 'answer-pool' is an attribute name and should not be
+#. translated.
+#: xmodule/capa/responsetypes.py:1291
+msgid "answer-pool value should be an integer"
+msgstr "valoarea pool-ului de răspunsuri ar trebui să fie un număr întreg"
+
+#. Translators: 'Choicegroup' is an input type and should not be translated.
+#: xmodule/capa/responsetypes.py:1358
+msgid "Choicegroup must include at least 1 correct and 1 incorrect choice"
+msgstr ""
+"Grupul de alegere trebuie să includă cel puțin o alegere corectă și una "
+"incorectă"
+
+#: xmodule/capa/responsetypes.py:1383
+msgid "True/False Choice"
+msgstr "Alegere adevărat/fals"
+
+#: xmodule/capa/responsetypes.py:1506
+msgid "Numerical Input"
+msgstr "Intrare numerică"
+
+#: xmodule/capa/responsetypes.py:1542 xmodule/capa/responsetypes.py:1569
+msgid "There was a problem with the staff answer to this problem."
+msgstr "A fost o problemă cu răspunsul personalului la această problemă."
+
+#: xmodule/capa/responsetypes.py:1592
+#, python-brace-format
+msgid "Could not interpret '{student_answer}' as a number."
+msgstr "Nu s-a putut interpreta „{student_answer}” ca număr."
+
+#: xmodule/capa/responsetypes.py:1610
+#, python-brace-format
+msgid "Factorial function evaluated outside its domain:'{student_answer}'"
+msgstr ""
+"Funcție factorială evaluată în afara domeniului său: „{student_answer}”"
+
+#: xmodule/capa/responsetypes.py:1617
+#, python-brace-format
+msgid "Invalid math syntax: '{student_answer}'"
+msgstr "Sintaxa matematică invalidă: '{student_answer}'"
+
+#: xmodule/capa/responsetypes.py:1648
+msgid "You may not use complex numbers in range tolerance problems"
+msgstr ""
+"Nu puteți utiliza numere complexe în probleme de toleranță la interval"
+
+#. Translators: This is an error message for a math problem. If the instructor
+#. provided a
+#. boundary (end limit) for a variable that is a complex number (a + bi), this
+#. message displays.
+#: xmodule/capa/responsetypes.py:1656
+msgid ""
+"There was a problem with the staff answer to this problem: complex boundary."
+msgstr ""
+"A apărut o problemă cu răspunsul personalului la această problemă: limită "
+"complexă."
+
+#. Translators: This is an error message for a math problem. If the instructor
+#. did not
+#. provide a boundary (end limit) for a variable, this message displays.
+#: xmodule/capa/responsetypes.py:1662
+msgid ""
+"There was a problem with the staff answer to this problem: empty boundary."
+msgstr ""
+"A fost o problemă cu răspunsul personalului la această problemă: granița "
+"goală."
 
 #. Translators: Separator used in NumericalResponse to display multiple
 #. answers.
@@ -9420,9 +10274,152 @@ msgstr ""
 msgid "or"
 msgstr "sau"
 
+#: xmodule/capa/responsetypes.py:1847
+msgid "Text Input"
+msgstr "Introducere text"
+
+#: xmodule/capa/responsetypes.py:2058
+msgid "Custom Evaluated Script"
+msgstr "Script personalizat evaluat"
+
+#: xmodule/capa/responsetypes.py:2191
+msgid "No answer entered!"
+msgstr "Nu a fost introdus niciun răspuns!"
+
+#: xmodule/capa/responsetypes.py:2410
+msgid "CustomResponse: check function returned an invalid dictionary!"
+msgstr ""
+"CustomResponse: funcția de verificare a returnat un dicționar nevalid!"
+
+#: xmodule/capa/responsetypes.py:2504
+msgid "Symbolic Math Input"
+msgstr "Intrare matematică simbolică"
+
+#. Translators: 'SymbolicResponse' is a problem type and should not be
+#. translated.
+#: xmodule/capa/responsetypes.py:2535
+#, python-brace-format
+msgid "An error occurred with SymbolicResponse. The error was: {error_msg}"
+msgstr "A apărut o eroare cu SymbolicResponse. Eroarea a fost: {error_msg}"
+
+#: xmodule/capa/responsetypes.py:2574
+msgid "Code Input"
+msgstr "Intrare cod"
+
+#: xmodule/capa/responsetypes.py:2630
+msgid "No answer provided."
+msgstr "Nu s-a oferit niciun răspuns."
+
+#: xmodule/capa/responsetypes.py:2649
+msgid "Error: No grader has been set up for this problem."
+msgstr "Eroare: nu a fost configurat niciun gradator pentru această problemă."
+
+#: xmodule/capa/responsetypes.py:2706
+#, python-brace-format
+msgid ""
+"Unable to deliver your submission to grader (Reason: {error_msg}). Please "
+"try again later."
+msgstr ""
+"Nu se poate livra trimiterea dvs. către evaluator (Motiv: {error_msg}). Vă "
+"rugăm să încercați din nou mai târziu."
+
+#. Translators: 'grader' refers to the edX automatic code grader.
+#: xmodule/capa/responsetypes.py:2728
+msgid "Invalid grader reply. Please contact the course staff."
+msgstr ""
+"Răspuns nevalid pentru evaluator. Vă rugăm să contactați personalul "
+"cursului."
+
+#: xmodule/capa/responsetypes.py:2838
+msgid "External Grader"
+msgstr "Grader extern"
+
+#: xmodule/capa/responsetypes.py:2989
+msgid "Math Expression Input"
+msgstr "Intrare expresie matematică"
+
+#: xmodule/capa/responsetypes.py:3076
+#, python-brace-format
+msgid ""
+"Factorial function not permitted in answer for this problem. Provided answer"
+" was: {bad_input}"
+msgstr ""
+"Funcția factorială nu este permisă în răspuns la această problemă. Răspunsul"
+" oferit a fost: {bad_input}"
+
+#: xmodule/capa/responsetypes.py:3084
+#, python-brace-format
+msgid "Invalid input: Could not parse '{bad_input}' as a formula."
+msgstr "Intrare nevalidă: nu s-a putut analiza „{bad_input}” ca formulă."
+
+#: xmodule/capa/responsetypes.py:3092
+#, python-brace-format
+msgid "Invalid input: Could not parse '{bad_input}' as a formula"
+msgstr "Intrare nevalidă: nu s-a putut analiza „{bad_input}” ca formulă."
+
+#: xmodule/capa/responsetypes.py:3198
+msgid "Circuit Schematic Builder"
+msgstr "Constructor de schema de circuite"
+
+#. Translators: 'SchematicResponse' is a problem type and should not be
+#. translated.
+#: xmodule/capa/responsetypes.py:3234
+#, python-brace-format
+msgid "Error in evaluating SchematicResponse. The error was: {error_msg}"
+msgstr "Eroare în evaluarea SchematicResponse. Eroarea a fost: {error_msg}"
+
+#: xmodule/capa/responsetypes.py:3276
+msgid "Image Mapped Input"
+msgstr "Intrare Imagine mapată"
+
+#: xmodule/capa/responsetypes.py:3301
+#, python-brace-format
+msgid "error grading {image_input_id} (input={user_input})"
+msgstr "evaluarea erorii {image_input_id} (input={user_input})"
+
+#. Translators: {sr_coords} are the coordinates of a rectangle
+#: xmodule/capa/responsetypes.py:3324
+#, python-brace-format
+msgid "Error in problem specification! Cannot parse rectangle in {sr_coords}"
+msgstr ""
+"Eroare la specificarea problemei! Nu se poate analiza dreptunghiul în "
+"{sr_coords}"
+
+#: xmodule/capa/responsetypes.py:3401
+msgid "Annotation Input"
+msgstr "Intrare Notă (adnotare)"
+
+#: xmodule/capa/responsetypes.py:3521
+msgid "Checkboxes With Text Input"
+msgstr "Casete de selectare cu introducere de text"
+
+#: xmodule/capa/responsetypes.py:3573
+#, python-brace-format
+msgid "Answer not provided for {input_type}"
+msgstr "Răspunsul nu este furnizat pentru {input_type}"
+
+#: xmodule/capa/responsetypes.py:3798
+msgid "The Staff answer could not be interpreted as a number."
+msgstr "Răspunsul personalului nu a putut fi interpretat ca un număr."
+
 #: xmodule/capa/responsetypes.py:3808
 msgid "Could not interpret '{html.escape(answer_value)}' as a number."
 msgstr "Nu s-a putut interpreta '{html.escape(answer_value)}' ca un număr."
+
+#: xmodule/capa/safe_exec/remote_exec.py:120
+msgid ""
+"Codejail API Service is unavailable. Please try again in a few minutes."
+msgstr ""
+"Serviciul Codejail API nu este disponibil. Vă rugăm să încercați din nou "
+"peste câteva minute."
+
+#: xmodule/capa/safe_exec/remote_exec.py:126
+msgid "Codejail API Service invalid response."
+msgstr "Răspuns nevalid de serviciul API Codejail."
+
+#: xmodule/capa/safe_exec/remote_exec.py:132
+msgid "Invalid JSON response received from codejail api service."
+msgstr "Răspuns JSON nevalid primit de la serviciul API Codejail."
 
 #: xmodule/capa/templates/codeinput.html:7
 msgid "Code Editor"
@@ -9487,6 +10484,14 @@ msgstr "Următorul indiciu"
 msgid "Review"
 msgstr "Recenzie"
 
+#: xmodule/capa_block.py:204
+msgid "Number of attempts taken by the student on this problem"
+msgstr "Numărul de încercări făcute de elev cu privire la această problemă"
+
+#: xmodule/capa_block.py:207 xmodule/modulestore/inheritance.py:145
+msgid "Maximum Attempts"
+msgstr "Încercări maxime"
+
 #: xmodule/capa_block.py:209
 msgid ""
 "Defines the number of times a student can try to answer this problem. If the"
@@ -9523,6 +10528,10 @@ msgstr "Cel mai mare scor"
 #: xmodule/capa_block.py:227 xmodule/capa_block.py:531
 msgid "Average Score"
 msgstr "Scor mediu"
+
+#: xmodule/capa_block.py:230
+msgid "Date that this problem is due by"
+msgstr "Data la care această problemă trebuie să fie rezolvată"
 
 #: xmodule/capa_block.py:243 xmodule/capa_block.py:254
 #: xmodule/capa_block.py:298
