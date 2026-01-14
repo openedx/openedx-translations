@@ -245,6 +245,11 @@ msgstr "問題"
 msgid "Library Content"
 msgstr "資料庫內容"
 
+#: cms/djangoapps/contentstore/helpers.py:229
+#: cms/djangoapps/contentstore/views/component.py:288
+msgid "Problem Bank"
+msgstr "問題銀行"
+
 #: cms/djangoapps/contentstore/management/commands/git_export.py:33
 msgid ""
 "Take the specified course and attempt to export it to a git repository\n"
@@ -628,6 +633,10 @@ msgstr "影片"
 #: cms/djangoapps/contentstore/views/component.py:285
 msgid "Open Response"
 msgstr "開放回應"
+
+#: cms/djangoapps/contentstore/views/component.py:286
+msgid "Legacy Library"
+msgstr "遺留庫"
 
 #: cms/djangoapps/contentstore/views/component.py:289
 msgid "Drag and Drop"
@@ -1089,9 +1098,25 @@ msgstr[0] " 它有{count}个子模块。"
 msgid "Dictionary with the available tags"
 msgstr "帶有可用標籤的字典"
 
+#: cms/lib/xblock/upstream_sync.py:72
+msgid "Content is not linked to a Content Library."
+msgstr "內容未連結到內容庫。"
+
+#: cms/lib/xblock/upstream_sync.py:259
+msgid "Cannot update content because it does not belong to a course."
+msgstr "無法更新內容，因為它不屬於課程。"
+
+#: cms/lib/xblock/upstream_sync.py:269
+msgid "Reference to linked library item is malformed"
+msgstr "對連結庫項目的引用格式錯誤"
+
 #: cms/lib/xblock/upstream_sync.py:292
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "連結的 `upstream_key` 不是有效的鍵"
+
+#: cms/lib/xblock/upstream_sync_block.py:108
+msgid "Linked library item could not be loaded: {}"
+msgstr "無法載入連結庫項目：{}"
 
 #: cms/templates/admin/base_site.html:4 lms/templates/admin/base_site.html:3
 msgid "Django site admin"
@@ -3906,6 +3931,15 @@ msgstr "自訂頁面"
 #: lms/djangoapps/courseware/plugins.py:220
 msgid "Provide additional course content and resources with custom pages"
 msgstr "透過自訂頁面提供額外的課程內容和資源"
+
+#: lms/djangoapps/courseware/plugins.py:271
+msgid "Flexible Peer Grading for ORAs"
+msgstr "ORA 靈活的同儕評分"
+
+#: lms/djangoapps/courseware/plugins.py:272
+msgid ""
+"Course level settings for Flexible Peer Grading Open Response Assessments."
+msgstr "靈活同儕評分開放式反應評估的課程等級設定。"
 
 #: lms/djangoapps/courseware/tabs.py:36
 #: lms/djangoapps/courseware/views/views.py:2250
@@ -7974,6 +8008,13 @@ msgstr ""
 "<{p}><{strong}>{username}</{strong}> 發佈了 "
 "<{strong}>{post_title}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:120
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> and others started new "
+"discussions</{p}>"
+msgstr "<{p}><{strong}>{replier_name}</{strong}> 和其他人開始新的討論</{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:139
 #, python-brace-format
 msgid ""
@@ -9177,6 +9218,12 @@ msgstr "需要格式正確的電子郵件"
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:148
 msgid "Your legal name must be a minimum of one character long"
 msgstr "您的法定姓名必須至少包含一個字符"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:149
+#, python-format
+msgid ""
+"Your legal name is too long. It must not exceed %(max_length)s characters"
+msgstr "您的法定姓名太長。不得超過%(max_length)s個字符"
 
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:161
 #, python-format
@@ -11782,6 +11829,24 @@ msgid ""
 "their answers and reshuffle selected items."
 msgstr "確定是否顯示“重置問題”按鈕，以便用户可以重置其答案並重新排列所選項目。"
 
+#: xmodule/item_bank_block.py:480
+#, python-brace-format
+msgid ""
+"The problem bank has been configured to show {count} problems. Please "
+"specify a positive number of problems, or specify -1 to show all problems."
+msgstr "問題庫已配置為顯示{count}問題。請指定正數的問題，或指定 -1 以顯示所有問題。"
+
+#: xmodule/item_bank_block.py:484 xmodule/item_bank_block.py:496
+msgid "Edit the problem bank configuration."
+msgstr "編輯問題庫配置。"
+
+#: xmodule/item_bank_block.py:492
+#, python-brace-format
+msgid ""
+"The problem bank has been configured to show {count} problems, but only "
+"{actual} have been selected."
+msgstr "問題庫已配置為顯示{count}問題，但僅選擇了{actual} 。"
+
 #: xmodule/library_content_block.py:57
 msgid "Any Type"
 msgstr "任何類型"
@@ -12541,6 +12606,31 @@ msgstr "此內容實驗存在影響內容可見性的問題。"
 #: xmodule/tabs.py:398 xmodule/tabs.py:433
 msgid "External Discussion"
 msgstr "外部討論"
+
+#: xmodule/templates/item_bank/author_view.html:32
+#, python-brace-format
+msgid ""
+"Press {link_start}View{link_end} to preview, sync/update, and/or remove the "
+"selected components."
+msgstr "按{link_start}查看{link_end}預覽、同步/更新和/或刪除所選組件。"
+
+#: xmodule/templates/item_bank/author_view.html:38
+#, python-brace-format
+msgid ""
+"Press {link_start}Edit{link_end} to configure how many will be shown and "
+"other settings."
+msgstr "按{link_start}編輯{link_end}以設定顯示的數量和其他設定。"
+
+#: xmodule/templates/item_bank/author_view.html:44
+msgid "You have not selected any components yet."
+msgstr "您還沒有選擇任何組件。"
+
+#: xmodule/templates/item_bank/author_view_add.html:11
+#, python-brace-format
+msgid ""
+"{button_start}Add components{button_end} from a content library to this "
+"problem bank."
+msgstr "{button_start}將元件{button_end}從內容庫新增至此問題庫。"
 
 #: xmodule/vertical_block.py:45
 msgid "Enable in-context discussions for the Unit"
