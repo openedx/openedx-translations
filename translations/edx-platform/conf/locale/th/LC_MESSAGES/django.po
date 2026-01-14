@@ -23,9 +23,48 @@ msgstr ""
 "Language: th\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: cms/djangoapps/api/v1/serializers/course_runs.py:49
+msgid "Course team user does not exist"
+msgstr "ไม่มีผู้ใช้ในทีมของหลักสูตร"
+
+#: cms/djangoapps/contentstore/admin.py:47
+#, python-brace-format
+msgid ""
+"Number of course outline regenerations successfully requested: {regenerates}"
+msgstr "จำนวนการร้องขอการสร้างโครงร่างหลักสูตรใหม่สำเร็จ: {regenerates}"
+
+#: cms/djangoapps/contentstore/admin.py:51
+msgid "Regenerate selected course outlines"
+msgstr "สร้างโครงร่างหลักสูตรที่เลือกใหม่"
+
+#: cms/djangoapps/contentstore/admin.py:59
+msgid "All course outline regenerations successfully requested."
+msgstr "ร้องขอการสร้างโครงร่างหลักสูตรใหม่ทั้งหมดเรียบร้อยแล้ว"
+
+#: cms/djangoapps/contentstore/admin.py:60
+msgid "Regenerate *all* course outlines"
+msgstr "สร้างโครงร่างหลักสูตร *ทั้งหมด* ใหม่"
+
 #: cms/djangoapps/contentstore/asset_storage_handlers.py:535
 msgid "Upload completed"
 msgstr "การอัปโหลดเสร็จสมบูรณ์"
+
+#: cms/djangoapps/contentstore/asset_storage_handlers.py:579
+#, python-brace-format
+msgid ""
+"File {filename} exceeds maximum size of {maximum_size_in_megabytes} MB."
+msgstr ""
+"ไฟล์ {filename} มีขนาดเกินขนาดสูงสุดที่ {maximum_size_in_megabytes} MB"
+
+#: cms/djangoapps/contentstore/course_group_config.py:27
+msgid ""
+"The groups in this configuration can be mapped to cohorts in the Instructor "
+"Dashboard."
+msgstr "กลุ่มในการกำหนดค่านี้สามารถเชื่อมโยงกับกลุ่มรุ่นในตารางงานผู้สอนได้"
+
+#: cms/djangoapps/contentstore/course_group_config.py:30
+msgid "Content Groups"
+msgstr "กลุ่มเนื้อหา"
 
 #: cms/djangoapps/contentstore/course_group_config.py:65
 #: cms/djangoapps/contentstore/views/certificate_manager.py:92
@@ -39,6 +78,10 @@ msgstr "ต้องใช้ชื่อการตั้งค่า"
 #: cms/djangoapps/contentstore/course_group_config.py:76
 msgid "must have at least one group"
 msgstr "ต้องมีอย่างน้อยหนึ่งกลุ่ม"
+
+#: cms/djangoapps/contentstore/course_group_config.py:114
+msgid "unable to load this type of group configuration"
+msgstr "ไม่สามารถโหลดการกำหนดค่ากลุ่มประเภทนี้ได้"
 
 #: cms/djangoapps/contentstore/course_info_model.py:74
 #: cms/djangoapps/contentstore/course_info_model.py:159
@@ -61,14 +104,55 @@ msgstr "เกิดข้อผิดพลาดในการระบุ"
 msgid "(Unnamed)"
 msgstr "(ไม่มีชื่อ)"
 
+#: cms/djangoapps/contentstore/errors.py:6
+msgid "Aborting import because a course with this id: {} already exists."
+msgstr "กำลังยกเลิกการนำเข้าเนื่องจากมีหลักสูตรที่มีรหัสนี้: {} อยู่แล้ว"
+
+#: cms/djangoapps/contentstore/errors.py:7
+msgid "Permission denied. You do not have write access to this course."
+msgstr "การอนุญาตถูกปฏิเสธ คุณไม่มีสิทธิ์เขียนหลักสูตรนี้"
+
 #: cms/djangoapps/contentstore/errors.py:8
 #, python-brace-format
 msgid "Could not find the {0} file in the package."
 msgstr "ไม่พบไฟล์ {0} ในแพคเกจ"
 
+#: cms/djangoapps/contentstore/errors.py:9
+msgid "Uploaded Tar file not found. Try again."
+msgstr "ไม่พบไฟล์ Tar ที่อัพโหลด ลองอีกครั้ง."
+
 #: cms/djangoapps/contentstore/errors.py:10
 msgid "We only support uploading a .tar.gz file."
 msgstr "เราสนับสนุนการอัปโหลดเฉพาะไฟล์ .tar.gz เท่านั้น"
+
+#: cms/djangoapps/contentstore/errors.py:11
+msgid "Aborting import since a library with this id already exists."
+msgstr "กำลังยกเลิกการนำเข้าเนื่องจากมีไลบรารีที่มีรหัสนี้อยู่แล้ว"
+
+#: cms/djangoapps/contentstore/errors.py:12
+msgid "Course olx validation failed. Please check your email."
+msgstr "การตรวจสอบหลักสูตร olx ล้มเหลว กรุณาตรวจสอบอีเมลของคุณ"
+
+#: cms/djangoapps/contentstore/errors.py:13
+msgid "Permission denied"
+msgstr "ไม่ได้รับอนุญาต"
+
+#: cms/djangoapps/contentstore/errors.py:14
+msgid "Unknown error while importing course."
+msgstr "ไม่ทราบข้อผิดพลาดระหว่างการนำเข้าหลักสูตร"
+
+#: cms/djangoapps/contentstore/errors.py:15
+msgid "An Unknown error occurred during the unpacking step."
+msgstr "ไม่ทราบข้อผิดพลาดระหว่างขั้นตอนขยายไฟล์"
+
+#: cms/djangoapps/contentstore/errors.py:16
+#, python-brace-format
+msgid "Unknown User ID: {0}"
+msgstr "ไม่ทราบหมายเลขของผู้ใช้: {0}"
+
+#: cms/djangoapps/contentstore/errors.py:18
+msgid "User permission denied."
+msgstr "การอนุญาตของผู้ใช้ถูกปฏิเสธ"
 
 #: cms/djangoapps/contentstore/git_export_utils.py:36
 #, python-brace-format
@@ -79,6 +163,14 @@ msgstr ""
 "GIT_REPO_EXPORT_DIR ไม่ได้ถูกสร้างหรือไม่มีเส้นทางชื่อนี้ {0} "
 "กรุณาสร้างใหม่หรือไม่ก็ตั้งค่าในเส้นทางที่แตกต่างไปจากชื่อนี้ "
 "GIT_REPO_EXPORT_DIR"
+
+#: cms/djangoapps/contentstore/git_export_utils.py:39
+msgid ""
+"Non writable git url provided. Expecting something like: "
+"git@github.com:openedx/openedx-demo-course.git"
+msgstr ""
+"ระบุ URL ที่ไม่สามารถเขียนได้ คาดหวังสิ่งที่ต้องการ: "
+"git@github.com:openedx/openedx-demo-course.git"
 
 #: cms/djangoapps/contentstore/git_export_utils.py:41
 msgid ""
@@ -132,10 +224,29 @@ msgstr "สาขาของ fresh clone หายไป"
 msgid "Vertical"
 msgstr "แนวดิ่ง"
 
+#: cms/djangoapps/contentstore/helpers.py:214
+msgid "Section"
+msgstr "ส่วน"
+
+#: cms/djangoapps/contentstore/helpers.py:216
+msgid "Subsection"
+msgstr "หมวดย่อย"
+
+#: cms/djangoapps/contentstore/helpers.py:218
+#: lms/djangoapps/instructor/views/tools.py:241
+#: lms/djangoapps/instructor/views/tools.py:253 xmodule/unit_block.py:41
+msgid "Unit"
+msgstr "หน่วย"
+
 #: cms/djangoapps/contentstore/helpers.py:225
 #: cms/djangoapps/contentstore/views/component.py:283
 msgid "Problem"
 msgstr "ปัญหา"
+
+#: cms/djangoapps/contentstore/helpers.py:227
+#: cms/djangoapps/contentstore/views/component.py:287
+msgid "Library Content"
+msgstr "เนื้อหาห้องสมุด"
 
 #: cms/djangoapps/contentstore/management/commands/git_export.py:33
 msgid ""
@@ -177,9 +288,114 @@ msgstr "ล้มเหลว"
 msgid "Completed"
 msgstr "เสร็จสิ้น"
 
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/advanced_settings.py:47
+msgid "Marks a field as deprecated."
+msgstr "ทำเครื่องหมายฟิลด์ว่าเลิกใช้แล้ว"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/advanced_settings.py:48
+msgid "User-friendly display name for the field"
+msgstr "ชื่อที่แสดงที่ใช้งานง่ายสำหรับฟิลด์"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/advanced_settings.py:49
+msgid "Help text that describes the setting."
+msgstr "ข้อความช่วยเหลือที่อธิบายการตั้งค่า"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:14
+msgid "Tab type"
+msgstr "ประเภทแท็บ"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:15
+msgid "Default name for the tab displayed to users"
+msgstr "ชื่อเริ่มต้นสำหรับแท็บที่แสดงต่อผู้ใช้"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:18
+msgid "True if it's possible to hide the tab for a course"
+msgstr "เป็นจริงหากสามารถซ่อนแท็บสำหรับหลักสูตรได้"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:21
+msgid "True the tab is hidden for the course"
+msgstr "จริงอยู่ แท็บถูกซ่อนไว้สำหรับหลักสูตร"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:25
+msgid "True if it's possible to reorder the tab in the list of tabs"
+msgstr "เป็นจริงหากสามารถเรียงลำดับแท็บใหม่ในรายการแท็บได้"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:29
+msgid "True if this tab should be displayed only for instructors"
+msgstr "เป็นจริงหากแท็บนี้ควรแสดงเฉพาะผู้สอนเท่านั้น"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:33
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:37
+msgid "Name of the tab displayed to users. Overrides title."
+msgstr "ชื่อของแท็บที่แสดงต่อผู้ใช้ แทนที่ชื่อ"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:41
+msgid "Additional settings specific to the tab"
+msgstr "การตั้งค่าเพิ่มเติมเฉพาะสำหรับแท็บ"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:74
+msgid "ID of tab to update"
+msgstr "ID ของแท็บที่จะอัปเดต"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:75
+msgid "Location (Usage Key) of tab to update"
+msgstr "ตำแหน่ง (รหัสการใช้งาน) ของแท็บที่จะอัปเดต"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:89
+msgid "Need to supply either a valid tab_id or a tab_location."
+msgstr "จำเป็นต้องระบุ tab_id หรือ tab_location ที่ถูกต้อง"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:100
+msgid "True to hide the tab, and False to show it."
+msgstr "จริงเพื่อซ่อนแท็บ และเท็จเพื่อแสดง"
+
+#: cms/djangoapps/contentstore/rest_api/v0/views/tabs.py:112
+msgid "Change the visibility of tabs in a course."
+msgstr "เปลี่ยนการมองเห็นแท็บในหลักสูตร"
+
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:117
+msgid "The information you entered is incorrect."
+msgstr "ข้อมูลที่คุณป้อนไม่ถูกต้อง"
+
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:139
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:229
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:254
+#: xmodule/video_block/video_handlers.py:405
+#, python-brace-format
+msgid "The following parameters are required: {missing}."
+msgstr "จำเป็นต้องมีพารามิเตอร์เหล่านี้: {missing}"
+
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:206
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:292
+#: xmodule/video_block/video_handlers.py:497
+msgid ""
+"There is a problem with this transcript file. Try to upload a different "
+"file."
+msgstr "มีปัญหากับไฟล์นี้ ลองอัพโหลดไฟล์อื่น"
+
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:234
+#: xmodule/video_block/video_handlers.py:409
+#, python-brace-format
+msgid "A transcript with the \"{language_code}\" language code already exists."
+msgstr "มีข้อความถอดเสียงที่มีรหัสภาษา \"{language_code}\" อยู่แล้ว"
+
+#: cms/djangoapps/contentstore/transcript_storage_handlers.py:238
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:221
+#: xmodule/video_block/video_handlers.py:413
+msgid "A transcript file is required."
+msgstr "ต้องการไฟล์ทรานสคริปต์"
+
 #: cms/djangoapps/contentstore/utils.py:858
 msgid "Deleted Group"
 msgstr "ลบกลุ่มแล้ว"
+
+#. Translators: This is building up a list of groups. It is marked for
+#. translation because of the
+#. comma, which is used as a separator between each group.
+#: cms/djangoapps/contentstore/utils.py:926
+#, python-brace-format
+msgid "{previous_groups}, {current_group}"
+msgstr "{previous_groups},{current_group}"
 
 #: cms/djangoapps/contentstore/utils.py:1089
 #: cms/djangoapps/contentstore/views/block.py:277
@@ -201,6 +417,10 @@ msgstr "ค่าซ้ำกันของ '{0}'"
 msgid "Invalid prerequisite course key"
 msgstr "หลักสูตรพื้นฐานไม่ถูกต้อง"
 
+#: cms/djangoapps/contentstore/utils.py:1923
+msgid "Set Date"
+msgstr "ตั้งวันที่"
+
 #. Translators: This is the status of an active video upload
 #: cms/djangoapps/contentstore/video_storage_handlers.py:118
 msgid "Uploading"
@@ -211,6 +431,30 @@ msgstr "กำลังอัพโหลด"
 #: cms/djangoapps/contentstore/video_storage_handlers.py:120
 msgid "In Progress"
 msgstr "อยู่ในระหว่างดำเนินการ"
+
+#. Translators: This is the status for a video that the servers have
+#. successfully processed
+#: cms/djangoapps/contentstore/video_storage_handlers.py:122
+#: openedx/core/djangoapps/content_staging/data.py:21
+msgid "Ready"
+msgstr "พร้อมแล้ว"
+
+#. Translators: This is the status for a video that is uploaded completely
+#: cms/djangoapps/contentstore/video_storage_handlers.py:124
+msgid "Uploaded"
+msgstr "อัพโหลดแล้ว"
+
+#. Translators: This is the status for a video that is cancelled during upload
+#. by user
+#: cms/djangoapps/contentstore/video_storage_handlers.py:128
+msgid "Cancelled"
+msgstr "ยกเลิก"
+
+#. Translators: This is the status for a video which has duplicate token for
+#. youtube
+#: cms/djangoapps/contentstore/video_storage_handlers.py:133
+msgid "YouTube Duplicate"
+msgstr "YouTube ซ้ำกัน"
 
 #. Translators: This is the status for a video for which an invalid
 #. processing token was provided in the course settings
@@ -228,6 +472,33 @@ msgstr "นำเข้า"
 #: cms/djangoapps/contentstore/video_storage_handlers.py:140
 msgid "Unknown"
 msgstr "ไม่ทราบ"
+
+#. Translators: This is the status for a video that is having its
+#. transcription in progress on servers
+#: cms/djangoapps/contentstore/video_storage_handlers.py:142
+msgid "Transcription in Progress"
+msgstr "อยู่ระหว่างการถอดเสียง"
+
+#. Translators: This is the status for a video whose transcription is complete
+#: cms/djangoapps/contentstore/video_storage_handlers.py:144
+msgid "Transcript Ready"
+msgstr "การถอดเสียงพร้อม"
+
+#. Translators: This is the status for a video whose transcription job was
+#. failed for some languages
+#: cms/djangoapps/contentstore/video_storage_handlers.py:146
+msgid "Partial Failure"
+msgstr "ความล้มเหลวบางส่วน"
+
+#. Translators: This is the status for a video whose transcription job has
+#. failed altogether
+#: cms/djangoapps/contentstore/video_storage_handlers.py:148
+msgid "Transcript Failed"
+msgstr "การถอดเสียงล้มเหลว"
+
+#: cms/djangoapps/contentstore/video_storage_handlers.py:337
+msgid "An image file is required."
+msgstr "จำเป็นต้องมีไฟล์รูป"
 
 #. Translators: This is the header for a CSV file column
 #. containing URLs for video encodings for the named profile
@@ -266,6 +537,14 @@ msgstr "สถานะ"
 msgid "{course}_video_urls"
 msgstr "{course}_video_urls"
 
+#: cms/djangoapps/contentstore/video_storage_handlers.py:958
+msgid "A non zero positive integer is expected"
+msgstr "คาดว่าจำนวนเต็มบวกที่ไม่ใช่ศูนย์"
+
+#: cms/djangoapps/contentstore/video_utils.py:42
+msgid "The image must have name, content type, and size information."
+msgstr "รูปภาพจะต้องมีชื่อ, ประเภทเนื้อหา, และข้อมูลขนาด"
+
 #: cms/djangoapps/contentstore/video_utils.py:44
 #, python-brace-format
 msgid ""
@@ -273,6 +552,46 @@ msgid ""
 "{supported_file_formats}."
 msgstr ""
 "ไม่รองรับไฟล์รูปภาพประเภทนี้ ประเภทไฟล์ที่รองรับคือ {supported_file_formats}"
+
+#: cms/djangoapps/contentstore/video_utils.py:48
+#, python-brace-format
+msgid "This image file must be smaller than {image_max_size}."
+msgstr "ไฟล์ภาพนี้จะต้องมีขนาดเล็กกว่า {image_max_size}"
+
+#: cms/djangoapps/contentstore/video_utils.py:52
+#, python-brace-format
+msgid "This image file must be larger than {image_min_size}."
+msgstr "ไฟล์รูปภาพนี้ต้องมีขนาดใหญ่กว่า {image_min_size}"
+
+#: cms/djangoapps/contentstore/video_utils.py:59
+#: cms/djangoapps/contentstore/video_utils.py:61
+msgid ""
+"There is a problem with this image file. Try to upload a different file."
+msgstr "มีปัญหากับไฟล์รูปภาพนี้ ผู้ใช้ควรลองอัพโหลดไฟล์อื่น"
+
+#: cms/djangoapps/contentstore/video_utils.py:64
+#, python-brace-format
+msgid ""
+"Recommended image resolution is "
+"{image_file_max_width}x{image_file_max_height}. The minimum resolution is "
+"{image_file_min_width}x{image_file_min_height}."
+msgstr ""
+"ความละเอียดของภาพที่แนะนำคือ {image_file_max_width} x "
+"{image_file_max_height} ความละเอียดขั้นต่ำคือ {image_file_min_width} x "
+"{image_file_min_height}"
+
+#: cms/djangoapps/contentstore/video_utils.py:72
+#, python-brace-format
+msgid ""
+"This image file must have an aspect ratio of "
+"{video_image_aspect_ratio_text}."
+msgstr "ไฟล์ภาพนี้ต้องมีอัตราส่วนกว้างยาวเป็น {video_image_aspect_ratio_text}"
+
+#: cms/djangoapps/contentstore/video_utils.py:79
+msgid ""
+"The image file name can only contain letters, numbers, hyphens (-), and "
+"underscores (_)."
+msgstr "ชื่อไฟล์รูปภาพมีได้เฉพาะตัวอักษร, ตัวเลข, ขีดกลาง (-), และขีดล่าง (_)"
 
 #: cms/djangoapps/contentstore/views/certificate_manager.py:115
 msgid "must have name of the certificate"
@@ -287,6 +606,11 @@ msgstr "ดิครับรอง {0} ค่าสำคัญ '{1}' สูญ
 #, python-brace-format
 msgid "PermissionDenied: Failed in authenticating {user}"
 msgstr "การอนุญาตถูกปฏิเสธ: การตรวจสอบ {user} ล้มเหลว"
+
+#: cms/djangoapps/contentstore/views/component.py:277
+#, python-brace-format
+msgid "{platform_name} Support Levels:"
+msgstr "ระดับการสนับสนุน {platform_name}:"
 
 #. Translators: 'Discussion' refers to the tab in the courseware that leads to
 #. the discussion forums
@@ -304,6 +628,10 @@ msgstr "การอภิปราย"
 msgid "Video"
 msgstr "วิดีโอ"
 
+#: cms/djangoapps/contentstore/views/component.py:285
+msgid "Open Response"
+msgstr "เปิดการตอบรับ"
+
 #: cms/djangoapps/contentstore/views/component.py:289
 msgid "Drag and Drop"
 msgstr "ลากและวาง"
@@ -311,6 +639,15 @@ msgstr "ลากและวาง"
 #: cms/djangoapps/contentstore/views/component.py:330
 msgid "Blank"
 msgstr "ว่าง"
+
+#: cms/djangoapps/contentstore/views/component.py:333
+msgid "Peer Assessment Only"
+msgstr "การประเมินเพื่อนเท่านั้น"
+
+#: cms/djangoapps/contentstore/views/component.py:337
+#: xmodule/capa_block.py:201
+msgid "Blank Problem"
+msgstr "ปัญหาว่างเปล่า"
 
 #: cms/djangoapps/contentstore/views/component.py:462
 #: xmodule/video_block/video_block.py:142
@@ -355,6 +692,23 @@ msgstr ""
 "\n"
 "{err}"
 
+#: cms/djangoapps/contentstore/views/course.py:950
+msgid ""
+"User does not have the permission to create courses in this organization or "
+"course creation is disabled"
+msgstr ""
+"ผู้ใช้ไม่ได้รับอนุญาตให้สร้างหลักสูตรในองค์กรนี้ "
+"หรือการสร้างหลักสูตรถูกปิดใช้งาน"
+
+#: cms/djangoapps/contentstore/views/course.py:967
+msgid ""
+"You must link this course to an organization in order to continue. "
+"Organization you selected does not exist in the system, you will need to add"
+" it to the system"
+msgstr ""
+"คุณต้องเชื่อมโยงหลักสูตรนี้กับองค์กรก่อนจึงจะดำเนินการต่อได้ "
+"องค์กรที่คุณเลือกยังไม่มีในระบบ คุณต้องเพิ่มองค์กรนี้ไว้ในระบบ"
+
 #: cms/djangoapps/contentstore/views/course.py:1356
 msgid "An error occurred while trying to save your tabs"
 msgstr "เกิดข้อผิดพลาดขณะพยายามบันทึกแท็บของคุณ"
@@ -371,6 +725,11 @@ msgstr "การตั้งค่าของกลุ่มนี้อยู
 msgid "This content group is in use and cannot be deleted."
 msgstr "กลุ่มเนื้อหานี้อยู่ในระหว่างใช้งานและไม่สามารถลบข้อมูลได้"
 
+#: cms/djangoapps/contentstore/views/entrance_exam.py:140
+#: lms/djangoapps/courseware/tabs.py:336 lms/djangoapps/courseware/tabs.py:337
+msgid "Entrance Exam"
+msgstr "การสอบเข้า"
+
 #: cms/djangoapps/contentstore/views/entrance_exam.py:159
 msgid "Entrance Exam - Subsection"
 msgstr "การสอบเข้า - เซคชันย่อย"
@@ -382,6 +741,21 @@ msgstr "การสอบเข้าหลักสูตรเสร็จส
 #: cms/djangoapps/contentstore/views/export_git.py:47
 msgid "Course successfully exported to git repository"
 msgstr "สามารถส่งหลักสูตรไปยัง git repository ได้สำเร็จแล้ว"
+
+#: cms/djangoapps/contentstore/views/import_export.py:179
+msgid "Some chunks missed during file upload. Please try again"
+msgstr "ชิ้นส่วนบางส่วนหายไประหว่างการอัพโหลดไฟล์ กรุณาลองอีกครั้ง"
+
+#: cms/djangoapps/contentstore/views/import_export.py:190
+msgid "File upload failed. Please try again"
+msgstr "การอัพโหลดไฟล์ไม่สำเร็จ กรุณาลองอีกครั้ง"
+
+#: cms/djangoapps/contentstore/views/library.py:240
+msgid ""
+"User does not have the permission to create library in this organization or "
+"course creation is disabled"
+msgstr ""
+"ผู้ใช้ไม่มีสิทธิ์สร้างห้องสมุดในองค์กรนี้ หรือการสร้างหลักสูตรถูกปิดใช้งาน"
 
 #: cms/djangoapps/contentstore/views/library.py:247
 #, python-brace-format
@@ -408,6 +782,37 @@ msgstr ""
 "ห้องสมุดนี้มีอยู่แล้วจากสถาบันและรหัสห้องสมุดเดียวกัน "
 "กรุณาเปลี่ยนรหัสห้องสมุดให้เพื่อไม่ให้ซ้ำกันภายในสถาบัน"
 
+#: cms/djangoapps/contentstore/views/library.py:267
+#, python-brace-format
+msgid "'{organization_key}' is not a valid organization identifier."
+msgstr "'{organization_key}' ไม่ใช่ตัวระบุองค์กรที่ถูกต้อง"
+
+#: cms/djangoapps/contentstore/views/preview.py:306
+#, python-brace-format
+msgid "Access restricted to: {list_of_groups}"
+msgstr "การเข้าใช้จำกัด: {list_of_groups}"
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:195
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:527
+msgid "Transcripts are supported only for \"video\" blocks."
+msgstr "การถอดเสียงได้รับการสนับสนุนสำหรับการบล็อก \"วิดีโอ\" เท่านั้น"
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:198
+msgid "Cannot find item by locator."
+msgstr "ไม่พบรายการตามตัวระบุตำแหน่ง"
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:219
+msgid "Video locator is required."
+msgstr "ต้องมีการระบุตำแหน่งของวิดีโอ"
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:223
+msgid "This transcript file type is not supported."
+msgstr "ไม่รองรับไฟล์การถอดเสียงประเภทนี้"
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:225
+msgid "Video ID is required."
+msgstr "จำเป็นต้องมีรหัสของวิดีโอ"
+
 #: cms/djangoapps/contentstore/views/transcripts_ajax.py:520
 #: cms/djangoapps/contentstore/views/transcripts_ajax.py:561
 msgid "Incoming video data is empty."
@@ -416,6 +821,29 @@ msgstr "ข้อมูลวิดีโอที่กำลังใช้ง
 #: cms/djangoapps/contentstore/views/transcripts_ajax.py:524
 msgid "Can't find item by locator."
 msgstr "ไม่สามารถค้นหารายการโดยพิจารณาจากตำแหน่งได้"
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:610
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:664
+msgid "No such transcript."
+msgstr "ไม่มีการถอดเสียงดังกล่าว"
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:634
+msgid "There is a problem with the chosen transcript file."
+msgstr "มีปัญหากับไฟล์การถอดเสียงที่เลือก"
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:689
+msgid ""
+"There is a problem with the existing transcript file. Please upload a "
+"different file."
+msgstr "ไฟล์การถอดเสียงที่มีอยู่มีปัญหา โปรดอัพโหลดไฟล์อื่น"
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:710
+msgid "YouTube ID is required."
+msgstr "จำเป็นต้องมีรหัสของ YouTube"
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:750
+msgid "There is a problem with the YouTube transcript file."
+msgstr "มีปัญหากับไฟล์การถอดเสียง YouTube"
 
 #: cms/djangoapps/contentstore/views/user.py:98
 msgid "Insufficient permissions"
@@ -430,6 +858,11 @@ msgstr "ไม่พบผู้ใช้ตามอีเมล '{email}'"
 msgid "No `role` specified."
 msgstr "ไม่ได้ระบุ `บทบาท`"
 
+#: cms/djangoapps/contentstore/views/user.py:154
+#, python-brace-format
+msgid "User {email} has registered but has not yet activated their account."
+msgstr "ผู้ใช้ {email} ได้ลงทะเบียนแล้ว แต่ยังไม่ได้ยืนยันบัญชีผู้ใช้ของตน"
+
 #: cms/djangoapps/contentstore/views/user.py:175
 msgid "Invalid `role` specified."
 msgstr "ระบุ `บทบาท` ไม่ถูกต้อง"
@@ -442,6 +875,69 @@ msgstr "คุณยังไม่ได้ลบแอดมินเก่า
 #: xmodule/library_content_block.py:590
 msgid "Empty"
 msgstr "ไม่มีข้อมูล"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:230
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:682
+#, python-brace-format
+msgid "Libraries cannot have more than {limit} components"
+msgstr "ไลบรารีไม่สามารถมีส่วนประกอบมากกว่า {limit}"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:436
+#: openedx/core/djangoapps/xblock/rest_api/views.py:341
+msgid "Invalid data"
+msgstr "ข้อมูลไม่ถูกต้อง"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:438
+#: openedx/core/djangoapps/xblock/rest_api/views.py:343
+#, python-brace-format
+msgid "Invalid data ({details})"
+msgstr "ข้อมูลไม่ถูกต้อง ({details})"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:656
+msgid "There was a problem pasting your component."
+msgstr "เกิดปัญหาในการวางส่วนประกอบของคุณ"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:660
+msgid "Your clipboard is empty or invalid."
+msgstr "คลิปบอร์ดของคุณว่างเปล่าหรือไม่ถูกต้อง"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:803
+#, python-brace-format
+msgid "You can not move {source_type} into {target_parent_type}."
+msgstr "คุณไม่สามารถย้าย {source_type} เข้าไปใน {target_parent_type}"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:812
+msgid "Item is already present in target location."
+msgstr "มีรายการอยู่ในตำแหน่งเป้าหมายแล้ว"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:814
+msgid "You can not move an item into itself."
+msgstr "คุณไม่สามารถย้ายรายการเข้าไปในตัวมันเองได้"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:816
+msgid "You can not move an item into it's child."
+msgstr "คุณไม่สามารถย้ายรายการไปไว้ในรายการย่อยได้"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:818
+msgid "You can not move an item directly into content experiment."
+msgstr "คุณไม่สามารถย้ายรายการไปยังการทดลองเนื้อหาได้โดยตรง"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:820
+#, python-brace-format
+msgid "{source_usage_key} not found in {parent_usage_key}."
+msgstr "ไม่พบ {source_usage_key} ใน {parent_usage_key}"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:832
+#, python-brace-format
+msgid ""
+"You can not move {source_usage_key} at an invalid index ({target_index})."
+msgstr ""
+"คุณไม่สามารถย้าย {source_usage_key} ที่ดัชนีที่ไม่ถูกต้อง ({target_index})"
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:839
+#, python-brace-format
+msgid "You must provide target_index ({target_index}) as an integer."
+msgstr "คุณต้องระบุ target_index ( {target_index} ) เป็นจำนวนเต็ม"
 
 #: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:1154
 #, python-brace-format
@@ -497,6 +993,14 @@ msgid ""
 msgstr ""
 "ตัวเลือกสำหรับจดบันทึกของผู้ใช้รายนี้ (เช่น "
 "ทำไมถึงไม่ได้รับอนุญาตให้เข้าไปในการสร้างหลักสูตร)"
+
+#: cms/djangoapps/course_creators/models.py:54
+msgid "Organizations under which the user is allowed to create courses."
+msgstr "องค์กรที่ผู้ใช้ได้รับอนุญาตให้สร้างหลักสูตร"
+
+#: cms/djangoapps/course_creators/models.py:57
+msgid "Grant the user the permission to create courses in ALL organizations"
+msgstr "ให้สิทธิ์แก่ผู้ใช้ในการสร้างหลักสูตรในทุกองค์กร"
 
 #: cms/djangoapps/models/settings/course_metadata.py:235
 #, python-brace-format
@@ -604,9 +1108,37 @@ msgid " It has {count} children block."
 msgid_plural " It has {count} children blocks."
 msgstr[0] " มีบล็อกย่อย {count} บล็อก"
 
+#: cms/lib/xblock/tagging/tagging.py:21
+msgid "Dictionary with the available tags"
+msgstr "พจนานุกรมกับแท็กที่มีอยู่"
+
 #: cms/lib/xblock/upstream_sync.py:292
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "ลิงก์ `upstream_key` ไม่ใช่คีย์ที่ถูกต้อง"
+
+#: cms/templates/admin/base_site.html:4 lms/templates/admin/base_site.html:3
+msgid "Django site admin"
+msgstr "ผู้ดูแลไซต์ Django"
+
+#: cms/templates/admin/base_site.html:6 lms/templates/admin/base_site.html:5
+msgid "Django administration"
+msgstr "ผู้จัดการ Django"
+
+#: cms/templates/admin/base_site.html:11 lms/templates/admin/base_site.html:10
+msgid "View site"
+msgstr "ดูเว็บไซต์"
+
+#: cms/templates/admin/base_site.html:16 lms/templates/admin/base_site.html:15
+msgid "Documentation"
+msgstr "เอกสาร"
+
+#: cms/templates/admin/base_site.html:20 lms/templates/admin/base_site.html:19
+msgid "Log out"
+msgstr "ออกจากระบบ"
+
+#: cms/urls.py:30
+msgid "Studio Administration"
+msgstr "การจัดการ Studio"
 
 #: common/djangoapps/course_modes/admin.py:40
 #: common/djangoapps/course_modes/models.py:60
