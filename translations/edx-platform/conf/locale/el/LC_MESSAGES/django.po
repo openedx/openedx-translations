@@ -72,6 +72,11 @@ msgstr "Κεφάλαιο"
 msgid "Problem"
 msgstr "Πρόβλημα"
 
+#: cms/djangoapps/contentstore/helpers.py:229
+#: cms/djangoapps/contentstore/views/component.py:288
+msgid "Problem Bank"
+msgstr "Τράπεζα προβλημάτων"
+
 #: cms/djangoapps/contentstore/models.py:190
 msgid "The component must be published to access `published_at`"
 msgstr ""
@@ -560,9 +565,26 @@ msgstr[1] " Έχει {count} παιδικά μπλοκ."
 msgid "Dictionary with the available tags"
 msgstr "Λεξικό με τις διαθέσιμες ετικέτες"
 
+#: cms/lib/xblock/upstream_sync.py:72
+msgid "Content is not linked to a Content Library."
+msgstr "Το περιεχόμενο δεν συνδέεται με μια βιβλιοθήκη περιεχομένου."
+
+#: cms/lib/xblock/upstream_sync.py:259
+msgid "Cannot update content because it does not belong to a course."
+msgstr ""
+"Δεν είναι δυνατή η ενημέρωση του περιεχομένου επειδή δεν ανήκει σε μάθημα."
+
+#: cms/lib/xblock/upstream_sync.py:269
+msgid "Reference to linked library item is malformed"
+msgstr "Η αναφορά σε συνδεδεμένο στοιχείο βιβλιοθήκης είναι κακοσχηματισμένη"
+
 #: cms/lib/xblock/upstream_sync.py:292
 msgid "Linked `upstream_key` is not a valid key"
 msgstr "Ο συνδεδεμένος `upstream_key` δεν είναι έγκυρο κλειδί"
+
+#: cms/lib/xblock/upstream_sync_block.py:108
+msgid "Linked library item could not be loaded: {}"
+msgstr "Το στοιχείο συνδεδεμένης βιβλιοθήκης δεν ήταν δυνατό να φορτωθεί: {}"
 
 #: cms/templates/admin/base_site.html:4 lms/templates/admin/base_site.html:3
 msgid "Django site admin"
@@ -7982,6 +8004,15 @@ msgstr ""
 "&lt;{p}&gt;&lt;{strong}&gt;{username}&lt;/{strong}&gt; δημοσίευσε "
 "&lt;{strong}&gt;{post_title}&lt;/{strong}&gt;&lt;/{p}&gt;"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:120
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> and others started new "
+"discussions</{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> και άλλοι ξεκίνησαν νέες "
+"συζητήσεις</{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:139
 #, python-brace-format
 msgid ""
@@ -9266,6 +9297,14 @@ msgstr "Απαιτείται μία έγκυρη διεύθυνση e-mail"
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:148
 msgid "Your legal name must be a minimum of one character long"
 msgstr "Το νόμιμο όνομά σας πρέπει να έχει τουλάχιστον έναν χαρακτήρα"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:149
+#, python-format
+msgid ""
+"Your legal name is too long. It must not exceed %(max_length)s characters"
+msgstr ""
+"Το νόμιμο όνομά σας είναι πολύ μεγάλο. Δεν πρέπει να υπερβαίνει τους "
+"%(max_length)s χαρακτήρες."
 
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:161
 #, python-format
@@ -12171,6 +12210,29 @@ msgstr ""
 "χρήστες να μπορούν να επαναφέρουν τις απαντήσεις τους και να ανακατανείμουν "
 "επιλεγμένα στοιχεία."
 
+#: xmodule/item_bank_block.py:480
+#, python-brace-format
+msgid ""
+"The problem bank has been configured to show {count} problems. Please "
+"specify a positive number of problems, or specify -1 to show all problems."
+msgstr ""
+"Η τράπεζα προβλημάτων έχει ρυθμιστεί ώστε να εμφανίζει τα προβλήματα "
+"{count}. Παρακαλούμε καθορίστε έναν θετικό αριθμό προβλημάτων ή καθορίστε -1"
+" για να εμφανιστούν όλα τα προβλήματα."
+
+#: xmodule/item_bank_block.py:484 xmodule/item_bank_block.py:496
+msgid "Edit the problem bank configuration."
+msgstr "Επεξεργαστείτε τη διαμόρφωση της τράπεζας προβλημάτων."
+
+#: xmodule/item_bank_block.py:492
+#, python-brace-format
+msgid ""
+"The problem bank has been configured to show {count} problems, but only "
+"{actual} have been selected."
+msgstr ""
+"Η τράπεζα προβλημάτων έχει ρυθμιστεί ώστε να εμφανίζει τα προβλήματα "
+"{count}, αλλά έχουν επιλεγεί μόνο τα προβλήματα {actual}."
+
 #: xmodule/library_content_block.py:57
 msgid "Any Type"
 msgstr "Οποιοσδήποτε τύπος"
@@ -13079,6 +13141,57 @@ msgstr ""
 #: xmodule/tabs.py:398 xmodule/tabs.py:433
 msgid "External Discussion"
 msgstr "Εξωτερική συζήτηση"
+
+#: xmodule/templates/item_bank/author_view.html:8
+#: xmodule/templates/item_bank/author_view.html:18
+#, python-format
+msgid ""
+"\n"
+"                Learners will see the selected component:\n"
+"                "
+msgid_plural ""
+"\n"
+"                Learners will see all of the %(num_selected)s selected components, in random order:\n"
+"                "
+msgstr[0] ""
+"\n"
+"                Οι εκπαιδευόμενοι θα δουν το επιλεγμένο στοιχείο:\n"
+"                "
+msgstr[1] ""
+"\n"
+"                Οι εκπαιδευόμενοι θα δουν όλα τα επιλεγμένα στοιχεία %(num_selected)s, με τυχαία σειρά:\n"
+"                "
+
+#: xmodule/templates/item_bank/author_view.html:32
+#, python-brace-format
+msgid ""
+"Press {link_start}View{link_end} to preview, sync/update, and/or remove the "
+"selected components."
+msgstr ""
+"Πατήστε {link_start}Προβολή{link_end} για προεπισκόπηση, "
+"συγχρονισμό/ενημέρωση ή/και κατάργηση των επιλεγμένων στοιχείων."
+
+#: xmodule/templates/item_bank/author_view.html:38
+#, python-brace-format
+msgid ""
+"Press {link_start}Edit{link_end} to configure how many will be shown and "
+"other settings."
+msgstr ""
+"Πατήστε {link_start}Επεξεργασία{link_end} για να ρυθμίσετε τον αριθμό των "
+"εμφανιζόμενων και άλλες ρυθμίσεις."
+
+#: xmodule/templates/item_bank/author_view.html:44
+msgid "You have not selected any components yet."
+msgstr "Δεν έχετε επιλέξει ακόμα κανένα στοιχείο."
+
+#: xmodule/templates/item_bank/author_view_add.html:11
+#, python-brace-format
+msgid ""
+"{button_start}Add components{button_end} from a content library to this "
+"problem bank."
+msgstr ""
+"{button_start}Προσθέστε στοιχεία{button_end} από μια βιβλιοθήκη περιεχομένου"
+" σε αυτή την τράπεζα προβλημάτων."
 
 #: xmodule/vertical_block.py:45
 msgid "Enable in-context discussions for the Unit"
