@@ -127,6 +127,15 @@ msgstr "కోర్సు రన్ డేటాను సెట్ చేయ�
 msgid "Can only update status, ofac restrictions, and ofac comment"
 msgstr "స్థితి, ofac పరిమితులు మరియు ofac వ్యాఖ్యను మాత్రమే నవీకరించగలదు"
 
+#: apps/api/v1/views/course_runs.py:363
+#, python-brace-format
+msgid ""
+"The course run type '{course_run_type}' is not valid for this course type "
+"'{course_type}'."
+msgstr ""
+"'{course_run_type}' అనే కోర్సు నిర్వహణ రకం ఈ '{course_type}' కోర్సు రకానికి "
+"చెల్లదు."
+
 #: apps/api/v1/views/course_runs.py:381
 msgid "Course run is in review. Editing disabled."
 msgstr "కోర్సు రన్ సమీక్షలో ఉంది. సవరణ నిలిపివేయబడింది."
@@ -548,6 +557,14 @@ msgstr "డెమో"
 msgid "other"
 msgstr "ఇతర"
 
+#: apps/course_metadata/choices.py:54
+msgid "Course Create"
+msgstr "కోర్సు సృష్టి"
+
+#: apps/course_metadata/choices.py:56
+msgid "Course Rerun"
+msgstr "కోర్సు పునఃప్రసారం"
+
 #: apps/course_metadata/choices.py:64
 msgid "Pending"
 msgstr "పెండింగ్‌లో ఉంది"
@@ -571,6 +588,10 @@ msgstr "విఫలమైంది"
 #: apps/course_metadata/choices.py:69
 msgid "Partially Completed"
 msgstr "పాక్షికంగా పూర్తయింది"
+
+#: apps/course_metadata/choices.py:70
+msgid "Errored"
+msgstr "తప్పు జరిగింది"
 
 #: apps/course_metadata/choices.py:74
 msgid "Honor"
@@ -1986,13 +2007,33 @@ msgstr ""
 msgid "Course uuids"
 msgstr "కోర్సు uuids"
 
+#: apps/course_metadata/models.py:5044
+msgid "User who uploaded the file"
+msgstr "ఫైల్‌ను అప్‌లోడ్ చేసిన వినియోగదారు"
+
+#: apps/course_metadata/models.py:5049
+msgid "Summary of the task"
+msgstr "పని యొక్క సారాంశం"
+
 #: apps/course_metadata/models.py:5052
 msgid "Task Type"
 msgstr "టాస్క్ రకం"
 
+#: apps/course_metadata/models.py:5055
+msgid "Type of Bulk Task to be performed"
+msgstr "నిర్వహించాల్సిన బల్క్ టాస్క్ రకం"
+
 #: apps/course_metadata/models.py:5058
 msgid "Status"
 msgstr "స్థితి"
+
+#: apps/course_metadata/models.py:5061
+msgid "Status of the Bulk Task"
+msgstr "బల్క్ టాస్క్ యొక్క స్థితి"
+
+#: apps/course_metadata/models.py:5069
+msgid "Identifier of the celery task associated with this bulk task"
+msgstr "ఈ బల్క్ టాస్క్‌తో అనుబంధించబడిన సెలెరీ టాస్క్ యొక్క ఐడెంటిఫైయర్"
 
 #: apps/course_metadata/salesforce.py:78
 msgid "Attempted to query Salesforce with no client for partner={}"
