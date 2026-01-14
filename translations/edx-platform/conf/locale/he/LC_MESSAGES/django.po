@@ -7,6 +7,7 @@
 # edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2025
 # Eden Huthmacher, 2026
 # Brian Smith, 2026
+# Gerardo Núñez, 2026
 # 
 msgid ""
 msgstr ""
@@ -14,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: openedx-translation@googlegroups.com\n"
 "POT-Creation-Date: 2023-06-13 08:00+0000\n"
 "PO-Revision-Date: 2023-11-20 11:35+0000\n"
-"Last-Translator: Brian Smith, 2026\n"
+"Last-Translator: Gerardo Núñez, 2026\n"
 "Language-Team: Hebrew (https://app.transifex.com/open-edx/teams/6205/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3599,6 +3600,16 @@ msgstr[2] ""
 "                    הצבת לעצמך מטרה ללמוד {start_bold}%(days_per_week)s פעמים בשבוע בתוך %(course_name)s{end_bold}. עכשיו זה תלוי בך להפוך את המטרות הללו למציאות.\n"
 "                "
 
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:79
+msgid ""
+"\n"
+"                        Jump back in\n"
+"                    "
+msgstr ""
+"\n"
+"                        חזור פנימה\n"
+"                    "
+
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:98
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:117
 msgid "Remember: the best goal is one that you can stick to. "
@@ -5310,6 +5321,10 @@ msgstr "הרשמות"
 #: lms/djangoapps/instructor/views/serializers_v2.py:118
 msgid "Grading"
 msgstr "ציונים"
+
+#: lms/djangoapps/instructor/views/serializers_v2.py:133
+msgid "Bulk Email"
+msgstr "דואר אלקטרוני בכמות גדולה"
 
 #: lms/djangoapps/instructor/views/serializers_v2.py:141
 msgid "Date Extensions"
@@ -7656,6 +7671,10 @@ msgstr "נתוני הגדרת LTI עבור הקורס הזה/ספק."
 msgid "LTI provider"
 msgstr "ספק LTI"
 
+#: openedx/core/djangoapps/course_live/plugins.py:26
+msgid "Enable in-platform video conferencing by configuring live"
+msgstr "אפשר שיחות וידאו בתוך הפלטפורמה על ידי הגדרת שידור חי"
+
 #: openedx/core/djangoapps/credentials/apps.py:18
 msgid "Credentials"
 msgstr "Credentials"
@@ -7900,9 +7919,20 @@ msgstr "אם אפשר, יהיה צורך לאפשר את הדיונים באופ
 msgid "The plugin configuration data for this context/provider."
 msgstr "נתוני הגדרת התוסף עבור הקשר/ספק זה."
 
+#: openedx/core/djangoapps/discussions/models.py:467
+msgid "Discussion provider"
+msgstr "דיונים provider"
+
 #: openedx/core/djangoapps/discussions/models.py:468
 msgid "The discussion tool/provider's id"
 msgstr "The דיונים tool/provider's מזהה"
+
+#: openedx/core/djangoapps/discussions/models.py:578
+msgid ""
+"Usage key for in-context discussion topic. Set to null for course-level "
+"topics."
+msgstr ""
+"מפתח שימוש לנושא דיונים בהקשר. יש להגדיר כ-null עבור נושאים ברמת הקורס."
 
 #: openedx/core/djangoapps/discussions/models.py:589
 msgid "Group for divided discussions."
@@ -8154,6 +8184,10 @@ msgstr ""
 msgid "<{p}>Your instructor posted <{strong}>{post_title}</{strong}></{p}>"
 msgstr "<{p}>המדריך שלך פרסם <{strong}>{post_title}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:357
+msgid "Notifications for new announcements and updates from the course team."
+msgstr "התראות על הכרזות ועדכונים חדשים מצוות הקורס."
+
 #: openedx/core/djangoapps/notifications/base_notification.py:366
 msgid "Notifications for submission grading."
 msgstr "הודעות על ציון בהגשות."
@@ -8298,6 +8332,10 @@ msgstr "הודעה סומנה כנקראה."
 msgid "Notifications marked read."
 msgstr "הודעות סומנו כנקראו."
 
+#: openedx/core/djangoapps/notifications/views.py:237
+msgid "Invalid app_name or notification_id."
+msgstr "Invalid app_name or notification_id."
+
 #: openedx/core/djangoapps/oauth_dispatch/models.py:81
 msgid ""
 "Comma-separated list of scopes that this application will be allowed to "
@@ -8402,6 +8440,10 @@ msgstr "מזהה אוניברסלי ייחודי של התכנית"
 #: openedx/core/djangoapps/programs/models.py:45
 msgid "If disabled, the LTI in the associated program will be disabled."
 msgstr "אם מושבת, ה-LTI בתוכנית המשויכת יושבת."
+
+#: openedx/core/djangoapps/programs/models.py:52
+msgid "The LTI configuration data for this program/provider."
+msgstr "נתוני הגדרת LTI עבור התוכנית/ספק הזה."
 
 #: openedx/core/djangoapps/schedules/admin.py:68
 msgid "Schedule start < course start"
@@ -8542,6 +8584,11 @@ msgid ""
 msgstr ""
 "אנו מקווים שאתם נהנים מ-%(course_name)s! אנו רוצים ליידע אתכם מה מצפה לכם "
 "בשבועות הקרובים:"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/subject.txt:4
+#, python-format
+msgid "%(course_name)s Weekly Update"
+msgstr "%(course_name)s Weekly Update"
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:8
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:32
@@ -9060,6 +9107,15 @@ msgid "Tell us why you're interested in {platform_name}"
 msgstr "ספר לנו מדוע אתה מתעניין ב{platform_name}"
 
 #. Translators: This label appears above a dropdown menu to select
+#. the user's profession
+#. Translators: This label appears above a dropdown menu on the registration
+#. form used to select the user's profession
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:172
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:769
+msgid "Profession"
+msgstr "עיסוק"
+
+#. Translators: This label appears above a dropdown menu to select
 #. the user's specialty
 #. Translators: This label appears above a dropdown menu on the registration
 #. form used to select the user's specialty
@@ -9085,6 +9141,15 @@ msgstr "חברה"
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:899
 msgid "Title"
 msgstr "כותרת"
+
+#. Translators: This label appears above a field which allows the
+#. user to input the Job Title
+#. Translators: This label appears above a field on the registration form
+#. which allows the user to input the Job Title
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:216
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:916
+msgid "Job Title"
+msgstr "שם המשרה"
 
 #. Translators: This label appears above a field which allows the
 #. user to input the First Name
@@ -9265,6 +9330,15 @@ msgstr ""
 "כתובת הדוא\"ל או הסיסמה שגויה. {li_start}יש לך עוד {remaining_attempts} "
 "ניסיונות כניסה לפני שהחשבון שלך יינעל זמנית. {li_end}{li_start} אם שכחת את "
 "הסיסמה שלך, יש ללחוץ {link_start}כאן{link_end} כדי לאפס.{li_end}"
+
+#: openedx/core/djangoapps/user_authn/views/login.py:393
+#, python-brace-format
+msgid ""
+"As {allowed_domain} user, You must login with your {allowed_domain} "
+"{link_start}{provider} account{link_end}."
+msgstr ""
+"כמשתמש {allowed_domain}, עליך להיכנס עם {link_start}חשבון "
+"{provider}{link_end} שלך ב-{allowed_domain}."
 
 #. Translators: These instructions appear on the login form, immediately
 #. below a field meant to hold the user's email address.
@@ -9608,6 +9682,10 @@ msgstr ""
 msgid "Oauth client name of VEM service."
 msgstr "Oauth client שם of VEM service."
 
+#: openedx/core/djangoapps/video_pipeline/models.py:38
+msgid "video encode manager API URL."
+msgstr "וידאו encode manager API כתובת."
+
 #: openedx/core/djangoapps/video_pipeline/models.py:46
 msgid "Username created for VEM Integration, e.g. vem_service_user."
 msgstr "שם משתמש שנוצר עבור אינטגרציה של VEM, לדוגמה vem_service_user."
@@ -9681,6 +9759,10 @@ msgstr "{assignment} is due for {course}."
 #: openedx/features/calendar_sync/plugins.py:21
 msgid "Calendar Sync"
 msgstr "סנכרון לוח שנה"
+
+#: openedx/features/calendar_sync/plugins.py:42
+msgid "Unsubscribe from calendar updates"
+msgstr "ביטול הרשמה לעדכוני לוח שנה"
 
 #: openedx/features/calendar_sync/plugins.py:45
 msgid "Subscribe to calendar updates"
@@ -10402,6 +10484,10 @@ msgid ""
 "Codejail API Service is unavailable. Please try again in a few minutes."
 msgstr "שירות Codejail API אינו זמין. נסה שוב בעוד כמה דקות."
 
+#: xmodule/capa/safe_exec/remote_exec.py:126
+msgid "Codejail API Service invalid response."
+msgstr "Codejail API Service invalid response."
+
 #: xmodule/capa/templates/codeinput.html:7
 msgid "Code Editor"
 msgstr "עורך קוד"
@@ -10937,6 +11023,16 @@ msgstr "רשימת כתובות מִשנה של URL שהן אזכורים למו
 #: xmodule/conditional_block.py:100
 msgid "Source Components"
 msgstr "רכיבי מקור"
+
+#: xmodule/conditional_block.py:101
+msgid ""
+"The component location IDs of all source components that are used to "
+"determine whether a learner is shown the content of this conditional block. "
+"Copy the component location ID of a component from its Settings dialog in "
+"Studio."
+msgstr ""
+"מזהי המיקום של כל מרכיבי המקור המשמשים לקבוע האם להציג ללומד את התוכן של "
+"בלוק מותנה זה. העתק את מזהה המיקום של מרכיב מהדיאלוג הגדרות שלו בסטודיו."
 
 #: xmodule/conditional_block.py:108
 msgid "Conditional Attribute"
@@ -11680,6 +11776,18 @@ msgstr "ציין את שפת הקורס."
 msgid "Teams Configuration"
 msgstr "הגדרת תצורה של הצוותים"
 
+#: xmodule/course_block.py:865
+msgid ""
+"Configure team sets, limit team sizes, and set visibility settings using "
+"JSON. See <a target=\"&#95;blank\" "
+"href=\"https://docs.openedx.org/en/latest/educators/references/advanced_features/teams_configuration_options.html>teams"
+" configuration documentation</a> for help and examples."
+msgstr ""
+"הגדר ערכות צוות, הגבל את גודל צוות והגדר הגדרות נראות באמצעות JSON. לקבלת "
+"עזרה ודוגמאות, ראה תיעוד <a target=\"&#95;blank\" "
+"href=\"https://docs.openedx.org/en/latest/educators/references/advanced_features/teams_configuration_options.html\">תצורת"
+" צוותים</a>."
+
 #: xmodule/course_block.py:874
 msgid "Enable Proctored Exams"
 msgstr "אפשר מבחנים תחת פיקוח"
@@ -11867,6 +11975,14 @@ msgstr ""
 #: xmodule/course_block.py:1057
 msgid "Highlights Enabled for Messaging"
 msgstr "Highlights Enabled for Messaging"
+
+#: xmodule/course_block.py:1059
+msgid ""
+"Enter true or false. If true, any highlights associated with content in the "
+"course will be messaged to learners at their scheduled time."
+msgstr ""
+"הזן נכון או לא נכון. אם נכון, כל הדגשה הקשורה לתוכן בקורס תישלח ללומדים בזמן"
+" המתוכנן שלהם."
 
 #: xmodule/course_block.py:1066
 msgid "Course-wide Custom JS"
@@ -12410,6 +12526,10 @@ msgstr "תאריך סיום"
 msgid "Enter the default date by which problems are due."
 msgstr "הזן את תאריך היעד שיהווה ברירת מחדל להגשת הבעיות."
 
+#: xmodule/modulestore/inheritance.py:52 xmodule/seq_block.py:82
+msgid "Number of Relative Weeks Due By"
+msgstr "Number of Relative Weeks Due By"
+
 #: xmodule/modulestore/inheritance.py:53 xmodule/seq_block.py:83
 msgid ""
 "Enter the number of weeks the problems are due by relative to the learner's "
@@ -12436,6 +12556,20 @@ msgstr "הגדרה זו אינה נתמכת כעת."
 #: xmodule/modulestore/inheritance.py:83
 msgid "Enter the ids for the content groups this problem belongs to."
 msgstr "הזן את המזהים עבור קבוצות התוכן להן בעיה זו שייכת. "
+
+#. Translators: DO NOT translate the words in quotes here, they are
+#. specific words for the acceptable values.
+#: xmodule/modulestore/inheritance.py:92
+msgid ""
+"Specify when the Show Answer button appears for each problem. Valid values "
+"are \"always\", \"answered\", \"attempted\", \"closed\", \"finished\", "
+"\"past_due\", \"correct_or_past_due\", \"after_all_attempts\", "
+"\"after_all_attempts_or_correct\", \"attempted_no_past_due\", and \"never\"."
+msgstr ""
+"ציין מתי כפתור \"הצג תשובה\" יופיע עבור כל בעיה. ערכים תקינים הם \"always\","
+" \"answered\", \"attempted\", \"סגור/ה\", \"finished\", \"past_due\", "
+"\"correct_or_past_due\", \"after_all_attempts\", "
+"\"after_all_attempts_or_correct\", \"attempted_no_past_due\", ו-\"never\"."
 
 #. Translators: DO NOT translate the words in quotes here, they are
 #. specific words for the acceptable values.
@@ -12545,6 +12679,10 @@ msgid ""
 "Enter true or false. If true, video caching will be used for HTML5 videos."
 msgstr ""
 "הזן כן או לא. אם כן, יתבצע אחסון במטמון וידאו עבור סרטוני וידאו של HTML5."
+
+#: xmodule/modulestore/inheritance.py:173
+msgid "Enable video auto-advance"
+msgstr "אפשר מעבר אוטומטי בוידאו"
 
 #: xmodule/modulestore/inheritance.py:175
 msgid ""
@@ -13269,3 +13407,12 @@ msgstr "כל המילים האפשריות מכל הלומדים."
 #: xmodule/word_cloud_block.py:110
 msgid "Top num_top_words words for word cloud."
 msgstr "מילות num_top_words מובילות עבור ענן המילים."
+
+#: xmodule/x_module.py:717
+#, python-brace-format
+msgid ""
+"{display_name} is only accessible to enrolled learners. Sign in or register,"
+" and enroll in this course to view it."
+msgstr ""
+"{display_name} נגיש רק ללומדים רשומים. כניסה או הרשמה, והירשם לקורס הזה כדי "
+"לצפות בו."
