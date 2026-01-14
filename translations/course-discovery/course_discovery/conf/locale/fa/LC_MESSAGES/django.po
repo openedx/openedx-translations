@@ -126,6 +126,15 @@ msgstr "تنظیم داده های دوره انجام نشد: {}"
 msgid "Can only update status, ofac restrictions, and ofac comment"
 msgstr "فقط می تواند وضعیت، محدودیت های ofac و نظر ofac را به روز کند"
 
+#: apps/api/v1/views/course_runs.py:363
+#, python-brace-format
+msgid ""
+"The course run type '{course_run_type}' is not valid for this course type "
+"'{course_type}'."
+msgstr ""
+"نوع اجرای دوره «{course_run_type}» برای این نوع دوره «{course_type}» معتبر "
+"نیست."
+
 #: apps/api/v1/views/course_runs.py:381
 msgid "Course run is in review. Editing disabled."
 msgstr "دوره در حال بررسی است. ویرایش غیرفعال شد"
@@ -545,9 +554,17 @@ msgstr "نسخه ی نمایشی"
 msgid "other"
 msgstr "دیگر"
 
+#: apps/course_metadata/choices.py:54
+msgid "Course Create"
+msgstr "دوره ایجاد"
+
 #: apps/course_metadata/choices.py:55
 msgid "Partial Update"
 msgstr "به‌روزرسانی جزئی"
+
+#: apps/course_metadata/choices.py:56
+msgid "Course Rerun"
+msgstr "تکرار دوره"
 
 #: apps/course_metadata/choices.py:57
 msgid "Course Editor Update"
@@ -561,9 +578,25 @@ msgstr "در حال انتظار"
 msgid "Verified"
 msgstr "تایید شده است"
 
+#: apps/course_metadata/choices.py:66
+msgid "Processing"
+msgstr "در حال پردازش"
+
 #: apps/course_metadata/choices.py:67
 msgid "Completed"
 msgstr "تکمیل‌شده"
+
+#: apps/course_metadata/choices.py:68
+msgid "Failed"
+msgstr "ناموفق"
+
+#: apps/course_metadata/choices.py:69
+msgid "Partially Completed"
+msgstr "تا حدی تکمیل شد"
+
+#: apps/course_metadata/choices.py:70
+msgid "Errored"
+msgstr "خطا کرد"
 
 #: apps/course_metadata/choices.py:74
 msgid "Honor"
@@ -1962,9 +1995,33 @@ msgstr "تغییر مسیرها را از همه راب‌های URL دوره م
 msgid "Course uuids"
 msgstr "Uuids دوره"
 
+#: apps/course_metadata/models.py:5044
+msgid "User who uploaded the file"
+msgstr "کاربری که فایل را آپلود کرده است"
+
+#: apps/course_metadata/models.py:5049
+msgid "Summary of the task"
+msgstr "خلاصه تکلیف"
+
+#: apps/course_metadata/models.py:5052
+msgid "Task Type"
+msgstr "نوع وظیفه"
+
+#: apps/course_metadata/models.py:5055
+msgid "Type of Bulk Task to be performed"
+msgstr "نوع کار انبوهی که باید انجام شود"
+
 #: apps/course_metadata/models.py:5058
 msgid "Status"
 msgstr "وضعیت"
+
+#: apps/course_metadata/models.py:5061
+msgid "Status of the Bulk Task"
+msgstr "وضعیت کار انبوه"
+
+#: apps/course_metadata/models.py:5069
+msgid "Identifier of the celery task associated with this bulk task"
+msgstr "شناسه کار کرفس مرتبط با این کار انبوه"
 
 #: apps/course_metadata/salesforce.py:78
 msgid "Attempted to query Salesforce with no client for partner={}"
