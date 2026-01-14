@@ -269,6 +269,46 @@ msgstr ""
 "Көрсетілген курсты қабылдап, оны git репозиторийіне экспорттауға тырысыңыз\n"
 ". Курс каталогы әлдеқашан git репозиторийі болуы керек. Қолданылуы: git_export <course_loc> <git_url>"
 
+#: cms/djangoapps/contentstore/management/commands/recreate_upstream_links.py:46
+msgid "COURSE_KEY"
+msgstr "COURSE_KEY"
+
+#: cms/djangoapps/contentstore/management/commands/recreate_upstream_links.py:48
+msgid ""
+"Recreate links for xblocks under given course keys. For eg. "
+"course-v1:edX+DemoX.1+2014"
+msgstr ""
+"Берілген курс кілттері бойынша xblocks сілтемелерін қайта жасаңыз. Мысалы "
+"үшін. курс-v1:edX+DemoX.1+2014"
+
+#: cms/djangoapps/contentstore/management/commands/recreate_upstream_links.py:55
+msgid ""
+"Recreate links for xblocks under all courses. NOTE: this can take long time "
+"depending on number of course and xblocks"
+msgstr ""
+"Барлық курстар бойынша xblocks сілтемелерін қайта жасаңыз. ЕСКЕРТПЕ: бұл "
+"курстар мен xblocks санына байланысты ұзақ уақыт алуы мүмкін"
+
+#: cms/djangoapps/contentstore/management/commands/recreate_upstream_links.py:62
+msgid "Recreate links even for completely processed courses."
+msgstr "Толық өңделген курстар үшін сілтемелерді қайта жасаңыз."
+
+#: cms/djangoapps/contentstore/management/commands/recreate_upstream_links.py:67
+msgid "Delete all and create links for given course(s)."
+msgstr "Барлығын жойып, берілген курс(тар) үшін сілтемелер жасаңыз."
+
+#: cms/djangoapps/contentstore/models.py:95
+msgid "Upstream context key i.e., learning_package/library key"
+msgstr "Жоғары ағын контекстік кілті, яғни, оқыту_бумасы/кітапхана кілті"
+
+#: cms/djangoapps/contentstore/models.py:157
+msgid ""
+"Upstream block usage key, this value cannot be null and useful to track "
+"upstream library blocks that do not exist yet"
+msgstr ""
+"Жоғары ағынды блокты пайдалану кілті, бұл мән бос болмауы керек және әлі жоқ"
+" жоғары ағындық кітапхана блоктарын бақылау үшін пайдалы."
+
 #: cms/djangoapps/contentstore/models.py:163
 msgid "Component Link"
 msgstr "Құрамдас сілтеме"
@@ -326,6 +366,19 @@ msgstr "Сәтсіз"
 #: cms/djangoapps/contentstore/models.py:558
 msgid "Completed"
 msgstr "Аяқталды"
+
+#: cms/djangoapps/contentstore/models.py:570
+msgid "Linking status for course context key"
+msgstr "Курстың мәтінмәндік кілті үшін байланыстыру күйі"
+
+#: cms/djangoapps/contentstore/models.py:575
+msgid "Status of links in given learning context/course."
+msgstr "Берілген оқу контекстіндегі/курстағы сілтемелердің күйі."
+
+#: cms/djangoapps/contentstore/models.py:581
+#: cms/djangoapps/contentstore/models.py:582
+msgid "Learning Context Links status"
+msgstr "Оқу контекстік сілтемелерінің күйі"
 
 #: cms/djangoapps/contentstore/rest_api/v0/serializers/advanced_settings.py:47
 msgid "Marks a field as deprecated."
@@ -683,6 +736,10 @@ msgstr "Бейне"
 msgid "Open Response"
 msgstr "Жауапты ашу"
 
+#: cms/djangoapps/contentstore/views/component.py:286
+msgid "Legacy Library"
+msgstr "Бұрынғы кітапхана"
+
 #: cms/djangoapps/contentstore/views/component.py:289
 msgid "Drag and Drop"
 msgstr "Сүйреп апарыңыз"
@@ -906,6 +963,10 @@ msgstr "YouTube идентификатор қажет."
 #: cms/djangoapps/contentstore/views/transcripts_ajax.py:750
 msgid "There is a problem with the YouTube transcript file."
 msgstr "YouTube транскрипт файлы ақаулы."
+
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:774
+msgid "Transcripts are not yet supported for this type of block"
+msgstr "Блоктың бұл түрі үшін транскрипттерге әлі қолдау көрсетілмейді"
 
 #: cms/djangoapps/contentstore/views/user.py:98
 msgid "Insufficient permissions"
@@ -1183,9 +1244,21 @@ msgstr[1] " Онда {count} балалар блок бар."
 msgid "Dictionary with the available tags"
 msgstr "Қол жетімді тегтері бар сөздік"
 
+#: cms/lib/xblock/upstream_sync.py:72
+msgid "Content is not linked to a Content Library."
+msgstr "Мазмұн кітапханасымен байланыстырылмаған."
+
 #: cms/lib/xblock/upstream_sync.py:255
 msgid "Downstream is not an XBlock or is missing required UpstreamSyncMixin"
 msgstr "Downstream XBlock емес немесе қажетті UpstreamSyncMixin жоқ"
+
+#: cms/lib/xblock/upstream_sync.py:259
+msgid "Cannot update content because it does not belong to a course."
+msgstr "Мазмұнды жаңарту мүмкін емес, себебі ол курсқа жатпайды."
+
+#: cms/lib/xblock/upstream_sync.py:269
+msgid "Reference to linked library item is malformed"
+msgstr "Байланыстырылған кітапхана элементіне сілтеме дұрыс емес"
 
 #: cms/lib/xblock/upstream_sync.py:275
 msgid ""
@@ -1215,6 +1288,10 @@ msgid ""
 msgstr ""
 "Мазмұн түрі сәйкессіздігі: {downstream_id} ({downstream_type}) {upstream_id}"
 " байланыстыруға болмайды."
+
+#: cms/lib/xblock/upstream_sync_block.py:108
+msgid "Linked library item could not be loaded: {}"
+msgstr "Байланыстырылған кітапхана элементін жүктеу мүмкін емес: {}"
 
 #: cms/templates/admin/base_site.html:4 lms/templates/admin/base_site.html:3
 msgid "Django site admin"
@@ -4292,6 +4369,17 @@ msgid "Provide additional course content and resources with custom pages"
 msgstr ""
 "Қосымша курс мазмұны мен ресурстарын реттелетін беттермен қамтамасыз етіңіз"
 
+#: lms/djangoapps/courseware/plugins.py:271
+msgid "Flexible Peer Grading for ORAs"
+msgstr "ORA үшін икемді тең бағалау"
+
+#: lms/djangoapps/courseware/plugins.py:272
+msgid ""
+"Course level settings for Flexible Peer Grading Open Response Assessments."
+msgstr ""
+"Икемді тең баға беру ашық жауап бағалауларына арналған курс деңгейінің "
+"параметрлері."
+
 #: lms/djangoapps/courseware/tabs.py:36
 #: lms/djangoapps/courseware/views/views.py:2250
 #: openedx/features/course_experience/__init__.py:108 xmodule/tabs.py:490
@@ -4466,6 +4554,22 @@ msgstr "Куәлік әлдеқашан жасалған."
 msgid "Certificate is being created."
 msgstr "Сертификатты жасап жатыр."
 
+#: lms/djangoapps/courseware/views/views.py:2062
+msgid ""
+"We plan to use this information to evaluate your application for financial assistance and to further develop our financial assistance program. \n"
+"Please note that while assistance is available in most courses that offer verified certificates, a few courses and programs are not eligible. You must complete a separate application for each course you take. You may be approved for financial assistance five (5) times each year (based on 12-month period from you first approval). \n"
+"To apply for financial assistance: \n"
+"1. Enroll in the audit track for an eligible course that offers Verified Certificates. \n"
+"2. Complete this application. \n"
+"3. Check your email, please allow 4 weeks for your application to be processed."
+msgstr ""
+"Біз бұл ақпаратты қаржылық көмекке өтінішті бағалау және қаржылық көмек көрсету бағдарламамызды одан әрі дамыту үшін пайдалануды жоспарлап отырмыз. \n"
+"Расталған сертификаттар ұсынатын көптеген курстарда көмек қолжетімді болғанымен, бірнеше курстар мен бағдарламалар жарамсыз болып табылады. Сіз қабылдаған әрбір курс үшін жеке өтінімді толтыруыңыз керек. Сізге жыл сайын бес (5) рет қаржылық көмекке рұқсат алуыңыз мүмкін (алғашқы мақұлдауыңыздан бастап 12 айлық кезең негізінде). \n"
+"Қаржылық көмекке өтініш беру үшін: \n"
+"1. Тексерілген сертификаттарды ұсынатын жарамды курсқа аудит жолына жазылыңыз. \n"
+"2. Осы қолданбаны толтырыңыз. \n"
+"3. Электрондық поштаңызды тексеріңіз, өтінішіңіздің өңделуіне 4 апта уақыт беріңіз."
+
 #: lms/djangoapps/courseware/views/views.py:2257
 msgid ""
 "Select the course for which you want to earn a verified certificate. If the "
@@ -4545,6 +4649,16 @@ msgstr "сіздің"
 msgid "their"
 msgstr "олардың"
 
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/commentnotification/push/body.txt:2
+#, python-format
+msgid "%(comment_username)s commented to %(thread_title)s:"
+msgstr "%(comment_username)s пікір қалдырды %(thread_title)s :"
+
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/commentnotification/push/title.txt:2
+#, python-format
+msgid "Comment to %(thread_title)s"
+msgstr "%(thread_title)s үшін пікір қалдырыңыз"
+
 #: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.html:24
 #: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.txt:18
 msgid "Go to Discussion"
@@ -4581,6 +4695,15 @@ msgstr "%(comment_username)s жауап берді <b>%(thread_title)s</b> :"
 #, python-format
 msgid "Response to %(thread_title)s"
 msgstr "%(thread_title)s жауабы"
+
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/responsenotification/push/body.txt:2
+#, python-format
+msgid ""
+"%(comment_username)s replied to %(thread_title)s: "
+"%(comment_body|truncatechars:200)s"
+msgstr ""
+"%(comment_username)s жауап берді %(thread_title)s : "
+"%(comment_body|truncatechars:200)s"
 
 #: lms/djangoapps/discussion/views.py:80
 msgid "Access to this discussion is restricted to team members and staff."
@@ -5030,6 +5153,11 @@ msgstr "Модуль жоқ."
 #: lms/djangoapps/instructor/views/api.py:2046
 msgid "An error occurred while deleting the score."
 msgstr "Ұпайды жою кезінде қате орын алды."
+
+#: lms/djangoapps/instructor/views/api.py:2056
+msgid "An error occurred while attempting to reset for all students."
+msgstr ""
+"Барлық студенттер үшін қалпына келтіру әрекеті кезінде қате орын алды."
 
 #: lms/djangoapps/instructor/views/api.py:2116
 #: lms/djangoapps/instructor/views/api.py:2355
@@ -5481,6 +5609,16 @@ msgstr "Аяқталды"
 #: lms/djangoapps/instructor/views/instructor_task_helpers.py:140
 msgid "Incomplete"
 msgstr "Толық емес"
+
+#: lms/djangoapps/instructor/views/serializer.py:31
+#: lms/djangoapps/instructor/views/serializer.py:89
+msgid "Role name"
+msgstr "Рөл аты"
+
+#: lms/djangoapps/instructor/views/serializer.py:38
+#: lms/djangoapps/instructor/views/serializer.py:99
+msgid "Invalid role name."
+msgstr "Рөл аты жарамсыз."
 
 #: lms/djangoapps/instructor/views/serializer.py:344
 msgid "The URL name of the problem to reset."
@@ -6532,6 +6670,23 @@ msgstr "Сіз %(course_name)s үшін бета сынағына шақырыл
 msgid "Dear %(full_name)s,"
 msgstr "Құрметті %(full_name)s,"
 
+#: lms/templates/instructor/edx_ace/addbetatester/push/body.txt:4
+#, python-format
+msgid ""
+"You have been invited to be a beta tester for %(course_name)s at "
+"%(site_name)s."
+msgstr ""
+"Сіз %(site_name)s мекенжайында %(course_name)s үшін бета тестілеушісі болуға"
+" шақырылдыңыз."
+
+#: lms/templates/instructor/edx_ace/addbetatester/push/title.txt:3
+#, python-format
+msgid ""
+"You have been invited to a beta test for %(course_name)s at %(site_name)s."
+msgstr ""
+"Сіз %(site_name)s мекенжайындағы %(course_name)s үшін бета сынағына "
+"шақырылдыңыз."
+
 #: lms/templates/instructor/edx_ace/allowedenroll/email/body.html:12
 #, python-format
 msgid "You have been invited to %(course_name)s"
@@ -6635,6 +6790,20 @@ msgstr ""
 msgid "You have been invited to register for %(course_name)s"
 msgstr "Сіз %(course_name)s үшін тіркелуге шақырылдыңыз"
 
+#: lms/templates/instructor/edx_ace/allowedenroll/push/body.txt:3
+#, python-format
+msgid ""
+"You have been enrolled in %(course_name)s at %(site_name)s. This course will"
+" now appear on your %(site_name)s dashboard."
+msgstr ""
+"Сіз %(course_name)s бағдарламасына %(site_name)s мекенжайында тіркелдіңіз. "
+"Бұл курс енді %(site_name)s бақылау тақтасында пайда болады."
+
+#: lms/templates/instructor/edx_ace/allowedenroll/push/title.txt:3
+#, python-format
+msgid "You have been invited to register for %(course_name)s."
+msgstr "Сіз %(course_name)s үшін тіркелуге шақырылдыңыз."
+
 #: lms/templates/instructor/edx_ace/allowedunenroll/email/body.html:12
 #: lms/templates/instructor/edx_ace/allowedunenroll/email/subject.txt:3
 #: lms/templates/instructor/edx_ace/allowedunenroll/push/title.txt:3
@@ -6657,6 +6826,14 @@ msgstr ""
 #: lms/templates/instructor/edx_ace/allowedunenroll/email/body.txt:1
 msgid "Dear Student,"
 msgstr "Құрметті студент,"
+
+#: lms/templates/instructor/edx_ace/allowedunenroll/push/body.txt:3
+#, python-format
+msgid ""
+"You have been unenrolled from the course %(course_name)s. Please disregard "
+"the invitation previously sent."
+msgstr ""
+"Сіз %(course_name)s курсынан шығардыңыз. Бұрын жіберілген шақыруды елемеңіз."
 
 #: lms/templates/instructor/edx_ace/enrolledunenroll/email/body.html:21
 #: lms/templates/instructor/edx_ace/enrolledunenroll/email/body.txt:3
@@ -6687,6 +6864,15 @@ msgstr ""
 "Бұл электрондық пошта автоматты түрде %(site_name)s мекенжайынан "
 "%(full_name)s мекенжайына жіберілді."
 
+#: lms/templates/instructor/edx_ace/enrolledunenroll/push/body.txt:4
+#, python-format
+msgid ""
+"You have been unenrolled from %(course_name)s at %(site_name)s. This course "
+"will no longer appear on your %(site_name)s dashboard."
+msgstr ""
+"Сіз %(site_name)s мекенжайында %(course_name)s тіркеуінен шықтыңыз. Бұл курс"
+" бұдан былай %(site_name)s бақылау тақтасында көрсетілмейді."
+
 #: lms/templates/instructor/edx_ace/enrollenrolled/email/body.html:21
 #: lms/templates/instructor/edx_ace/enrollenrolled/email/body.txt:3
 #, python-format
@@ -6702,6 +6888,12 @@ msgstr ""
 #: lms/templates/instructor/edx_ace/enrollenrolled/email/body.html:27
 msgid "Access the Course Materials Now"
 msgstr "Курс материалдарына қазір қол жеткізіңіз"
+
+#: lms/templates/instructor/edx_ace/enrollenrolled/push/body.txt:4
+#, python-format
+msgid "You have been invited to join %(course_name)s at %(site_name)s."
+msgstr ""
+"Сіз %(site_name)s мекенжайы бойынша %(course_name)s қосылуға шақырылдыңыз."
 
 #: lms/templates/instructor/edx_ace/removebetatester/email/body.html:12
 #, python-format
@@ -6743,6 +6935,25 @@ msgstr ""
 #, python-format
 msgid "You have been removed from a beta test for %(course_name)s"
 msgstr "Сіз %(course_name)s үшін бета сынақтан шығарылдыңыз"
+
+#: lms/templates/instructor/edx_ace/removebetatester/push/body.txt:4
+#, python-format
+msgid ""
+"You have been removed as a beta tester for %(course_name)s at %(site_name)s."
+" This course will remain on your dashboard, but you will no longer be part "
+"of the beta testing group."
+msgstr ""
+"Сіз %(site_name)s мекенжайында %(course_name)s үшін бета-тестер ретінде "
+"жойылдыңыз. Бұл курс бақылау тақтасында қалады, бірақ сіз енді бета тестілеу"
+" тобының бөлігі болмайсыз."
+
+#: lms/templates/instructor/edx_ace/removebetatester/push/title.txt:3
+#, python-format
+msgid ""
+"You have been removed as a beta tester for %(course_name)s at %(site_name)s."
+msgstr ""
+"Сіз %(site_name)s мекенжайында %(course_name)s үшін бета-тестер ретінде "
+"жойылдыңыз."
 
 #: lms/templates/logout.html:5
 msgid "Signed Out"
@@ -7926,6 +8137,12 @@ msgid ""
 msgstr ""
 "Ресурсты іске қосқан рұқсат етілген LTI профилі (пайдаланушыны анықтайды)."
 
+#: openedx/core/djangoapps/content_libraries/models.py:480
+msgid ""
+"The usage key string of the resource serving the content of this launch."
+msgstr ""
+"Осы іске қосу мазмұнына қызмет көрсететін ресурстың пайдалану кілті жолы."
+
 #: openedx/core/djangoapps/content_libraries/models.py:486
 msgid ""
 "The LTI platform unique identifier of this resource, also known as the "
@@ -8581,6 +8798,14 @@ msgstr ""
 "<{p}><{strong}>{replier_name}</{strong}> жауабы сіздің "
 "<{strong}>{post_title}</{strong}> жазбаңызда мақұлданды</{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:223
+#, python-brace-format
+msgid ""
+"<{p}>Your response has been endorsed on the post "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}>Жауабыңыз постта мақұлданды <{strong}>{post_title}</{strong}></{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:258
 #, python-brace-format
 msgid ""
@@ -8598,6 +8823,15 @@ msgid ""
 msgstr ""
 "<{p}>Сізде <{strong}>{ora_name}</{strong}> үшін тексеруді күтіп тұрған "
 "бірнеше өтініштер бар</{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:279
+#, python-brace-format
+msgid ""
+"<{p}>You have received {points_earned} out of {points_possible} on your "
+"assessment: <{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<{p}>Бағаңыз бойынша {points_possible} ішінен {points_earned} алдыңыз: "
+"<{strong}>{ora_name}</{strong}></{p}>"
 
 #: openedx/core/djangoapps/notifications/base_notification.py:299
 #, python-brace-format
@@ -8618,6 +8852,10 @@ msgstr ""
 msgid "Notifications for new announcements and updates from the course team."
 msgstr ""
 "Курс командасы жаңа хабарландырулар мен жаңартулар туралы хабарландырулар."
+
+#: openedx/core/djangoapps/notifications/base_notification.py:366
+msgid "Notifications for submission grading."
+msgstr "Жіберілген жұмыстарды бағалау туралы хабарламалар."
 
 #: openedx/core/djangoapps/notifications/email/tasks.py:267
 msgid "New Course Update"
@@ -8736,6 +8974,17 @@ msgstr "Апталық хабарландырулар дайджесті, апт
 #: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/subject.txt:6
 msgid "Daily Notifications Digest for"
 msgstr "Күнделікті хабарламалар дайджесті үшін"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:5
+msgid "Email Digest Preferences Updated"
+msgstr "Электрондық пошта дайджестінің теңшелімдері жаңартылды"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:9
+msgid ""
+"You have successfully unsubscribed from email digest for learning activity"
+msgstr ""
+"Оқу әрекетіне арналған электрондық пошта дайджест жазылымынан сәтті бас "
+"тарттыңыз"
 
 #: openedx/core/djangoapps/notifications/views.py:174
 msgid "Invalid app name."
@@ -9268,6 +9517,10 @@ msgid ""
 msgstr ""
 "{email_address} бұрыннан бар тіркелгіге тиесілі сияқты. Басқа электрондық "
 "пошта мекенжайымен әрекетті қайталаңыз."
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:64
+msgid "This email is already associated with an existing account"
+msgstr "Бұл электрондық пошта бұрыннан бар тіркелгімен байланыстырылған"
 
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:66
 msgid "This email is associated to a retired account."
@@ -9960,6 +10213,10 @@ msgstr ""
 "{email} бұрыннан бар тіркелгіге тиесілі сияқты. Басқа электрондық пошта "
 "мекенжайымен әрекетті қайталаңыз."
 
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:311
+msgid "Registration from this country is not allowed due to restrictions."
+msgstr "Бұл елден тіркеуге шектеулерге байланысты рұқсат етілмейді."
+
 #. Translators: These instructions appear on the registration form,
 #. immediately
 #. below a field meant to hold the user's email address.
@@ -10518,6 +10775,10 @@ msgstr ""
 #: openedx/features/enterprise_support/utils.py:205
 msgid "Continue"
 msgstr "Жалғастыру"
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:121
+msgid "The deadline to complete this assignment has passed."
+msgstr "Бұл тапсырманы орындау мерзімі өтті."
 
 #: openedx/features/personalized_learner_schedules/call_to_action.py:127
 msgid "Shift due dates"
@@ -12342,6 +12603,19 @@ msgstr "Курсыңыздың тілін көрсетіңіз."
 msgid "Teams Configuration"
 msgstr "Командалар конфигурациясы"
 
+#: xmodule/course_block.py:865
+msgid ""
+"Configure team sets, limit team sizes, and set visibility settings using "
+"JSON. See <a target=\"&#95;blank\" "
+"href=\"https://docs.openedx.org/en/latest/educators/references/advanced_features/teams_configuration_options.html>teams"
+" configuration documentation</a> for help and examples."
+msgstr ""
+"JSON көмегімен топ жиындарын конфигурациялаңыз, топ өлшемдерін шектеңіз және"
+" көріну параметрлерін орнатыңыз. Анықтама мен мысалдар үшін <a "
+"target=\"&#95;blank\" "
+"href=\"https://docs.openedx.org/en/latest/educators/references/advanced_features/teams_configuration_options.html\">топтардың"
+" конфигурация құжаттамасы</a> қараңыз."
+
 #: xmodule/course_block.py:874
 msgid "Enable Proctored Exams"
 msgstr "Бақыланатын емтихандарды қосыңыз"
@@ -12653,6 +12927,12 @@ msgstr "{section_type} {index} Шығарылған жоқ - 0% (?/?)"
 #, python-brace-format
 msgid "The lowest {drop_count} {section_type} scores are dropped."
 msgstr "Ең төменгі {drop_count} {section_type} ұпайлары жойылды."
+
+#. Translators: "Homework Average = 0%"
+#: xmodule/graders.py:434
+#, python-brace-format
+msgid "{section_type} Average = {percent:.2%}"
+msgstr "{section_type} Орташа = {percent:.2%}"
 
 #. Translators: Avg is short for Average
 #: xmodule/graders.py:439
