@@ -361,6 +361,33 @@ msgid ""
 msgstr ""
 "ระบุว่าผู้เรียนสามารถดูเกณฑ์การให้คะแนนในขณะที่กำลังตอบคำถามได้หรือไม่"
 
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:167
+msgid "Allow Learner Resubmissions"
+msgstr "อนุญาตให้ผู้เรียนส่งใหม่"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:174
+msgid ""
+"Set to TRUE to allow learners to resubmit ungraded work. Set to FALSE if "
+"resubmissions are not allowed."
+msgstr ""
+"ตั้งค่าเป็น TRUE เพื่ออนุญาตให้ผู้เรียนส่งงานที่ไม่ได้ให้คะแนนอีกครั้ง "
+"ตั้งค่าเป็น FALSE หากไม่อนุญาตให้ส่งซ้ำ"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:178
+msgid "Resubmission Grace Period"
+msgstr "ระยะเวลาผ่อนผันการส่งอีกครั้ง"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:187
+msgid ""
+"Specify the maximum period during which resubmissions are allowed. If left "
+"blank, learners will be able to reset their submission as long as it has not"
+" been graded. The grace period starts once the learner has submitted their "
+"response."
+msgstr ""
+"ระบุระยะเวลาสูงสุดที่อนุญาตให้ส่งซ้ำได้ หากเว้นว่างไว้ "
+"ผู้เรียนจะสามารถรีเซ็ตการส่งผลงานของตนได้ตราบใดที่ยังไม่ได้ให้คะแนน "
+"ระยะเวลาผ่อนผันเริ่มต้นเมื่อผู้เรียนได้ส่งคำตอบแล้ว"
+
 #: templates/legacy/edit/oa_edit_criterion.html:6
 #: templates/legacy/staff_area/oa_student_info.html:122
 #: templates/legacy/staff_area/oa_student_info_assessment_detail.html:25
@@ -524,6 +551,25 @@ msgid ""
 msgstr ""
 "คุณลักษณะนี้เปิดใช้งานโดยการตั้งค่าระดับหลักสูตร "
 "สามารถพบได้ภายใต้การ์ดการตั้งค่าการประเมินการตอบสนองแบบเปิดบนหน้าสตูดิโอเพจและทรัพยากร"
+
+#: templates/legacy/edit/oa_edit_peer_assessment.html:60
+msgid "Grading strategy for the peer assessment"
+msgstr "กลยุทธ์การให้คะแนนสำหรับการประเมินโดยเพื่อน"
+
+#: templates/legacy/edit/oa_edit_peer_assessment.html:63
+msgid "Median (default)"
+msgstr "ค่ามัธยฐาน (ค่าเริ่มต้น)"
+
+#: templates/legacy/edit/oa_edit_peer_assessment.html:66
+msgid ""
+"Select the preferred grading strategy for the peer assessment. By default, "
+"the median across all peer reviews is used to calculate the final grade. If "
+"you select the mean, the average of all peer reviews will be used."
+msgstr ""
+"เลือกกลยุทธ์การให้เกรดที่ต้องการสำหรับการประเมินโดยผู้ทรงคุณวุฒิ "
+"ตามค่าเริ่มต้น "
+"ค่ามัธยฐานของการทบทวนโดยผู้ทรงคุณวุฒิทั้งหมดจะถูกนำมาใช้ในการคำนวณเกรดสุดท้าย"
+" หากคุณเลือกค่าเฉลี่ย ระบบจะใช้ค่าเฉลี่ยของบทวิจารณ์ของเพื่อนทั้งหมด"
 
 #: templates/legacy/edit/oa_edit_peer_assessment_schedule.html:5
 msgid "Peer Assessment Deadlines"
@@ -1645,6 +1691,14 @@ msgstr ""
 "คำตอบของคุณถูกส่งแล้ว "
 "คุณจะได้รับเกรดหลังจากเสร็จสิ้นทุกขั้นตอนและคำตอบของคุณได้รับการประเมินครบถ้วนแล้ว"
 
+#: templates/legacy/response/oa_response_submitted.html:63
+msgid "We could not reset your response"
+msgstr "เราไม่สามารถรีเซ็ตคำตอบของคุณได้"
+
+#: templates/legacy/response/oa_response_submitted.html:69
+msgid "Reset response and submit again"
+msgstr "รีเซ็ตการตอบกลับและส่งอีกครั้ง"
+
 #: templates/legacy/response/oa_response_team_already_submitted.html:15
 msgid "Error"
 msgstr "ผิดพลาด"
@@ -1803,6 +1857,10 @@ msgstr "ผลตอบกลับบันทึกแล้ว"
 msgid "Your Self Assessment"
 msgstr "การประเมินส่วนตัว"
 
+#: xblock/grade_mixin.py:429
+msgid "Peer Mean Grade"
+msgstr "เกรดเฉลี่ยของเพื่อน"
+
 #: xblock/grade_mixin.py:687
 #, python-brace-format
 msgid ""
@@ -1810,9 +1868,31 @@ msgid ""
 "{earned_points}/{total_points}."
 msgstr "คุณแก้ไขปัญหานี้สำเร็จแล้วและได้รับ {earned_points}/{total_points}"
 
+#: xblock/grade_mixin.py:715
+msgid ""
+"The grade for this problem is determined by the mean score of your Peer "
+"Assessments."
+msgstr "คะแนนสำหรับปัญหานี้ถูกกำหนดโดยคะแนนเฉลี่ยของการประเมินเพื่อนของคุณ"
+
 #: xblock/openassesment_template_mixin.py:66
 msgid "Peer Assessment Only"
 msgstr "การประเมินเพื่อนเท่านั้น"
+
+#: xblock/openassessmentblock.py:1365
+msgid "You can't reset your submission."
+msgstr "คุณไม่สามารถรีเซ็ตการส่งของคุณได้"
+
+#: xblock/openassessmentblock.py:1378
+msgid "The user does not exist."
+msgstr "ไม่มีผู้ใช้อยู่"
+
+#: xblock/openassessmentblock.py:1381
+msgid "There is no submission to reset."
+msgstr "ไม่มีการส่งเพื่อรีเซ็ต"
+
+#: xblock/openassessmentblock.py:1383
+msgid "Submission reset successfully."
+msgstr "รีเซ็ตการส่งเรียบร้อยแล้ว"
 
 #: xblock/staff_area_mixin.py:42
 msgid "You do not have permission to schedule training"
@@ -1918,6 +1998,13 @@ msgstr "จำนวนของการประเมินไม่สาม
 msgid ""
 "The assessment type cannot be changed after the problem has been released."
 msgstr "ประเภทของการประเมินไม่สามารถเปลี่ยนได้หลังออกคำถามไปแล้ว"
+
+#: xblock/utils/validation.py:176
+msgid ""
+"The grading strategy for peer assessments cannot be changed after the "
+"problem has been released."
+msgstr ""
+"กลยุทธ์การให้คะแนนสำหรับการประเมินโดยผู้ทรงคุณวุฒิไม่สามารถเปลี่ยนแปลงได้หลังจากที่ปัญหาได้รับการเผยแพร่แล้ว"
 
 #: xblock/utils/validation.py:200
 msgid "This rubric definition is not valid."
