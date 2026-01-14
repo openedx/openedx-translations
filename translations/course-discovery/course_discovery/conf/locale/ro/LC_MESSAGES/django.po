@@ -133,6 +133,15 @@ msgstr "Nu s-au setat datele de rulare a cursului: {}"
 msgid "Can only update status, ofac restrictions, and ofac comment"
 msgstr "Poate actualiza doar starea, restricțiile ofac și comentariul ofac"
 
+#: apps/api/v1/views/course_runs.py:363
+#, python-brace-format
+msgid ""
+"The course run type '{course_run_type}' is not valid for this course type "
+"'{course_type}'."
+msgstr ""
+"Tipul de curs „{course_run_type}” nu este valid pentru acest tip de curs "
+"„{course_type}”."
+
 #: apps/api/v1/views/course_runs.py:381
 msgid "Course run is in review. Editing disabled."
 msgstr ""
@@ -557,9 +566,17 @@ msgstr "demonstrație"
 msgid "other"
 msgstr "alt răspuns"
 
+#: apps/course_metadata/choices.py:54
+msgid "Course Create"
+msgstr "Creare curs"
+
 #: apps/course_metadata/choices.py:55
 msgid "Partial Update"
 msgstr "Actualizare parțială"
+
+#: apps/course_metadata/choices.py:56
+msgid "Course Rerun"
+msgstr "Reluare curs"
 
 #: apps/course_metadata/choices.py:57
 msgid "Course Editor Update"
@@ -580,6 +597,14 @@ msgstr "Prelucrare"
 #: apps/course_metadata/choices.py:67
 msgid "Completed"
 msgstr "Completata"
+
+#: apps/course_metadata/choices.py:69
+msgid "Partially Completed"
+msgstr "Completat Parțial"
+
+#: apps/course_metadata/choices.py:70
+msgid "Errored"
+msgstr "Eroare"
 
 #: apps/course_metadata/choices.py:74
 msgid "Honor"
@@ -2011,13 +2036,34 @@ msgstr "Adăugați redirecționări de la toate URL-urile de cursuri publicate"
 msgid "Course uuids"
 msgstr "UUID-urile cursurilor"
 
+#: apps/course_metadata/models.py:5044
+msgid "User who uploaded the file"
+msgstr "Utilizator care a încărcat fișierul"
+
+#: apps/course_metadata/models.py:5049
+msgid "Summary of the task"
+msgstr "Rezumatul sarcinii"
+
 #: apps/course_metadata/models.py:5052
 msgid "Task Type"
 msgstr "Tip de sarcină"
 
+#: apps/course_metadata/models.py:5055
+msgid "Type of Bulk Task to be performed"
+msgstr "Tipul de sarcină în vrac care trebuie efectuată"
+
 #: apps/course_metadata/models.py:5058
 msgid "Status"
 msgstr "Stare"
+
+#: apps/course_metadata/models.py:5061
+msgid "Status of the Bulk Task"
+msgstr "Starea sarcinii în bloc"
+
+#: apps/course_metadata/models.py:5069
+msgid "Identifier of the celery task associated with this bulk task"
+msgstr ""
+"Identificatorul sarcinii de țelină asociată cu această sarcină în vrac"
 
 #: apps/course_metadata/salesforce.py:78
 msgid "Attempted to query Salesforce with no client for partner={}"
