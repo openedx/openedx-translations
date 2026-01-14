@@ -546,6 +546,10 @@ msgstr "inny"
 msgid "Course Create"
 msgstr "Kurs Utworzyć"
 
+#: apps/course_metadata/choices.py:55
+msgid "Partial Update"
+msgstr "Częściowa aktualizacja"
+
 #: apps/course_metadata/choices.py:56
 msgid "Course Rerun"
 msgstr "Повтор курса"
@@ -1498,6 +1502,14 @@ msgstr ""
 "To pole obliczeniowe wskazuje, czy ten kurs znajduje się w katalogu "
 "subskrypcji dla przedsiębiorstw"
 
+#: apps/course_metadata/models.py:2405
+msgid ""
+"The identifier for a product variant. This is used to link a course run to a"
+" product variant for external LOBs (i.e; ExecEd & Bootcamps)."
+msgstr ""
+"Identyfikator wariantu produktu jest używany do łączenia kursu z wariantem "
+"produktu dla zewnętrznych LOB (tj. ExecEd i Bootcamps)."
+
 #: apps/course_metadata/models.py:2753 apps/course_metadata/models.py:2766
 msgid "Current"
 msgstr "Aktualny"
@@ -1935,6 +1947,14 @@ msgstr ""
 "Oczekuje, że dane zostaną dostarczone w formacie pliku csv z pierwszym "
 "wierszem zawierającym wszystkie nagłówki."
 
+#: apps/course_metadata/models.py:4837
+msgid "Open Courses"
+msgstr "Kursy otwarte"
+
+#: apps/course_metadata/models.py:4838
+msgid "2U Executive Education Courses"
+msgstr "Kursy edukacyjne dla kadry kierowniczej 2U"
+
 #: apps/course_metadata/models.py:4839
 msgid "Bootcamps"
 msgstr "Bootcampy"
@@ -2067,6 +2087,100 @@ msgid ""
 msgstr ""
 "%(user_name)s dodał/a następujący komentarz na temat kursu %(course_name)s "
 "dn. %(date)s o godz. %(time)s."
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:7
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:3
+#: apps/course_metadata/templates/course_metadata/email/go_live.html:9
+#: apps/course_metadata/templates/course_metadata/email/go_live.txt:3
+msgid "Hi Course Team,"
+msgstr "Cześć Zespół Kursu,"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:16
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:16
+msgid ""
+"To ensure uninterrupted learner access and enrollment, please take one of "
+"the following actions:"
+msgstr ""
+"Aby zapewnić nieprzerwany dostęp i rejestrację uczniów, należy wykonać jedną"
+" z poniższych czynności:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:23
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:18
+msgid ""
+"If this was intentional, no action is needed. However, if this course was "
+"meant to remain available, you have two options to restore access:"
+msgstr ""
+"Jeśli było to zamierzone, nie trzeba podejmować żadnych działań. Jeśli "
+"jednak ten kurs miał pozostać dostępny, masz dwie możliwości przywrócenia "
+"dostępu:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:29
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:21
+msgid ""
+"Extend the current course run’s end date if the same course is meant to "
+"remain available."
+msgstr ""
+"Przedłużenie daty zakończenia bieżącego kursu, jeśli ten sam kurs ma "
+"pozostać dostępny."
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:31
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:22
+msgid ""
+"Create a new course run if you are planning to offer this course again with "
+"updated content, pacing, or a new cohort of learners."
+msgstr ""
+"Utwórz nowy kurs, jeśli planujesz ponownie zaoferować ten kurs ze "
+"zaktualizowaną zawartością, tempem lub nową grupą uczestników."
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:32
+msgid "Visit the Course in Publisher"
+msgstr "Odwiedź kurs w serwisie Publisher"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:37
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:25
+msgid "You can review and modify the course end settings here:"
+msgstr "Ustawienia zakończenia kursu można przeglądać i modyfikować tutaj:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:47
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:34
+msgid "Thanks"
+msgstr "Dzięki"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:6
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"```\n"
+"Jest to automatyczne przypomnienie, że kurs \"%(course_name)s\" (klucz kursu: %(course_key)s) zakończy się w %(days)s na %(course_end_date)s.\n"
+"\n"
+"```\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:10
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"To jest automatyczne przypomnienie, że kurs \"%(course_name)s\" (Klucz kursu: %(course_key)s) został oficjalnie zakończony z dniem %(course_end_date)s.\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:23
+msgid "Visit the Course in Publisher:"
+msgstr "Odwiedź kurs w serwisie Publisher:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:29
+#, python-format
+msgid ""
+"\n"
+"If no action is taken, the course will no longer be available for enrollment or access by learners on %(partner_marketing_site_url)s after the end date.\n"
+msgstr ""
+"\n"
+"\n"
+"Jeśli nie zostaną podjęte żadne działania, kurs nie będzie już dostępny do zapisów ani dostępu dla uczestników na %(partner_marketing_site_url)s po dacie zakończenia.\n"
+"\n"
 
 #: apps/course_metadata/templates/course_metadata/email/go_live.html:17
 #: apps/course_metadata/templates/course_metadata/email/go_live.txt:7
