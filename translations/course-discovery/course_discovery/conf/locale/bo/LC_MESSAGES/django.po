@@ -11,6 +11,7 @@
 # Omar Al-Ithawi <i@omardo.com>, 2025
 # Eden Huthmacher, 2025
 # Brian Smith, 2025
+# Gerardo Núñez, 2026
 # 
 msgid ""
 msgstr ""
@@ -18,7 +19,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-12 00:35+0000\n"
 "PO-Revision-Date: 2023-01-26 15:39+0000\n"
-"Last-Translator: Brian Smith, 2025\n"
+"Last-Translator: Gerardo Núñez, 2026\n"
 "Language-Team: Tibetan (https://app.transifex.com/open-edx/teams/6205/bo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1637,6 +1638,12 @@ msgstr "དྲ་ཤོག"
 msgid "Others"
 msgstr "གཞན།"
 
+#: apps/course_metadata/models.py:4726
+msgid "It expects the data will be provided in a csv file format "
+msgstr ""
+"དེས་གཞི་གྲངས་དེ་csvཡིག་ཆའི་རྣམ་པའི་ཐོག་ནས་མཁོ་སྤྲོད་བྱ་རྒྱུའི་རེ་བ་བྱེད་ཀྱི་ཡོད།"
+" "
+
 #: apps/course_metadata/models.py:4837
 msgid "Open Courses"
 msgstr "སློབ་ཚན་ཁ་ཕྱེས།"
@@ -1725,10 +1732,32 @@ msgstr "སློབ་ཚན་ལག་རྩལ་ཁག་བསྐྱར་
 msgid "Refresh Program Skills"
 msgstr "ལས་རིམ་གྱི་ལག་རྩལ་ཁག་བསྐྱར་སྦྱོང་།"
 
+#: apps/course_metadata/templates/course_metadata/email/comment.html:7
+#, python-format
+msgid ""
+"%(user_name)s made the following comment on %(course_name)s on %(date)s at "
+"%(time)s"
+msgstr ""
+"%(user_name)s %(time)s གཤམ་གསལ་གྱི་ %(course_name)s འགྲེལ་བྱས %(date)s"
+
+#: apps/course_metadata/templates/course_metadata/email/comment.html:19
+#: apps/course_metadata/templates/course_metadata/email/comment.txt:9
+msgid "View comment in Publisher"
+msgstr "པར་བསྐྲུན་ཚན་པའི་ནང་མཆན་རྣམས་སྟོན།"
+
 #: apps/course_metadata/templates/course_metadata/email/comment.html:21
 #: apps/course_metadata/templates/course_metadata/email/comment.txt:11
 msgid "The edX team"
 msgstr "edX ཡི་ཚོགས་ཆུང་།"
+
+#: apps/course_metadata/templates/course_metadata/email/comment.txt:3
+#, python-format
+msgid ""
+"%(user_name)s made the following comment on %(course_name)s %(date)s at "
+"%(time)s"
+msgstr ""
+"%(user_name)s %(time)s གཤམ་གསལ་གྱི་ %(course_name)s སློབ་ཚན འགྲེལ་བྱས "
+"%(date)s"
 
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.html:16
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:16
@@ -1780,6 +1809,93 @@ msgstr ""
 "དྲན་དོན། འདི་ནི་ལན་མེད་པའི་གློག་འཕྲིན་རེད། "
 "དྲི་བ་དང་བསམ་བློ་ཡོད་ན་ཁྱེད་ཀྱི་ལས་འགན་འཁོར་འདེམས་པ་ལ་འབྲེལ་བ་གནང་།"
 
+#: apps/course_metadata/templates/course_metadata/email/internal_review.html:9
+#: apps/course_metadata/templates/course_metadata/email/internal_review.txt:3
+#: apps/course_metadata/templates/course_metadata/email/legal_review.html:9
+#: apps/course_metadata/templates/course_metadata/email/legal_review.txt:3
+#: apps/course_metadata/templates/course_metadata/email/reviewed.html:9
+#: apps/course_metadata/templates/course_metadata/email/reviewed.txt:3
+#, python-format
+msgid "Dear %(recipient_name)s,"
+msgstr "བརྩེ་བའི་ %(recipient_name)s,"
+
+#: apps/course_metadata/templates/course_metadata/email/internal_review.html:20
+#, python-brace-format
+msgid ""
+"This is a good time to {link_start}{studio_url}{link_middle}review this "
+"course run in Studio{link_end}."
+msgstr ""
+"{link_start}{studio_url}{link_middle}ལ་བསྐྱར་ཞིབ་བྱེད་པའི་སློབ་ཚན་དུས་ཚོད་ཡག་ཤོས་ཤིག་རེད{link_end}།"
+
+#: apps/course_metadata/templates/course_metadata/email/internal_review.html:27
+#, python-brace-format
+msgid ""
+"Visit the {link_start}{restricted_admin_url}{link_middle}restricted course "
+"admin page{link_end} to set embargo rules for this course, as needed."
+msgstr ""
+"སློབ་ཚན་འདིའི་ཆེད་དུ་བཀག་སྡོམ་ཁྲིམས་གཏན་འབེབས་བྱེད་དགོས་ན་ "
+"{link_start}{restricted_admin_url}{link_middle}restricted course admin "
+"page{link_end} ལ་གཟིགས་རོགས།"
+
+#: apps/course_metadata/templates/course_metadata/email/internal_review.txt:6
+#, python-format
+msgid "%(org_name)s has submitted %(course_key)s for review."
+msgstr "%(org_name)s ཡིས་བསྐྱར་ཞིབ་ཆེད་དུ་ %(course_key)s ཕུལ་ཡོད།"
+
+#: apps/course_metadata/templates/course_metadata/email/internal_review.txt:10
+#, python-format
+msgid "Publisher page: %(course_page_url)s"
+msgstr "དཔེ་སྐྲུན་ཁང་གི་ཤོག་ངོས: %(course_page_url)s"
+
+#: apps/course_metadata/templates/course_metadata/email/internal_review.txt:14
+#, python-format
+msgid "Studio page: %(studio_url)s"
+msgstr "གློག་བརྙན་ཁང་གི་ཤོག་ངོས: %(studio_url)s"
+
+#: apps/course_metadata/templates/course_metadata/email/internal_review.txt:19
+#, python-format
+msgid "Restricted Course admin: %(restricted_admin_url)s"
+msgstr "ཚད་བཀག་ཅན་གྱི་སློབ་ཚན་བདག་སྐྱོང་། %(restricted_admin_url)s"
+
+#: apps/course_metadata/templates/course_metadata/email/legal_review.txt:6
+#, python-format
+msgid "%(org_name)s has submitted %(course_name)s for review."
+msgstr "%(org_name)s ཡིས་བསྐྱར་ཞིབ་ཆེད་དུ་ %(course_name)s སློབ་ཚན ཕུལ་ཡོད།"
+
+#: apps/course_metadata/templates/course_metadata/email/legal_review.txt:11
+msgid "View this course run in Publisher above to determine OFAC status."
+msgstr ""
+"སློབ་ཚན་འདི་གོང་དུ་དཔེ་སྐྲུན་ཁང་ནས་སྤེལ་ནས་OFACགནས་ཚད་གཏན་འབེབས་བྱེད་པར་གཟིགས།"
+
+#: apps/course_metadata/templates/course_metadata/email/reviewed.html:22
+#: apps/course_metadata/templates/course_metadata/email/reviewed.txt:12
+#, python-format
+msgid ""
+"The course run about page will be published on %(go_live_date)s, pending no "
+"further edits."
+msgstr ""
+"སློབ་ཚན་གྱི་ཤོག་ངོས་དེ་ %(go_live_date)s "
+"ཐོག་བསྐྲུན་གྱི་རྒྱུ་ཡིན་པ་ལས་མི་འགྱུར་བ་གང་ཡང་མེད་པར།"
+
+#: apps/course_metadata/templates/course_metadata/email/reviewed.html:28
+#: apps/course_metadata/templates/course_metadata/email/reviewed.txt:16
+msgid "The course run about page is now published."
+msgstr "སློབ་ཚན་གྱི་ཤོག་ངོས་ད་ལྟ་བསྐྲུན་ཡོད།"
+
+#: apps/course_metadata/templates/course_metadata/email/reviewed.txt:6
+#, python-format
+msgid ""
+"The %(course_run_number)s course run of %(course_name)s has been reviewed "
+"and approved by %(platform_name)s."
+msgstr ""
+"%(course_run_number)s སློབ་ཚན་གྱི་ %(course_name)s དེ་ %(platform_name)s "
+"ཡིས་བསྐྱར་ཞིབ་དང་ཆོག་མཆན་སྤྲད་ཡོད།"
+
+#: apps/course_metadata/templates/course_metadata/email/reviewed.txt:21
+#, python-format
+msgid "View the course run in Publisher: %(course_page_url)s"
+msgstr "དཔེ་སྐྲུན་ཁང་ %(course_page_url)s ནང་སློབ་ཚན་སྤེལ་བཞིན་པ་ལ་གཟིགས།"
+
 #: apps/course_metadata/utils.py:391
 msgid "Special characters not allowed in Course Number."
 msgstr "སློབ་ཚན་ཨང་གི་ནང་ཡིག་འབྲུ་དམིགས་བསལ་བ་རྣམས་ངོས་ལེན་བྱེད་ཀྱི་མི་འདུག"
@@ -1797,6 +1913,11 @@ msgstr "ཚད་ལྡན་མ་ཡིན་པའི་ HTML ཞིག་འ
 #, python-brace-format
 msgid "{0} tag is not allowed"
 msgstr "{0} རྟགས་འདི་ངོས་ལེན་བྱེད་ཀྱི་མི་འདུག"
+
+#: apps/course_metadata/validators.py:42
+#, python-brace-format
+msgid "{0} attribute is not allowed on the {1} tag"
+msgstr "{0} གྱི་ཁྱད་ཆོས་འདི་ {1} གྱི་སྒང་ལ་ཆོག་མཆན་མེད།"
 
 #: apps/course_metadata/views.py:38
 msgid "Update excluded course runs"
@@ -1830,6 +1951,10 @@ msgstr ""
 msgid "Name for translation"
 msgstr "འགྱུར་གྱི་མིང་།"
 
+#: apps/ietf_language_tags/models.py:38
+msgid "LanguageTag model translations"
+msgstr "LanguageTag དཔེ་སྟོན་བསྒྱུར།"
+
 #: apps/learner_pathway/choices.py:7
 msgid "Inactive"
 msgstr "བྱེད་ནུས་སྒོ་འགོག"
@@ -1842,6 +1967,10 @@ msgstr "སློབ་གཉེར་བའི་བརྒྱུད་དེའ
 msgid "Course/Program associated pathways also appear in search results"
 msgstr ""
 "བརྒྱུད་ལམ་དང་མཉམ་སྦྱར་བྱས་པའི་སློབ་ཚན་དང་/ལས་རིམ་རྣམས་ཀྱང་བཙལ་འབྲས་ནང་གསལ་ཡོང་བ་ཡིན།"
+
+#: apps/learner_pathway/models.py:90
+msgid "The active/inactive status of this Pathway."
+msgstr "ལམ་འདིའི་ཤུགས་ལྡན་དང་ཤུགས་ལྡན་མེད་པའི་གནས་བབ།"
 
 #: apps/learner_pathway/models.py:118
 msgid "Learner Pathway"
@@ -1886,6 +2015,45 @@ msgstr "ཚོགས་པའི་ལས་འགན།"
 #: apps/taxonomy_support/management/commands/update_course_recommendations.py:19
 msgid "Update the course recommendations based on skills."
 msgstr "རྩལ་གཞི་ལ་བཞག་པའི་སློབ་ཚན་དེ་དང་འབྲེལ་བའི་མཚམས་སྦྱོར་བྱས་པ་ཁག་ཁ་གསབ།"
+
+#: apps/taxonomy_support/management/commands/update_course_recommendations.py:41
+msgid ""
+"Use arguments from the UpdateCourseRecommendationsConfig model instead of "
+"the command line."
+msgstr ""
+"བརྡ་བཀོད་གྲལ་ཐིག་གི་ཚབ་ཏུ་ UpdateCourseRecommendationsConfig "
+"དཔེ་གཞི་ནས་སྒྲུབ་བྱེད་བེད་སྤྱོད་བྱེད།"
+
+#: apps/taxonomy_support/models.py:24
+msgid "The original course, whose recommendation is stored here."
+msgstr "སློབ་ཚན་ཐོག་མ་དེའི་འོས་སྦྱོར་གནས་སུ་ཉར་ཚགས་བྱས་ཡོད།"
+
+#: apps/taxonomy_support/models.py:29
+msgid ""
+"This is the course recommended after learner completes the original course."
+msgstr ""
+"སློབ་མས་སློབ་ཚན་ཐོག་མ་མཇུག་སྒྲིལ་ནས་འོས་སྦྱོར་བྱེད་དགོས་པའི་སློབ་ཚན་འདི་ཡིན།"
+
+#: apps/taxonomy_support/models.py:32
+msgid "Ratio of number of common skills and total skill count."
+msgstr ""
+"ཐུན་མོང་གི་རྩལ་ནུས་གྲངས་འབོར་དང་རྩལ་ནུས་སྤྱིའི་གྲངས་འབོར་གྱི་བསྡུར་ཚད།"
+
+#: apps/taxonomy_support/models.py:35
+msgid ""
+"Count of common skills between the original course and recommended course."
+msgstr ""
+"ཐོག་མའི་སློབ་ཚན་དང་འོས་སྦྱོར་བྱས་པའི་སློབ་ཚན་བར་གྱི་ཐུན་མོང་གི་རྩལ་ནུས་གྲངས་འབོར།"
+
+#: apps/taxonomy_support/models.py:38
+msgid "Ratio of number of common subjects and total subject count."
+msgstr "ཐུན་མོང་གི་སློབ་ཚན་གྱི་གྲངས་འབོར་དང་སློབ་ཚན་བསྡོམས་འབོར་གྱི་བསྡུར་ཚད།"
+
+#: apps/taxonomy_support/models.py:41
+msgid ""
+"Count of common subjects between the original course and recommended course."
+msgstr ""
+"ཐོག་མའི་སློབ་ཚན་དང་འོས་སྦྱོར་བྱས་པའི་སློབ་ཚན་བར་གྱི་ཐུན་མོང་གི་སློབ་ཚན་གྲངས་འབོར།"
 
 #: apps/taxonomy_support/models.py:46
 msgid "Course Recommendation"
