@@ -5,8 +5,8 @@
 # 
 # Translators:
 # edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2025
-# Eden Huthmacher, 2026
 # Gerardo Núñez, 2026
+# Eden Huthmacher, 2026
 # Brian Smith, 2026
 # 
 msgid ""
@@ -387,6 +387,10 @@ msgstr "סוג כרטיסייה"
 msgid "Default name for the tab displayed to users"
 msgstr "שם ברירת מחדל לכרטיסייה המוצגת למשתמשים"
 
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:18
+msgid "True if it's possible to hide the tab for a course"
+msgstr "נכון אם ניתן להסתיר את הכרטיסייה עבור קורס"
+
 #: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:21
 msgid "True the tab is hidden for the course"
 msgstr "True the כרטיסייה is hidden for the course"
@@ -407,6 +411,10 @@ msgstr "הגדרות נוספות ספציפיות לכרטיסייה"
 #: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:74
 msgid "ID of tab to update"
 msgstr "מזהה של כרטיסייה לעדכון"
+
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:75
+msgid "Location (Usage Key) of tab to update"
+msgstr "מיקום (מפתח שימוש) של כרטיסייה לעדכון"
 
 #: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:100
 msgid "True to hide the tab, and False to show it."
@@ -547,6 +555,17 @@ msgstr "לא ידוע"
 #: cms/djangoapps/contentstore/video_storage_handlers.py:142
 msgid "Transcription in Progress"
 msgstr "Transcription in התקדמות"
+
+#. Translators: This is the status for a video whose transcription is complete
+#: cms/djangoapps/contentstore/video_storage_handlers.py:144
+msgid "Transcript Ready"
+msgstr "תמלול מוכן"
+
+#. Translators: This is the status for a video whose transcription job was
+#. failed for some languages
+#: cms/djangoapps/contentstore/video_storage_handlers.py:146
+msgid "Partial Failure"
+msgstr "כישלון חלקי"
 
 #. Translators: This is the status for a video whose transcription job has
 #. failed altogether
@@ -812,6 +831,12 @@ msgstr "חלק מהחלקים לא הועלו במהלך העלאת הקובץ. 
 #: cms/djangoapps/contentstore/views/import_export.py:190
 msgid "File upload failed. Please try again"
 msgstr "העלאת הקובץ נכשלה. אנא נסה שוב"
+
+#: cms/djangoapps/contentstore/views/library.py:240
+msgid ""
+"User does not have the permission to create library in this organization or "
+"course creation is disabled"
+msgstr "למשתמש אין הרשאה ליצור ספרייה בארגון זה או שיצירת קורסים מושבתת"
 
 #: cms/djangoapps/contentstore/views/library.py:247
 #, python-brace-format
@@ -1522,6 +1547,26 @@ msgstr ""
 "חלון הזמן לאחר ההרשמה שבו יכולים המשתמשים לקבל החזר כספי, מיוצג במיליונית "
 "השנייה. ברירת המחדל היא 14 יום."
 
+#: common/djangoapps/student/models/course_enrollment.py:1763
+msgid ""
+"It expect that the data will be provided in a csv file format with"
+"                     first row being the header and columns will be as "
+"follows:                     user_id, username, email, course_id, "
+"is_verified, verification_date"
+msgstr ""
+"הנתונים צפויים להימסר בקובץ בפורמט csv, כאשר השורה הראשונה היא כותרת העמודות"
+" והעמודות יהיו כפי שמפורט להלן: user_id, שם משתמש, email, מזהה קורס, "
+"is_verified, verification_date"
+
+#: common/djangoapps/student/models/course_enrollment.py:1777
+msgid ""
+"It expect that the data will be provided in a csv file format with"
+"                     first row being the header and columns will be as "
+"follows:                     course_id, username, mode"
+msgstr ""
+"צפוי שהנתונים יסופקו בקובץ בפורמט csv, כאשר השורה הראשונה היא הכותרת "
+"והעמודות הן כדלקמן: מזהה קורס, שם משתמש, mode"
+
 #: common/djangoapps/student/models/user.py:464
 msgid "Male"
 msgstr "זכר"
@@ -1632,6 +1677,15 @@ msgstr "כתובת דוא\"ל משנית"
 msgid "Secondary email address to recover linked account."
 msgstr "כתובת דוא\"ל משנית לשחזור חשבון מקושר."
 
+#: common/djangoapps/student/models/user.py:1760
+msgid ""
+"It expect that the data will be provided in a csv file format with"
+"                     first row being the header and columns will be as "
+"follows:                     username, current_email, desired_email"
+msgstr ""
+"צפוי שהנתונים יסופקו בקובץ בפורמט CSV, כאשר השורה הראשונה תשמש ככותרת "
+"והעמודות יהיו כדלקמן: שם משתמש, current_email, desired_email"
+
 #: common/djangoapps/student/models/user.py:1942
 msgid "Add a reason"
 msgstr "נא להזין סיבה"
@@ -1691,6 +1745,14 @@ msgid ""
 msgstr ""
 "הוסף דוא\"ל לשחזור כדי לשמור על גישה כאשר הכניסה באמצעות חשבון יחיד אינה "
 "זמינה. עבור אל {link_start}הגדרות החשבון שלך{link_end}."
+
+#: common/djangoapps/student/views/dashboard.py:643
+msgid ""
+"Recovery email is not activated yet. Kindly visit your email and follow the "
+"instructions to activate it."
+msgstr ""
+"כתובת האימייל לשחזור עדיין לא הופעלה. אנא היכנס לאימייל שלך ופעל לפי ההוראות"
+" כדי להפעיל אותה."
 
 #: common/djangoapps/student/views/dashboard.py:765
 #, python-brace-format
@@ -1758,6 +1820,17 @@ msgstr "חשבון {}'s הופעל מחדש בהצלחה."
 msgid "Unexpected account status"
 msgstr "מצב חשבון לא צפוי"
 
+#: common/djangoapps/student/views/management.py:580
+#, python-brace-format
+msgid ""
+"{html_start}Your {account_or_email} could not be "
+"{activated_or_confirmed}{html_end}Something went wrong, please <a "
+"href=\"{support_url}\">contact support</a> to resolve this issue."
+msgstr ""
+"{html_start}Your {account_or_email} could not be "
+"{activated_or_confirmed}{html_end}משהו השתבש, אנא <a "
+"href=\"{support_url}\">צור/צרי קשר עם התמיכה</a> כדי לפתור את הבעיה הזו."
+
 #: common/djangoapps/student/views/management.py:615
 #, python-brace-format
 msgid ""
@@ -1786,6 +1859,10 @@ msgstr "כתובת דואר אלקטרוני תקינה היא שדה חובה"
 msgid "Old email is the same as the new email."
 msgstr "כתובת דואר אלקטרוני ישן זהה לכתובת דואר אלקטרוני חדשה."
 
+#: common/djangoapps/student/views/management.py:755
+msgid "Cannot be same as your sign in email address."
+msgstr "אסור שזו תהיה אותה כתובת דוא\"ל כמו כתובת הדוא\"ל של הכניסה שלך."
+
 #: common/djangoapps/student/views/management.py:825
 msgid "Unable to send email activation link. Please try again later."
 msgstr ""
@@ -1813,6 +1890,14 @@ msgid ""
 "\"Institution\" login providers."
 msgstr ""
 "ספקים משניים מוצגים באופן פחות בולט, ברשימה נפרדת לספקי כניסה של \"מוסד\"."
+
+#: common/djangoapps/third_party_auth/models.py:158
+msgid ""
+"optional. If this provider is an Organization, this attribute can be used "
+"reference users in that Organization"
+msgstr ""
+"אופציונלי. אם ספק זה הוא ארגון, ניתן להשתמש במאפיין זה כדי להפנות למשתמשים "
+"בארגון זה"
 
 #: common/djangoapps/third_party_auth/models.py:167
 msgid "The Site that this provider configuration belongs to."
@@ -1897,6 +1982,14 @@ msgstr ""
 "סנכרן את נתוני פרופיל המשתמש שהתקבלו מספק הזהות עם חשבון המשתמש ב-edX בכל "
 "כניסה באמצעות SSO. המשתמש יקבל הודעה אם כתובת הדוא\"ל המשויכת לחשבונו תשתנה "
 "כחלק מסנכרון זה."
+
+#: common/djangoapps/third_party_auth/models.py:244
+msgid ""
+"IDPs with this set to True will be excluded from the dropdown IDP selection "
+"in the EnterpriseCustomer Django Admin form."
+msgstr ""
+"ספקי זהויות (IDPs) שהגדרה זו עבורם היא True, יוחרגו מבחירת ספק הזהויות "
+"הנפתחת בטופס הניהול של Django עבור EnterpriseCustomer."
 
 #: common/djangoapps/third_party_auth/models.py:479
 msgid "The Site that this SAML configuration belongs to."
@@ -2767,6 +2860,17 @@ msgstr ""
 "אנו מתעדים כתובות דואר אלקטרוני, כך שאם בקשה זו אינה מכוונת, נוכל לחקור את "
 "הנושא."
 
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.html:12
+#, python-format
+msgid ""
+"\n"
+"                    Proctoring requirements for %(course_name)s\n"
+"                "
+msgstr ""
+"\n"
+"                    דרישות השגחה עבור %(course_name)s\n"
+"                "
+
 #: common/templates/student/edx_ace/proctoringrequirements/email/body.html:20
 #, python-format
 msgid ""
@@ -2777,6 +2881,28 @@ msgstr ""
 "\n"
 "                    \n"
 "שלום %(full_name)s,\n"
+"                "
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.html:29
+#, python-format
+msgid ""
+"\n"
+"                    You are enrolled in %(course_name)s at %(platform_name)s. This course contains proctored exams.\n"
+"                "
+msgstr ""
+"\n"
+"                    נרשמת לקורס %(course_name)s ב- %(platform_name)s. הקורס הזה מכיל מבחנים בהשגחה.\n"
+"                "
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.html:38
+#, python-format
+msgid ""
+"\n"
+"                    Proctored exams are timed exams that you take while proctoring software monitors your computer's desktop, webcam video, and audio. Your course uses %(proctoring_provider)s software for proctoring.\n"
+"                "
+msgstr ""
+"\n"
+"                    מבחנים בהשגחה הם מבחנים עם הגבלת זמן, שבהם תוכנת הפיקוח עוקבת אחר שולחן העבודה של המחשב שלך, וידאו מהמצלמה והמיקרופון. הקורס שלך משתמש בתוכנת %(proctoring_provider)s לצורך פיקוח.\n"
 "                "
 
 #: common/templates/student/edx_ace/proctoringrequirements/email/body.html:46
@@ -3625,6 +3751,16 @@ msgstr "אתה תמיד יכול"
 msgid "if you need to."
 msgstr "אם יש צורך."
 
+#: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.html:144
+msgid ""
+"\n"
+"                            Unsubscribe from goal reminder emails for this course\n"
+"                        "
+msgstr ""
+"\n"
+"                            הסר את הרישום לקבלת תזכורות על יעדים עבור הקורס הזה\n"
+"                        "
+
 #: lms/djangoapps/course_goals/templates/course_goals/edx_ace/goalreminder/email/body.txt:2
 msgid "You're almost there!"
 msgstr "כמעט הגענו!"
@@ -3735,10 +3871,30 @@ msgstr ""
 "על קורס (לדוגמה, אם ההגדרה מוגדרת עבור הקורס באופן ספציפי, ועבור הארגון שבו "
 "הקורס נמצא, אז ההקשר הספציפי יותר גובר על ההקשר הכללי יותר."
 
+#: lms/djangoapps/course_home_api/admin.py:33
+#: openedx/features/discounts/admin.py:34
+msgid ""
+"If any of these values is left empty or \"Unknown\", then their value at "
+"runtime will be retrieved from the next most specific context that applies. "
+"For example, if \"Disabled\" is left as \"Unknown\" in the course context, "
+"then that course will be Disabled only if the org that it is in is Disabled."
+msgstr ""
+"אם אחד מהערכים הללו נשאר ריק או \"Unknown\", אז ערכם בזמן ריצה יאוחזר מההקשר"
+" הספציפי ביותר הבא שחל. לדוגמה, אם \"Disabled\" נשאר כ-\"Unknown\" בהקשר של "
+"הקורס, אז קורס זה יהיה מושבת רק אם הארגון שבו הוא נמצא מושבת."
+
 #: lms/djangoapps/course_home_api/models.py:22
 #: openedx/features/discounts/models.py:25
 msgid "Disabled"
 msgstr "מושבת"
+
+#: lms/djangoapps/course_home_api/outline/serializers.py:33
+#, python-brace-format
+msgid "({number} Question)"
+msgid_plural "({number} Questions)"
+msgstr[0] "({number} שאלה)"
+msgstr[1] "({number} שאלות)"
+msgstr[2] "({number} שאלות)"
 
 #: lms/djangoapps/course_home_api/outline/views.py:293
 #, python-brace-format
@@ -4372,6 +4528,11 @@ msgstr "שגיאה בהעלאת קובץ. אנא צור קשר עם מנהל ה�
 msgid "Good"
 msgstr "טוב"
 
+#. Translators: Replier commented on "your" response to your post
+#: lms/djangoapps/discussion/rest_api/discussions_notifications.py:165
+msgid "your"
+msgstr "שלך"
+
 #. Translators: Replier commented on "their" response to your post
 #. Translators: Replier commented on "their" response in a post you're
 #. following
@@ -4384,6 +4545,10 @@ msgstr "שלהם"
 #: lms/djangoapps/instructor/views/instructor_dashboard.py:554
 msgid "Discussions"
 msgstr "דיונים"
+
+#: lms/djangoapps/discussion/templates/discussion/discussion_board_fragment.html:26
+msgid "Add a Post"
+msgstr "הוסף פוסט"
 
 #: lms/djangoapps/discussion/templates/discussion/discussion_board_fragment.html:46
 msgid "New topic form"
@@ -4414,6 +4579,11 @@ msgstr ""
 "                        %(course_name)s: תוכן שדווח ממתין לבדיקה\n"
 "                    "
 
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.html:24
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.txt:18
+msgid "Go to Discussion"
+msgstr "עבור לדיונים"
+
 #: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.txt:4
 #, python-format
 msgid "%(course_name)s: Reported content awaits review"
@@ -4429,6 +4599,17 @@ msgstr ""
 #: lms/djangoapps/discussion/templates/discussion/edx_ace/responsenotification/email/body.txt:16
 msgid "View discussion"
 msgstr "צפה בדיונים"
+
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/responsenotification/email/body.txt:4
+#, python-format
+msgid "%(comment_username)s replied to <b>%(thread_title)s</b>:"
+msgstr "%(comment_username)s הגיב/ה ל-<b>%(thread_title)s</b>:"
+
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/responsenotification/email/subject.txt:3
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/responsenotification/push/title.txt:2
+#, python-format
+msgid "Response to %(thread_title)s"
+msgstr "תגובה ל- %(thread_title)s"
 
 #: lms/djangoapps/discussion/templates/discussion/edx_ace/responsenotification/push/body.txt:2
 #, python-format
@@ -4495,6 +4676,10 @@ msgstr ""
 "ניסיון למבחן בהשגחה עבור {exam_name} ב-{course_name} על ידי שם משתמש: {student_username} נסקר כ{review_status} על ידי ספק סקירת מבחן תחת פיקוח.\n"
 "Review link: {review_url}"
 
+#: lms/djangoapps/instructor/settings/common.py:11
+msgid "Your Platform Insights"
+msgstr "תובנות הפלטפורמה שלך"
+
 #: lms/djangoapps/instructor/views/api.py:155
 #, python-brace-format
 msgid ""
@@ -4540,6 +4725,14 @@ msgid ""
 msgstr ""
 "הנתונים בשורה #{row_num} חייבים לכלול בדיוק ארבעה עמודים: דוא\"ל, שם משתמש, "
 "שם מלא וארץ."
+
+#: lms/djangoapps/instructor/views/api.py:391
+msgid ""
+"Course is not cohorted but cohort provided. Ignoring cohort assignment for "
+"all users."
+msgstr ""
+"הקורס אינו מקובץ אך קבוצת לימוד סופקה. מתעלמים ממטלת קבוצת לימוד לכל "
+"המשתמשים."
 
 #: lms/djangoapps/instructor/views/api.py:406
 #, python-brace-format
@@ -4657,6 +4850,11 @@ msgstr "המשתמש המבקש אינו מאומת."
 #: lms/djangoapps/instructor/views/api.py:2710
 msgid "The requesting user lacks access to the course."
 msgstr "למשתמש המבקש אין אפשרות לגשת לקורס."
+
+#: lms/djangoapps/instructor/views/api.py:1316
+#: lms/djangoapps/instructor_task/api_helper.py:109
+msgid "problem responses"
+msgstr "תגובות לבעיות"
 
 #: lms/djangoapps/instructor/views/api.py:1322
 msgid "Could not find problem with this location."
@@ -4829,6 +5027,10 @@ msgstr "סקר"
 msgid "proctored exam results"
 msgstr "מבחן בהשגחה results"
 
+#: lms/djangoapps/instructor/views/api.py:1813
+msgid "Anonymized User IDs"
+msgstr "מזהי משתמשים אנונימיים"
+
 #: lms/djangoapps/instructor/views/api.py:1850
 #, python-brace-format
 msgid "Enrollment status for {student}: active"
@@ -4900,6 +5102,10 @@ msgstr "מצב נוכחי של המשימות."
 msgid "Identifies the kind of task being performed, e.g. rescoring."
 msgstr "מזהה את סוג המשימות המתבצעות, לדוגמה, ציינון מחדש."
 
+#: lms/djangoapps/instructor/views/api.py:2419
+msgid "The celery ID for the task."
+msgstr "מזהה ה-celery של המשימות."
+
 #: lms/djangoapps/instructor/views/api.py:2420
 msgid "The date and time when the task was created."
 msgstr "התאריך והשעה שבהם המשימה נוצרה."
@@ -4907,6 +5113,10 @@ msgstr "התאריך והשעה שבהם המשימה נוצרה."
 #: lms/djangoapps/instructor/views/api.py:2427
 msgid "The username of the user who initiated this task."
 msgstr "שם משתמש של המשתמש שיזם את המשימה הזו."
+
+#: lms/djangoapps/instructor/views/api.py:2428
+msgid "The last knows state of the celery task."
+msgstr "המצב האחרון הידוע של משימת ה-Celery."
 
 #: lms/djangoapps/instructor/views/api.py:2429
 msgid "Task duration information, if known"
@@ -5398,6 +5608,10 @@ msgstr "משתמשים בעלי הארכות תאריך יעד עבור {0}"
 msgid "Due date extensions for {0} {1} ({2})"
 msgstr "הארכות תאריך יעד עבור {0} {1} ({2})"
 
+#: lms/djangoapps/instructor_task/api_helper.py:32
+msgid "Requested task is already running"
+msgstr "המשימות המבוקשות כבר פועלות"
+
 #: lms/djangoapps/instructor_task/api_helper.py:45
 msgid "Error occured. Please try again later."
 msgstr "אירעה שגיאה. נא לנסות שוב."
@@ -5831,9 +6045,17 @@ msgstr "זכאות"
 msgid "View, create, and reissue learner entitlements"
 msgstr "צפה, צור והנפק מחדש זכויות לומד"
 
+#: lms/djangoapps/support/views/index.py:35
+msgid "Feature Based Enrollments"
+msgstr "הרשמות מבוססות יכולת"
+
 #: lms/djangoapps/support/views/index.py:36
 msgid "View feature based enrollment settings"
 msgstr "צפה בהגדרות הרשמה מבוססות יכולת"
+
+#: lms/djangoapps/support/views/index.py:40
+msgid "Link Program Enrollments"
+msgstr "קישור הרשמות לתוכניות"
 
 #: lms/djangoapps/support/views/index.py:41
 msgid "Link LMS users to program enrollments"
@@ -5941,6 +6163,14 @@ msgstr "אי אפשר ליצור צוות בנושא המנוהל על ידי מ
 msgid "You are already in a team in this teamset."
 msgstr "אתה כבר שייך לצוות בקבוצת צוותים זו."
 
+#: lms/djangoapps/teams/views.py:1350
+msgid "teamset_id and team_id are mutually exclusive options."
+msgstr "teamset_id ו-team_id הן אפשרויות בלעדיות זו לזו."
+
+#: lms/djangoapps/teams/views.py:1370
+msgid "teamset_id requires course_id to also be provided."
+msgstr "teamset_id דורש שגם מזהה קורס יינתן."
+
 #: lms/djangoapps/teams/views.py:1386 lms/djangoapps/teams/views.py:1399
 msgid "No teamset found in given course with given id"
 msgstr "לא נמצא צוות בקורס הנתון עם מזהה קורס הנתון"
@@ -5961,6 +6191,10 @@ msgstr "מזהה הצוות הוא שדה חובה."
 msgid "This team is already full."
 msgstr "הצוות הזה כבר מלא."
 
+#: lms/djangoapps/teams/views.py:1479
+msgid "You can't join an instructor managed team."
+msgstr "אינך יכול/ה להצטרף לצוות המנוהל על ידי מדריך."
+
 #: lms/djangoapps/teams/views.py:1497
 #, python-brace-format
 msgid "The user {username} is already a member of a team in this teamset."
@@ -5971,6 +6205,10 @@ msgstr "המשתמש {username} כבר חבר של צוות בקבוצת צוו�
 msgid ""
 "The user {username} is not enrolled in the course associated with this team."
 msgstr "המשתמש {username} אינו רשום בקורס המשויך לצוות זה."
+
+#: lms/djangoapps/teams/views.py:1631
+msgid "You can't leave an instructor managed team."
+msgstr "אינך יכול לעזוב צוות המנוהל על ידי מדריך."
 
 #: lms/djangoapps/user_tours/models.py:19
 msgid "Show existing user tour"
@@ -6088,6 +6326,31 @@ msgstr ""
 "            הודעה זו נשלחה אוטומטית מ-%(platform_name)s.\n"
 "          "
 
+#: lms/templates/bulk_email/edx_ace/bulkemail/email/body.html:24
+#, python-format
+msgid ""
+"\n"
+"            You are receiving this email at address %(email)s because you are enrolled in\n"
+"          "
+msgstr ""
+"\n"
+"            אתה מקבל הודעת דוא\"ל זו לכתובת %(email)s מכיוון שאתה רשום ב-\n"
+"          "
+
+#: lms/templates/bulk_email/edx_ace/bulkemail/email/body.html:30
+msgid ""
+"\n"
+"            To stop receiving email like this, update your course email settings\n"
+"          "
+msgstr ""
+"\n"
+"            כדי להפסיק לקבל הודעות דוא\"ל כאלה, עדכנו את הגדרות הדוא\"ל של הקורס שלכם\n"
+"          "
+
+#: lms/templates/bulk_email/edx_ace/bulkemail/email/body.html:33
+msgid "here"
+msgstr "כאן"
+
 #: lms/templates/bulk_email/edx_ace/bulkemail/email/body.txt:7
 #, python-format
 msgid "This email was automatically sent from %(platform_name)s."
@@ -6115,6 +6378,29 @@ msgstr ""
 msgid "To unsubscribe click here %(unsubscribe_link)s"
 msgstr "כדי להסיר מהרשימה, לחץ כאן %(unsubscribe_link)s"
 
+#: lms/templates/discussion/_discussion_inline.html:23
+#, python-format
+msgid "%(title)s"
+msgstr "%(title)s"
+
+#: lms/templates/discussion/_discussion_inline.html:27
+msgid "Topic:"
+msgstr "נושא:"
+
+#: lms/templates/discussion/_discussion_inline.html:37
+msgid "Show Discussion"
+msgstr "הראה דיון"
+
+#: lms/templates/discussion/_discussion_inline_studio.html:7
+msgid "To view live discussions, click Preview or View Live in Unit Settings."
+msgstr ""
+"כדי לצפות בדיון בזמן אמת, לחץ תצוגה מקדימה או צפה בזמן אמת בהגדרות היחידה. "
+
+#: lms/templates/discussion/_discussion_inline_studio.html:9
+#, python-format
+msgid "Discussion ID: %(discussion_id)s"
+msgstr "מספר מזהה לדיון: %(discussion_id)s"
+
 #: lms/templates/discussion/_discussion_inline_studio.html:12
 msgid ""
 "The discussion block is disabled for this course as it is not using a "
@@ -6127,6 +6413,28 @@ msgstr ""
 msgid "Discussion topics list"
 msgstr "רשימת נושאים לדיון"
 
+#: lms/templates/discussion/_filter_dropdown.html:9
+#: lms/templates/discussion/_filter_dropdown.html:12
+msgid "Filter Topics"
+msgstr "סנן נושאים"
+
+#: lms/templates/discussion/_filter_dropdown.html:21
+msgid "filter topics"
+msgstr "סנן נושאים"
+
+#: lms/templates/discussion/_filter_dropdown.html:28
+msgid "All Discussions"
+msgstr "כל הדיונים"
+
+#: lms/templates/discussion/_filter_dropdown.html:32
+msgid "Posts I'm Following"
+msgstr "פוסטים שאני עוקב אחריהם"
+
+#. Translators: This labels a filter menu in forum navigation
+#: lms/templates/discussion/_thread_list_template.html:8
+msgid "Filter:"
+msgstr "סנן:"
+
 #. Translators: This is a menu option for showing all forum threads unfiltered
 #: lms/templates/discussion/_thread_list_template.html:11
 msgid "Show all posts"
@@ -6136,6 +6444,45 @@ msgstr "הראה את כל הפוסטים"
 #: lms/templates/discussion/_thread_list_template.html:13
 msgid "Unread posts"
 msgstr "פוסטים שלא נקראו"
+
+#. Translators: This is a menu option for showing only unanswered forum
+#: lms/templates/discussion/_thread_list_template.html:16
+msgid "Unanswered posts"
+msgstr "פוסטים שלא נענו"
+
+#. Translators: This is a menu option for showing only forum threads flagged
+#: lms/templates/discussion/_thread_list_template.html:20
+msgid "Flagged"
+msgstr "סומן בדגל"
+
+#. Translators: This labels a group menu in forum navigation
+#: lms/templates/discussion/_thread_list_template.html:27
+msgid "Group:"
+msgstr "Group:"
+
+#: lms/templates/discussion/_thread_list_template.html:29
+msgid "in all groups"
+msgstr "in all groups"
+
+#. Translators: This labels a sort menu in forum navigation
+#: lms/templates/discussion/_thread_list_template.html:41
+msgid "Sort:"
+msgstr "מיין:"
+
+#. Translators: This is a menu option for sorting forum threads
+#: lms/templates/discussion/_thread_list_template.html:44
+msgid "by recent activity"
+msgstr "לפי פעילות אחרונה"
+
+#. Translators: This is a menu option for sorting forum threads
+#: lms/templates/discussion/_thread_list_template.html:46
+msgid "by most activity"
+msgstr "לפי פעילות מרובה"
+
+#. Translators: This is a menu option for sorting forum threads
+#: lms/templates/discussion/_thread_list_template.html:48
+msgid "by most votes"
+msgstr "לפי הצבעות מרובות"
 
 #: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.html:12
 #: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.txt:1
@@ -6199,6 +6546,21 @@ msgstr "יש לך אפשרות לגשת לקורס שלך דרך: %(course_url)s
 #, python-format
 msgid "You have been enrolled in %(course_name)s"
 msgstr "נרשמת לקורס %(course_name)s"
+
+#: lms/templates/instructor/edx_ace/addbetatester/email/body.html:12
+#, python-format
+msgid ""
+"\n"
+"                    You have been invited to be a beta tester for %(course_name)s at %(site_name)s\n"
+"                "
+msgstr ""
+"\n"
+"                    הוזמנתם להיות בוחני בטא לקורס %(course_name)s באתר %(site_name)s\n"
+"                "
+
+#: lms/templates/instructor/edx_ace/addbetatester/email/body.html:20
+msgid "The invitation has been sent by a member of the course staff."
+msgstr "חבר מצוות הקורס שלח את ההזמנה."
 
 #: lms/templates/instructor/edx_ace/addbetatester/email/body.html:28
 msgid "To start accessing course materials, please visit:"
@@ -6407,6 +6769,15 @@ msgstr ""
 #, python-format
 msgid "You have been invited to register for %(course_name)s."
 msgstr "הוזמנת להירשם ל- %(course_name)s."
+
+#: lms/templates/instructor/edx_ace/allowedunenroll/email/body.html:12
+#: lms/templates/instructor/edx_ace/allowedunenroll/email/subject.txt:3
+#: lms/templates/instructor/edx_ace/allowedunenroll/push/title.txt:3
+#: lms/templates/instructor/edx_ace/enrolledunenroll/email/subject.txt:3
+#: lms/templates/instructor/edx_ace/enrolledunenroll/push/title.txt:3
+#, python-format
+msgid "You have been unenrolled from %(course_name)s"
+msgstr "הוסרת מהרישום ל-%(course_name)s"
 
 #: lms/templates/instructor/edx_ace/allowedunenroll/email/body.html:19
 #: lms/templates/instructor/edx_ace/allowedunenroll/email/body.txt:3
@@ -6685,6 +7056,12 @@ msgstr "שלום %(full_name)s, "
 msgid "ID Verification Approved"
 msgstr "אימות מזהה אושר"
 
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:19
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:3
+#, python-format
+msgid "Your %(platform_name)s ID verification photos have been approved."
+msgstr "תמונות אימות המזהה שלך עבור %(platform_name)s אושרו."
+
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:23
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:4
 #, python-format
@@ -6698,6 +7075,11 @@ msgstr ""
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.txt:6
 msgid "Enjoy your studies,"
 msgstr "לימודים מהנים,"
+
+#: lms/templates/verify_student/edx_ace/verificationapproved/email/subject.txt:3
+#, python-format
+msgid "Your %(platform_name)s ID verification was approved!"
+msgstr "האימות של ה-ID שלך ב-%(platform_name)s אושר!"
 
 #: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:18
 #: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.txt:3
@@ -7235,6 +7617,10 @@ msgstr "הגרסה נמחקה."
 msgid "Restoring to this revision will mark the article as deleted."
 msgstr "שחזור לעדכון זה ימחק את המאמר."
 
+#: lms/urls.py:62
+msgid "LMS Administration"
+msgstr "ניהול מערכת ניהול למידה"
+
 #: openedx/core/djangoapps/ace_common/apps.py:18
 msgid "ACE Common"
 msgstr "ACE Common"
@@ -7350,6 +7736,11 @@ msgstr ""
 "אני והארגון שלי, מקבלים את תנאי השירות של {link_start}{platform_name} "
 "API{link_end}."
 
+#: openedx/core/djangoapps/auth_exchange/forms.py:72
+#, python-format
+msgid "'%s' is not a valid scope."
+msgstr "'%s' אינו טווח חוקי."
+
 #: openedx/core/djangoapps/bookmarks/apps.py:18
 #: openedx/features/course_bookmarks/plugins.py:39
 #: openedx/features/course_bookmarks/views/course_bookmarks.py:93
@@ -7440,6 +7831,34 @@ msgid ""
 "catalog service."
 msgstr ""
 "המספר המקסימלי של רשומות בתגובה מחולקת לדפים עבור בקשה אחת לשירות הקטלוג."
+
+#: openedx/core/djangoapps/config_model_utils/admin.py:41
+#, python-brace-format
+msgid ""
+"These define the context to enable this configuration on. If no values are "
+"set, then the configuration applies globally. If a single value is set, then"
+" the configuration applies to all courses within that context. At most one "
+"value can be set at a time.{br}If multiple contexts apply to a course (for "
+"example, if configuration is specified for the course specifically, and for "
+"the org that the course is in, then the more specific context overrides the "
+"more general context."
+msgstr ""
+"אלה מגדירים את ההקשר כדי לאפשר תצורה זו. אם לא מוגדרים ערכים, ההגדרה חלה "
+"באופן גלובלי. אם מוגדר ערך יחיד, ההגדרה חלה על כל הקורסים בהקשר זה. ניתן "
+"להגדיר ערך אחד לכל היותר בכל פעם.{br}אם מספר הקשרים חלים על קורס (לדוגמה, אם"
+" הגדרה מוגדרת עבור הקורס באופן ספציפי, ועבור הארגון שבו הקורס נמצא, אז ההקשר"
+" הספציפי יותר גובר על ההקשר הכללי יותר."
+
+#: openedx/core/djangoapps/config_model_utils/admin.py:53
+msgid ""
+"If any of these values are left empty or \"Unknown\", then their value at "
+"runtime will be retrieved from the next most specific context that applies. "
+"For example, if \"Enabled\" is left as \"Unknown\" in the course context, "
+"then that course will be Enabled only if the org that it is in is Enabled."
+msgstr ""
+"אם אחד מהערכים הללו נשאר ריק או \"לא ידוע\", אזי ערכו בזמן ריצה יאוחזר "
+"מההקשר הספציפי הבא שחל. לדוגמה, אם \"מופעל\" נשאר \"לא ידוע\" בהקשר של "
+"הקורס, אזי קורס זה יאופשר רק אם הארגון שבו הוא נמצא מופעל."
 
 #: openedx/core/djangoapps/config_model_utils/models.py:43
 #, python-format
@@ -7564,9 +7983,17 @@ msgstr "לקריאה בלבד"
 msgid "One and only one of 'user' and 'group' must be set."
 msgstr "חובה להגדיר רק אחד מתוך 'משתמש' ו-'קבוצה'."
 
+#: openedx/core/djangoapps/content_libraries/models.py:251
+msgid "Task was created, but not queued to run."
+msgstr "המשימה נוצרה, אך לא הוכנסה לתור להרצה."
+
 #: openedx/core/djangoapps/content_libraries/models.py:253
 msgid "Task is running."
 msgstr "משימות רצות."
+
+#: openedx/core/djangoapps/content_libraries/models.py:254
+msgid "Task finished, but some blocks failed to import."
+msgstr "המשימות הסתיימו, אך חלק מהבלוקים לא יובאו."
 
 #: openedx/core/djangoapps/content_libraries/models.py:255
 msgid "Task finished successfully."
@@ -7588,6 +8015,10 @@ msgstr "מספר עשרוני בין 0.0 ל-1.0 המייצג את התקדמות
 msgid "course ID"
 msgstr "מזהה קורס"
 
+#: openedx/core/djangoapps/content_libraries/models.py:276
+msgid "ID of the imported course."
+msgstr "מזהה הקורס המיובא."
+
 #. Translators: 'Open edX' is a trademark, please keep this untranslated
 #: openedx/core/djangoapps/content_libraries/models.py:353
 msgid "open edx user"
@@ -7600,6 +8031,10 @@ msgstr "lti platform identifier"
 #: openedx/core/djangoapps/content_libraries/models.py:359
 msgid "The LTI platform identifier to which this profile belongs to."
 msgstr "הזיהוי של פלטפורמת LTI שפרופיל זה שייך לפלטפורמת LTI."
+
+#: openedx/core/djangoapps/content_libraries/models.py:365
+msgid "client identifier"
+msgstr "מזהה לקוח"
 
 #: openedx/core/djangoapps/content_libraries/models.py:366
 msgid "The LTI client identifier generated by the LTI platform."
@@ -7654,9 +8089,30 @@ msgstr "טוען"
 msgid "Expired"
 msgstr "לא בתוקף"
 
+#: openedx/core/djangoapps/content_staging/models.py:55
+msgid ""
+"\n"
+"            What type of content is staged. Only OLX content is supported, and\n"
+"            this field must be the same as the root tag of the OLX.\n"
+"            e.g. \"video\" if a video is staged, or \"vertical\" for a unit.\n"
+"        "
+msgstr ""
+"\n"
+"            איזה סוג של תוכן מוצג. נתמך רק תוכן OLX, ושדה זה חייב להיות זהה לתגית השורש של ה-OLX.\n"
+"            לדוגמה: \"וידאו\" אם מוצג וידאו, או \"vertical\" עבור יחידה.\n"
+"        "
+
 #: openedx/core/djangoapps/content_staging/models.py:72
 msgid "Content tags applied to these blocks"
 msgstr "תגיות תוכן הוחלו על הבלוקים האלה"
+
+#: openedx/core/djangoapps/content_staging/models.py:116
+msgid "Original usage key/ID of the thing that is in the clipboard."
+msgstr "מפתח/מזהה השימוש המקורי של הפריט שנמצא בתוך לוח הגזירים."
+
+#: openedx/core/djangoapps/content_tagging/models/base.py:24
+msgid "owner"
+msgstr "בעלים"
 
 #: openedx/core/djangoapps/content_tagging/models/base.py:33
 msgid ""
@@ -7702,6 +8158,20 @@ msgstr "נתוני הגדרת LTI עבור הקורס הזה/ספק."
 #: openedx/core/djangoapps/programs/models.py:57
 msgid "LTI provider"
 msgstr "ספק LTI"
+
+#: openedx/core/djangoapps/course_live/models.py:34
+#: openedx/core/djangoapps/programs/models.py:58
+msgid "The LTI provider's id"
+msgstr "מזהה ספק ה-LTI"
+
+#: openedx/core/djangoapps/course_live/models.py:38
+msgid "True, if LTI credential are provided by Org globally"
+msgstr "True, אם פרטי אימות LTI מסופקים על ידי הארגון באופן גלובלי"
+
+#: openedx/core/djangoapps/course_live/plugins.py:25
+#: openedx/core/djangoapps/course_live/tab.py:47
+msgid "Live"
+msgstr "חי"
 
 #: openedx/core/djangoapps/course_live/plugins.py:26
 msgid "Enable in-platform video conferencing by configuring live"
