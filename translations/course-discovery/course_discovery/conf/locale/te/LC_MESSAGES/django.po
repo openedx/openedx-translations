@@ -562,9 +562,17 @@ msgstr "ఇతర"
 msgid "Course Create"
 msgstr "కోర్సు సృష్టి"
 
+#: apps/course_metadata/choices.py:55
+msgid "Partial Update"
+msgstr "పాక్షిక నవీకరణ"
+
 #: apps/course_metadata/choices.py:56
 msgid "Course Rerun"
 msgstr "కోర్సు పునఃప్రసారం"
+
+#: apps/course_metadata/choices.py:57
+msgid "Course Editor Update"
+msgstr "కోర్సు ఎడిటర్ అప్‌డేట్"
 
 #: apps/course_metadata/choices.py:64
 msgid "Pending"
@@ -2104,6 +2112,54 @@ msgstr ""
 "%(user_name)s %(time)s వద్ద %(course_name)s %(date)s పై ఈ క్రింది వ్యాఖ్యను "
 "చేసింది"
 
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:7
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:3
+#: apps/course_metadata/templates/course_metadata/email/go_live.html:9
+#: apps/course_metadata/templates/course_metadata/email/go_live.txt:3
+msgid "Hi Course Team,"
+msgstr "హాయ్ కోర్స్ టీం,"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:12
+#, python-format
+msgid ""
+"\n"
+"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
+"        "
+msgstr ""
+"\n"
+"&quot; %(course_name)s &quot; (కోర్సు కీ: %(course_key)s ) అనే కోర్సు %(days)s లో %(course_end_date)s లో ముగియాలని షెడ్యూల్ చేయబడిందని ఇది ఒక ఆటోమేటెడ్ రిమైండర్.\n"
+"        "
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:16
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:16
+msgid ""
+"To ensure uninterrupted learner access and enrollment, please take one of "
+"the following actions:"
+msgstr ""
+"అభ్యాసకులకు అంతరాయం లేని యాక్సెస్ మరియు నమోదును నిర్ధారించడానికి, దయచేసి ఈ "
+"క్రింది చర్యలలో ఒకదాన్ని తీసుకోండి:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:19
+#, python-format
+msgid ""
+"\n"
+"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
+"        "
+msgstr ""
+"\n"
+"&quot; %(course_name)s &quot; (కోర్సు కీ: %(course_key)s ) అనే కోర్సు అధికారికంగా %(course_end_date)s నాటికి ముగిసిందని ఇది ఆటోమేటెడ్ రిమైండర్.\n"
+"        "
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:23
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:18
+msgid ""
+"If this was intentional, no action is needed. However, if this course was "
+"meant to remain available, you have two options to restore access:"
+msgstr ""
+"ఇది ఉద్దేశపూర్వకంగా జరిగి ఉంటే, ఎటువంటి చర్య అవసరం లేదు. అయితే, ఈ కోర్సు "
+"అందుబాటులో ఉండాలని ఉద్దేశించినట్లయితే, యాక్సెస్‌ను పునరుద్ధరించడానికి మీకు "
+"రెండు ఎంపికలు ఉన్నాయి:"
+
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.html:29
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:21
 msgid ""
@@ -2113,6 +2169,52 @@ msgstr ""
 "అదే కోర్సు అందుబాటులో ఉండాలంటే ప్రస్తుత కోర్సు రన్ ముగింపు తేదీని "
 "పొడిగించండి."
 
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:31
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:22
+msgid ""
+"Create a new course run if you are planning to offer this course again with "
+"updated content, pacing, or a new cohort of learners."
+msgstr ""
+"మీరు ఈ కోర్సును నవీకరించబడిన కంటెంట్, పేసింగ్ లేదా కొత్త అభ్యాసకుల బృందంతో "
+"మళ్ళీ అందించాలని ప్లాన్ చేస్తుంటే కొత్త కోర్సు అమలును సృష్టించండి."
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:32
+msgid "Visit the Course in Publisher"
+msgstr "పబ్లిషర్ కోర్సును సందర్శించండి"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:37
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:25
+msgid "You can review and modify the course end settings here:"
+msgstr ""
+"మీరు కోర్సు ముగింపు సెట్టింగ్‌లను ఇక్కడ సమీక్షించవచ్చు మరియు సవరించవచ్చు:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:41
+#, python-format
+msgid ""
+"\n"
+"        If no action is taken, the course will no longer be available for enrollment or access by learners on \n"
+"        <a href=\"%(partner_marketing_site_url)s\">%(partner_marketing_site_url)s</a> after the end date.\n"
+"        "
+msgstr ""
+"\n"
+"ఎటువంటి చర్య తీసుకోకపోతే, ఈ కోర్సు ఇకపై అభ్యాసకుల నమోదు లేదా ప్రవేశానికి అందుబాటులో ఉండదు.\n"
+" ముగింపు తేదీ తర్వాత <a href=\"%(partner_marketing_site_url)s\">%(partner_marketing_site_url)s</a> .\n"
+"        "
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:47
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:34
+msgid "Thanks"
+msgstr "ధన్యవాదాలు"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:6
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"&quot; %(course_name)s &quot; (కోర్సు కీ: %(course_key)s ) అనే కోర్సు %(days)s లో %(course_end_date)s లో ముగియాలని షెడ్యూల్ చేయబడిందని ఇది ఒక ఆటోమేటెడ్ రిమైండర్.\n"
+
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:10
 #, python-format
 msgid ""
@@ -2121,6 +2223,10 @@ msgid ""
 msgstr ""
 "\n"
 "&quot; %(course_name)s &quot; (కోర్సు కీ: %(course_key)s ) అనే కోర్సు అధికారికంగా %(course_end_date)s నాటికి ముగిసిందని ఇది ఆటోమేటెడ్ రిమైండర్.\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:23
+msgid "Visit the Course in Publisher:"
+msgstr "పబ్లిషర్‌లోని కోర్సును సందర్శించండి:"
 
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:29
 #, python-format
