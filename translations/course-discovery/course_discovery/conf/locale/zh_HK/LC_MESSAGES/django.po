@@ -5,20 +5,15 @@
 # 
 # Translators:
 # Translators:
-# Omar Al-Ithawi <i@omardo.com>, 2024
-# Wu SiMin, 2024
-# Lu Luo Heng, 2024
-# edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2025
-# Brian Smith, 2025
-# hymnsf <singmoonson@gmail.com>, 2025
+# Transifex Bot <>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-02 00:33+0000\n"
-"PO-Revision-Date: 2023-01-26 15:39+0000\n"
-"Last-Translator: hymnsf <singmoonson@gmail.com>, 2025\n"
+"POT-Creation-Date: 2026-02-12 00:40+0000\n"
+"PO-Revision-Date: 2026-02-12 01:18+0000\n"
+"Last-Translator: Transifex Bot <>, 2026\n"
 "Language-Team: Chinese (Hong Kong) (https://app.transifex.com/open-edx/teams/6205/zh_HK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -121,6 +116,13 @@ msgstr "無法設定課程運行數據：{}"
 #: apps/api/v1/views/course_runs.py:328
 msgid "Can only update status, ofac restrictions, and ofac comment"
 msgstr "只能更新狀態、ofac 限制和 ofac 評論"
+
+#: apps/api/v1/views/course_runs.py:363
+#, python-brace-format
+msgid ""
+"The course run type '{course_run_type}' is not valid for this course type "
+"'{course_type}'."
+msgstr "課程運行類型「{course_run_type}」對於此課程類型「{course_type}」無效。"
 
 #: apps/api/v1/views/course_runs.py:381
 msgid "Course run is in review. Editing disabled."
@@ -522,13 +524,49 @@ msgstr "演示"
 msgid "other"
 msgstr "其他"
 
+#: apps/course_metadata/choices.py:54
+msgid "Course Create"
+msgstr "課程創建"
+
+#: apps/course_metadata/choices.py:55
+msgid "Partial Update"
+msgstr "Daļēja atjaunināšana"
+
 #: apps/course_metadata/choices.py:56
 msgid "Course Rerun"
 msgstr "課程重播"
 
+#: apps/course_metadata/choices.py:57
+msgid "Course Editor Update"
+msgstr "課程編輯器更新"
+
+#: apps/course_metadata/choices.py:64
+msgid "Pending"
+msgstr "待處理中"
+
 #: apps/course_metadata/choices.py:65 apps/course_metadata/choices.py:76
 msgid "Verified"
 msgstr "已驗證"
+
+#: apps/course_metadata/choices.py:66
+msgid "Processing"
+msgstr "處理中"
+
+#: apps/course_metadata/choices.py:67
+msgid "Completed"
+msgstr "已完成"
+
+#: apps/course_metadata/choices.py:68
+msgid "Failed"
+msgstr "失敗"
+
+#: apps/course_metadata/choices.py:69
+msgid "Partially Completed"
+msgstr "部分已完成"
+
+#: apps/course_metadata/choices.py:70
+msgid "Errored"
+msgstr "錯誤"
 
 #: apps/course_metadata/choices.py:74
 msgid "Honor"
@@ -1326,6 +1364,15 @@ msgstr "完成課程運行所需的預計每週最大小時數。"
 msgid "Estimated number of weeks needed to complete this course run."
 msgstr "完成本課程所需的預計週數。"
 
+#: apps/course_metadata/models.py:2329
+msgid ""
+"A JSON dict detailing the available translations and transcriptions for this"
+" run. The dict has two keys: translation_languages and "
+"transcription_languages."
+msgstr ""
+"一個 JSON 字典，詳細說明本次運行可用的翻譯和轉錄。這個字典有兩個鍵：translation_languages 和 "
+"transcription_languages。"
+
 #: apps/course_metadata/models.py:2336
 msgid "Total number of learners who have enrolled in this course run"
 msgstr "已註冊此課程運行的學生總數"
@@ -1769,6 +1816,10 @@ msgstr "嘗試儲存網址重新導向{url_path}時，合作夥伴{partner_key}�
 msgid "It expects the data will be provided in a csv file format "
 msgstr "它預計數據將以 csv 文件格式提供 "
 
+#: apps/course_metadata/models.py:4738
+msgid "A csv file containing uuid of the courses to be archived"
+msgstr "包含要存檔課程的 uuid 的 csv 文件"
+
 #: apps/course_metadata/models.py:4752 apps/course_metadata/models.py:4765
 #: apps/course_metadata/models.py:4778 apps/course_metadata/models.py:4813
 #: apps/course_metadata/models.py:4826 apps/course_metadata/models.py:4845
@@ -1822,6 +1873,34 @@ msgstr "新增來自所有已發佈課程 url slugs 的重定向"
 #: apps/course_metadata/models.py:4979 apps/taxonomy_support/models.py:55
 msgid "Course uuids"
 msgstr "課程 uuid"
+
+#: apps/course_metadata/models.py:5044
+msgid "User who uploaded the file"
+msgstr "上傳文件的用戶"
+
+#: apps/course_metadata/models.py:5049
+msgid "Summary of the task"
+msgstr "任務概要"
+
+#: apps/course_metadata/models.py:5052
+msgid "Task Type"
+msgstr "任務類型"
+
+#: apps/course_metadata/models.py:5055
+msgid "Type of Bulk Task to be performed"
+msgstr "要執行的批次任務類型"
+
+#: apps/course_metadata/models.py:5058
+msgid "Status"
+msgstr "狀態"
+
+#: apps/course_metadata/models.py:5061
+msgid "Status of the Bulk Task"
+msgstr "批次任務的狀態"
+
+#: apps/course_metadata/models.py:5069
+msgid "Identifier of the celery task associated with this bulk task"
+msgstr "與此批量任務關聯的芹菜任務的標識符"
 
 #: apps/course_metadata/salesforce.py:78
 msgid "Attempted to query Salesforce with no client for partner={}"
@@ -1887,10 +1966,98 @@ msgid ""
 "%(time)s"
 msgstr "%(user_name)s在%(time)s %(date)s對%(course_name)s發表了以下評論"
 
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:7
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:3
+#: apps/course_metadata/templates/course_metadata/email/go_live.html:9
+#: apps/course_metadata/templates/course_metadata/email/go_live.txt:3
+msgid "Hi Course Team,"
+msgstr "嗨，課程團隊，"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:12
+#, python-format
+msgid ""
+"\n"
+"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
+"        "
+msgstr ""
+"\n"
+"        這是一個自動提醒，課程「%(course_name)s」（課程金鑰：%(course_key)s）計劃在%(days)s後於%(course_end_date)s結束。\n"
+"        "
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:16
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:16
+msgid ""
+"To ensure uninterrupted learner access and enrollment, please take one of "
+"the following actions:"
+msgstr "為了確保學習者不間斷地存取和註冊，請採取以下措施之一："
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:19
+#, python-format
+msgid ""
+"\n"
+"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
+"        "
+msgstr ""
+"\n"
+"        這是一個自動提醒，課程「 %(course_name)s 」（課程金鑰： %(course_key)s ）已於%(course_end_date)s正式結束。\n"
+"        "
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:23
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:18
+msgid ""
+"If this was intentional, no action is needed. However, if this course was "
+"meant to remain available, you have two options to restore access:"
+msgstr "如果這是故意的，則無需採取任何措施。但是，如果該課程原本應該繼續開放，您可以透過以下兩種方式恢復存取權限："
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:29
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:21
+msgid ""
+"Extend the current course run’s end date if the same course is meant to "
+"remain available."
+msgstr "延長目前課程的結束日期，以保持同一課程的可用性。"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:31
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:22
+msgid ""
+"Create a new course run if you are planning to offer this course again with "
+"updated content, pacing, or a new cohort of learners."
+msgstr "如果您計劃再次提供此課程並更新其內容、進度或吸引新的學習者，請建立新的課程。"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:32
+msgid "Visit the Course in Publisher"
+msgstr "參觀 Publisher 中的課程"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:37
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:25
+msgid "You can review and modify the course end settings here:"
+msgstr "您可以在此處查看和修改課程結束設定："
+
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.html:47
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:34
 msgid "Thanks"
 msgstr "謝謝"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:6
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"這是一個自動提醒，課程「%(course_name)s」（課程金鑰：%(course_key)s）計劃在%(days)s天後於%(course_end_date)s結束。\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:10
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"這是一個自動提醒，課程「%(course_name)s」（課程金鑰：%(course_key)s）已於%(course_end_date)s正式結束。\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:23
+msgid "Visit the Course in Publisher:"
+msgstr "參觀 Publisher 中的課程："
 
 #: apps/course_metadata/templates/course_metadata/email/go_live.html:17
 #: apps/course_metadata/templates/course_metadata/email/go_live.txt:7
