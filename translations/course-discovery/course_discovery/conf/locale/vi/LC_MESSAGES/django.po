@@ -5,17 +5,15 @@
 # 
 # Translators:
 # Translators:
-# Hoàng Trương <hoangta@vnu.edu.vn>, 2024
-# Hoang Truong <truonganhhoang@gmail.com>, 2024
-# Brian Smith, 2025
+# Transifex Bot <>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-12 00:35+0000\n"
-"PO-Revision-Date: 2023-01-26 15:39+0000\n"
-"Last-Translator: Brian Smith, 2025\n"
+"POT-Creation-Date: 2026-02-12 00:40+0000\n"
+"PO-Revision-Date: 2026-02-12 01:18+0000\n"
+"Last-Translator: Transifex Bot <>, 2026\n"
 "Language-Team: Vietnamese (https://app.transifex.com/open-edx/teams/6205/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -123,6 +121,15 @@ msgstr "Không thể đặt dữ liệu chạy đường đua: {}"
 #: apps/api/v1/views/course_runs.py:328
 msgid "Can only update status, ofac restrictions, and ofac comment"
 msgstr "Chỉ có thể cập nhật trạng thái, hạn chế ofac và bình luận ofac"
+
+#: apps/api/v1/views/course_runs.py:363
+#, python-brace-format
+msgid ""
+"The course run type '{course_run_type}' is not valid for this course type "
+"'{course_type}'."
+msgstr ""
+"Loại kỳ học &#39;{course_run_type}&#39; không hợp lệ cho loại khóa học "
+"&#39;{course_type}&#39; này."
 
 #: apps/api/v1/views/course_runs.py:381
 msgid "Course run is in review. Editing disabled."
@@ -544,9 +551,49 @@ msgstr "thử nghiệm"
 msgid "other"
 msgstr "khác"
 
+#: apps/course_metadata/choices.py:54
+msgid "Course Create"
+msgstr "Tạo khóa học"
+
+#: apps/course_metadata/choices.py:55
+msgid "Partial Update"
+msgstr "Cập nhật một phần"
+
+#: apps/course_metadata/choices.py:56
+msgid "Course Rerun"
+msgstr "Khóa học lại"
+
+#: apps/course_metadata/choices.py:57
+msgid "Course Editor Update"
+msgstr "Cập nhật biên tập khóa học"
+
+#: apps/course_metadata/choices.py:64
+msgid "Pending"
+msgstr "Chưa giải quyết"
+
 #: apps/course_metadata/choices.py:65 apps/course_metadata/choices.py:76
 msgid "Verified"
 msgstr "Đã xác minh"
+
+#: apps/course_metadata/choices.py:66
+msgid "Processing"
+msgstr "Xử lý"
+
+#: apps/course_metadata/choices.py:67
+msgid "Completed"
+msgstr "Hoàn thành"
+
+#: apps/course_metadata/choices.py:68
+msgid "Failed"
+msgstr "Thất bại"
+
+#: apps/course_metadata/choices.py:69
+msgid "Partially Completed"
+msgstr "Hoàn thành một phần"
+
+#: apps/course_metadata/choices.py:70
+msgid "Errored"
+msgstr "Đã lỗi"
 
 #: apps/course_metadata/choices.py:74
 msgid "Honor"
@@ -1414,6 +1461,15 @@ msgstr "Ước tính số giờ tối đa mỗi tuần cần thiết để hoàn
 msgid "Estimated number of weeks needed to complete this course run."
 msgstr "Số tuần ước tính cần thiết để hoàn thành khóa học này."
 
+#: apps/course_metadata/models.py:2329
+msgid ""
+"A JSON dict detailing the available translations and transcriptions for this"
+" run. The dict has two keys: translation_languages and "
+"transcription_languages."
+msgstr ""
+"Một dict JSON nêu chi tiết các bản dịch và phiên âm có sẵn cho lần chạy này."
+" Dict có hai khóa: translation_languages và transcription_languages."
+
 #: apps/course_metadata/models.py:2336
 msgid "Total number of learners who have enrolled in this course run"
 msgstr "Tổng số học viên đã ghi danh khóa học này"
@@ -1909,6 +1965,10 @@ msgstr ""
 msgid "It expects the data will be provided in a csv file format "
 msgstr "Nó hy vọng dữ liệu sẽ được cung cấp ở định dạng tệp csv "
 
+#: apps/course_metadata/models.py:4738
+msgid "A csv file containing uuid of the courses to be archived"
+msgstr "Tệp csv chứa uuid của các khóa học cần lưu trữ"
+
 #: apps/course_metadata/models.py:4752 apps/course_metadata/models.py:4765
 #: apps/course_metadata/models.py:4778 apps/course_metadata/models.py:4813
 #: apps/course_metadata/models.py:4826 apps/course_metadata/models.py:4845
@@ -1965,6 +2025,34 @@ msgstr "Thêm chuyển hướng từ tất cả các URL khóa học đã xuất
 msgid "Course uuids"
 msgstr "Khóa học uuids"
 
+#: apps/course_metadata/models.py:5044
+msgid "User who uploaded the file"
+msgstr "Người dùng đã tải tập tin lên"
+
+#: apps/course_metadata/models.py:5049
+msgid "Summary of the task"
+msgstr "Tóm tắt nhiệm vụ"
+
+#: apps/course_metadata/models.py:5052
+msgid "Task Type"
+msgstr "Loại nhiệm vụ"
+
+#: apps/course_metadata/models.py:5055
+msgid "Type of Bulk Task to be performed"
+msgstr "Loại tác vụ hàng loạt cần thực hiện"
+
+#: apps/course_metadata/models.py:5058
+msgid "Status"
+msgstr "Trạng thái"
+
+#: apps/course_metadata/models.py:5061
+msgid "Status of the Bulk Task"
+msgstr "Trạng thái của tác vụ hàng loạt"
+
+#: apps/course_metadata/models.py:5069
+msgid "Identifier of the celery task associated with this bulk task"
+msgstr "Mã định danh của nhiệm vụ cần tây liên quan đến nhiệm vụ lớn này"
+
 #: apps/course_metadata/salesforce.py:78
 msgid "Attempted to query Salesforce with no client for partner={}"
 msgstr ""
@@ -1974,15 +2062,15 @@ msgstr ""
 msgid "Unable to associate a case for comments for {}"
 msgstr "Không thể liên kết trường hợp nhận xét cho {}"
 
-#: apps/course_metadata/templates/admin/course_metadata/course_run.html:37
+#: apps/course_metadata/templates/admin/course_metadata/course_run.html:24
 msgid "Cancel"
 msgstr "Hủy bỏ"
 
-#: apps/course_metadata/templates/admin/course_metadata/course_run.html:40
+#: apps/course_metadata/templates/admin/course_metadata/course_run.html:27
 msgid "Back to Program"
 msgstr "Quay lại chương trình"
 
-#: apps/course_metadata/templates/admin/course_metadata/course_run.html:42
+#: apps/course_metadata/templates/admin/course_metadata/course_run.html:29
 msgid "Save Course Run"
 msgstr "Lưu khóa học"
 
@@ -2033,6 +2121,100 @@ msgid ""
 msgstr ""
 "%(user_name)s đã đưa ra nhận xét sau về %(course_name)s %(date)s tại "
 "%(time)s"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:7
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:3
+#: apps/course_metadata/templates/course_metadata/email/go_live.html:9
+#: apps/course_metadata/templates/course_metadata/email/go_live.txt:3
+msgid "Hi Course Team,"
+msgstr "Xin chào nhóm khóa học,"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:16
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:16
+msgid ""
+"To ensure uninterrupted learner access and enrollment, please take one of "
+"the following actions:"
+msgstr ""
+"Để đảm bảo người học có thể truy cập và ghi danh không bị gián đoạn, vui "
+"lòng thực hiện một trong các hành động sau:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:23
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:18
+msgid ""
+"If this was intentional, no action is needed. However, if this course was "
+"meant to remain available, you have two options to restore access:"
+msgstr ""
+"Nếu đây là cố ý, không cần thực hiện hành động nào. Tuy nhiên, nếu khóa học "
+"này được cho là vẫn khả dụng, bạn có hai tùy chọn để khôi phục quyền truy "
+"cập:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:29
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:21
+msgid ""
+"Extend the current course run’s end date if the same course is meant to "
+"remain available."
+msgstr ""
+"Gia hạn ngày kết thúc của kỳ học hiện tại nếu khóa học đó vẫn còn được cung "
+"cấp."
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:31
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:22
+msgid ""
+"Create a new course run if you are planning to offer this course again with "
+"updated content, pacing, or a new cohort of learners."
+msgstr ""
+"Tạo một kỳ học mới nếu bạn đang có kế hoạch cung cấp lại khóa học này với "
+"nội dung, tốc độ được cập nhật hoặc một nhóm học viên mới."
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:32
+msgid "Visit the Course in Publisher"
+msgstr "Truy cập Khóa học trong Publisher"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:37
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:25
+msgid "You can review and modify the course end settings here:"
+msgstr "Bạn có thể xem lại và sửa đổi cài đặt kết thúc khóa học tại đây:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:47
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:34
+msgid "Thanks"
+msgstr "Cảm ơn"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:6
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"```\n"
+"Đây là lời nhắc tự động rằng khóa học \"%(course_name)s\" (Khóa khóa học: %(course_key)s) dự kiến kết thúc trong %(days)s vào ngày %(course_end_date)s.\n"
+"\n"
+"```\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:10
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"```\n"
+"Đây là lời nhắc tự động rằng khóa học \"%(course_name)s\" (Khóa khóa học: %(course_key)s) đã chính thức kết thúc kể từ %(course_end_date)s.\n"
+"```\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:23
+msgid "Visit the Course in Publisher:"
+msgstr "Hãy truy cập Khóa học trong Publisher:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:29
+#, python-format
+msgid ""
+"\n"
+"If no action is taken, the course will no longer be available for enrollment or access by learners on %(partner_marketing_site_url)s after the end date.\n"
+msgstr ""
+"\n"
+"Nếu không có hành động nào được thực hiện, người học sẽ không thể ghi danh hoặc truy cập khóa học trên %(partner_marketing_site_url)s sau ngày kết thúc.\n"
 
 #: apps/course_metadata/templates/course_metadata/email/go_live.html:17
 #: apps/course_metadata/templates/course_metadata/email/go_live.txt:7
