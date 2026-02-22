@@ -68,6 +68,10 @@ msgstr "აუცილებელია კონფიგურაციი�
 msgid "must have at least one group"
 msgstr "აუცილებელია სულ მცირე ერთი ჯგუფის არსებობა"
 
+#: cms/djangoapps/contentstore/course_group_config.py:112
+msgid "unable to load this type of group configuration"
+msgstr "შეუძლებელია ამ ტიპის ჯგუფის კონფიგურაციის ჩატვირთვა"
+
 #: cms/djangoapps/contentstore/course_info_model.py:74
 #: cms/djangoapps/contentstore/course_info_model.py:159
 msgid "Invalid course update id."
@@ -153,6 +157,14 @@ msgstr ""
 "GIT_REPO_EXPORT_DIR ცვლადის მნიშვნელობა არ არის დაყენებული, ან კატალოგი {0} "
 "არ არსებობს. გთხოვთ შექმნათ ის, ან GIT_REPO_EXPORT_DIR ცვლადში მიუთითოთ სხვა"
 " კატალოგი"
+
+#: cms/djangoapps/contentstore/git_export_utils.py:39
+msgid ""
+"Non writable git url provided. Expecting something like: "
+"git@github.com:openedx/openedx-demo-course.git"
+msgstr ""
+"მოწოდებულია არაჩაწერილი git url. სხვა საცხოვრებლები, რომლებსაც გთავაზობთ "
+"git@github.com:openedx/openedx-demo-course.git"
 
 #: cms/djangoapps/contentstore/git_export_utils.py:41
 msgid ""
@@ -364,6 +376,10 @@ msgstr "დახმარების ტექსტი, რომელიც
 msgid "Tab type"
 msgstr "ჩანართის ტიპი"
 
+#: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:15
+msgid "Default name for the tab displayed to users"
+msgstr "მომხმარებლებისთვის ნაჩვენები ჩანართის ნაგულისხმევი სახელი"
+
 #: cms/djangoapps/contentstore/rest_api/v0/serializers/tabs.py:18
 msgid "True if it's possible to hide the tab for a course"
 msgstr "მართალია, თუ შესაძლებელია ჩანართის დამალვა კურსისთვის"
@@ -535,6 +551,12 @@ msgstr "შემოტანილი"
 #: cms/djangoapps/contentstore/video_storage_handlers.py:140
 msgid "Unknown"
 msgstr "უცნობი"
+
+#. Translators: This is the status for a video that is having its
+#. transcription in progress on servers
+#: cms/djangoapps/contentstore/video_storage_handlers.py:142
+msgid "Transcription in Progress"
+msgstr "ტრანსკრიფცია მიმდინარეობს"
 
 #. Translators: This is the status for a video whose transcription is complete
 #: cms/djangoapps/contentstore/video_storage_handlers.py:144
@@ -760,6 +782,14 @@ msgstr ""
 "\n"
 "{err}"
 
+#: cms/djangoapps/contentstore/views/course.py:950
+msgid ""
+"User does not have the permission to create courses in this organization or "
+"course creation is disabled"
+msgstr ""
+"მომხმარებელს არ აქვს ამ ორგანიზაციაში კურსების შექმნის უფლება ან კურსის "
+"შექმნა გამორთულია"
+
 #: cms/djangoapps/contentstore/views/course.py:967
 msgid ""
 "You must link this course to an organization in order to continue. "
@@ -913,6 +943,10 @@ msgid ""
 msgstr ""
 "არსებობს პრობლემა არსებულ ტრანსკრიპტის ფაილთან. გთხოვთ ატვირთოთ სხვა ფაილი."
 
+#: cms/djangoapps/contentstore/views/transcripts_ajax.py:710
+msgid "YouTube ID is required."
+msgstr "სავალდებულოა YouTube ID."
+
 #: cms/djangoapps/contentstore/views/transcripts_ajax.py:750
 msgid "There is a problem with the YouTube transcript file."
 msgstr "YouTube ტრანსკრიპტის ფაილთან დაკავშირებით პრობლემაა."
@@ -997,6 +1031,10 @@ msgstr "თქვენ არ შეგიძლიათ ნივთის �
 #: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:816
 msgid "You can not move an item into it's child."
 msgstr "თქვენ არ შეგიძლიათ ნივთის გადატანა ბავშვში."
+
+#: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:818
+msgid "You can not move an item directly into content experiment."
+msgstr "თქვენ არ შეგიძლიათ ნივთის პირდაპირ შინაარსის ექსპერიმენტში გადატანა."
 
 #: cms/djangoapps/contentstore/xblock_storage_handlers/view_handlers.py:820
 #, python-brace-format
@@ -1104,6 +1142,14 @@ msgstr "შეუძლებელია შიგთავსის გან�
 #: cms/lib/xblock/upstream_sync.py:269
 msgid "Reference to linked library item is malformed"
 msgstr "ბმული ბიბლიოთეკის ელემენტზე მითითება არასწორად არის ჩამოყალიბებული"
+
+#: cms/lib/xblock/upstream_sync.py:275
+msgid ""
+"Updating content with children is not yet supported unless the upstream is a"
+" container."
+msgstr ""
+"ბავშვებთან კონტენტის განახლება ჯერ არ არის მხარდაჭერილი, თუ ზედა დინება არ "
+"არის კონტეინერი."
 
 #: cms/lib/xblock/upstream_sync.py:281
 msgid "Linked upstream library block was not found in the system"
@@ -1378,6 +1424,11 @@ msgstr ""
 "გთხოვთ, დაამატოთ გასაღები / მნიშვნელობა \"THIRD_PARTY_AUTH_ONLY_DOMAIN / "
 "{site_email_domain}\" SiteConfiguration მოდელის site_values ველში."
 
+#: common/djangoapps/student/admin.py:719
+#, python-brace-format
+msgid "Email doesn't have {allowed_site_email_domain} domain name."
+msgstr "ელფოსტას არ აქვს {allowed_site_email_domain} დომენის სახელი."
+
 #: common/djangoapps/student/admin.py:722
 msgid "User with this email doesn't exist in system."
 msgstr "ამ ელ.ფოსტის მქონე მომხმარებელი სისტემაში არ არსებობს."
@@ -1425,6 +1476,17 @@ msgid ""
 msgstr ""
 "რეგისტრაციის შემდეგ მომხმარებლებისთვის თანხის ანაზღაურების დროის ფანჯარა "
 "გამოსახულია მიკროწამებში. სტანდარტული ვადა არის 14 დღე."
+
+#: common/djangoapps/student/models/course_enrollment.py:1763
+msgid ""
+"It expect that the data will be provided in a csv file format with"
+"                     first row being the header and columns will be as "
+"follows:                     user_id, username, email, course_id, "
+"is_verified, verification_date"
+msgstr ""
+"ველით, რომ მონაცემები უზრუნველყოფილი იქნება csv ფაილის ფორმატში, პირველი "
+"რიგის სათაური და სვეტები იქნება შემდეგი: user_id, მომხმარებლის სახელი, "
+"ელფოსტა, course_id, is_verified, verification_date"
 
 #: common/djangoapps/student/models/course_enrollment.py:1777
 msgid ""
@@ -1577,6 +1639,10 @@ msgstr "მიზეზის დამატება"
 msgid " and "
 msgstr "და"
 
+#: common/djangoapps/student/views/dashboard.py:286
+msgid "Photos are mismatched"
+msgstr "ფოტოები შეუსაბამოა"
+
 #: common/djangoapps/student/views/dashboard.py:287
 msgid "Name missing from ID photo"
 msgstr "პირადობის მოწმობის ფოტოდან აკლია სახელი"
@@ -1592,6 +1658,10 @@ msgstr "ID არასწორია"
 #: common/djangoapps/student/views/dashboard.py:290
 msgid "Learner photo is blurry"
 msgstr "მოსწავლის ფოტო ბუნდოვანია"
+
+#: common/djangoapps/student/views/dashboard.py:291
+msgid "Name on ID does not match name on account"
+msgstr "ID სახელი არ ემთხვევა სახელს ანგარიშზე"
 
 #: common/djangoapps/student/views/dashboard.py:292
 msgid "Learner photo not provided"
@@ -1655,6 +1725,10 @@ msgstr "კურსის ID არასწორია"
 msgid "Could not enroll"
 msgstr "კურსზე ჩარიცხვა ვერ მოხერხდა"
 
+#: common/djangoapps/student/views/management.py:450
+msgid "Unenrollment is currently disabled"
+msgstr "ჩარიცხვის გაუქმება ამჟამად გამორთულია"
+
 #: common/djangoapps/student/views/management.py:454
 msgid "You are not enrolled in this course"
 msgstr "თქვენ არ ხართ ჩარიცხული ამ კურსზე"
@@ -1711,6 +1785,15 @@ msgid ""
 "{activated_or_confirmed}.{html_end}"
 msgstr ""
 "{html_start}ეს {account_or_email} უკვე {activated_or_confirmed}. {html_end}"
+
+#: common/djangoapps/student/views/management.py:627
+#, python-brace-format
+msgid ""
+"{html_start}Success{html_end} You have {activated_or_confirmed} your "
+"{account_or_email}."
+msgstr ""
+"{html_start}წარმატებები{html_end} თქვენ {activated_or_confirmed} თქვენი "
+"{account_or_email}."
 
 #: common/djangoapps/student/views/management.py:640
 #, python-brace-format
@@ -1814,6 +1897,14 @@ msgstr ""
 "ამ პარამეტრის შერჩევის შემთხვევაში, მომხმარებლებს არ მოეთხოვებათ მათი "
 "ელფოსტის დადასტურება და მათი ანგარიში რეგისტრაციისთანავე გააქტიურდება."
 
+#: common/djangoapps/third_party_auth/models.py:197
+msgid ""
+"If this option is selected, users will be sent a welcome email upon "
+"registration."
+msgstr ""
+"თუ ეს ვარიანტი არჩეულია, მომხმარებლებს რეგისტრაციისთანავე გაიგზავნებათ "
+"მისასალმებელი ელ.წერილი."
+
 #: common/djangoapps/third_party_auth/models.py:203
 msgid ""
 "If this option is not selected, users will not be presented with the "
@@ -1859,6 +1950,14 @@ msgstr ""
 "მომხმარებელს ეცნობება, თუ მათ ანგარიშთან დაკავშირებული ელფოსტის მისამართი "
 "შეიცვლება, როგორც ამ სინქრონიზაციის ნაწილი."
 
+#: common/djangoapps/third_party_auth/models.py:244
+msgid ""
+"IDPs with this set to True will be excluded from the dropdown IDP selection "
+"in the EnterpriseCustomer Django Admin form."
+msgstr ""
+"დევნილები, რომლებსაც აქვთ დაყენებული True, გამოირიცხებიან ჩამოსაშლელი "
+"ჩამოსაშლელი IDP შერჩევიდან EnterpriseCustomer Django Admin ფორმაში."
+
 #: common/djangoapps/third_party_auth/models.py:479
 msgid "The Site that this SAML configuration belongs to."
 msgstr "საიტი, რომელსაც ეკუთვნის SAML კონფიგურაცია."
@@ -1867,6 +1966,10 @@ msgstr "საიტი, რომელსაც ეკუთვნის SAML 
 #, python-brace-format
 msgid "{platform_name} Support"
 msgstr "{platform_name} მხარდაჭერა"
+
+#: common/djangoapps/third_party_auth/models.py:629
+msgid "A configuration nickname."
+msgstr "კონფიგურაციის მეტსახელი."
 
 #: common/djangoapps/third_party_auth/templates/third_party_auth/post_custom_auth_entry.html:5
 msgid "Please wait"
@@ -2223,6 +2326,16 @@ msgctxt "month name"
 msgid "December"
 msgstr "დეკემბერი"
 
+#: common/djangoapps/util/file.py:67
+#, python-brace-format
+msgid "The file must end with the extension '{file_types}'."
+msgid_plural ""
+"The file must end with one of the following extensions: '{file_types}'."
+msgstr[0] ""
+"ფაილი უნდა მთავრდებოდეს ერთერთი შემდეგი გაფართოებით: '{file_types}'."
+msgstr[1] ""
+"ფაილი უნდა მთავრდებოდეს ერთ-ერთი შემდეგი გაფართოებით: '{file_types}'."
+
 #: common/djangoapps/util/file.py:73
 #, python-brace-format
 msgid "Maximum upload file size is {file_size} bytes."
@@ -2327,6 +2440,14 @@ msgid "%(num)d number"
 msgid_plural "%(num)d numbers"
 msgstr[0] "%(num)d ნომერი"
 msgstr[1] "%(num)d ნომრები"
+
+#: common/djangoapps/util/password_policy_validators.py:309
+#, python-format
+msgid "This password must contain at least %(min_upper)d uppercase letter."
+msgid_plural ""
+"This password must contain at least %(min_upper)d uppercase letters."
+msgstr[0] "ეს პაროლი უნდა შეიცავდეს მინიმუმ %(min_upper)d დიდ ასოს."
+msgstr[1] "ეს პაროლი უნდა შეიცავდეს მინიმუმ %(min_upper)d დიდ ასოს."
 
 #: common/djangoapps/util/password_policy_validators.py:319
 #, python-format
@@ -2576,6 +2697,26 @@ msgstr "საჭიროა მოქმედება: გაააქტი
 msgid "Create Password"
 msgstr "პაროლის შექმნა"
 
+#: common/templates/student/edx_ace/accountrecovery/email/body.html:14
+#: common/templates/student/edx_ace/accountrecovery/email/body.txt:2
+#, python-format
+msgid ""
+"You're receiving this e-mail because you requested to create a password for "
+"your user account at %(platform_name)s."
+msgstr ""
+"თქვენ იღებთ ამ ელფოსტას, რადგან მოითხოვეთ პაროლის შექმნა თქვენი მომხმარებლის"
+" ანგარიშისთვის %(platform_name)s-ზე."
+
+#: common/templates/student/edx_ace/accountrecovery/email/body.html:21
+#: common/templates/student/edx_ace/accountrecovery/email/body.txt:4
+#, python-format
+msgid ""
+"We've restored access to your %(platform_name)s account using the recovery "
+"email you provided at registration."
+msgstr ""
+"ჩვენ აღვადგინეთ წვდომა თქვენს %(platform_name)s ანგარიშზე რეგისტრაციისას "
+"მითითებული აღდგენის ელფოსტის გამოყენებით."
+
 #: common/templates/student/edx_ace/accountrecovery/email/body.html:28
 #: common/templates/student/edx_ace/accountrecovery/email/body.txt:6
 #, python-format
@@ -2723,6 +2864,16 @@ msgid ""
 msgstr ""
 "\n"
 "პროქტორული გამოცდები არის დროული გამოცდები, რომლებსაც აბარებთ თქვენი კომპიუტერის დესკტოპის, ვებკამერის ვიდეოს და აუდიოს მონიტორინგის დროს. თქვენი კურსი იყენებს %(proctoring_provider)s პროგრამულ უზრუნველყოფას პროქტორისთვის.\n"
+"                "
+
+#: common/templates/student/edx_ace/proctoringrequirements/email/body.html:46
+msgid ""
+"\n"
+"                    Carefully review the system requirements as well as the steps to take a proctored exam in order to ensure that you are prepared.\n"
+"                "
+msgstr ""
+"\n"
+"ყურადღებით გადახედეთ სისტემის მოთხოვნებს, ასევე პროქტორული გამოცდის ჩაბარების ნაბიჯებს, რათა დარწმუნდეთ, რომ მზად ხართ.\n"
 "                "
 
 #: common/templates/student/edx_ace/proctoringrequirements/email/body.html:53
@@ -3685,6 +3836,13 @@ msgstr ""
 msgid "Disabled"
 msgstr "გამორთულია"
 
+#: lms/djangoapps/course_home_api/outline/serializers.py:33
+#, python-brace-format
+msgid "({number} Question)"
+msgid_plural "({number} Questions)"
+msgstr[0] "({number} კითხვა)"
+msgstr[1] "({number} კითხვა)"
+
 #: lms/djangoapps/course_home_api/outline/views.py:293
 #, python-brace-format
 msgid ""
@@ -3773,6 +3931,10 @@ msgstr "თქვენ ამ კურსზე დაშვება არ �
 msgid "You do not have access to this course on a mobile device"
 msgstr "ამ კურსზე თქვენ არ გაქვთ დაშვება მობილური მოწყობილობით"
 
+#: lms/djangoapps/courseware/access_response.py:253
+msgid "You must be enrolled in the course"
+msgstr "თქვენ უნდა ჩაირიცხოთ კურსზე"
+
 #: lms/djangoapps/courseware/access_response.py:264
 #, python-brace-format
 msgid ""
@@ -3787,6 +3949,10 @@ msgstr ""
 #: lms/djangoapps/courseware/access_response.py:280
 msgid "You must give Data Sharing Consent for the course"
 msgstr "თქვენ უნდა მისცეთ თანხმობა მონაცემთა გაზიარებაზე კურსისთვის"
+
+#: lms/djangoapps/courseware/access_response.py:291
+msgid "You must be logged in to see this course"
+msgstr "ამ კურსის სანახავად უნდა შეხვიდეთ სისტემაში"
 
 #: lms/djangoapps/courseware/access_response.py:302
 #, python-brace-format
@@ -3886,6 +4052,10 @@ msgstr ""
 #: lms/djangoapps/courseware/date_summary.py:404
 msgid "You lose all access to this course, including your progress."
 msgstr "თქვენ კარგავთ ყველა წვდომას ამ კურსზე, მათ შორის თქვენს პროგრესზე."
+
+#: lms/djangoapps/courseware/date_summary.py:408
+msgid "Audit Access Expires"
+msgstr "აუდიტის წვდომის ვადა იწურება"
 
 #: lms/djangoapps/courseware/date_summary.py:420
 msgid "Certificate Available"
@@ -4006,6 +4176,10 @@ msgstr "გამორთეთ დინამიური განახლ�
 msgid "Internal API Base URL"
 msgstr "შიდა API საბაზისო URL"
 
+#: lms/djangoapps/courseware/models.py:564
+msgid "Financial Assistance Backend API Base URL."
+msgstr "ფინანსური დახმარების Backend API ბაზის URL."
+
 #: lms/djangoapps/courseware/models.py:572
 msgid ""
 "Username created for Financial Assistance Backend, e.g. "
@@ -4068,6 +4242,10 @@ msgstr "მორგებული გვერდები"
 #: lms/djangoapps/courseware/plugins.py:220
 msgid "Provide additional course content and resources with custom pages"
 msgstr "მიაწოდეთ დამატებითი კურსის შინაარსი და რესურსები მორგებული გვერდებით"
+
+#: lms/djangoapps/courseware/plugins.py:271
+msgid "Flexible Peer Grading for ORAs"
+msgstr "მოქნილი თანატოლების შეფასება ORA-ებისთვის"
 
 #: lms/djangoapps/courseware/plugins.py:272
 msgid ""
@@ -4202,6 +4380,15 @@ msgstr "{sign_in_link} или {register_link}."
 msgid "Sign in"
 msgstr "შესვლა"
 
+#: lms/djangoapps/courseware/views/views.py:608
+#, python-brace-format
+msgid ""
+"You must be enrolled in the course to see course content. "
+"{enroll_link_start}Enroll now{enroll_link_end}."
+msgstr ""
+"კურსის შინაარსის სანახავად უნდა ჩაირიცხოთ კურსზე. "
+"{enroll_link_start}დარეგისტრირდით ახლა{enroll_link_end}."
+
 #: lms/djangoapps/courseware/views/views.py:621
 msgid "You must be enrolled in the course to see course content."
 msgstr "თქვენ ჩარიცხული უნდა იყოთ კურსზე მისი შინაარსი რომ ნახოთ. "
@@ -4328,6 +4515,14 @@ msgstr "კარგია"
 msgid "your"
 msgstr "თქვენი"
 
+#. Translators: Replier commented on "their" response to your post
+#. Translators: Replier commented on "their" response in a post you're
+#. following
+#: lms/djangoapps/discussion/rest_api/discussions_notifications.py:169
+#: lms/djangoapps/discussion/rest_api/discussions_notifications.py:259
+msgid "their"
+msgstr "მათი"
+
 #: lms/djangoapps/discussion/templates/discussion/discussion_board_fragment.html:16
 #: lms/djangoapps/instructor/views/instructor_dashboard.py:554
 msgid "Discussions"
@@ -4355,10 +4550,26 @@ msgstr "%(comment_username)s კომენტარი გააკეთა %
 msgid "Comment to %(thread_title)s"
 msgstr "კომენტარი %(thread_title)s"
 
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.html:12
+#, python-format
+msgid ""
+"\n"
+"                        %(course_name)s: Reported content awaits review\n"
+"                    "
+msgstr ""
+"\n"
+"%(course_name)s: მოხსენებული შინაარსი ელოდება განხილვას\n"
+"                    "
+
 #: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.html:24
 #: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.txt:18
 msgid "Go to Discussion"
 msgstr "დისკუსიაზე გადასვლა"
+
+#: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/body.txt:4
+#, python-format
+msgid "%(course_name)s: Reported content awaits review"
+msgstr "%(course_name)s: მოხსენებული შინაარსი ელოდება განხილვას"
 
 #: lms/djangoapps/discussion/templates/discussion/edx_ace/reportedcontentnotification/email/subject.txt:3
 #, python-format
@@ -4782,6 +4993,11 @@ msgstr ""
 msgid "survey"
 msgstr "გამოკითხვა"
 
+#: lms/djangoapps/instructor/views/api.py:1783
+#: lms/djangoapps/instructor_task/api_helper.py:114
+msgid "proctored exam results"
+msgstr "პროქტორული გამოცდის შედეგები"
+
 #: lms/djangoapps/instructor/views/api.py:1813
 msgid "Anonymized User IDs"
 msgstr "ანონიმური მომხმარებლის იდენტიფიკატორები"
@@ -5012,6 +5228,15 @@ msgid ""
 msgstr ""
 "ჩანაწერი არასწორ ფორმატშია. გთხოვთ, დაამატეთ მოქმედი მომხარებლის სახელი და "
 "ელფოსტის მისამართი."
+
+#: lms/djangoapps/instructor/views/api.py:3816
+#, python-brace-format
+msgid ""
+"Student {user} is not enrolled in this course. Please check your spelling "
+"and retry."
+msgstr ""
+"სტუდენტური {user} არ არის ჩარიცხული ამ კურსზე. გთხოვთ, შეამოწმოთ თქვენი "
+"მართლწერა და ხელახლა სცადოთ."
 
 #: lms/djangoapps/instructor/views/api.py:3823
 #, python-brace-format
@@ -5336,6 +5561,10 @@ msgstr "ვადის გახანგრძლივება {0} {1} ({2})
 msgid "Requested task is already running"
 msgstr "მოთხოვნილი დავალება უკვე გაშვებულია"
 
+#: lms/djangoapps/instructor_task/api_helper.py:45
+msgid "Error occured. Please try again later."
+msgstr "მოხდა შეცდომა. გთხოვთ, სცადოთ მოგვიანებით."
+
 #: lms/djangoapps/instructor_task/api_helper.py:112
 msgid "detailed enrollment"
 msgstr "დეტალური ჩარიცხვა"
@@ -5350,6 +5579,10 @@ msgstr ""
 "{report_type} ანგარიში იქმნება. ანგარიშის სტატუსის სანახავად იხილეთ "
 "მომლოდინე ამოცანები ქვემოთ. თქვენ შეძლებთ ანგარიშის ჩამოტვირთვას, როდესაც ის"
 " დასრულდება."
+
+#: lms/djangoapps/instructor_task/api_helper.py:359
+msgid "This component cannot be rescored."
+msgstr "ამ კომპონენტის გამეორება შეუძლებელია."
 
 #: lms/djangoapps/instructor_task/api_helper.py:374
 msgid "This component does not support score override."
@@ -5781,6 +6014,10 @@ msgstr "ფუნქციებზე დაფუძნებული ჩა�
 msgid "View feature based enrollment settings"
 msgstr "ფუნქციების დაფუძნებული რეგისტრაციის პარამეტრების ნახვა"
 
+#: lms/djangoapps/support/views/index.py:40
+msgid "Link Program Enrollments"
+msgstr "პროგრამის ჩარიცხვის ბმული"
+
 #: lms/djangoapps/support/views/index.py:41
 msgid "Link LMS users to program enrollments"
 msgstr "დააკავშირეთ LMS მომხმარებლები პროგრამის ჩარიცხვებთან"
@@ -5818,6 +6055,10 @@ msgstr "გამოუსადეგარი"
 #: lms/djangoapps/support/views/manage_user.py:91
 msgid "User Enabled Successfully"
 msgstr "მომხმარებელი ჩართულია წარმატებით"
+
+#: lms/djangoapps/support/views/manage_user.py:94
+msgid "User Disabled Successfully"
+msgstr "მომხმარებელი წარმატებით გამორთულია"
 
 #: lms/djangoapps/survey/utils.py:20
 msgid "You must complete a survey"
@@ -6015,6 +6256,10 @@ msgstr ""
 msgid "Missing required parameter face_image"
 msgstr "გამოტოვებულია სავალდებულო პარამეტრი face_image"
 
+#: lms/djangoapps/verify_student/views.py:941
+msgid "Image data is in an unsupported format."
+msgstr "სურათის მონაცემები არის მხარდაჭერილი ფორმატით."
+
 #: lms/djangoapps/verify_student/views.py:969
 msgid "Image data is not valid."
 msgstr "გამოსახულების მონაცემები არასწორია."
@@ -6023,6 +6268,10 @@ msgstr "გამოსახულების მონაცემები �
 #, python-brace-format
 msgid "Your {platform_name} Verification Has Been Denied"
 msgstr "თქვენი {platform_name} დადასტურება უარყოფილია"
+
+#: lms/templates/admin/user_api/accounts/cancel_retirement_action.html:13
+msgid "Please correct the errors below."
+msgstr "გთხოვთ, გამოასწოროთ ქვემოთ მოცემული შეცდომები."
 
 #: lms/templates/admin/user_api/accounts/cancel_retirement_action.html:19
 #, python-format
@@ -6098,6 +6347,11 @@ msgid ""
 msgstr ""
 "იმისათვის, რომ შეაჩეროთ მსგავსი ელ.ფოსტის მიღება, განაახლეთ თქვენი კურსის "
 "ელ.ფოსტის პარამეტრები აქ %(email_settings_url)s"
+
+#: lms/templates/bulk_email/edx_ace/bulkemail/email/body.txt:10
+#, python-format
+msgid "To unsubscribe click here %(unsubscribe_link)s"
+msgstr "გამოწერის გასაუქმებლად დააწკაპუნეთ აქ %(unsubscribe_link)s"
 
 #: lms/templates/discussion/_discussion_inline.html:23
 #, python-format
@@ -6227,6 +6481,12 @@ msgstr "თქვენი ანგარიშის შესვლის ი
 msgid "email: %(email_address)s"
 msgstr "ელფოსტა: %(email_address)s"
 
+#: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.html:33
+#: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.txt:6
+#, python-format
+msgid "password: %(password)s"
+msgstr "პაროლი: %(password)s"
+
 #: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.html:40
 #: lms/templates/instructor/edx_ace/accountcreationandenrollment/email/body.txt:9
 msgid "It is recommended that you change your password."
@@ -6262,6 +6522,25 @@ msgstr "თქვენს კურსზე წვდომა შეგიძ
 #, python-format
 msgid "You have been enrolled in %(course_name)s"
 msgstr "თქვენ ჩაირიცხეთ %(course_name)s-ზე"
+
+#: lms/templates/instructor/edx_ace/addbetatester/email/body.html:12
+#, python-format
+msgid ""
+"\n"
+"                    You have been invited to be a beta tester for %(course_name)s at %(site_name)s\n"
+"                "
+msgstr ""
+"\n"
+"თქვენ მიიწვიეს ბეტა ტესტერი %(course_name)s %(site_name)s\n"
+"                "
+
+#: lms/templates/instructor/edx_ace/addbetatester/email/body.html:20
+msgid "The invitation has been sent by a member of the course staff."
+msgstr "მოწვევა გამოგზავნილია კურსის პერსონალის წევრმა."
+
+#: lms/templates/instructor/edx_ace/addbetatester/email/body.html:28
+msgid "To start accessing course materials, please visit:"
+msgstr "კურსის მასალებზე წვდომის დასაწყებად, გთხოვთ, ეწვიოთ:"
 
 #: lms/templates/instructor/edx_ace/addbetatester/email/body.html:37
 #: lms/templates/instructor/edx_ace/addbetatester/email/body.html:49
@@ -6326,6 +6605,11 @@ msgid ""
 msgstr ""
 "ეწვიეთ %(course_about_url)s ამ კურსზე ჩასაწერად და ბეტა ტესტის დასაწყებად."
 
+#: lms/templates/instructor/edx_ace/addbetatester/email/body.txt:9
+#, python-format
+msgid "Visit %(site_name)s to enroll in this course and begin the beta test."
+msgstr "ეწვიეთ %(site_name)s ამ კურსზე ჩასაწერად და ბეტა ტესტის დასაწყებად."
+
 #: lms/templates/instructor/edx_ace/addbetatester/email/subject.txt:3
 #, python-format
 msgid "You have been invited to a beta test for %(course_name)s"
@@ -6366,6 +6650,11 @@ msgid ""
 msgstr ""
 "თქვენ მიწვეული ხართ შეუერთდეთ %(course_name)s-ს %(site_name)s-ზე კურსის "
 "პერსონალის წევრის მიერ."
+
+#: lms/templates/instructor/edx_ace/allowedenroll/email/body.html:28
+msgid "To access this course click on the button below and login:"
+msgstr ""
+"ამ კურსზე წვდომისთვის დააჭირეთ ქვემოთ მოცემულ ღილაკს და შედით სისტემაში:"
 
 #: lms/templates/instructor/edx_ace/allowedenroll/email/body.html:37
 msgid "To access this course visit it and register:"
@@ -6488,6 +6777,15 @@ msgstr ""
 msgid "Dear Student,"
 msgstr "ძვირფასო მსმენელო,"
 
+#: lms/templates/instructor/edx_ace/allowedunenroll/push/body.txt:3
+#, python-format
+msgid ""
+"You have been unenrolled from the course %(course_name)s. Please disregard "
+"the invitation previously sent."
+msgstr ""
+"თქვენ არ ხართ ჩარიცხული კურსიდან %(course_name)s. გთხოვთ, უგულებელყოთ ადრე "
+"გაგზავნილი მოწვევა."
+
 #: lms/templates/instructor/edx_ace/enrolledunenroll/email/body.html:12
 #, python-format
 msgid ""
@@ -6536,6 +6834,28 @@ msgstr ""
 "თქვენ არ ხართ ჩარიცხული %(course_name)s %(site_name)s. ეს კურსი აღარ "
 "გამოჩნდება თქვენს %(site_name)s დაფაზე."
 
+#: lms/templates/instructor/edx_ace/enrollenrolled/email/body.html:12
+#, python-format
+msgid ""
+"\n"
+"                    You have been enrolled in %(course_name)s\n"
+"                "
+msgstr ""
+"\n"
+"თქვენ ჩაირიცხეთ %(course_name)s\n"
+"                "
+
+#: lms/templates/instructor/edx_ace/enrollenrolled/email/body.html:21
+#: lms/templates/instructor/edx_ace/enrollenrolled/email/body.txt:3
+#, python-format
+msgid ""
+"You have been enrolled in %(course_name)s at %(site_name)s by a member of "
+"the course staff. This course will now appear on your %(site_name)s "
+"dashboard."
+msgstr ""
+"თქვენ ჩაირიცხეთ %(course_name)s %(site_name)s კურსის პერსონალის წევრის მიერ."
+" ეს კურსი ახლა გამოჩნდება თქვენს %(site_name)s დაფაზე."
+
 #: lms/templates/instructor/edx_ace/enrollenrolled/email/body.html:27
 msgid "Access the Course Materials Now"
 msgstr "წვდომა კურსის მასალებზე ახლავე"
@@ -6568,6 +6888,22 @@ msgid ""
 msgstr ""
 "ეს კურსი დარჩება თქვენს დაფაზე, მაგრამ თქვენ აღარ იქნებით ბეტა ტესტირების "
 "ჯგუფის ნაწილი."
+
+#: lms/templates/instructor/edx_ace/removebetatester/email/body.txt:3
+#, python-format
+msgid ""
+"You have been removed as a beta tester for %(course_name)s at %(site_name)s "
+"by a member of the course staff. This course will remain on your dashboard, "
+"but you will no longer be part of the beta testing group."
+msgstr ""
+"თქვენ ამოღებულ იქნა ბეტა ტესტერად %(course_name)s წლის განმავლობაში "
+"%(site_name)s კურსის პერსონალის წევრის მიერ. ეს კურსი დარჩება თქვენს დაფაზე,"
+" მაგრამ თქვენ აღარ იქნებით ბეტა ტესტირების ჯგუფის ნაწილი."
+
+#: lms/templates/instructor/edx_ace/removebetatester/email/subject.txt:3
+#, python-format
+msgid "You have been removed from a beta test for %(course_name)s"
+msgstr "თქვენ ამოღებული ხართ ბეტა ტესტიდან %(course_name)s"
 
 #: lms/templates/instructor/edx_ace/removebetatester/push/body.txt:4
 #, python-format
@@ -6675,6 +7011,12 @@ msgstr "დაშვება"
 msgid "Error"
 msgstr "შეცდომა"
 
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:11
+#: lms/templates/support/edx_ace/wholecoursereset/email/subject.txt:3
+#, python-format
+msgid "The course %(course_title)s has been reset !"
+msgstr "კურსი %(course_title)s გადატვირთულია!"
+
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.html:16
 #: lms/templates/verify_student/edx_ace/verificationapproved/email/body.html:14
 #: lms/templates/verify_student/edx_ace/verificationexpiry/email/body.html:14
@@ -6684,6 +7026,13 @@ msgstr "შეცდომა"
 #, python-format
 msgid "Hello %(full_name)s,"
 msgstr "გამარჯობა %(full_name)s,"
+
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.html:21
+#: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:3
+#, python-format
+msgid ""
+"Your progress in course %(course_title)s has been reset on your behalf."
+msgstr "თქვენი პროგრესი, რა თქმა უნდა, %(course_title)s აღდგა თქვენი სახელით."
 
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.html:25
 #: lms/templates/support/edx_ace/wholecoursereset/email/body.txt:4
@@ -7599,6 +7948,10 @@ msgstr "კონფიგურაცია არ შეიძლება ი
 msgid "Error Status"
 msgstr "შეცდომის სტატუსი"
 
+#: openedx/core/djangoapps/content/learning_sequences/admin.py:31
+msgid "Courses with Errors"
+msgstr "კურსები შეცდომებით"
+
 #: openedx/core/djangoapps/content/learning_sequences/apps.py:10
 msgid "Learning Sequences and Outlines"
 msgstr "სწავლის თანმიმდევრობები და კონტურები"
@@ -7662,6 +8015,10 @@ msgstr "მხოლოდ წაკითხვა"
 #: openedx/core/djangoapps/content_libraries/models.py:223
 msgid "One and only one of 'user' and 'group' must be set."
 msgstr "უნდა იყოს დაყენებული ერთი და მხოლოდ ერთი \"მომხმარებელი\" და \"ჯგუფი\"."
+
+#: openedx/core/djangoapps/content_libraries/models.py:251
+msgid "Task was created, but not queued to run."
+msgstr "დავალება შეიქმნა, მაგრამ არ იყო რიგში გასაშვებად."
 
 #: openedx/core/djangoapps/content_libraries/models.py:252
 msgid "Task was created and queued to run."
@@ -7748,6 +8105,14 @@ msgid ""
 msgstr ""
 "რესურსის გამოყენების გასაღების სტრიქონი, რომელიც ემსახურება ამ გაშვების "
 "შინაარსს."
+
+#: openedx/core/djangoapps/content_libraries/models.py:486
+msgid ""
+"The LTI platform unique identifier of this resource, also known as the "
+"\"resource link id\"."
+msgstr ""
+"LTI პლატფორმის ამ რესურსის უნიკალური იდენტიფიკატორი, რომელიც ასევე ცნობილია "
+"როგორც \"რესურსის ბმულის იდენტიფიკატორი\"."
 
 #: openedx/core/djangoapps/content_libraries/models.py:493
 msgid "The LTI platform descriptive title for this resource."
@@ -7848,6 +8213,10 @@ msgstr "ამ სახელის ჯგუფი უკვე არსე�
 #: openedx/core/djangoapps/course_live/models.py:21
 msgid "If disabled, the LTI in the associated course will be disabled."
 msgstr "თუ გამორთულია, LTI ასოცირებულ კურსში გამორთულია."
+
+#: openedx/core/djangoapps/course_live/models.py:28
+msgid "The LTI configuration data for this course/provider."
+msgstr "LTI კონფიგურაციის მონაცემები ამ კურსისთვის/პროვაიდერისთვის."
 
 #: openedx/core/djangoapps/course_live/models.py:33
 #: openedx/core/djangoapps/programs/models.py:57
@@ -8035,6 +8404,10 @@ msgstr "შესყიდვისა და კრედიტის მოთ
 msgid "Preview Language Administration"
 msgstr "ენის ადმინისტრირების გადახედვა"
 
+#: openedx/core/djangoapps/dark_lang/views.py:90
+msgid "Language not provided"
+msgstr "ენა არ არის მოწოდებული"
+
 #: openedx/core/djangoapps/dark_lang/views.py:96
 #, python-brace-format
 msgid "Language set to {preview_language}"
@@ -8111,6 +8484,14 @@ msgstr ""
 "გამორთვის შემთხვევაში, დისკუსიები დაკავშირებულ სასწავლო კონტექსტში/კურსში "
 "გამორთულია."
 
+#: openedx/core/djangoapps/discussions/models.py:434
+msgid ""
+"The Posting availability in discussions whether it will be enabled, "
+"scheduled or indefinitely disabled."
+msgstr ""
+"გამოქვეყნების ხელმისაწვდომობა დისკუსიებში, იქნება თუ არა ის ჩართული, "
+"დაგეგმილი ან განუსაზღვრელი ვადით გამორთული."
+
 #: openedx/core/djangoapps/discussions/models.py:442
 msgid "The LTI configuration data for this context/provider."
 msgstr "LTI კონფიგურაციის მონაცემები ამ კონტექსტისთვის/პროვაიდერისთვის."
@@ -8127,6 +8508,16 @@ msgstr ""
 msgid ""
 "If enabled, discussion topics will be created for graded units as well."
 msgstr "თუ ჩართულია, შეიქმნება სადისკუსიო თემები შეფასებული ერთეულებისთვისაც."
+
+#: openedx/core/djangoapps/discussions/models.py:457
+msgid ""
+"If enabled, discussions will need to be manually enabled for each unit."
+msgstr ""
+"თუ ჩართულია, დისკუსიები ხელით უნდა იყოს ჩართული თითოეული ერთეულისთვის."
+
+#: openedx/core/djangoapps/discussions/models.py:462
+msgid "The plugin configuration data for this context/provider."
+msgstr "მოდულის კონფიგურაციის მონაცემები ამ კონტექსტისთვის/პროვაიდერისთვის."
 
 #: openedx/core/djangoapps/discussions/models.py:467
 msgid "Discussion provider"
@@ -8152,6 +8543,10 @@ msgstr ""
 #: openedx/core/djangoapps/discussions/models.py:582
 msgid "Title for discussion topic."
 msgstr "სათაური დისკუსიის თემისთვის."
+
+#: openedx/core/djangoapps/discussions/models.py:589
+msgid "Group for divided discussions."
+msgstr "ჯგუფი გაყოფილი დისკუსიებისთვის."
 
 #: openedx/core/djangoapps/discussions/models.py:593
 msgid "Provider id for discussion provider."
@@ -8302,6 +8697,24 @@ msgstr ""
 "<{p}><{strong}>{replier_name}</{strong}> გამოეხმაურა თქვენს პოსტს "
 "<{strong}>{post_title}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:117
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{username}</{strong}> posted "
+"<{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{username}</{strong}> გამოქვეყნებულია "
+"<{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:118
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> and others started new "
+"discussions</{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> და სხვებმა დაიწყეს ახალი "
+"დისკუსიები</{p}>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:137
 #, python-brace-format
 msgid ""
@@ -8310,6 +8723,15 @@ msgid ""
 msgstr ""
 "<{p}><{strong}>{username}</{strong}> ჰკითხა "
 "<{strong}>{post_title}</{strong}></{p}>"
+
+#: openedx/core/djangoapps/notifications/base_notification.py:149
+#, python-brace-format
+msgid ""
+"<{p}><{strong}>{replier_name}</{strong}> responded to a post you’re "
+"following: <{strong}>{post_title}</{strong}></{p}>"
+msgstr ""
+"<{p}><{strong}>{replier_name}</{strong}> გამოეხმაურა პოსტს, რომელსაც "
+"მიჰყვებით: <{strong}>{post_title}</{strong}></{p}>"
 
 #: openedx/core/djangoapps/notifications/base_notification.py:164
 #, python-brace-format
@@ -8628,6 +9050,10 @@ msgstr "მიუთითებს, არის თუ არა ეს გა
 msgid "Date this schedule went into effect"
 msgstr "ამ განრიგის ძალაში შესვლის თარიღი"
 
+#: openedx/core/djangoapps/schedules/models.py:35
+msgid "Deadline by which the learner must upgrade to a verified seat"
+msgstr "ბოლო ვადა, რომლითაც მოსწავლემ უნდა გადახვიდეს ვერიფიცირებულ ადგილზე"
+
 #: openedx/core/djangoapps/schedules/models.py:46
 msgid "Schedule"
 msgstr "განრიგი"
@@ -8676,6 +9102,15 @@ msgstr ""
 msgid "Welcome to week %(week_num)s"
 msgstr "კეთილი იყოს თქვენი მობრძანება %(week_num)s კვირაში"
 
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:18
+#, python-brace-format
+msgid ""
+"We hope you're enjoying {start_strong}{course_name}{end_strong}! We want to "
+"let you know what you can look forward to in the coming weeks:"
+msgstr ""
+"ვიმედოვნებთ, რომ მოგეწონებათ {start_strong}{course_name}{end_strong}! ჩვენ "
+"გვინდა გაცნობოთ, რას შეგიძლიათ ელოდოთ უახლოეს კვირებში:"
+
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:31
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.txt:13
 msgid ""
@@ -8684,6 +9119,10 @@ msgid ""
 msgstr ""
 "ჩვენ მოგიწოდებთ, გაატაროთ დრო კურსზე ყოველ კვირას. თქვენი ფოკუსირებული "
 "ყურადღება საბოლოოდ გადაიხდის!"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:39
+msgid "Resume your course now"
+msgstr "განაახლეთ თქვენი კურსი ახლავე"
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.txt:4
 #, python-format
@@ -8724,6 +9163,11 @@ msgstr ""
 "პრობლემას ასრულებს და მონაწილეობს სადისკუსიო ფორუმებში. რისი გაკეთება გსურთ "
 "სწავლის გასაგრძელებლად?"
 
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:27
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/subject.txt:3
+msgid "Keep up the momentum!"
+msgstr "გააგრძელეთ იმპულსი!"
+
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:38
 #, python-brace-format
 msgid ""
@@ -8734,6 +9178,12 @@ msgstr ""
 "{start_strong}{course_name}{end_strong}-ში ბევრი {platform_name} მოსწავლე "
 "ყოველ კვირას უფრო მეტ პრობლემას ასრულებს და მონაწილეობს სადისკუსიო "
 "ფორუმებში. რისი გაკეთება გსურთ სწავლის გასაგრძელებლად?"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:47
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.txt:9
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.txt:15
+msgid "Keep learning"
+msgstr "განაგრძეთ სწავლა"
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:8
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:5
@@ -8763,6 +9213,17 @@ msgstr ""
 msgid "Keep learning today"
 msgstr "განაგრძეთ სწავლა დღესვე"
 
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:31
+#, python-brace-format
+msgid ""
+"Remember when you enrolled in {start_strong}{course_name}{end_strong}, and "
+"other courses on {platform_name}? We do, and we’re glad to have you! Come "
+"see what everyone is learning."
+msgstr ""
+"გახსოვთ, როდესაც ჩაირიცხეთ {start_strong}{course_name}{end_strong} და სხვა "
+"კურსებზე {platform_name}? ჩვენ ვაკეთებთ და მოხარული ვართ, რომ გყავთ! ნახეთ, "
+"რას სწავლობს ყველა."
+
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:37
 #, python-brace-format
 msgid ""
@@ -8773,6 +9234,19 @@ msgstr ""
 "გახსოვთ, როდესაც დარეგისტრირდით {start_strong}{course_name}{end_strong}-ში "
 "{platform_name}-ზე? ჩვენ ვაკეთებთ და მოხარული ვართ, რომ გყავთ! ნახეთ, რას "
 "სწავლობს ყველა."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:46
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:10
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:17
+#: themes/red-theme/lms/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:11
+#: themes/red-theme/lms/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:18
+msgid "Start learning now"
+msgstr "დაიწყეთ სწავლა ახლავე"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/subject.txt:4
+#, python-format
+msgid "Keep learning on %(platform_name)s"
+msgstr "განაგრძეთ სწავლა %(platform_name)s"
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/subject.txt:6
 #, python-format
@@ -8840,6 +9314,15 @@ msgstr ""
 "საშუალებას გაძლევთ ხაზი გაუსვათ თქვენს ახალ ცოდნასა და უნარებს. "
 "{platform_name} სერთიფიკატი ოფიციალურია და ადვილად გასაზიარებელია."
 
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:55
+#, python-format, python-brace-format
+msgid ""
+"Upgrade by "
+"{start_strong}%(user_schedule_upgrade_deadline_time)s{end_strong}."
+msgstr ""
+"განაახლეთ "
+"{start_strong}%(user_schedule_upgrade_deadline_time)s{end_strong}-ით."
+
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:63
 msgid "You are eligible to upgrade in these courses:"
 msgstr "თქვენ შეგიძლიათ განაახლოთ შემდეგ კურსებზე:"
@@ -8882,6 +9365,14 @@ msgstr "საიტის თემა დაუბრუნდა ნაგუ
 msgid "Theming Administration"
 msgstr "თემატური ადმინისტრირება"
 
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:43
+msgid ""
+"Usernames can only contain letters (A-Z, a-z), numerals (0-9), underscores "
+"(_), and hyphens (-)."
+msgstr ""
+"მომხმარებლის სახელები შეიძლება შეიცავდეს მხოლოდ ასოებს (AZ, a-z), ციფრებს "
+"(0-9), ხაზს უსვამს (_) და დეფისებს (-)."
+
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:50
 msgid ""
 "Usernames can only contain letters, numerals, and @/./+/-/_ characters."
@@ -8904,6 +9395,10 @@ msgid ""
 msgstr ""
 "როგორც ჩანს {email_address} არსებულ ანგარიშს ეკუთვნის. ხელახლა სცადეთ "
 "ელფოსტის სხვა მისამართით."
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:64
+msgid "This email is already associated with an existing account"
+msgstr "ეს ელფოსტა უკვე დაკავშირებულია არსებულ ანგარიშთან"
 
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:66
 msgid "This email is associated to a retired account."
@@ -8975,6 +9470,10 @@ msgstr "აირჩიეთ თქვენი პროფესია"
 msgid "Select your specialty"
 msgstr "აირჩიეთ თქვენი სპეციალობა"
 
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:104
+msgid "Enter your profession"
+msgstr "შეიყვანეთ თქვენი პროფესია"
+
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:105
 msgid "Enter your specialty"
 msgstr "შეიყვანეთ თქვენი სპეციალობა"
@@ -8991,9 +9490,17 @@ msgstr "შეიყვანეთ თქვენი ქალაქი"
 msgid "Tell us your goals"
 msgstr "გვითხარით თქვენი მიზნები"
 
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:109
+msgid "Select the highest level of education you have completed"
+msgstr "შეარჩიეთ თქვენ მიერ გავლილი განათლების უმაღლესი დონე"
+
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:110
 msgid "Select your year of birth"
 msgstr "აირჩიეთ თქვენი დაბადების წელი"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:111
+msgid "Select your gender"
+msgstr "აირჩიეთ თქვენი სქესი"
 
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:112
 msgid "Enter your mailing address"
@@ -9056,6 +9563,10 @@ msgstr "ელფოსტა ან პაროლი არასწორი
 #: openedx/core/djangoapps/user_api/admin.py:52
 msgid "Permission Denied"
 msgstr "წვდომა აკრძალულია"
+
+#: openedx/core/djangoapps/user_api/admin.py:62
+msgid "Retirement does not exist!"
+msgstr "პენსიაზე გასვლა არ არსებობს!"
 
 #: openedx/core/djangoapps/user_api/admin.py:72
 msgid "Success"
@@ -9131,6 +9642,29 @@ msgid ""
 msgstr ""
 "ჩვენ მივიღეთ თქვენი ანგარიშის წაშლის მოთხოვნა %(platform_name)s-ზე. "
 "ჟყზალწგამთ, ფვ ჟთ რპყდნვქ!"
+
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.html:24
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.txt:11
+msgid ""
+"Your account will be deleted shortly. Account deletion, including removal "
+"from email lists, may take a few weeks to fully process through our system. "
+"If you want to opt-out of emails before then, please unsubscribe from the "
+"footer of any email."
+msgstr ""
+"თქვენი ანგარიში მალე წაიშლება. ანგარიშის წაშლას, მათ შორის ელ.ფოსტის "
+"სიებიდან ამოღებას, შეიძლება რამდენიმე კვირა დასჭირდეს ჩვენი სისტემის "
+"მეშვეობით სრულად დამუშავებას. თუ გსურთ ელ.წერილზე უარის თქმა მანამდე, "
+"გთხოვთ, გააუქმოთ ნებისმიერი ელფოსტის ქვედა კოლონტიტულიდან."
+
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.html:31
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.txt:15
+#, python-format
+msgid ""
+"This is an informational email only. If you did not initiate this request, "
+"please contact %(contact_email)s."
+msgstr ""
+"ეს არის მხოლოდ საინფორმაციო ელ.წერილი. თუ თქვენ არ წამოიწყეთ ეს მოთხოვნა, "
+"გთხოვთ, დაუკავშირდეთ %(contact_email)s."
 
 #: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.html:38
 #: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.txt:19
@@ -9463,6 +9997,15 @@ msgstr "შეცდომა პაროლის გადატვირთ�
 msgid "Error in resetting your password. Please try again."
 msgstr "პაროლის განახლების შეცდომა. გთხოვთ, კიდევ სცადეთ."
 
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:470
+#, python-brace-format
+msgid ""
+"{html_start}Password Creation Complete{html_end}Your password has been "
+"created. {bold_start}{email}{bold_end} is now your primary login email."
+msgstr ""
+"{html_start}პაროლის შექმნა დასრულებულია{html_end}თქვენი პაროლი შეიქმნა. "
+"{bold_start}{email}{bold_end} ახლა არის თქვენი ძირითადი შესვლის ელფოსტა."
+
 #: openedx/core/djangoapps/user_authn/views/password_reset.py:664
 msgid "Some error occurred during password change. Please try again"
 msgstr "პაროლის შეცვლისას მოხდა გარკვეული შეცდომა. გთხოვთ, სცადოთ ხელახლა"
@@ -9593,6 +10136,16 @@ msgstr ""
 msgid "Public Username"
 msgstr "მომხმარებლის საჯარო სახელი"
 
+#. Translators: These instructions appear on the registration form,
+#. immediately
+#. below a field meant to hold the user's public username.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:586
+msgid ""
+"The name that will identify you in your courses. It cannot be changed later."
+msgstr ""
+"სახელი, რომელიც განსაზღვრავს თქვენს კურსებს. მოგვიანებით მისი შეცვლა "
+"შეუძლებელია."
+
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:702
 #, python-brace-format
 msgid "I agree that {platform_name} may send me marketing messages."
@@ -9690,6 +10243,15 @@ msgstr ""
 "აქ არის სახალისო კლიპი კლასიდან, რომელსაც მე ვიღებ {social_account_handle} {organization_name}.\n"
 "\n"
 
+#: openedx/core/djangoapps/video_config/sharing_sites.py:84
+#, python-brace-format
+msgid ""
+"Here's a fun clip from a class I'm taking on {social_account_handle}.\n"
+"\n"
+msgstr ""
+"აქ არის სახალისო კლიპი კლასიდან, რომელსაც მე ვატარებ {social_account_handle}.\n"
+"\n"
+
 #: openedx/core/djangoapps/video_config/sharing_sites.py:88
 #, python-brace-format
 msgid ""
@@ -9781,6 +10343,11 @@ msgstr ""
 msgid "This content is only accessible to enrolled learners. "
 msgstr "ეს შინაარსი ხელმისაწვდომია მხოლოდ ჩარიცხული მოსწავლეებისთვის. "
 
+#: openedx/core/lib/api/view_utils.py:159
+#, python-brace-format
+msgid "The about me field must be at most {BIO_MAX_LENGTH} characters long."
+msgstr "ჩემს შესახებ ველი მაქსიმუმ {BIO_MAX_LENGTH} სიმბოლო უნდა იყოს."
+
 #: openedx/core/lib/api/view_utils.py:161
 msgid "This value is invalid."
 msgstr "მნიშვნელობა არ არის სწორი."
@@ -9823,6 +10390,10 @@ msgstr "დანაყოფი მომხმარებლების ს�
 #, python-brace-format
 msgid "{assignment} is due for {course}."
 msgstr "{assignment} უნდა {course}."
+
+#: openedx/features/calendar_sync/plugins.py:21
+msgid "Calendar Sync"
+msgstr "კალენდრის სინქრონიზაცია"
 
 #: openedx/features/calendar_sync/plugins.py:42
 msgid "Unsubscribe from calendar updates"
@@ -9996,6 +10567,25 @@ msgstr "თქვენი ვადები წარმატებით შ
 #: openedx/features/course_experience/api/v1/views.py:73
 msgid "Deadlines successfully reset."
 msgstr "ვადები წარმატებით აღდგება."
+
+#: openedx/features/discounts/admin.py:22
+msgid ""
+"These define the context to disable lms-controlled discounts on. If no "
+"values are set, then the configuration applies globally. If a single value "
+"is set, then the configuration applies to all courses within that context. "
+"At most one value can be set at a time.<br>If multiple contexts apply to a "
+"course (for example, if configuration is specified for the course "
+"specifically, and for the org that the course is in, then the more specific "
+"context overrides the more general context."
+msgstr ""
+"ეს განსაზღვრავს კონტექსტს lms-ის მიერ კონტროლირებადი ფასდაკლების "
+"გამორთვისთვის. თუ მნიშვნელობები არ არის დაყენებული, მაშინ კონფიგურაცია "
+"ვრცელდება გლობალურად. თუ ერთი მნიშვნელობა დაყენებულია, მაშინ კონფიგურაცია "
+"ვრცელდება ამ კონტექსტში არსებულ ყველა კურსზე. მაქსიმუმ ერთი მნიშვნელობის "
+"დაყენება შესაძლებელია ერთდროულად.<br>თუ კურსზე ვრცელდება მრავალი კონტექსტი "
+"(მაგალითად, თუ კონფიგურაცია მითითებულია კონკრეტულად კურსისთვის და იმ "
+"ორგანიზაციისთვის, რომელშიც კურსი იმყოფება, მაშინ უფრო კონკრეტული კონტექსტი "
+"გადალახავს უფრო ზოგად კონტექსტს."
 
 #: openedx/features/discounts/admin.py:54
 msgid ""
@@ -10531,6 +11121,15 @@ msgstr "გარე შემფასებელი"
 msgid "Math Expression Input"
 msgstr "მათემატიკური ტერმინების ველი"
 
+#: xmodule/capa/responsetypes.py:3076
+#, python-brace-format
+msgid ""
+"Factorial function not permitted in answer for this problem. Provided answer"
+" was: {bad_input}"
+msgstr ""
+"ფაქტორული ფუნქცია არ არის დაშვებული ამ პრობლემის პასუხის გასაცემად. პასუხი "
+"იყო: {bad_input}"
+
 #: xmodule/capa/responsetypes.py:3084
 #, python-brace-format
 msgid "Invalid input: Could not parse '{bad_input}' as a formula."
@@ -10632,6 +11231,14 @@ msgstr "თქვენი პასუხის ჩამოყრა"
 #: xmodule/capa/templates/problem.html:51
 msgid "Show answer"
 msgstr "პასუხის ჩვენება"
+
+#: xmodule/capa/templates/problem.html:121
+msgid ""
+"Some problems have options such as save, reset, hints, or show answer. These"
+" options follow the Submit button."
+msgstr ""
+"ზოგიერთ პრობლემას აქვს ისეთი ვარიანტები, როგორიცაა შენახვა, გადატვირთვა, "
+"მინიშნებები ან პასუხის ჩვენება. ეს პარამეტრები მიჰყვება ღილაკს გაგზავნა."
 
 #: xmodule/capa/templates/problem.html:146
 msgid "Answers are displayed within the problem"
@@ -10836,6 +11443,10 @@ msgstr "ველისტიპების მდგომარეობი�
 msgid "Dictionary with the current student responses"
 msgstr "მიმდინარე სტუდენტების პასუხების ლექსიკონი"
 
+#: xmodule/capa_block.py:308
+msgid "List of student answers for each attempt"
+msgstr "მოსწავლეთა პასუხების სია თითოეული მცდელობისთვის"
+
 #: xmodule/capa_block.py:312
 msgid "Dictionary with the current student score"
 msgstr "ლექსიკონი მიმდინარე სტუდენტის ქულით"
@@ -10978,6 +11589,16 @@ msgstr ""
 msgid "If this error persists, please contact the course staff."
 msgstr ""
 "ამ შეცდომის განმეორების შემთხვევაში, გთხოვთ დაუკავშირდეთ კურსის პერსონალს."
+
+#. Translators: {previous_hints} is the HTML of hints that have already been
+#. generated, {hint_number_prefix}
+#. is a header for this hint, and {hint_text} is the text of the hint itself.
+#. This string is being passed to translation only for possible reordering of
+#. the placeholders.
+#: xmodule/capa_block.py:1202
+#, python-brace-format
+msgid "{previous_hints}{list_start_tag}{strong_text}{hint_text}</li>"
+msgstr "{previous_hints}{list_start_tag}{strong_text}{hint_text}"
 
 #. Translators: e.g. "Hint 1 of 3: " meaning we are showing the first of three
 #. hints.
@@ -11281,6 +11902,10 @@ msgid ""
 msgstr ""
 "შეიყვანეთ სწორი ან მცდარი. იმ შემთხვევაში, თუ სწორია, სტუდენტები კურსში "
 "კალკულატორს დაინახავენ."
+
+#: xmodule/course_block.py:410
+msgid "Enter the name of the course as it should appear in the course list."
+msgstr "შეიყვანეთ კურსის სახელი, როგორც ეს უნდა გამოჩნდეს კურსების სიაში."
 
 #: xmodule/course_block.py:412
 msgid "Course Display Name"
@@ -11792,6 +12417,14 @@ msgstr ""
 msgid "Allow Public Wiki Access"
 msgstr "საჯარო ვიკიზე წვდომის დაშვება"
 
+#: xmodule/course_block.py:763
+msgid ""
+"Enter true or false. If true, students can view the course wiki even if "
+"they're not enrolled in the course."
+msgstr ""
+"შეიყვანეთ ჭეშმარიტი ან მცდარი. თუ მართალია, სტუდენტებს შეუძლიათ ნახონ კურსის"
+" ვიკი, მაშინაც კი, თუ ისინი არ არიან ჩარიცხული კურსზე."
+
 #: xmodule/course_block.py:771
 msgid "Invitation Only"
 msgstr "მხოლოდ მოწვევით"
@@ -12211,6 +12844,13 @@ msgstr "{assignment_type} = შესაძლო {weight:.2%} {weighted_percent
 #: xmodule/graders.py:380
 msgid "Generated"
 msgstr "გენერირებული"
+
+#. Translators: "Homework 1 - Unreleased - 0% (?/?)" The section has not been
+#. released for viewing.
+#: xmodule/graders.py:401
+#, python-brace-format
+msgid "{section_type} {index} Unreleased - 0% (?/?)"
+msgstr "{section_type} {index} გამოუქვეყნებელი - 0% (?/?)"
 
 #: xmodule/graders.py:415
 #, python-brace-format
@@ -12837,6 +13477,16 @@ msgstr ""
 msgid "Enable video auto-advance"
 msgstr "ვიდეოს ავტომატური წინსვლის ჩართვა"
 
+#: xmodule/modulestore/inheritance.py:175
+msgid ""
+"Specify whether to show an auto-advance button in videos. If the student "
+"clicks it, when the last video in a unit finishes it will automatically move"
+" to the next unit and autoplay the first video."
+msgstr ""
+"მიუთითეთ, აჩვენოთ თუ არა ავტომატური წინსვლის ღილაკი ვიდეოებში. თუ მოსწავლე "
+"დააწკაპუნებს მასზე, როდესაც ერთეულში ბოლო ვიდეო დასრულდება, ის ავტომატურად "
+"გადავა შემდეგ ერთეულზე და ავტომატურად დაუკრავს პირველ ვიდეოს."
+
 #: xmodule/modulestore/inheritance.py:181
 msgid "Video Pre-Roll"
 msgstr "ვიდეოს წინასწარ გაშვება"
@@ -12968,6 +13618,14 @@ msgstr ""
 msgid "Is Entrance Exam"
 msgstr "არის მისაღები გამოცდა"
 
+#: xmodule/seq_block.py:99
+msgid ""
+"Tag this course block as an Entrance Exam. Note, you must enable Entrance "
+"Exams for this course setting to take effect."
+msgstr ""
+"მონიშნეთ ეს კურსის ბლოკი, როგორც მისაღები გამოცდა. შენიშვნა, თქვენ უნდა "
+"ჩართოთ მისაღები გამოცდები ამ კურსის პარამეტრის ძალაში შესვლისთვის."
+
 #: xmodule/seq_block.py:150
 msgid "Is Time Limited"
 msgstr "არის დრო შეზღუდული"
@@ -13058,6 +13716,14 @@ msgstr ""
 "იმის გამო, რომ ვადის გასვლის თარიღი გავიდა, ეს დავალება იმალება "
 "მოსწავლისგან."
 
+#: xmodule/seq_block.py:555
+msgid ""
+"This section is a prerequisite. You must complete this section in order to "
+"unlock additional content."
+msgstr ""
+"ეს განყოფილება წინაპირობაა. თქვენ უნდა შეავსოთ ეს განყოფილება, რათა "
+"განბლოკოთ დამატებითი შინაარსი."
+
 #: xmodule/seq_block.py:994
 msgid ""
 "A list summarizing what students should look forward to in this section."
@@ -13096,6 +13762,10 @@ msgstr ""
 #: xmodule/split_test_block.py:98
 msgid "Group Configuration"
 msgstr "ჯგუფის კონფიგურაცია"
+
+#: xmodule/split_test_block.py:109
+msgid "Which child block students in a particular group_id should see"
+msgstr "რომელი ბავშვის ბლოკის მოსწავლეები უნდა ნახონ კონკრეტულ group_id"
 
 #: xmodule/split_test_block.py:295
 #, python-brace-format
