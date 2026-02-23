@@ -27,9 +27,9 @@ jobs:
           PR_NUMBER: ${{ github.event.number }}
         if: "${{ github.actor == env.TRANSIFEX_APP_ACTOR_NAME && github.actor_id == env.TRANSIFEX_APP_ACTOR_ID }}"
         with:
-          retry_wait_seconds: 180
-          max_attempts: 5
-          timeout_minutes: 15
+          retry_wait_seconds: 10
+          max_attempts: 2
+          timeout_minutes: 1
           retry_on: error
           command: |
             # Attempt to merge the PR
