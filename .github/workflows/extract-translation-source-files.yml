@@ -16,9 +16,8 @@ on:
         required: false
         default: ''
         type: string
-  # Uncomment after this is manually confirmed.
-  # schedule:
-  #   - cron: '0 0 * * *'  # every day at midnight
+  schedule:
+    - cron: '0 0 * * *'  # every day at midnight
 
 jobs:
   setup-matrix:
@@ -632,8 +631,7 @@ jobs:
         # 3. there are 0 commits
         if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'schedule' && env.COMMIT_COUNT > 0 }}
         run: |
-          echo "TODO: comment me out"
-          # run: gh pr merge ${{ env.PR_URL }} --merge --auto
+          run: gh pr merge ${{ env.PR_URL }} --merge --auto
 
       # Notify that branch did not merge and delete the branch now that it is unnecessary.
       - name: notify of empty branch and delete branch
