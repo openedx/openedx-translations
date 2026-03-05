@@ -59,6 +59,10 @@ msgstr "Termyn kan nie verander word nie"
 msgid "Language in which the course is administered"
 msgstr "Taal waarin die kursus geadministreer word"
 
+#: apps/api/serializers.py:1152
+msgid "Course cannot be changed for an existing course run"
+msgstr "Kursus kan nie verander word vir 'n bestaande kursuslopie nie"
+
 #: apps/api/serializers.py:1157
 msgid "Minimum effort cannot be greater than Maximum effort"
 msgstr "Minimum inspanning kan nie groter wees as maksimum poging nie"
@@ -67,9 +71,17 @@ msgstr "Minimum inspanning kan nie groter wees as maksimum poging nie"
 msgid "Minimum effort and Maximum effort cannot be the same"
 msgstr "Minimum poging en maksimum poging kan nie dieselfde wees nie"
 
+#: apps/api/serializers.py:1205
+msgid "Dictionary mapping course run IDs to boolean values"
+msgstr "Woordeboek kartering kursus loop ID's na Boolese waardes"
+
 #: apps/api/serializers.py:1309
 msgid "Restriction Type cannot be empty"
 msgstr "Beperkingstipe kan nie leeg wees nie"
+
+#: apps/api/serializers.py:1775
+msgid "Dictionary mapping course IDs to boolean values"
+msgstr "Woordeboek kartering kursus-ID's na Boolese waardes"
 
 #: apps/api/serializers.py:2242
 msgid "Languages that course runs in this program are offered in."
@@ -81,11 +93,24 @@ msgid ""
 msgstr ""
 "Tale wat kursus in hierdie program loop, het beskikbare transkripsies in."
 
+#: apps/api/utils.py:346
+#, python-brace-format
+msgid ""
+"An error occurred while setting the course run image for [{key}] in studio. "
+"All other fields were successfully saved in Studio."
+msgstr ""
+"'n Fout het voorgekom tydens die opstel van die kursusrunbeeld vir [ {key} ]"
+" in die ateljee. Alle ander velde is suksesvol in Studio gestoor."
+
 #: apps/api/v1/exceptions.py:13
 msgid "Specifying both editable=1 and a q parameter is not supported."
 msgstr ""
 "Die spesifikasie van beide editable=1 en aq parameter word nie ondersteun "
 "nie."
+
+#: apps/api/v1/views/comments.py:34
+msgid "You must include a course_uuid in your query parameters."
+msgstr "Jy moet 'n course_uuid in jou navraagparameters insluit."
 
 #: apps/api/v1/views/comments.py:58 apps/api/v1/views/courses.py:205
 #, python-brace-format
@@ -103,6 +128,15 @@ msgstr "Kon nie kursusloopdata stel nie: {}"
 #: apps/api/v1/views/course_runs.py:328
 msgid "Can only update status, ofac restrictions, and ofac comment"
 msgstr "Kan slegs status, ofac-beperkings en ofac-kommentaar opdateer"
+
+#: apps/api/v1/views/course_runs.py:363
+#, python-brace-format
+msgid ""
+"The course run type '{course_run_type}' is not valid for this course type "
+"'{course_type}'."
+msgstr ""
+"Die kursustipe '{course_run_type}' is nie geldig vir hierdie kursustipe "
+"'{course_type}' nie."
 
 #: apps/api/v1/views/course_runs.py:381
 msgid "Course run is in review. Editing disabled."
@@ -131,6 +165,20 @@ msgstr "Kursustipe [ {course_type} ] bestaan nie. "
 msgid "Product Source [{product_source}] does not exist. "
 msgstr "Produkbron [ {product_source} ] bestaan nie. "
 
+#: apps/api/v1/views/courses.py:229
+#, python-brace-format
+msgid "A course with key [{key}] already exists."
+msgstr "'n Kursus met sleutel [ {key} ] bestaan reeds."
+
+#: apps/api/v1/views/courses.py:237
+#, python-brace-format
+msgid ""
+"Course creation was unsuccessful. The course URL slug ‘[{url_slug}]’ is "
+"already in use. Please update this field and try again."
+msgstr ""
+"Kursusskepping was onsuksesvol. Die kursus URL slak '[ {url_slug} ]' is "
+"reeds in gebruik. Dateer asseblief hierdie veld op en probeer weer."
+
 #: apps/api/v1/views/courses.py:298
 msgid ""
 "Switching entitlement types after being reviewed is not supported. Please "
@@ -139,6 +187,15 @@ msgstr ""
 "Die wisseling van aanspraaktipes nadat dit hersien is, word nie ondersteun "
 "nie. Kontak asseblief jou projekkoördineerder vir bykomende hulp indien "
 "nodig."
+
+#: apps/api/v1/views/courses.py:408
+#, python-brace-format
+msgid ""
+"Course edit was unsuccessful. The course URL slug ‘[{url_slug}]’ is already "
+"in use. Please update this field and try again."
+msgstr ""
+"Kursuswysiging was onsuksesvol. Die kursus URL slak '[ {url_slug} ]' is "
+"reeds in gebruik. Dateer asseblief hierdie veld op en probeer weer."
 
 #: apps/api/views.py:58
 msgid "You are not permitted to access the API documentation."
@@ -176,9 +233,21 @@ msgstr "Belangrike datums"
 msgid "API Configuration"
 msgstr "API-konfigurasie"
 
+#: apps/core/admin.py:46
+msgid "Configure the APIs that will be used to retrieve data."
+msgstr "Stel die API's op wat gebruik sal word om data te herwin."
+
 #: apps/core/admin.py:53
 msgid "Marketing Site Configuration"
 msgstr "Bemarkingswerfkonfigurasie"
+
+#: apps/core/admin.py:54
+msgid ""
+"Configure the marketing site URLs that will be used to retrieve data and "
+"create URLs."
+msgstr ""
+"Stel die bemarkingswerf-URL's op wat gebruik sal word om data te herwin en "
+"URL's te skep."
 
 #: apps/core/admin.py:58
 msgid "Analytics Configuration"
@@ -196,6 +265,12 @@ msgstr ""
 #, python-brace-format
 msgid "period must be one of {period_choices}."
 msgstr "tydperk moet een van {period_choices} wees."
+
+#: apps/core/forms.py:26
+msgid "'rate' must be in the format defined by DRF, such as '100/hour'."
+msgstr ""
+"'tarief' moet in die formaat wees wat deur DRF gedefinieer is, soos "
+"'100/uur'."
 
 #: apps/core/models.py:17
 msgid "Full Name"
@@ -327,9 +402,23 @@ msgstr "Salesforce-organisasie-ID"
 msgid "Salesforce Security Token"
 msgstr "Salesforce Sekuriteit Token"
 
+#: apps/core/models.py:149
+msgid "Is a Salesforce Sandbox?"
+msgstr "Is 'n Salesforce Sandbox?"
+
 #: apps/core/models.py:155
 msgid "Case Record Type Id"
 msgstr "Saakrekordtipe-ID"
+
+#: apps/course_metadata/admin.py:38
+#, python-brace-format
+msgid ""
+"An error occurred while publishing the {model} to the marketing site. Please"
+" try again. If the error persists, please contact the Engineering Team."
+msgstr ""
+"'n Fout het voorgekom tydens die publisering van die {model} na die "
+"bemarkingswerf. Probeer asseblief weer. As die fout voortduur, kontak "
+"asseblief die Ingenieurspan."
 
 #: apps/course_metadata/admin.py:65
 msgid "eligible for one-click purchase"
@@ -355,6 +444,10 @@ msgstr "Wysig skakel"
 msgid "Edit course run exclusions"
 msgstr "Wysig kursusloop-uitsluitings"
 
+#: apps/course_metadata/admin.py:899
+msgid "(save and continue editing to create a link)"
+msgstr "(stoor en gaan voort met redigering om 'n skakel te skep)"
+
 #: apps/course_metadata/admin.py:1037
 #, python-format
 msgid "Successfully %(status)s %(count)d %(items)s."
@@ -375,6 +468,10 @@ msgstr "Boot Camps"
 #: apps/course_metadata/algolia_models.py:65
 msgid "Bachelor’s"
 msgstr "Baccalaureusgraad"
+
+#: apps/course_metadata/algolia_models.py:66
+msgid "Master’s"
+msgstr "Meester s'n"
 
 #: apps/course_metadata/algolia_models.py:116
 #: apps/course_metadata/algolia_models.py:667
@@ -698,9 +795,26 @@ msgstr "Gepubliseer: {key} - {title}"
 msgid "Comment added: {title}"
 msgstr "Kommentaar bygevoeg: {title}"
 
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: apps/course_metadata/fields.py:33
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, slashes, underscores or"
+" hyphens."
+msgstr ""
+"Voer 'n geldige “slak” in wat bestaan uit letters, syfers, skuinsstrepe, "
+"onderstrepe of koppeltekens."
+
+#: apps/course_metadata/forms.py:102
+msgid "Programs can only be activated if they have a banner image."
+msgstr "Programme kan slegs geaktiveer word as hulle 'n banierbeeld het."
+
 #: apps/course_metadata/management/commands/add_tag_to_courses.py:15
 msgid "Tag to add to courses"
 msgstr "Merk om by kursusse te voeg"
+
+#: apps/course_metadata/management/commands/add_tag_to_courses.py:16
+msgid "UUIDs of courses to tag"
+msgstr "UUID's van kursusse om te merk"
 
 #: apps/course_metadata/management/commands/add_tag_to_courses.py:18
 msgid ""
@@ -721,6 +835,11 @@ msgstr "Vul nuwe-styl CourseType en CourseRunType terug waar moontlik."
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:15
 msgid "CODE"
 msgstr "KODE"
+
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:16
+#: apps/course_metadata/management/commands/delete_person_dups.py:33
+msgid "Short code for a partner."
+msgstr "Kort kode vir 'n maat."
 
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:20
 #: apps/course_metadata/models.py:238 apps/course_metadata/models.py:493
@@ -785,6 +904,14 @@ msgstr "Verskafde kursustipe slak [ {ct_slug} ] bestaan nie."
 msgid "No courses found. Did you specify an argument?"
 msgstr "Geen kursusse gevind nie. Het jy 'n argument gespesifiseer?"
 
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:101
+#, python-brace-format
+msgid ""
+"Could not backpopulate a course type for the following courses: "
+"{course_keys}"
+msgstr ""
+"Kon nie 'n kursustipe vir die volgende kursusse terugvul nie: {course_keys}"
+
 #: apps/course_metadata/management/commands/delete_person_dups.py:21
 msgid "Delete duplicate persons in course_metadata."
 msgstr "Vee duplikaatpersone in kursus_metadata uit."
@@ -814,6 +941,10 @@ msgid "Malformed argument \"{}\", should be in form of UUID:TARGET_UUID"
 msgstr ""
 "Misvormde argument &quot;{}&quot;, moet in die vorm van UUID:TARGET_UUID "
 "wees"
+
+#: apps/course_metadata/management/commands/delete_person_dups.py:62
+msgid "Malformed argument \"{}\", UUIDs cannot be equal"
+msgstr "Misvormde argument &quot;{}&quot;, UUID's kan nie gelyk wees nie"
 
 #: apps/course_metadata/management/commands/delete_person_dups.py:85
 msgid "Deleting"
@@ -944,9 +1075,27 @@ msgstr ""
 "Vir seo laat hierdie veld toe dat alternatiewe Spaanse beskrywing handmatig "
 "ingevoer kan word"
 
+#: apps/course_metadata/models.py:275 apps/course_metadata/models.py:1529
+#: apps/course_metadata/models.py:2372
+msgid ""
+"Pick a tag from the suggestions. To make a new tag, add a comma after the "
+"tag name."
+msgstr ""
+"Kies 'n merker uit die voorstelle. Om 'n nuwe merker te maak, voeg 'n komma "
+"na die merkernaam by."
+
 #: apps/course_metadata/models.py:279
 msgid "Automatically generate course run keys"
 msgstr "Genereer outomaties kursusrunsleutels"
+
+#: apps/course_metadata/models.py:281
+msgid ""
+"When this flag is enabled, the key of a new course run will be auto "
+"generated.  When this flag is disabled, the key can be manually set."
+msgstr ""
+"Wanneer hierdie vlag geaktiveer is, sal die sleutel van 'n nuwe kursuslopie "
+"outomaties gegenereer word. Wanneer hierdie vlag gedeaktiveer is, kan die "
+"sleutel met die hand gestel word."
 
 #: apps/course_metadata/models.py:287
 msgid ""
@@ -979,6 +1128,10 @@ msgstr ""
 "Moet asseblief geen spasies of spesiale karakters anders as punt, "
 "onderstreep of koppelteken in die sleutelveld gebruik nie."
 
+#: apps/course_metadata/models.py:393
+msgid "Corresponding organization code in an external product source"
+msgstr "Ooreenstemmende organisasiekode in 'n eksterne produkbron"
+
 #: apps/course_metadata/models.py:450
 msgid "LevelType model translations"
 msgstr "LevelType model vertalings"
@@ -994,6 +1147,10 @@ msgstr ""
 "tipe. Leerders wat geassosieerde kursusse voltooi, maar ingeskryf is vir "
 "ander sitplektipes, sal NIE hul voltooiing van die kursus laat reken vir die"
 " voltooiing van die program nie."
+
+#: apps/course_metadata/models.py:489
+msgid "Please provide an image file with transparent background"
+msgstr "Verskaf asseblief 'n prentlêer met deursigtige agtergrond"
 
 #: apps/course_metadata/models.py:492 apps/course_metadata/models.py:536
 #: apps/course_metadata/models.py:702 apps/course_metadata/models.py:740
@@ -1020,6 +1177,18 @@ msgstr "ProgramType model vertalings"
 #: apps/course_metadata/models.py:571
 msgid "This mode requires ID verification."
 msgstr "Hierdie modus vereis ID-verifikasie."
+
+#: apps/course_metadata/models.py:574
+msgid "Completion can grant credit toward an organization’s degree."
+msgstr "Voltooiing kan krediet verleen vir 'n organisasie se graad."
+
+#: apps/course_metadata/models.py:578
+msgid ""
+"Certificate type granted if this mode is eligible for a certificate, or "
+"blank if not."
+msgstr ""
+"Sertifikaattipe toegestaan indien hierdie modus vir 'n sertifikaat in "
+"aanmerking kom, of leeg indien nie."
 
 #: apps/course_metadata/models.py:582
 msgid ""
@@ -1091,6 +1260,10 @@ msgstr ""
 msgid "The suggested deadline for enrollment for marketing purpose"
 msgstr "Die voorgestelde sperdatum vir inskrywing vir bemarkingsdoeleindes"
 
+#: apps/course_metadata/models.py:962
+msgid "The identifier for a product variant."
+msgstr "Die identifiseerder vir 'n produkvariant."
+
 #: apps/course_metadata/models.py:966
 msgid "Course override"
 msgstr "Kursus oorheersing"
@@ -1111,6 +1284,10 @@ msgid ""
 "organization's page"
 msgstr ""
 "Bepaal weer die baan moet op die eienaarorganisasie se bladsy vertoon word"
+
+#: apps/course_metadata/models.py:1073
+msgid "A list of major works by this person. Must be valid HTML."
+msgstr "'n Lys van hoofwerke deur hierdie persoon. Moet geldige HTML wees."
 
 #: apps/course_metadata/models.py:1081
 msgid "People"
@@ -1235,6 +1412,12 @@ msgstr ""
 "As dit gemerk is, sal hierdie item nie in Algolia geïndekseer word nie en "
 "sal nie in soekresultate verskyn nie."
 
+#: apps/course_metadata/models.py:1580 apps/course_metadata/models.py:3525
+msgid "If checked, the About Page will have a meta tag with noindex value"
+msgstr ""
+"As dit gemerk is, sal die About-bladsy 'n metamerker hê met geen "
+"indekswaarde"
+
 #: apps/course_metadata/models.py:1585
 msgid "Watchers"
 msgstr "Kykers"
@@ -1263,9 +1446,59 @@ msgstr "Geblokkeer"
 msgid "Unrestricted"
 msgstr "Onbeperk"
 
+#: apps/course_metadata/models.py:2298
+msgid ""
+"Title specific for this run of a course. Leave this value blank to default "
+"to the parent course's title."
+msgstr ""
+"Titel spesifiek vir hierdie loop van 'n kursus. Laat hierdie waarde leeg om "
+"die titel van die ouerkursus te verstek."
+
+#: apps/course_metadata/models.py:2307
+msgid ""
+"Short description specific for this run of a course. Leave this value blank "
+"to default to the parent course's short_description attribute."
+msgstr ""
+"Kort beskrywing spesifiek vir hierdie loop van 'n kursus. Laat hierdie "
+"waarde leeg om die ouerkursus se short_description-kenmerk as verstek te "
+"gebruik."
+
+#: apps/course_metadata/models.py:2311
+msgid ""
+"Full description specific for this run of a course. Leave this value blank "
+"to default to the parent course's full_description attribute."
+msgstr ""
+"Volledige beskrywing spesifiek vir hierdie loop van 'n kursus. Laat hierdie "
+"waarde leeg om die ouerkursus se full_description-kenmerk as verstek te "
+"gebruik."
+
+#: apps/course_metadata/models.py:2316
+msgid ""
+"Estimated minimum number of hours per week needed to complete a course run."
+msgstr ""
+"Geskatte minimum aantal ure per week wat nodig is om 'n kursuslopie te "
+"voltooi."
+
+#: apps/course_metadata/models.py:2319
+msgid ""
+"Estimated maximum number of hours per week needed to complete a course run."
+msgstr ""
+"Geskatte maksimum aantal ure per week wat nodig is om 'n kursuslopie te "
+"voltooi."
+
 #: apps/course_metadata/models.py:2322
 msgid "Estimated number of weeks needed to complete this course run."
 msgstr "Geskatte aantal weke wat nodig is om hierdie kursus te voltooi."
+
+#: apps/course_metadata/models.py:2329
+msgid ""
+"A JSON dict detailing the available translations and transcriptions for this"
+" run. The dict has two keys: translation_languages and "
+"transcription_languages."
+msgstr ""
+"'n JSON-voorskrif wat die beskikbare vertalings en transkripsies vir hierdie"
+" lopie uiteensit. Die dict het twee sleutels: translation_languages en "
+"transkripsie_tale."
 
 #: apps/course_metadata/models.py:2336
 msgid "Total number of learners who have enrolled in this course run"
@@ -1293,6 +1526,14 @@ msgstr ""
 msgid "Indicates whether the course relation has been manually overridden."
 msgstr "Dui aan of die kursusverwantskap handmatig oorheers is."
 
+#: apps/course_metadata/models.py:2366
+msgid ""
+"'What You Will Learn' description for this particular course run. Leave this"
+" value blank to default to the parent course's Outcome attribute."
+msgstr ""
+"'Wat jy sal leer'-beskrywing vir hierdie spesifieke kursuslopie. Laat "
+"hierdie waarde leeg om die ouerkursus se Uitkoms-kenmerk te verstek."
+
 #: apps/course_metadata/models.py:2379 apps/course_metadata/models.py:3553
 msgid "Add OFAC restriction text to the FAQ section of the Marketing site"
 msgstr ""
@@ -1305,6 +1546,15 @@ msgid ""
 msgstr ""
 "Hierdie berekende veld dui aan of hierdie kursuslopie in die "
 "ondernemingsintekeningkatalogus is"
+
+#: apps/course_metadata/models.py:2405
+msgid ""
+"The identifier for a product variant. This is used to link a course run to a"
+" product variant for external LOBs (i.e; ExecEd & Bootcamps)."
+msgstr ""
+"Die identifiseerder vir 'n produkvariant. Dit word gebruik om 'n kursuslopie"
+" te koppel aan 'n produkvariant vir eksterne LOB's (bv. ExecEd &amp; "
+"Bootcamps)."
 
 #: apps/course_metadata/models.py:2753 apps/course_metadata/models.py:2766
 msgid "Current"
@@ -1347,6 +1597,14 @@ msgstr "Gereelde vrae"
 msgid "The user-facing display title for this Program."
 msgstr "Die gebruikergerigte vertoontitel vir hierdie Program."
 
+#: apps/course_metadata/models.py:3376
+msgid "A brief, descriptive subtitle for the Program."
+msgstr "'n Kort, beskrywende ondertitel vir die Program."
+
+#: apps/course_metadata/models.py:3378
+msgid "A brief hook for the marketing website"
+msgstr "'N Kort haak vir die bemarkingswebwerf"
+
 #: apps/course_metadata/models.py:3381
 msgid "The lifecycle status of this Program."
 msgstr "Die lewensiklusstatus van hierdie Program."
@@ -1358,6 +1616,14 @@ msgid ""
 msgstr ""
 "Indien hierdie blokkie nie gemerk is nie, sal kursusse bestel word soos in "
 "die kursusse kies boks hierbo."
+
+#: apps/course_metadata/models.py:3408
+msgid ""
+"This field is now deprecated (ECOM-6021).Estimated number of weeks needed to"
+" complete a course run belonging to this program."
+msgstr ""
+"Hierdie veld is nou opgeskort (ECOM-6021). Geskatte aantal weke wat nodig is"
+" om 'n kursuslopie te voltooi wat aan hierdie program behoort."
 
 #: apps/course_metadata/models.py:3434
 msgid "DEPRECATED: Use the card image field"
@@ -1378,6 +1644,20 @@ msgstr ""
 msgid "The description of credit redemption for courses in program"
 msgstr "Die beskrywing van kredietverlossing vir kursusse in program"
 
+#: apps/course_metadata/models.py:3457
+msgid "Allow courses in this program to be purchased in a single transaction"
+msgstr ""
+"Laat toe dat kursusse in hierdie program in 'n enkele transaksie aangekoop "
+"word"
+
+#: apps/course_metadata/models.py:3461
+msgid ""
+"Hide program on marketing site landing and search pages. This program MAY "
+"have a detail page."
+msgstr ""
+"Versteek program op bemarkingswerf-landing- en soekbladsye. Hierdie program "
+"MAG 'n detailbladsy hê."
+
 #: apps/course_metadata/models.py:3464
 msgid "Total number of learners who have enrolled in courses this program"
 msgstr "Totale aantal leerders wat vir kursusse hierdie program ingeskryf het"
@@ -1390,6 +1670,14 @@ msgstr ""
 "Totale aantal leerders wat die afgelope 6 maande vir kursusse in hierdie "
 "program ingeskryf het"
 
+#: apps/course_metadata/models.py:3474
+msgid ""
+"Number of credits a learner will earn upon successful completion of the "
+"program"
+msgstr ""
+"Aantal krediete wat 'n leerder sal verdien na suksesvolle voltooiing van die"
+" program"
+
 #: apps/course_metadata/models.py:3478
 msgid ""
 "This calculated field signifies if all the courses in this program are "
@@ -1397,6 +1685,17 @@ msgid ""
 msgstr ""
 "Hierdie berekende veld dui aan of al die kursusse in hierdie program by die "
 "ondernemingsintekeningkatalogus ingesluit is "
+
+#: apps/course_metadata/models.py:3482
+msgid ""
+"A field to override Organization short code alias specific for this program."
+msgstr ""
+"'n Veld om Organisasie-kortkode-alias spesifiek vir hierdie program te "
+"ignoreer."
+
+#: apps/course_metadata/models.py:3489
+msgid "A field to override Organization logo specific for this program."
+msgstr "'n Veld om organisasielogo spesifiek vir hierdie program te ignoreer."
 
 #: apps/course_metadata/models.py:3493
 msgid ""
@@ -1421,6 +1720,22 @@ msgid ""
 msgstr ""
 "Taalkode spesifiek vir hierdie program. Nuttige veld ingeval daar geen "
 "kursusse met hierdie program geassosieer word nie."
+
+#: apps/course_metadata/models.py:3537
+msgid ""
+"Useful field to overwrite the duration of a program. It can be a text "
+"describing a period of time, Ex: 6-9 months."
+msgstr ""
+"Nuttige veld om die duur van 'n program te oorskryf. Dit kan 'n teks wees "
+"wat 'n tydperk beskryf, bv: 6-9 maande."
+
+#: apps/course_metadata/models.py:3546
+msgid ""
+"Pick a tag/label from the suggestions. To make a new tag, add a comma after "
+"the tag name."
+msgstr ""
+"Kies 'n merker/etiket uit die voorstelle. Om 'n nuwe merker te maak, voeg 'n"
+" komma na die merkernaam by."
 
 #: apps/course_metadata/models.py:3557
 msgid "The last time this program was modified."
@@ -1458,6 +1773,14 @@ msgstr ""
 "Die 6 karakter hex waarde van die kleur om die banier grense te maak\n"
 " (bv. &quot;#ff0000&quot; wat gelyk is aan rooi) Dit is nie nodig om die `#` te verskaf nie"
 
+#: apps/course_metadata/models.py:4111
+msgid "Provide a campus image for the header of the degree"
+msgstr "Verskaf 'n kampusbeeld vir die opskrif van die graad"
+
+#: apps/course_metadata/models.py:4117
+msgid "Provide a background image for the title section of the degree"
+msgstr "Verskaf 'n agtergrondprent vir die titelafdeling van die graad"
+
 #: apps/course_metadata/models.py:4122
 msgid "The fine print that displays at the Tuition section's bottom"
 msgstr "Die fynskrif wat onderaan die Onderrigafdeling vertoon word"
@@ -1469,6 +1792,10 @@ msgstr "Die fynskrif wat onderaan die Sperdatum-afdeling vertoon word"
 #: apps/course_metadata/models.py:4134
 msgid "The sailthru email list name to capture leads"
 msgstr "Die naam van die sailthru-e-poslys om leidrade vas te lê"
+
+#: apps/course_metadata/models.py:4148
+msgid "Please provide an image file for the lead capture banner."
+msgstr "Verskaf asseblief 'n prentlêer vir die hoofopnamebanier."
 
 #: apps/course_metadata/models.py:4151
 msgid "The Hubspot form ID for the lead capture form"
@@ -1489,6 +1816,14 @@ msgstr "Mikromeesters beskrywende paragraaf"
 #: apps/course_metadata/models.py:4182
 msgid "Customized background image for the MicroMasters section."
 msgstr "Pasgemaakte agtergrondprent vir die MicroMasters-afdeling."
+
+#: apps/course_metadata/models.py:4186
+msgid ""
+"Override org name if micromasters program comes from different organization "
+"than Masters program"
+msgstr ""
+"Ignoreer organisasienaam as mikromeestersprogram van 'n ander organisasie as"
+" Meestersprogram kom"
 
 #: apps/course_metadata/models.py:4193
 msgid "Ranking display for search card (e.g. \"#1 in the U.S.\""
@@ -1601,9 +1936,27 @@ msgstr "Beskryf waarvoor die koste is (bv. Onderrig)"
 msgid "String-based field stating how much the cost is (e.g. $1000)."
 msgstr "Stringgebaseerde veld wat aandui hoeveel die koste is (bv. $1000)."
 
+#: apps/course_metadata/models.py:4435
+msgid ""
+"A high-level overview of the degree's courseware. The \"brief\"\n"
+"            text is the first 750 characters of \"marketing_text\" and must be\n"
+"            valid HTML."
+msgstr ""
+"'n Hoëvlakoorsig van die graad se kursusware. Die \"kort\"\n"
+" teks is die eerste 750 karakters van \"bemarkingsteks\" en moet wees\n"
+" geldige HTML."
+
+#: apps/course_metadata/models.py:4443
+msgid "A high-level overview of the degree's courseware."
+msgstr "'n Hoëvlakoorsig van die graad se kursusware."
+
 #: apps/course_metadata/models.py:4568
 msgid "Organization name"
 msgstr "Organisasie Naam"
+
+#: apps/course_metadata/models.py:4595
+msgid "These programs are for a different partner than the pathway itself: {}"
+msgstr "Hierdie programme is vir 'n ander vennoot as die pad self: {}"
 
 #: apps/course_metadata/models.py:4622
 msgid "Facebook"
@@ -1639,6 +1992,26 @@ msgstr ""
 "Vennoot {partner_key} en kursusmaat {course_partner_key} stem nie ooreen "
 "wanneer u probeer om url herleiding {url_path} te stoor nie"
 
+#: apps/course_metadata/models.py:4726
+msgid "It expects the data will be provided in a csv file format "
+msgstr "Dit verwag dat die data in 'n csv-lêerformaat verskaf sal word "
+
+#: apps/course_metadata/models.py:4738
+msgid "A csv file containing uuid of the courses to be archived"
+msgstr "'n Csv-lêer wat uuid bevat van die kursusse wat argiveer moet word"
+
+#: apps/course_metadata/models.py:4752 apps/course_metadata/models.py:4765
+#: apps/course_metadata/models.py:4778 apps/course_metadata/models.py:4813
+#: apps/course_metadata/models.py:4826 apps/course_metadata/models.py:4845
+#: apps/course_metadata/models.py:4865 apps/course_metadata/models.py:4880
+#: apps/course_metadata/models.py:5033
+msgid ""
+"It expects the data will be provided in a csv file format with first row "
+"containing all the headers."
+msgstr ""
+"Dit verwag dat die data in 'n csv-lêerformaat verskaf sal word met die "
+"eerste ry wat al die opskrifte bevat."
+
 #: apps/course_metadata/models.py:4837
 msgid "Open Courses"
 msgstr "Oop kursusse"
@@ -1650,6 +2023,18 @@ msgstr "2U Uitvoerende Onderwyskursusse"
 #: apps/course_metadata/models.py:4839
 msgid "Bootcamps"
 msgstr "Bootcamps"
+
+#: apps/course_metadata/models.py:4850 apps/course_metadata/models.py:4954
+msgid "Course UUIDs"
+msgstr "Kursus UUID's"
+
+#: apps/course_metadata/models.py:4930
+msgid "Course Run IDs"
+msgstr "Course Run ID's"
+
+#: apps/course_metadata/models.py:4946
+msgid "Profile Image UUIDs"
+msgstr "Profielbeeld UUID's"
 
 #: apps/course_metadata/models.py:4953
 msgid "Tag"
@@ -1705,6 +2090,10 @@ msgstr ""
 msgid "Attempted to query Salesforce with no client for partner={}"
 msgstr ""
 "Het gepoog om Salesforce navraag te doen met geen kliënt vir vennoot={}"
+
+#: apps/course_metadata/salesforce.py:237
+msgid "Unable to associate a case for comments for {}"
+msgstr "Kan nie 'n saak vir opmerkings vir {} assosieer"
 
 #: apps/course_metadata/templates/admin/course_metadata/course_run.html:24
 msgid "Cancel"
@@ -1773,6 +2162,17 @@ msgstr ""
 msgid "Hi Course Team,"
 msgstr "Hallo Kursusspan,"
 
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:12
+#, python-format
+msgid ""
+"\n"
+"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
+"        "
+msgstr ""
+"\n"
+"Hierdie is 'n outomatiese herinnering dat die kursus \" %(course_name)s \" (Kursussleutel: %(course_key)s ) geskeduleer is om te eindig in %(days)s op %(course_end_date)s .\n"
+"        "
+
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.html:16
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:16
 msgid ""
@@ -1781,6 +2181,17 @@ msgid ""
 msgstr ""
 "Om ononderbroke leerdertoegang en inskrywing te verseker, neem asseblief een"
 " van die volgende aksies:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:19
+#, python-format
+msgid ""
+"\n"
+"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
+"        "
+msgstr ""
+"\n"
+"Hierdie is 'n outomatiese herinnering dat die kursus \" %(course_name)s \" (Kursussleutel: %(course_key)s ) amptelik geëindig het op %(course_end_date)s .\n"
+"        "
 
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.html:23
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:18
@@ -1800,6 +2211,15 @@ msgid ""
 msgstr ""
 "Verleng die einddatum van die huidige kursus indien dieselfde kursus bedoel "
 "is om beskikbaar te bly."
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:31
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:22
+msgid ""
+"Create a new course run if you are planning to offer this course again with "
+"updated content, pacing, or a new cohort of learners."
+msgstr ""
+"Skep 'n nuwe kursusaanbod as jy van plan is om hierdie kursus weer aan te "
+"bied met opgedateerde inhoud, tempo of 'n nuwe kohort leerders."
 
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.html:32
 msgid "Visit the Course in Publisher"
@@ -1827,6 +2247,24 @@ msgstr ""
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:34
 msgid "Thanks"
 msgstr "Dankie"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:6
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"Hierdie is 'n outomatiese herinnering dat die kursus \" %(course_name)s \" (Kursussleutel: %(course_key)s ) geskeduleer is om te eindig in %(days)s op %(course_end_date)s .\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:10
+#, python-format
+msgid ""
+"\n"
+"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
+msgstr ""
+"\n"
+"Hierdie is 'n outomatiese herinnering dat die kursus \" %(course_name)s \" (Kursussleutel: %(course_key)s ) amptelik geëindig het op %(course_end_date)s .\n"
 
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:23
 msgid "Visit the Course in Publisher:"
@@ -1893,6 +2331,15 @@ msgstr ""
 "{course_page_url} {link_middle} Bekyk hierdie kursus wat in Publisher "
 "{link_end} uitgevoer word om die veranderinge te hersien en dit as hersien "
 "te merk."
+
+#: apps/course_metadata/templates/course_metadata/email/internal_review.html:20
+#, python-brace-format
+msgid ""
+"This is a good time to {link_start}{studio_url}{link_middle}review this "
+"course run in Studio{link_end}."
+msgstr ""
+"Dit is 'n goeie tyd om {link_start} {studio_url} {link_middle} hierdie "
+"kursus in Studio {link_end} te hersien."
 
 #: apps/course_metadata/templates/course_metadata/email/internal_review.html:27
 #, python-brace-format
@@ -1996,6 +2443,50 @@ msgid "View the course run in Publisher: %(course_page_url)s"
 msgstr ""
 "Kyk na die kursus wat uitgevoer word in Publisher: %(course_page_url)s"
 
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.html:8
+#, python-format
+msgid ""
+"\n"
+"        Course '%(course_name)s' has been successfully reviewed by edX and is now published on %(course_publish_date)s. To see live course, go here: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
+msgstr ""
+"\n"
+"Kursus ' %(course_name)s ' is suksesvol deur edX hersien en word nou gepubliseer op %(course_publish_date)s . Om regstreekse kursus te sien, gaan hierheen: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.html:12
+#, python-format
+msgid ""
+"\n"
+"        Course '%(course_name)s' has been successfully reviewed by edX and is now ready for publication. The course will be published on %(course_publish_date)s.\n"
+"        To see a preview of the Course About Page, go here: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
+msgstr ""
+"\n"
+"Kursus ' %(course_name)s ' is suksesvol deur edX hersien en is nou gereed vir publikasie. Die kursus sal op %(course_publish_date)s gepubliseer word.\n"
+" Gaan hierheen om 'n voorskou van die kursus oor bladsy te sien: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.txt:4
+#, python-format
+msgid ""
+"\n"
+"    Course '%(course_name)s' has been successfully reviewed by edX and is now published on %(course_publish_date)s. To see live course, go here: %(course_marketing_url)s\n"
+msgstr ""
+"\n"
+"Kursus ' %(course_name)s ' is suksesvol deur edX hersien en word nou gepubliseer op %(course_publish_date)s . Om regstreekse kursus te sien, gaan hierheen: %(course_marketing_url)s\n"
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.txt:8
+#, python-format
+msgid ""
+"\n"
+"   Course '%(course_name)s' has been successfully reviewed by edX and is now ready for publication. The course will be published on %(course_publish_date)s.\n"
+"    To see a preview of the Course About Page, go here: %(course_preview_url)s\n"
+msgstr ""
+"\n"
+"Kursus ' %(course_name)s ' is suksesvol deur edX hersien en is nou gereed vir publikasie. Die kursus sal op %(course_publish_date)s gepubliseer word.\n"
+" Gaan hierheen om 'n voorskou van die kursus oor bladsy te sien: %(course_preview_url)s\n"
+
 #: apps/course_metadata/utils.py:391
 msgid "Special characters not allowed in Course Number."
 msgstr "Spesiale karakters word nie in kursusnommer toegelaat nie."
@@ -2038,6 +2529,14 @@ msgstr "Die herlaaikursusvaardigheidstaak is suksesvol geaktiveer."
 #: apps/course_metadata/views.py:306
 msgid "The course skills were updated successfully."
 msgstr "Die kursusvaardighede is suksesvol opgedateer."
+
+#: apps/edx_elasticsearch_dsl_extensions/exceptions.py:17
+msgid ""
+"Request could not be completed due to an incorrect ElasticSearch query "
+"parameters"
+msgstr ""
+"Versoek kon nie voltooi word nie as gevolg van 'n verkeerde ElasticSearch-"
+"navraagparameters"
 
 #: apps/ietf_language_tags/models.py:34
 msgid "Name for translation"
