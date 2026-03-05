@@ -27,6 +27,38 @@ msgstr ""
 msgid "Could not parse serialized rubric"
 msgstr "Kon nie geserialiseerde rubriek ontleed nie"
 
+#: assessment/api/student_training.py:191
+msgid ""
+"If your assignment includes a learner training step, the rubric must have at"
+" least one criterion, and that criterion must have at least one option."
+msgstr ""
+"As jou werkopdrag 'n leerderopleidingstap insluit, moet die rubriek ten "
+"minste een kriterium hê, en daardie kriterium moet ten minste een opsie hê."
+
+#: assessment/api/student_training.py:203
+#, python-brace-format
+msgid "Example {example_number} has a validation error: {error}"
+msgstr "Voorbeeld {example_number} het 'n valideringsfout: {error}"
+
+#: assessment/api/student_training.py:217
+#, python-brace-format
+msgid ""
+"Example {example_number} has an invalid option for \"{criterion_name}\": "
+"\"{option_name}\""
+msgstr ""
+"Voorbeeld {example_number} het 'n ongeldige opsie vir \" {criterion_name} "
+"\": \" {option_name} \""
+
+#: assessment/api/student_training.py:227
+#, python-brace-format
+msgid "Example {example_number} has an extra option for \"{criterion_name}\""
+msgstr "Voorbeeld {example_number} het 'n ekstra opsie vir \" {criterion_name} \""
+
+#: assessment/api/student_training.py:240
+#, python-brace-format
+msgid "Example {example_number} is missing an option for \"{criterion_name}\""
+msgstr "Voorbeeld {example_number} ontbreek 'n opsie vir \" {criterion_name} \""
+
 #: assessment/score_type_constants.py:21 xblock/grade_mixin.py:547
 msgid "Peer"
 msgstr "Eweknie"
@@ -42,6 +74,11 @@ msgstr "Personeel"
 #: assessment/score_type_constants.py:25
 msgid "Unknown"
 msgstr "Onbekend"
+
+#: data.py:584
+#, python-brace-format
+msgid "Criterion {number}: {label}"
+msgstr "Kriterium {number}: {label}"
 
 #: data.py:586
 #, python-brace-format
@@ -144,6 +181,18 @@ msgstr "Stoor"
 msgid "Cancel"
 msgstr "Kanselleer"
 
+#: templates/legacy/edit/oa_edit_assessment_steps.html:6
+msgid ""
+"Open Response Assessments allow you to configure single or multiple steps in"
+" a rubric based open response assessment sequence. The steps available below"
+" can be enabled, disable, and ordered for a flexible set of pedagogical "
+"needs."
+msgstr ""
+"Ooprespons-assesserings laat jou toe om enkele of veelvuldige stappe in 'n "
+"rubriekgebaseerde ooprespons-assesseringsvolgorde op te stel. Die stappe wat"
+" hieronder beskikbaar is, kan geaktiveer, gedeaktiveer en bestel word vir 'n"
+" buigsame stel pedagogiese behoeftes."
+
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:5
 msgid "Display Name "
 msgstr "Vertoon Naam "
@@ -156,9 +205,25 @@ msgstr "Die vertoonnaam vir hierdie komponent."
 msgid "Text Response"
 msgstr "Teksreaksie"
 
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:20
+msgid ""
+"Specify whether learners must include a text based response to this "
+"problem's prompt."
+msgstr ""
+"Spesifiseer of leerders 'n teksgebaseerde reaksie op hierdie probleem se "
+"versoek moet insluit."
+
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:25
 msgid "Response Editor"
 msgstr "Reaksieredakteur"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:33
+msgid ""
+"Select which editor learners will use to include a text based response to "
+"this problem's prompt."
+msgstr ""
+"Kies watter redigeerder leerders sal gebruik om 'n teksgebaseerde reaksie op"
+" hierdie probleem se aansporing in te sluit."
 
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:38
 msgid "File Uploads Response"
@@ -205,6 +270,10 @@ msgstr ""
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:58
 msgid "File Upload Types"
 msgstr "Lêeroplaaitipes"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:60
+msgid "PDF or Image Files"
+msgstr "PDF of beeldlêers"
 
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:61
 msgid "Image Files"
@@ -256,6 +325,16 @@ msgstr "Top Antwoorde"
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:104
 msgid " (Disabled)"
 msgstr " (Gestrem)"
+
+#: templates/legacy/edit/oa_edit_basic_settings_list.html:117
+msgid ""
+"Specify the number of top scoring responses to display after the learner has"
+" submitted a response. Valid numbers are 0 to 99. If the number is 0, the "
+"Top Responses section does not appear to learners."
+msgstr ""
+"Spesifiseer die aantal toptelling-antwoorde om te vertoon nadat die leerder "
+"'n antwoord ingedien het. Geldige getalle is 0 tot 99. As die getal 0 is, "
+"verskyn die Top Response-afdeling nie aan leerders nie."
 
 #: templates/legacy/edit/oa_edit_basic_settings_list.html:122
 msgid "When Teams Enabled is set to true, Top Responses will be disabled."
@@ -320,6 +399,10 @@ msgstr ""
 #: templates/legacy/staff_area/oa_student_info_assessment_detail.html:25
 msgid "Criterion"
 msgstr "Kriterium"
+
+#: templates/legacy/edit/oa_edit_criterion.html:7
+msgid "You cannot delete a criterion after the assignment has been released."
+msgstr "Jy kan nie 'n kriterium uitvee nadat die werkopdrag vrygestel is nie."
 
 #: templates/legacy/edit/oa_edit_criterion.html:9
 #: templates/legacy/edit/oa_edit_option.html:7
@@ -418,6 +501,17 @@ msgstr ""
 " gee en ook terugvoer van ander in hul finale graad te ontvang. Dikwels, "
 "hoewel nie altyd nie, word hierdie stap voorafgegaan deur Selfassessering of"
 " Leerderopleidingstappe."
+
+#: templates/legacy/edit/oa_edit_peer_assessment.html:18
+msgid ""
+"Configuration: For this step to be configured you must specify the number of"
+" peer reviews a student will be assessed with, and the number of peer a "
+"student must grade. Additional options can be specified."
+msgstr ""
+"Opstelling: Vir hierdie stap om op te stel moet jy die aantal "
+"portuurbeoordelings spesifiseer waarmee 'n student geassesseer sal word, en "
+"die aantal eweknieë wat 'n student moet gradeer. Bykomende opsies kan "
+"gespesifiseer word."
 
 #: templates/legacy/edit/oa_edit_peer_assessment.html:23
 msgid "View Options & Configuration"
@@ -526,6 +620,10 @@ msgstr "Die regte tyd"
 msgid "The date and time when all peer assessments must be complete."
 msgstr "Die datum en tyd wanneer alle portuurassesserings voltooi moet wees."
 
+#: templates/legacy/edit/oa_edit_prompt.html:8
+msgid "You cannot delete a prompt after the assignment has been released."
+msgstr "Jy kan nie 'n boodskap uitvee nadat die opdrag vrygestel is nie."
+
 #: templates/legacy/edit/oa_edit_prompts.html:10
 msgid ""
 "Prompts. Replace the sample text with your own text. For more information, "
@@ -537,6 +635,18 @@ msgstr ""
 #: templates/legacy/edit/oa_edit_prompts.html:22
 msgid "Add Prompt"
 msgstr "Voeg prompt by"
+
+#: templates/legacy/edit/oa_edit_rubric.html:14
+msgid ""
+"Rubrics are made up of criteria, which usually contain one or more options. "
+"Each option has a point value. This template contains two sample criteria "
+"and their options. Replace the sample text with your own text. For more "
+"information, see the ORA documentation."
+msgstr ""
+"Rubrieke bestaan uit kriteria, wat gewoonlik een of meer opsies bevat. Elke "
+"opsie het 'n puntwaarde. Hierdie sjabloon bevat twee voorbeeldkriteria en "
+"hul opsies. Vervang die voorbeeldteks met jou eie teks. Vir meer inligting, "
+"sien die ORA-dokumentasie."
 
 #: templates/legacy/edit/oa_edit_rubric.html:29
 msgid "Add Criterion"
@@ -562,9 +672,22 @@ msgstr ""
 msgid "Default Feedback Text"
 msgstr "Verstekterugvoerteks"
 
+#: templates/legacy/edit/oa_edit_rubric.html:53
+msgid ""
+"Enter feedback text that learners will see before they enter their own "
+"feedback. Use this text to show learners a good example peer assessment."
+msgstr ""
+"Voer terugvoerteks in wat leerders sal sien voordat hulle hul eie terugvoer "
+"invoer. Gebruik hierdie teks om vir leerders 'n goeie voorbeeld "
+"portuurassessering te wys."
+
 #: templates/legacy/edit/oa_edit_schedule.html:5
 msgid "Deadlines Configuration"
 msgstr "Sperdatums konfigurasie"
+
+#: templates/legacy/edit/oa_edit_schedule.html:9
+msgid "Select a deadline configuration option"
+msgstr "Kies 'n sperdatumkonfigurasie-opsie"
 
 #: templates/legacy/edit/oa_edit_schedule.html:14
 msgid "Configure deadlines manually"
@@ -634,9 +757,29 @@ msgstr "Die datum en tyd wanneer alle selfassesserings voltooi moet wees."
 msgid "Step: Staff Assessment"
 msgstr "Stap: Personeelassessering"
 
+#: templates/legacy/edit/oa_edit_staff_assessment.html:12
+msgid ""
+"Staff Assessment gates sets the final grade for students if enabled with "
+"other steps, though it can also be used as a standalone step."
+msgstr ""
+"Personeelassesseringshekke stel die finale graad vir studente vas as dit met"
+" ander stappe geaktiveer word, alhoewel dit ook as 'n selfstandige stap "
+"gebruik kan word."
+
 #: templates/legacy/edit/oa_edit_student_training.html:9
 msgid "Step: Learner Training"
 msgstr "Stap: Leerderopleiding"
+
+#: templates/legacy/edit/oa_edit_student_training.html:14
+msgid ""
+"Learner Training is used to help students practice grading a simulated peer "
+"submission in order to train them on the rubric and ensure learner's "
+"understand the rubric for either Self or Peer Assessment steps."
+msgstr ""
+"Leerderopleiding word gebruik om studente te help om te oefen om 'n "
+"gesimuleerde portuurvoorlegging te gradeer om hulle op die rubriek op te lei"
+" en te verseker dat die leerder die rubriek vir óf Self- óf "
+"portuurassesseringstappe verstaan."
 
 #: templates/legacy/edit/oa_edit_student_training.html:17
 msgid ""
@@ -661,6 +804,19 @@ msgstr "Voeg voorbeeldreaksie by"
 #: templates/legacy/edit/oa_rubric_reuse.html:4
 msgid "Clone Rubric"
 msgstr "Kloon Rubriek"
+
+#: templates/legacy/edit/oa_rubric_reuse.html:7
+msgid ""
+"To clone a rubric from an existing published or unpublished draft, you can "
+"search by the Block ID. Note that cloning is one-way, meaning changes made "
+"after cloning will only affect the rubric being modified, and will not "
+"modify any rubric it was cloned from."
+msgstr ""
+"Om 'n rubriek van 'n bestaande gepubliseerde of ongepubliseerde konsep te "
+"kloon, kan jy deur die Blok-ID soek. Let daarop dat kloning eenrigting is, "
+"wat beteken dat veranderinge wat na kloning gemaak word, slegs die rubriek "
+"wat gewysig word, sal beïnvloed en geen rubriek waaruit dit gekloon is, sal "
+"verander nie."
 
 #: templates/legacy/edit/oa_rubric_reuse.html:9
 msgid "Block ID For this ORA:"
@@ -972,6 +1128,25 @@ msgstr ""
 "Nadat jy al die stappe van hierdie werkopdrag voltooi het, kan jy die top-"
 "telling antwoorde van jou eweknieë sien."
 
+#: templates/legacy/message/oa_message_cancelled.html:8
+msgid ""
+"Your team’s submission has been cancelled. Your team will receive a grade of"
+" zero unless course staff resets your assessment to allow the team to "
+"resubmit a response."
+msgstr ""
+"Jou span se indiening is gekanselleer. Jou span sal 'n graad van nul "
+"ontvang, tensy kursuspersoneel jou assessering terugstel sodat die span weer"
+" 'n antwoord kan indien."
+
+#: templates/legacy/message/oa_message_cancelled.html:10
+msgid ""
+"Your submission has been cancelled. You will receive a grade of zero unless "
+"course staff resets your assessment to allow you to resubmit a response."
+msgstr ""
+"Jou indiening is gekanselleer. Jy sal 'n graad van nul ontvang tensy "
+"kursuspersoneel jou assessering terugstel sodat jy weer 'n antwoord kan "
+"indien."
+
 #: templates/legacy/message/oa_message_closed.html:8
 msgid ""
 "This task is not yet available. Check back to complete the assignment once "
@@ -979,6 +1154,14 @@ msgid ""
 msgstr ""
 "Hierdie taak is nog nie beskikbaar nie. Gaan terug om die opdrag te voltooi "
 "sodra hierdie afdeling oopgemaak het."
+
+#: templates/legacy/message/oa_message_closed.html:10
+msgid ""
+"This assignment has closed. One or more deadlines for this assignment have "
+"passed. You will receive an incomplete grade for this assignment."
+msgstr ""
+"Hierdie opdrag het gesluit. Een of meer sperdatums vir hierdie werkopdrag is"
+" verby. Jy sal 'n onvolledige graad vir hierdie werkopdrag ontvang."
 
 #: templates/legacy/message/oa_message_complete.html:8
 msgid ""
@@ -1091,6 +1274,43 @@ msgstr ""
 msgid "Team membership is required to view this assignment"
 msgstr "Spanlidmaatskap word vereis om hierdie opdrag te sien"
 
+#: templates/legacy/message/oa_message_no_team.html:7
+#, python-format
+msgid ""
+"\n"
+"            This is a team assignment for team-set \"%(teamset_name)s\".\n"
+"            You are currently not on a team in team-set \"%(teamset_name)s\".\n"
+"            You must be on a team in team-set \"%(teamset_name)s\" to access this team assignment.\n"
+"            "
+msgstr ""
+"\n"
+"Dit is 'n spanopdrag vir spanstel \" %(teamset_name)s \".\n"
+" Jy is tans nie in 'n span in spanstel \" %(teamset_name)s \" nie.\n"
+" Jy moet in 'n span in spanstel \" %(teamset_name)s \" wees om toegang tot hierdie spanopdrag te kry.\n"
+"            "
+
+#: templates/legacy/message/oa_message_open.html:7
+#, python-format
+msgid ""
+"\n"
+"                    Assignment submissions will close soon. To receive a grade, first provide a response to the prompt, then complete the steps below the %(start_tag)sYour Response%(end_tag)s field.\n"
+"                "
+msgstr ""
+"\n"
+"Werkopdragvoorleggings sal binnekort sluit. Om 'n graad te ontvang, verskaf eers 'n antwoord op die versoek, voltooi dan die stappe onder die %(start_tag)s Jou Antwoord %(end_tag)s -veld.\n"
+"                "
+
+#: templates/legacy/message/oa_message_open.html:11
+#, python-format
+msgid ""
+"\n"
+"                    This assignment has several steps. In the first step, you'll provide a response to the prompt. The other steps appear below the %(start_tag)sYour Response%(end_tag)s field.\n"
+"                "
+msgstr ""
+"\n"
+"Hierdie opdrag het verskeie stappe. In die eerste stap sal jy 'n antwoord op die versoek gee. Die ander stappe verskyn onder die %(start_tag)s Jou Antwoord %(end_tag)s veld.\n"
+"                "
+
 #: templates/legacy/message/oa_message_unavailable.html:4
 msgid "Instructions Unavailable"
 msgstr "Instruksies nie beskikbaar nie"
@@ -1098,6 +1318,15 @@ msgstr "Instruksies nie beskikbaar nie"
 #: templates/legacy/message/oa_message_unavailable.html:6
 msgid "The instructions for this step could not be loaded."
 msgstr "Die instruksies vir hierdie stap kon nie gelaai word nie."
+
+#: templates/legacy/oa_base.html:16 templates/openassessmentblock/base.html:22
+msgid ""
+"This assignment has several steps. In the first step, you'll provide a "
+"response to the prompt. The other steps appear below the Your Response "
+"field."
+msgstr ""
+"Hierdie opdrag het verskeie stappe. In die eerste stap sal jy 'n antwoord op"
+" die versoek gee. Die ander stappe verskyn onder die Jou reaksie-veld."
 
 #: templates/legacy/oa_base.html:37 templates/openassessmentblock/base.html:56
 #: templates/openassessmentblock/base.html:105
@@ -1141,9 +1370,47 @@ msgstr "Opgelaai deur"
 msgid "Files that were uploaded by you:"
 msgstr "Lêers wat deur jou opgelaai is:"
 
+#: templates/legacy/oa_uploaded_file.html:48
+msgid ""
+"Caution: These files were uploaded by another course learner and have not "
+"been verified, screened, approved, reviewed, or endorsed by the site "
+"administrator. If you access the files, you do so at your own risk.)"
+msgstr ""
+"Waarskuwing: Hierdie lêers is deur 'n ander kursusleerder opgelaai en is nie"
+" deur die werfadministrateur geverifieer, gekeur, goedgekeur, hersien of "
+"onderskryf nie. As jy toegang tot die lêers kry, doen jy dit op eie risiko.)"
+
 #: templates/legacy/peer/oa_peer_assessment.html:36
 msgid "Assess Peers"
 msgstr "Evalueer eweknieë"
+
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "available August 13th, 2014 00:00 UTC (in
+#. 5 days and 45 minutes)"
+#: templates/legacy/peer/oa_peer_assessment.html:44
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"            <span id=\"oa_step_deadline_peer\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+msgstr ""
+"\n"
+"            <span id=\"oa_step_deadline_peer\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "due August 13th, 2014 00:00 UTC (in 5 days
+#. and 45 minutes)"
+#: templates/legacy/peer/oa_peer_assessment.html:51
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"            <span id=\"oa_step_deadline_peer\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+msgstr ""
+"\n"
+"            <span id=\"oa_step_deadline_peer\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
 
 #: templates/legacy/peer/oa_peer_assessment.html:61
 #, python-format
@@ -1195,6 +1462,16 @@ msgstr ""
 "\n"
 "Onvolledig ( %(num_graded)s van %(num_must_grade)s )\n"
 "        "
+
+#: templates/legacy/peer/oa_peer_closed.html:35
+msgid ""
+"The due date for this step has passed. This step is now closed. You can no "
+"longer complete peer assessments or continue with this assignment, and you "
+"will receive a grade of Incomplete."
+msgstr ""
+"Die sperdatum vir hierdie stap is verby. Hierdie stap is nou gesluit. Jy kan"
+" nie meer portuurassesserings voltooi of met hierdie opdrag voortgaan nie, "
+"en jy sal 'n graad Onvoltooid ontvang."
 
 #: templates/legacy/peer/oa_peer_complete.html:13
 msgid "Completed"
@@ -1275,6 +1552,34 @@ msgstr ""
 msgid "Your Team's Response"
 msgstr "Jou span se reaksie"
 
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "available August 13th, 2014 (in 5 days and
+#. 45 minutes)"
+#: templates/legacy/response/oa_response.html:39
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"            <span id=\"oa_step_deadline_response\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+msgstr ""
+"\n"
+"            <span id=\"oa_step_deadline_response\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "due August 13th, 2014 (in 5 days and 45
+#. minutes)"
+#: templates/legacy/response/oa_response.html:46
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"            <span id=\"oa_step_deadline_response\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+msgstr ""
+"\n"
+"            <span id=\"oa_step_deadline_response\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+
 #: templates/legacy/response/oa_response.html:54
 #: templates/legacy/self/oa_self_assessment.html:56
 msgid "In Progress"
@@ -1303,6 +1608,13 @@ msgstr ""
 "\n"
 "Jou werk sal outomaties gestoor word en jy kan enige tyd terugkeer om jou span se antwoord te voltooi.\n"
 "                      "
+
+#: templates/legacy/response/oa_response.html:86
+msgid ""
+"After you submit a response on behalf of your team, it cannot be edited."
+msgstr ""
+"Nadat jy 'n antwoord namens jou span ingedien het, kan dit nie geredigeer "
+"word nie."
 
 #: templates/legacy/response/oa_response.html:89
 msgid "Enter your response to the prompt."
@@ -1360,6 +1672,21 @@ msgstr "Jy is in span "
 msgid "Team Members: "
 msgstr "Spanlede: "
 
+#: templates/legacy/response/oa_response.html:155
+#, python-format
+msgid ""
+"\n"
+"                                              %(team_members_with_external_submissions)s\n"
+"                                              have/has already submitted a response to this assignment with another team,\n"
+"                                              and will not be a part of your team's submission or assignment grade.\n"
+"                                          "
+msgstr ""
+"\n"
+"%(team_members_with_external_submissions)s\n"
+" het/het reeds 'n antwoord op hierdie opdrag met 'n ander span ingedien,\n"
+" en sal nie deel wees van jou span se indiening- of werkopdraggraad nie.\n"
+"                                          "
+
 #: templates/legacy/response/oa_response.html:171
 msgid "Team Response "
 msgstr "Span reaksie "
@@ -1378,9 +1705,46 @@ msgstr "(Vereis)"
 msgid "(Optional)"
 msgstr "(Opsioneel)"
 
+#: templates/legacy/response/oa_response.html:183
+msgid ""
+"\n"
+"                                              Teams should designate one team member to submit a response on behalf of the\n"
+"                                              entire team.  All team members can use this space to work on draft responses,\n"
+"                                              but you will not be able to see your teammates' drafts made in this space, so\n"
+"                                              please coordinate with them to decide on the final response the designated team\n"
+"                                              member should submit.\n"
+"                                          "
+msgstr ""
+"\n"
+"Spanne moet een spanlid aanwys om 'n antwoord namens die\n"
+" hele span. Alle spanlede kan hierdie spasie gebruik om aan konsepantwoorde te werk,\n"
+" maar jy sal nie jou spanmaats se konsepte in hierdie spasie kan sien nie, so\n"
+" koördineer asseblief met hulle om te besluit oor die finale reaksie van die aangewese span\n"
+" lid moet indien.\n"
+"                                          "
+
 #: templates/legacy/response/oa_response.html:197
 msgid "Enter your response to the prompt above."
 msgstr "Voer jou antwoord op die boodskap hierbo in."
+
+#: templates/legacy/response/oa_response.html:211
+#, python-format
+msgid ""
+"\n"
+"                                      You are currently on Team %(team_name)s. Since you were on Team %(previous_team_name)s\n"
+"                                      when they submitted a response to this assignment, you are seeing Team %(previous_team_name)s’s\n"
+"                                      response and will receive the same grade for this assignment as your former teammates.\n"
+"                                      You will not be part of Team %(team_name)s’s submission for this assignment and will not\n"
+"                                      receive a grade for their submission.\n"
+"                                  "
+msgstr ""
+"\n"
+"Jy is tans in span %(team_name)s . Aangesien jy op span %(previous_team_name)s was\n"
+" wanneer hulle 'n antwoord op hierdie werkopdrag ingedien het, sien jy Team %(previous_team_name)s 's\n"
+" antwoord en sal dieselfde graad vir hierdie werkopdrag ontvang as jou voormalige spanmaats.\n"
+" Jy sal nie deel wees van span %(team_name)s se voorlegging vir hierdie werkopdrag nie en sal nie\n"
+" 'n graad vir hul indiening ontvang.\n"
+"                                  "
 
 #: templates/legacy/response/oa_response.html:224
 msgid "We could not save your progress"
@@ -1418,6 +1782,10 @@ msgstr "Ons kon nie lêers uitvee nie"
 msgid "Select one or more files to upload for this submission."
 msgstr "Kies een of meer lêers om op te laai vir hierdie indiening."
 
+#: templates/legacy/response/oa_response.html:276
+msgid "Select a file to upload for this submission."
+msgstr "Kies 'n lêer om vir hierdie indiening op te laai."
+
 #: templates/legacy/response/oa_response.html:280
 msgid "Supported file types: "
 msgstr "Ondersteunde lêertipes: "
@@ -1430,9 +1798,44 @@ msgstr "Laai lêers op"
 msgid "Upload file"
 msgstr "Laai leêr op"
 
+#: templates/legacy/response/oa_response.html:305
+msgid "This is a team submission."
+msgstr "Dit is 'n spanvoorlegging."
+
+#: templates/legacy/response/oa_response.html:307
+msgid ""
+"One team member should submit a response with the team’s shared files and a "
+"text response on behalf of the entire team."
+msgstr ""
+"Een spanlid moet 'n antwoord met die span se gedeelde lêers en 'n "
+"teksantwoord namens die hele span indien."
+
+#: templates/legacy/response/oa_response.html:309
+msgid ""
+"One team member should submit a response with the team’s shared files on "
+"behalf of the entire team."
+msgstr ""
+"Een spanlid moet 'n antwoord met die span se gedeelde lêers namens die hele "
+"span indien."
+
+#: templates/legacy/response/oa_response.html:311
+msgid ""
+"One team member should submit a text response on behalf of the entire team."
+msgstr "Een spanlid moet 'n teksreaksie namens die hele span indien."
+
 #: templates/legacy/response/oa_response.html:313
 msgid "One team member should submit on behalf of the entire team."
 msgstr "Een spanlid moet namens die hele span indien."
+
+#: templates/legacy/response/oa_response.html:315
+msgid ""
+"\n"
+"                  Learn more about team assignments here: (<a target=\"_blank\" href=\"https://support.edx.org/hc/en-us/articles/360000191067-Submit-your-response#h_01FVD8SXM9E5H2DNAG87X25ZHR\">link</a>)\n"
+"                  "
+msgstr ""
+"\n"
+"                  Kom meer te wete oor spanopdragte hier: (<a target=\"_blank\" href=\"https://support.edx.org/hc/en-us/articles/360000191067-Submit-your-response#h_01FVD8SXM9E5H2DNAG87X25ZHR\">skakel</a>)\n"
+"                  "
 
 #: templates/legacy/response/oa_response.html:323
 msgid "We could not submit your response"
@@ -1484,6 +1887,18 @@ msgstr ""
 #: templates/legacy/student_training/student_training_closed.html:17
 msgid "Incomplete"
 msgstr "Onvolledig"
+
+#: templates/legacy/response/oa_response_closed.html:32
+msgid ""
+"The due date for this step has passed. This step is now closed. You can no "
+"longer submit a response or continue with this problem, and you will receive"
+" a grade of Incomplete. If you saved but did not submit a response, the "
+"response appears in the course records."
+msgstr ""
+"Die sperdatum vir hierdie stap is verby. Hierdie stap is nou gesluit. Jy kan"
+" nie meer 'n antwoord indien of met hierdie probleem voortgaan nie, en jy "
+"sal 'n graad Onvolledig ontvang. As jy gestoor het, maar nie 'n antwoord "
+"ingedien het nie, verskyn die antwoord in die kursusrekords."
 
 #: templates/legacy/response/oa_response_graded.html:20
 #: templates/legacy/response/oa_response_submitted.html:20
@@ -1556,13 +1971,68 @@ msgstr "Stel antwoord terug en dien weer in"
 msgid "Error"
 msgstr "Fout"
 
+#: templates/legacy/response/oa_response_team_already_submitted.html:29
+#, python-format
+msgid ""
+"\n"
+"                            You joined Team %(team_name)s after they submitted a response for this assignment\n"
+"                            and you will not receive a grade for their response. You have also not previously submitted\n"
+"                            a response to this assignment with another team. Please contact course staff to discuss your\n"
+"                            options for this assignment.\n"
+"                        "
+msgstr ""
+"\n"
+"Jy het by span %(team_name)s aangesluit nadat hulle 'n antwoord vir hierdie werkopdrag ingedien het\n"
+" en jy sal nie 'n graad vir hul reaksie ontvang nie. Jy het ook nie voorheen ingedien nie\n"
+" 'n reaksie op hierdie opdrag met 'n ander span. Kontak asseblief kursuspersoneel om jou\n"
+" opsies vir hierdie opdrag.\n"
+"                        "
+
 #: templates/legacy/self/oa_self_assessment.html:33
 msgid "Assess Your Response"
 msgstr "Evalueer jou reaksie"
 
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "available August 13th, 2014 (in 5 days and
+#. 45 minutes)"
+#: templates/legacy/self/oa_self_assessment.html:41
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"               <span id=\"oa_step_deadline_self\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"           "
+msgstr ""
+"\n"
+"               <span id=\"oa_step_deadline_self\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"           "
+
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "due August 13th, 2014 (in 5 days and 45
+#. minutes)"
+#: templates/legacy/self/oa_self_assessment.html:48
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"               <span id=\"oa_step_deadline_self\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"           "
+msgstr ""
+"\n"
+"               <span id=\"oa_step_deadline_self\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"           "
+
 #: templates/legacy/self/oa_self_assessment.html:88
 msgid "Submit your assessment"
 msgstr "Dien jou assessering in"
+
+#: templates/legacy/self/oa_self_closed.html:32
+msgid ""
+"The due date for this step has passed. This step is now closed. You can no "
+"longer complete a self assessment or continue with this assignment, and you "
+"will receive a grade of Incomplete."
+msgstr ""
+"Die sperdatum vir hierdie stap is verby. Hierdie stap is nou gesluit. Jy kan"
+" nie meer 'n selfassessering voltooi of met hierdie werkopdrag voortgaan "
+"nie, en jy sal 'n graad Onvoltooid ontvang."
 
 #: templates/legacy/staff/oa_staff_grade.html:13 xblock/grade_mixin.py:369
 msgid "Staff Grade"
@@ -1599,6 +2069,14 @@ msgstr "Naby"
 #: templates/legacy/staff_area/oa_staff_area.html:37
 msgid "Manage Teams"
 msgstr "Bestuur spanne"
+
+#: templates/legacy/staff_area/oa_staff_area.html:50
+msgid "Enter an individual learner's username or email"
+msgstr "Voer 'n individuele leerder se gebruikersnaam of e-posadres in"
+
+#: templates/legacy/staff_area/oa_staff_area.html:52
+msgid "Enter a team member's username or edX email"
+msgstr "Voer 'n spanlid se gebruikersnaam of edX-e-posadres in"
 
 #: templates/legacy/staff_area/oa_staff_area.html:56
 msgid "Submit"
@@ -1641,6 +2119,14 @@ msgstr "NVT"
 #: templates/legacy/staff_area/oa_staff_grade_learners.html:7
 msgid "Staff Assessment"
 msgstr "Personeel Assessering"
+
+#: templates/legacy/staff_area/oa_staff_grade_learners_assessment.html:14
+msgid "Give this team a grade using the problem's rubric."
+msgstr "Gee hierdie span 'n graad deur die probleem se rubriek te gebruik."
+
+#: templates/legacy/staff_area/oa_staff_grade_learners_assessment.html:16
+msgid "Give this learner a grade using the problem's rubric."
+msgstr "Gee hierdie leerder 'n graad deur die probleem se rubriek te gebruik."
 
 #: templates/legacy/staff_area/oa_staff_grade_learners_assessment.html:26
 #, python-format
@@ -1854,6 +2340,26 @@ msgstr "Terugvoer opgeneem"
 msgid "The submission is waiting for assessments."
 msgstr "Die voorlegging wag vir assesserings."
 
+#: templates/legacy/staff_area/oa_student_info.html:170
+msgid ""
+"The learner's submission has been removed from peer assessment. The learner "
+"receives a grade of zero unless you delete the learner's state for the "
+"problem to allow them to resubmit a response."
+msgstr ""
+"Die leerder se voorlegging is van portuurassessering verwyder. Die leerder "
+"ontvang 'n graad van nul, tensy jy die leerder se toestand vir die probleem "
+"uitvee sodat hulle weer 'n antwoord kan indien."
+
+#: templates/legacy/staff_area/oa_student_info.html:172
+msgid ""
+"The team’s submission has been removed from grading. The team receives a "
+"grade of zero unless you delete the a team member’s state for the problem to"
+" allow the team to resubmit a response."
+msgstr ""
+"Die span se voorlegging is van gradering verwyder. Die span ontvang 'n graad"
+" van nul, tensy jy 'n spanlid se toestand vir die probleem uitvee om die "
+"span toe te laat om 'n antwoord weer in te dien."
+
 #: templates/legacy/staff_area/oa_student_info.html:177
 msgid "The problem has not been started."
 msgstr "Die probleem is nie begin nie."
@@ -1882,6 +2388,16 @@ msgstr ""
 "Grade word gevries. Grade word outomaties 30 dae na die kursus se einddatum "
 "gevries."
 
+#: templates/legacy/staff_area/oa_student_info.html:212
+msgid ""
+"This submission has been cancelled and cannot recieve a grade. Refer to "
+"documentation for how to delete the learner’s state for this problem to "
+"allow them to resubmit."
+msgstr ""
+"Hierdie indiening is gekanselleer en kan nie 'n graad ontvang nie. Verwys na"
+" dokumentasie vir hoe om die leerder se toestand vir hierdie probleem uit te"
+" vee sodat hulle weer kan indien."
+
 #: templates/legacy/staff_area/oa_student_info.html:230
 msgid "Remove Submission From Peer Grading"
 msgstr "Verwyder voorlegging van portuurgradering"
@@ -1894,6 +2410,22 @@ msgstr "Verwyder Spanvoorlegging van Gradering"
 msgid "Caution: This Action Cannot Be Undone"
 msgstr "Waarskuwing: Hierdie aksie kan nie ontdoen word nie"
 
+#: templates/legacy/staff_area/oa_student_info.html:244
+msgid ""
+"Removing a learner's submission cannot be undone and should be done with "
+"caution."
+msgstr ""
+"Die verwydering van 'n leerder se voorlegging kan nie ongedaan gemaak word "
+"nie en moet met omsigtigheid gedoen word."
+
+#: templates/legacy/staff_area/oa_student_info.html:246
+msgid ""
+"Removing a team's submission cannot be undone and should be done with "
+"caution."
+msgstr ""
+"Die verwydering van 'n span se indiening kan nie ongedaan gemaak word nie en"
+" moet met omsigtigheid gedoen word."
+
 #: templates/legacy/staff_area/oa_student_info.html:252
 msgid "Comments:"
 msgstr "Opmerkings:"
@@ -1901,6 +2433,10 @@ msgstr "Opmerkings:"
 #: templates/legacy/staff_area/oa_student_info.html:261
 msgid "Remove submission"
 msgstr "Verwyder indiening"
+
+#: templates/legacy/staff_area/oa_student_info.html:276
+msgid "A response was not found for this learner."
+msgstr "'n Antwoord is nie vir hierdie leerder gevind nie."
 
 #: templates/legacy/staff_area/oa_student_info_assessment_detail.html:16
 #, python-format
@@ -1943,6 +2479,34 @@ msgstr ""
 "\n"
 "Aan die gang ( %(current_progress_num)s van %(training_available_num)s )\n"
 "                  "
+
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "available August 13th, 2014 (in 5 days and
+#. 45 minutes)"
+#: templates/legacy/student_training/student_training.html:38
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"            <span id=\"oa_step_deadline\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+msgstr ""
+"\n"
+"            <span id=\"oa_step_deadline\" class=\"date ora-datetime\" data-datetime=\"%(start_date)s\" data-string=\"available {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+
+#. Translators: This string displays a date to the user, then tells them the
+#. time until that date.  Example: "due August 13th, 2014 (in 5 days and 45
+#. minutes)"
+#: templates/legacy/student_training/student_training.html:45
+#, python-format, python-brace-format
+msgid ""
+"\n"
+"            <span id=\"oa_step_deadline\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
+msgstr ""
+"\n"
+"            <span id=\"oa_step_deadline\" class=\"date ora-datetime\" data-datetime=\"%(due_date)s\" data-string=\"due {date} (in %(time_until)s)\" data-timezone=\"%(user_timezone)s\" data-language=\"%(user_language)s\"></span>\n"
+"            "
 
 #: templates/legacy/student_training/student_training.html:58
 #: templates/legacy/student_training/student_training.html:66
@@ -2006,6 +2570,16 @@ msgstr "Ons kon nie jou aanslag nagaan nie"
 msgid "Compare your selections with the instructor's selections"
 msgstr "Vergelyk jou keuses met die instrukteur se keuses"
 
+#: templates/legacy/student_training/student_training_closed.html:29
+msgid ""
+"The due date for this step has passed. This step is now closed. You can no "
+"longer continue with this assignment, and you will receive a grade of "
+"Incomplete."
+msgstr ""
+"Die sperdatum vir hierdie stap is verby. Hierdie stap is nou gesluit. Jy kan"
+" nie meer met hierdie werkopdrag voortgaan nie, en jy sal 'n graad "
+"Onvoltooid ontvang."
+
 #: templates/legacy/student_training/student_training_error.html:18
 msgid "Error Loading Learner Training Examples"
 msgstr "Fout met laai van leerderopleidingvoorbeelde"
@@ -2018,6 +2592,10 @@ msgstr ""
 #: templates/openassessmentblock/base.html:69
 msgid "Loading Open Response Assessment..."
 msgstr "Laai tans oop reaksie-assessering..."
+
+#: xblock/grade_mixin.py:78 xblock/leaderboard_mixin.py:61
+msgid "An unexpected error occurred."
+msgstr "'n Onverwagte fout het voorgekom."
 
 #: xblock/grade_mixin.py:180
 msgid "Peer Assessment"
@@ -2080,6 +2658,15 @@ msgstr "Die graad vir hierdie probleem word bepaal deur jou personeelgraad."
 msgid "The grade for this problem is determined by your Self Assessment."
 msgstr "Die graad vir hierdie probleem word bepaal deur jou Selfassessering."
 
+#: xblock/grade_mixin.py:687
+#, python-brace-format
+msgid ""
+"You have successfully completed this problem and received a "
+"{earned_points}/{total_points}."
+msgstr ""
+"Jy het hierdie probleem suksesvol afgehandel en 'n {earned_points} / "
+"{total_points} ontvang."
+
 #: xblock/grade_mixin.py:695
 msgid ""
 "You have not yet received all necessary peer reviews to determine your final"
@@ -2139,6 +2726,11 @@ msgstr "Daar is geen voorlegging om terug te stel nie."
 #: xblock/openassessmentblock.py:1383
 msgid "Submission reset successfully."
 msgstr "Indiening is suksesvol teruggestel."
+
+#: xblock/rubric_reuse_mixin.py:62
+msgid "You must specify a block id from which to copy a rubric."
+msgstr ""
+"Jy moet 'n blok-ID spesifiseer waaruit 'n rubriek gekopieer moet word."
 
 #: xblock/rubric_reuse_mixin.py:66
 msgid "Invalid block id."
@@ -2214,6 +2806,10 @@ msgstr "Kon nie personeelgraadinligting kry nie."
 msgid "Error getting staff grade ungraded and checked out counts."
 msgstr "Fout om personeelgraad ongegradeerde en uitgeboekte tellings te kry."
 
+#: xblock/staff_area_mixin.py:703
+msgid "Please enter valid reason to remove the submission."
+msgstr "Voer asseblief 'n geldige rede in om die indiening te verwyder."
+
 #: xblock/staff_area_mixin.py:714
 msgid "Submission not found"
 msgstr "Voorlegging nie gevind nie"
@@ -2221,6 +2817,26 @@ msgstr "Voorlegging nie gevind nie"
 #: xblock/staff_area_mixin.py:725
 msgid "Submission for team assignment has no associated team submission"
 msgstr "Indiening vir spanopdrag het geen geassosieerde spanvoorlegging nie"
+
+#: xblock/staff_area_mixin.py:754
+msgid ""
+"The learner submission has been removed from peer assessment. The learner "
+"receives a grade of zero unless you delete the learner's state for the "
+"problem to allow them to resubmit a response."
+msgstr ""
+"Die leerdervoorlegging is van portuurassessering verwyder. Die leerder "
+"ontvang 'n graad van nul, tensy jy die leerder se toestand vir die probleem "
+"uitvee sodat hulle weer 'n antwoord kan indien."
+
+#: xblock/staff_area_mixin.py:789
+msgid ""
+"The team’s submission has been removed from grading. The team receives a "
+"grade of zero unless you delete a team member’s state for the problem to "
+"allow the team to resubmit a response."
+msgstr ""
+"Die span se voorlegging is van gradering verwyder. Die span ontvang 'n graad"
+" van nul tensy jy 'n spanlid se toestand vir die probleem uitvee om die span"
+" toe te laat om 'n antwoord weer in te dien."
 
 #: xblock/studio_mixin.py:247 xblock/studio_mixin.py:259
 msgid "Error updating XBlock configuration"
@@ -2266,6 +2882,44 @@ msgstr "Jy moet algehele terugvoer in die assessering gee."
 msgid "You must provide feedback for criteria in the assessment."
 msgstr "Jy moet terugvoer gee vir kriteria in die assessering."
 
+#: xblock/utils/resolve_dates.py:52
+#, python-brace-format
+msgid ""
+"'{date}' is an invalid date format. Make sure the date is formatted as YYYY-"
+"MM-DDTHH:MM:SS."
+msgstr ""
+"'{date}' is 'n ongeldige datumformaat. Maak seker dat die datum geformateer "
+"is as JJJJ-MM-DDTH:MM:SS."
+
+#: xblock/utils/resolve_dates.py:57
+#, python-brace-format
+msgid "'{date}' must be a date string or datetime"
+msgstr "'{date}' moet 'n datumstring of datumtyd wees"
+
+#: xblock/utils/resolve_dates.py:210
+#, python-brace-format
+msgid ""
+"This step's start date '{start}' cannot be earlier than the previous step's "
+"start date '{prev}'."
+msgstr ""
+"Hierdie stap se begindatum '{start}' kan nie vroeër as die vorige stap se "
+"begindatum '{prev}' wees nie."
+
+#: xblock/utils/resolve_dates.py:218
+#, python-brace-format
+msgid ""
+"This step's due date '{due}' cannot be later than the next step's due date "
+"'{prev}'."
+msgstr ""
+"Hierdie stap se sperdatum '{due}' kan nie later as die volgende stap se "
+"sperdatum '{prev}' wees nie."
+
+#: xblock/utils/resolve_dates.py:234
+#, python-brace-format
+msgid "The start date '{start}' cannot be later than the due date '{due}'"
+msgstr ""
+"Die begindatum '{start}' kan nie later as die sperdatum '{due}' wees nie"
+
 #: xblock/utils/validation.py:120
 msgid "This problem must include at least one assessment."
 msgstr "Hierdie probleem moet ten minste een assessering insluit."
@@ -2274,6 +2928,26 @@ msgstr "Hierdie probleem moet ten minste een assessering insluit."
 msgid "The assessment order you selected is invalid."
 msgstr "Die assesseringsvolgorde wat jy gekies het, is ongeldig."
 
+#: xblock/utils/validation.py:134
+msgid "In peer assessment, the \"Must Grade\" value must be a positive integer."
+msgstr ""
+"In portuurassessering moet die \"Moet Gradeer\"-waarde 'n positiewe "
+"heelgetal wees."
+
+#: xblock/utils/validation.py:137
+msgid "In peer assessment, the \"Graded By\" value must be a positive integer."
+msgstr ""
+"In eweknie-assessering moet die \"Gegradeer deur\"-waarde 'n positiewe "
+"heelgetal wees."
+
+#: xblock/utils/validation.py:141
+msgid ""
+"In peer assessment, the \"Must Grade\" value must be greater than or equal "
+"to the \"Graded By\" value."
+msgstr ""
+"In portuurassessering moet die \"Moet Gradeer\"-waarde groter as of gelyk "
+"wees aan die \"Gegradeer Deur\"-waarde."
+
 #: xblock/utils/validation.py:150
 msgid "You must provide at least one example response for learner training."
 msgstr "Jy moet ten minste een voorbeeldreaksie vir leerderopleiding verskaf."
@@ -2281,6 +2955,12 @@ msgstr "Jy moet ten minste een voorbeeldreaksie vir leerderopleiding verskaf."
 #: xblock/utils/validation.py:153
 msgid "Each example response for learner training must be unique."
 msgstr "Elke voorbeeldreaksie vir leerderopleiding moet uniek wees."
+
+#: xblock/utils/validation.py:160
+msgid "The \"required\" value must be true if staff assessment is the only step."
+msgstr ""
+"Die \"vereiste\" waarde moet waar wees as personeelassessering die enigste "
+"stap is."
 
 #: xblock/utils/validation.py:164
 msgid ""
@@ -2313,9 +2993,38 @@ msgstr "Hierdie rubriekdefinisie is nie geldig nie."
 msgid "You must provide at least one prompt."
 msgstr "Jy moet ten minste een aansporing verskaf."
 
+#: xblock/utils/validation.py:209
+#, python-brace-format
+msgid "Options in '{criterion}' have duplicate name(s): {duplicates}"
+msgstr "Opsies in '{criterion}' het duplikaatnaam(e): {duplicates}"
+
 #: xblock/utils/validation.py:217
 msgid "Criteria with no options must require written feedback."
 msgstr "Kriteria met geen opsies nie moet skriftelike terugvoer vereis."
+
+#: xblock/utils/validation.py:226
+msgid "Prompts cannot be created or deleted after a problem is released."
+msgstr ""
+"Vrae kan nie geskep of uitgevee word nadat 'n probleem vrygestel is nie."
+
+#: xblock/utils/validation.py:230
+msgid "The number of criteria cannot be changed after a problem is released."
+msgstr ""
+"Die aantal kriteria kan nie verander word nadat 'n probleem vrygestel is "
+"nie."
+
+#: xblock/utils/validation.py:243
+msgid "Criteria names cannot be changed after a problem is released"
+msgstr "Kriterianame kan nie verander word nadat 'n probleem vrygestel is nie"
+
+#: xblock/utils/validation.py:248
+msgid "The number of options cannot be changed after a problem is released."
+msgstr ""
+"Die aantal opsies kan nie verander word nadat 'n probleem vrygestel is nie."
+
+#: xblock/utils/validation.py:253
+msgid "Point values cannot be changed after a problem is released."
+msgstr "Puntwaardes kan nie verander word nadat 'n probleem vrygestel is nie."
 
 #: xblock/utils/validation.py:304
 msgid "Learner training must have at least one training example."
