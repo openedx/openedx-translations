@@ -5524,6 +5524,11 @@ msgstr "Tworzone jest archiwum załączników."
 msgid "grade"
 msgstr "ocena"
 
+#: lms/djangoapps/instructor/views/api.py:2938
+#: lms/djangoapps/instructor_task/api_helper.py:108
+msgid "problem grade"
+msgstr "ocena problemu"
+
 #: lms/djangoapps/instructor/views/api.py:3205
 msgid "All fields must be filled out"
 msgstr "Należy wypełnić wszystkie pola"
@@ -6531,6 +6536,10 @@ msgstr "należy podać identyfikator kursu"
 msgid "The supplied course id {course_id} is not valid."
 msgstr "Podany identyfikator kursu {course_id} jest nieprawidłowy."
 
+#: lms/djangoapps/teams/views.py:443
+msgid "text_search and order_by cannot be provided together"
+msgstr "Text_search I Order_by nie mogą być podane razem"
+
 #: lms/djangoapps/teams/views.py:454
 #, python-brace-format
 msgid "The supplied topic id {topic_id} is not valid"
@@ -6585,6 +6594,10 @@ msgstr "należy podać nazwę użytkownika lub (team_id lub teamset_id)."
 #: lms/djangoapps/teams/views.py:1441
 msgid "Username is required."
 msgstr "Wymagana jest Nazwa użytkownika."
+
+#: lms/djangoapps/teams/views.py:1444
+msgid "Team id is required."
+msgstr "Identyfikator zespołu jest wymagany."
 
 #: lms/djangoapps/teams/views.py:1473
 msgid "This team is already full."
@@ -6734,6 +6747,19 @@ msgstr ""
 "            \n"
 "Ten e-mail został automatycznie wysłany z %(platform_name)s.\n"
 "\n"
+"          "
+
+#: lms/templates/bulk_email/edx_ace/bulkemail/email/body.html:24
+#, python-format
+msgid ""
+"\n"
+"            You are receiving this email at address %(email)s because you are enrolled in\n"
+"          "
+msgstr ""
+"\n"
+"            ```\n"
+"Otrzymujesz tę wiadomość e-mail na adres %(email)s, ponieważ jesteś zapisany na kurs\n"
+"```\n"
 "          "
 
 #: lms/templates/bulk_email/edx_ace/bulkemail/email/body.html:30
@@ -6951,6 +6977,19 @@ msgstr "Możesz uzyskać dostęp do swojego kursu pod adresem: %(course_url)s."
 #, python-format
 msgid "You have been enrolled in %(course_name)s"
 msgstr "Zostałeś zapisany na kurs \"%(course_name)s\""
+
+#: lms/templates/instructor/edx_ace/addbetatester/email/body.html:12
+#, python-format
+msgid ""
+"\n"
+"                    You have been invited to be a beta tester for %(course_name)s at %(site_name)s\n"
+"                "
+msgstr ""
+"\n"
+"                    ```\n"
+"Zostałeś/aś zaproszony/a jako beta tester w %(course_name)s na %(site_name)s\n"
+"```\n"
+"                "
 
 #: lms/templates/instructor/edx_ace/addbetatester/email/body.html:20
 msgid "The invitation has been sent by a member of the course staff."
@@ -7210,6 +7249,19 @@ msgstr ""
 "Zostałeś wypisany z kursu %(course_name)s. Prosimy o zignorowanie wcześniej "
 "wysłanego zaproszenia."
 
+#: lms/templates/instructor/edx_ace/enrolledunenroll/email/body.html:12
+#, python-format
+msgid ""
+"\n"
+"                    You have been unenrolled from %(course_name)s\n"
+"                "
+msgstr ""
+"\n"
+"                    ```\n"
+"Wypisano Cię z %(course_name)s\n"
+"```\n"
+"                "
+
 #: lms/templates/instructor/edx_ace/enrolledunenroll/email/body.html:21
 #: lms/templates/instructor/edx_ace/enrolledunenroll/email/body.txt:3
 #, python-format
@@ -7244,6 +7296,19 @@ msgid ""
 msgstr ""
 "Zostałeś wypisany z %(course_name)s na %(site_name)s. Ten kurs nie będzie "
 "już wyświetlany na pulpicie nawigacyjnym %(site_name)s."
+
+#: lms/templates/instructor/edx_ace/enrollenrolled/email/body.html:12
+#, python-format
+msgid ""
+"\n"
+"                    You have been enrolled in %(course_name)s\n"
+"                "
+msgstr ""
+"\n"
+"                    ```\n"
+"Zostałeś zapisany na %(course_name)s\n"
+"```\n"
+"                "
 
 #: lms/templates/instructor/edx_ace/enrollenrolled/email/body.html:21
 #: lms/templates/instructor/edx_ace/enrollenrolled/email/body.txt:3
@@ -7790,6 +7855,10 @@ msgstr "Przejdź na tę wersję"
 #: lms/templates/wiki/history.html:237
 msgid "Merge Revision"
 msgstr "Scal wersję"
+
+#: lms/templates/wiki/history.html:241
+msgid "Merge with current"
+msgstr "Scal z obecną"
 
 #: lms/templates/wiki/history.html:242
 msgid ""
@@ -8582,6 +8651,22 @@ msgstr "Wygasły"
 msgid "Staged Content"
 msgstr "Zawartość inscenizowana"
 
+#: openedx/core/djangoapps/content_staging/models.py:55
+msgid ""
+"\n"
+"            What type of content is staged. Only OLX content is supported, and\n"
+"            this field must be the same as the root tag of the OLX.\n"
+"            e.g. \"video\" if a video is staged, or \"vertical\" for a unit.\n"
+"        "
+msgstr ""
+"\n"
+"            ```\n"
+"Jaki rodzaj zawartości jest wystawiany. Obsługiwane są tylko zawartości OLX i\n"
+"to pole musi być takie samo jak tag główny OLX.\n"
+"np. „wideo”, jeśli wideo jest wystawiane, lub „pionowo” w przypadku jednostki.\n"
+"```\n"
+"        "
+
 #: openedx/core/djangoapps/content_staging/models.py:72
 msgid "Content tags applied to these blocks"
 msgstr "Tagi Zawartość zastosowane do tych bloków"
@@ -9350,6 +9435,11 @@ msgstr "Ostatnia aktywność"
 msgid "View all"
 msgstr "Wyświetl wszystkie"
 
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_content.html:50
+#: openedx/core/djangoapps/notifications/templates/notifications/immediate_email_content.html:27
+msgid "View"
+msgstr "Wyświetl"
+
 #: openedx/core/djangoapps/notifications/templates/notifications/digest_content.html:63
 msgid "more"
 msgstr "więcej"
@@ -9398,6 +9488,13 @@ msgstr "Codzienne powiadomienia Digest dla"
 #: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:5
 msgid "Email Digest Preferences Updated"
 msgstr "Zaktualizowano preferencje przesyłania wiadomości e-mail"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:9
+msgid ""
+"You have successfully unsubscribed from email digest for learning activity"
+msgstr ""
+"Pomyślnie zrezygnowano z subskrypcji wiadomości e-mail dotyczących "
+"aktywności edukacyjnych."
 
 #: openedx/core/djangoapps/notifications/views.py:174
 msgid "Invalid app name."
@@ -9571,6 +9668,12 @@ msgstr "Wskazuje, czy ten harmonogram jest aktywnie używany"
 #: openedx/core/djangoapps/schedules/models.py:27
 msgid "Date this schedule went into effect"
 msgstr "Data, od której ten harmonogram wszedł w życie"
+
+#: openedx/core/djangoapps/schedules/models.py:35
+msgid "Deadline by which the learner must upgrade to a verified seat"
+msgstr ""
+"Termin końcowy przed którym student musi zaktualizować rejestrację do "
+"ścieżki potwierdzonej"
 
 #: openedx/core/djangoapps/schedules/models.py:46
 msgid "Schedule"
@@ -10317,6 +10420,17 @@ msgstr "Nazwisko"
 msgid "Mailing address"
 msgstr "Adres pocztowy"
 
+#. Translators: This label appears above a field
+#. which allows the user to input the State/Province/Region in which they
+#. live.
+#. Translators: This label appears above a field on the registration form
+#. which allows the user to input the State/Province/Region in which they
+#. live.
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:274
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:865
+msgid "State/Province/Region"
+msgstr "Województwo"
+
 #. Translators: This label appears above a dropdown menu to select
 #. the user's work experience
 #: openedx/core/djangoapps/user_authn/api/form_fields.py:376
@@ -10482,6 +10596,12 @@ msgstr ""
 #, python-brace-format
 msgid "The email address you used to register with {platform_name}"
 msgstr "Adres e-mail, którego użyłeś do rejestracji w {platform_name}"
+
+#. Translators: This example email address is used as a placeholder in
+#. a field on the password reset form meant to hold the user's email address.
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:94
+msgid "username@domain.com"
+msgstr "nazwa użytkownika@domain.com"
 
 #: openedx/core/djangoapps/user_authn/views/password_reset.py:183
 msgid ""
@@ -11854,6 +11974,10 @@ msgstr "Najwyższy wynik"
 #: xmodule/capa_block.py:218 xmodule/capa_block.py:508
 msgid "Average Score"
 msgstr "Średni wynik"
+
+#: xmodule/capa_block.py:221
+msgid "Date that this problem is due by"
+msgstr "Ostateczny termin na ukończenie ćwiczenia"
 
 #: xmodule/capa_block.py:223
 msgid "Amount of time after the due date that submissions will be accepted"
