@@ -6005,6 +6005,12 @@ msgstr "Wystąpił błąd. Zadanie nie zostało utworzone."
 
 #. Translators: This is a past-tense verb that is inserted into task progress
 #. messages as {action}.
+#: lms/djangoapps/instructor_task/tasks.py:82
+msgid "rescored"
+msgstr "ponownie oceniono"
+
+#. Translators: This is a past-tense verb that is inserted into task progress
+#. messages as {action}.
 #: lms/djangoapps/instructor_task/tasks.py:96
 #: lms/djangoapps/instructor_task/tasks_helper/module_state.py:67
 msgid "overridden"
@@ -6031,6 +6037,12 @@ msgstr "usunięto"
 
 #. Translators: This is a past-tense verb that is inserted into task progress
 #. messages as {action}.
+#: lms/djangoapps/instructor_task/tasks.py:166
+msgid "emailed"
+msgstr "wysłane e-mailem"
+
+#. Translators: This is a past-tense verb that is inserted into task progress
+#. messages as {action}.
 #: lms/djangoapps/instructor_task/tasks.py:194
 msgid "graded"
 msgstr "oceniono"
@@ -6041,9 +6053,338 @@ msgstr "oceniono"
 msgid "problem distribution graded"
 msgstr "Rozkład ocen zadania"
 
+#. Translators: This is a past-tense verb that is inserted into task progress
+#. messages as {action}.
+#: lms/djangoapps/instructor_task/tasks.py:295
+msgid "certificates generated"
+msgstr "wygenerowane certyfikaty"
+
+#. Translators: This is a past-tense verb that is inserted into task progress
+#. messages as {action}.
+#. An example of such a message is: "Progress: {action} {succeeded} of
+#. {attempted} so far"
+#: lms/djangoapps/instructor_task/tasks.py:313
+msgid "cohorted"
+msgstr "zgrupowane"
+
+#. Translators: This is a past-tense verb that is inserted into task progress
+#. messages as {action}.
+#. An example of such a message is: "Progress: {action} {succeeded} of
+#. {attempted} so far"
+#: lms/djangoapps/instructor_task/tasks.py:326
+msgid "generate_anonymized_id"
+msgstr "wygeneruj_anonimizowany_id"
+
 #: lms/djangoapps/instructor_task/tasks.py:349
 msgid "compressed"
 msgstr "skompresowano"
+
+#: lms/djangoapps/instructor_task/views.py:106
+#: lms/djangoapps/instructor_task/views.py:111
+msgid "No status information available"
+msgstr "Brak dostępnych informacji o statusie"
+
+#: lms/djangoapps/instructor_task/views.py:110
+#, python-brace-format
+msgid "No task_output information found for instructor_task {0}"
+msgstr ""
+"Nie znaleziono informacji wyjściowych zadania dla zadania instruktora {0}"
+
+#: lms/djangoapps/instructor_task/views.py:116
+#, python-brace-format
+msgid "No parsable task_output information found for instructor_task {0}: {1}"
+msgstr ""
+"Nie znaleziono analizowalnych informacji wyjściowych zadania dla "
+"zadania_instruktora {0} : {1}"
+
+#: lms/djangoapps/instructor_task/views.py:118
+msgid "No parsable status information available"
+msgstr "Brak dostępnych informacji o statusie umożliwiających analizę"
+
+#: lms/djangoapps/instructor_task/views.py:121
+msgid "No message provided"
+msgstr "Brak wiadomości"
+
+#: lms/djangoapps/instructor_task/views.py:124
+#, python-brace-format
+msgid "Invalid task_output information found for instructor_task {0}: {1}"
+msgstr ""
+"Znaleziono nieprawidłowe informacje wyjściowe zadania dla "
+"zadania_instruktora {0} : {1}"
+
+#: lms/djangoapps/instructor_task/views.py:126
+msgid "No progress status information available"
+msgstr "Brak dostępnych informacji o stanie postępu"
+
+#: lms/djangoapps/instructor_task/views.py:145
+#, python-brace-format
+msgid "No parsable task_input information found for instructor_task {0}: {1}"
+msgstr ""
+"Nie znaleziono analizowalnych informacji wejściowych zadania_zadania dla "
+"zadania_instruktora {0} : {1}"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#. {attempted} and {succeeded} are counts.  # lint-amnesty, pylint:
+#. disable=line-too-long
+#: lms/djangoapps/instructor_task/views.py:156
+#, python-brace-format
+msgid "Progress: {action} {succeeded} of {attempted} so far"
+msgstr "Postęp: {action} {succeeded} z {attempted} jak dotąd"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#. {student} is a student identifier.  # lint-amnesty, pylint: disable=line-
+#. too-long
+#: lms/djangoapps/instructor_task/views.py:161
+#, python-brace-format
+msgid "Unable to find submission to be {action} for student '{student}'"
+msgstr "Nie można znaleźć przesłania {action} dla ucznia „{student}”"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#. {student} is a student identifier.  # lint-amnesty, pylint: disable=line-
+#. too-long
+#: lms/djangoapps/instructor_task/views.py:164
+#, python-brace-format
+msgid "Problem failed to be {action} for student '{student}'"
+msgstr "Problemem nie był {action} dla ucznia „{student}”"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#. {student} is a student identifier.  # lint-amnesty, pylint: disable=line-
+#. too-long
+#: lms/djangoapps/instructor_task/views.py:168
+#, python-brace-format
+msgid "Problem successfully {action} for student '{student}'"
+msgstr "Problem pomyślnie {action} dla ucznia „{student}”"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#. {student} is a student identifier.
+#: lms/djangoapps/instructor_task/views.py:174
+#, python-brace-format
+msgid ""
+"Unable to find entrance exam submission to be {action} for student "
+"'{student}'"
+msgstr ""
+"Nie można znaleźć przesłanego egzaminu wstępnego {action} dla ucznia "
+"„{student}”"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#. {student} is a student identifier.
+#: lms/djangoapps/instructor_task/views.py:179
+#, python-brace-format
+msgid "Entrance exam successfully {action} for student '{student}'"
+msgstr "Egzamin wstępny zdał pomyślnie {action} dla ucznia „{student}”"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#: lms/djangoapps/instructor_task/views.py:184
+#, python-brace-format
+msgid "Unable to find any students with submissions to be {action}"
+msgstr "Nie można znaleźć żadnych uczniów z przesłanymi zadaniami {action}"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#. {attempted} is a count.
+#: lms/djangoapps/instructor_task/views.py:187
+#, python-brace-format
+msgid "Problem failed to be {action} for any of {attempted} students"
+msgstr "Problemem nie był {action} dla żadnego z uczniów {attempted}"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#. {attempted} is a count.
+#: lms/djangoapps/instructor_task/views.py:191
+#, python-brace-format
+msgid "Problem successfully {action} for {attempted} students"
+msgstr "Problem pomyślnie {action} dla studentów {attempted}"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#. {succeeded} and {attempted} are counts.  # lint-amnesty, pylint:
+#. disable=line-too-long
+#: lms/djangoapps/instructor_task/views.py:194
+#, python-brace-format
+msgid "Problem {action} for {succeeded} of {attempted} students"
+msgstr "Problem {action} dla {succeeded} uczniów {attempted}"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#: lms/djangoapps/instructor_task/views.py:199
+#, python-brace-format
+msgid "Unable to find any recipients to be {action}"
+msgstr "Nie można znaleźć odbiorców o adresie {action}"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#. {attempted} is a count.
+#: lms/djangoapps/instructor_task/views.py:202
+#, python-brace-format
+msgid "Message failed to be {action} for any of {attempted} recipients "
+msgstr "Wiadomość nie mogła być {action} dla żadnego z odbiorców {attempted} "
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#. {attempted} is a count.
+#: lms/djangoapps/instructor_task/views.py:206
+#, python-brace-format
+msgid "Message successfully {action} for {attempted} recipients"
+msgstr "Wiadomość pomyślnie {action} dla odbiorców {attempted}"
+
+#. Translators: {action} is a past-tense verb that is localized separately.
+#. {succeeded} and {attempted} are counts.  # lint-amnesty, pylint:
+#. disable=line-too-long
+#: lms/djangoapps/instructor_task/views.py:213
+#, python-brace-format
+msgid "Status: {action} {succeeded} of {attempted}"
+msgstr "Status: {action} {succeeded} z {attempted}"
+
+#. Translators: {skipped} is a count.  This message is appended to task
+#. progress status messages.
+#: lms/djangoapps/instructor_task/views.py:217
+#, python-brace-format
+msgid " (skipping {skipped})"
+msgstr " (pomijam {skipped} )"
+
+#. Translators: {total} is a count.  This message is appended to task progress
+#. status messages.
+#: lms/djangoapps/instructor_task/views.py:221
+#, python-brace-format
+msgid " (out of {total})"
+msgstr " (z {total} )"
+
+#: lms/djangoapps/learner_dashboard/programs.py:78
+#: openedx/core/djangoapps/ace_common/templates/ace_common/edx_ace/common/base_body.html:103
+#: lms/templates/header/navbar-authenticated.html:42
+#: lms/templates/learner_dashboard/programs.html:11
+#: lms/templates/navigation/bootstrap/navbar-authenticated.html:45
+#: lms/templates/navigation/navbar-authenticated.html:28
+msgid "Programs"
+msgstr "Programy"
+
+#: lms/djangoapps/learner_dashboard/programs.py:155
+#: lms/templates/learner_dashboard/program_details.html:11
+msgid "Program Details"
+msgstr "Szczegóły programu"
+
+#: lms/djangoapps/lms_xblock/mixin.py:23
+msgid ""
+"This component's access settings refer to deleted or invalid group "
+"configurations."
+msgstr ""
+"Ustawienia dostępu tego komponentu odnoszą się do usuniętych lub "
+"nieprawidłowych konfiguracji grup."
+
+#: lms/djangoapps/lms_xblock/mixin.py:26
+msgid ""
+"This unit's access settings refer to deleted or invalid group "
+"configurations."
+msgstr ""
+"Ustawienia dostępu tego urządzenia odnoszą się do usuniętych lub "
+"nieprawidłowych konfiguracji grup."
+
+#: lms/djangoapps/lms_xblock/mixin.py:29
+msgid "This component's access settings refer to deleted or invalid groups."
+msgstr ""
+"Ustawienia dostępu tego komponentu odnoszą się do usuniętych lub "
+"nieprawidłowych grup."
+
+#: lms/djangoapps/lms_xblock/mixin.py:31
+msgid "This unit's access settings refer to deleted or invalid groups."
+msgstr ""
+"Ustawienia dostępu tego urządzenia odnoszą się do usuniętych lub "
+"nieprawidłowych grup."
+
+#: lms/djangoapps/lms_xblock/mixin.py:32
+msgid ""
+"This component's access settings contradict its parent's access settings."
+msgstr ""
+"Ustawienia dostępu tego komponentu są sprzeczne z ustawieniami dostępu jego "
+"elementu nadrzędnego."
+
+#: lms/djangoapps/lms_xblock/mixin.py:56
+msgid "Whether to display this block in the table of contents"
+msgstr "Określa, czy wyświetlać ten blok w spisie treści"
+
+#. Translators: "TOC" stands for "Table of Contents"
+#: lms/djangoapps/lms_xblock/mixin.py:62
+msgid ""
+"What format this block is in (used for deciding which grader to apply, and "
+"what to show in the TOC)"
+msgstr ""
+"W jakim formacie jest ten blok (używany do decydowania, którego równiarza "
+"zastosować i co pokazać w spisie treści)"
+
+#: lms/djangoapps/lms_xblock/mixin.py:67
+msgid "Course Chrome"
+msgstr "Kurs Chrome"
+
+#. Translators: DO NOT translate the words in quotes here, they are
+#. specific words for the acceptable values.
+#: lms/djangoapps/lms_xblock/mixin.py:70
+msgid ""
+"Enter the chrome, or navigation tools, to use for the XBlock in the LMS. Valid values are: \n"
+"\"chromeless\" -- to not use tabs or the accordion; \n"
+"\"tabs\" -- to use tabs only; \n"
+"\"accordion\" -- to use the accordion only; or \n"
+"\"tabs,accordion\" -- to use tabs and the accordion."
+msgstr ""
+"Wprowadź narzędzia Chrome lub nawigacyjne, których chcesz używać w XBlock w LMS. Prawidłowe wartości to:\n"
+" „bezchromowy” – aby nie używać tabulatorów ani akordeonu;\n"
+" &quot;tabs&quot; - aby używać tylko zakładek;\n"
+" „akordeon” – używać wyłącznie akordeonu; Lub\n"
+" „tabs,accordion” — aby używać tabulatorów i akordeonu."
+
+#: lms/djangoapps/lms_xblock/mixin.py:79
+msgid "Default Tab"
+msgstr "Zakładka domyślna"
+
+#: lms/djangoapps/lms_xblock/mixin.py:80
+msgid ""
+"Enter the tab that is selected in the XBlock. If not set, the Course tab is "
+"selected."
+msgstr ""
+"Wejdź na zakładkę wybraną w XBlock. Jeśli nie ustawiono, wybrana zostanie "
+"zakładka Kurs."
+
+#: lms/djangoapps/lms_xblock/mixin.py:85
+msgid "LaTeX Source File Name"
+msgstr "Nazwa pliku źródłowego LaTeX"
+
+#: lms/djangoapps/lms_xblock/mixin.py:86
+msgid "Enter the source file name for LaTeX."
+msgstr "Wprowadź nazwę pliku źródłowego dla LaTeX-a."
+
+#: lms/djangoapps/lms_xblock/mixin.py:91 xmodule/modulestore/inheritance.py:58
+msgid "If true, can be seen only by course staff, regardless of start date."
+msgstr ""
+"Jeśli to prawda, może zobaczyć tylko personel kursu, niezależnie od daty "
+"rozpoczęcia."
+
+#: lms/djangoapps/lms_xblock/mixin.py:97
+msgid ""
+"A dictionary that maps which groups can be shown this block. The keys are "
+"group configuration ids and the values are a list of group IDs. If there is "
+"no key for a group configuration or if the set of group IDs is empty then "
+"the block is considered visible to all. Note that this field is ignored if "
+"the block is visible_to_staff_only."
+msgstr ""
+"Słownik mapujący, które grupy mogą być wyświetlane w tym bloku. Klucze to "
+"identyfikatory konfiguracji grup, a wartości to lista identyfikatorów grup. "
+"Jeśli nie ma klucza do konfiguracji grupy lub jeśli zestaw identyfikatorów "
+"grup jest pusty, blok jest uważany za widoczny dla wszystkich. Należy "
+"pamiętać, że to pole jest ignorowane, jeśli blok jest widoczny tylko dla "
+"personelu."
+
+#: lms/djangoapps/lms_xblock/mixin.py:146 xmodule/split_test_block.py:90
+msgid ""
+"The list of group configurations for partitioning students in content "
+"experiments."
+msgstr ""
+"Lista konfiguracji grup do podziału uczniów w eksperymentach dotyczących "
+"treści."
+
+#: lms/djangoapps/lti_provider/models.py:39
+msgid ""
+"When checked, the LTI content will load only for learners who have an "
+"account in this instance. This is required only for linking learner accounts"
+" with the LTI consumer. See the Open edX LTI Provider documentation for more"
+" details."
+msgstr ""
+"Po zaznaczeniu zawartość LTI będzie ładowana tylko dla uczniów, którzy mają "
+"konto w tej instancji. Jest to wymagane tylko w przypadku łączenia kont "
+"uczniów z konsumentem LTI. Więcej szczegółów znajdziesz w dokumentacji "
+"dostawcy Open edX LTI."
 
 #: lms/djangoapps/lti_provider/models.py:44
 msgid ""
@@ -6054,6 +6395,189 @@ msgstr ""
 "Gdy zaznaczone, platforma automatycznie wykorzysta wszelkie dane osobowe "
 "dostarczone za pośrednictwem LTI do utworzenia konta. W przeciwnym razie "
 "zostanie utworzone anonimowe konto."
+
+#: lms/djangoapps/program_enrollments/models.py:57
+msgid "One of user or external_user_key must not be null."
+msgstr "Jeden z user lub external_user_key nie może mieć wartości null."
+
+#: lms/djangoapps/support/views/index.py:16
+msgid "View and regenerate certificates."
+msgstr "Przeglądaj i regeneruj certyfikaty."
+
+#: lms/djangoapps/support/views/index.py:20
+#: lms/templates/ccx/coach_dashboard.html:60
+#: lms/templates/ccx/enrollment.html:8
+#: lms/templates/support/enrollment.html:22
+msgid "Enrollment"
+msgstr "Zapisy"
+
+#: lms/djangoapps/support/views/index.py:21
+msgid "View and update learner enrollments."
+msgstr "Przeglądaj i aktualizuj zapisy uczniów."
+
+#: lms/djangoapps/support/views/index.py:25
+#: lms/templates/support/manage_user.html:23
+msgid "Manage User"
+msgstr "Zarządzaj użytkownikiem"
+
+#: lms/djangoapps/support/views/index.py:26
+msgid "Disable User Account"
+msgstr "Wyłącz konto użytkownika"
+
+#: lms/djangoapps/support/views/index.py:30
+#: lms/templates/support/entitlement.html:19
+msgid "Entitlements"
+msgstr "Uprawnienia"
+
+#: lms/djangoapps/support/views/index.py:31
+msgid "View, create, and reissue learner entitlements"
+msgstr "Przeglądaj, twórz i wydawaj ponownie uprawnienia ucznia"
+
+#: lms/djangoapps/support/views/index.py:35
+#: lms/templates/support/feature_based_enrollments.html:11
+msgid "Feature Based Enrollments"
+msgstr "Rejestracje oparte na funkcjach"
+
+#: lms/djangoapps/support/views/index.py:36
+msgid "View feature based enrollment settings"
+msgstr "Wyświetl ustawienia rejestracji oparte na funkcjach"
+
+#: lms/djangoapps/support/views/index.py:40
+#: lms/templates/support/link_program_enrollments.html:19
+msgid "Link Program Enrollments"
+msgstr "Połącz zapisy w programie"
+
+#: lms/djangoapps/support/views/index.py:41
+msgid "Link LMS users to program enrollments"
+msgstr "Połącz użytkowników LMS z rejestracjami w programie"
+
+#: lms/djangoapps/support/views/index.py:45
+msgid "Program Enrollments Inspector Tool"
+msgstr "Narzędzie inspektora rejestracji w programie"
+
+#: lms/djangoapps/support/views/index.py:46
+msgid "Find information related to a learner's program enrollments"
+msgstr "Znajdź informacje związane z zapisami ucznia do programu"
+
+#: lms/djangoapps/support/views/manage_user.py:35
+#: lms/templates/tracking_log.html:6
+msgid "username"
+msgstr "nazwa użytkownika"
+
+#: lms/djangoapps/support/views/manage_user.py:36
+msgid "user_support_url"
+msgstr "adres_pomocy_użytkownika"
+
+#: lms/djangoapps/support/views/manage_user.py:37
+msgid "user_detail_url"
+msgstr "adres_szczegółowy_użytkownika"
+
+#: lms/djangoapps/support/views/manage_user.py:62
+#: lms/djangoapps/support/views/manage_user.py:90
+msgid "Usable"
+msgstr "Nadający się do użytku"
+
+#: lms/djangoapps/support/views/manage_user.py:62
+#: lms/djangoapps/support/views/manage_user.py:93
+msgid "Unusable"
+msgstr "Nie nadaje się do użytku"
+
+#: lms/djangoapps/support/views/manage_user.py:91
+msgid "User Enabled Successfully"
+msgstr "Użytkownik włączył pomyślnie"
+
+#: lms/djangoapps/support/views/manage_user.py:94
+msgid "User Disabled Successfully"
+msgstr "Użytkownik został wyłączony pomyślnie"
+
+#: lms/djangoapps/survey/utils.py:20
+msgid "You must complete a survey"
+msgstr "Musisz wypełnić ankietę"
+
+#: lms/djangoapps/teams/models.py:141
+msgid "Optional language the team uses as ISO 639-1 code."
+msgstr "Opcjonalny język, którego zespół używa jako kod ISO 639-1."
+
+#: lms/djangoapps/teams/plugins.py:29 lms/djangoapps/teams/plugins.py:53
+#: lms/djangoapps/teams/templates/teams/teams.html:16
+msgid "Teams"
+msgstr "Zespoły"
+
+#: lms/djangoapps/teams/plugins.py:54
+msgid "Leverage teams to allow learners to connect by topic of interest."
+msgstr ""
+"Wykorzystaj zespoły, aby umożliwić uczniom łączenie się według "
+"interesujących ich tematów."
+
+#: lms/djangoapps/teams/views.py:417
+msgid "course_id must be provided"
+msgstr "należy podać identyfikator kursu"
+
+#: lms/djangoapps/teams/views.py:427 lms/djangoapps/teams/views.py:1007
+#, python-brace-format
+msgid "The supplied course id {course_id} is not valid."
+msgstr "Podany identyfikator kursu {course_id} jest nieprawidłowy."
+
+#: lms/djangoapps/teams/views.py:443
+msgid "text_search and order_by cannot be provided together"
+msgstr "Text_search i Order_by nie mogą być podane razem"
+
+#: lms/djangoapps/teams/views.py:454
+#, python-brace-format
+msgid "The supplied topic id {topic_id} is not valid"
+msgstr "Podany identyfikator tematu {topic_id} jest nieprawidłowy"
+
+#: lms/djangoapps/teams/views.py:474
+msgid "Error connecting to elasticsearch"
+msgstr "Błąd łączenia z Elasticsearch"
+
+#. Translators: 'ordering' is a string describing a way
+#. of ordering a list. For example, {ordering} may be
+#. 'name', indicating that the user wants to sort the
+#. list by lower case name.
+#: lms/djangoapps/teams/views.py:536 lms/djangoapps/teams/views.py:1034
+#, python-brace-format
+msgid "The ordering {ordering} is not supported"
+msgstr "Zamawianie {ordering} nie jest obsługiwane"
+
+#: lms/djangoapps/teams/views.py:563
+#, python-brace-format
+msgid "The supplied course_id {course_id} is not valid."
+msgstr "Podany identyfikator kursu {course_id} jest nieprawidłowy."
+
+#: lms/djangoapps/teams/views.py:573
+msgid "topic_id is required"
+msgstr "topic_id jest wymagany"
+
+#: lms/djangoapps/teams/views.py:592
+msgid "You can't create a team in an instructor managed topic."
+msgstr "Nie możesz utworzyć zespołu w temacie zarządzanym przez instruktora."
+
+#: lms/djangoapps/teams/views.py:604
+msgid "You are already in a team in this teamset."
+msgstr "Jesteś już w zespole w tym zestawie."
+
+#: lms/djangoapps/teams/views.py:1350
+msgid "teamset_id and team_id are mutually exclusive options."
+msgstr "teamset_id i team_id to opcje wzajemnie się wykluczające."
+
+#: lms/djangoapps/teams/views.py:1370
+msgid "teamset_id requires course_id to also be provided."
+msgstr "teamset_id wymaga również podania identyfikatora kursu."
+
+#: lms/djangoapps/teams/views.py:1386 lms/djangoapps/teams/views.py:1399
+msgid "No teamset found in given course with given id"
+msgstr "Nie znaleziono zespołu na danym kursie o podanym identyfikatorze"
+
+#: lms/djangoapps/teams/views.py:1420
+msgid "username or (team_id or teamset_id) must be specified."
+msgstr ""
+"należy podać nazwę użytkownika lub (id_zespołu lub identyfikator zestawu "
+"zespołu)."
+
+#: lms/djangoapps/user_tours/models.py:19
+msgid "Show existing user tour"
+msgstr "Pokaż istniejący przewodnik użytkownika"
 
 #: xmodule/capa/responsetypes.py:3893
 #, python-brace-format
