@@ -54,6 +54,10 @@ msgstr "Utworzony"
 msgid "Download Software Clicked"
 msgstr "Kliknięto opcję pobierania oprogramowania"
 
+#: admin.py:394
+msgid "Ready To Start"
+msgstr "Gotowy do rozpoczęcia"
+
 #: admin.py:395
 msgid "Started"
 msgstr "Rozpoczęty"
@@ -70,6 +74,10 @@ msgstr "Odrzucony"
 msgid "Timed Out"
 msgstr "Przekroczono limit czasu"
 
+#: admin.py:399
+msgid "Submitted"
+msgstr "Złożono"
+
 #: admin.py:400
 msgid "Second Review Required"
 msgstr "Wymagana druga recenzja"
@@ -78,9 +86,17 @@ msgstr "Wymagana druga recenzja"
 msgid "Verified"
 msgstr "Zweryfikowano"
 
+#: admin.py:402
+msgid "Rejected"
+msgstr "Odrzucono"
+
 #: admin.py:403
 msgid "Error"
 msgstr "Błąd"
+
+#: admin.py:407
+msgid "Onboarding Missing"
+msgstr "Onboarding nieukończony"
 
 #: admin.py:408
 msgid "Onboarding Failed"
@@ -120,6 +136,14 @@ msgstr "Dostępna opcja nadzorowana"
 msgid "Taking As Open Exam"
 msgstr "Przystąpienie do egzaminu otwartego"
 
+#: api.py:2253 api.py:2258
+msgid "Pending Session Review"
+msgstr "Oczekiwanie na weryfikację sesji"
+
+#: api.py:2263
+msgid "Passed Proctoring"
+msgstr "Zaliczono proctoring"
+
 #: api.py:2268 api.py:2273
 msgid "Failed Proctoring"
 msgstr "Nieudane monitorowanie"
@@ -143,6 +167,18 @@ msgstr "Egzamin praktyczny nie powiódł się"
 #: api.py:2305
 msgid "Timed Exam"
 msgstr "Egzamin na czas"
+
+#: api.py:2888
+msgid "Onboarding status question"
+msgstr "Pytanie o status onboardingu"
+
+#: models.py:391
+msgid "Taking as Proctored"
+msgstr "Rozwiązywany jako nadzorowany"
+
+#: models.py:395
+msgid "Is Sample Attempt"
+msgstr "Czy to próba przykładowa"
 
 #: models.py:413
 msgid "Is Resumable"
@@ -771,6 +807,10 @@ msgstr ""
 " pomocy i powrócić do egzaminu po otrzymaniu dalszych instrukcji.\n"
 "      "
 
+#: templates/proctored_exam/error_modal.html:7
+msgid "Close"
+msgstr "Zamknij"
+
 #: templates/proctored_exam/error_wrong_browser.html:10
 msgid ""
 "\n"
@@ -838,3 +878,366 @@ msgstr ""
 "\n"
 "Nie spełniłeś następujących wymagań wstępnych:\n"
 "    "
+
+#: templates/proctored_exam/failed-prerequisites.html:32
+msgid ""
+"\n"
+"        Due to unsatisfied prerequisites, you can only take this exam without proctoring.\n"
+"      "
+msgstr ""
+"\n"
+"Ze względu na niespełnienie wymagań wstępnych do egzaminu można przystąpić wyłącznie bez nadzoru.\n"
+"      "
+
+#: templates/proctored_exam/failed-prerequisites.html:40
+#, python-format
+msgid ""
+"\n"
+"      If you have questions about the status of your requirements, contact %(platform_name)s Support.\n"
+"    "
+msgstr ""
+"\n"
+"Jeśli masz pytania dotyczące statusu swoich wymagań, skontaktuj się z pomocą techniczną %(platform_name)s .\n"
+"    "
+
+#: templates/proctored_exam/footer.html:5
+msgid ""
+"\n"
+"        About Proctored Exams\n"
+"        "
+msgstr ""
+"\n"
+"O egzaminach nadzorowanych\n"
+"        "
+
+#: templates/proctored_exam/inactive_account.html:4
+msgid ""
+"\n"
+"      You have not activated your account.\n"
+"    "
+msgstr ""
+"\n"
+"Nie aktywowałeś swojego konta.\n"
+"    "
+
+#: templates/proctored_exam/inactive_account.html:10
+#, python-format
+msgid ""
+"\n"
+"      Your %(platform_name)s account has not yet been activated. To take the proctored exam,\n"
+"      you are required to activate your account.\n"
+"    "
+msgstr ""
+"\n"
+"Twoje konto %(platform_name)s nie zostało jeszcze aktywowane. Aby przystąpić do egzaminu nadzorowanego,\n"
+" musisz aktywować swoje konto.\n"
+"    "
+
+#: templates/proctored_exam/inactive_account.html:16
+#, python-format
+msgid ""
+"\n"
+"      Please check your registered email's Inbox and Spam folders for an activation email from\n"
+"      %(platform_name)s.\n"
+"    "
+msgstr ""
+"\n"
+"Sprawdź skrzynkę odbiorczą i foldery Spam zarejestrowanej poczty e-mail, aby otrzymać wiadomość aktywacyjną od\n"
+" %(platform_name)s .\n"
+"    "
+
+#: templates/proctored_exam/inactive_account.html:21
+#, python-format
+msgid ""
+"\n"
+"        If you cannot find this email, you can <a href=\"%(reset_link)s\" target=\"_blank\">reset your password</a> to\n"
+"        activate your account.\n"
+"      "
+msgstr ""
+"\n"
+"Jeśli nie możesz znaleźć tego e-maila, możesz <a href=\"%(reset_link)s\" target=\"_blank\">zresetować hasło</a> do\n"
+" Aktywuj swoje konto.\n"
+"      "
+
+#: templates/proctored_exam/inactive_account.html:26
+msgid ""
+"\n"
+"        If you cannot find this email, you can reset your password to activate your account.\n"
+"      "
+msgstr ""
+"\n"
+"Jeśli nie możesz znaleźć tego e-maila, możesz zresetować hasło, aby aktywować swoje konto.\n"
+"      "
+
+#: templates/proctored_exam/inactive_account.html:32
+#, python-format
+msgid ""
+"\n"
+"      If you continue to have trouble please contact <a href=\"%(link_urls.contact_us)s\" target=\"_blank\">\n"
+"      %(platform_name)s Support</a>.\n"
+"    "
+msgstr ""
+"\n"
+"Jeśli nadal będziesz mieć problemy, skontaktuj się z nami <a href=\"%(link_urls.contact_us)s\" target=\"_blank\">\n"
+"%(platform_name)s Wsparcie</a> .\n"
+"    "
+
+#: templates/proctored_exam/instructions.html:6
+msgid ""
+"\n"
+"      Set up and start your proctored exam\n"
+"    "
+msgstr ""
+"\n"
+"Skonfiguruj i rozpocznij egzamin nadzorowany\n"
+"    "
+
+#: templates/proctored_exam/instructions.html:12
+msgid ""
+"\n"
+"          Note: As part of the proctored exam setup, you will be asked\n"
+"          to verify your identity. Before you begin, make sure you are\n"
+"          on a computer with a webcam, and that you have a valid form\n"
+"          of photo identification such as a driver’s license or\n"
+"          passport.\n"
+"        "
+msgstr ""
+"\n"
+"Uwaga: w ramach konfiguracji egzaminu nadzorowanego zostaniesz poproszony\n"
+" aby zweryfikować Twoją tożsamość. Zanim zaczniesz, upewnij się, że tak\n"
+" na komputerze z kamerą internetową i że posiadasz ważny formularz\n"
+" dokumentu tożsamości ze zdjęciem, takiego jak prawo jazdy lub\n"
+" paszport.\n"
+"        "
+
+#: templates/proctored_exam/instructions.html:27
+#, python-format
+msgid ""
+"\n"
+"            If you have issues relating to proctoring, you can contact %(provider_name)s technical support by emailing %(provider_tech_support_email)s  or by calling %(provider_tech_support_phone)s.\n"
+"          "
+msgstr ""
+"\n"
+"Jeśli masz problemy związane z nadzorem, możesz skontaktować się z pomocą techniczną %(provider_name)s , wysyłając e-mail na adres %(provider_tech_support_email)s lub dzwoniąc pod numer %(provider_tech_support_phone)s .\n"
+"          "
+
+#: templates/proctored_exam/instructions.html:33
+#: templates/proctored_exam/instructions.html:78
+msgid "Start System Check"
+msgstr "Rozpocznij sprawdzanie systemu"
+
+#: templates/proctored_exam/instructions.html:36
+msgid "Start Exam"
+msgstr "Rozpocznij egzamin"
+
+#: templates/proctored_exam/instructions.html:40
+msgid ""
+"\n"
+"          Step 1\n"
+"        "
+msgstr ""
+"\n"
+"Krok 1\n"
+"        "
+
+#: templates/proctored_exam/instructions.html:45
+msgid ""
+"\n"
+"          Copy this unique exam code. You will be prompted to paste this code later before you start the exam.\n"
+"        "
+msgstr ""
+"\n"
+"Skopiuj ten unikalny kod egzaminu. Zostaniesz poproszony o wklejenie tego kodu później, przed rozpoczęciem egzaminu.\n"
+"        "
+
+#: templates/proctored_exam/instructions.html:51
+msgid "Copy Exam Code"
+msgstr "Skopiuj kod egzaminu"
+
+#: templates/proctored_exam/instructions.html:54
+msgid ""
+"\n"
+"        Select the exam code, then copy it using Control + C (Windows) or Command + C (Mac).\n"
+"      "
+msgstr ""
+"\n"
+"Wybierz kod egzaminu, a następnie skopiuj go za pomocą Control + C (Windows) lub Command + C (Mac).\n"
+"      "
+
+#: templates/proctored_exam/instructions.html:59
+msgid ""
+"\n"
+"          Step 2\n"
+"        "
+msgstr ""
+"\n"
+"Krok 2\n"
+"        "
+
+#: templates/proctored_exam/instructions.html:64
+msgid ""
+"\n"
+"        Start your system check now. A new window will open for this step and you will verify your identity.\n"
+"      "
+msgstr ""
+"\n"
+"Rozpocznij sprawdzanie systemu już teraz. Otworzy się nowe okno dla tego kroku, w którym zweryfikujesz swoją tożsamość.\n"
+"      "
+
+#: templates/proctored_exam/instructions.html:69
+msgid ""
+"\n"
+"        Make sure you:\n"
+"      "
+msgstr ""
+"\n"
+"Upewnij się, że:\n"
+"      "
+
+#: templates/proctored_exam/instructions.html:74
+msgid "Have a computer with a functioning webcam"
+msgstr "Posiadaj komputer z działającą kamerą internetową"
+
+#: templates/proctored_exam/instructions.html:75
+msgid "Have your valid photo ID (e.g. driver's license or passport) ready"
+msgstr "Przygotuj ważny dokument ze zdjęciem (np. prawo jazdy lub paszport)."
+
+#: templates/proctored_exam/instructions.html:81
+msgid ""
+"\n"
+"          Step 3\n"
+"        "
+msgstr ""
+"\n"
+"Krok 3\n"
+"        "
+
+#: templates/proctored_exam/instructions.html:86
+msgid ""
+"\n"
+"          For security and exam integrity reasons, we ask you to sign in to your edX account. Then we will direct you to the RPNow proctoring experience.\n"
+"        "
+msgstr ""
+"\n"
+"Ze względów bezpieczeństwa i integralności egzaminu prosimy Cię o zalogowanie się na swoje konto edX. Następnie przekierujemy Cię do środowiska nadzorującego RPNow.\n"
+"        "
+
+#: templates/proctored_exam/instructions.html:100
+#: templates/proctored_exam/proctoring_opt_out_button.html:5
+msgid "Take this exam without proctoring."
+msgstr "Przystąp do egzaminu bez nadzoru."
+
+#: templates/proctored_exam/onboarding_error.html:4
+msgid ""
+"\n"
+"      You must complete an onboarding exam before taking this proctored exam\n"
+"    "
+msgstr ""
+"\n"
+"Przed przystąpieniem do egzaminu nadzorowanego należy zdać egzamin wprowadzający\n"
+"    "
+
+#: templates/proctored_exam/onboarding_error.html:11
+msgid ""
+"\n"
+"      Please complete an onboarding exam before attempting this exam.\n"
+"    "
+msgstr ""
+"\n"
+"Przed przystąpieniem do tego egzaminu należy zdać egzamin wprowadzający.\n"
+"    "
+
+#: templates/proctored_exam/onboarding_error.html:17
+#: templates/proctored_exam/onboarding_error.html:32
+msgid "Navigate to onboarding exam"
+msgstr "Przejdź do egzaminu wprowadzającego"
+
+#: templates/proctored_exam/onboarding_error.html:21
+msgid ""
+"\n"
+"    Your onboarding exam is being reviewed. Before attempting this exam, please allow 2+ business days for your onboarding exam to be reviewed.\n"
+"  "
+msgstr ""
+"\n"
+"Twój egzamin wprowadzający jest sprawdzany. Przed przystąpieniem do egzaminu poczekaj co najmniej 2 dni robocze na sprawdzenie egzaminu wprowadzającego.\n"
+"  "
+
+#: templates/proctored_exam/onboarding_error.html:26
+msgid ""
+"\n"
+"      Your onboarding exam failed to pass all requirements.\n"
+"    "
+msgstr ""
+"\n"
+"Twój egzamin wprowadzający nie spełnił wszystkich wymagań.\n"
+"    "
+
+#: templates/proctored_exam/onboarding_error.html:38
+#, python-format
+msgid ""
+"\n"
+"      Proctoring for your exam is provided via %(provider_name)s.\n"
+"      If you have questions about the status of your onboarding exam, contact\n"
+"      <a href=\"mailto:%(integration_specific_email)s\">%(integration_specific_email)s</a>.\n"
+"    "
+msgstr ""
+"\n"
+"Opiekę nad egzaminem zapewnia %(provider_name)s .\n"
+" Jeśli masz pytania dotyczące statusu egzaminu onboardingowego, skontaktuj się z nami\n"
+" <a href=\"mailto:%(integration_specific_email)s\">%(integration_specific_email)s</a> .\n"
+"    "
+
+#: templates/proctored_exam/pending-prerequisites.html:9
+msgid ""
+"\n"
+"    You have not completed the prerequisites for this exam. All requirements must be satisfied before you can take this proctored exam.\n"
+"    "
+msgstr ""
+"\n"
+"Nie spełniłeś wymagań wstępnych tego egzaminu. Aby przystąpić do tego nadzorowanego egzaminu, należy spełnić wszystkie wymagania.\n"
+"    "
+
+#: templates/proctored_exam/pending-prerequisites.html:14
+msgid ""
+"\n"
+"    The following prerequisites are in a <strong>pending</strong> state and must be successfully completed before you can proceed:\n"
+"    "
+msgstr ""
+"\n"
+"Następujące wymagania wstępne mają status <strong>oczekujący</strong> i muszą zostać pomyślnie spełnione, zanim będzie można kontynuować:\n"
+"    "
+
+#: templates/proctored_exam/pending-prerequisites.html:30
+msgid ""
+"\n"
+"    You can take this exam with proctoring only when all prerequisites have been successfully completed.\n"
+"    "
+msgstr ""
+"\n"
+"Do egzaminu z opiekunem można przystąpić tylko wtedy, gdy pomyślnie spełniono wszystkie wymagania wstępne.\n"
+"    "
+
+#: templates/proctored_exam/proctoring_launch_callback.html:164
+msgid " Your Proctoring Session Has Started "
+msgstr "Twoja sesja nadzorowana została rozpoczęta"
+
+#: templates/proctored_exam/proctoring_launch_callback.html:165
+#, python-format
+msgid ""
+" From this point in time, you must follow the <a "
+"href=\"%(link_urls.online_proctoring_rules)s\" target=\"_blank\">online "
+"proctoring rules</a> to pass the proctoring review for your exam. "
+msgstr ""
+" Od tego momentu musisz przestrzegać <a "
+"href=\"%(link_urls.online_proctoring_rules)s\" target=\"_blank\">zasad "
+"nadzoru online</a> , aby zdać egzamin. "
+
+#: templates/proctored_exam/proctoring_launch_callback.html:168
+msgid ""
+"\n"
+"            Do not close this window before you finish your exam. if you close this window, your proctoring session ends, and you will not successfully complete the proctored exam.\n"
+"          "
+msgstr ""
+"\n"
+"Nie zamykaj tego okna przed zakończeniem egzaminu. jeśli zamkniesz to okno, sesja nadzorowana zakończy się i nie ukończysz pomyślnie egzaminu nadzorowanego.\n"
+"          "
