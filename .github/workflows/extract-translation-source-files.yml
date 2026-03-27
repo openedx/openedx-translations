@@ -494,10 +494,10 @@ jobs:
           # set identity
           git config --global user.email "translations-bot@openedx.org"
           git config --global user.name "edx-transifex-bot"
+          # Move the combined file to openedx-translations/translations/${{ matrix.repo }}/src/i18n/
+          mv combined/transifex_input.json openedx-translations/translations/${{ matrix.repo }}/src/i18n
           # enter the openedx-translations directory so git works
           cd openedx-translations          
-          # Move the combined file to openedx-translations/translations/${{ matrix.repo }}/src/i18n/
-          mv combined/transifex_input.json translations/${{ matrix.repo }}/src/i18n
           # stage the combined transifex_input.json file
           git add translations/${{ matrix.repo }}/src/i18n/transifex_input.json -f -v
           # Check the git status of the translation source files
