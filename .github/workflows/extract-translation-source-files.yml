@@ -427,6 +427,16 @@ jobs:
           ref: master
           path: master
 
+      - name: setup node (master)
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: 'master/.nvmrc'
+
+      - name: run extract_translations (master)
+        run: |
+          cd master
+          make extract_translations
+
       # Clones the repository's frontend-base branch
       - name: clone ${{ github.repository_owner }}/${{ matrix.repo }}
         uses: actions/checkout@v6
@@ -435,17 +445,10 @@ jobs:
           ref: frontend-base
           path: frontend-base
 
-      # Sets up node/npm
-      - name: setup node
+      - name: setup node (frontend-base)
         uses: actions/setup-node@v6
         with:
-          node-version-file: '.nvmrc'
-
-      # Extracts the translation source files
-      - name: run extract_translations (master)
-        run: |
-          cd master
-          make extract_translations
+          node-version-file: 'frontend-base/.nvmrc'
 
       - name: run extract_translations (frontend-base)
         run: |
