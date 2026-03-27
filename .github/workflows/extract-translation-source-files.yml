@@ -32,6 +32,7 @@ jobs:
             // Need to use a workaround until https://github.com/actions/toolkit/issues/1576 is fixed
             // const selectedRepo = core.getInput('repo');
             const selectedRepo = ${{ toJSON(github.event.inputs.repo) }} ?? '';
+            const selectedRef = ${{ toJSON(github.event.inputs.ref) }} ?? '';
 
             const allPythonRepos = [
               'AudioXBlock',
@@ -110,6 +111,10 @@ jobs:
                 ref: 'develop',  // TODO: Use main branch https://github.com/openedx/openedx-translations/issues/6395
               },
             ]
+
+            if (selectedRef !== '') {
+              core.warning(`Skipping dual-js repos — the ref input is not supported for repos that extract from both master and frontend-base branches.`);
+            }
 
             core.setOutput('hasPythonRepos', true);
             core.setOutput('hasJavascriptRepos', true);
@@ -401,7 +406,7 @@ jobs:
           git push
 
   dual-js-translations:
-    if: ${{ !cancelled() && fromJson(needs.setup-matrix.outputs.has_dual_js_repos) == true }}
+    if: ${{ !cancelled() && fromJson(needs.setup-matrix.outputs.has_dual_js_repos) == true && github.event.inputs.ref == '' }}
     needs: [setup-branch, setup-matrix, js-translations]
     strategy:
       # using max-parallel to avoid git push/pull issues when running in parallel
