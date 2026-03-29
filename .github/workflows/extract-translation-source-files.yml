@@ -32,6 +32,7 @@ jobs:
             // Need to use a workaround until https://github.com/actions/toolkit/issues/1576 is fixed
             // const selectedRepo = core.getInput('repo');
             const selectedRepo = ${{ toJSON(github.event.inputs.repo) }} ?? '';
+            const selectedRef = ${{ toJSON(github.event.inputs.ref) }} ?? '';
 
             const allPythonRepos = [
               'AudioXBlock',
@@ -64,14 +65,12 @@ jobs:
               'frontend-app-admin-portal',
               'frontend-app-publisher',
               'frontend-app-account',
-              'frontend-app-authn',
               'frontend-app-catalog',
               'frontend-app-communications',
               'frontend-app-course-authoring',
               'frontend-app-discussions',
               'frontend-app-enterprise-public-catalog',
               'frontend-app-gradebook',
-              'frontend-app-learner-dashboard',
               'frontend-app-learner-record',
               'frontend-app-learning',
               'frontend-app-library-authoring',
@@ -87,6 +86,11 @@ jobs:
               'studio-frontend',
               'frontend-app-learner-portal-enterprise',
               'frontend-enterprise',
+            ];
+
+            const allDualMFEAndBaseJavascriptRepos = [
+              'frontend-app-authn',
+              'frontend-app-learner-dashboard',
             ];
 
             const allGenericRepos = [
@@ -108,13 +112,19 @@ jobs:
               },
             ]
 
+            if (selectedRef !== '') {
+              core.warning(`Skipping dual-js repos — the ref input is not supported for repos that extract from both master and frontend-base branches.`);
+            }
+
             core.setOutput('hasPythonRepos', true);
             core.setOutput('hasJavascriptRepos', true);
+            core.setOutput('hasDualMFEAndBaseJavascriptRepos', true);
             core.setOutput('hasGenericRepos', true);
 
             if (selectedRepo === '') {
               core.setOutput('pythonRepos', allPythonRepos);
               core.setOutput('javascriptRepos', allJavascriptRepos);
+              core.setOutput('dualMFEAndBaseJavascriptRepos', allDualMFEAndBaseJavascriptRepos);
               core.setOutput('genericRepos', allGenericRepos);
               return;
             }
@@ -133,6 +143,13 @@ jobs:
               core.setOutput('hasJavascriptRepos', false);
             }
 
+            if (allDualMFEAndBaseJavascriptRepos.includes(selectedRepo)) {
+              core.setOutput('dualMFEAndBaseJavascriptRepos', [selectedRepo]);
+            } else {
+              core.setOutput('dualMFEAndBaseJavascriptRepos', []);
+              core.setOutput('hasDualMFEAndBaseJavascriptRepos', false);
+            }
+
             const genericRepoConfig = allGenericRepos.find(repoConfig => repoConfig.repo === selectedRepo);
             if (genericRepoConfig !== undefined) {
               core.setOutput('genericRepos', [genericRepoConfig]);
@@ -146,6 +163,8 @@ jobs:
       python_repos: ${{ steps.generate_repo_matrix.outputs.pythonRepos }}
       has_js_repos: ${{ steps.generate_repo_matrix.outputs.hasJavascriptRepos }}
       js_repos: ${{ steps.generate_repo_matrix.outputs.javascriptRepos }}
+      has_dual_js_repos: ${{ steps.generate_repo_matrix.outputs.hasDualMFEAndBaseJavascriptRepos }}
+      dual_js_repos: ${{ steps.generate_repo_matrix.outputs.dualMFEAndBaseJavascriptRepos }}
       has_generic_repos: ${{ steps.generate_repo_matrix.outputs.hasGenericRepos }}
       generic_repos: ${{ steps.generate_repo_matrix.outputs.genericRepos }}
 
@@ -386,12 +405,123 @@ jobs:
           # push changes to branch
           git push
 
+  dual-js-translations:
+    if: ${{ !cancelled() && fromJson(needs.setup-matrix.outputs.has_dual_js_repos) == true && github.event.inputs.ref == '' }}
+    needs: [setup-branch, setup-matrix, js-translations]
+    strategy:
+      # using max-parallel to avoid git push/pull issues when running in parallel
+      max-parallel: 1
+      matrix:
+        repo: ${{ fromJson(needs.setup-matrix.outputs.dual_js_repos) }}
+    runs-on: ubuntu-latest
+    continue-on-error: true
+
+    steps:
+      # Clones the openedx-translations repo
+      - name: clone openedx/openedx-translations
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ needs.setup-branch.outputs.branch }}
+          path: openedx-translations
+
+      # Clones the repository's master branch
+      - name: clone ${{ github.repository_owner }}/${{ matrix.repo }}
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ github.repository_owner }}/${{ matrix.repo }}
+          ref: master
+          path: master
+
+      - name: setup node (master)
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: 'master/.nvmrc'
+
+      - name: run extract_translations (master)
+        run: |
+          cd master
+          make extract_translations
+
+      # Clones the repository's frontend-base branch
+      - name: clone ${{ github.repository_owner }}/${{ matrix.repo }}
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ github.repository_owner }}/${{ matrix.repo }}
+          ref: frontend-base
+          path: frontend-base
+
+      - name: setup node (frontend-base)
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: 'frontend-base/.nvmrc'
+
+      - name: run extract_translations (frontend-base)
+        run: |
+          cd frontend-base
+          make extract_translations
+
+      - name: combine extracted translations
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const fs = require('fs');
+
+            const master = JSON.parse(fs.readFileSync('master/src/i18n/transifex_input.json', 'utf8'));
+            const base = JSON.parse(fs.readFileSync('frontend-base/src/i18n/transifex_input.json', 'utf8'));
+
+            // Report any keys present in both branches with different values.
+            // frontend-base is treated as the source of truth for conflicts.
+            const conflicts = Object.fromEntries(
+              Object.entries(master)
+                .filter(([key, value]) => key in base && base[key] !== value)
+                .map(([key, value]) => [key, { master: value, frontend_base: base[key] }])
+            );
+            if (Object.keys(conflicts).length > 0) {
+              await core.summary
+                .addHeading(`${{ matrix.repo }}: translation keys differ between master and frontend-base`, 3)
+                .addRaw('<p>The following keys exist in both the <code>master</code> and <code>frontend-base</code> branches of <code>${{ matrix.repo }}</code> with different values. Both branches are currently supported, so the <code>frontend-base</code> value will be used.</p>')
+                .addTable([
+                  [{data: 'Key', header: true}, {data: 'master', header: true}, {data: 'frontend-base', header: true}],
+                  ...Object.entries(conflicts).map(([key, {master, frontend_base}]) => [key, master, frontend_base]),
+                ])
+                .write();
+            }
+
+            // Merge: master first, then frontend-base (frontend-base wins on conflicts)
+            const combined = { ...master, ...base };
+            fs.mkdirSync('combined', { recursive: true });
+            fs.writeFileSync('combined/transifex_input.json', JSON.stringify(combined, null, 2));
+
+      # git adds only the translation source files, found in src/i18n/transifex_input.json
+      - name: git add the translation source files
+        id: add-sources
+        run: |
+          # set identity
+          git config --global user.email "translations-bot@openedx.org"
+          git config --global user.name "edx-transifex-bot"
+          # Move the combined file to openedx-translations/translations/${{ matrix.repo }}/src/i18n/
+          mv combined/transifex_input.json openedx-translations/translations/${{ matrix.repo }}/src/i18n
+          # enter the openedx-translations directory so git works
+          cd openedx-translations          
+          # stage the combined transifex_input.json file
+          git add translations/${{ matrix.repo }}/src/i18n/transifex_input.json -f -v
+          # Check the git status of the translation source files
+          echo "GIT_STATUS=$(git status translations/${{ matrix.repo }}/src/i18n/transifex_input.json -s | wc -l)" >> $GITHUB_ENV
+      # Attempts to commit the translation source files if there is a difference
+      - name: git commit the translation source files
+        if: "${{ env.GIT_STATUS > 0 }}"
+        run: |
+          # commit the changes
+          git commit -m "chore: add extracted translation source files from ${{ matrix.repo }}"
+          # push changes to branch
+          git push
+
   # Non-Django, non-JS repositories with a generic extraction interface. This
   # assumes that a `extract_translations` make target exists and will create
   # a transifex_input.yaml file in the root of the site.
   generic-translations:
     if: ${{ !cancelled() && fromJson(needs.setup-matrix.outputs.has_generic_repos) == true }}
-    needs: [setup-branch, setup-matrix, js-translations]
+    needs: [setup-branch, setup-matrix, dual-js-translations]
     strategy:
       # using max-parallel to avoid git push/pull issues when running in parallel
       max-parallel: 1
