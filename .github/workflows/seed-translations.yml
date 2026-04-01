@@ -162,18 +162,18 @@ jobs:
           fi
 
           # Mask the client ID and secret to prevent it from being logged
-          echo "::add-mask::${{ secrets.EDX_TRANSLATIONS_STAGE_CLIENT_ID }}"
-          echo "::add-mask::${{ secrets.EDX_TRANSLATIONS_STAGE_CLIENT_SECRET }}"
+          echo "::add-mask::${{ secrets.EDX_TRANSLATIONS_PROD_CLIENT_ID }}"
+          echo "::add-mask::${{ secrets.EDX_TRANSLATIONS_PROD_CLIENT_SECRET }}"
 
           # Validate that the client ID is defined
-          if [ -z "${{ secrets.EDX_TRANSLATIONS_STAGE_CLIENT_ID }}" ]; then
-            echo "Required secret EDX_TRANSLATIONS_STAGE_CLIENT_ID is not set."
+          if [ -z "${{ secrets.EDX_TRANSLATIONS_PROD_CLIENT_ID }}" ]; then
+            echo "Required secret EDX_TRANSLATIONS_PROD_CLIENT_ID is not set."
             missing=$((missing+1))
           fi
 
           # Validate that the client secret is defined
-          if [ -z "${{ secrets.EDX_TRANSLATIONS_STAGE_CLIENT_SECRET }}" ]; then
-            echo "Required secret EDX_TRANSLATIONS_STAGE_CLIENT_SECRET is not set."
+          if [ -z "${{ secrets.EDX_TRANSLATIONS_PROD_CLIENT_SECRET }}" ]; then
+            echo "Required secret EDX_TRANSLATIONS_PROD_CLIENT_SECRET is not set."
             missing=$((missing+1))
           fi
 
@@ -192,8 +192,8 @@ jobs:
             -o "$response_file" \
             -X POST "${{ vars.LMS_ACCESS_TOKEN_URL }}" \
             -d "grant_type=client_credentials" \
-            -d "client_id=${{ secrets.EDX_TRANSLATIONS_STAGE_CLIENT_ID }}" \
-            -d "client_secret=${{ secrets.EDX_TRANSLATIONS_STAGE_CLIENT_SECRET }}" \
+            -d "client_id=${{ secrets.EDX_TRANSLATIONS_PROD_CLIENT_ID }}" \
+            -d "client_secret=${{ secrets.EDX_TRANSLATIONS_PROD_CLIENT_SECRET }}" \
             -d "token_type=jwt") || curl_exit_code=$?
 
           if [ "$curl_exit_code" -ne 0 ]; then
