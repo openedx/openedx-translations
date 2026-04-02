@@ -511,6 +511,7 @@ jobs:
       - name: git commit the translation source files
         if: "${{ env.GIT_STATUS > 0 }}"
         run: |
+          cd openedx-translations
           # commit the changes
           git commit -m "chore: add extracted translation source files from ${{ matrix.repo }}"
           # push changes to branch
