@@ -17,28 +17,30 @@ Main and Release branches
 *************************
 
 This repository has a main branch in addition to a dedicated branch for every
-release. As of May 10th, 2024 the following are the release branches:
+release. As of January 10th, 2026 the following are the release branches:
 
 ``main`` branch
 ===============
 
 This branch is used for the latest version of Open edX such as
-`Tutor nightly`_, `edx-platform "master" branch`_ and others.
+`Tutor nightly`_, `openedx-platform "master" branch`_ and others.
 
 To translate the latest versions the `open-edx/openedx-translations`_ Transifex
 project should be used.
 
 
-``open-release/<release-name>.master`` branch
-=============================================
+``release/<release-name>`` branch
+=================================
 
 This branch is used for the latest version of the Open edX Release, which will
 be a version of Tutor and corresponding branches in tagged repos. For example,
-for the Redwood release (June 2024), the branches were:
-`Tutor Redwood v18`_, `edx-platform "open-release/redwood.master" branch`_
+for the Ulmo release (January 2026), the branches were:
+`Tutor`_ v21, `edx-platform "release/ulmo" branch`_
 and others.
 
-To update translations for a named release, find the corresponding named release project in the `Open edX Transifex project <https://app.transifex.com/open-edx/>`_  by searching for the release name (for example, Redwood) in the search box. 
+To update translations for a named release, find the corresponding named release project in the `Open edX Transifex project <https://app.transifex.com/open-edx/>`_  by searching for the release name (for example, Ulmo) in the search box.
+
+Note that with Teak, the release branch naming conventions changed. For branch names for older releases, see the `Named Release Branches and Tags`_ page.
 
 Tools for repository maintainers
 ********************************
@@ -93,13 +95,11 @@ pull requests, run the following command:
 .. _sync_translations.yml workflow on GitHub: https://github.com/openedx/openedx-translations/actions/workflows/sync-translations.yml
 
 .. _open-edx/openedx-translations: https://app.transifex.com/open-edx/openedx-translations/dashboard/
-.. _open-edx/openedx-translations-redwood: https://app.transifex.com/open-edx/openedx-translations-redwood/dashboard/
-
 
 .. _Tutor nightly: https://docs.tutor.edly.io/tutorials/nightly.html
-.. _edx-platform "master" branch: https://github.com/openedx/edx-platform
-.. _Tutor Redwood v18: https://docs.tutor.edly.io/
-.. _edx-platform "open-release/redwood.master" branch: https://github.com/openedx/edx-platform/tree/open-release/redwood.master
+.. _openedx-platform "master" branch: https://github.com/openedx/openedx-platform
+.. _Tutor: https://docs.tutor.edly.io/
+.. _openedx-platform "release/ulmo" branch: https://github.com/openedx/openedx-platform/tree/release/ulmo
 
 .. _GitHub Actions workflows: https://github.com/openedx/openedx-translations/tree/main/.github/workflows
 .. _Makefile programs: https://github.com/openedx/openedx-translations/blob/main/Makefile
