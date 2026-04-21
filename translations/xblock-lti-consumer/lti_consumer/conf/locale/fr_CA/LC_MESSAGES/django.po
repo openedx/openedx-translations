@@ -5,6 +5,7 @@
 # 
 # Translators:
 # Pierre Mailhot <pierre.mailhot@gmail.com>, 2023
+# Brian Smith, 2026
 # 
 msgid ""
 msgstr ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: openedx-translation@googlegroups.com\n"
 "POT-Creation-Date: 2023-06-13 08:00+0000\n"
 "PO-Revision-Date: 2023-06-24 01:02+0000\n"
-"Last-Translator: Pierre Mailhot <pierre.mailhot@gmail.com>, 2023\n"
+"Last-Translator: Brian Smith, 2026\n"
 "Language-Team: French (Canada) (https://app.transifex.com/open-edx/teams/6205/fr_CA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -133,6 +134,10 @@ msgstr ""
 "Saisissez l’ID de configuration externe LTI réutilisable fourni par le "
 "personnel d’assistance."
 
+#: lti_xblock.py:315
+msgid "Lti 1.3 passport ID that points to Lti1p3Passport table"
+msgstr "ID de passeport LTI 1.3 qui pointe vers la table Lti1p3Passport"
+
 #: lti_xblock.py:322
 msgid "Tool Launch URL"
 msgstr "URL de lancement de l'outil"
@@ -193,9 +198,55 @@ msgstr ""
 msgid "Tool Keyset URL"
 msgstr "URL du Tool Keyset"
 
+#: lti_xblock.py:369
+msgid ""
+"Enter the LTI 1.3 Tool's JWK keysets URL.<br />This link should retrieve a "
+"JSON file containing public keys and signature algorithm information, so "
+"that the LMS can check if the messages and launch requests received have the"
+" signature from the tool.<br /><b>This is not required when doing LTI 1.3 "
+"Launches without LTI Advantage nor Basic Outcomes requests.</b><br /><br "
+"/><b>Changing the public key or keyset URL will cause the client ID, block "
+"keyset URL and access token URL to be regenerated if they are shared between"
+" blocks. Please check and update them in the LTI tool settings if "
+"necessary.</b>"
+msgstr ""
+"Entrez l'URL des jeux de clés JWK de l'outil LTI 1.3.<br />Ce lien devrait "
+"récupérer un fichier JSON contenant les clés publiques et les informations "
+"sur l'algorithme de signature, afin que le système de gestion de "
+"l'apprentissage (LMS) puisse vérifier si les messages et les demandes de "
+"lancement reçus proviennent bien de l'outil.<br /><b>Ceci n'est pas requis "
+"lors des lancements LTI 1.3 sans LTI Advantage ni des demandes de résultats "
+"de base.</b><br /><br /><b>La modification de la clé publique ou de l'URL du"
+" jeu de clés entraînera la régénération de l'ID client, de l'URL du jeu de "
+"clés de bloc et de l'URL du jeton d'accès s'ils sont partagés entre les "
+"blocs. Veuillez les vérifier et les mettre à jour dans les paramètres de "
+"l'outil LTI si nécessaire.</b>"
+
 #: lti_xblock.py:382
 msgid "Tool Public Key"
 msgstr "Clé publique de l'outil"
+
+#: lti_xblock.py:387
+msgid ""
+"Enter the LTI 1.3 Tool's public key.<br />This is a string that starts with "
+"'-----BEGIN PUBLIC KEY-----' and is required so that the LMS can check if "
+"the messages and launch requests received have the signature from the "
+"tool.<br /><b>This is not required when doing LTI 1.3 Launches without LTI "
+"Advantage nor Basic Outcomes requests.</b><br /><br /><b>Changing the public"
+" key or keyset URL will cause the client ID, block keyset URL and access "
+"token URL to be regenerated if they are shared between blocks. Please check "
+"and update them in the LTI tool settings if necessary.</b>"
+msgstr ""
+"Entrez la clé publique de l'outil LTI 1.3.<br />Il s'agit d'une chaîne qui "
+"commence par « -----BEGIN PUBLIC KEY----- » et qui est requise pour que le "
+"système de gestion de l'apprentissage (SGA) puisse vérifier si les messages "
+"et les demandes de lancement reçus ont la signature de l'outil.<br /><b>Ceci"
+" n'est pas requis lors des lancements LTI 1.3 sans LTI Advantage ni des "
+"demandes de résultats de base.</b><br /><br /><b>La modification de la clé "
+"publique ou de l'URL du jeu de clés entraînera la régénération de l'ID "
+"client, de l'URL du jeu de clés de bloc et de l'URL du jeton d'accès s'ils "
+"sont partagés entre les blocs. Veuillez les vérifier et les mettre à jour "
+"dans les paramètres de l'outil LTI si nécessaire.</b>"
 
 #: lti_xblock.py:400
 msgid "Enable LTI NRPS"
@@ -607,6 +658,11 @@ msgid ""
 msgstr ""
 "La configuration LTI utilisant une configuration réutilisable nécessite un "
 "ID externe au format \"x:y\"."
+
+#: models.py:356
+msgid "LTI Configuration for 1.3 requires passport to be set."
+msgstr ""
+"La configuration LTI pour la version 1.3 exige que le passeport soit défini."
 
 #: models.py:361
 msgid ""
