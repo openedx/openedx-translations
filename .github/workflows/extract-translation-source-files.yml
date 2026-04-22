@@ -59,6 +59,7 @@ jobs:
               'xblock-qualtrics-survey',
               'xblock-sql-grader',
               'xblock-submit-and-compare',
+              'xblocks-extra',
             ];
 
             const allJavascriptRepos = [
@@ -271,6 +272,14 @@ jobs:
         run: |
           cd translations/${{ matrix.repo }}
           django-admin compilemessages --locale en
+
+      # For multi-xblock repos, remove per-xblock locale directories so only the
+      # combined conf/locale/en remains (OEP-58 expects exactly one per repo).
+      - name: clean up xblocks-extra per-xblock locale directories
+        if: matrix.repo == 'xblocks-extra'
+        run: |
+          cd translations/${{ matrix.repo }}
+          find src -mindepth 2 -maxdepth 3 -type d -name 'conf' -exec rm -rf {} + 2>/dev/null || true
 
       # Preparations so git adds only the translation source files, found in conf/locale/en
       - name: find the location of the translation source files
