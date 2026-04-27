@@ -59,6 +59,7 @@ jobs:
               'xblock-qualtrics-survey',
               'xblock-sql-grader',
               'xblock-submit-and-compare',
+              'xblocks-contrib',
             ];
 
             const allJavascriptRepos = [
@@ -271,6 +272,16 @@ jobs:
         run: |
           cd translations/${{ matrix.repo }}
           django-admin compilemessages --locale en
+
+      - name: clean up xblocks-contrib per-xblock locale directories
+        if: matrix.repo == 'xblocks-contrib'
+        run: |
+          # xblocks-contrib has per-xblock conf/locale directories for local development.
+          # make extract_translations merges all of them into a single combined file at
+          # xblocks_contrib/conf/locale/en/LC_MESSAGES/django.po for this pipeline.
+          # Remove the per-xblock locale dirs so the workflow finds only the combined one.
+          cd translations/${{ matrix.repo }}
+          find xblocks_contrib -mindepth 2 -maxdepth 3 -type d -name 'conf' -exec rm -rf {} + 2>/dev/null || true
 
       # Preparations so git adds only the translation source files, found in conf/locale/en
       - name: find the location of the translation source files
