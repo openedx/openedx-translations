@@ -61,6 +61,11 @@ jobs:
               'xblock-submit-and-compare',
             ];
 
+            // Repos that contain multiple conf/locale/en directories (one per sub-package).
+            const allPythonMonoRepos = [
+              'xblocks-extra',
+            ];
+
             const allJavascriptRepos = [
               'frontend-app-admin-portal',
               'frontend-app-publisher',
@@ -119,12 +124,14 @@ jobs:
             }
 
             core.setOutput('hasPythonRepos', true);
+            core.setOutput('hasPythonMonoRepos', true);
             core.setOutput('hasJavascriptRepos', true);
             core.setOutput('hasDualMFEAndBaseJavascriptRepos', true);
             core.setOutput('hasGenericRepos', true);
 
             if (selectedRepo === '') {
               core.setOutput('pythonRepos', allPythonRepos);
+              core.setOutput('pythonMonoRepos', allPythonMonoRepos);
               core.setOutput('javascriptRepos', allJavascriptRepos);
               core.setOutput('dualMFEAndBaseJavascriptRepos', allDualMFEAndBaseJavascriptRepos);
               core.setOutput('genericRepos', allGenericRepos);
@@ -136,6 +143,13 @@ jobs:
             } else {
               core.setOutput('pythonRepos', []);
               core.setOutput('hasPythonRepos', false);
+            }
+
+            if (allPythonMonoRepos.includes(selectedRepo)) {
+              core.setOutput('pythonMonoRepos', [selectedRepo]);
+            } else {
+              core.setOutput('pythonMonoRepos', []);
+              core.setOutput('hasPythonMonoRepos', false);
             }
 
             if (allJavascriptRepos.includes(selectedRepo)) {
@@ -163,6 +177,8 @@ jobs:
     outputs:
       has_python_repos: ${{ steps.generate_repo_matrix.outputs.hasPythonRepos }}
       python_repos: ${{ steps.generate_repo_matrix.outputs.pythonRepos }}
+      has_python_mono_repos: ${{ steps.generate_repo_matrix.outputs.hasPythonMonoRepos }}
+      python_mono_repos: ${{ steps.generate_repo_matrix.outputs.pythonMonoRepos }}
       has_js_repos: ${{ steps.generate_repo_matrix.outputs.hasJavascriptRepos }}
       js_repos: ${{ steps.generate_repo_matrix.outputs.javascriptRepos }}
       has_dual_js_repos: ${{ steps.generate_repo_matrix.outputs.hasDualMFEAndBaseJavascriptRepos }}
@@ -337,9 +353,86 @@ jobs:
           # push changes to branch
           git push
 
+  python-mono-translations:
+    # Handles repos with multiple conf/locale/en directories (one per sub-package), e.g. xblocks-extra.
+    if: ${{ !cancelled() && fromJson(needs.setup-matrix.outputs.has_python_mono_repos) == true }}
+    needs: [setup-branch, setup-matrix, python-translations]
+    strategy:
+      max-parallel: 1
+      matrix:
+        repo: ${{ fromJson(needs.setup-matrix.outputs.python_mono_repos) }}
+
+    runs-on: ubuntu-latest
+    continue-on-error: true
+
+    steps:
+      - name: clone openedx/openedx-translations
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ needs.setup-branch.outputs.branch }}
+
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements/translations.txt
+
+      - name: install requirements
+        run: pip install -r requirements/translations.txt
+
+      - name: install gettext
+        run: sudo apt install -y gettext
+
+      - name: clone ${{ github.repository_owner }}/${{ matrix.repo }}
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ github.repository_owner }}/${{ matrix.repo }}
+          ref: ${{ github.event.inputs.ref }}
+          path: translations/${{ matrix.repo }}
+
+      - name: extract translation source files
+        run: |
+          cd translations/${{ matrix.repo }}
+          make extract_translations
+        env:
+          IS_OPENEDX_TRANSLATIONS_WORKFLOW: yes
+
+      - name: validate compilation of translation source files
+        run: |
+          cd translations/${{ matrix.repo }}
+          django-admin compilemessages --locale en
+
+      - name: add translation source files to openedx-translations
+        id: add-sources
+        run: |
+          git config --global user.email "translations-bot@openedx.org"
+          git config --global user.name "edx-transifex-bot"
+          cd translations/${{ matrix.repo }}
+          # remove .git so we don't commit a submodule
+          rm -rf .git
+          # Find all conf/locale/en directories, excluding hidden dirs and src/ subdirectories.
+          # src/ dirs are source code inputs; the Makefile copies output to root-level package dirs.
+          total_status=0
+          while IFS= read -r dir; do
+            DJANGO_PATH=$(find "$dir" -name 'django.po')
+            DJANGOJS_PATH=$(find "$dir" -name 'djangojs.po')
+            [ -n "$DJANGO_PATH" ] && git add "$DJANGO_PATH" -f -v
+            [ -n "$DJANGOJS_PATH" ] && git add "$DJANGOJS_PATH" -f -v
+            dir_status=$(git status $DJANGO_PATH $DJANGOJS_PATH -s 2>/dev/null | wc -l)
+            total_status=$((total_status + dir_status))
+          done < <(find . -type d -not -path '*/.*' -not -path '*/src/*' -regex ".+conf\/locale\/en$")
+          echo "GIT_STATUS=$total_status" >> $GITHUB_ENV
+
+      - name: git commit the translation source files
+        if: "${{ env.GIT_STATUS > 0 }}"
+        run: |
+          git commit -m "chore: add extracted translation source files from ${{ matrix.repo }}"
+          git push
+
   js-translations:
     if: ${{ !cancelled() && fromJson(needs.setup-matrix.outputs.has_js_repos) == true }}
-    needs: [setup-branch, setup-matrix, python-translations]
+    needs: [setup-branch, setup-matrix, python-translations, python-mono-translations]
     strategy:
       # using max-parallel to avoid git push/pull issues when running in parallel
       max-parallel: 1
@@ -603,7 +696,7 @@ jobs:
 
   merge-translations:
     runs-on: ubuntu-latest
-    needs: [setup-branch, python-translations, js-translations, generic-translations]
+    needs: [setup-branch, python-translations, python-mono-translations, js-translations, generic-translations]
 
     steps:
       # Clones the openedx-translations repo on the automated/extract-translation-source-files-# branch
