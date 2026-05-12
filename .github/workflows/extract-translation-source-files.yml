@@ -62,7 +62,7 @@ jobs:
             ];
 
             // Repos that contain multiple conf/locale/en directories (one per sub-package).
-            const allPythonMonoRepos = [
+            const allPythonMonorepos = [
               'xblocks-extra',
             ];
 
@@ -131,7 +131,7 @@ jobs:
 
             if (selectedRepo === '') {
               core.setOutput('pythonRepos', allPythonRepos);
-              core.setOutput('pythonMonoRepos', allPythonMonoRepos);
+              core.setOutput('pythonMonoRepos', allPythonMonorepos);
               core.setOutput('javascriptRepos', allJavascriptRepos);
               core.setOutput('dualMFEAndBaseJavascriptRepos', allDualMFEAndBaseJavascriptRepos);
               core.setOutput('genericRepos', allGenericRepos);
@@ -145,7 +145,7 @@ jobs:
               core.setOutput('hasPythonRepos', false);
             }
 
-            if (allPythonMonoRepos.includes(selectedRepo)) {
+            if (allPythonMonorepos.includes(selectedRepo)) {
               core.setOutput('pythonMonoRepos', [selectedRepo]);
             } else {
               core.setOutput('pythonMonoRepos', []);
@@ -353,11 +353,12 @@ jobs:
           # push changes to branch
           git push
 
-  python-mono-translations:
+  python-monorepo-translations:
     # Handles repos with multiple conf/locale/en directories (one per sub-package), e.g. xblocks-extra.
     if: ${{ !cancelled() && fromJson(needs.setup-matrix.outputs.has_python_mono_repos) == true }}
     needs: [setup-branch, setup-matrix, python-translations]
     strategy:
+      # using max-parallel to avoid git push/pull issues when running in parallel
       max-parallel: 1
       matrix:
         repo: ${{ fromJson(needs.setup-matrix.outputs.python_mono_repos) }}
@@ -366,24 +367,17 @@ jobs:
     continue-on-error: true
 
     steps:
+      # Clones the openedx-translations repo
       - name: clone openedx/openedx-translations
         uses: actions/checkout@v6
         with:
           ref: ${{ needs.setup-branch.outputs.branch }}
 
-      - name: setup python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: pip
-          cache-dependency-path: requirements/translations.txt
-
-      - name: install requirements
-        run: pip install -r requirements/translations.txt
-
+      # Installs gettext, a dependency for extracting translation source files in django
       - name: install gettext
         run: sudo apt install -y gettext
 
+      # Clones the  repository
       - name: clone ${{ github.repository_owner }}/${{ matrix.repo }}
         uses: actions/checkout@v6
         with:
@@ -391,6 +385,20 @@ jobs:
           ref: ${{ github.event.inputs.ref }}
           path: translations/${{ matrix.repo }}
 
+      # Setup Python
+      - name: setup python
+        uses: actions/setup-python@v5
+        id: setup_python
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements/translations.txt
+
+      # Installs Python requirements from translations.txt
+      - name: install requirements
+        run: pip install -r requirements/translations.txt
+
+      # Extracts the translation source files
       - name: extract translation source files
         run: |
           cd translations/${{ matrix.repo }}
@@ -398,18 +406,22 @@ jobs:
         env:
           IS_OPENEDX_TRANSLATIONS_WORKFLOW: yes
 
+      # Validate compilation of translation source files
       - name: validate compilation of translation source files
         run: |
           cd translations/${{ matrix.repo }}
           django-admin compilemessages --locale en
 
+      # Preparations so git adds only the translation source files, found in conf/locale/en
       - name: add translation source files to openedx-translations
         id: add-sources
         run: |
+          # set identity
           git config --global user.email "translations-bot@openedx.org"
           git config --global user.name "edx-transifex-bot"
+          # Change directory to translations/${{ matrix.repo }}
           cd translations/${{ matrix.repo }}
-          # remove .git so we don't commit a submodule
+          # remove translations/${{ matrix.repo }}/.git so we don't commit a submodule
           rm -rf .git
           # Find all conf/locale/en directories, excluding hidden dirs and src/ subdirectories.
           # src/ dirs are source code inputs; the Makefile copies output to root-level package dirs.
@@ -435,15 +447,18 @@ jobs:
           done < <(find . -type d -not -path '*/.*' -not -path '*/src/*' -regex ".+conf\/locale\/en$")
           echo "GIT_STATUS=$total_status" >> $GITHUB_ENV
 
+      # Attempts to commit the translation source files if there is a difference
       - name: git commit the translation source files
         if: "${{ env.GIT_STATUS > 0 }}"
         run: |
+          # commit the changes
           git commit -m "chore: add extracted translation source files from ${{ matrix.repo }}"
+          # push changes to branch
           git push
 
   js-translations:
     if: ${{ !cancelled() && fromJson(needs.setup-matrix.outputs.has_js_repos) == true }}
-    needs: [setup-branch, setup-matrix, python-translations, python-mono-translations]
+    needs: [setup-branch, setup-matrix, python-translations, python-monorepo-translations]
     strategy:
       # using max-parallel to avoid git push/pull issues when running in parallel
       max-parallel: 1
@@ -707,7 +722,7 @@ jobs:
 
   merge-translations:
     runs-on: ubuntu-latest
-    needs: [setup-branch, python-translations, python-mono-translations, js-translations, generic-translations]
+    needs: [setup-branch, python-translations, python-monorepo-translations, js-translations, generic-translations]
 
     steps:
       # Clones the openedx-translations repo on the automated/extract-translation-source-files-# branch
