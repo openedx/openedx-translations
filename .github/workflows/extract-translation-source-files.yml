@@ -425,29 +425,29 @@ jobs:
           rm -rf .git
           # Find all conf/locale/en directories, excluding hidden dirs and src/ subdirectories.
           # src/ dirs are source code inputs; the Makefile copies output to root-level package dirs.
-          find . -type d -not -path '*/.*' -not -path '*/src/*' -regex ".+conf\/locale\/en$" \
-            | while IFS= read -r dir; do
-                DJANGO_PATH=$(find "$dir" -name 'django.po')
-                DJANGOJS_PATH=$(find "$dir" -name 'djangojs.po')
-                ############## Special support for XBlocks
-                # if both files are not found, then it can be an XBlock (thus, text.po and textjs.po files)
-                if [ -z "$DJANGO_PATH" ] && [ -z "$DJANGOJS_PATH" ]; then
-                  DJANGO_PATH=$(find "$dir" -name 'text.po')
-                  DJANGOJS_PATH=$(find "$dir" -name 'textjs.po')
-                  # Rename the files to django.po and djangojs.po, if exists
-                  if [ -n "$DJANGO_PATH" ]; then
-                    mv "$DJANGO_PATH" "$(dirname "$DJANGO_PATH")/django.po"
-                    DJANGO_PATH="$(dirname "$DJANGO_PATH")/django.po"
-                  fi
-                  if [ -n "$DJANGOJS_PATH" ]; then
-                    mv "$DJANGOJS_PATH" "$(dirname "$DJANGOJS_PATH")/djangojs.po"
-                    DJANGOJS_PATH="$(dirname "$DJANGOJS_PATH")/djangojs.po"
-                  fi
-                fi
-                ############## End of - Special support for XBlocks
-                [ -n "$DJANGO_PATH" ]   && git add "$DJANGO_PATH"   -f -v
-                [ -n "$DJANGOJS_PATH" ] && git add "$DJANGOJS_PATH" -f -v
-              done
+          mapfile -t dirs < <(find . -type d -not -path '*/.*' -not -path '*/src/*' -regex ".+conf\/locale\/en$")
+          for dir in "${dirs[@]}"; do
+            DJANGO_PATH=$(find "$dir" -name 'django.po')
+            DJANGOJS_PATH=$(find "$dir" -name 'djangojs.po')
+            ############## Special support for XBlocks
+            # if both files are not found, then it can be an XBlock (thus, text.po and textjs.po files)
+            if [ -z "$DJANGO_PATH" ] && [ -z "$DJANGOJS_PATH" ]; then
+              DJANGO_PATH=$(find "$dir" -name 'text.po')
+              DJANGOJS_PATH=$(find "$dir" -name 'textjs.po')
+              # Rename the files to django.po and djangojs.po, if exists
+              if [ -n "$DJANGO_PATH" ]; then
+                mv "$DJANGO_PATH" "$(dirname "$DJANGO_PATH")/django.po"
+                DJANGO_PATH="$(dirname "$DJANGO_PATH")/django.po"
+              fi
+              if [ -n "$DJANGOJS_PATH" ]; then
+                mv "$DJANGOJS_PATH" "$(dirname "$DJANGOJS_PATH")/djangojs.po"
+                DJANGOJS_PATH="$(dirname "$DJANGOJS_PATH")/djangojs.po"
+              fi
+            fi
+            ############## End of - Special support for XBlocks
+            [ -n "$DJANGO_PATH" ]   && git add "$DJANGO_PATH"   -f -v
+            [ -n "$DJANGOJS_PATH" ] && git add "$DJANGOJS_PATH" -f -v
+          done
           echo "GIT_STATUS=$(git diff --cached --name-only | wc -l)" >> $GITHUB_ENV
 
       # Attempts to commit the translation source files if there is a difference
