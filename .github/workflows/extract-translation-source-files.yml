@@ -124,14 +124,14 @@ jobs:
             }
 
             core.setOutput('hasPythonRepos', true);
-            core.setOutput('hasPythonMonoRepos', true);
+            core.setOutput('hasPythonMonorepos', true);
             core.setOutput('hasJavascriptRepos', true);
             core.setOutput('hasDualMFEAndBaseJavascriptRepos', true);
             core.setOutput('hasGenericRepos', true);
 
             if (selectedRepo === '') {
               core.setOutput('pythonRepos', allPythonRepos);
-              core.setOutput('pythonMonoRepos', allPythonMonorepos);
+              core.setOutput('pythonMonorepos', allPythonMonorepos);
               core.setOutput('javascriptRepos', allJavascriptRepos);
               core.setOutput('dualMFEAndBaseJavascriptRepos', allDualMFEAndBaseJavascriptRepos);
               core.setOutput('genericRepos', allGenericRepos);
@@ -146,10 +146,10 @@ jobs:
             }
 
             if (allPythonMonorepos.includes(selectedRepo)) {
-              core.setOutput('pythonMonoRepos', [selectedRepo]);
+              core.setOutput('pythonMonorepos', [selectedRepo]);
             } else {
-              core.setOutput('pythonMonoRepos', []);
-              core.setOutput('hasPythonMonoRepos', false);
+              core.setOutput('pythonMonorepos', []);
+              core.setOutput('hasPythonMonorepos', false);
             }
 
             if (allJavascriptRepos.includes(selectedRepo)) {
@@ -177,8 +177,8 @@ jobs:
     outputs:
       has_python_repos: ${{ steps.generate_repo_matrix.outputs.hasPythonRepos }}
       python_repos: ${{ steps.generate_repo_matrix.outputs.pythonRepos }}
-      has_python_mono_repos: ${{ steps.generate_repo_matrix.outputs.hasPythonMonoRepos }}
-      python_mono_repos: ${{ steps.generate_repo_matrix.outputs.pythonMonoRepos }}
+      has_python_monorepos: ${{ steps.generate_repo_matrix.outputs.hasPythonMonorepos }}
+      python_monorepos: ${{ steps.generate_repo_matrix.outputs.pythonMonorepos }}
       has_js_repos: ${{ steps.generate_repo_matrix.outputs.hasJavascriptRepos }}
       js_repos: ${{ steps.generate_repo_matrix.outputs.javascriptRepos }}
       has_dual_js_repos: ${{ steps.generate_repo_matrix.outputs.hasDualMFEAndBaseJavascriptRepos }}
@@ -355,13 +355,13 @@ jobs:
 
   python-monorepo-translations:
     # Handles repos with multiple conf/locale/en directories (one per sub-package), e.g. xblocks-extra.
-    if: ${{ !cancelled() && fromJson(needs.setup-matrix.outputs.has_python_mono_repos) == true }}
+    if: ${{ !cancelled() && fromJson(needs.setup-matrix.outputs.has_python_monorepos) == true }}
     needs: [setup-branch, setup-matrix, python-translations]
     strategy:
       # using max-parallel to avoid git push/pull issues when running in parallel
       max-parallel: 1
       matrix:
-        repo: ${{ fromJson(needs.setup-matrix.outputs.python_mono_repos) }}
+        repo: ${{ fromJson(needs.setup-matrix.outputs.python_monorepos) }}
 
     runs-on: ubuntu-latest
     continue-on-error: true
