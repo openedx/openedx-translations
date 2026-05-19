@@ -24,7 +24,7 @@ jobs:
     if: ${{ contains(github.event.issue.title, '[TX Request]') && !contains(github.event.issue.labels.*.name, 'translations-request') }}
     steps:
       - name: apply translations-request label
-        uses: actions-ecosystem/action-add-labels@v1
+        uses: actions-ecosystem/action-add-labels@18f1af5e3544586314bbe15c0273249c770b2daf # v1.1.3
         with:
           labels: translations-request
 
@@ -34,14 +34,14 @@ jobs:
     steps:
       - name: Generate token
         id: generate_token
-        uses: tibdex/github-app-token@v2
+        uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2.1.0
         with:
           app_id: ${{ secrets.GRAPHQL_AUTH_APP_ID }}
           private_key: ${{ secrets.GRAPHQL_AUTH_APP_PEM }}
 
       - name: Alert in Slack
         id: slack
-        uses: slackapi/slack-github-action@v2.1.1
+        uses: slackapi/slack-github-action@91efab103c0de0a537f72a35f6b8cda0ee76bf0a # v2.1.1
         with:
           channel-id: C037XDB9KN1
           slack-message: "Incoming Translations request: ${{ github.event.issue.title }}\nAuthor: ${{ github.event.issue.user.login }}\nURL: ${{ github.event.issue.html_url }}"
