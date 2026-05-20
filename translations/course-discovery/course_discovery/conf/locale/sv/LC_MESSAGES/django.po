@@ -6,15 +6,16 @@
 # Translators:
 # Translators:
 # Eden Huthmacher, 2025
-# Brian Smith, 2025
+# Gerardo Núñez, 2026
+# Brian Smith, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-12 00:35+0000\n"
+"POT-Creation-Date: 2026-05-20 01:05+0000\n"
 "PO-Revision-Date: 2023-01-26 15:39+0000\n"
-"Last-Translator: Brian Smith, 2025\n"
+"Last-Translator: Brian Smith, 2026\n"
 "Language-Team: Swedish (https://app.transifex.com/open-edx/teams/6205/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -189,7 +190,7 @@ msgstr ""
 "Kursredigering misslyckades. Kursens URL-slug '[{url_slug}]' används redan. "
 "Uppdatera det här fältet och försök igen."
 
-#: apps/api/views.py:58
+#: apps/api/views.py:57
 msgid "You are not permitted to access the API documentation."
 msgstr "Du har inte rätt att få tillgång till API-dokumentationen"
 
@@ -285,6 +286,14 @@ msgstr ""
 #: apps/core/models.py:54
 msgid "Short Code"
 msgstr "Kod"
+
+#: apps/core/models.py:55
+msgid ""
+"Convenient code/slug used to identify this Partner (e.g. for management "
+"commands.)"
+msgstr ""
+"En identifieringskod som används för att identifiera denna partner (t.ex. "
+"för hanteringskommandon.)"
 
 #: apps/core/models.py:56
 msgid "Courses API URL"
@@ -904,6 +913,10 @@ msgstr "PERSON"
 msgid "People to delete, in UUID:TARGET_UUID form."
 msgstr "Personer att radera, i UUID:TARGET_UUID-form."
 
+#: apps/course_metadata/management/commands/delete_person_dups.py:32
+msgid "PARTNER"
+msgstr "Partner"
+
 #: apps/course_metadata/management/commands/delete_person_dups.py:43
 msgid ""
 "Use arguments from the DeletePersonDupsConfig model instead of the command "
@@ -1235,6 +1248,10 @@ msgstr "Den föreslagna deadline för registrering i marknadsföringssyfte"
 #: apps/course_metadata/models.py:962
 msgid "The identifier for a product variant."
 msgstr "Identifieraren för en produktvariant."
+
+#: apps/course_metadata/models.py:966
+msgid "Course override"
+msgstr "Kursöversikt"
 
 #: apps/course_metadata/models.py:967
 msgid "This field allows for override the default course term"
@@ -1872,6 +1889,10 @@ msgstr "Ikon FA klass"
 msgid "Paired text"
 msgstr "Parad text"
 
+#: apps/course_metadata/models.py:4340
+msgid "Deadline applies for this semester (e.g. Spring 2019"
+msgstr "Deadline gäller för denna termin (t.ex. vårterminen 2019)"
+
 #: apps/course_metadata/models.py:4344
 msgid "Describes the deadline (e.g. Early Admission Deadline)"
 msgstr "Beskriver deadline (t.ex. Tidig antagningsdeadline)"
@@ -1891,6 +1912,15 @@ msgstr "Beskriver vad kostnaden är för (t.ex. undervisning)"
 #: apps/course_metadata/models.py:4392
 msgid "String-based field stating how much the cost is (e.g. $1000)."
 msgstr "Strängbaserat fält som anger hur mycket kostnaden är (t.ex. $1000)."
+
+#: apps/course_metadata/models.py:4435
+msgid ""
+"A high-level overview of the degree's courseware. The \"brief\"\n"
+"            text is the first 750 characters of \"marketing_text\" and must be\n"
+"            valid HTML."
+msgstr ""
+"En översikt över examens kursmaterial på hög nivå. Den \"korta\" texten är "
+"de första 750 tecknen i \"marketing_text\" och måste vara giltig HTML."
 
 #: apps/course_metadata/models.py:4443
 msgid "A high-level overview of the degree's courseware."
@@ -2039,15 +2069,15 @@ msgstr "Försökte göra en förfrågan till Salesforce utan klient för partner
 msgid "Unable to associate a case for comments for {}"
 msgstr "Det går inte att associera ett ärende för kommentarer för {}"
 
-#: apps/course_metadata/templates/admin/course_metadata/course_run.html:37
+#: apps/course_metadata/templates/admin/course_metadata/course_run.html:24
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: apps/course_metadata/templates/admin/course_metadata/course_run.html:40
+#: apps/course_metadata/templates/admin/course_metadata/course_run.html:27
 msgid "Back to Program"
 msgstr "Tillbaka till Program"
 
-#: apps/course_metadata/templates/admin/course_metadata/course_run.html:42
+#: apps/course_metadata/templates/admin/course_metadata/course_run.html:29
 msgid "Save Course Run"
 msgstr "Spara kursomgång"
 
@@ -2099,128 +2129,30 @@ msgstr ""
 "%(user_name)s gjorde följande kommentar på %(course_name)s %(date)s vid "
 "%(time)s"
 
-#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:7
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:8
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:3
 #: apps/course_metadata/templates/course_metadata/email/go_live.html:9
 #: apps/course_metadata/templates/course_metadata/email/go_live.txt:3
 msgid "Hi Course Team,"
 msgstr "Hej Kursgrupp,"
 
-#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:12
-#, python-format
-msgid ""
-"\n"
-"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
-"        "
-msgstr ""
-"\n"
-"        Detta är en automatisk påminnelse om att kursen \"%(course_name)s\" (Kursnyckel: %(course_key)s) är planerad att avslutas om %(days)s den %(course_end_date)s.\n"
-"        "
-
-#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:16
-#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:16
-msgid ""
-"To ensure uninterrupted learner access and enrollment, please take one of "
-"the following actions:"
-msgstr ""
-"För att säkerställa oavbruten tillgång och registrering för elever, vänligen"
-" vidta en av följande åtgärder:"
-
-#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:19
-#, python-format
-msgid ""
-"\n"
-"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
-"        "
-msgstr ""
-"\n"
-"        Detta är en automatisk påminnelse om att kursen \"%(course_name)s\" (Kursnyckel: %(course_key)s) officiellt har avslutats den %(course_end_date)s.\n"
-"        "
-
-#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:23
-#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:18
-msgid ""
-"If this was intentional, no action is needed. However, if this course was "
-"meant to remain available, you have two options to restore access:"
-msgstr ""
-"Om detta var avsiktligt, behövs ingen åtgärd. Men om kursen var avsedd att "
-"förbli tillgänglig, har du två alternativ för att återställa åtkomsten:"
-
-#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:29
-#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:21
-msgid ""
-"Extend the current course run’s end date if the same course is meant to "
-"remain available."
-msgstr ""
-"Förläng det nuvarande kurstillfällets slutdatum om samma kurs ska förbli "
-"tillgänglig."
-
-#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:31
-#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:22
-msgid ""
-"Create a new course run if you are planning to offer this course again with "
-"updated content, pacing, or a new cohort of learners."
-msgstr ""
-"Skapa en ny kursomgång om du planerar att erbjuda kursen igen med uppdaterat"
-" innehåll, tempo eller en ny grupp av deltagare."
-
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.html:32
-msgid "Visit the Course in Publisher"
-msgstr "Besök kursen i Publisher"
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:39
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:65
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:72
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:98
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:105
+msgid "here"
+msgstr "här"
 
-#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:37
-#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:25
-msgid "You can review and modify the course end settings here:"
-msgstr "Du kan granska och ändra kursens slutinställningar här:"
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:112
+msgid "NOTE:"
+msgstr "OBS:"
 
-#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:41
-#, python-format
-msgid ""
-"\n"
-"        If no action is taken, the course will no longer be available for enrollment or access by learners on \n"
-"        <a href=\"%(partner_marketing_site_url)s\">%(partner_marketing_site_url)s</a> after the end date.\n"
-"        "
-msgstr ""
-"\n"
-"        Om ingen åtgärd vidtas kommer kursen inte längre att vara tillgänglig för registrering eller åtkomst av deltagare på \n"
-"<a href=\"%(partner_marketing_site_url)s\">%(partner_marketing_site_url)s</a> efter slutdatumet.\n"
-"        "
-
-#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:47
-#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:34
-msgid "Thanks"
-msgstr "Tack"
-
-#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:6
-#, python-format
-msgid ""
-"\n"
-"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
-msgstr ""
-"\n"
-"Detta är en automatisk påminnelse om att kursen \"%(course_name)s\" (Kursnyckel: %(course_key)s) är planerad att avslutas om %(days)s den %(course_end_date)s.\n"
-
-#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:10
-#, python-format
-msgid ""
-"\n"
-"This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
-msgstr ""
-"\n"
-"Detta är en automatisk påminnelse om att kursen \"%(course_name)s\" (Kursnyckel: %(course_key)s) officiellt har avslutats den %(course_end_date)s.\n"
-
-#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:23
-msgid "Visit the Course in Publisher:"
-msgstr "Besök kursen i Publisher:"
-
-#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:29
-#, python-format
-msgid ""
-"\n"
-"If no action is taken, the course will no longer be available for enrollment or access by learners on %(partner_marketing_site_url)s after the end date.\n"
-msgstr ""
-"\n"
-"Om ingen åtgärd vidtas kommer kursen inte längre att vara tillgänglig för registrering eller åtkomst av deltagare på %(partner_marketing_site_url)s efter slutdatumet.\n"
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:121
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:60
+msgid "Best,"
+msgstr "Vänliga hälsningar,"
 
 #: apps/course_metadata/templates/course_metadata/email/go_live.html:17
 #: apps/course_metadata/templates/course_metadata/email/go_live.txt:7
