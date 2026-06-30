@@ -69,6 +69,10 @@ msgstr "نوع الإعداد"
 msgid "LTI Version"
 msgstr "إصدار LTI"
 
+#: lti_xblock.py:305
+msgid "Enter the ID of an existing reusable tool configuration."
+msgstr "أدخل هوية ضبط أداة قابلة لإعادة الاستخدام موجودة."
+
 #: lti_xblock.py:313
 msgid "Passport ID for a reusable keys."
 msgstr "هوية الاستيثاق للمفاتيح القابلة لإعادة الاستخدام."
@@ -77,29 +81,110 @@ msgstr "هوية الاستيثاق للمفاتيح القابلة لإعادة
 msgid "Launch URL"
 msgstr "رابط الإطلاق"
 
+#: lti_xblock.py:321
+msgid ""
+"Enter the launch URL for this tool. For LTI 1.3, this is the URL Open edX "
+"uses to launch the tool."
+msgstr ""
+"أدخل رابط الإطلاق لهذه الأداة. بالنسبة لـ LTI 1.3، هذا هو الرابط الذي "
+"يستخدمه Open edX لإطلاق الأداة."
+
+#: lti_xblock.py:325
+msgid "Tool Initiate Login URL (OIDC)"
+msgstr "عنوان URL لبدء تسجيل الدخول للأداة (OIDC)"
+
+#: lti_xblock.py:329
+msgid ""
+"Enter the tool’s OIDC login initiation URL. Open edX uses this URL to start "
+"the LTI 1.3 login flow."
+msgstr ""
+"أدخل عنوان URL لبدء تسجيل الدخول OIDC للأداة. يستخدم Open edX عنوان URL هذا "
+"لبدء تدفق تسجيل الدخول LTI 1.3."
+
 #: lti_xblock.py:333
 msgid "Registered Redirect URIs"
 msgstr "عناوين URI المُسجَّلة المُخصّصة لإعادة التوجيه"
+
+#: lti_xblock.py:335
+msgid ""
+"Enter the redirect URIs this tool is allowed to use during login e.g. "
+"[\"https://tool.com\", \"https://tool_deeplink.com\"]. Leave this blank to "
+"use the launch URL and deep linking URL by default."
+msgstr ""
+"أدخل عناوين URI لإعادة التوجيه التي يُسمح لهذه الأداة باستخدامها أثناء تسجيل"
+" الدخول، مثل [\"https://tool.com\", \"https://tool_deeplink.com\"]. اترك هذا"
+" الحقل فارغًا لاستخدام عنوان URL للتشغيل وعنوان URL للربط العميق افتراضيًا."
 
 #: lti_xblock.py:343
 msgid "Tool Public Key Mode"
 msgstr "وضع المفتاح العام للأداة"
 
+#: lti_xblock.py:351
+msgid ""
+"Choose how Open edX will get the tool’s public key for validating signed "
+"messages."
+msgstr ""
+"اختر كيف سيحصل Open edX على المفتاح العام للأداة للتحقق من الرسائل الموقعة."
+
 #: lti_xblock.py:355
 msgid "Tool Keyset URL"
 msgstr "عنوان URL لمجموعة مفاتيح الأداة"
+
+#: lti_xblock.py:359
+msgid ""
+"Enter the URL of the tool’s JWK keyset. Open edX uses this URL to retrieve "
+"the public keys needed to validate signed messages."
+msgstr ""
+"أدخل عنوان URL لمجموعة مفاتيح JWK الخاصة بالأداة. يستخدم Open edX عنوان URL "
+"هذا لاسترداد المفاتيح العامة اللازمة للتحقق من صحة الرسائل الموقعة."
 
 #: lti_xblock.py:364
 msgid "Tool Public Key"
 msgstr "المفتاح العام للأداة"
 
+#: lti_xblock.py:369
+msgid ""
+"Enter the tool’s public key in PEM format (starts with -----BEGIN PUBLIC "
+"KEY-----). Use this when the tool provides a static public key directly."
+msgstr ""
+"أدخل المفتاح العام للأداة بتنسيق PEM (يبدأ بـ -----BEGIN PUBLIC KEY-----). "
+"استخدم هذا عندما توفّر الأداة مفتاحًا عامًا ثابتًا مباشرةً."
+
+#: lti_xblock.py:375
+msgid "Names & Roles (NRPS)"
+msgstr "الأسماء والأدوار (NRPS)"
+
+#: lti_xblock.py:377
+msgid ""
+"Enable this to allow the tool to access the names and roles of enrolled "
+"learners, if the tool supports NRPS."
+msgstr ""
+"فعِّل هذا للسماح للأداة بالوصول إلى الأسماء والأدوار للطلاب المُسجَّلين، إذا"
+" كانت الأداة تدعم NRPS."
+
 #: lti_xblock.py:386
 msgid "Deep linking"
 msgstr "الربط العميق (Deep linking)"
 
+#: lti_xblock.py:388
+msgid ""
+"Enable this if you want to deep link content from within the tool, in "
+"Studio."
+msgstr ""
+"فعِّل هذا الخيار إذا كنت ترغب في ربط المحتوى مباشرةً من داخل الأداة، في "
+"Studio."
+
 #: lti_xblock.py:394
 msgid "Deep Linking Launch URL"
 msgstr "رابط تشغيل الربط العميق "
+
+#: lti_xblock.py:402
+msgid "Assignment and Grades"
+msgstr "الواجبات والدرجات"
+
+#: lti_xblock.py:404
+msgid "Declarative"
+msgstr "تصريحي"
 
 #: lti_xblock.py:406 templates/html/lti_studio_edit/_step_advantage.html:30
 #: templates/html/lti_studio_edit/_step_advantage.html:114
@@ -108,13 +193,37 @@ msgstr "رابط تشغيل الربط العميق "
 msgid "Disabled"
 msgstr "معطّل"
 
+#: lti_xblock.py:420
+msgid ""
+"Select the LTI passport ID for this tool. This is the ID of the LTI passport"
+" that you created on Advanced Settings page."
+msgstr ""
+"حدِّد هوية الاستيثاق LTI لهذه الأداة. هذه هي هوية الاستيثاق LTI التي أنشأتها"
+" في صفحة الإعدادات المتقدمة."
+
 #: lti_xblock.py:427
 msgid "LTI URL"
 msgstr "رابط LTI"
 
+#: lti_xblock.py:429
+msgid ""
+"Enter the launch URL for this tool. For LTI 1.1/1.2, this is the URL Open "
+"edX uses to launch the tool."
+msgstr ""
+"أدخل رابط الإطلاق لهذه الأداة. بالنسبة لـ LTI 1.1/1.2، هذا هو الرابط الذي "
+"يستخدمه Open edX لإطلاق الأداة."
+
 #: lti_xblock.py:437
 msgid "Custom Parameters"
 msgstr "المُعطيات المُخصّصة"
+
+#: lti_xblock.py:439
+msgid ""
+"Enter key-value pairs to send with each launch e.g. [\"page=1\", "
+"\"color=white\"]."
+msgstr ""
+"أدخل أزواج المفاتيح والقيم لإرسالها مع كل تشغيل، مثل [\"page=1\", "
+"\"color=white\"]."
 
 #: lti_xblock.py:444
 msgid "Open tool in"
