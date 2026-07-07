@@ -5,19 +5,16 @@
 # 
 # Translators:
 # Translators:
-# Transifex Bot <>, 2026
-# edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2026
 # Brian Smith, 2026
-# Omar Al-Ithawi <i@omardo.com>, 2026
-# Gerardo Núñez, 2026
+# Transifex Bot <>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-12 00:35+0000\n"
-"PO-Revision-Date: 2023-01-26 15:39+0000\n"
-"Last-Translator: Gerardo Núñez, 2026\n"
+"POT-Creation-Date: 2026-04-24 00:52+0000\n"
+"PO-Revision-Date: 2026-07-06 14:41+0000\n"
+"Last-Translator: Transifex Bot <>, 2026\n"
 "Language-Team: Korean (https://app.transifex.com/open-edx/teams/6205/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -186,7 +183,7 @@ msgstr ""
 "과정 편집에 실패했습니다. 과정 URL 슬러그 &#39;[{url_slug}]&#39;가 이미 사용 중입니다. 이 필드를 업데이트하고 "
 "다시 시도하세요."
 
-#: apps/api/views.py:58
+#: apps/api/views.py:57
 msgid "You are not permitted to access the API documentation."
 msgstr "API 문서에 접근할 수 있는 권한이 없습니다."
 
@@ -813,6 +810,10 @@ msgstr "파트너를 나타내는 단축 코드입니다."
 #: apps/learner_pathway/models.py:83 apps/learner_pathway/models.py:158
 msgid "UUID"
 msgstr "UUID"
+
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:22
+msgid "Course to backpopulate."
+msgstr "인구를 다시 늘리는 과정입니다."
 
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:27
 msgid "KEY"
@@ -1594,6 +1595,10 @@ msgstr "제안에서 태그/라벨을 선택하세요. 새 태그를 만들려�
 msgid "The last time this program was modified."
 msgstr "이 프로그램이 마지막으로 수정된 시간입니다."
 
+#: apps/course_metadata/models.py:4009 apps/course_metadata/models.py:4026
+msgid "ID"
+msgstr "ID"
+
 #: apps/course_metadata/models.py:4045
 msgid "The actual rank number"
 msgstr "실제 순위 번호"
@@ -1675,6 +1680,10 @@ msgstr "마이크로마스터 프로그램이 마스터 프로그램과 다른 �
 #: apps/course_metadata/models.py:4193
 msgid "Ranking display for search card (e.g. \"#1 in the U.S.\""
 msgstr "검색 카드에 대한 순위 표시(예: &quot;#1 in the US&quot;)"
+
+#: apps/course_metadata/models.py:4199
+msgid "Cost display for search card (e.g. \"$9,999\""
+msgstr "검색 카드에 대한 비용 표시(예: &quot;$9,999&quot;)"
 
 #: apps/course_metadata/models.py:4205
 msgid "Number of courses for search card (e.g. \"11 Courses\""
@@ -1803,6 +1812,10 @@ msgstr "이 프로그램은 경로 자체와는 다른 파트너를 위한 것�
 msgid "Facebook"
 msgstr "페이스북"
 
+#: apps/course_metadata/models.py:4623
+msgid "Twitter"
+msgstr "지저귀다"
+
 #: apps/course_metadata/models.py:4624
 msgid "Blog"
 msgstr "블로그"
@@ -1927,15 +1940,15 @@ msgstr "partner={}에 대한 클라이언트가 없는 Salesforce에 쿼리를 �
 msgid "Unable to associate a case for comments for {}"
 msgstr "{}에 대한 주석에 대한 케이스를 연결할 수 없습니다."
 
-#: apps/course_metadata/templates/admin/course_metadata/course_run.html:37
+#: apps/course_metadata/templates/admin/course_metadata/course_run.html:24
 msgid "Cancel"
 msgstr "취소"
 
-#: apps/course_metadata/templates/admin/course_metadata/course_run.html:40
+#: apps/course_metadata/templates/admin/course_metadata/course_run.html:27
 msgid "Back to Program"
 msgstr "프로그램으로 돌아가기"
 
-#: apps/course_metadata/templates/admin/course_metadata/course_run.html:42
+#: apps/course_metadata/templates/admin/course_metadata/course_run.html:29
 msgid "Save Course Run"
 msgstr "코스 실행 저장"
 
@@ -1992,12 +2005,34 @@ msgstr ""
 msgid "Hi Course Team,"
 msgstr "안녕하세요 코스팀,"
 
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:12
+#, python-format
+msgid ""
+"\n"
+"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
+"        "
+msgstr ""
+"\n"
+"이는 &quot; %(course_name)s &quot;(과정 키: %(course_key)s ) 과정이 %(days)s 의 %(course_end_date)s 에서 종료될 예정임을 알리는 자동 알림입니다.\n"
+"        "
+
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.html:16
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:16
 msgid ""
 "To ensure uninterrupted learner access and enrollment, please take one of "
 "the following actions:"
 msgstr "학습자의 원활한 접속 및 등록을 위해 다음 조치 중 하나를 취하세요."
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:19
+#, python-format
+msgid ""
+"\n"
+"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
+"        "
+msgstr ""
+"\n"
+"이는 &quot; %(course_name)s &quot;(과정 키: %(course_key)s ) 과정이 %(course_end_date)s 기점으로 공식적으로 종료되었음을 알리는 자동 알림입니다.\n"
+"        "
 
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.html:23
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:18
@@ -2032,6 +2067,19 @@ msgstr "Publisher에서 코스를 방문하세요"
 msgid "You can review and modify the course end settings here:"
 msgstr "여기에서 코스 종료 설정을 검토하고 수정할 수 있습니다."
 
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:41
+#, python-format
+msgid ""
+"\n"
+"        If no action is taken, the course will no longer be available for enrollment or access by learners on \n"
+"        <a href=\"%(partner_marketing_site_url)s\">%(partner_marketing_site_url)s</a> after the end date.\n"
+"        "
+msgstr ""
+"\n"
+"아무런 조치도 취하지 않으면 학습자는 더 이상 해당 코스에 등록하거나 액세스할 수 없습니다.\n"
+" <a href=\"%(partner_marketing_site_url)s\">%(partner_marketing_site_url)s</a> 종료일 이후.\n"
+"        "
+
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.html:47
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:34
 msgid "Thanks"
@@ -2059,6 +2107,10 @@ msgstr ""
 "이는 \"%(course_name)s\" (과정 키: %(course_key)s) 과정이 %(course_end_date)s 기점으로 공식적으로 종료되었음을 알리는 자동 알림입니다.\n"
 "\n"
 "```\n"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:23
+msgid "Visit the Course in Publisher:"
+msgstr "Publisher에서 코스를 방문하세요:"
 
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:29
 #, python-format
@@ -2258,6 +2310,17 @@ msgid ""
 msgstr ""
 "\n"
 "    과정 '%(course_name)s'은 edX에서 성공적으로 검토되었으며 현재 %(course_publish_date)s에 게시되었습니다. 라이브 과정을 보려면 여기를 방문하세요: %(course_marketing_url)s\n"
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.txt:8
+#, python-format
+msgid ""
+"\n"
+"   Course '%(course_name)s' has been successfully reviewed by edX and is now ready for publication. The course will be published on %(course_publish_date)s.\n"
+"    To see a preview of the Course About Page, go here: %(course_preview_url)s\n"
+msgstr ""
+"\n"
+"과정 &#39; %(course_name)s &#39;은 edX에서 성공적으로 검토되었으며 이제 출판할 준비가 되었습니다. 과정은 %(course_publish_date)s 에 출판될 예정입니다.\n"
+" 코스 정보 페이지 미리보기를 보려면 여기를 방문하세요: %(course_preview_url)s\n"
 
 #: apps/course_metadata/utils.py:391
 msgid "Special characters not allowed in Course Number."
