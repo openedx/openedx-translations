@@ -5,18 +5,16 @@
 # 
 # Translators:
 # Translators:
-# edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2026
 # Brian Smith, 2026
-# Omar Al-Ithawi <i@omardo.com>, 2026
-# Gerardo Núñez, 2026
+# Transifex Bot <>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-12 00:35+0000\n"
-"PO-Revision-Date: 2023-01-26 15:39+0000\n"
-"Last-Translator: Gerardo Núñez, 2026\n"
+"POT-Creation-Date: 2026-04-24 00:52+0000\n"
+"PO-Revision-Date: 2026-07-06 14:41+0000\n"
+"Last-Translator: Transifex Bot <>, 2026\n"
 "Language-Team: Dutch (https://app.transifex.com/open-edx/teams/6205/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -200,7 +198,7 @@ msgstr ""
 "&#39;[{url_slug}]&#39; is al in gebruik. Werk dit veld bij en probeer het "
 "opnieuw."
 
-#: apps/api/views.py:58
+#: apps/api/views.py:57
 msgid "You are not permitted to access the API documentation."
 msgstr "U heeft geen toegang tot de API-documentatie."
 
@@ -1847,6 +1845,10 @@ msgstr ""
 msgid "Ranking display for search card (e.g. \"#1 in the U.S.\""
 msgstr "Rankingweergave van zoekkaart (bijvoorbeeld &quot;#1 in de VS&quot;)"
 
+#: apps/course_metadata/models.py:4199
+msgid "Cost display for search card (e.g. \"$9,999\""
+msgstr "Kostenweergave voor zoekkaart (bijv. &quot;€ 9.999&quot;"
+
 #: apps/course_metadata/models.py:4205
 msgid "Number of courses for search card (e.g. \"11 Courses\""
 msgstr ""
@@ -1940,6 +1942,10 @@ msgstr "Beschrijft de deadline (bijv. Deadline voor vroege toelating)"
 msgid "The date after which the deadline expires (e.g. January 1, 2019)"
 msgstr "De datum waarna de deadline verstrijkt (bijvoorbeeld 1 januari 2019)"
 
+#: apps/course_metadata/models.py:4352
+msgid "The time after which the deadline expires (e.g. 11:59 PM EST)."
+msgstr "De tijd waarna de deadline verstrijkt (bijvoorbeeld 23:59 EST)."
+
 #: apps/course_metadata/models.py:4388
 msgid "Describes what the cost is for (e.g. Tuition)"
 msgstr "Beschrijft waar de kosten voor zijn (bijvoorbeeld collegegeld)"
@@ -1976,6 +1982,10 @@ msgstr ""
 #: apps/course_metadata/models.py:4622
 msgid "Facebook"
 msgstr "Facebook"
+
+#: apps/course_metadata/models.py:4623
+msgid "Twitter"
+msgstr "X"
 
 #: apps/course_metadata/models.py:4624
 msgid "Blog"
@@ -2106,15 +2116,15 @@ msgstr ""
 msgid "Unable to associate a case for comments for {}"
 msgstr "Kan geen aanvraag voor opmerkingen koppelen voor {}"
 
-#: apps/course_metadata/templates/admin/course_metadata/course_run.html:37
+#: apps/course_metadata/templates/admin/course_metadata/course_run.html:24
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: apps/course_metadata/templates/admin/course_metadata/course_run.html:40
+#: apps/course_metadata/templates/admin/course_metadata/course_run.html:27
 msgid "Back to Program"
 msgstr "Terug naar Programma"
 
-#: apps/course_metadata/templates/admin/course_metadata/course_run.html:42
+#: apps/course_metadata/templates/admin/course_metadata/course_run.html:29
 msgid "Save Course Run"
 msgstr "Cursusuitvoering opslaan"
 
@@ -2173,6 +2183,17 @@ msgstr ""
 msgid "Hi Course Team,"
 msgstr "Hallo Cursusteam,"
 
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:12
+#, python-format
+msgid ""
+"\n"
+"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
+"        "
+msgstr ""
+"\n"
+"        Dit is een automatische herinnering dat de cursus \"%(course_name)s\" (Cursussleutel: %(course_key)s) volgens de planning eindigt in %(days)s op %(course_end_date)s.\n"
+"        "
+
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.html:16
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:16
 msgid ""
@@ -2181,6 +2202,17 @@ msgid ""
 msgstr ""
 "Neem een van de volgende acties om ervoor te zorgen dat studenten "
 "ononderbroken toegang hebben en zich kunnen inschrijven:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:19
+#, python-format
+msgid ""
+"\n"
+"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
+"        "
+msgstr ""
+"\n"
+"        Dit is een automatische herinnering dat de cursus \"%(course_name)s\" (Cursussleutel: %(course_key)s) officieel is beëindigd per %(course_end_date)s.\n"
+"        "
 
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.html:23
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:18
@@ -2446,6 +2478,39 @@ msgstr ""
 "\n"
 "        Cursus '%(course_name)s' is met succes beoordeeld door edX en is nu gepubliceerd op %(course_publish_date)s. Om de live cursus te zien, ga hier: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
 "    "
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.html:12
+#, python-format
+msgid ""
+"\n"
+"        Course '%(course_name)s' has been successfully reviewed by edX and is now ready for publication. The course will be published on %(course_publish_date)s.\n"
+"        To see a preview of the Course About Page, go here: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
+msgstr ""
+"\n"
+"Cursus &#39; %(course_name)s &#39; is met succes beoordeeld door edX en is nu klaar voor publicatie. De cursus wordt gepubliceerd op %(course_publish_date)s .\n"
+" Ga hier voor een voorbeeld van de Cursus-over-pagina: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.txt:4
+#, python-format
+msgid ""
+"\n"
+"    Course '%(course_name)s' has been successfully reviewed by edX and is now published on %(course_publish_date)s. To see live course, go here: %(course_marketing_url)s\n"
+msgstr ""
+"\n"
+"Cursus &#39; %(course_name)s &#39; is met succes beoordeeld door edX en is nu gepubliceerd op %(course_publish_date)s . Om de live cursus te zien, ga hier: %(course_marketing_url)s\n"
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.txt:8
+#, python-format
+msgid ""
+"\n"
+"   Course '%(course_name)s' has been successfully reviewed by edX and is now ready for publication. The course will be published on %(course_publish_date)s.\n"
+"    To see a preview of the Course About Page, go here: %(course_preview_url)s\n"
+msgstr ""
+"\n"
+"Cursus &#39; %(course_name)s &#39; is met succes beoordeeld door edX en is nu klaar voor publicatie. De cursus wordt gepubliceerd op %(course_publish_date)s .\n"
+" Ga hier voor een voorbeeld van de Cursus-over-pagina: %(course_preview_url)s\n"
 
 #: apps/course_metadata/utils.py:391
 msgid "Special characters not allowed in Course Number."
