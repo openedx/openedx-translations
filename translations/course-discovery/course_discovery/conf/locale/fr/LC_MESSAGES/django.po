@@ -5,18 +5,16 @@
 # 
 # Translators:
 # Translators:
-# Brian Smith, 2025
-# Omar Al-Ithawi <i@omardo.com>, 2025
-# edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2025
-# Eden Huthmacher, 2025
+# Brian Smith, 2026
+# Transifex Bot <>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-12 00:35+0000\n"
-"PO-Revision-Date: 2023-01-26 15:39+0000\n"
-"Last-Translator: Eden Huthmacher, 2025\n"
+"POT-Creation-Date: 2026-04-24 00:52+0000\n"
+"PO-Revision-Date: 2026-07-06 14:41+0000\n"
+"Last-Translator: Transifex Bot <>, 2026\n"
 "Language-Team: French (https://app.transifex.com/open-edx/teams/6205/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -201,7 +199,7 @@ msgstr ""
 "La modification de cours a échoué. Le slug d'URL du cours ‘[{url_slug}]’ est"
 " déjà utilisé. Veuillez mettre à jour ce champ et réessayer."
 
-#: apps/api/views.py:58
+#: apps/api/views.py:57
 msgid "You are not permitted to access the API documentation."
 msgstr "Vous n'êtes pas autorisé à accéder à la documentation de l'API."
 
@@ -582,7 +580,7 @@ msgstr "Mise à jour de l'éditeur de cours"
 
 #: apps/course_metadata/choices.py:64
 msgid "Pending"
-msgstr "En cours"
+msgstr "En attente"
 
 #: apps/course_metadata/choices.py:65 apps/course_metadata/choices.py:76
 msgid "Verified"
@@ -594,7 +592,7 @@ msgstr "Traitement"
 
 #: apps/course_metadata/choices.py:67
 msgid "Completed"
-msgstr "Terminé"
+msgstr "Complété"
 
 #: apps/course_metadata/choices.py:68
 msgid "Failed"
@@ -860,6 +858,10 @@ msgstr "Code abrégé pour un partenaire."
 #: apps/learner_pathway/models.py:83 apps/learner_pathway/models.py:158
 msgid "UUID"
 msgstr "UUID"
+
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:22
+msgid "Course to backpopulate."
+msgstr "Cours à repeupler."
 
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:27
 msgid "KEY"
@@ -1570,6 +1572,10 @@ msgstr ""
 "une session à une variante de produit pour les LOB externes (c&#39;est-à-"
 "dire ExecEd et Bootcamps)."
 
+#: apps/course_metadata/models.py:2753 apps/course_metadata/models.py:2766
+msgid "Current"
+msgstr "Actuel"
+
 #: apps/course_metadata/models.py:2755
 msgid "Starting Soon"
 msgstr "Commence bientôt"
@@ -1848,6 +1854,10 @@ msgstr ""
 "Affichage du classement pour la carte de recherche (par exemple &quot;#1 aux"
 " États-Unis&quot;)"
 
+#: apps/course_metadata/models.py:4199
+msgid "Cost display for search card (e.g. \"$9,999\""
+msgstr "Affichage du coût pour la carte de recherche (par exemple « 9 999 $ »"
+
 #: apps/course_metadata/models.py:4205
 msgid "Number of courses for search card (e.g. \"11 Courses\""
 msgstr ""
@@ -1957,6 +1967,16 @@ msgstr "Décrit le coût (par exemple, frais de scolarité)"
 msgid "String-based field stating how much the cost is (e.g. $1000)."
 msgstr "Champ basé sur une chaîne indiquant le Coût (par exemple 1 000 $)."
 
+#: apps/course_metadata/models.py:4435
+msgid ""
+"A high-level overview of the degree's courseware. The \"brief\"\n"
+"            text is the first 750 characters of \"marketing_text\" and must be\n"
+"            valid HTML."
+msgstr ""
+"Un aperçu de haut niveau des didacticiels du diplôme. Le &quot;bref&quot;\n"
+" le texte est constitué des 750 premiers caractères de &quot;marketing_text&quot; et doit être\n"
+" HTML valide."
+
 #: apps/course_metadata/models.py:4443
 msgid "A high-level overview of the degree's courseware."
 msgstr "Un aperçu de haut niveau des cours du diplôme."
@@ -2045,6 +2065,10 @@ msgstr "Camps d&#39;entraînement"
 msgid "Course UUIDs"
 msgstr "UUID de cours"
 
+#: apps/course_metadata/models.py:4930
+msgid "Course Run IDs"
+msgstr "Identifiant de session"
+
 #: apps/course_metadata/models.py:4946
 msgid "Profile Image UUIDs"
 msgstr "UUID du Profil de l’image"
@@ -2108,15 +2132,15 @@ msgstr ""
 msgid "Unable to associate a case for comments for {}"
 msgstr "Impossible d'associer un cas pour commentaire sur {}"
 
-#: apps/course_metadata/templates/admin/course_metadata/course_run.html:37
+#: apps/course_metadata/templates/admin/course_metadata/course_run.html:24
 msgid "Cancel"
 msgstr "Annuler"
 
-#: apps/course_metadata/templates/admin/course_metadata/course_run.html:40
+#: apps/course_metadata/templates/admin/course_metadata/course_run.html:27
 msgid "Back to Program"
 msgstr "Retour au Programme"
 
-#: apps/course_metadata/templates/admin/course_metadata/course_run.html:42
+#: apps/course_metadata/templates/admin/course_metadata/course_run.html:29
 msgid "Save Course Run"
 msgstr "Enregistrer la session"
 
@@ -2139,6 +2163,15 @@ msgstr "Actualiser les compétences du cours"
 #: apps/course_metadata/templates/admin/course_metadata/refresh_program_skills.html:32
 msgid "Refresh Program Skills"
 msgstr "Actualiser les compétences du Programme"
+
+#: apps/course_metadata/templates/course_metadata/email/comment.html:7
+#, python-format
+msgid ""
+"%(user_name)s made the following comment on %(course_name)s on %(date)s at "
+"%(time)s"
+msgstr ""
+"%(user_name)s a fait le commentaire suivant sur %(course_name)s sur %(date)s"
+" à %(time)s"
 
 #: apps/course_metadata/templates/course_metadata/email/comment.html:19
 #: apps/course_metadata/templates/course_metadata/email/comment.txt:9
@@ -2235,6 +2268,19 @@ msgstr "Visitez le cours dans Publisher"
 msgid "You can review and modify the course end settings here:"
 msgstr ""
 "Vous pouvez revoir et modifier les paramètres pour terminer le cours ici :"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:41
+#, python-format
+msgid ""
+"\n"
+"        If no action is taken, the course will no longer be available for enrollment or access by learners on \n"
+"        <a href=\"%(partner_marketing_site_url)s\">%(partner_marketing_site_url)s</a> after the end date.\n"
+"        "
+msgstr ""
+"\n"
+"        Si aucune action n'est entreprise, le cours ne sera plus disponible pour les apprenants inscription ou Accédez par le \n"
+"        <a href=\"%(partner_marketing_site_url)s\">%(partner_marketing_site_url)s</a> après la date de fin.\n"
+"        "
 
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.html:47
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:34
@@ -2450,6 +2496,19 @@ msgstr ""
 "        ```\n"
 "Le cours '%(course_name)s' a été bien révisé par edX et est maintenant publié sur %(course_publish_date)s. Pour voir le cours en direct, rendez-vous ici : <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
 "```\n"
+"    "
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.html:12
+#, python-format
+msgid ""
+"\n"
+"        Course '%(course_name)s' has been successfully reviewed by edX and is now ready for publication. The course will be published on %(course_publish_date)s.\n"
+"        To see a preview of the Course About Page, go here: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
+"    "
+msgstr ""
+"\n"
+"Le cours « %(course_name)s » a été révisé avec succès par edX et est maintenant prêt à être publié. Le cours sera publié sur %(course_publish_date)s .\n"
+" Pour voir un aperçu de la page À propos du cours, allez ici : <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
 "    "
 
 #: apps/course_metadata/templates/course_metadata/email/watchers_course_url.txt:4
