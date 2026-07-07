@@ -5,18 +5,16 @@
 # 
 # Translators:
 # Translators:
-# edx_transifex_bot <i18n-working-group+edx-transifex-bot@edx.org>, 2026
-# Gerardo Núñez, 2026
-# Transifex Bot <>, 2026
 # Brian Smith, 2026
+# Transifex Bot <>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-10 00:46+0000\n"
-"PO-Revision-Date: 2023-01-26 15:39+0000\n"
-"Last-Translator: Brian Smith, 2026\n"
+"POT-Creation-Date: 2026-04-24 00:52+0000\n"
+"PO-Revision-Date: 2026-07-06 14:41+0000\n"
+"Last-Translator: Transifex Bot <>, 2026\n"
 "Language-Team: Thai (https://app.transifex.com/open-edx/teams/6205/th/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -191,7 +189,7 @@ msgstr ""
 "การแก้ไขหลักสูตรไม่สำเร็จ URL slug '[{url_slug}]' นี้ถูกใช้ไปแล้ว "
 "โปรดอัปเดตฟิลด์นี้แล้วลองอีกครั้ง"
 
-#: apps/api/views.py:58
+#: apps/api/views.py:57
 msgid "You are not permitted to access the API documentation."
 msgstr "คุณไม่มีสิทธิ์เข้าใช้เอกสาร API"
 
@@ -363,6 +361,10 @@ msgstr "Analytics API URL"
 #: apps/core/models.py:85
 msgid "Analytics Access Token"
 msgstr "วิเคราะห์การเข้าถึงโทเค็น"
+
+#: apps/core/models.py:94
+msgid "Partner"
+msgstr "Partner"
 
 #: apps/core/models.py:95
 msgid "Partners"
@@ -571,7 +573,7 @@ msgstr "กำลังประมวลผล"
 
 #: apps/course_metadata/choices.py:67
 msgid "Completed"
-msgstr "เสร็จสิ้น"
+msgstr "ครบแล้ว"
 
 #: apps/course_metadata/choices.py:68
 msgid "Failed"
@@ -1104,6 +1106,17 @@ msgstr "รหัสองค์กรที่สอดคล้องกัน
 msgid "LevelType model translations"
 msgstr "การแปลโมเดล LevelType"
 
+#: apps/course_metadata/models.py:475
+msgid ""
+"Seat types that qualify for completion of programs of this type. Learners "
+"completing associated courses, but enrolled in other seat types, will NOT "
+"have their completion of the course counted toward the completion of the "
+"program."
+msgstr ""
+"ประเภทที่ผ่านการคัดเลือกสำหรับโปรแกรมประเภทนี้ "
+"ผู้เรียนที่เรียนจบที่เกี่ยวข้อง แต่ได้ลงทะเบียนในประเภทอื่น ๆ ไว้ "
+"จะไม่สามารถนำมานับเป็นวิชาที่เรียนจบในโปรแกรมนี้ได้"
+
 #: apps/course_metadata/models.py:489
 msgid "Please provide an image file with transparent background"
 msgstr "กรุณาใช้ไฟล์ภาพที่มีพื้นหลังโปร่งใส"
@@ -1227,6 +1240,12 @@ msgstr "ฟิลด์นี้อนุญาตให้แทนที่ร
 msgid ""
 "This field contain external course marketing type specific to product lines"
 msgstr "ฟิลด์นี้มีประเภทการตลาดของหลักสูตรภายนอกเฉพาะสำหรับสายผลิตภัณฑ์"
+
+#: apps/course_metadata/models.py:1002
+msgid ""
+"Determines weather the course should be displayed on the owning "
+"organization's page"
+msgstr "กำหนดสภาพอากาศที่หลักสูตรควรแสดงบนเพจขององค์กรที่เป็นเจ้าของ"
 
 #: apps/course_metadata/models.py:1073
 msgid "A list of major works by this person. Must be valid HTML."
@@ -2075,6 +2094,17 @@ msgstr ""
 msgid "Hi Course Team,"
 msgstr "สวัสดีทีมงานคอร์ส,"
 
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:12
+#, python-format
+msgid ""
+"\n"
+"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) is scheduled to end in %(days)s on %(course_end_date)s.\n"
+"        "
+msgstr ""
+"\n"
+"นี่เป็นการแจ้งเตือนอัตโนมัติว่าหลักสูตร &quot; %(course_name)s &quot; (รหัสหลักสูตร: %(course_key)s ) มีกำหนดสิ้นสุดใน %(days)s ใน %(course_end_date)s\n"
+"        "
+
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.html:16
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:16
 msgid ""
@@ -2083,6 +2113,26 @@ msgid ""
 msgstr ""
 "เพื่อให้แน่ใจว่าผู้เรียน เข้าใช้ และการลงทะเบียนได้อย่างต่อเนื่อง "
 "โปรดดำเนินการอย่างใดอย่างหนึ่งต่อไปนี้:"
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:19
+#, python-format
+msgid ""
+"\n"
+"        This is an automated reminder that the course \"%(course_name)s\" (Course Key: %(course_key)s) has officially ended as of %(course_end_date)s.\n"
+"        "
+msgstr ""
+"\n"
+"นี่เป็นการแจ้งเตือนอัตโนมัติว่าหลักสูตร &quot; %(course_name)s &quot; (รหัสหลักสูตร: %(course_key)s ) ได้สิ้นสุดลงอย่างเป็นทางการแล้วในวันที่ %(course_end_date)s\n"
+"        "
+
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.html:23
+#: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:18
+msgid ""
+"If this was intentional, no action is needed. However, if this course was "
+"meant to remain available, you have two options to restore access:"
+msgstr ""
+"หากตั้งใจให้ทำเช่นนี้ ก็ไม่จำเป็นต้องดำเนินการใดๆ อย่างไรก็ตาม "
+"หากตั้งใจให้หลักสูตรนี้ยังคงใช้งานได้ คุณมีสองทางเลือกในการคืนค่า เข้าใช้ :"
 
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.html:29
 #: apps/course_metadata/templates/course_metadata/email/course_deadline.txt:21
@@ -2354,6 +2404,17 @@ msgid ""
 msgstr ""
 "\n"
 "    หลักสูตร '%(course_name)s' ได้รับการตรวจสอบโดย edX เรียบร้อยแล้ว และขณะนี้ได้รับการเผยแพร่บน %(course_publish_date)s หากต้องการดูหลักสูตรสด ไปที่นี่: %(course_marketing_url)s\n"
+
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.txt:8
+#, python-format
+msgid ""
+"\n"
+"   Course '%(course_name)s' has been successfully reviewed by edX and is now ready for publication. The course will be published on %(course_publish_date)s.\n"
+"    To see a preview of the Course About Page, go here: %(course_preview_url)s\n"
+msgstr ""
+"\n"
+"หลักสูตร &#39; %(course_name)s &#39; ได้รับการตรวจสอบโดย edX เรียบร้อยแล้ว และพร้อมสำหรับการเผยแพร่แล้ว หลักสูตรนี้จะเผยแพร่ในวันที่ %(course_publish_date)s .\n"
+" หากต้องการดูตัวอย่างหน้าเกี่ยวกับหลักสูตร ไปที่นี่: %(course_preview_url)s\n"
 
 #: apps/course_metadata/utils.py:391
 msgid "Special characters not allowed in Course Number."
