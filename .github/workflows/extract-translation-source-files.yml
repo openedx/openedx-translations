@@ -89,9 +89,26 @@ jobs:
               'frontend-enterprise',
             ];
 
+            // Repos that exist in two parallel branches: one using the legacy MFE tooling and
+            // one using the frontend-base tooling. Strings are extracted from both branches and
+            // combined into a single resource. Branch names vary per repo, so each entry carries
+            // its own pair of refs.
             const allDualMFEAndBaseJavascriptRepos = [
-              'frontend-app-authn',
-              'frontend-app-learner-dashboard',
+              {
+                repo: 'frontend-app-authn',
+                mfe_ref: 'master',
+                base_ref: 'frontend-base',
+              },
+              {
+                repo: 'frontend-app-learner-dashboard',
+                mfe_ref: 'master',
+                base_ref: 'frontend-base',
+              },
+              {
+                repo: 'frontend-app-notifications',
+                mfe_ref: '2.x',
+                base_ref: 'main',
+              },
             ];
 
             const allGenericRepos = [
@@ -114,7 +131,7 @@ jobs:
             ]
 
             if (selectedRef !== '') {
-              core.warning(`Skipping dual-js repos — the ref input is not supported for repos that extract from both master and frontend-base branches.`);
+              core.warning(`Skipping dual-js repos — the ref input is not supported for repos that extract from two branches.`);
             }
 
             core.setOutput('hasPythonRepos', true);
@@ -153,8 +170,9 @@ jobs:
               core.setOutput('hasJavascriptRepos', false);
             }
 
-            if (allDualMFEAndBaseJavascriptRepos.includes(selectedRepo)) {
-              core.setOutput('dualMFEAndBaseJavascriptRepos', [selectedRepo]);
+            const dualRepoConfig = allDualMFEAndBaseJavascriptRepos.find(repoConfig => repoConfig.repo === selectedRepo);
+            if (dualRepoConfig !== undefined) {
+              core.setOutput('dualMFEAndBaseJavascriptRepos', [dualRepoConfig]);
             } else {
               core.setOutput('dualMFEAndBaseJavascriptRepos', []);
               core.setOutput('hasDualMFEAndBaseJavascriptRepos', false);
@@ -530,7 +548,7 @@ jobs:
       # using max-parallel to avoid git push/pull issues when running in parallel
       max-parallel: 1
       matrix:
-        repo: ${{ fromJson(needs.setup-matrix.outputs.dual_js_repos) }}
+        repository_config: ${{ fromJson(needs.setup-matrix.outputs.dual_js_repos) }}
     runs-on: ubuntu-latest
     continue-on-error: true
 
@@ -542,40 +560,40 @@ jobs:
           ref: ${{ needs.setup-branch.outputs.branch }}
           path: openedx-translations
 
-      # Clones the repository's master branch
-      - name: clone ${{ github.repository_owner }}/${{ matrix.repo }}
+      # Clones the repository's legacy MFE branch
+      - name: clone ${{ github.repository_owner }}/${{ matrix.repository_config.repo }} (${{ matrix.repository_config.mfe_ref }})
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: ${{ github.repository_owner }}/${{ matrix.repo }}
-          ref: master
-          path: master
+          repository: ${{ github.repository_owner }}/${{ matrix.repository_config.repo }}
+          ref: ${{ matrix.repository_config.mfe_ref }}
+          path: mfe
 
-      - name: setup node (master)
+      - name: setup node (${{ matrix.repository_config.mfe_ref }})
         uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
-          node-version-file: 'master/.nvmrc'
+          node-version-file: 'mfe/.nvmrc'
 
-      - name: run extract_translations (master)
+      - name: run extract_translations (${{ matrix.repository_config.mfe_ref }})
         run: |
-          cd master
+          cd mfe
           make extract_translations
 
       # Clones the repository's frontend-base branch
-      - name: clone ${{ github.repository_owner }}/${{ matrix.repo }}
+      - name: clone ${{ github.repository_owner }}/${{ matrix.repository_config.repo }} (${{ matrix.repository_config.base_ref }})
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: ${{ github.repository_owner }}/${{ matrix.repo }}
-          ref: frontend-base
-          path: frontend-base
+          repository: ${{ github.repository_owner }}/${{ matrix.repository_config.repo }}
+          ref: ${{ matrix.repository_config.base_ref }}
+          path: base
 
-      - name: setup node (frontend-base)
+      - name: setup node (${{ matrix.repository_config.base_ref }})
         uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
-          node-version-file: 'frontend-base/.nvmrc'
+          node-version-file: 'base/.nvmrc'
 
-      - name: run extract_translations (frontend-base)
+      - name: run extract_translations (${{ matrix.repository_config.base_ref }})
         run: |
-          cd frontend-base
+          cd base
           make extract_translations
 
       - name: combine extracted translations
@@ -584,29 +602,33 @@ jobs:
           script: |
             const fs = require('fs');
 
-            const master = JSON.parse(fs.readFileSync('master/src/i18n/transifex_input.json', 'utf8'));
-            const base = JSON.parse(fs.readFileSync('frontend-base/src/i18n/transifex_input.json', 'utf8'));
+            const repo = ${{ toJSON(matrix.repository_config.repo) }};
+            const mfeRef = ${{ toJSON(matrix.repository_config.mfe_ref) }};
+            const baseRef = ${{ toJSON(matrix.repository_config.base_ref) }};
+
+            const mfe = JSON.parse(fs.readFileSync('mfe/src/i18n/transifex_input.json', 'utf8'));
+            const base = JSON.parse(fs.readFileSync('base/src/i18n/transifex_input.json', 'utf8'));
 
             // Report any keys present in both branches with different values.
-            // frontend-base is treated as the source of truth for conflicts.
+            // The frontend-base branch is treated as the source of truth for conflicts.
             const conflicts = Object.fromEntries(
-              Object.entries(master)
+              Object.entries(mfe)
                 .filter(([key, value]) => key in base && base[key] !== value)
-                .map(([key, value]) => [key, { master: value, frontend_base: base[key] }])
+                .map(([key, value]) => [key, { mfe: value, base: base[key] }])
             );
             if (Object.keys(conflicts).length > 0) {
               await core.summary
-                .addHeading(`${{ matrix.repo }}: translation keys differ between master and frontend-base`, 3)
-                .addRaw('<p>The following keys exist in both the <code>master</code> and <code>frontend-base</code> branches of <code>${{ matrix.repo }}</code> with different values. Both branches are currently supported, so the <code>frontend-base</code> value will be used.</p>')
+                .addHeading(`${repo}: translation keys differ between ${mfeRef} and ${baseRef}`, 3)
+                .addRaw(`<p>The following keys exist in both the <code>${mfeRef}</code> and <code>${baseRef}</code> branches of <code>${repo}</code> with different values. Both branches are currently supported, so the <code>${baseRef}</code> value will be used.</p>`)
                 .addTable([
-                  [{data: 'Key', header: true}, {data: 'master', header: true}, {data: 'frontend-base', header: true}],
-                  ...Object.entries(conflicts).map(([key, {master, frontend_base}]) => [key, master, frontend_base]),
+                  [{data: 'Key', header: true}, {data: mfeRef, header: true}, {data: baseRef, header: true}],
+                  ...Object.entries(conflicts).map(([key, values]) => [key, values.mfe, values.base]),
                 ])
                 .write();
             }
 
-            // Merge: master first, then frontend-base (frontend-base wins on conflicts)
-            const combined = { ...master, ...base };
+            // Merge: legacy MFE branch first, then frontend-base (frontend-base wins on conflicts)
+            const combined = { ...mfe, ...base };
             fs.mkdirSync('combined', { recursive: true });
             fs.writeFileSync('combined/transifex_input.json', JSON.stringify(combined, null, 2));
 
@@ -617,21 +639,23 @@ jobs:
           # set identity
           git config --global user.email "translations-bot@openedx.org"
           git config --global user.name "edx-transifex-bot"
-          # Move the combined file to openedx-translations/translations/${{ matrix.repo }}/src/i18n/
-          mv combined/transifex_input.json openedx-translations/translations/${{ matrix.repo }}/src/i18n
+          # Move the combined file to openedx-translations/translations/${{ matrix.repository_config.repo }}/src/i18n/
+          # The destination won't exist yet for a repo that has no resource here
+          mkdir -p openedx-translations/translations/${{ matrix.repository_config.repo }}/src/i18n
+          mv combined/transifex_input.json openedx-translations/translations/${{ matrix.repository_config.repo }}/src/i18n
           # enter the openedx-translations directory so git works
-          cd openedx-translations          
+          cd openedx-translations
           # stage the combined transifex_input.json file
-          git add translations/${{ matrix.repo }}/src/i18n/transifex_input.json -f -v
+          git add translations/${{ matrix.repository_config.repo }}/src/i18n/transifex_input.json -f -v
           # Check the git status of the translation source files
-          echo "GIT_STATUS=$(git status translations/${{ matrix.repo }}/src/i18n/transifex_input.json -s | wc -l)" >> $GITHUB_ENV
+          echo "GIT_STATUS=$(git status translations/${{ matrix.repository_config.repo }}/src/i18n/transifex_input.json -s | wc -l)" >> $GITHUB_ENV
       # Attempts to commit the translation source files if there is a difference
       - name: git commit the translation source files
         if: "${{ env.GIT_STATUS > 0 }}"
         run: |
           cd openedx-translations
           # commit the changes
-          git commit -m "chore: add extracted translation source files from ${{ matrix.repo }}"
+          git commit -m "chore: add extracted translation source files from ${{ matrix.repository_config.repo }}"
           # push changes to branch
           git push
 
