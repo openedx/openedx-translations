@@ -6,8 +6,8 @@
 # Translators:
 # Translators:
 # Lasha Kokilashvili <lasha.kokilashvili@gmail.com>, 2026
-# Brian Smith, 2026
 # Omar Al-Ithawi <i@omardo.com>, 2026
+# Brian Smith, 2026
 # 
 msgid ""
 msgstr ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-23 00:25+0000\n"
 "PO-Revision-Date: 2024-12-18 13:43+0000\n"
-"Last-Translator: Omar Al-Ithawi <i@omardo.com>, 2026\n"
+"Last-Translator: Brian Smith, 2026\n"
 "Language-Team: Georgian (https://app.transifex.com/open-edx/teams/6205/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -203,6 +203,10 @@ msgstr "კურსის გაშვების კატალოგის 
 #: apps/catalogs/models.py:22
 msgid "Query to retrieve Program catalog contents"
 msgstr "პროგრამის კატალოგის შინაარსის მოსაძიებელი მოთხოვნა"
+
+#: apps/catalogs/models.py:25
+msgid "Include archived courses"
+msgstr "დაარქივებული კურსების ჩათვლით"
 
 #: apps/core/admin.py:17
 msgid "Personal info"
@@ -405,6 +409,10 @@ msgstr ""
 "{model}-ის მარკეტინგულ გვერდზე გამოქვეყნების დროს წარმოიშვა შეცდომა. გთხოვთ "
 "სცადოთ თავიდან. თუ შეცდომა დარჩა, გთხოვთ ინჟინერთა გუნდს მიმართოთ."
 
+#: apps/course_metadata/admin.py:56
+msgid "eligible for one-click purchase"
+msgstr "ხელმისაწვდომია ერთი დაწკაპუნებით შესაძენად"
+
 #: apps/course_metadata/admin.py:61
 msgid "Yes"
 msgstr "დიახ"
@@ -477,6 +485,10 @@ msgstr "ხელმისაწვდომია გამოწერით"
 #: apps/course_metadata/choices.py:6 apps/course_metadata/choices.py:30
 msgid "Unpublished"
 msgstr "გამოუქვეყნებელი"
+
+#: apps/course_metadata/choices.py:7
+msgid "Awaiting Review from Legal"
+msgstr "იურიდიული განხილვის მოლოდინში"
 
 #: apps/course_metadata/choices.py:8
 msgid "Awaiting Internal Review"
@@ -602,6 +614,10 @@ msgstr "სპრინტი"
 #: apps/course_metadata/choices.py:81
 msgid "Course Stack"
 msgstr "კურსის დასტა"
+
+#: apps/course_metadata/choices.py:85
+msgid "Custom B2B Enterprise"
+msgstr "მორგებული B2B Enterprise"
 
 #: apps/course_metadata/choices.py:86
 msgid "Custom B2C"
@@ -1353,6 +1369,10 @@ msgid "Estimated number of weeks needed to complete this course run."
 msgstr ""
 "კურსის ამ გაშვების დასრულებისთვის საჭირო კვირების სავარაუდო რაოდენობა."
 
+#: apps/course_metadata/models.py:2206
+msgid "Total number of learners who have enrolled in this course run"
+msgstr "მსმენელთა საერთო რაოდენობა, რომლებმაც ამ კურსზე გაიარეს რეგისტრაცია"
+
 #: apps/course_metadata/models.py:2210
 msgid ""
 "Total number of learners who have enrolled in this course run in the last 6 "
@@ -1440,6 +1460,10 @@ msgstr "ამ პროგრამის მომხმარებელთ�
 #: apps/course_metadata/models.py:3208
 msgid "A brief, descriptive subtitle for the Program."
 msgstr "პროგრამის მოკლე, აღწერითი ქვესათაური."
+
+#: apps/course_metadata/models.py:3210
+msgid "A brief hook for the marketing website"
+msgstr "მოკლე შესავალი მარკეტინგული ვებ-საიტისთვის"
 
 #: apps/course_metadata/models.py:3213
 msgid "The lifecycle status of this Program."
@@ -1607,6 +1631,14 @@ msgstr ""
 "ბანერის საზღვრების ფერის 6-სიმბოლოიანი ჰექს მნიშვნელობა\n"
 "            (მაგ., „#ff0000“, რაც წითელს ნიშნავს) „#“ სიმბოლოს მითითება საჭირო არ არის"
 
+#: apps/course_metadata/models.py:3917
+msgid "Provide a campus image for the header of the degree"
+msgstr "მიუთითეთ კამპუსის გამოსახულება ხარისხის სათაურისთვის"
+
+#: apps/course_metadata/models.py:3923
+msgid "Provide a background image for the title section of the degree"
+msgstr "დაამატეთ ფონის სურათი ხარისხის სათაურის განყოფილებისთვის"
+
 #: apps/course_metadata/models.py:3928
 msgid "The fine print that displays at the Tuition section's bottom"
 msgstr "წვრილი შრიფტი, რომელიც ნაჩვენებია სწავლის განყოფილების ბოლოში"
@@ -1749,6 +1781,16 @@ msgstr "აღწერს, რას მოიცავს ხარჯი (მ
 #: apps/course_metadata/models.py:4149
 msgid "String-based field stating how much the cost is (e.g. $1000)."
 msgstr "სტრიქონული ველი, რომელიც მიუთითებს ღირებულებას (მაგ., $1000)."
+
+#: apps/course_metadata/models.py:4177
+msgid ""
+"A high-level overview of the degree's courseware. The \"brief\"\n"
+"            text is the first 750 characters of \"marketing_text\" and must be\n"
+"            valid HTML."
+msgstr ""
+"ხარისხის სასწავლო მასალის მაღალი დონის მიმოხილვა. „მოკლე“\n"
+"            ტექსტი არის „marketing_text“-ის პირველი 750 სიმბოლო და უნდა იყოს\n"
+"            ვალიდური HTML."
 
 #: apps/course_metadata/models.py:4185
 msgid "A high-level overview of the degree's courseware."
@@ -2086,6 +2128,16 @@ msgstr ""
 "        კურსის შესახებ გვერდის წინასწარი გადახედვის სანახავად გადადით აქ: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
 "    "
 
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.txt:4
+#, python-format
+msgid ""
+"\n"
+"    Course '%(course_name)s' has been successfully reviewed by edX and is now published on %(course_publish_date)s. To see live course, go here: %(course_marketing_url)s\n"
+msgstr ""
+"კურსი „%(course_name)s“ წარმატებით განიხილა edX-ის მიერ და გამოქვეყნდა "
+"%(course_publish_date)s-ზე. კურსის სანახავად გადადით აქ: "
+"%(course_marketing_url)s"
+
 #: apps/course_metadata/templates/course_metadata/email/watchers_course_url.txt:8
 #, python-format
 msgid ""
@@ -2152,6 +2204,10 @@ msgstr ""
 msgid "Name for translation"
 msgstr "სახელი თარგმნისთვის"
 
+#: apps/ietf_language_tags/models.py:38
+msgid "LanguageTag model translations"
+msgstr "LanguageTag მოდელის თარგმანები"
+
 #: apps/learner_pathway/choices.py:7
 msgid "Inactive"
 msgstr "არააქტიური"
@@ -2176,6 +2232,10 @@ msgstr "მოსწავლის გზა"
 #: apps/learner_pathway/models.py:120
 msgid "Learner Pathways"
 msgstr "მოსწავლის გზები"
+
+#: apps/learner_pathway/models.py:166
+msgid "Minimum number of nodes to complete this step of the pathway"
+msgstr "კვანძების მინიმალური რაოდენობა ბილიკის ამ ნაბიჯის დასასრულებლად"
 
 #: apps/learner_pathway/models.py:170
 msgid "Learner Pathway Step"
