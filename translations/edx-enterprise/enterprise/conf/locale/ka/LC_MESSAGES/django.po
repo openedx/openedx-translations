@@ -1947,6 +1947,10 @@ msgid "Email(s) must be set if the delivery method is email."
 msgstr ""
 "ელფოსტის მისამართ(ებ)ი უნდა იყოს მითითებული, თუ მიწოდების მეთოდი ელფოსტაა."
 
+#: enterprise/models.py:3663
+msgid "Decrypted password must be set if the delivery method is email."
+msgstr "გაშიფრული პაროლი უნდა იყოს მითითებული, თუ მიწოდების მეთოდი ელფოსტაა."
+
 #: enterprise/models.py:3667
 msgid "SFTP Hostname must be set if the delivery method is sftp."
 msgstr ""
@@ -1961,6 +1965,11 @@ msgstr ""
 #: enterprise/models.py:3671
 msgid "SFTP File Path must be set if the delivery method is sftp."
 msgstr "SFTP ფაილის გზა უნდა იყოს მითითებული, თუ მიწოდების მეთოდი არის sftp."
+
+#: enterprise/models.py:3674
+msgid "Decrypted SFTP password must be set if the delivery method is SFTP."
+msgstr ""
+"გაშიფრული SFTP პაროლი უნდა იყოს მითითებული, თუ მიწოდების მეთოდი არის SFTP."
 
 #: enterprise/models.py:3737
 msgid ""
@@ -2029,6 +2038,10 @@ msgid "The enterprise that can be linked using this key."
 msgstr ""
 "ორგანიზაცია, რომლის დაკავშირებაც ამ გასაღების გამოყენებით არის შესაძლებელი."
 
+#: enterprise/models.py:4165
+msgid "The number of times this key can be used to link a learner."
+msgstr "რამდენჯერ შეიძლება ამ გასაღების გამოყენება მოსწავლის დასაკავშირებლად."
+
 #: enterprise/models.py:4174
 msgid "The key will no longer be valid after this date."
 msgstr "ამ თარიღის შემდეგ გასაღები აღარ იქნება ვალიდური."
@@ -2040,6 +2053,10 @@ msgid ""
 msgstr ""
 "განსაზღვრავს, აქტიურია თუ არა გასაღები. დეაქტივაციის შემდეგ, გასაღები აღარ "
 "არის ვალიდური და მისი ხელახლა გააქტიურება შეუძლებელია."
+
+#: enterprise/models.py:4264
+msgid "ChatGPT prompt."
+msgstr "ChatGPT მოთხოვნა."
 
 #: enterprise/models.py:4266
 msgid "ChatGPT response."
@@ -2085,6 +2102,10 @@ msgstr "იდენტობის პროვაიდერის მეტ�
 #: enterprise/models.py:4440
 msgid "The metadata xml of the identity provider."
 msgstr "იდენტობის პროვაიდერის მეტამონაცემების xml."
+
+#: enterprise/models.py:4449
+msgid "The entity id of the identity provider."
+msgstr "იდენტობის პროვაიდერის ერთეულის ID."
 
 #: enterprise/models.py:4458
 msgid ""
@@ -2203,6 +2224,14 @@ msgid ""
 "admin."
 msgstr "მომენტი, როდესაც წევრობის ჩანაწერი გაუქმდა საწარმოს ადმინის მიერ."
 
+#: enterprise/models.py:4888
+msgid ""
+"The last time the membership action was in an error state. Null means the "
+"membership is not errored."
+msgstr ""
+"ბოლოს წევრობის მოქმედება შეცდომის სტატუსში იყო. „ნული“ ნიშნავს, რომ წევრობა "
+"არ არის შეცდომაში."
+
 #: enterprise/models.py:4893
 msgid "Enterprise Group Membership"
 msgstr "კორპორაციული ჯგუფის წევრობა"
@@ -2227,9 +2256,21 @@ msgstr ""
 msgid "The enterprise customer user who is an admin."
 msgstr "საწარმოს მომხმარებელი, რომელიც არის ადმინი."
 
+#: enterprise/models.py:4993
+msgid "The last time the admin logged into the admin portal."
+msgstr "ბოლოს ადმინი ადმინის პორტალში როდის შევიდა."
+
 #: enterprise/models.py:4998
 msgid "The onboarding flows that this admin has completed."
 msgstr "ჩართვის პროცესები, რომლებიც ამ ადმინმა დაასრულა."
+
+#: enterprise/models.py:5002
+msgid "Whether the admin has dismissed the onboarding tour."
+msgstr "ადმინმა გააუქმა თუ არა გაცნობითი ტური."
+
+#: enterprise/models.py:5006
+msgid "Whether the admin has completed the onboarding tour."
+msgstr "დაასრულა თუ არა ადმინმა გაცნობითი ტური?"
 
 #: enterprise/models.py:5011
 msgid "Enterprise Customer Admin"
@@ -2292,6 +2333,10 @@ msgstr "მოსწავლის ელ-ფოსტა"
 #: enterprise/templates/enterprise/admin/manage_learners.html:140
 msgid "Date Added"
 msgstr "დამატების თარიღი"
+
+#: enterprise/templates/enterprise/admin/manage_learners.html:162
+msgid "Link learners"
+msgstr "მოსწავლეების დაკავშირება"
 
 #: enterprise/templates/enterprise/admin/setup_auth_org_id.html:21
 #: enterprise/templates/enterprise/admin/setup_auth_org_id.html:28
@@ -2366,9 +2411,26 @@ msgstr ""
 "{argument} არ არის ვალიდური ელფოსტის მისამართი ან ცნობილი მომხმარებლის "
 "სახელი"
 
+#: enterprise/utils.py:170
+#, python-brace-format
+msgid ""
+"Expected a CSV file with [{expected_columns}] columns, but found "
+"[{actual_columns}] columns instead."
+msgstr ""
+"მოსალოდნელი იყო CSV ფაილი [{expected_columns}] სვეტით, მაგრამ ნაპოვნია "
+"[{actual_columns}] სვეტი."
+
 #: enterprise/utils.py:174
 msgid "Reason field is required but was not filled."
 msgstr "მიზეზის ველი სავალდებულოა, მაგრამ არ არის შევსებული."
+
+#: enterprise/utils.py:177
+msgid ""
+"Either \"Email or Username\" or \"CSV bulk upload\" must be specified, but "
+"neither were."
+msgstr ""
+"მითითებული უნდა იყოს „ელფოსტა ან მომხმარებლის სახელი“ ან „CSV ფაილის "
+"მასობრივი ატვირთვა“, მაგრამ არცერთი არ არის მითითებული."
 
 #: enterprise/utils.py:180
 #, python-brace-format
@@ -2577,6 +2639,22 @@ msgstr ""
 msgid "Whether I received a certificate in each course or program"
 msgstr "მივიღე თუ არა სერტიფიკატი თითოეულ კურსზე ან პროგრამაზე"
 
+#: enterprise/views.py:420
+#, python-brace-format
+msgid ""
+"My permission applies only to data from courses or programs that are "
+"sponsored by {enterprise_customer_name}, and not to data from any "
+"{platform_name} courses or programs that I take on my own. I understand that"
+" I may withdraw my permission only by fully unenrolling from any courses or "
+"programs that are sponsored by {enterprise_customer_name}."
+msgstr ""
+"ჩემი ნებართვა ვრცელდება მხოლოდ {enterprise_customer_name}-ის მიერ "
+"დაფინანსებული კურსებიდან ან პროგრამებიდან მიღებულ მონაცემებზე და არა "
+"{platform_name}-ის ნებისმიერი კურსიდან ან პროგრამიდან მიღებულ მონაცემებზე, "
+"რომლებსაც დამოუკიდებლად გავდივარ. მესმის, რომ ნებართვის გაუქმება შემიძლია "
+"მხოლოდ {enterprise_customer_name}-ის მიერ დაფინანსებული ნებისმიერი კურსიდან "
+"ან პროგრამიდან სრულად მოხსნით."
+
 #: enterprise/views.py:428
 msgid "Please note"
 msgstr "გთხოვთ, გაითვალისწინოთ"
@@ -2765,6 +2843,10 @@ msgstr "ყველა ჩაურიცხავი კურსის შე
 #: enterprise/views.py:2078
 msgid "enrollment"
 msgstr "ჩარიცხვა"
+
+#: enterprise/views.py:2080
+msgid "Pursue the program"
+msgstr "გაიარეთ პროგრამა"
 
 #: enterprise/views.py:2081
 msgid "program enrollment"
