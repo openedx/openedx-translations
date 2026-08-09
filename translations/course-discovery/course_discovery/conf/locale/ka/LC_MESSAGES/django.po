@@ -6,8 +6,8 @@
 # Translators:
 # Translators:
 # Lasha Kokilashvili <lasha.kokilashvili@gmail.com>, 2026
-# Brian Smith, 2026
 # Omar Al-Ithawi <i@omardo.com>, 2026
+# Brian Smith, 2026
 # 
 msgid ""
 msgstr ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-25 00:29+0000\n"
 "PO-Revision-Date: 2025-07-23 17:30+0000\n"
-"Last-Translator: Omar Al-Ithawi <i@omardo.com>, 2026\n"
+"Last-Translator: Brian Smith, 2026\n"
 "Language-Team: Georgian (https://app.transifex.com/open-edx/teams/6205/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -203,6 +203,10 @@ msgstr "კურსის გაშვების კატალოგის 
 #: apps/catalogs/models.py:22
 msgid "Query to retrieve Program catalog contents"
 msgstr "პროგრამის კატალოგის შინაარსის მოსაძიებელი მოთხოვნა"
+
+#: apps/catalogs/models.py:25
+msgid "Include archived courses"
+msgstr "დაარქივებული კურსების ჩათვლით"
 
 #: apps/core/admin.py:17
 msgid "Personal info"
@@ -405,6 +409,10 @@ msgstr ""
 "{model}-ის მარკეტინგულ გვერდზე გამოქვეყნების დროს წარმოიშვა შეცდომა. გთხოვთ "
 "სცადოთ თავიდან. თუ შეცდომა დარჩა, გთხოვთ ინჟინერთა გუნდს მიმართოთ."
 
+#: apps/course_metadata/admin.py:65
+msgid "eligible for one-click purchase"
+msgstr "ხელმისაწვდომია ერთი დაწკაპუნებით შესაძენად"
+
 #: apps/course_metadata/admin.py:70
 msgid "Yes"
 msgstr "დიახ"
@@ -478,6 +486,10 @@ msgstr "ხელმისაწვდომია გამოწერით"
 #: apps/course_metadata/choices.py:36
 msgid "Unpublished"
 msgstr "გამოუქვეყნებელი"
+
+#: apps/course_metadata/choices.py:7
+msgid "Awaiting Review from Legal"
+msgstr "იურიდიული განხილვის მოლოდინში"
 
 #: apps/course_metadata/choices.py:8
 msgid "Awaiting Internal Review"
@@ -637,6 +649,10 @@ msgstr "სპრინტი"
 msgid "Course Stack"
 msgstr "კურსის დასტა"
 
+#: apps/course_metadata/choices.py:114
+msgid "Custom B2B Enterprise"
+msgstr "მორგებული B2B Enterprise"
+
 #: apps/course_metadata/choices.py:115
 msgid "Custom B2C"
 msgstr "მორგებული B2C"
@@ -795,6 +811,12 @@ msgstr ""
 msgid "Missing required arguments"
 msgstr "საჭირო არგუმენტები აკლია"
 
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:10
+msgid "Backpopulate new-style CourseType and CourseRunType where possible."
+msgstr ""
+"ახალი სტილის CourseType და CourseRunType-ის უკან შევსება, სადაც "
+"შესაძლებელია."
+
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:15
 msgid "CODE"
 msgstr "კოდი"
@@ -820,6 +842,10 @@ msgstr "UUID"
 msgid "Course to backpopulate."
 msgstr "კურსი მონაცემების შესავსებად."
 
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:27
+msgid "KEY"
+msgstr "გასაღები"
+
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:29
 msgid "Organization to backpopulate."
 msgstr "ორგანიზაციის მონაცემების უკუღმა შევსება."
@@ -831,6 +857,11 @@ msgid ""
 msgstr ""
 "CourseType/CourseRunType შეუსაბამობების დაშვება. მიუთითეთ, როგორც course-"
 "type-slug:run-type-slug."
+
+#: apps/course_metadata/management/commands/backpopulate_course_type.py:41
+#: apps/course_metadata/management/commands/delete_person_dups.py:38
+msgid "Actually commit the changes to the database."
+msgstr "ცვლილებების მონაცემთა ბაზაში შენახვა."
 
 #: apps/course_metadata/management/commands/backpopulate_course_type.py:46
 msgid ""
@@ -939,6 +970,11 @@ msgstr "მინიმუმ ერთი პირი უნდა მიუ�
 msgid "Publishing course run {key}"
 msgstr "კურსის გაშვების გამოქვეყნება {key}"
 
+#: apps/course_metadata/management/commands/publish_live_course_runs.py:28
+#, python-brace-format
+msgid "Failed to publish {key}"
+msgstr "{key}-ის გამოქვეყნება ვერ მოხერხდა"
+
 #: apps/course_metadata/management/commands/publish_live_course_runs.py:31
 #, python-brace-format
 msgid "Successfully published {key}"
@@ -967,6 +1003,11 @@ msgstr ""
 #: apps/course_metadata/management/commands/remove_redirects_from_courses.py:32
 msgid "Invalid arguments"
 msgstr "არასწორი არგუმენტები"
+
+#: apps/course_metadata/management/commands/remove_redirects_from_courses.py:56
+#, python-brace-format
+msgid "Cannot remove active url_slug {url_slug}"
+msgstr "აქტიური url_slug {url_slug}-ის წაშლა შეუძლებელია"
 
 #: apps/course_metadata/management/commands/remove_redirects_from_courses.py:60
 #, python-brace-format
@@ -1072,6 +1113,10 @@ msgstr ""
 msgid "Corresponding organization code in an external product source"
 msgstr "შესაბამისი ორგანიზაციის კოდი გარე პროდუქტის წყაროში"
 
+#: apps/course_metadata/models.py:449
+msgid "LevelType model translations"
+msgstr "LevelType მოდელის თარგმანები"
+
 #: apps/course_metadata/models.py:474
 msgid ""
 "Seat types that qualify for completion of programs of this type. Learners "
@@ -1138,6 +1183,15 @@ msgstr ""
 msgid "Sets the order for displaying Course Run Types."
 msgstr "ადგენს კურსის გაშვების ტიპების ჩვენების რიგითობას."
 
+#: apps/course_metadata/models.py:681
+msgid ""
+"Leave this blank to allow all orgs. Otherwise, specifies which orgs can see "
+"this course type in Publisher."
+msgstr ""
+"დატოვეთ ცარიელი, რათა ყველა ორგანიზაციას მიეცეს ნებართვა. წინააღმდეგ "
+"შემთხვევაში, მიუთითებს, თუ რომელ ორგანიზაციებს შეუძლიათ ამ კურსის ტიპის "
+"ნახვა Publisher-ში."
+
 #: apps/course_metadata/models.py:731
 msgid "Subject model translations"
 msgstr "საგნის მოდელის თარგმანები"
@@ -1157,6 +1211,14 @@ msgid ""
 msgstr ""
 "Taxi ფორმის (2U-ს მიერ) ID, რომელიც გამოჩნდება Hubspot-ის აღების ფორმის "
 "ნაცვლად"
+
+#: apps/course_metadata/models.py:873
+msgid ""
+"The grouping of the Taxi Form (by 2U) that would be rendered instead of the "
+"hubspot capture form"
+msgstr ""
+"Taxi Form-ის (2U-ს მიერ) დაჯგუფება, რომელიც Hubspot-ის ჩამწერი ფორმის "
+"ნაცვლად გამოჩნდება"
 
 #: apps/course_metadata/models.py:911
 msgid "The URL of the paid landing page on external site"
@@ -1185,6 +1247,10 @@ msgstr "პროდუქტის ვარიანტის იდენტ�
 #: apps/course_metadata/models.py:944
 msgid "Course override"
 msgstr "კურსის გადაფარვა"
+
+#: apps/course_metadata/models.py:945
+msgid "This field allows for override the default course term"
+msgstr "ეს ველი საშუალებას იძლევა, გადაიყვანოს კურსის ნაგულისხმევი ვადა"
 
 #: apps/course_metadata/models.py:971
 msgid ""
@@ -1258,6 +1324,10 @@ msgstr "გრძედი"
 msgid "Allowlist"
 msgstr "ნებადართული სია"
 
+#: apps/course_metadata/models.py:1373
+msgid "Blocklist"
+msgstr "დაბლოკილთა სია"
+
 #: apps/course_metadata/models.py:1420
 msgid ""
 "When making reruns for this course, they will use this key instead of the "
@@ -1281,6 +1351,10 @@ msgstr "ატვირთეთ თქვენი კურსის გამ
 #: apps/course_metadata/models.py:1461 apps/course_metadata/models.py:3294
 msgid "FAQ"
 msgstr "ხშირად დასმული კითხვები"
+
+#: apps/course_metadata/models.py:1464
+msgid "Total number of learners who have enrolled in this course"
+msgstr "მსმენელთა საერთო რაოდენობა, რომლებმაც ამ კურსზე გაიარეს რეგისტრაცია"
 
 #: apps/course_metadata/models.py:1469
 msgid ""
@@ -1315,6 +1389,11 @@ msgid ""
 msgstr ""
 "მონიშვნის შემთხვევაში, ეს ელემენტი არ იქნება ინდექსირებული Algolia-ში და არ "
 "გამოჩნდება ძიების შედეგებში."
+
+#: apps/course_metadata/models.py:1540 apps/course_metadata/models.py:3461
+msgid "If checked, the About Page will have a meta tag with noindex value"
+msgstr ""
+"მონიშვნის შემთხვევაში, გვერდს „შესახებ“ ექნება მეტა თეგი noindex მნიშვნელობა"
 
 #: apps/course_metadata/models.py:1545
 msgid "Watchers"
@@ -1387,6 +1466,20 @@ msgid "Estimated number of weeks needed to complete this course run."
 msgstr ""
 "კურსის ამ გაშვების დასრულებისთვის საჭირო კვირების სავარაუდო რაოდენობა."
 
+#: apps/course_metadata/models.py:2282
+msgid ""
+"A JSON dict detailing the available translations and transcriptions for this"
+" run. The dict has two keys: translation_languages and "
+"transcription_languages."
+msgstr ""
+"JSON ლექსიკონი, რომელიც დეტალურად აღწერს ამ გაშვებისთვის ხელმისაწვდომ "
+"თარგმანებსა და ტრანსკრიფციებს. ლექსიკონს აქვს ორი გასაღები: "
+"translation_languages და transcription_languages."
+
+#: apps/course_metadata/models.py:2289
+msgid "Total number of learners who have enrolled in this course run"
+msgstr "მსმენელთა საერთო რაოდენობა, რომლებმაც ამ კურსზე გაიარეს რეგისტრაცია"
+
 #: apps/course_metadata/models.py:2293
 msgid ""
 "Total number of learners who have enrolled in this course run in the last 6 "
@@ -1429,6 +1522,15 @@ msgid ""
 msgstr ""
 "ეს გამოთვლილი ველი მიუთითებს, არის თუ არა ეს კურსი საწარმოს სააბონენტო "
 "კატალოგში"
+
+#: apps/course_metadata/models.py:2358
+msgid ""
+"The identifier for a product variant. This is used to link a course run to a"
+" product variant for external LOBs (i.e; ExecEd & Bootcamps)."
+msgstr ""
+"პროდუქტის ვარიანტის იდენტიფიკატორი. ის გამოიყენება კურსის გაშვების "
+"დასაკავშირებლად პროდუქტის ვარიანტთან გარე LOB-ებისთვის (მაგ., ExecEd და "
+"Bootcamps)."
 
 #: apps/course_metadata/models.py:2700 apps/course_metadata/models.py:2713
 msgid "Current"
@@ -1474,6 +1576,10 @@ msgstr "ამ პროგრამის მომხმარებელთ�
 #: apps/course_metadata/models.py:3312
 msgid "A brief, descriptive subtitle for the Program."
 msgstr "პროგრამის მოკლე, აღწერითი ქვესათაური."
+
+#: apps/course_metadata/models.py:3314
+msgid "A brief hook for the marketing website"
+msgstr "მოკლე შესავალი მარკეტინგული ვებ-საიტისთვის"
 
 #: apps/course_metadata/models.py:3317
 msgid "The lifecycle status of this Program."
@@ -1641,6 +1747,14 @@ msgstr ""
 "ბანერის საზღვრების ფერის 6-სიმბოლოიანი ჰექს მნიშვნელობა\n"
 "            (მაგ., „#ff0000“, რაც წითელს ნიშნავს) „#“ სიმბოლოს მითითება საჭირო არ არის"
 
+#: apps/course_metadata/models.py:4021
+msgid "Provide a campus image for the header of the degree"
+msgstr "მიუთითეთ კამპუსის გამოსახულება ხარისხის სათაურისთვის"
+
+#: apps/course_metadata/models.py:4027
+msgid "Provide a background image for the title section of the degree"
+msgstr "დაამატეთ ფონის სურათი ხარისხის სათაურის განყოფილებისთვის"
+
 #: apps/course_metadata/models.py:4032
 msgid "The fine print that displays at the Tuition section's bottom"
 msgstr "წვრილი შრიფტი, რომელიც ნაჩვენებია სწავლის განყოფილების ბოლოში"
@@ -1752,6 +1866,10 @@ msgstr "დოლარი"
 msgid "Book"
 msgstr "წიგნი"
 
+#: apps/course_metadata/models.py:4190
+msgid "Mortar Board"
+msgstr "აკადემიური ქუდი"
+
 #: apps/course_metadata/models.py:4191
 msgid "Star"
 msgstr "ვარსკვლავი"
@@ -1759,6 +1877,10 @@ msgstr "ვარსკვლავი"
 #: apps/course_metadata/models.py:4192
 msgid "Trophy"
 msgstr "თასი"
+
+#: apps/course_metadata/models.py:4196
+msgid "Icon FA class"
+msgstr "ხატულა FA კლასი"
 
 #: apps/course_metadata/models.py:4197
 msgid "Paired text"
@@ -1776,6 +1898,10 @@ msgstr "აღწერს ბოლო ვადას (მაგ., ადრ�
 msgid "The date after which the deadline expires (e.g. January 1, 2019)"
 msgstr "თარიღი, რომლის შემდეგაც ვადა იწურება (მაგ., 2019 წლის 1 იანვარი)"
 
+#: apps/course_metadata/models.py:4228
+msgid "The time after which the deadline expires (e.g. 11:59 PM EST)."
+msgstr "დრო, რომლის შემდეგაც ვადა იწურება (მაგ., 23:59 EST)."
+
 #: apps/course_metadata/models.py:4249
 msgid "Describes what the cost is for (e.g. Tuition)"
 msgstr "აღწერს, რას მოიცავს ხარჯი (მაგ., სწავლის საფასური)"
@@ -1783,6 +1909,16 @@ msgstr "აღწერს, რას მოიცავს ხარჯი (მ
 #: apps/course_metadata/models.py:4253
 msgid "String-based field stating how much the cost is (e.g. $1000)."
 msgstr "სტრიქონული ველი, რომელიც მიუთითებს ღირებულებას (მაგ., $1000)."
+
+#: apps/course_metadata/models.py:4281
+msgid ""
+"A high-level overview of the degree's courseware. The \"brief\"\n"
+"            text is the first 750 characters of \"marketing_text\" and must be\n"
+"            valid HTML."
+msgstr ""
+"ხარისხის სასწავლო მასალის მაღალი დონის მიმოხილვა. „მოკლე“\n"
+"            ტექსტი არის „marketing_text“-ის პირველი 750 სიმბოლო და უნდა იყოს\n"
+"            ვალიდური HTML."
 
 #: apps/course_metadata/models.py:4289
 msgid "A high-level overview of the degree's courseware."
@@ -1886,6 +2022,11 @@ msgstr "ყველა გადამისამართების წა�
 msgid "Url Paths"
 msgstr "URL ბილიკები"
 
+#: apps/course_metadata/models.py:4760
+msgid "Add redirects from all published course url slugs"
+msgstr ""
+"გადამისამართებების დამატება ყველა გამოქვეყნებული კურსის URL სლაგებიდან"
+
 #: apps/course_metadata/models.py:4761 apps/taxonomy_support/models.py:55
 msgid "Course uuids"
 msgstr "კურსის UUID-ები"
@@ -1913,6 +2054,11 @@ msgstr "სტატუსი"
 #: apps/course_metadata/models.py:4842
 msgid "Status of the Bulk Task"
 msgstr "მასობრივი დავალების სტატუსი"
+
+#: apps/course_metadata/models.py:4850
+msgid "Identifier of the celery task associated with this bulk task"
+msgstr ""
+"ამ მასობრივ დავალებასთან დაკავშირებული Celery დავალების იდენტიფიკატორი"
 
 #: apps/course_metadata/salesforce.py:78
 msgid "Attempted to query Salesforce with no client for partner={}"
@@ -2149,6 +2295,16 @@ msgstr ""
 "        კურსის შესახებ გვერდის წინასწარი გადახედვის სანახავად გადადით აქ: <a href=\"%(course_marketing_url)s\">%(course_marketing_url)s</a>\n"
 "    "
 
+#: apps/course_metadata/templates/course_metadata/email/watchers_course_url.txt:4
+#, python-format
+msgid ""
+"\n"
+"    Course '%(course_name)s' has been successfully reviewed by edX and is now published on %(course_publish_date)s. To see live course, go here: %(course_marketing_url)s\n"
+msgstr ""
+"კურსი „%(course_name)s“ წარმატებით განიხილა edX-ის მიერ და გამოქვეყნდა "
+"%(course_publish_date)s-ზე. კურსის სანახავად გადადით აქ: "
+"%(course_marketing_url)s"
+
 #: apps/course_metadata/templates/course_metadata/email/watchers_course_url.txt:8
 #, python-format
 msgid ""
@@ -2215,6 +2371,10 @@ msgstr ""
 msgid "Name for translation"
 msgstr "სახელი თარგმნისთვის"
 
+#: apps/ietf_language_tags/models.py:38
+msgid "LanguageTag model translations"
+msgstr "LanguageTag მოდელის თარგმანები"
+
 #: apps/learner_pathway/choices.py:7
 msgid "Inactive"
 msgstr "არააქტიური"
@@ -2239,6 +2399,10 @@ msgstr "მოსწავლის გზა"
 #: apps/learner_pathway/models.py:119
 msgid "Learner Pathways"
 msgstr "მოსწავლის გზები"
+
+#: apps/learner_pathway/models.py:165
+msgid "Minimum number of nodes to complete this step of the pathway"
+msgstr "კვანძების მინიმალური რაოდენობა ბილიკის ამ ნაბიჯის დასასრულებლად"
 
 #: apps/learner_pathway/models.py:169
 msgid "Learner Pathway Step"
