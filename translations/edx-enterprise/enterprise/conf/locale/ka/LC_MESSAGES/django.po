@@ -1026,6 +1026,15 @@ msgstr ""
 "[Enterprise API] CourseKey ვერ მოიძებნა კატალოგში. კურსი: {course_key}, "
 "კატალოგი: {catalog_id}"
 
+#: enterprise/api/v1/views/enterprise_customer_catalog.py:217
+#, python-brace-format
+msgid ""
+"[Enterprise API] CourseRun not found in the Catalog. CourseRun: {course_id},"
+" Catalog: {catalog_id}"
+msgstr ""
+"[Enterprise API] კურსის გაშვება ვერ მოიძებნა კატალოგში. კურსის გაშვება: "
+"{course_id}, კატალოგი: {catalog_id}"
+
 #: enterprise/api/v1/views/enterprise_customer_catalog.py:245
 #, python-brace-format
 msgid ""
@@ -1212,6 +1221,12 @@ msgstr "არასწორი ორგანიზაცია"
 msgid "Username of a user authorized to access the Enterprise Catalog API."
 msgstr "მომხმარებლის სახელი, რომელსაც აქვს Enterprise Catalog API-ზე წვდომა."
 
+#: enterprise/management/commands/migrate_enterprise_catalogs.py:36
+msgid "Comma separated list of uuids of enterprise catalogs to migrate."
+msgstr ""
+"საწარმოს კატალოგების UUID-ების მძიმით გამოყოფილი სია, რომლებიც უნდა "
+"გადავიდეს."
+
 #: enterprise/management/commands/update_config_last_errored_at.py:64
 msgid ""
 "\n"
@@ -1320,6 +1335,22 @@ msgid ""
 msgstr ""
 "პარამეტრი, რომელიც ავალდებულებს მოსწავლეებს, დაეთანხმონ მონაცემთა გაზიარებას"
 " კურსზე ჩარიცხვისას ან გარე პროცესის მეშვეობით."
+
+#: enterprise/models.py:287
+msgid ""
+"Allows learners enrolling through learning platforms to select the audit "
+"track."
+msgstr ""
+"სწავლების პლატფორმების მეშვეობით ჩარიცხულ მოსწავლეებს საშუალებას აძლევს "
+"აუდიტის ტრეკის არჩევა."
+
+#: enterprise/models.py:295
+msgid ""
+"Enables transmission of audit enrollment data from learning platform "
+"learners."
+msgstr ""
+"სწავლის პლატფორმის მოსწავლეებისგან აუდიტის ჩარიცხვის მონაცემების გადაცემის "
+"შესაძლებლობა."
 
 #: enterprise/models.py:303
 msgid ""
@@ -1446,6 +1477,14 @@ msgstr ""
 "მონიშვნის შემთხვევაში, მოსწავლეები შეძლებენ აკადემიების ნახვას მოსწავლის "
 "პორტალის მართვის დაფაზე."
 
+#: enterprise/models.py:438
+msgid ""
+"If checked, search will be replaced with one academy on enterprise learner "
+"portal."
+msgstr ""
+"მონიშვნის შემთხვევაში, ძიება შეიცვლება ერთი აკადემიით საწარმოს მოსწავლის "
+"პორტალზე."
+
 #: enterprise/models.py:445
 msgid ""
 "If checked, videos will be displayed in the search results on the learner "
@@ -1469,6 +1508,15 @@ msgid ""
 "portal."
 msgstr ""
 "ადმინისტრატორის პორტალზე სასწავლო პლატფორმის კონფიგურაციის ეკრანის ჩართვა."
+
+#: enterprise/models.py:465
+msgid ""
+"Allows a learner to input customer slug to identify their org in the SSO "
+"process. Should be enabled for customers that leverage SSO."
+msgstr ""
+"სწავლობს მომხმარებლის „სლაგის“ შეყვანას, რათა SSO პროცესში მისი ორგანიზაცია "
+"იდენტიფიცირდეს. ეს ფუნქცია უნდა გააქტიურდეს იმ მომხმარებლებისთვის, რომლებიც "
+"SSO-ს იყენებენ."
 
 #: enterprise/models.py:471
 msgid ""
@@ -1529,6 +1577,16 @@ msgstr ""
 "ტექსტი, რომელიც ნაჩვენებია მოსწავლის პორტალის მართვის დაფაზე მომხმარებლის "
 "სპეციფიკური მიზნებისთვის. ღია HTML ველი."
 
+#: enterprise/models.py:867
+msgid ""
+"Course details were not found for course key {} - Course Catalog API "
+"returned nothing. Proceeding with enrollment, but notifications won't be "
+"sent"
+msgstr ""
+"კურსის დეტალები ვერ მოიძებნა კურსის გასაღებისთვის {} - კურსების კატალოგის "
+"API-მ არაფერი დააბრუნა. რეგისტრაცია გაგრძელდება, მაგრამ შეტყობინებები არ "
+"გაიგზავნება"
+
 #: enterprise/models.py:1102
 msgid ""
 "When enabled along with `active`, all other linked enterprise customers for "
@@ -1564,6 +1622,11 @@ msgstr ""
 "განსაზღვრავს, არის თუ არა ეს ნაგულისხმევი პროვაიდერი კორპორატიული "
 "მომხმარებლისთვის."
 
+#: enterprise/models.py:1939
+msgid ""
+"The UUID of the course (not course run) in which the learner is entitled."
+msgstr "კურსის (და არა კურსის გაშვების) UUID, რომელშიც მოსწავლეს აქვს უფლება."
+
 #: enterprise/models.py:1949
 msgid "The enterprise learner to which this entitlement is attached."
 msgstr "კორპორაციული მოსწავლე, რომელსაც ეს უფლება ერთვის."
@@ -1575,6 +1638,14 @@ msgstr "კორპორაციული მოსწავლე, რომ
 #: enterprise/models.py:2079
 msgid "The ID of the course in which the learner was enrolled."
 msgstr "კურსის ID, რომელშიც მოსწავლე იყო ჩარიცხული."
+
+#: enterprise/models.py:2086
+msgid ""
+"Specifies whether a user marked this course as saved for later in the "
+"learner portal."
+msgstr ""
+"განსაზღვრავს, მონიშნა თუ არა მომხმარებელმა ეს კურსი, როგორც მოგვიანებით "
+"შესანახი მოსწავლის პორტალში."
 
 #: enterprise/models.py:2102
 msgid ""
@@ -1631,6 +1702,10 @@ msgstr ""
 "ამ კორპორატიულ მომხმარებელთან და შინაარსის გასაღებთან დაკავშირებული "
 "ჩარიცხვის ნაგულისხმევი განზრახვა უკვე არსებობს, მაგრამ ის რბილად წაშლილია. "
 "გთხოვთ, აღადგინოთ ის <a href=\"{existing_record_admin_url}\">აქ</a>."
+
+#: enterprise/models.py:2753
+msgid "The content key did not resolve to a valid course run."
+msgstr "შინაარსის გასაღები არ შეესაბამება კურსის მოქმედ გაშვებას."
 
 #: enterprise/models.py:2821
 msgid ""
@@ -1699,6 +1774,14 @@ msgstr "საწარმოს მომხმარებელთა კა�
 #: enterprise/models.py:2979 enterprise/models.py:3526
 msgid "Enterprise Customer Catalogs"
 msgstr "საწარმოს მომხმარებელთა კატალოგები"
+
+#: enterprise/models.py:3246
+msgid ""
+"Fill in a standard Django template that, when rendered, produces the email you want sent to newly-enrolled Enterprise Customer learners. The following variables may be available:\n"
+"<ul><li>user_name: A human-readable name for the person being emailed. Be sure to handle the case where this is not defined, as it may be missing in some cases. It may also be a username, if the learner hasn't configured their \"real\" name in the system.</li>    <li>organization_name: The name of the organization sponsoring the enrollment.</li>    <li>enrolled_in: Details of the course or program that was enrolled in. It may contain:    <ul><li>name: The name of the enrollable item (e.g., \"Demo Course\").</li>        <li>url: A link to the homepage of the enrolled-in item.</li>        <li>branding: A custom branding name for the enrolled-in item. For example, the branding of a MicroMasters program would be \"MicroMasters\".</li>     <li>start: The date the enrolled-in item becomes available. Render this to text using the Django `date` template filter (see <a href=\"https://docs.djangoproject.com/en/1.8/ref/templates/builtins/#date\">the Django documentation</a>).</li><li>type: Whether the enrolled-in item is a course, a program, or something else.</li></ul></ul>"
+msgstr ""
+"შეავსეთ სტანდარტული Django-ს შაბლონი, რომელიც რენდერირებისას წარმოქმნის ელფოსტას, რომლის გაგზავნაც გსურთ ახლად ჩარიცხული კორპორატიული მომხმარებლის სტუდენტებისთვის. ხელმისაწვდომი შეიძლება იყოს შემდეგი ცვლადები:\n"
+"<ul><li>user_name: ელფოსტის მიმღები პირის წასაკითხი სახელი. დარწმუნდით, რომ გაითვალისწინეთ შემთხვევა, როდესაც ის არ არის განსაზღვრული, რადგან ზოგიერთ შემთხვევაში შეიძლება აკლდეს. ის ასევე შეიძლება იყოს მომხმარებლის სახელი, თუ სტუდენტს არ აქვს კონფიგურირებული თავისი „ნამდვილი“ სახელი სისტემაში.</li>    <li>organization_name: ორგანიზაციის სახელი, რომელიც აფინანსებს ჩარიცხვას.</li>    <li>enrolled_in: კურსის ან პროგრამის დეტალები, რომელშიც მოხდა ჩარიცხვა. ის შეიძლება შეიცავდეს:    <ul><li>name: ჩასარიცხი ერთეულის სახელი (მაგ., „დემო კურსი“).</li>        <li>url: ჩარიცხული ერთეულის მთავარი გვერდის ბმული.</li>        <li>branding: ჩარიცხული ერთეულის მორგებული ბრენდინგის სახელი. მაგალითად, MicroMasters პროგრამის ბრენდინგი იქნება „MicroMasters“.</li>     <li>start: თარიღი, როდესაც ჩარიცხული ერთეული ხელმისაწვდომი გახდება. გადაიყვანეთ ეს ტექსტად Django-ს `date` შაბლონის ფილტრის გამოყენებით (იხილეთ <a href=\"https://docs.djangoproject.com/en/1.8/ref/templates/builtins/#date\">Django-ს დოკუმენტაცია</a>).</li><li>type: არის თუ არა ჩარიცხული ერთეული კურსი, პროგრამა თუ სხვა რამ.</li></ul></ul>"
 
 #: enterprise/models.py:3264
 #, python-brace-format
@@ -2767,6 +2850,12 @@ msgid ""
 msgstr ""
 "მიუთითებს, თუ რომელი მომხმარებლის როლის დავალებები უნდა განახლდეს. თუ არ "
 "არის მითითებული, განახლდება ყველა როლისთვის."
+
+#: enterprise/config/models.py:45
+msgid "Number of user role asssignments to update in each batch of updates."
+msgstr ""
+"მომხმარებლის როლის მინიჭებების რაოდენობა, რომელიც უნდა განახლდეს "
+"განახლებების თითოეულ პარტიაში."
 
 #: enterprise/config/models.py:50
 msgid "The enterprise customer to limit role assignments to."
