@@ -7,6 +7,7 @@
 # Lasha Kokilashvili <lasha.kokilashvili@gmail.com>, 2026
 # Michelle Philbrick, 2026
 # Omar Al-Ithawi <i@omardo.com>, 2026
+# Brian Smith, 2026
 # 
 msgid ""
 msgstr ""
@@ -14,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: openedx-translation@googlegroups.com\n"
 "POT-Creation-Date: 2023-06-13 08:00+0000\n"
 "PO-Revision-Date: 2025-11-17 07:23+0000\n"
-"Last-Translator: Omar Al-Ithawi <i@omardo.com>, 2026\n"
+"Last-Translator: Brian Smith, 2026\n"
 "Language-Team: Georgian (https://app.transifex.com/open-edx/teams/6205/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,6 +38,14 @@ msgid ""
 msgstr ""
 "იხილეთ მონაცემთა გაზიარების თანხმობის გვერდის წინასწარი გადახედვა პროგრამაში"
 " ჩარიცხვის კონტექსტში."
+
+#: consent/admin/__init__.py:119 enterprise/admin/__init__.py:721
+msgid "Preview (course)"
+msgstr "გადახედვა (კურსი)"
+
+#: consent/admin/__init__.py:120 enterprise/admin/__init__.py:734
+msgid "Preview (program)"
+msgstr "გადახედვა (პროგრამა)"
 
 #: consent/models.py:213
 msgid "Name of the user whose consent state is stored."
@@ -192,6 +201,10 @@ msgstr ""
 "დიალოგის სათაური, რომელიც გამოჩნდება, როდესაც მომხმარებელი უარს იტყვის "
 "თანხმობის მიცემაზე"
 
+#: consent/models.py:378
+msgid "Text of abort decline link on confirmation dialog box"
+msgstr "უარის გაუქმების ბმულის ტექსტი დადასტურების დიალოგურ ფანჯარაზე"
+
 #: consent/models.py:393
 msgid "Specifies whether data sharing consent page is published."
 msgstr ""
@@ -231,6 +244,17 @@ msgid ""
 msgstr ""
 "მონაცემთა ერთეულების მაქსიმალური რაოდენობა, რომელიც უნდა გადაიცეს "
 "ინტეგრირებულ არხზე ყოველი მოთხოვნისას."
+
+#: integrated_channels/canvas/models.py:247
+msgid "The amount of points that the learner scored on the subsection."
+msgstr "ქულების რაოდენობა, რომელიც მოსწავლემ დააგროვა ქვეგანყოფილებაში."
+
+#: integrated_channels/canvas/models.py:253
+msgid ""
+"The total amount of points that the learner could score on the subsection."
+msgstr ""
+"ქულების საერთო რაოდენობა, რომლის დაგროვებაც შემსწავლელს შეეძლო "
+"ქვეგანყოფილებაში."
 
 #: integrated_channels/canvas/models.py:326
 msgid ""
@@ -279,6 +303,14 @@ msgstr ""
 "Cornerstone-ის API მოთხოვნებისთვის გამოყენებული საბაზისო URL, მაგ., "
 "https://portalName.csod.com"
 
+#: integrated_channels/cornerstone/models.py:108
+msgid ""
+"The most current session token provided for authorization to make API calls "
+"to the customer's instance"
+msgstr ""
+"ყველაზე განახლებული სესიის ჟეტონი, რომელიც მოწოდებულია ავტორიზაციისთვის, "
+"რათა განხორციელდეს API ზარები მომხმარებლის ინსტანციაზე"
+
 #: integrated_channels/cornerstone/models.py:116
 msgid "Date time when session token was last provided"
 msgstr "თარიღი და დრო, როდესაც სესიის ნიშანი ბოლოს იქნა მოწოდებული"
@@ -296,6 +328,15 @@ msgstr ""
 #: integrated_channels/cornerstone/models.py:318
 msgid "This is the course key that is being sent to our partners."
 msgstr "ეს არის კურსის გასაღები, რომელიც ეგზავნება ჩვენს პარტნიორებს."
+
+#: integrated_channels/integrated_channel/management/commands/__init__.py:67
+msgid ""
+"Transmit data for only this EnterpriseCustomer. Omit this option to transmit"
+" to all EnterpriseCustomers with active integrated channels."
+msgstr ""
+"მონაცემების გადაცემა მხოლოდ ამ EnterpriseCustomer-ისთვის. გამოტოვეთ ეს "
+"ვარიანტი, რათა გადასცეთ ყველა EnterpriseCustomer-ს აქტიური ინტეგრირებული "
+"არხებით."
 
 #: integrated_channels/integrated_channel/management/commands/__init__.py:75
 msgid ""
@@ -315,6 +356,16 @@ msgstr "კორპორატიული მომხმარებელ�
 msgid "Invalid integrated channel: {channel}"
 msgstr "არასწორი ინტეგრირებული არხი: {channel}"
 
+#: integrated_channels/integrated_channel/management/commands/backfill_missing_csod_foreign_keys.py:24
+msgid ""
+"\n"
+"    Backfill missing audit record foreign keys for Cornerstone.\n"
+"    "
+msgstr ""
+"\n"
+"    Cornerstone-ისთვის აუდიტის ჩანაწერის დაკარგული უცხოური გასაღებების შევსება.\n"
+"    "
+
 #: integrated_channels/integrated_channel/management/commands/cleanup_duplicate_assignment_records.py:39
 #: integrated_channels/integrated_channel/management/commands/transmit_learner_data.py:37
 #: integrated_channels/integrated_channel/management/commands/transmit_subsection_learner_data.py:37
@@ -329,6 +380,17 @@ msgstr ""
 #, python-brace-format
 msgid "A user with the username {username} was not found."
 msgstr "მომხმარებელი {username} ვერ მოიძებნა."
+
+#: integrated_channels/integrated_channel/management/commands/remove_duplicate_learner_transmission_audit_records.py:21
+#: integrated_channels/integrated_channel/management/commands/transmit_learner_data.py:23
+msgid ""
+"\n"
+"    Transmit Enterprise learner course completion data for the given EnterpriseCustomer.\n"
+"    "
+msgstr ""
+"\n"
+"    გადაეცით Enterprise-ის მოსწავლის კურსის დასრულების მონაცემები მოცემული EnterpriseCustomer-ისთვის.\n"
+"    "
 
 #: integrated_channels/integrated_channel/management/commands/remove_stale_integrated_channel_api_logs.py:22
 msgid ""
@@ -357,6 +419,12 @@ msgstr "კონფიგურაციის მეტსახელი."
 msgid "Enterprise Customer associated with the configuration."
 msgstr "კონფიგურაციასთან დაკავშირებული კორპორატიული მომხმარებელი."
 
+#: integrated_channels/integrated_channel/models.py:130
+msgid "If provided, will be used as IDP slug to locate remote id for learners"
+msgstr ""
+"თუ მითითებულია, გამოყენებული იქნება როგორც IDP slug, რათა მოიძებნოს "
+"დისტანციური ID მოსწავლეებისთვის"
+
 #: integrated_channels/integrated_channel/models.py:136
 #: integrated_channels/xapi/models.py:40
 msgid "Is this configuration active?"
@@ -377,6 +445,18 @@ msgid ""
 msgstr ""
 "კორპორაციული არხის თანამშრომლის მომხმარებლის სახელი JWT ტოკენების მისაღებად "
 "LMS API-ების ავთენტიფიკაციისთვის."
+
+#: integrated_channels/integrated_channel/models.py:168
+msgid ""
+"A comma-separated list of catalog UUIDs to transmit. If blank, all customer "
+"catalogs will be transmitted. If there are overlapping courses in the "
+"customer catalogs, the overlapping course metadata will be selected from the"
+" newest catalog."
+msgstr ""
+"კატალოგის UUID-ების მძიმით გამოყოფილი სია გადასაცემად. თუ ცარიელია, "
+"მომხმარებლის ყველა კატალოგი გადაიცემა. თუ მომხმარებლის კატალოგებში არის "
+"გადამფარავი კურსები, გადამფარავი კურსის მეტამონაცემები შეირჩევა უახლესი "
+"კატალოგიდან."
 
 #: integrated_channels/integrated_channel/models.py:176
 msgid ""
@@ -448,6 +528,14 @@ msgid "The name for the grade assigment created for the grade integration."
 msgstr ""
 "შეფასების დავალების სახელი, რომელიც შექმნილია შეფასების ინტეგრაციისთვის."
 
+#: integrated_channels/moodle/models.py:182
+msgid ""
+"When set to True, the configured customer will receive learner data "
+"transmissions, for incomplete courses as well"
+msgstr ""
+"თუ დაყენებულია „True“-ზე, კონფიგურირებული მომხმარებელი მიიღებს მოსწავლეთა "
+"მონაცემების გადაცემას, მათ შორის დაუსრულებელი კურსებისთვისაც"
+
 #: integrated_channels/sap_success_factors/exporters/content_metadata.py:223
 #: integrated_channels/sap_success_factors/exporters/content_metadata.py:298
 #: enterprise/views.py:1608
@@ -489,6 +577,10 @@ msgstr ""
 #: integrated_channels/sap_success_factors/models.py:173
 msgid "Type of SAP User (admin or user)."
 msgstr "SAP მომხმარებლის ტიპი (ადმინი ან მომხმარებელი)."
+
+#: integrated_channels/sap_success_factors/models.py:179
+msgid "A comma-separated list of additional locales."
+msgstr "დამატებითი ლოკალების მძიმით გამოყოფილი სია."
 
 #: integrated_channels/sap_success_factors/models.py:183
 msgid "Transmit Total Hours"
