@@ -7,14 +7,16 @@
 # Translators:
 # Transifex Bot <>, 2025
 # Eden Huthmacher, 2025
+# Gerardo Núñez, 2026
+# Brian Smith, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-proctoring\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-13 00:33+0000\n"
+"POT-Creation-Date: 2026-10-15 00:46+0000\n"
 "PO-Revision-Date: 2023-05-10 00:48+0000\n"
-"Last-Translator: Eden Huthmacher, 2025\n"
+"Last-Translator: Brian Smith, 2026\n"
 "Language-Team: Swedish (https://app.transifex.com/open-edx/teams/6205/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -110,93 +112,101 @@ msgstr "Onboarding väntar"
 msgid "Onboarding Expired"
 msgstr "Onboarding har löpt ut"
 
-#: api.py:824 views.py:1297
+#: api.py:826 views.py:1297
 #, python-brace-format
 msgid "you have {remaining_time} remaining"
 msgstr "du har {remaining_time} kvar"
 
-#: api.py:1654
+#: api.py:1656
 msgid "your course"
 msgstr "din kurs"
 
-#: api.py:1745
+#: api.py:1747
 #, python-brace-format
 msgid "Proctoring Results For {course_name} {exam_name}"
 msgstr "Proctoring-resultat för {course_name} {exam_name}"
 
-#: api.py:2238
+#: api.py:1924
+msgid ""
+"The proctoring provider is temporarily unavailable, so this attempt could "
+"not be fully reset. Please try again in a few minutes."
+msgstr ""
+"Övervakningstjänsten är tillfälligt otillgänglig, så detta försök kunde inte"
+" återställas helt. Vänligen försök igen om några minuter."
+
+#: api.py:2357
 msgid "Taking As Proctored Exam"
 msgstr "Avlägger som Proctored examen"
 
-#: api.py:2243
+#: api.py:2362
 msgid "Proctored Option Available"
 msgstr "Proktoriserat alternativ tillgängligt"
 
-#: api.py:2248
+#: api.py:2367
 msgid "Taking As Open Exam"
 msgstr "Avlägger som öppen tentamen"
 
-#: api.py:2253 api.py:2258
+#: api.py:2372 api.py:2377
 msgid "Pending Session Review"
 msgstr "Väntar på sessionsgranskning"
 
-#: api.py:2263
+#: api.py:2382
 msgid "Passed Proctoring"
 msgstr "Godkänd proctoring"
 
-#: api.py:2268 api.py:2273
+#: api.py:2387 api.py:2392
 msgid "Failed Proctoring"
 msgstr "Misslyckad Proctoring"
 
-#: api.py:2278
+#: api.py:2397
 msgid "Proctored Option No Longer Available"
 msgstr "Proctored-alternativet är inte längre tillgängligt"
 
-#: api.py:2287
+#: api.py:2406
 msgid "Ungraded Practice Exam"
 msgstr "Obetygsatt övningsprov"
 
-#: api.py:2292
+#: api.py:2411
 msgid "Practice Exam Completed"
 msgstr "Övningsprov avklarat"
 
-#: api.py:2297
+#: api.py:2416
 msgid "Practice Exam Failed"
 msgstr "Övningsprovet misslyckades"
 
-#: api.py:2305
+#: api.py:2424
 msgid "Timed Exam"
 msgstr "Tidsbestämd examen"
 
-#: api.py:2888
+#: api.py:3007
 msgid "Onboarding status question"
 msgstr "Fråga om onboardingstatus"
 
-#: models.py:391
+#: models.py:400
 msgid "Taking as Proctored"
 msgstr "Tar som Proctored"
 
-#: models.py:395
+#: models.py:404
 msgid "Is Sample Attempt"
 msgstr "Är provförsök"
 
-#: models.py:413
+#: models.py:422
 msgid "Is Resumable"
 msgstr "Går att återuppta"
 
-#: models.py:418
+#: models.py:427
 msgid "Ready to Resume"
 msgstr "Redo att återuppta"
 
-#: models.py:421
+#: models.py:430
 msgid "Resumed"
 msgstr "Återupptas"
 
-#: models.py:524
+#: models.py:533
 msgid "Additional Time (minutes)"
 msgstr "Ytterligare tid (minuter)"
 
-#: models.py:525
+#: models.py:534
 msgid "Review Policy Exception"
 msgstr "Granska policyundantag"
 
@@ -211,6 +221,18 @@ msgstr ""
 "        \n"
 "Resultatet kommer att synas efter <strong id=\"wait_deadline\"> Laddar... </strong>\n"
 "```\n"
+"    "
+
+#: templates/emails/proctoring_attempt_satisfactory_email.html:5
+#: templates/emails/proctoring_attempt_submitted_email.html:5
+#: templates/emails/proctoring_attempt_unsatisfactory_email.html:5
+msgid ""
+"\n"
+"        Hello,\n"
+"    "
+msgstr ""
+"\n"
+"        Hej,\n"
 "    "
 
 #: templates/emails/proctoring_attempt_satisfactory_email.html:12
@@ -487,6 +509,29 @@ msgstr ""
 "      Verificient kommer att granska din inlämning och skapa en onboarding\n"
 "      profil för att ge dig tillgång till proctored tentor. Onboarding\n"
 "      profilgranskning kan ta 2+ arbetsdagar.\n"
+"    "
+
+#: templates/onboarding_exam/submitted.html:19
+#, python-format
+msgid ""
+"\n"
+"      Once your profile has been reviewed, you will receive an email\n"
+"      with review results. The email will come from\n"
+"      <a href=\"mailto:%(learner_notification_from_email)s\">\n"
+"        %(learner_notification_from_email)s\n"
+"      </a>,\n"
+"      so make sure this email has been added to your inbox filter.\n"
+"    "
+msgstr ""
+"\n"
+"      ```\n"
+"När din profil har granskats kommer du att få ett e-postmeddelande\n"
+"      med granskningsresultat. Mejlet kommer från\n"
+"      <a href=\"mailto:%(learner_notification_from_email)s\">\n"
+"        %(learner_notification_from_email)s\n"
+"      </a>,\n"
+"      så se till att det här e-postmeddelandet har lagts till i ditt inkorgsfilter.\n"
+"```\n"
 "    "
 
 #: templates/onboarding_exam/submitted.html:29
@@ -867,6 +912,18 @@ msgstr ""
 "      måste du aktivera ditt konto.\n"
 "    "
 
+#: templates/proctored_exam/inactive_account.html:16
+#, python-format
+msgid ""
+"\n"
+"      Please check your registered email's Inbox and Spam folders for an activation email from\n"
+"      %(platform_name)s.\n"
+"    "
+msgstr ""
+"\n"
+"      Kontrollera din registrerade e-posts inkorg och skräppostmappar för ett aktiverings-e-postmeddelande från %(platform_name)s.\n"
+"    "
+
 #: templates/proctored_exam/inactive_account.html:21
 #, python-format
 msgid ""
@@ -911,6 +968,20 @@ msgstr ""
 "\n"
 "      Ställ in och starta din proctored examen\n"
 "    "
+
+#: templates/proctored_exam/instructions.html:12
+msgid ""
+"\n"
+"          Note: As part of the proctored exam setup, you will be asked\n"
+"          to verify your identity. Before you begin, make sure you are\n"
+"          on a computer with a webcam, and that you have a valid form\n"
+"          of photo identification such as a driver’s license or\n"
+"          passport.\n"
+"        "
+msgstr ""
+"\n"
+"          Obs: Som en del av inställningen för den övervakade tentamen kommer du att bli ombedd att verifiera din identitet. Innan du börjar, se till att du använder en dator med webbkamera och att du har en giltig form av fotolegitimation, såsom ett körkort eller pass.\n"
+"        "
 
 #: templates/proctored_exam/instructions.html:27
 #, python-format
@@ -1128,6 +1199,16 @@ msgstr ""
 "href=\"%(link_urls.online_proctoring_rules)s\" "
 "target=\"_blank\">onlineproctoring-reglerna</a> för att klara proctoring-"
 "granskningen för ditt prov. "
+
+#: templates/proctored_exam/proctoring_launch_callback.html:168
+msgid ""
+"\n"
+"            Do not close this window before you finish your exam. if you close this window, your proctoring session ends, and you will not successfully complete the proctored exam.\n"
+"          "
+msgstr ""
+"\n"
+"            Stäng inte det här fönstret innan du har avslutat ditt prov. Om du stänger det här fönstret avslutas din proctoring-session och du kommer inte att slutföra proctored-provet.\n"
+"          "
 
 #: templates/proctored_exam/proctoring_launch_callback.html:173
 #, python-format
