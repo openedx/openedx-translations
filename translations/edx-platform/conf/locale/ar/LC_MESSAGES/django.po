@@ -1234,7 +1234,7 @@ msgstr "لا يمكن تحديث المحتوى لأنّه لا ينتمي إل�
 
 #: cms/lib/xblock/upstream_sync.py:269
 msgid "Reference to linked library item is malformed"
-msgstr "مَرجِع عنصر المكتبة المرتبط غير مُنسَّق بشكل صحيح"
+msgstr "المرجع إلى عنصر المكتبة المرتبط غير صالح"
 
 #: cms/lib/xblock/upstream_sync.py:275
 msgid ""
@@ -9115,6 +9115,15 @@ msgstr ""
 msgid "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
 msgstr "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:248
+#, python-brace-format
+msgid ""
+"<{p}>You have a new open response submission awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<[p]>لديك تقديم إجابة مفتوحة جديد بانتظار المراجعة في "
+"<[strong]>{ora_name}</[strong]></[p]>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:250
 #, python-brace-format
 msgid ""
@@ -9133,6 +9142,11 @@ msgstr ""
 "<{p}>لقد حصلت على {points_earned} من أصل {points_possible} في تقييمك: "
 "<{strong}>{ora_name}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:289
+#, python-brace-format
+msgid "<{p}>Your instructor posted <{strong}>{post_title}</{strong}></{p}>"
+msgstr "<[p]>نشر مدرّبك <[strong]>{post_title}</[strong]></[p]>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:337
 msgid ""
 "Notifications for responses and comments on your posts, and the ones you’re "
@@ -9148,6 +9162,19 @@ msgstr "الإشعارات بالإعلانات والتحديثات الجدي�
 #: openedx/core/djangoapps/notifications/base_notification.py:356
 msgid "Notifications for submission grading."
 msgstr "الإشعارات المتعلقة بتقييم الإجابات"
+
+#: openedx/core/djangoapps/notifications/email/tasks.py:266
+msgid "New Course Update"
+msgstr "تحديث جديد للمساق"
+
+#: openedx/core/djangoapps/notifications/email/tasks.py:278
+msgid ""
+"You are receiving this email because you are enrolled in the edX course "
+msgstr "تتلقى هذا البريد الإلكتروني لأنك مسجل في مساق إدكس"
+
+#: openedx/core/djangoapps/notifications/email/utils.py:145
+msgid "Total Notifications"
+msgstr "إجمالي الإشعارات"
 
 #: openedx/core/djangoapps/notifications/email/utils.py:221
 msgid "Today"
@@ -9215,14 +9242,41 @@ msgstr "اعرض"
 msgid "more"
 msgstr "المزيد"
 
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:38
+msgid ""
+"You are receiving this email because you have subscribed to email digest"
+msgstr "تتلقى هذا البريد الإلكتروني لأنك اشتركت في الملخص البريدي"
+
 #: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:43
 msgid "Notification Settings"
 msgstr "إعدادات الإشعارات"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:46
+msgid "Unsubscribe from email digest for learning activity"
+msgstr "إلغاء الاشتراك من الملخص البريدي لنشاط التعلم"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:25
+msgid "Weekly Notifications Digest"
+msgstr "ملخص الإشعارات الأسبوعي"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:27
+msgid "Daily Notifications Digest"
+msgstr "ملخص الإشعارات اليومي"
 
 #: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/batched_email/email/body.txt:3
 #: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/batched_email/email/subject.txt:3
 msgid "Recent activity on"
 msgstr "الأنشطة الأخيرة في"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/body.txt:4
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/subject.txt:4
+msgid "Weekly Notifications Digest for the Week of"
+msgstr "ملخص الإشعارات الأسبوعي لأسبوع"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/body.txt:6
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/subject.txt:6
+msgid "Daily Notifications Digest for"
+msgstr "ملخص الإشعارات اليومي ليوم"
 
 #: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:5
 msgid "Email Digest Preferences Updated"
@@ -9232,6 +9286,10 @@ msgstr "حُدّثت تفضيلات ملخص البريد الإلكتروني"
 msgid ""
 "You have successfully unsubscribed from email digest for learning activity"
 msgstr "لقد أُلغي اشتراكك في ملخص البريد الإلكتروني لأنشطة التعلّم بنجاح"
+
+#: openedx/core/djangoapps/notifications/views.py:174
+msgid "Invalid app name."
+msgstr "اسم التطبيق غير صالح."
 
 #: openedx/core/djangoapps/notifications/views.py:184
 msgid "Notifications marked as seen."
@@ -9264,6 +9322,10 @@ msgstr "قائمة مفصولة بفواصل، بالمُرشِّحات التي
 #: openedx/core/djangoapps/oauth_dispatch/models.py:141
 msgid "Content Provider"
 msgstr "مزوّد المحتوى"
+
+#: openedx/core/djangoapps/password_policy/apps.py:22
+msgid "Password Policy"
+msgstr "سياسة كلمة المرور"
 
 #: openedx/core/djangoapps/password_policy/compliance.py:76
 #, python-brace-format
@@ -9305,6 +9367,24 @@ msgstr "يجب أن يكون حجم الملف أصغر من {image_max_size}."
 msgid "The file must be at least {image_min_size} in size."
 msgstr "يجب أن يكون حجم الملف {image_min_size} على الأقل."
 
+#: openedx/core/djangoapps/profile_images/images.py:116
+#, python-brace-format
+msgid "The file must be one of the following types: {valid_file_types}."
+msgstr "يجب أن يكون نوع الملف واحدًا من الأنواع التالية: {valid_file_types}."
+
+#: openedx/core/djangoapps/profile_images/images.py:124
+msgid ""
+"The Content-Type header for this file does not match the file data. The file"
+" may be corrupted."
+msgstr ""
+"لا تطابق ترويسة Content-Type لهذا الملف بيانات الملف. قد يكون الملف تالفًا."
+
+#: openedx/core/djangoapps/profile_images/images.py:133
+msgid ""
+"The file name extension for this file does not match the file data. The file"
+" may be corrupted."
+msgstr "لا يطابق امتداد اسم هذا الملف بيانات الملف. قد يكون الملف تالفًا."
+
 #: openedx/core/djangoapps/profile_images/images.py:242
 msgid "bytes"
 msgstr "بايت"
@@ -9316,6 +9396,34 @@ msgstr "كيلو بايت"
 #: openedx/core/djangoapps/profile_images/images.py:242
 msgid "MB"
 msgstr "ميغا بايت"
+
+#: openedx/core/djangoapps/profile_images/views.py:136
+msgid "No file provided for profile image"
+msgstr "لم يُرفق ملف لصورة الملف الشخصي"
+
+#: openedx/core/djangoapps/programs/models.py:25
+msgid "Path used to construct URLs to programs marketing pages (e.g., \"/foo\")."
+msgstr "المسار المستخدم لإنشاء عناوين URL لصفحات تسويق البرامج (مثل \"/foo\")."
+
+#: openedx/core/djangoapps/programs/models.py:41
+msgid "Program UUID"
+msgstr "معرّف UUID للبرنامج"
+
+#: openedx/core/djangoapps/programs/models.py:45
+msgid "If disabled, the LTI in the associated program will be disabled."
+msgstr "إذا عُطّل، فسيُعطّل LTI في البرنامج المرتبط."
+
+#: openedx/core/djangoapps/programs/models.py:52
+msgid "The LTI configuration data for this program/provider."
+msgstr "بيانات تكوين LTI لهذا البرنامج/المزود."
+
+#: openedx/core/djangoapps/schedules/admin.py:62
+msgid "Known Error Case"
+msgstr "حالة خطأ معروفة"
+
+#: openedx/core/djangoapps/schedules/admin.py:68
+msgid "Schedule start < course start"
+msgstr "بدء الجدول الزمني < بدء المساق"
 
 #: openedx/core/djangoapps/schedules/admin.py:81
 msgid "Course Id"
@@ -9338,6 +9446,14 @@ msgstr "معرف المساق"
 msgid "Schedules"
 msgstr "الجداول"
 
+#: openedx/core/djangoapps/schedules/models.py:23
+msgid "Indicates if this schedule is actively used"
+msgstr "يشير إلى ما إذا كان هذا الجدول الزمني قيد الاستخدام الفعلي"
+
+#: openedx/core/djangoapps/schedules/models.py:27
+msgid "Date this schedule went into effect"
+msgstr "تاريخ بدء سريان هذا الجدول الزمني"
+
 #: openedx/core/djangoapps/schedules/models.py:35
 msgid "Deadline by which the learner must upgrade to a verified seat"
 msgstr ""
@@ -9352,6 +9468,33 @@ msgstr "الجدول"
 msgid " By %(filter_title)s "
 msgstr "حسب %(filter_title)s"
 
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:9
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:7
+#, python-format
+msgid "Welcome to week %(week_num)s of %(course_name)s!"
+msgstr "مرحبًا بك في الأسبوع %(week_num)s من %(course_name)s!"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:22
+#, python-format
+msgid ""
+"This is a routed Account Activation email for %(routed_profile_name)s "
+"(%(routed_user_email)s): %(routed_profile_name)s"
+msgstr ""
+"هذا بريد إلكتروني محوَّل لتفعيل الحساب الخاص بـ %(routed_profile_name)s "
+"(%(routed_user_email)s): %(routed_profile_name)s"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:36
+msgid "Welcome to edX. It’s time for your next career move"
+msgstr "مرحبًا بك في إدكس. حان الوقت لخطوتك المهنية التالية"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:62
+msgid "Resume your course "
+msgstr "استأنِف مساقك"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:82
+msgid "Your focused attention will pay off in the end!"
+msgstr "انتباهك المركّز سيؤتي ثماره في النهاية!"
+
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:84
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:101
 msgid ""
@@ -9360,6 +9503,19 @@ msgid ""
 msgstr ""
 "مع المساقات ذاتية التعلم، ستتعلم وفقاً لجدولك الزمني الخاص بك. من الجيد أن "
 "تقضي بعض الوقت في المساق كل أسبوع، وأن تطّلع على أهدافك باستمرار."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:100
+msgid "Your focused attention will pay off in the end! "
+msgstr "انتباهك المركّز سيؤتي ثماره في النهاية!"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.txt:4
+#, python-format
+msgid ""
+"We hope you're enjoying %(course_name)s! We want to let you know what you "
+"can look forward to in week %(week_num)s:"
+msgstr ""
+"نأمل أن تستمتع بـ%(course_name)s! نودّ إطلاعك على ما ينتظرك في الأسبوع "
+"%(week_num)s:"
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.txt:13
 msgid ""
@@ -9371,15 +9527,147 @@ msgstr ""
 "قضاء بعض الوقت في المساق كل أسبوع. إنّ تركيزك المستمر سوف يُؤتي ثماره في "
 "النهاية!"
 
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/subject.txt:4
+#, python-format
+msgid "Welcome to week %(week_num)s"
+msgstr "مرحبًا بك في الأسبوع %(week_num)s"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:18
+#, python-brace-format
+msgid ""
+"We hope you're enjoying {start_strong}{course_name}{end_strong}! We want to "
+"let you know what you can look forward to in the coming weeks:"
+msgstr ""
+"نأمل أن تستمتع بـ{start_strong}{course_name}{end_strong}! نودّ إطلاعك على ما"
+" ينتظرك في الأسابيع القادمة:"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:31
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.txt:13
+msgid ""
+"We encourage you to spend time with the course each week. Your focused "
+"attention will pay off in the end!"
+msgstr ""
+"نشجعك على تخصيص وقت للمساق كل أسبوع. انتباهك المركّز سيؤتي ثماره في النهاية!"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:39
+msgid "Resume your course now"
+msgstr "استأنِف مساقك الآن"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.txt:4
+#, python-format
+msgid ""
+"We hope you're enjoying %(course_name)s! We want to let you know what you "
+"can look forward to in the coming weeks:"
+msgstr ""
+"نأمل أن تستمتع بـ%(course_name)s! نودّ إطلاعك على ما ينتظرك في الأسابيع "
+"القادمة:"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/subject.txt:4
+#, python-format
+msgid "%(course_name)s Weekly Update"
+msgstr "التحديث الأسبوعي لـ%(course_name)s"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:8
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:32
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.txt:5
+#, python-format
+msgid ""
+"Many %(platform_name)s learners are completing more problems every week, and"
+" participating in the discussion forums. What do you want to do to keep "
+"learning?"
+msgstr ""
+"يُتمّ كثير من متعلمي %(platform_name)s مزيداً من المسائل كل أسبوع، ويشاركون "
+"في منتديات المناقشة. ماذا تريد أن تفعل لتواصل التعلم؟"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:15
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.txt:11
+#, python-format
+msgid ""
+"Many %(platform_name)s learners in %(course_name)s are completing more "
+"problems every week, and participating in the discussion forums. What do you"
+" want to do to keep learning?"
+msgstr ""
+"يُتمّ كثير من متعلمي %(platform_name)s في %(course_name)s مزيداً من المسائل "
+"كل أسبوع، ويشاركون في منتديات المناقشة. ماذا تريد أن تفعل لتواصل التعلم؟"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:27
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/subject.txt:3
+msgid "Keep up the momentum!"
+msgstr "حافِظ على زخمك!"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:38
+#, python-brace-format
+msgid ""
+"Many {platform_name} learners in {start_strong}{course_name}{end_strong} are"
+" completing more problems every week, and participating in the discussion "
+"forums. What do you want to do to keep learning?"
+msgstr ""
+"يكمل العديد من متعلمي {platform_name} في {start_strong} {course_name} "
+"{end_strong} المزيد من المسائل كل أسبوع، ويشاركون في منتديات المناقشة. ماذا "
+"تريد أن تفعل لمواصلة التعلم؟"
+
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:47
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.txt:9
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.txt:15
 msgid "Keep learning"
 msgstr "واصل الدراسة"
 
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:8
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:5
+#: themes/red-theme/lms/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:6
+#, python-format
+msgid ""
+"Remember when you enrolled in %(course_name)s, and other courses on "
+"%(platform_name)s? We do, and we’re glad to have you! Come see what everyone"
+" is learning."
+msgstr ""
+"هل تذكر حين سجلت في %(course_name)s وفي مساقات أخرى على %(platform_name)s؟ "
+"نحن نذكر ذلك، ويسعدنا وجودك معنا! تعال وشاهد ما يتعلمه الجميع."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:15
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:12
+#: themes/red-theme/lms/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:13
+#, python-format
+msgid ""
+"Remember when you enrolled in %(course_name)s on %(platform_name)s? We do, "
+"and we’re glad to have you! Come see what everyone is learning."
+msgstr ""
+"هل تذكر حين سجلت في %(course_name)s على %(platform_name)s؟ نحن نذكر ذلك، "
+"ويسعدنا وجودك معنا! تعال وشاهد ما يتعلمه الجميع."
+
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:27
 msgid "Keep learning today"
 msgstr "استمر في التعلم اليوم"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:31
+#, python-brace-format
+msgid ""
+"Remember when you enrolled in {start_strong}{course_name}{end_strong}, and "
+"other courses on {platform_name}? We do, and we’re glad to have you! Come "
+"see what everyone is learning."
+msgstr ""
+"هل تذكر حين سجلت في {start_strong}{course_name}{end_strong} وفي مساقات أخرى "
+"على {platform_name}؟ نحن نذكر ذلك، ويسعدنا وجودك معنا! تعال وشاهد ما يتعلمه "
+"الجميع."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:37
+#, python-brace-format
+msgid ""
+"Remember when you enrolled in {start_strong}{course_name}{end_strong} on "
+"{platform_name}? We do, and we’re glad to have you! Come see what everyone "
+"is learning."
+msgstr ""
+"هل تذكر حين سجلت في {start_strong}{course_name}{end_strong} على "
+"{platform_name}؟ نحن نذكر ذلك، ويسعدنا وجودك معنا! تعال وشاهد ما يتعلمه "
+"الجميع."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:46
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:10
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:17
+#: themes/red-theme/lms/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:11
+#: themes/red-theme/lms/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:18
+msgid "Start learning now"
+msgstr "ابدأ التعلم الآن"
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/subject.txt:4
 #, python-format
@@ -9391,10 +9679,63 @@ msgstr "استمر في التعلم على %(platform_name)s"
 msgid "Keep learning in %(course_name)s"
 msgstr "استمر في التعلم في %(course_name)s"
 
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:10
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.txt:5
+#, python-format
+msgid ""
+"We hope you are enjoying learning with us so far on %(platform_name)s! A "
+"verified certificate allows you to highlight your new knowledge and skills. "
+"An %(platform_name)s certificate is official and easily shareable. Upgrade "
+"by %(user_schedule_upgrade_deadline_time)s."
+msgstr ""
+"نأمل أن تستمتع بالتعلم معنا حتى الآن على %(platform_name)s! تتيح لك الشهادة "
+"الموثّقة إبراز معارفك ومهاراتك الجديدة. شهادة %(platform_name)s رسمية ويمكن "
+"مشاركتها بسهولة. رقِّ حسابك قبل %(user_schedule_upgrade_deadline_time)s."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:20
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.txt:21
+#, python-format
+msgid ""
+"We hope you are enjoying learning with us so far in %(first_course_name)s! A"
+" verified certificate allows you to highlight your new knowledge and skills."
+" An %(platform_name)s certificate is official and easily shareable. Upgrade "
+"by %(user_schedule_upgrade_deadline_time)s."
+msgstr ""
+"نأمل أن تستمتع بالتعلم معنا حتى الآن في %(first_course_name)s! تتيح لك "
+"الشهادة الموثّقة إبراز معارفك ومهاراتك الجديدة. شهادة %(platform_name)s "
+"رسمية ويمكن مشاركتها بسهولة. رقِّ حسابك قبل "
+"%(user_schedule_upgrade_deadline_time)s."
+
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:35
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:112
 msgid "Upgrade now"
 msgstr "اسعَ لترقية حسابك الآن"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:39
+#, python-format, python-brace-format
+msgid ""
+"We hope you are enjoying learning with us so far on "
+"{start_strong}%(platform_name)s{end_strong}! A verified certificate allows "
+"you to highlight your new knowledge and skills. An %(platform_name)s "
+"certificate is official and easily shareable."
+msgstr ""
+"نأمل أن تستمتع بالتعلم معنا حتى الآن على "
+"{start_strong}%(platform_name)s{end_strong}! تتيح لك الشهادة الموثّقة إبراز "
+"معارفك ومهاراتك الجديدة. شهادة %(platform_name)s رسمية ويمكن مشاركتها "
+"بسهولة."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:46
+#, python-brace-format
+msgid ""
+"We hope you are enjoying learning with us so far in "
+"{start_strong}{first_course_name}{end_strong}! A verified certificate allows"
+" you to highlight your new knowledge and skills. An {platform_name} "
+"certificate is official and easily shareable."
+msgstr ""
+"نأمل أن تستمتع بالتعلم معنا حتى الآن في "
+"{start_strong}{first_course_name}{end_strong}! تتيح لك الشهادة الموثّقة "
+"إبراز معارفك ومهاراتك الجديدة. شهادة {platform_name} رسمية ويمكن مشاركتها "
+"بسهولة."
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:55
 #, python-format, python-brace-format
@@ -9404,6 +9745,10 @@ msgid ""
 msgstr ""
 "اسعَ للترقية قبل {start_strong} %(user_schedule_upgrade_deadline_time)s "
 "{end_strong}."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:63
+msgid "You are eligible to upgrade in these courses:"
+msgstr "أنت مؤهل للترقية في هذه المساقات:"
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:76
 #: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:21
@@ -9443,6 +9788,35 @@ msgstr "أُعيد مظهر الموقع إلى الوضع الافتراضي"
 msgid "Theming Administration"
 msgstr "إدارة المظهر"
 
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:43
+msgid ""
+"Usernames can only contain letters (A-Z, a-z), numerals (0-9), underscores "
+"(_), and hyphens (-)."
+msgstr ""
+"يمكن أن تحتوي أسماء المستخدمين فقط على أحرف ‎(A-Z و a-z)‏ وأرقام ‎(0-9)‏ "
+"وشرطات سفلية ‎(_)‏ وواصلات ‎(-)‏."
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:50
+msgid ""
+"Usernames can only contain letters, numerals, and @/./+/-/_ characters."
+msgstr "يمكن أن تحتوي أسماء المستخدمين فقط على أحرف وأرقام ورموز ‎@/./+/-/_‏."
+
+#. Translators: This message is shown to users who attempt to create a new
+#. account using
+#. an invalid email format.
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:55
+msgid "Enter a valid email address"
+msgstr "أدخِل عنوان بريد إلكتروني صحيحاً"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:60
+#, python-brace-format
+msgid ""
+"It looks like {email_address} belongs to an existing account. Try again with"
+" a different email address."
+msgstr ""
+"يبدو أن {email_address} مرتبط بحساب موجود. حاول مرة أخرى بعنوان بريد "
+"إلكتروني مختلف."
+
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:64
 msgid "This email is already associated with an existing account"
 msgstr "هذا البريد الإلكتروني مرتبط بالفعل بحساب موجود مسبقاً"
@@ -9459,6 +9833,14 @@ msgstr ""
 "كلمة المرور التي أدخلتها موجودة في قائمة كلمات المرور المعروفة المخترقة. من "
 "فضلك اختَر كلمة مرور مختلفة. "
 
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:72
+#, python-brace-format
+msgid ""
+"It looks like {username} belongs to an existing account. Try again with a "
+"different username."
+msgstr ""
+"يبدو أن {username} مرتبط بحساب موجود. حاول مرة أخرى باسم مستخدم مختلف."
+
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:75
 msgid "It looks like this username is already taken"
 msgstr "يبدو أنّ اسم المستخدم هذا مستخدم بالفعل"
@@ -9468,11 +9850,24 @@ msgstr "يبدو أنّ اسم المستخدم هذا مستخدم بالفعل
 msgid "Username must be between {min} and {max} characters long."
 msgstr "يجب أن يكون طول اسم المستخدم بين {min} و {max} حرفاً."
 
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:85
+#, python-brace-format
+msgid "Enter a valid email address that contains at least {min} characters."
+msgstr "أدخِل عنوان بريد إلكتروني صحيحاً يحتوي على {min} من الأحرف على الأقل."
+
 #. Translators: These messages are shown to users who do not enter information
 #. into the required field or enter it incorrectly.
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:96
 msgid "Enter your full name"
 msgstr "أدخِل اسمك الكامل"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:97
+msgid "Enter your first name"
+msgstr "أدخِل اسمك الأول"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:98
+msgid "Enter your last name"
+msgstr "أدخِل اسم عائلتك"
 
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:99
 msgid "The email addresses do not match"
@@ -9482,9 +9877,53 @@ msgstr "عنوانا البريد الإلكتروني غير متطابقين"
 msgid "Enter your confirm email"
 msgstr "أدخل عنوان بريدك الإلكتروني للتأكّد"
 
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:101
+msgid "Select your country or region of residence"
+msgstr "اختَر البلد أو المنطقة التي تقيم فيها"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:102
+msgid "Select your profession"
+msgstr "اختَر مهنتك"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:103
+msgid "Select your specialty"
+msgstr "اختَر تخصصك"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:104
+msgid "Enter your profession"
+msgstr "أدخِل مهنتك"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:105
+msgid "Enter your specialty"
+msgstr "أدخِل تخصصك"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:106
+msgid "Enter your state"
+msgstr "أدخِل ولايتك"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:107
+msgid "Enter your city"
+msgstr "أدخِل مدينتك"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:108
+msgid "Tell us your goals"
+msgstr "أخبِرنا بأهدافك"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:109
+msgid "Select the highest level of education you have completed"
+msgstr "اختَر أعلى مستوى تعليمي أكملته"
+
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:110
 msgid "Select your year of birth"
 msgstr "اختَر سنة ولادتك"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:111
+msgid "Select your gender"
+msgstr "اختَر جنسك"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:112
+msgid "Enter your mailing address"
+msgstr "أدخِل عنوانك البريدي"
 
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:116
 msgid ""
@@ -9498,9 +9937,29 @@ msgid ""
 "change it so that your account stays secure."
 msgstr "اكتشف نظامنا أنّ كلمة مرورك ضعيفة. نوصيك بتغييرها ليظل حسابك آمناً."
 
+#: openedx/core/djangoapps/user_api/accounts/api.py:206
+#, python-brace-format
+msgid "The '{field_name}' field cannot be edited."
+msgstr "لا يمكن تعديل الحقل '{field_name}'."
+
 #: openedx/core/djangoapps/user_api/accounts/api.py:436
 msgid "Full name can't be longer than 255 symbols"
 msgstr "لا يمكن أن يزيد الاسم الكامل عن 255 رمزاً"
+
+#: openedx/core/djangoapps/user_api/accounts/api.py:438
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:109
+msgid "Enter a valid name"
+msgstr "أدخِل اسماً صحيحاً"
+
+#: openedx/core/djangoapps/user_api/accounts/utils.py:45
+#, python-brace-format
+msgid ""
+"Make sure that you are providing a valid username or a URL that contains "
+"\"{url_stub}\". To remove the link from your {platform_name} profile, leave "
+"this field blank."
+msgstr ""
+"تأكّد من إدخال اسم مستخدم صحيح أو رابط يحتوي على \"{url_stub}\". لإزالة "
+"الرابط من ملفك الشخصي على {platform_name}، اترك هذا الحقل فارغاً."
 
 #: openedx/core/djangoapps/user_api/accounts/views.py:637
 msgid ""
@@ -9510,6 +9969,19 @@ msgstr ""
 "أُغلق هذا الحساب مؤقتاً نتيجة عدّة محاولات فاشلة لتسجيل الدخول. من فضلك حاول"
 " مجدداً في وقت لاحق."
 
+#: openedx/core/djangoapps/user_api/accounts/views.py:647
+#: openedx/core/djangoapps/user_authn/views/login.py:311
+msgid "Email or password is incorrect."
+msgstr "البريد الإلكتروني أو كلمة المرور غير صحيحة."
+
+#: openedx/core/djangoapps/user_api/admin.py:52
+msgid "Permission Denied"
+msgstr "رُفض الإذن"
+
+#: openedx/core/djangoapps/user_api/admin.py:62
+msgid "Retirement does not exist!"
+msgstr "التقاعد غير موجود!"
+
 #: openedx/core/djangoapps/user_api/admin.py:72
 msgid "Success"
 msgstr "تم الأمر بنجاح"
@@ -9517,6 +9989,110 @@ msgstr "تم الأمر بنجاح"
 #: openedx/core/djangoapps/user_api/admin.py:118
 msgid "Actions"
 msgstr "الإجراءات"
+
+#: openedx/core/djangoapps/user_api/models.py:444
+msgid ""
+"Comma separated file that have username and user_email of the users that "
+"needs to be retired"
+msgstr ""
+"ملف مفصول بفواصل يحتوي على username وuser_email للمستخدمين الذين يجب إحالة "
+"حساباتهم إلى التقاعد"
+
+#: openedx/core/djangoapps/user_api/preferences/api.py:253
+#, python-brace-format
+msgid "Delete failed for user preference '{preference_key}'."
+msgstr "تعذّر حذف تفضيل المستخدم '{preference_key}'."
+
+#: openedx/core/djangoapps/user_api/preferences/api.py:402
+#, python-brace-format
+msgid "Preference '{preference_key}' cannot be set to an empty value."
+msgstr "لا يمكن ضبط تفضيل '{preference_key}' على قيمة فارغة."
+
+#: openedx/core/djangoapps/user_api/preferences/api.py:419
+#, python-brace-format
+msgid "Invalid user preference key '{preference_key}'."
+msgstr "مفتاح تفضيل المستخدم '{preference_key}' غير صحيح."
+
+#: openedx/core/djangoapps/user_api/preferences/api.py:423
+#, python-brace-format
+msgid ""
+"Value '{preference_value}' is not valid for user preference "
+"'{preference_key}'."
+msgstr ""
+"القيمة '{preference_value}' غير صحيحة لتفضيل المستخدم '{preference_key}'."
+
+#: openedx/core/djangoapps/user_api/preferences/api.py:433
+#, python-brace-format
+msgid ""
+"Value '{preference_value}' not valid for preference '{preference_key}': Not "
+"in timezone set."
+msgstr ""
+"القيمة '{preference_value}' غير صحيحة لتفضيل '{preference_key}': ليست ضمن "
+"مجموعة المناطق الزمنية."
+
+#: openedx/core/djangoapps/user_api/preferences/api.py:434
+#, python-brace-format
+msgid "Value '{preference_value}' is not a valid time zone selection."
+msgstr "القيمة '{preference_value}' ليست اختياراً صحيحاً للمنطقة الزمنية."
+
+#: openedx/core/djangoapps/user_api/preferences/api.py:451
+#, python-brace-format
+msgid "Save failed for user preference '{key}' with value '{value}'."
+msgstr "تعذّر حفظ تفضيل المستخدم '{key}' بالقيمة '{value}'."
+
+#: openedx/core/djangoapps/user_api/preferences/views.py:118
+msgid "No data provided for user preference update"
+msgstr "لم تُقدَّم بيانات لتحديث تفضيل المستخدم"
+
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.html:17
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.txt:7
+#, python-format
+msgid ""
+"We received a deletion request for your account on %(platform_name)s. We're "
+"sorry to see you go!"
+msgstr "تلقّينا طلباً لحذف حسابك على %(platform_name)s. يؤسفنا رحيلك!"
+
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.html:24
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.txt:11
+msgid ""
+"Your account will be deleted shortly. Account deletion, including removal "
+"from email lists, may take a few weeks to fully process through our system. "
+"If you want to opt-out of emails before then, please unsubscribe from the "
+"footer of any email."
+msgstr ""
+"سيُحذف حسابك قريباً. قد يستغرق حذف الحساب، بما في ذلك إزالتك من قوائم البريد"
+" الإلكتروني، بضعة أسابيع حتى تكتمل معالجته في نظامنا. وإن أردت إيقاف تلقي "
+"رسائل البريد الإلكتروني قبل ذلك، فألغِ اشتراكك من تذييل أي رسالة بريد "
+"إلكتروني."
+
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.html:31
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.txt:15
+#, python-format
+msgid ""
+"This is an informational email only. If you did not initiate this request, "
+"please contact %(contact_email)s."
+msgstr ""
+"هذا البريد الإلكتروني لأغراض إعلامية فقط. إذا لم تكن أنت من قدّم هذا الطلب، "
+"فتواصل مع %(contact_email)s."
+
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.html:38
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.txt:19
+#, python-format
+msgid "Best, %(platform_name)s"
+msgstr "مع تحياتنا، %(platform_name)s"
+
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/subject.txt:4
+msgid "Your Account Has Been Queued For Deletion"
+msgstr "وُضع حسابك في قائمة انتظار الحذف"
+
+#. Translators: This label appears above a dropdown menu used to select
+#. the user's highest completed level of education.
+#. Translators: This label appears above a dropdown menu on the registration
+#. form used to select the user's highest completed level of education.
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:94
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:629
+msgid "Highest level of education completed"
+msgstr "أعلى مستوى تعليمي أتممته"
 
 #. Translators: This label appears above a dropdown menu on the form
 #. used to select the user's year of birth.
@@ -9574,6 +10150,15 @@ msgid "Title"
 msgstr "العنوان"
 
 #. Translators: This label appears above a field which allows the
+#. user to input the Job Title
+#. Translators: This label appears above a field on the registration form
+#. which allows the user to input the Job Title
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:216
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:916
+msgid "Job Title"
+msgstr "المسمّى الوظيفي"
+
+#. Translators: This label appears above a field which allows the
 #. user to input the First Name
 #. Translators: This label appears above a field on the registration form
 #. which allows the user to input the First Name
@@ -9591,6 +10176,26 @@ msgstr "الاسم الأول"
 msgid "Last Name"
 msgstr "اسم العائلة (اللقب)"
 
+#. Translators: This label appears above a field
+#. meant to hold the user's mailing address.
+#. Translators: This label appears above a field on the registration form
+#. meant to hold the user's mailing address.
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:258
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:798
+msgid "Mailing address"
+msgstr "العنوان البريدي"
+
+#. Translators: This label appears above a field
+#. which allows the user to input the State/Province/Region in which they
+#. live.
+#. Translators: This label appears above a field on the registration form
+#. which allows the user to input the State/Province/Region in which they
+#. live.
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:274
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:865
+msgid "State/Province/Region"
+msgstr "الولاية/المقاطعة/المنطقة"
+
 #. Translators: This label appears above a dropdown menu to select
 #. the user's work experience
 #: openedx/core/djangoapps/user_authn/api/form_fields.py:376
@@ -9601,9 +10206,38 @@ msgstr "الخبرة العملية"
 msgid "Password reset"
 msgstr "إعادة تعيين كلمة المرور"
 
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:14
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.txt:2
+#, python-format
+msgid ""
+"You're receiving this e-mail because you requested a password reset for your"
+" user account at %(platform_name)s."
+msgstr ""
+"وصلتك رسالة البريد الإلكتروني هذه لأنك طلبت إعادة تعيين كلمة المرور لحسابك "
+"في %(platform_name)s."
+
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:22
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.txt:5
+#, python-format
+msgid ""
+"However, there is currently no user account associated with your email "
+"address: %(email_address)s."
+msgstr ""
+"غير أنه لا يوجد حالياً حساب مستخدم مرتبط بعنوان بريدك الإلكتروني: "
+"%(email_address)s."
+
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:28
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.txt:7
+msgid "If you did not request this change, you can ignore this email."
+msgstr "إذا لم تطلب هذا التغيير، فيمكنك تجاهل هذا البريد الإلكتروني."
+
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:37
 msgid "Reset my password"
 msgstr "أعِد تعيين كلمة المرور"
+
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.txt:9
+msgid "Please go to the following page and choose a new password:"
+msgstr "من فضلك انتقل إلى الصفحة التالية واختر كلمة مرور جديدة:"
 
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/subject.txt:3
 #, python-format
@@ -9619,6 +10253,16 @@ msgstr "لقد أُعيد تعيين كلمة المرور بنجاح"
 msgid "Hello %(name)s,"
 msgstr "مرحباً %(name)s،"
 
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordresetsuccess/email/body.html:19
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordresetsuccess/email/body.txt:3
+#, python-format
+msgid ""
+"This is to confirm that you have successfully changed your password "
+"associated with %(platform_name)s account. Please sign-in to your account."
+msgstr ""
+"هذه الرسالة لتأكيد أنك غيّرت كلمة المرور المرتبطة بحسابك في "
+"%(platform_name)s بنجاح. من فضلك سجّل الدخول إلى حسابك."
+
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordresetsuccess/email/body.txt:2
 #, python-format
 msgid "Hello %(name)s, "
@@ -9629,9 +10273,56 @@ msgstr "مرحباً %(name)s،"
 msgid "Password reset completed on %(platform_name)s"
 msgstr "اكتملت إعادة تعيين كلمة المرور في %(platform_name)s"
 
+#: openedx/core/djangoapps/user_authn/views/auto_auth.py:96
+msgid "Superuser creation not allowed"
+msgstr "لا يُسمح بإنشاء مستخدم بصلاحيات المشرف العام"
+
+#: openedx/core/djangoapps/user_authn/views/auto_auth.py:115
+msgid "Account modification not allowed."
+msgstr "لا يُسمح بتعديل الحساب."
+
+#: openedx/core/djangoapps/user_authn/views/auto_auth.py:125
+#: openedx/core/djangoapps/user_authn/views/register.py:715
+msgid "Account creation not allowed."
+msgstr "لا يُسمح بإنشاء حساب."
+
+#: openedx/core/djangoapps/user_authn/views/login.py:91
+#, python-brace-format
+msgid ""
+"You've successfully signed in to your {provider_name} account, but this "
+"account isn't linked with your {platform_name} account yet. {blank_lines}Use"
+" your {platform_name} username and password to sign in to {platform_name} "
+"below, and then link your {platform_name} account with {provider_name} from "
+"your dashboard. {blank_lines}If you don't have an account on {platform_name}"
+" yet, click {register_label_strong} at the top of the page."
+msgstr ""
+"سجّلت الدخول بنجاح إلى حسابك في {provider_name}، لكن هذا الحساب غير مرتبط "
+"بحسابك في {platform_name} بعد. {blank_lines}استخدم اسم المستخدم وكلمة المرور"
+" الخاصين بحسابك في {platform_name} لتسجيل الدخول إلى {platform_name} أدناه، "
+"ثم اربط حسابك في {platform_name} بحساب {provider_name} من اللوحة الرئيسية. "
+"{blank_lines}وإن لم يكن لديك حساب في {platform_name} بعد، فانقر "
+"{register_label_strong} في أعلى الصفحة."
+
 #: openedx/core/djangoapps/user_authn/views/login.py:102
 msgid "Register"
 msgstr "أنشِئ حساباً جديداً"
+
+#: openedx/core/djangoapps/user_authn/views/login.py:138
+msgid "There was an error receiving your login information. Please email us."
+msgstr ""
+"حدث خطأ أثناء استلام بيانات تسجيل دخولك. من فضلك راسلنا عبر البريد "
+"الإلكتروني."
+
+#: openedx/core/djangoapps/user_authn/views/login.py:172
+#, python-brace-format
+msgid ""
+"To protect your account, it’s been temporarily locked. Try again in "
+"{locked_out_period} minutes.{li_start}To be on the safe side, you can reset "
+"your password {link_start}here{link_end} before you try again."
+msgstr ""
+"لحماية حسابك، قُفل مؤقتاً. حاول مرة أخرى بعد {locked_out_period} "
+"دقائق.{li_start}للاحتياط، يمكنك إعادة تعيين كلمة المرور "
+"{link_start}هنا{link_end} قبل أن تحاول مرة أخرى."
 
 #: openedx/core/djangoapps/user_authn/views/login.py:243
 msgid "Too many failed login attempts. Try again later."
@@ -9650,11 +10341,46 @@ msgstr ""
 "مؤقتاً.{li_end}{li_start}إذا كنت قد نسيت كلمة المرور، فانقر على "
 "{link_start}هنا{link_end} لإعادة تعيينها.{li_end}"
 
+#: openedx/core/djangoapps/user_authn/views/login.py:393
+#, python-brace-format
+msgid ""
+"As {allowed_domain} user, You must login with your {allowed_domain} "
+"{link_start}{provider} account{link_end}."
+msgstr ""
+"بصفتك مستخدماً من {allowed_domain}، يجب أن تسجّل الدخول باستخدام "
+"{link_start}حساب {provider}{link_end} الخاص بـ {allowed_domain}."
+
+#. Translators: These instructions appear on the login form, immediately
+#. below a field meant to hold the user's email address.
+#. Translators: These instructions appear on the password reset form,
+#. immediately below a field meant to hold the user's email address.
+#. pylint: disable=no-member
+#: openedx/core/djangoapps/user_authn/views/login_form.py:100
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:99
+#, python-brace-format
+msgid "The email address you used to register with {platform_name}"
+msgstr "عنوان البريد الإلكتروني الذي استخدمته للتسجيل في {platform_name}"
+
 #. Translators: This example email address is used as a placeholder in
 #. a field on the password reset form meant to hold the user's email address.
 #: openedx/core/djangoapps/user_authn/views/password_reset.py:94
 msgid "username@domain.com"
 msgstr "username@domain.com"
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:183
+msgid ""
+"That e-mail address doesn't have an associated user account. Are you sure "
+"you've registered?"
+msgstr ""
+"لا يرتبط عنوان البريد الإلكتروني هذا بأي حساب مستخدم. هل أنت متأكد من أنك "
+"سجّلت؟"
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:185
+msgid ""
+"The user account associated with this e-mail address cannot reset the "
+"password."
+msgstr ""
+"لا يمكن إعادة تعيين كلمة المرور للحساب المرتبط بعنوان البريد الإلكتروني هذا."
 
 #: openedx/core/djangoapps/user_authn/views/password_reset.py:307
 #: openedx/core/djangoapps/user_authn/views/password_reset.py:630
@@ -9675,19 +10401,57 @@ msgstr "حدث خطأ في إعادة تعيين كلمة مرورك."
 msgid "Error in resetting your password. Please try again."
 msgstr "حدث خطأ في إعادة تعيين كلمة مرورك. من فضلك حاول مجدداً."
 
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:470
+#, python-brace-format
+msgid ""
+"{html_start}Password Creation Complete{html_end}Your password has been "
+"created. {bold_start}{email}{bold_end} is now your primary login email."
+msgstr ""
+"{1}اكتمل إنشاء كلمة المرور{2} أُنشئت كلمة مرورك. {3}{4}{5} هو الآن بريدك "
+"الإلكتروني الأساسي لتسجيل الدخول."
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:664
+msgid "Some error occurred during password change. Please try again"
+msgstr "حدث خطأ ما أثناء تغيير كلمة المرور. حاول مرة أخرى"
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:668
+msgid "No email address provided."
+msgstr "لم يُحدَّد عنوان بريد إلكتروني."
+
 #: openedx/core/djangoapps/user_authn/views/password_reset.py:746
 msgid ""
 "An error has occurred. Try refreshing the page, or check your internet "
 "connection."
 msgstr "حدث خطأ ما. جرِّب تحديث الصفحة أو تحقَّق من اتصالك بالإنترنت."
 
+#: openedx/core/djangoapps/user_authn/views/register.py:186
+#, python-brace-format
+msgid "Registration using {provider} has timed out."
+msgstr "انتهت مهلة التسجيل باستخدام {1}."
+
+#: openedx/core/djangoapps/user_authn/views/register.py:329
+msgid "An access_token is required when passing value ({}) for provider."
+msgstr "يجب توفير access_token عند تمرير قيمة ({}) للمزوّد."
+
 #: openedx/core/djangoapps/user_authn/views/register.py:342
 msgid "The provided access_token is already associated with another user."
 msgstr "رمز الوصول ’access_token‘ مرتبط بالفعل بمستخدم آخر."
 
+#: openedx/core/djangoapps/user_authn/views/register.py:345
+msgid "The provided access_token is not valid."
+msgstr "access_token المقدَّم غير صالح."
+
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:107
 msgid "Full Name cannot contain the following characters: < >"
 msgstr "لا يمكن أن يحتوي الاسم الكامل على الرموز التالية: < >"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:147
+msgid "A properly formatted e-mail is required"
+msgstr "يجب إدخال عنوان بريد إلكتروني بصيغة ملائمة"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:148
+msgid "Your legal name must be a minimum of one character long"
+msgstr "يجب ألا يقل اسمك القانوني عن حرف واحد"
 
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:149
 #, python-format
@@ -9700,28 +10464,133 @@ msgstr "اسمك القانوني طويل جداً. يجب أن لا يتجاو
 msgid "Email cannot be more than %(limit_value)s characters long"
 msgstr "لا يمكن أن يزيد عدد حروف البريد الإلكتروني عن %(limit_value)s"
 
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:193
+msgid "You must accept the terms of service."
+msgstr "يجب أن تقبل شروط الخدمة."
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:197
+msgid "A level of education is required"
+msgstr "يجب إدخال المستوى التعليمي"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:198
+msgid "Your gender is required"
+msgstr "يجب إدخال جنسك"
+
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:199
 msgid "Your year of birth is required"
 msgstr "يجب أن تدخل سنة ولادتك"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:200
+msgid "Your mailing address is required"
+msgstr "يجب إدخال عنوانك البريدي"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:201
+msgid "A description of your goals is required"
+msgstr "يجب إدخال وصف لأهدافك"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:202
+msgid "A city is required"
+msgstr "يجب إدخال المدينة"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:203
+msgid "A country is required"
+msgstr "يجب إدخال الدولة"
 
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:211
 msgid "To enroll, you must follow the honor code."
 msgstr "للتسجيل، يجب عليك اتّباع ميثاق الشرف."
 
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:219
+msgid "You are missing one or more required fields"
+msgstr "لم تعبّئ حقلاً واحداً أو أكثر من الحقول المطلوبة"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:271
+msgid "Unauthorized email address."
+msgstr "عنوان بريد إلكتروني غير مصرّح به."
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:275
+#, python-brace-format
+msgid ""
+"It looks like {email} belongs to an existing account. Try again with a "
+"different email address."
+msgstr ""
+"يبدو أن {1} مرتبط بحساب موجود. حاول مرة أخرى بعنوان بريد إلكتروني مختلف."
+
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:311
 msgid "Registration from this country is not allowed due to restrictions."
 msgstr "لا يُسمح بالتسجيل من هذا البلد بسبب القيود المفروضة."
+
+#. Translators: These instructions appear on the registration form,
+#. immediately
+#. below a field meant to hold the user's email address.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:510
+msgid "This is what you will use to login."
+msgstr "هذا ما ستستخدمه لتسجيل الدخول."
+
+#. Translators: These instructions appear on the registration form,
+#. immediately
+#. below a field meant to hold the user's full name.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:560
+msgid "This name will be used on any certificates that you earn."
+msgstr "سيُستخدم هذا الاسم في أي شهادات تحصل عليها."
+
+#. Translators: This label appears above a field on the registration form
+#. meant to hold the user's public username.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:581
+msgid "Public Username"
+msgstr "اسم المستخدم العام"
+
+#. Translators: These instructions appear on the registration form,
+#. immediately
+#. below a field meant to hold the user's public username.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:586
+msgid ""
+"The name that will identify you in your courses. It cannot be changed later."
+msgstr "الاسم الذي ستُعرف به في مساقاتك. لا يمكن تغييره لاحقاً."
 
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:702
 #, python-brace-format
 msgid "I agree that {platform_name} may send me marketing messages."
 msgstr "أوافق على أنّ {platform_name} قد تُرسل إلي رسائل تسويقية."
 
+#. Translators: This label appears above a dropdown menu on the registration
+#. form used to select the country in which the user lives.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:967
+msgid "Country or Region of Residence"
+msgstr "بلد أو منطقة الإقامة"
+
+#. Translators: These instructions appear on the registration form,
+#. immediately
+#. below a field meant to hold the user's country.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:978
+msgid "The country or region where you live."
+msgstr "البلد أو المنطقة التي تعيش فيها."
+
 #. Translators: This is a legal document users must agree to
 #. in order to register a new account.
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:1016
 msgid "Terms of Service and Honor Code"
 msgstr "شروط الخدمة وميثاق الشرف"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1022
+#, python-brace-format
+msgid ""
+"I agree to the {platform_name} "
+"{terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end}"
+msgstr ""
+"أوافق على "
+"{terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end} "
+"الخاصة بـ {platform_name}"
+
+#. Translators: "Terms of Service" is a legal document users must agree to
+#. in order to register a new account.
+#. Translators: "Terms of service" is a legal document users must agree to
+#. in order to register a new account.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1034
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1098
+#, python-brace-format
+msgid "You must agree to the {platform_name} {terms_of_service}"
+msgstr "يجب أن توافق على {terms_of_service} الخاصة بـ {platform_name}"
 
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:1045
 #, python-brace-format
@@ -9801,6 +10670,15 @@ msgstr "إليك مقطع فيديو ممتع من درس آخذه من {platfor
 msgid "Can't get transcript link from Youtube for {youtube_id}."
 msgstr "تعذّر الحصول على رابط التفريغ النصي من يوتيوب لـ {youtube_id}."
 
+#: openedx/core/djangoapps/video_config/transcripts_utils.py:235
+#, python-brace-format
+msgid ""
+"Can't receive transcripts from Youtube for {youtube_id}. Status code: "
+"{status_code}."
+msgstr ""
+"تعذّر استلام نصوص مقطع الفيديو  {youtube_id} من موقع يوتيوب. رمز الحالة: "
+"{status_code}."
+
 #: openedx/core/djangoapps/video_config/transcripts_utils.py:307
 msgid "We support only SubRip (*.srt) transcripts format."
 msgstr "لا ندعم سوى التفريغات النصية بصيغة (*.srt) لبرنامج SubRip."
@@ -9814,6 +10692,10 @@ msgstr ""
 "حدث خطأ في ملف التفريغات النصية الخاصة بـ SubRip أثناء عملية تحليلها. رسالة "
 "الإعلام بالخطأ الداخلية هي {error_message}"
 
+#: openedx/core/djangoapps/video_config/transcripts_utils.py:316
+msgid "Something wrong with SubRip transcripts file during parsing."
+msgstr "حدث خطأ في ملف نصوص SubRip أثناء تحليله."
+
 #: openedx/core/djangoapps/video_config/transcripts_utils.py:495
 #, python-brace-format
 msgid "{exception_message}: Can't find uploaded transcripts: {user_filename}"
@@ -9824,18 +10706,67 @@ msgstr ""
 msgid "Oauth client name of VEM service."
 msgstr "اسم عميل OAuth لخدمة VEM."
 
+#: openedx/core/djangoapps/video_pipeline/models.py:38
+msgid "video encode manager API URL."
+msgstr "رابط API الخاص بمدير ترميز الفيديو."
+
 #: openedx/core/djangoapps/video_pipeline/models.py:46
 msgid "Username created for VEM Integration, e.g. vem_service_user."
 msgstr "أُنشئ اسم المستخدم لدمج VEM، على سبيل المثال، vem_service_user."
+
+#: openedx/core/djangoapps/waffle_utils/models.py:28
+#: openedx/core/djangoapps/waffle_utils/models.py:91
+msgid "Force On"
+msgstr "تشغيل إجباري"
+
+#: openedx/core/djangoapps/waffle_utils/models.py:28
+#: openedx/core/djangoapps/waffle_utils/models.py:91
+msgid "Force Off"
+msgstr "إيقاف إجباري"
+
+#: openedx/core/djangoapps/xblock/runtime/mixin.py:65
+msgid ""
+"This content is only accessible to registered learners. Sign in or register "
+"to view it."
+msgstr ""
+"هذا المحتوى متاح للمتعلمين المسجلين فقط. سجِّل الدخول أو أنشئ حساباً "
+"لتشاهده."
+
+#: openedx/core/djangoapps/xblock/runtime/mixin.py:69
+msgid "This content is only accessible to enrolled learners. "
+msgstr "هذا المحتوى متاح فقط للمتعلمين المسجلين."
+
+#: openedx/core/lib/api/view_utils.py:159
+#, python-brace-format
+msgid "The about me field must be at most {BIO_MAX_LENGTH} characters long."
+msgstr "يجب ألا يتجاوز عدد أحرف حقل نبذة عني {BIO_MAX_LENGTH}."
+
+#: openedx/core/lib/api/view_utils.py:161
+msgid "This value is invalid."
+msgstr "هذه القيمة غير صحيحة."
+
+#: openedx/core/lib/api/view_utils.py:214
+msgid "This field is not editable"
+msgstr "هذا الحقل غير قابل للتعديل"
 
 #: openedx/core/lib/gating/api.py:71
 #, python-format
 msgid "%(min_score)s is not a valid grade percentage"
 msgstr "%(min_score)s ليست نسبة درجة صحيحة"
 
+#: openedx/core/lib/gating/api.py:186
+#, python-brace-format
+msgid "Gating milestone for {usage_key}"
+msgstr "معلَم تقييد الوصول إلى {usage_key}"
+
 #: openedx/core/lib/license/mixin.py:26
 msgid "License"
 msgstr "الرخصة"
+
+#: openedx/core/lib/license/mixin.py:27
+msgid ""
+"A license defines how the contents of this block can be shared and reused."
+msgstr "تحدّد الرخصة كيف يمكن مشاركة محتويات هذه اللبنة وإعادة استخدامها."
 
 #: openedx/core/lib/teams_config.py:386
 #, python-brace-format
@@ -9846,9 +10777,22 @@ msgstr "مجموعة الفريق: {team_set_name}"
 msgid "Partition for segmenting users by team-set"
 msgstr "افرِز المستخدمين حسب مجموعة الفِرق"
 
+#: openedx/features/calendar_sync/ics.py:36
+#, python-brace-format
+msgid "{assignment} is due for {course}."
+msgstr "موعد تسليم {assignment} في {course}."
+
 #: openedx/features/calendar_sync/plugins.py:21
 msgid "Calendar Sync"
 msgstr "مزامنة التقويم"
+
+#: openedx/features/calendar_sync/plugins.py:42
+msgid "Unsubscribe from calendar updates"
+msgstr "ألغِ الاشتراك في تحديثات التقويم"
+
+#: openedx/features/calendar_sync/plugins.py:45
+msgid "Subscribe to calendar updates"
+msgstr "اشترِك في تحديثات التقويم"
 
 #: openedx/features/calendar_sync/utils.py:16
 #, python-brace-format
@@ -9874,13 +10818,126 @@ msgstr ""
 "بمجرد مزامنة مساقك مع تقويمك، ستنعكس أيّ تحديثات للمساق من معلمك تلقائياً. "
 "يمكنك إزالة المساق من التقويم في أيّ وقت."
 
+#: openedx/features/calendar_sync/utils.py:33
+#, python-brace-format
+msgid "{course} dates have been updated on your calendar"
+msgstr "حُدّثت تواريخ {course} في تقويمك"
+
+#: openedx/features/calendar_sync/utils.py:34
+msgid ""
+"You have successfully shifted your course schedule and your calendar is up "
+"to date."
+msgstr "نُقل جدول مساقك بنجاح، وتقويمك محدَّث."
+
+#: openedx/features/content_type_gating/models.py:27
+#: openedx/features/course_duration_limits/models.py:36
+msgid "Enabled As Of"
+msgstr "مُفعَّل اعتباراً من"
+
+#: openedx/features/content_type_gating/models.py:30
+#: openedx/features/course_duration_limits/models.py:39
+msgid ""
+"If the configuration is Enabled, then all enrollments created after this "
+"date and time (user local time) will be affected."
+msgstr ""
+"إذا فُعِّلت التهيئة، فستتأثر جميع عمليات التسجيل التي أُنشئت بعد هذا التاريخ"
+" والوقت (بالتوقيت المحلي للمستخدم)."
+
+#: openedx/features/content_type_gating/models.py:36
+msgid "Studio Override Enabled"
+msgstr "تجاوز ستوديو مُفعَّل"
+
+#: openedx/features/content_type_gating/models.py:39
+msgid ""
+"Allow Feature Based Enrollment visibility to be overriden on a per-component"
+" basis in Studio."
+msgstr ""
+"السماح بتجاوز ظهور التسجيل المستند إلى الميزة لكل مكوّن على حدة في ستوديو."
+
+#: openedx/features/content_type_gating/models.py:91
+#: openedx/features/course_duration_limits/models.py:91
+msgid "enabled_as_of must be set when enabled is True"
+msgstr "يجب تعيين enabled_as_of عندما تكون قيمة enabled هي True."
+
 #: openedx/features/content_type_gating/partitions.py:70
 msgid "Partition for segmenting users by access to gated content types"
 msgstr " افرِز المستخدمين وفقاً لصلاحية وصولهم إلى أنواع المحتوى المقيّد"
 
+#: openedx/features/content_type_gating/partitions.py:117
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:10
+msgid "Graded assessments are available to Verified Track learners."
+msgstr "التقييمات ذات الدرجات متاحة لمتعلمي المسار المعتمد."
+
+#: openedx/features/content_type_gating/partitions.py:119
+msgid ""
+"Graded assessments are available to Verified Track learners. Upgrade to "
+"Unlock."
+msgstr ""
+"التقييمات ذات الدرجات متاحة لمتعلمي المسار المعتمد. رقِّ حسابك لفتح القفل."
+
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:3
+msgid "Content available only to verified track learners"
+msgstr "المحتوى متاح فقط لمتعلمي المسار المعتمد"
+
 #: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:7
 msgid "Verified Track Access"
 msgstr "الدخول الى المسار الموثق"
+
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:15
+msgid "Upgrade to unlock"
+msgstr "رقِّ حسابك لفتح القفل"
+
+#: openedx/features/course_duration_limits/access.py:32
+#, python-brace-format
+msgid "Access expired on {expiration_date}"
+msgstr "انتهت صلاحية الوصول بتاريخ {expiration_date}"
+
+#: openedx/features/course_duration_limits/access.py:35
+#, python-brace-format
+msgid "Access to {course_name} expired on {expiration_date}"
+msgstr "انتهت صلاحية الوصول إلى {course_name} بتاريخ {expiration_date}"
+
+#: openedx/features/course_duration_limits/access.py:40
+#, python-brace-format
+msgid "Access to the course you were looking for expired on {expiration_date}"
+msgstr ""
+"انتهت صلاحية الوصول إلى المساق الذي كنت تبحث عنه بتاريخ {expiration_date}"
+
+#: openedx/features/course_duration_limits/access.py:158
+#, python-brace-format
+msgid ""
+"This learner does not have access to this course. Their access expired on "
+"{expiration_date}."
+msgstr ""
+"لا يملك هذا المتعلم صلاحية الوصول إلى هذا المساق. انتهت صلاحية وصوله بتاريخ "
+"{expiration_date}."
+
+#: openedx/features/course_duration_limits/access.py:164
+#, python-brace-format
+msgid ""
+"{strong_open}Audit Access Expires "
+"{expiration_date}{strong_close}{line_break}You lose all access to this "
+"course, including your progress, on {expiration_date}."
+msgstr ""
+"{strong_open}تنتهي صلاحية الوصول كمُستمع بتاريخ "
+"{expiration_date}{strong_close}{line_break}ستفقد وصولك إلى هذا المساق "
+"بالكامل، بما في ذلك تقدّمك فيه، بتاريخ {expiration_date}."
+
+#: openedx/features/course_duration_limits/access.py:167
+#, python-brace-format
+msgid ""
+"{line_break}Upgrade by {upgrade_deadline} to get unlimited access to the "
+"course as long as it exists on the site. {a_open}Upgrade "
+"now{sronly_span_open} to retain access past "
+"{expiration_date}{span_close}{a_close}"
+msgstr ""
+"{line_break}رقِّ حسابك بحلول {upgrade_deadline} لتحصل على وصول غير محدود إلى"
+" المساق ما دام موجوداً على الموقع. {a_open}رقِّ حسابك الآن{sronly_span_open}"
+" للاحتفاظ بوصولك إلى المساق بعد {expiration_date}{span_close}{a_close}"
+
+#: openedx/features/course_experience/api/v1/views.py:60
+msgid "'course_key' is required."
+msgstr "'course_key' مطلوب."
 
 #: openedx/features/course_experience/api/v1/views.py:69
 #: openedx/features/course_experience/api/v1/views.py:72
@@ -9938,14 +10995,55 @@ msgstr ""
 msgid "CSV File"
 msgstr "ملف CSV"
 
+#: openedx/features/enterprise_support/admin/forms.py:14
+msgid ""
+"CSV file should have 3 columns having names lms_user_id, course_id, "
+"opportunity_id"
+msgstr ""
+"يجب أن يحتوي ملف CSV على 3 أعمدة بالأسماء التالية: lms_user_id، course_id، "
+"opportunity_id"
+
+#: openedx/features/enterprise_support/admin/views.py:66
+#, python-brace-format
+msgid ""
+"Enrollment attributes were not updated for records at following line numbers"
+" in csv because no enrollment found for these records: {error_line_numbers}"
+msgstr ""
+"لم تُحدَّث سمات التسجيل للسجلات الواردة في الأسطر التالية من ملف CSV لأنه لم"
+" يُعثر على تسجيل لهذه السجلات: {error_line_numbers}"
+
+#: openedx/features/enterprise_support/api.py:903
+#, python-brace-format
+msgid ""
+"You have access to the {bold_start}{enterprise_name}{bold_end} dashboard. To"
+" access the courses available to you through {enterprise_name}, "
+"{link_start}visit the {enterprise_name} dashboard{link_end}."
+msgstr ""
+"يمكنك الوصول إلى لوحة {bold_start}{enterprise_name}{bold_end} الرئيسية. "
+"للوصول إلى المساقات المتاحة لك عبر {enterprise_name}، تفضّل بزيارة "
+"{link_start}لوحة {enterprise_name} الرئيسية{link_end}."
+
 #: openedx/features/enterprise_support/api.py:1004
 #, python-brace-format
 msgid "Enrollment in {course_title} was not complete."
 msgstr "لم يكتمل التسجيل في {course_title}."
 
+#: openedx/features/enterprise_support/api.py:1008
+#, python-brace-format
+msgid ""
+"If you have concerns about sharing your data, please contact your "
+"administrator at {enterprise_customer_name}."
+msgstr ""
+"إذا كانت لديك مخاوف بشأن مشاركة بياناتك، فمن فضلك تواصل مع مشرفك في "
+"{enterprise_customer_name}."
+
 #: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:15
 msgid "Home"
 msgstr "الصفحة الرئيسية"
+
+#: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:17
+msgid "Enterprise Course Enrollments"
+msgstr "تسجيلات المؤسسة في المساقات"
 
 #: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:18
 msgid "Override Enrollment Attributes"
@@ -11638,7 +12736,11 @@ msgstr "الاسم الظاهر للمكون"
 
 #: xmodule/video_block/video_xfields.py:61
 msgid "Video Start Time"
-msgstr "وقت بداية الفيديو"
+msgstr "وقت بدء الفيديو"
+
+#: xmodule/video_block/video_xfields.py:71
+msgid "Video Stop Time"
+msgstr "وقت إيقاف الفيديو"
 
 #: xmodule/video_block/video_xfields.py:100
 msgid "Downloadable Transcript URL"
