@@ -307,6 +307,13 @@ jobs:
             pip install -r $EDX_BASE_REQS
           fi
 
+      # edx-platform's `make extract_translations` runs `uv run i18n_tool ...`, which syncs the
+      # repo's own environment from its uv.lock. Without uv on the PATH the step fails with
+      # `make: uv: No such file or directory` and, because this job is continue-on-error, the
+      # platform's source files silently stop being updated.
+      - name: install uv
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+
       # Extracts the translation source files
       - name: extract translation source files
         run: |
