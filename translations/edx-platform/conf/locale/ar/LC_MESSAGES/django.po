@@ -5,8 +5,8 @@
 # 
 # Translators:
 # Brian Smith, 2026
-# Sulaiman Muthanna, 2026
 # Grant Anderson, 2026
+# Sulaiman Muthanna, 2026
 # 
 msgid ""
 msgstr ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: openedx-translation@googlegroups.com\n"
 "POT-Creation-Date: 2023-06-13 08:00+0000\n"
 "PO-Revision-Date: 2026-08-07 10:24+0000\n"
-"Last-Translator: Grant Anderson, 2026\n"
+"Last-Translator: Sulaiman Muthanna, 2026\n"
 "Language-Team: Arabic (https://app.transifex.com/open-edx/teams/6205/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1234,7 +1234,7 @@ msgstr "لا يمكن تحديث المحتوى لأنّه لا ينتمي إل�
 
 #: cms/lib/xblock/upstream_sync.py:269
 msgid "Reference to linked library item is malformed"
-msgstr "مَرجِع عنصر المكتبة المرتبط غير مُنسَّق بشكل صحيح"
+msgstr "المرجع إلى عنصر المكتبة المرتبط غير صالح"
 
 #: cms/lib/xblock/upstream_sync.py:275
 msgid ""
@@ -1685,7 +1685,7 @@ msgstr "شهادة موثّقة من {platform_name} لـ {course_name}"
 #: common/djangoapps/student/models/user.py:1368
 #, python-brace-format
 msgid "{platform_name} Professional Certificate for {course_name}"
-msgstr "شهادة مهنية من {platform_name} للمساق {course_name}"
+msgstr "شهادة {platform_name} المهنية لمساق {course_name}"
 
 #: common/djangoapps/student/models/user.py:1374
 msgid ""
@@ -3389,7 +3389,7 @@ msgid ""
 "You cannot create a CCX from a course using a deprecated id. Please create a"
 " rerun of this course in the studio to allow this action."
 msgstr ""
-"عذراً، لا يمكنك إنشاء CCX من مساق معين باستخدام معرّف مساق انتهى تشغيله. "
+"عذراً، لا يمكنك إنشاء CCX من مساق معين باستخدام معرف مساق انتهى تشغيله. "
 "يُرجى إعادة طرح هذا المساق في الاستوديو للقيام بهذا الإجراء."
 
 #. Translators: This is a past-tense verb that is used for task action
@@ -3437,8 +3437,8 @@ msgid ""
 "receive a response from the queue to determine which example certificate was"
 " processed."
 msgstr ""
-"معرّف فريد للشهادة النموذجية. يُستخدم عندما نتلقّى رداً من \"قائمة "
-"الانتظار\" لتحديد أي شهادة نموذجية قد تمت معالجتها."
+"معرف فريد للشهادة النموذجية. يُستخدم عندما نتلقى رداً من \"قائمة الانتظار\" "
+"لتحديد أي شهادة نموذجية قد تمت معالجتها."
 
 #: lms/djangoapps/certificates/models.py:858
 msgid ""
@@ -9115,6 +9115,15 @@ msgstr ""
 msgid "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
 msgstr "<{p}><{strong}>{course_update_content}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:248
+#, python-brace-format
+msgid ""
+"<{p}>You have a new open response submission awaiting review for "
+"<{strong}>{ora_name}</{strong}></{p}>"
+msgstr ""
+"<[p]>لديك تقديم إجابة مفتوحة جديد بانتظار المراجعة في "
+"<[strong]>{ora_name}</[strong]></[p]>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:250
 #, python-brace-format
 msgid ""
@@ -9133,6 +9142,11 @@ msgstr ""
 "<{p}>لقد حصلت على {points_earned} من أصل {points_possible} في تقييمك: "
 "<{strong}>{ora_name}</{strong}></{p}>"
 
+#: openedx/core/djangoapps/notifications/base_notification.py:289
+#, python-brace-format
+msgid "<{p}>Your instructor posted <{strong}>{post_title}</{strong}></{p}>"
+msgstr "<[p]>نشر مدرّبك <[strong]>{post_title}</[strong]></[p]>"
+
 #: openedx/core/djangoapps/notifications/base_notification.py:337
 msgid ""
 "Notifications for responses and comments on your posts, and the ones you’re "
@@ -9148,6 +9162,19 @@ msgstr "الإشعارات بالإعلانات والتحديثات الجدي�
 #: openedx/core/djangoapps/notifications/base_notification.py:356
 msgid "Notifications for submission grading."
 msgstr "الإشعارات المتعلقة بتقييم الإجابات"
+
+#: openedx/core/djangoapps/notifications/email/tasks.py:266
+msgid "New Course Update"
+msgstr "تحديث جديد للمساق"
+
+#: openedx/core/djangoapps/notifications/email/tasks.py:278
+msgid ""
+"You are receiving this email because you are enrolled in the edX course "
+msgstr "تتلقى هذا البريد الإلكتروني لأنك مسجل في مساق إدكس"
+
+#: openedx/core/djangoapps/notifications/email/utils.py:145
+msgid "Total Notifications"
+msgstr "إجمالي الإشعارات"
 
 #: openedx/core/djangoapps/notifications/email/utils.py:221
 msgid "Today"
@@ -9215,14 +9242,41 @@ msgstr "اعرض"
 msgid "more"
 msgstr "المزيد"
 
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:38
+msgid ""
+"You are receiving this email because you have subscribed to email digest"
+msgstr "تتلقى هذا البريد الإلكتروني لأنك اشتركت في الملخص البريدي"
+
 #: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:43
 msgid "Notification Settings"
 msgstr "إعدادات الإشعارات"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_footer.html:46
+msgid "Unsubscribe from email digest for learning activity"
+msgstr "إلغاء الاشتراك من الملخص البريدي لنشاط التعلم"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:25
+msgid "Weekly Notifications Digest"
+msgstr "ملخص الإشعارات الأسبوعي"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/digest_header.html:27
+msgid "Daily Notifications Digest"
+msgstr "ملخص الإشعارات اليومي"
 
 #: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/batched_email/email/body.txt:3
 #: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/batched_email/email/subject.txt:3
 msgid "Recent activity on"
 msgstr "الأنشطة الأخيرة في"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/body.txt:4
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/subject.txt:4
+msgid "Weekly Notifications Digest for the Week of"
+msgstr "ملخص الإشعارات الأسبوعي لأسبوع"
+
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/body.txt:6
+#: openedx/core/djangoapps/notifications/templates/notifications/edx_ace/email_digest/email/subject.txt:6
+msgid "Daily Notifications Digest for"
+msgstr "ملخص الإشعارات اليومي ليوم"
 
 #: openedx/core/djangoapps/notifications/templates/notifications/email_digest_preference_update.html:5
 msgid "Email Digest Preferences Updated"
@@ -9232,6 +9286,10 @@ msgstr "حُدّثت تفضيلات ملخص البريد الإلكتروني"
 msgid ""
 "You have successfully unsubscribed from email digest for learning activity"
 msgstr "لقد أُلغي اشتراكك في ملخص البريد الإلكتروني لأنشطة التعلّم بنجاح"
+
+#: openedx/core/djangoapps/notifications/views.py:174
+msgid "Invalid app name."
+msgstr "اسم التطبيق غير صالح."
 
 #: openedx/core/djangoapps/notifications/views.py:184
 msgid "Notifications marked as seen."
@@ -9264,6 +9322,10 @@ msgstr "قائمة مفصولة بفواصل، بالمُرشِّحات التي
 #: openedx/core/djangoapps/oauth_dispatch/models.py:141
 msgid "Content Provider"
 msgstr "مزوّد المحتوى"
+
+#: openedx/core/djangoapps/password_policy/apps.py:22
+msgid "Password Policy"
+msgstr "سياسة كلمة المرور"
 
 #: openedx/core/djangoapps/password_policy/compliance.py:76
 #, python-brace-format
@@ -9305,6 +9367,24 @@ msgstr "يجب أن يكون حجم الملف أصغر من {image_max_size}."
 msgid "The file must be at least {image_min_size} in size."
 msgstr "يجب أن يكون حجم الملف {image_min_size} على الأقل."
 
+#: openedx/core/djangoapps/profile_images/images.py:116
+#, python-brace-format
+msgid "The file must be one of the following types: {valid_file_types}."
+msgstr "يجب أن يكون نوع الملف واحدًا من الأنواع التالية: {valid_file_types}."
+
+#: openedx/core/djangoapps/profile_images/images.py:124
+msgid ""
+"The Content-Type header for this file does not match the file data. The file"
+" may be corrupted."
+msgstr ""
+"لا تطابق ترويسة Content-Type لهذا الملف بيانات الملف. قد يكون الملف تالفًا."
+
+#: openedx/core/djangoapps/profile_images/images.py:133
+msgid ""
+"The file name extension for this file does not match the file data. The file"
+" may be corrupted."
+msgstr "لا يطابق امتداد اسم هذا الملف بيانات الملف. قد يكون الملف تالفًا."
+
 #: openedx/core/djangoapps/profile_images/images.py:242
 msgid "bytes"
 msgstr "بايت"
@@ -9316,6 +9396,34 @@ msgstr "كيلو بايت"
 #: openedx/core/djangoapps/profile_images/images.py:242
 msgid "MB"
 msgstr "ميغا بايت"
+
+#: openedx/core/djangoapps/profile_images/views.py:136
+msgid "No file provided for profile image"
+msgstr "لم يُرفق ملف لصورة الملف الشخصي"
+
+#: openedx/core/djangoapps/programs/models.py:25
+msgid "Path used to construct URLs to programs marketing pages (e.g., \"/foo\")."
+msgstr "المسار المستخدم لإنشاء عناوين URL لصفحات تسويق البرامج (مثل \"/foo\")."
+
+#: openedx/core/djangoapps/programs/models.py:41
+msgid "Program UUID"
+msgstr "معرّف UUID للبرنامج"
+
+#: openedx/core/djangoapps/programs/models.py:45
+msgid "If disabled, the LTI in the associated program will be disabled."
+msgstr "إذا عُطّل، فسيُعطّل LTI في البرنامج المرتبط."
+
+#: openedx/core/djangoapps/programs/models.py:52
+msgid "The LTI configuration data for this program/provider."
+msgstr "بيانات تكوين LTI لهذا البرنامج/المزود."
+
+#: openedx/core/djangoapps/schedules/admin.py:62
+msgid "Known Error Case"
+msgstr "حالة خطأ معروفة"
+
+#: openedx/core/djangoapps/schedules/admin.py:68
+msgid "Schedule start < course start"
+msgstr "بدء الجدول الزمني < بدء المساق"
 
 #: openedx/core/djangoapps/schedules/admin.py:81
 msgid "Course Id"
@@ -9338,6 +9446,14 @@ msgstr "معرف المساق"
 msgid "Schedules"
 msgstr "الجداول"
 
+#: openedx/core/djangoapps/schedules/models.py:23
+msgid "Indicates if this schedule is actively used"
+msgstr "يشير إلى ما إذا كان هذا الجدول الزمني قيد الاستخدام الفعلي"
+
+#: openedx/core/djangoapps/schedules/models.py:27
+msgid "Date this schedule went into effect"
+msgstr "تاريخ بدء سريان هذا الجدول الزمني"
+
 #: openedx/core/djangoapps/schedules/models.py:35
 msgid "Deadline by which the learner must upgrade to a verified seat"
 msgstr ""
@@ -9352,6 +9468,33 @@ msgstr "الجدول"
 msgid " By %(filter_title)s "
 msgstr "حسب %(filter_title)s"
 
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:9
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:7
+#, python-format
+msgid "Welcome to week %(week_num)s of %(course_name)s!"
+msgstr "مرحبًا بك في الأسبوع %(week_num)s من %(course_name)s!"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:22
+#, python-format
+msgid ""
+"This is a routed Account Activation email for %(routed_profile_name)s "
+"(%(routed_user_email)s): %(routed_profile_name)s"
+msgstr ""
+"هذا بريد إلكتروني محوَّل لتفعيل الحساب الخاص بـ %(routed_profile_name)s "
+"(%(routed_user_email)s): %(routed_profile_name)s"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:36
+msgid "Welcome to edX. It’s time for your next career move"
+msgstr "مرحبًا بك في إدكس. حان الوقت لخطوتك المهنية التالية"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:62
+msgid "Resume your course "
+msgstr "استأنِف مساقك"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:82
+msgid "Your focused attention will pay off in the end!"
+msgstr "انتباهك المركّز سيؤتي ثماره في النهاية!"
+
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:84
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:101
 msgid ""
@@ -9360,6 +9503,19 @@ msgid ""
 msgstr ""
 "مع المساقات ذاتية التعلم، ستتعلم وفقاً لجدولك الزمني الخاص بك. من الجيد أن "
 "تقضي بعض الوقت في المساق كل أسبوع، وأن تطّلع على أهدافك باستمرار."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.html:100
+msgid "Your focused attention will pay off in the end! "
+msgstr "انتباهك المركّز سيؤتي ثماره في النهاية!"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.txt:4
+#, python-format
+msgid ""
+"We hope you're enjoying %(course_name)s! We want to let you know what you "
+"can look forward to in week %(week_num)s:"
+msgstr ""
+"نأمل أن تستمتع بـ%(course_name)s! نودّ إطلاعك على ما ينتظرك في الأسبوع "
+"%(week_num)s:"
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/body.txt:13
 msgid ""
@@ -9371,15 +9527,147 @@ msgstr ""
 "قضاء بعض الوقت في المساق كل أسبوع. إنّ تركيزك المستمر سوف يُؤتي ثماره في "
 "النهاية!"
 
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/courseupdate/email/subject.txt:4
+#, python-format
+msgid "Welcome to week %(week_num)s"
+msgstr "مرحبًا بك في الأسبوع %(week_num)s"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:18
+#, python-brace-format
+msgid ""
+"We hope you're enjoying {start_strong}{course_name}{end_strong}! We want to "
+"let you know what you can look forward to in the coming weeks:"
+msgstr ""
+"نأمل أن تستمتع بـ{start_strong}{course_name}{end_strong}! نودّ إطلاعك على ما"
+" ينتظرك في الأسابيع القادمة:"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:31
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.txt:13
+msgid ""
+"We encourage you to spend time with the course each week. Your focused "
+"attention will pay off in the end!"
+msgstr ""
+"نشجعك على تخصيص وقت للمساق كل أسبوع. انتباهك المركّز سيؤتي ثماره في النهاية!"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.html:39
+msgid "Resume your course now"
+msgstr "استأنِف مساقك الآن"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/body.txt:4
+#, python-format
+msgid ""
+"We hope you're enjoying %(course_name)s! We want to let you know what you "
+"can look forward to in the coming weeks:"
+msgstr ""
+"نأمل أن تستمتع بـ%(course_name)s! نودّ إطلاعك على ما ينتظرك في الأسابيع "
+"القادمة:"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/instructorledcourseupdate/email/subject.txt:4
+#, python-format
+msgid "%(course_name)s Weekly Update"
+msgstr "التحديث الأسبوعي لـ%(course_name)s"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:8
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:32
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.txt:5
+#, python-format
+msgid ""
+"Many %(platform_name)s learners are completing more problems every week, and"
+" participating in the discussion forums. What do you want to do to keep "
+"learning?"
+msgstr ""
+"يُتمّ كثير من متعلمي %(platform_name)s مزيداً من المسائل كل أسبوع، ويشاركون "
+"في منتديات المناقشة. ماذا تريد أن تفعل لتواصل التعلم؟"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:15
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.txt:11
+#, python-format
+msgid ""
+"Many %(platform_name)s learners in %(course_name)s are completing more "
+"problems every week, and participating in the discussion forums. What do you"
+" want to do to keep learning?"
+msgstr ""
+"يُتمّ كثير من متعلمي %(platform_name)s في %(course_name)s مزيداً من المسائل "
+"كل أسبوع، ويشاركون في منتديات المناقشة. ماذا تريد أن تفعل لتواصل التعلم؟"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:27
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/subject.txt:3
+msgid "Keep up the momentum!"
+msgstr "حافِظ على زخمك!"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:38
+#, python-brace-format
+msgid ""
+"Many {platform_name} learners in {start_strong}{course_name}{end_strong} are"
+" completing more problems every week, and participating in the discussion "
+"forums. What do you want to do to keep learning?"
+msgstr ""
+"يكمل العديد من متعلمي {platform_name} في {start_strong} {course_name} "
+"{end_strong} المزيد من المسائل كل أسبوع، ويشاركون في منتديات المناقشة. ماذا "
+"تريد أن تفعل لمواصلة التعلم؟"
+
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.html:47
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.txt:9
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day10/email/body.txt:15
 msgid "Keep learning"
 msgstr "واصل الدراسة"
 
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:8
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:5
+#: themes/red-theme/lms/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:6
+#, python-format
+msgid ""
+"Remember when you enrolled in %(course_name)s, and other courses on "
+"%(platform_name)s? We do, and we’re glad to have you! Come see what everyone"
+" is learning."
+msgstr ""
+"هل تذكر حين سجلت في %(course_name)s وفي مساقات أخرى على %(platform_name)s؟ "
+"نحن نذكر ذلك، ويسعدنا وجودك معنا! تعال وشاهد ما يتعلمه الجميع."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:15
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:12
+#: themes/red-theme/lms/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:13
+#, python-format
+msgid ""
+"Remember when you enrolled in %(course_name)s on %(platform_name)s? We do, "
+"and we’re glad to have you! Come see what everyone is learning."
+msgstr ""
+"هل تذكر حين سجلت في %(course_name)s على %(platform_name)s؟ نحن نذكر ذلك، "
+"ويسعدنا وجودك معنا! تعال وشاهد ما يتعلمه الجميع."
+
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:27
 msgid "Keep learning today"
 msgstr "استمر في التعلم اليوم"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:31
+#, python-brace-format
+msgid ""
+"Remember when you enrolled in {start_strong}{course_name}{end_strong}, and "
+"other courses on {platform_name}? We do, and we’re glad to have you! Come "
+"see what everyone is learning."
+msgstr ""
+"هل تذكر حين سجلت في {start_strong}{course_name}{end_strong} وفي مساقات أخرى "
+"على {platform_name}؟ نحن نذكر ذلك، ويسعدنا وجودك معنا! تعال وشاهد ما يتعلمه "
+"الجميع."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:37
+#, python-brace-format
+msgid ""
+"Remember when you enrolled in {start_strong}{course_name}{end_strong} on "
+"{platform_name}? We do, and we’re glad to have you! Come see what everyone "
+"is learning."
+msgstr ""
+"هل تذكر حين سجلت في {start_strong}{course_name}{end_strong} على "
+"{platform_name}؟ نحن نذكر ذلك، ويسعدنا وجودك معنا! تعال وشاهد ما يتعلمه "
+"الجميع."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.html:46
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:10
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:17
+#: themes/red-theme/lms/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:11
+#: themes/red-theme/lms/templates/schedules/edx_ace/recurringnudge_day3/email/body.txt:18
+msgid "Start learning now"
+msgstr "ابدأ التعلم الآن"
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/recurringnudge_day3/email/subject.txt:4
 #, python-format
@@ -9391,10 +9679,63 @@ msgstr "استمر في التعلم على %(platform_name)s"
 msgid "Keep learning in %(course_name)s"
 msgstr "استمر في التعلم في %(course_name)s"
 
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:10
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.txt:5
+#, python-format
+msgid ""
+"We hope you are enjoying learning with us so far on %(platform_name)s! A "
+"verified certificate allows you to highlight your new knowledge and skills. "
+"An %(platform_name)s certificate is official and easily shareable. Upgrade "
+"by %(user_schedule_upgrade_deadline_time)s."
+msgstr ""
+"نأمل أن تستمتع بالتعلم معنا حتى الآن على %(platform_name)s! تتيح لك الشهادة "
+"الموثّقة إبراز معارفك ومهاراتك الجديدة. شهادة %(platform_name)s رسمية ويمكن "
+"مشاركتها بسهولة. رقِّ حسابك قبل %(user_schedule_upgrade_deadline_time)s."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:20
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.txt:21
+#, python-format
+msgid ""
+"We hope you are enjoying learning with us so far in %(first_course_name)s! A"
+" verified certificate allows you to highlight your new knowledge and skills."
+" An %(platform_name)s certificate is official and easily shareable. Upgrade "
+"by %(user_schedule_upgrade_deadline_time)s."
+msgstr ""
+"نأمل أن تستمتع بالتعلم معنا حتى الآن في %(first_course_name)s! تتيح لك "
+"الشهادة الموثّقة إبراز معارفك ومهاراتك الجديدة. شهادة %(platform_name)s "
+"رسمية ويمكن مشاركتها بسهولة. رقِّ حسابك قبل "
+"%(user_schedule_upgrade_deadline_time)s."
+
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:35
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:112
 msgid "Upgrade now"
 msgstr "اسعَ لترقية حسابك الآن"
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:39
+#, python-format, python-brace-format
+msgid ""
+"We hope you are enjoying learning with us so far on "
+"{start_strong}%(platform_name)s{end_strong}! A verified certificate allows "
+"you to highlight your new knowledge and skills. An %(platform_name)s "
+"certificate is official and easily shareable."
+msgstr ""
+"نأمل أن تستمتع بالتعلم معنا حتى الآن على "
+"{start_strong}%(platform_name)s{end_strong}! تتيح لك الشهادة الموثّقة إبراز "
+"معارفك ومهاراتك الجديدة. شهادة %(platform_name)s رسمية ويمكن مشاركتها "
+"بسهولة."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:46
+#, python-brace-format
+msgid ""
+"We hope you are enjoying learning with us so far in "
+"{start_strong}{first_course_name}{end_strong}! A verified certificate allows"
+" you to highlight your new knowledge and skills. An {platform_name} "
+"certificate is official and easily shareable."
+msgstr ""
+"نأمل أن تستمتع بالتعلم معنا حتى الآن في "
+"{start_strong}{first_course_name}{end_strong}! تتيح لك الشهادة الموثّقة "
+"إبراز معارفك ومهاراتك الجديدة. شهادة {platform_name} رسمية ويمكن مشاركتها "
+"بسهولة."
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:55
 #, python-format, python-brace-format
@@ -9404,6 +9745,10 @@ msgid ""
 msgstr ""
 "اسعَ للترقية قبل {start_strong} %(user_schedule_upgrade_deadline_time)s "
 "{end_strong}."
+
+#: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:63
+msgid "You are eligible to upgrade in these courses:"
+msgstr "أنت مؤهل للترقية في هذه المساقات:"
 
 #: openedx/core/djangoapps/schedules/templates/schedules/edx_ace/upgradereminder/email/body.html:76
 #: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:21
@@ -9443,6 +9788,35 @@ msgstr "أُعيد مظهر الموقع إلى الوضع الافتراضي"
 msgid "Theming Administration"
 msgstr "إدارة المظهر"
 
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:43
+msgid ""
+"Usernames can only contain letters (A-Z, a-z), numerals (0-9), underscores "
+"(_), and hyphens (-)."
+msgstr ""
+"يمكن أن تحتوي أسماء المستخدمين فقط على أحرف ‎(A-Z و a-z)‏ وأرقام ‎(0-9)‏ "
+"وشرطات سفلية ‎(_)‏ وواصلات ‎(-)‏."
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:50
+msgid ""
+"Usernames can only contain letters, numerals, and @/./+/-/_ characters."
+msgstr "يمكن أن تحتوي أسماء المستخدمين فقط على أحرف وأرقام ورموز ‎@/./+/-/_‏."
+
+#. Translators: This message is shown to users who attempt to create a new
+#. account using
+#. an invalid email format.
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:55
+msgid "Enter a valid email address"
+msgstr "أدخِل عنوان بريد إلكتروني صحيحاً"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:60
+#, python-brace-format
+msgid ""
+"It looks like {email_address} belongs to an existing account. Try again with"
+" a different email address."
+msgstr ""
+"يبدو أن {email_address} مرتبط بحساب موجود. حاول مرة أخرى بعنوان بريد "
+"إلكتروني مختلف."
+
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:64
 msgid "This email is already associated with an existing account"
 msgstr "هذا البريد الإلكتروني مرتبط بالفعل بحساب موجود مسبقاً"
@@ -9459,6 +9833,14 @@ msgstr ""
 "كلمة المرور التي أدخلتها موجودة في قائمة كلمات المرور المعروفة المخترقة. من "
 "فضلك اختَر كلمة مرور مختلفة. "
 
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:72
+#, python-brace-format
+msgid ""
+"It looks like {username} belongs to an existing account. Try again with a "
+"different username."
+msgstr ""
+"يبدو أن {username} مرتبط بحساب موجود. حاول مرة أخرى باسم مستخدم مختلف."
+
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:75
 msgid "It looks like this username is already taken"
 msgstr "يبدو أنّ اسم المستخدم هذا مستخدم بالفعل"
@@ -9468,11 +9850,24 @@ msgstr "يبدو أنّ اسم المستخدم هذا مستخدم بالفعل
 msgid "Username must be between {min} and {max} characters long."
 msgstr "يجب أن يكون طول اسم المستخدم بين {min} و {max} حرفاً."
 
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:85
+#, python-brace-format
+msgid "Enter a valid email address that contains at least {min} characters."
+msgstr "أدخِل عنوان بريد إلكتروني صحيحاً يحتوي على {min} من الأحرف على الأقل."
+
 #. Translators: These messages are shown to users who do not enter information
 #. into the required field or enter it incorrectly.
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:96
 msgid "Enter your full name"
 msgstr "أدخِل اسمك الكامل"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:97
+msgid "Enter your first name"
+msgstr "أدخِل اسمك الشخصي"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:98
+msgid "Enter your last name"
+msgstr "أدخِل اسم عائلتك"
 
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:99
 msgid "The email addresses do not match"
@@ -9482,9 +9877,53 @@ msgstr "عنوانا البريد الإلكتروني غير متطابقين"
 msgid "Enter your confirm email"
 msgstr "أدخل عنوان بريدك الإلكتروني للتأكّد"
 
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:101
+msgid "Select your country or region of residence"
+msgstr "اختَر البلد أو المنطقة التي تقيم فيها"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:102
+msgid "Select your profession"
+msgstr "اختَر مهنتك"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:103
+msgid "Select your specialty"
+msgstr "اختَر تخصصك"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:104
+msgid "Enter your profession"
+msgstr "أدخِل مهنتك"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:105
+msgid "Enter your specialty"
+msgstr "أدخِل تخصصك"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:106
+msgid "Enter your state"
+msgstr "أدخِل ولايتك"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:107
+msgid "Enter your city"
+msgstr "أدخِل مدينتك"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:108
+msgid "Tell us your goals"
+msgstr "أخبِرنا بأهدافك"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:109
+msgid "Select the highest level of education you have completed"
+msgstr "اختَر أعلى مستوى تعليمي أكملته"
+
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:110
 msgid "Select your year of birth"
 msgstr "اختَر سنة ولادتك"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:111
+msgid "Select your gender"
+msgstr "اختَر جنسك"
+
+#: openedx/core/djangoapps/user_api/accounts/__init__.py:112
+msgid "Enter your mailing address"
+msgstr "أدخِل عنوانك البريدي"
 
 #: openedx/core/djangoapps/user_api/accounts/__init__.py:116
 msgid ""
@@ -9498,9 +9937,29 @@ msgid ""
 "change it so that your account stays secure."
 msgstr "اكتشف نظامنا أنّ كلمة مرورك ضعيفة. نوصيك بتغييرها ليظل حسابك آمناً."
 
+#: openedx/core/djangoapps/user_api/accounts/api.py:206
+#, python-brace-format
+msgid "The '{field_name}' field cannot be edited."
+msgstr "لا يمكن تعديل الحقل '{field_name}'."
+
 #: openedx/core/djangoapps/user_api/accounts/api.py:436
 msgid "Full name can't be longer than 255 symbols"
 msgstr "لا يمكن أن يزيد الاسم الكامل عن 255 رمزاً"
+
+#: openedx/core/djangoapps/user_api/accounts/api.py:438
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:109
+msgid "Enter a valid name"
+msgstr "أدخِل اسماً صحيحاً"
+
+#: openedx/core/djangoapps/user_api/accounts/utils.py:45
+#, python-brace-format
+msgid ""
+"Make sure that you are providing a valid username or a URL that contains "
+"\"{url_stub}\". To remove the link from your {platform_name} profile, leave "
+"this field blank."
+msgstr ""
+"تأكّد من إدخال اسم مستخدم صحيح أو رابط يحتوي على \"{url_stub}\". لإزالة "
+"الرابط من ملفك الشخصي على {platform_name}، اترك هذا الحقل فارغاً."
 
 #: openedx/core/djangoapps/user_api/accounts/views.py:637
 msgid ""
@@ -9510,6 +9969,19 @@ msgstr ""
 "أُغلق هذا الحساب مؤقتاً نتيجة عدّة محاولات فاشلة لتسجيل الدخول. من فضلك حاول"
 " مجدداً في وقت لاحق."
 
+#: openedx/core/djangoapps/user_api/accounts/views.py:647
+#: openedx/core/djangoapps/user_authn/views/login.py:311
+msgid "Email or password is incorrect."
+msgstr "البريد الإلكتروني أو كلمة المرور غير صحيحة."
+
+#: openedx/core/djangoapps/user_api/admin.py:52
+msgid "Permission Denied"
+msgstr "رُفض الإذن"
+
+#: openedx/core/djangoapps/user_api/admin.py:62
+msgid "Retirement does not exist!"
+msgstr "التقاعد غير موجود!"
+
 #: openedx/core/djangoapps/user_api/admin.py:72
 msgid "Success"
 msgstr "تم الأمر بنجاح"
@@ -9517,6 +9989,110 @@ msgstr "تم الأمر بنجاح"
 #: openedx/core/djangoapps/user_api/admin.py:118
 msgid "Actions"
 msgstr "الإجراءات"
+
+#: openedx/core/djangoapps/user_api/models.py:444
+msgid ""
+"Comma separated file that have username and user_email of the users that "
+"needs to be retired"
+msgstr ""
+"ملف مفصول بفواصل يحتوي على username وuser_email للمستخدمين الذين يجب إحالة "
+"حساباتهم إلى التقاعد"
+
+#: openedx/core/djangoapps/user_api/preferences/api.py:253
+#, python-brace-format
+msgid "Delete failed for user preference '{preference_key}'."
+msgstr "تعذّر حذف تفضيل المستخدم '{preference_key}'."
+
+#: openedx/core/djangoapps/user_api/preferences/api.py:402
+#, python-brace-format
+msgid "Preference '{preference_key}' cannot be set to an empty value."
+msgstr "لا يمكن ضبط تفضيل '{preference_key}' على قيمة فارغة."
+
+#: openedx/core/djangoapps/user_api/preferences/api.py:419
+#, python-brace-format
+msgid "Invalid user preference key '{preference_key}'."
+msgstr "مفتاح تفضيل المستخدم '{preference_key}' غير صحيح."
+
+#: openedx/core/djangoapps/user_api/preferences/api.py:423
+#, python-brace-format
+msgid ""
+"Value '{preference_value}' is not valid for user preference "
+"'{preference_key}'."
+msgstr ""
+"القيمة '{preference_value}' غير صحيحة لتفضيل المستخدم '{preference_key}'."
+
+#: openedx/core/djangoapps/user_api/preferences/api.py:433
+#, python-brace-format
+msgid ""
+"Value '{preference_value}' not valid for preference '{preference_key}': Not "
+"in timezone set."
+msgstr ""
+"القيمة '{preference_value}' غير صحيحة لتفضيل '{preference_key}': ليست ضمن "
+"مجموعة المناطق الزمنية."
+
+#: openedx/core/djangoapps/user_api/preferences/api.py:434
+#, python-brace-format
+msgid "Value '{preference_value}' is not a valid time zone selection."
+msgstr "القيمة '{preference_value}' ليست اختياراً صحيحاً للمنطقة الزمنية."
+
+#: openedx/core/djangoapps/user_api/preferences/api.py:451
+#, python-brace-format
+msgid "Save failed for user preference '{key}' with value '{value}'."
+msgstr "تعذّر حفظ تفضيل المستخدم '{key}' بالقيمة '{value}'."
+
+#: openedx/core/djangoapps/user_api/preferences/views.py:118
+msgid "No data provided for user preference update"
+msgstr "لم تُقدَّم بيانات لتحديث تفضيل المستخدم"
+
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.html:17
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.txt:7
+#, python-format
+msgid ""
+"We received a deletion request for your account on %(platform_name)s. We're "
+"sorry to see you go!"
+msgstr "تلقّينا طلباً لحذف حسابك على %(platform_name)s. يؤسفنا رحيلك!"
+
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.html:24
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.txt:11
+msgid ""
+"Your account will be deleted shortly. Account deletion, including removal "
+"from email lists, may take a few weeks to fully process through our system. "
+"If you want to opt-out of emails before then, please unsubscribe from the "
+"footer of any email."
+msgstr ""
+"سيُحذف حسابك قريباً. قد يستغرق حذف الحساب، بما في ذلك إزالتك من قوائم البريد"
+" الإلكتروني، بضعة أسابيع حتى تكتمل معالجته في نظامنا. وإن أردت إيقاف تلقي "
+"رسائل البريد الإلكتروني قبل ذلك، فألغِ اشتراكك من تذييل أي رسالة بريد "
+"إلكتروني."
+
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.html:31
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.txt:15
+#, python-format
+msgid ""
+"This is an informational email only. If you did not initiate this request, "
+"please contact %(contact_email)s."
+msgstr ""
+"هذا البريد الإلكتروني لأغراض إعلامية فقط. إذا لم تكن أنت من قدّم هذا الطلب، "
+"فتواصل مع %(contact_email)s."
+
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.html:38
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/body.txt:19
+#, python-format
+msgid "Best, %(platform_name)s"
+msgstr "مع تحياتنا، %(platform_name)s"
+
+#: openedx/core/djangoapps/user_api/templates/user_api/edx_ace/deletionnotificationmessage/email/subject.txt:4
+msgid "Your Account Has Been Queued For Deletion"
+msgstr "وُضع حسابك في قائمة انتظار الحذف"
+
+#. Translators: This label appears above a dropdown menu used to select
+#. the user's highest completed level of education.
+#. Translators: This label appears above a dropdown menu on the registration
+#. form used to select the user's highest completed level of education.
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:94
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:629
+msgid "Highest level of education completed"
+msgstr "أعلى مستوى تعليمي أتممته"
 
 #. Translators: This label appears above a dropdown menu on the form
 #. used to select the user's year of birth.
@@ -9574,13 +10150,22 @@ msgid "Title"
 msgstr "العنوان"
 
 #. Translators: This label appears above a field which allows the
+#. user to input the Job Title
+#. Translators: This label appears above a field on the registration form
+#. which allows the user to input the Job Title
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:216
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:916
+msgid "Job Title"
+msgstr "المسمّى الوظيفي"
+
+#. Translators: This label appears above a field which allows the
 #. user to input the First Name
 #. Translators: This label appears above a field on the registration form
 #. which allows the user to input the First Name
 #: openedx/core/djangoapps/user_authn/api/form_fields.py:226
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:933
 msgid "First Name"
-msgstr "الاسم الأول"
+msgstr "الاسم الشخصي"
 
 #. Translators: This label appears above a field which allows the
 #. user to input the Last Name
@@ -9590,6 +10175,26 @@ msgstr "الاسم الأول"
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:950
 msgid "Last Name"
 msgstr "اسم العائلة (اللقب)"
+
+#. Translators: This label appears above a field
+#. meant to hold the user's mailing address.
+#. Translators: This label appears above a field on the registration form
+#. meant to hold the user's mailing address.
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:258
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:798
+msgid "Mailing address"
+msgstr "العنوان البريدي"
+
+#. Translators: This label appears above a field
+#. which allows the user to input the State/Province/Region in which they
+#. live.
+#. Translators: This label appears above a field on the registration form
+#. which allows the user to input the State/Province/Region in which they
+#. live.
+#: openedx/core/djangoapps/user_authn/api/form_fields.py:274
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:865
+msgid "State/Province/Region"
+msgstr "الولاية/المقاطعة/المنطقة"
 
 #. Translators: This label appears above a dropdown menu to select
 #. the user's work experience
@@ -9601,9 +10206,38 @@ msgstr "الخبرة العملية"
 msgid "Password reset"
 msgstr "إعادة تعيين كلمة المرور"
 
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:14
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.txt:2
+#, python-format
+msgid ""
+"You're receiving this e-mail because you requested a password reset for your"
+" user account at %(platform_name)s."
+msgstr ""
+"وصلتك رسالة البريد الإلكتروني هذه لأنك طلبت إعادة تعيين كلمة المرور لحسابك "
+"في %(platform_name)s."
+
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:22
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.txt:5
+#, python-format
+msgid ""
+"However, there is currently no user account associated with your email "
+"address: %(email_address)s."
+msgstr ""
+"غير أنه لا يوجد حالياً حساب مستخدم مرتبط بعنوان بريدك الإلكتروني: "
+"%(email_address)s."
+
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:28
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.txt:7
+msgid "If you did not request this change, you can ignore this email."
+msgstr "إذا لم تطلب هذا التغيير، فيمكنك تجاهل هذا البريد الإلكتروني."
+
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.html:37
 msgid "Reset my password"
 msgstr "أعِد تعيين كلمة المرور"
+
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/body.txt:9
+msgid "Please go to the following page and choose a new password:"
+msgstr "من فضلك انتقل إلى الصفحة التالية واختر كلمة مرور جديدة:"
 
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordreset/email/subject.txt:3
 #, python-format
@@ -9619,6 +10253,16 @@ msgstr "لقد أُعيد تعيين كلمة المرور بنجاح"
 msgid "Hello %(name)s,"
 msgstr "مرحباً %(name)s،"
 
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordresetsuccess/email/body.html:19
+#: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordresetsuccess/email/body.txt:3
+#, python-format
+msgid ""
+"This is to confirm that you have successfully changed your password "
+"associated with %(platform_name)s account. Please sign-in to your account."
+msgstr ""
+"هذه الرسالة لتأكيد أنك غيّرت كلمة المرور المرتبطة بحسابك في "
+"%(platform_name)s بنجاح. من فضلك سجّل الدخول إلى حسابك."
+
 #: openedx/core/djangoapps/user_authn/templates/user_authn/edx_ace/passwordresetsuccess/email/body.txt:2
 #, python-format
 msgid "Hello %(name)s, "
@@ -9629,9 +10273,56 @@ msgstr "مرحباً %(name)s،"
 msgid "Password reset completed on %(platform_name)s"
 msgstr "اكتملت إعادة تعيين كلمة المرور في %(platform_name)s"
 
+#: openedx/core/djangoapps/user_authn/views/auto_auth.py:96
+msgid "Superuser creation not allowed"
+msgstr "لا يُسمح بإنشاء مستخدم بصلاحيات المشرف العام"
+
+#: openedx/core/djangoapps/user_authn/views/auto_auth.py:115
+msgid "Account modification not allowed."
+msgstr "لا يُسمح بتعديل الحساب."
+
+#: openedx/core/djangoapps/user_authn/views/auto_auth.py:125
+#: openedx/core/djangoapps/user_authn/views/register.py:715
+msgid "Account creation not allowed."
+msgstr "لا يُسمح بإنشاء حساب."
+
+#: openedx/core/djangoapps/user_authn/views/login.py:91
+#, python-brace-format
+msgid ""
+"You've successfully signed in to your {provider_name} account, but this "
+"account isn't linked with your {platform_name} account yet. {blank_lines}Use"
+" your {platform_name} username and password to sign in to {platform_name} "
+"below, and then link your {platform_name} account with {provider_name} from "
+"your dashboard. {blank_lines}If you don't have an account on {platform_name}"
+" yet, click {register_label_strong} at the top of the page."
+msgstr ""
+"سجّلت الدخول بنجاح إلى حسابك في {provider_name}، لكن هذا الحساب غير مرتبط "
+"بحسابك في {platform_name} بعد. {blank_lines}استخدم اسم المستخدم وكلمة المرور"
+" الخاصين بحسابك في {platform_name} لتسجيل الدخول إلى {platform_name} أدناه، "
+"ثم اربط حسابك في {platform_name} بحساب {provider_name} من اللوحة الرئيسية. "
+"{blank_lines}وإن لم يكن لديك حساب في {platform_name} بعد، فانقر "
+"{register_label_strong} في أعلى الصفحة."
+
 #: openedx/core/djangoapps/user_authn/views/login.py:102
 msgid "Register"
 msgstr "أنشِئ حساباً جديداً"
+
+#: openedx/core/djangoapps/user_authn/views/login.py:138
+msgid "There was an error receiving your login information. Please email us."
+msgstr ""
+"حدث خطأ أثناء استلام بيانات تسجيل دخولك. من فضلك راسلنا عبر البريد "
+"الإلكتروني."
+
+#: openedx/core/djangoapps/user_authn/views/login.py:172
+#, python-brace-format
+msgid ""
+"To protect your account, it’s been temporarily locked. Try again in "
+"{locked_out_period} minutes.{li_start}To be on the safe side, you can reset "
+"your password {link_start}here{link_end} before you try again."
+msgstr ""
+"لحماية حسابك، قُفل مؤقتاً. حاول مرة أخرى بعد {locked_out_period} "
+"دقائق.{li_start}للاحتياط، يمكنك إعادة تعيين كلمة المرور "
+"{link_start}هنا{link_end} قبل أن تحاول مرة أخرى."
 
 #: openedx/core/djangoapps/user_authn/views/login.py:243
 msgid "Too many failed login attempts. Try again later."
@@ -9650,11 +10341,46 @@ msgstr ""
 "مؤقتاً.{li_end}{li_start}إذا كنت قد نسيت كلمة المرور، فانقر على "
 "{link_start}هنا{link_end} لإعادة تعيينها.{li_end}"
 
+#: openedx/core/djangoapps/user_authn/views/login.py:393
+#, python-brace-format
+msgid ""
+"As {allowed_domain} user, You must login with your {allowed_domain} "
+"{link_start}{provider} account{link_end}."
+msgstr ""
+"بصفتك مستخدماً من {allowed_domain}، يجب أن تسجّل الدخول باستخدام "
+"{link_start}حساب {provider}{link_end} الخاص بـ {allowed_domain}."
+
+#. Translators: These instructions appear on the login form, immediately
+#. below a field meant to hold the user's email address.
+#. Translators: These instructions appear on the password reset form,
+#. immediately below a field meant to hold the user's email address.
+#. pylint: disable=no-member
+#: openedx/core/djangoapps/user_authn/views/login_form.py:100
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:99
+#, python-brace-format
+msgid "The email address you used to register with {platform_name}"
+msgstr "عنوان البريد الإلكتروني الذي استخدمته للتسجيل في {platform_name}"
+
 #. Translators: This example email address is used as a placeholder in
 #. a field on the password reset form meant to hold the user's email address.
 #: openedx/core/djangoapps/user_authn/views/password_reset.py:94
 msgid "username@domain.com"
 msgstr "username@domain.com"
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:183
+msgid ""
+"That e-mail address doesn't have an associated user account. Are you sure "
+"you've registered?"
+msgstr ""
+"لا يرتبط عنوان البريد الإلكتروني هذا بأي حساب مستخدم. هل أنت متأكد من أنك "
+"سجّلت؟"
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:185
+msgid ""
+"The user account associated with this e-mail address cannot reset the "
+"password."
+msgstr ""
+"لا يمكن إعادة تعيين كلمة المرور للحساب المرتبط بعنوان البريد الإلكتروني هذا."
 
 #: openedx/core/djangoapps/user_authn/views/password_reset.py:307
 #: openedx/core/djangoapps/user_authn/views/password_reset.py:630
@@ -9675,19 +10401,57 @@ msgstr "حدث خطأ في إعادة تعيين كلمة مرورك."
 msgid "Error in resetting your password. Please try again."
 msgstr "حدث خطأ في إعادة تعيين كلمة مرورك. من فضلك حاول مجدداً."
 
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:470
+#, python-brace-format
+msgid ""
+"{html_start}Password Creation Complete{html_end}Your password has been "
+"created. {bold_start}{email}{bold_end} is now your primary login email."
+msgstr ""
+"{1}اكتمل إنشاء كلمة المرور{2} أُنشئت كلمة مرورك. {3}{4}{5} هو الآن بريدك "
+"الإلكتروني الأساسي لتسجيل الدخول."
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:664
+msgid "Some error occurred during password change. Please try again"
+msgstr "حدث خطأ ما أثناء تغيير كلمة المرور. حاول مرة أخرى"
+
+#: openedx/core/djangoapps/user_authn/views/password_reset.py:668
+msgid "No email address provided."
+msgstr "لم يُحدَّد عنوان بريد إلكتروني."
+
 #: openedx/core/djangoapps/user_authn/views/password_reset.py:746
 msgid ""
 "An error has occurred. Try refreshing the page, or check your internet "
 "connection."
 msgstr "حدث خطأ ما. جرِّب تحديث الصفحة أو تحقَّق من اتصالك بالإنترنت."
 
+#: openedx/core/djangoapps/user_authn/views/register.py:186
+#, python-brace-format
+msgid "Registration using {provider} has timed out."
+msgstr "انتهت مهلة التسجيل باستخدام {1}."
+
+#: openedx/core/djangoapps/user_authn/views/register.py:329
+msgid "An access_token is required when passing value ({}) for provider."
+msgstr "يجب توفير access_token عند تمرير قيمة ({}) للمزوّد."
+
 #: openedx/core/djangoapps/user_authn/views/register.py:342
 msgid "The provided access_token is already associated with another user."
 msgstr "رمز الوصول ’access_token‘ مرتبط بالفعل بمستخدم آخر."
 
+#: openedx/core/djangoapps/user_authn/views/register.py:345
+msgid "The provided access_token is not valid."
+msgstr "access_token المقدَّم غير صالح."
+
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:107
 msgid "Full Name cannot contain the following characters: < >"
 msgstr "لا يمكن أن يحتوي الاسم الكامل على الرموز التالية: < >"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:147
+msgid "A properly formatted e-mail is required"
+msgstr "يجب إدخال عنوان بريد إلكتروني بصيغة ملائمة"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:148
+msgid "Your legal name must be a minimum of one character long"
+msgstr "يجب ألا يقل اسمك القانوني عن حرف واحد"
 
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:149
 #, python-format
@@ -9700,28 +10464,133 @@ msgstr "اسمك القانوني طويل جداً. يجب أن لا يتجاو
 msgid "Email cannot be more than %(limit_value)s characters long"
 msgstr "لا يمكن أن يزيد عدد حروف البريد الإلكتروني عن %(limit_value)s"
 
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:193
+msgid "You must accept the terms of service."
+msgstr "يجب أن تقبل شروط الخدمة."
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:197
+msgid "A level of education is required"
+msgstr "يجب إدخال المستوى التعليمي"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:198
+msgid "Your gender is required"
+msgstr "يجب إدخال جنسك"
+
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:199
 msgid "Your year of birth is required"
 msgstr "يجب أن تدخل سنة ولادتك"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:200
+msgid "Your mailing address is required"
+msgstr "يجب إدخال عنوانك البريدي"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:201
+msgid "A description of your goals is required"
+msgstr "يجب إدخال وصف لأهدافك"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:202
+msgid "A city is required"
+msgstr "يجب إدخال المدينة"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:203
+msgid "A country is required"
+msgstr "يجب إدخال الدولة"
 
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:211
 msgid "To enroll, you must follow the honor code."
 msgstr "للتسجيل، يجب عليك اتّباع ميثاق الشرف."
 
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:219
+msgid "You are missing one or more required fields"
+msgstr "لم تعبّئ حقلاً واحداً أو أكثر من الحقول المطلوبة"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:271
+msgid "Unauthorized email address."
+msgstr "عنوان بريد إلكتروني غير مصرّح به."
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:275
+#, python-brace-format
+msgid ""
+"It looks like {email} belongs to an existing account. Try again with a "
+"different email address."
+msgstr ""
+"يبدو أن {1} مرتبط بحساب موجود. حاول مرة أخرى بعنوان بريد إلكتروني مختلف."
+
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:311
 msgid "Registration from this country is not allowed due to restrictions."
 msgstr "لا يُسمح بالتسجيل من هذا البلد بسبب القيود المفروضة."
+
+#. Translators: These instructions appear on the registration form,
+#. immediately
+#. below a field meant to hold the user's email address.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:510
+msgid "This is what you will use to login."
+msgstr "هذا ما ستستخدمه لتسجيل الدخول."
+
+#. Translators: These instructions appear on the registration form,
+#. immediately
+#. below a field meant to hold the user's full name.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:560
+msgid "This name will be used on any certificates that you earn."
+msgstr "سيُستخدم هذا الاسم في أي شهادات تحصل عليها."
+
+#. Translators: This label appears above a field on the registration form
+#. meant to hold the user's public username.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:581
+msgid "Public Username"
+msgstr "اسم المستخدم العام"
+
+#. Translators: These instructions appear on the registration form,
+#. immediately
+#. below a field meant to hold the user's public username.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:586
+msgid ""
+"The name that will identify you in your courses. It cannot be changed later."
+msgstr "الاسم الذي ستُعرف به في مساقاتك. لا يمكن تغييره لاحقاً."
 
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:702
 #, python-brace-format
 msgid "I agree that {platform_name} may send me marketing messages."
 msgstr "أوافق على أنّ {platform_name} قد تُرسل إلي رسائل تسويقية."
 
+#. Translators: This label appears above a dropdown menu on the registration
+#. form used to select the country in which the user lives.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:967
+msgid "Country or Region of Residence"
+msgstr "بلد أو منطقة الإقامة"
+
+#. Translators: These instructions appear on the registration form,
+#. immediately
+#. below a field meant to hold the user's country.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:978
+msgid "The country or region where you live."
+msgstr "البلد أو المنطقة التي تعيش فيها."
+
 #. Translators: This is a legal document users must agree to
 #. in order to register a new account.
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:1016
 msgid "Terms of Service and Honor Code"
 msgstr "شروط الخدمة وميثاق الشرف"
+
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1022
+#, python-brace-format
+msgid ""
+"I agree to the {platform_name} "
+"{terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end}"
+msgstr ""
+"أوافق على "
+"{terms_of_service_link_start}{terms_of_service}{terms_of_service_link_end} "
+"الخاصة بـ {platform_name}"
+
+#. Translators: "Terms of Service" is a legal document users must agree to
+#. in order to register a new account.
+#. Translators: "Terms of service" is a legal document users must agree to
+#. in order to register a new account.
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1034
+#: openedx/core/djangoapps/user_authn/views/registration_form.py:1098
+#, python-brace-format
+msgid "You must agree to the {platform_name} {terms_of_service}"
+msgstr "يجب أن توافق على {terms_of_service} الخاصة بـ {platform_name}"
 
 #: openedx/core/djangoapps/user_authn/views/registration_form.py:1045
 #, python-brace-format
@@ -9801,6 +10670,15 @@ msgstr "إليك مقطع فيديو ممتع من درس آخذه من {platfor
 msgid "Can't get transcript link from Youtube for {youtube_id}."
 msgstr "تعذّر الحصول على رابط التفريغ النصي من يوتيوب لـ {youtube_id}."
 
+#: openedx/core/djangoapps/video_config/transcripts_utils.py:235
+#, python-brace-format
+msgid ""
+"Can't receive transcripts from Youtube for {youtube_id}. Status code: "
+"{status_code}."
+msgstr ""
+"تعذّر استلام نصوص مقطع الفيديو  {youtube_id} من موقع يوتيوب. رمز الحالة: "
+"{status_code}."
+
 #: openedx/core/djangoapps/video_config/transcripts_utils.py:307
 msgid "We support only SubRip (*.srt) transcripts format."
 msgstr "لا ندعم سوى التفريغات النصية بصيغة (*.srt) لبرنامج SubRip."
@@ -9814,6 +10692,10 @@ msgstr ""
 "حدث خطأ في ملف التفريغات النصية الخاصة بـ SubRip أثناء عملية تحليلها. رسالة "
 "الإعلام بالخطأ الداخلية هي {error_message}"
 
+#: openedx/core/djangoapps/video_config/transcripts_utils.py:316
+msgid "Something wrong with SubRip transcripts file during parsing."
+msgstr "حدث خطأ في ملف نصوص SubRip أثناء تحليله."
+
 #: openedx/core/djangoapps/video_config/transcripts_utils.py:495
 #, python-brace-format
 msgid "{exception_message}: Can't find uploaded transcripts: {user_filename}"
@@ -9824,18 +10706,67 @@ msgstr ""
 msgid "Oauth client name of VEM service."
 msgstr "اسم عميل OAuth لخدمة VEM."
 
+#: openedx/core/djangoapps/video_pipeline/models.py:38
+msgid "video encode manager API URL."
+msgstr "رابط API الخاص بمدير ترميز الفيديو."
+
 #: openedx/core/djangoapps/video_pipeline/models.py:46
 msgid "Username created for VEM Integration, e.g. vem_service_user."
 msgstr "أُنشئ اسم المستخدم لدمج VEM، على سبيل المثال، vem_service_user."
+
+#: openedx/core/djangoapps/waffle_utils/models.py:28
+#: openedx/core/djangoapps/waffle_utils/models.py:91
+msgid "Force On"
+msgstr "تشغيل إجباري"
+
+#: openedx/core/djangoapps/waffle_utils/models.py:28
+#: openedx/core/djangoapps/waffle_utils/models.py:91
+msgid "Force Off"
+msgstr "إيقاف إجباري"
+
+#: openedx/core/djangoapps/xblock/runtime/mixin.py:65
+msgid ""
+"This content is only accessible to registered learners. Sign in or register "
+"to view it."
+msgstr ""
+"هذا المحتوى متاح للمتعلمين المسجلين فقط. سجِّل الدخول أو أنشئ حساباً "
+"لتشاهده."
+
+#: openedx/core/djangoapps/xblock/runtime/mixin.py:69
+msgid "This content is only accessible to enrolled learners. "
+msgstr "هذا المحتوى متاح فقط للمتعلمين المسجلين."
+
+#: openedx/core/lib/api/view_utils.py:159
+#, python-brace-format
+msgid "The about me field must be at most {BIO_MAX_LENGTH} characters long."
+msgstr "يجب ألا يتجاوز عدد أحرف حقل نبذة عني {BIO_MAX_LENGTH}."
+
+#: openedx/core/lib/api/view_utils.py:161
+msgid "This value is invalid."
+msgstr "هذه القيمة غير صحيحة."
+
+#: openedx/core/lib/api/view_utils.py:214
+msgid "This field is not editable"
+msgstr "هذا الحقل غير قابل للتعديل"
 
 #: openedx/core/lib/gating/api.py:71
 #, python-format
 msgid "%(min_score)s is not a valid grade percentage"
 msgstr "%(min_score)s ليست نسبة درجة صحيحة"
 
+#: openedx/core/lib/gating/api.py:186
+#, python-brace-format
+msgid "Gating milestone for {usage_key}"
+msgstr "معلَم تقييد الوصول إلى {usage_key}"
+
 #: openedx/core/lib/license/mixin.py:26
 msgid "License"
 msgstr "الرخصة"
+
+#: openedx/core/lib/license/mixin.py:27
+msgid ""
+"A license defines how the contents of this block can be shared and reused."
+msgstr "تحدّد الرخصة كيف يمكن مشاركة محتويات هذه اللبنة وإعادة استخدامها."
 
 #: openedx/core/lib/teams_config.py:386
 #, python-brace-format
@@ -9846,9 +10777,22 @@ msgstr "مجموعة الفريق: {team_set_name}"
 msgid "Partition for segmenting users by team-set"
 msgstr "افرِز المستخدمين حسب مجموعة الفِرق"
 
+#: openedx/features/calendar_sync/ics.py:36
+#, python-brace-format
+msgid "{assignment} is due for {course}."
+msgstr "موعد تسليم {assignment} في {course}."
+
 #: openedx/features/calendar_sync/plugins.py:21
 msgid "Calendar Sync"
 msgstr "مزامنة التقويم"
+
+#: openedx/features/calendar_sync/plugins.py:42
+msgid "Unsubscribe from calendar updates"
+msgstr "ألغِ الاشتراك في تحديثات التقويم"
+
+#: openedx/features/calendar_sync/plugins.py:45
+msgid "Subscribe to calendar updates"
+msgstr "اشترِك في تحديثات التقويم"
 
 #: openedx/features/calendar_sync/utils.py:16
 #, python-brace-format
@@ -9874,13 +10818,126 @@ msgstr ""
 "بمجرد مزامنة مساقك مع تقويمك، ستنعكس أيّ تحديثات للمساق من معلمك تلقائياً. "
 "يمكنك إزالة المساق من التقويم في أيّ وقت."
 
+#: openedx/features/calendar_sync/utils.py:33
+#, python-brace-format
+msgid "{course} dates have been updated on your calendar"
+msgstr "حُدّثت تواريخ {course} في تقويمك"
+
+#: openedx/features/calendar_sync/utils.py:34
+msgid ""
+"You have successfully shifted your course schedule and your calendar is up "
+"to date."
+msgstr "نُقل جدول مساقك بنجاح، وتقويمك محدَّث."
+
+#: openedx/features/content_type_gating/models.py:27
+#: openedx/features/course_duration_limits/models.py:36
+msgid "Enabled As Of"
+msgstr "مُفعَّل اعتباراً من"
+
+#: openedx/features/content_type_gating/models.py:30
+#: openedx/features/course_duration_limits/models.py:39
+msgid ""
+"If the configuration is Enabled, then all enrollments created after this "
+"date and time (user local time) will be affected."
+msgstr ""
+"إذا فُعِّلت التهيئة، فستتأثر جميع عمليات التسجيل التي أُنشئت بعد هذا التاريخ"
+" والوقت (بالتوقيت المحلي للمستخدم)."
+
+#: openedx/features/content_type_gating/models.py:36
+msgid "Studio Override Enabled"
+msgstr "تجاوز ستوديو مُفعَّل"
+
+#: openedx/features/content_type_gating/models.py:39
+msgid ""
+"Allow Feature Based Enrollment visibility to be overriden on a per-component"
+" basis in Studio."
+msgstr ""
+"السماح بتجاوز ظهور التسجيل المستند إلى الميزة لكل مكوّن على حدة في ستوديو."
+
+#: openedx/features/content_type_gating/models.py:91
+#: openedx/features/course_duration_limits/models.py:91
+msgid "enabled_as_of must be set when enabled is True"
+msgstr "يجب تعيين enabled_as_of عندما تكون قيمة enabled هي True."
+
 #: openedx/features/content_type_gating/partitions.py:70
 msgid "Partition for segmenting users by access to gated content types"
 msgstr " افرِز المستخدمين وفقاً لصلاحية وصولهم إلى أنواع المحتوى المقيّد"
 
+#: openedx/features/content_type_gating/partitions.py:117
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:10
+msgid "Graded assessments are available to Verified Track learners."
+msgstr "التقييمات ذات الدرجات متاحة لمتعلمي المسار المعتمد."
+
+#: openedx/features/content_type_gating/partitions.py:119
+msgid ""
+"Graded assessments are available to Verified Track learners. Upgrade to "
+"Unlock."
+msgstr ""
+"التقييمات ذات الدرجات متاحة لمتعلمي المسار المعتمد. رقِّ حسابك لفتح القفل."
+
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:3
+msgid "Content available only to verified track learners"
+msgstr "المحتوى متاح فقط لمتعلمي المسار المعتمد"
+
 #: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:7
 msgid "Verified Track Access"
 msgstr "الدخول الى المسار الموثق"
+
+#: openedx/features/content_type_gating/templates/content_type_gating/access_denied_message.html:15
+msgid "Upgrade to unlock"
+msgstr "رقِّ حسابك لفتح القفل"
+
+#: openedx/features/course_duration_limits/access.py:32
+#, python-brace-format
+msgid "Access expired on {expiration_date}"
+msgstr "انتهت صلاحية الوصول بتاريخ {expiration_date}"
+
+#: openedx/features/course_duration_limits/access.py:35
+#, python-brace-format
+msgid "Access to {course_name} expired on {expiration_date}"
+msgstr "انتهت صلاحية الوصول إلى {course_name} بتاريخ {expiration_date}"
+
+#: openedx/features/course_duration_limits/access.py:40
+#, python-brace-format
+msgid "Access to the course you were looking for expired on {expiration_date}"
+msgstr ""
+"انتهت صلاحية الوصول إلى المساق الذي كنت تبحث عنه بتاريخ {expiration_date}"
+
+#: openedx/features/course_duration_limits/access.py:158
+#, python-brace-format
+msgid ""
+"This learner does not have access to this course. Their access expired on "
+"{expiration_date}."
+msgstr ""
+"لا يملك هذا المتعلم صلاحية الوصول إلى هذا المساق. انتهت صلاحية وصوله بتاريخ "
+"{expiration_date}."
+
+#: openedx/features/course_duration_limits/access.py:164
+#, python-brace-format
+msgid ""
+"{strong_open}Audit Access Expires "
+"{expiration_date}{strong_close}{line_break}You lose all access to this "
+"course, including your progress, on {expiration_date}."
+msgstr ""
+"{strong_open}تنتهي صلاحية الوصول كمُستمع بتاريخ "
+"{expiration_date}{strong_close}{line_break}ستفقد وصولك إلى هذا المساق "
+"بالكامل، بما في ذلك تقدّمك فيه، بتاريخ {expiration_date}."
+
+#: openedx/features/course_duration_limits/access.py:167
+#, python-brace-format
+msgid ""
+"{line_break}Upgrade by {upgrade_deadline} to get unlimited access to the "
+"course as long as it exists on the site. {a_open}Upgrade "
+"now{sronly_span_open} to retain access past "
+"{expiration_date}{span_close}{a_close}"
+msgstr ""
+"{line_break}رقِّ حسابك بحلول {upgrade_deadline} لتحصل على وصول غير محدود إلى"
+" المساق ما دام موجوداً على الموقع. {a_open}رقِّ حسابك الآن{sronly_span_open}"
+" للاحتفاظ بوصولك إلى المساق بعد {expiration_date}{span_close}{a_close}"
+
+#: openedx/features/course_experience/api/v1/views.py:60
+msgid "'course_key' is required."
+msgstr "'course_key' مطلوب."
 
 #: openedx/features/course_experience/api/v1/views.py:69
 #: openedx/features/course_experience/api/v1/views.py:72
@@ -9938,14 +10995,55 @@ msgstr ""
 msgid "CSV File"
 msgstr "ملف CSV"
 
+#: openedx/features/enterprise_support/admin/forms.py:14
+msgid ""
+"CSV file should have 3 columns having names lms_user_id, course_id, "
+"opportunity_id"
+msgstr ""
+"يجب أن يحتوي ملف CSV على 3 أعمدة بالأسماء التالية: lms_user_id، course_id، "
+"opportunity_id"
+
+#: openedx/features/enterprise_support/admin/views.py:66
+#, python-brace-format
+msgid ""
+"Enrollment attributes were not updated for records at following line numbers"
+" in csv because no enrollment found for these records: {error_line_numbers}"
+msgstr ""
+"لم تُحدَّث سمات التسجيل للسجلات الواردة في الأسطر التالية من ملف CSV لأنه لم"
+" يُعثر على تسجيل لهذه السجلات: {error_line_numbers}"
+
+#: openedx/features/enterprise_support/api.py:903
+#, python-brace-format
+msgid ""
+"You have access to the {bold_start}{enterprise_name}{bold_end} dashboard. To"
+" access the courses available to you through {enterprise_name}, "
+"{link_start}visit the {enterprise_name} dashboard{link_end}."
+msgstr ""
+"يمكنك الوصول إلى لوحة {bold_start}{enterprise_name}{bold_end} الرئيسية. "
+"للوصول إلى المساقات المتاحة لك عبر {enterprise_name}، تفضّل بزيارة "
+"{link_start}لوحة {enterprise_name} الرئيسية{link_end}."
+
 #: openedx/features/enterprise_support/api.py:1004
 #, python-brace-format
 msgid "Enrollment in {course_title} was not complete."
 msgstr "لم يكتمل التسجيل في {course_title}."
 
+#: openedx/features/enterprise_support/api.py:1008
+#, python-brace-format
+msgid ""
+"If you have concerns about sharing your data, please contact your "
+"administrator at {enterprise_customer_name}."
+msgstr ""
+"إذا كانت لديك مخاوف بشأن مشاركة بياناتك، فمن فضلك تواصل مع مشرفك في "
+"{enterprise_customer_name}."
+
 #: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:15
 msgid "Home"
 msgstr "الصفحة الرئيسية"
+
+#: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:17
+msgid "Enterprise Course Enrollments"
+msgstr "تسجيلات المؤسسة في المساقات"
 
 #: openedx/features/enterprise_support/templates/enterprise_support/admin/enrollment_attributes_override.html:18
 msgid "Override Enrollment Attributes"
@@ -9967,6 +11065,14 @@ msgstr ""
 "مع مسؤول التعليم الخاص بك أو بمديرك للوصول إلى {platform_name}. "
 "{line_break}{line_break}تفاصيل الخطأ:{line_break}{error_message}"
 
+#: openedx/features/enterprise_support/utils.py:200
+#, python-brace-format
+msgid ""
+"Thank you for joining {platform_name}. Just a couple steps before you start "
+"learning!"
+msgstr ""
+"شكرًا لانضمامك إلى {platform_name}. بضع خطوات فقط قبل أن تبدأ في التعلم!"
+
 #: openedx/features/enterprise_support/utils.py:205
 msgid "Continue"
 msgstr "استمِر"
@@ -9978,6 +11084,13 @@ msgstr "لقد مضى الموعد النهائي لإنهاء هذا الواج
 #: openedx/features/personalized_learner_schedules/call_to_action.py:127
 msgid "Shift due dates"
 msgstr "غيّر المواعيد الاستحقاق"
+
+#: openedx/features/personalized_learner_schedules/call_to_action.py:134
+msgid ""
+"It looks like you missed some important deadlines based on our suggested "
+"schedule."
+msgstr ""
+"يبدو أنّ بعض المواعيد النهائية المهمة قد فاتتك وفقاً لجدولنا الزمني المقترح."
 
 #: openedx/features/personalized_learner_schedules/call_to_action.py:135
 msgid ""
@@ -10019,6 +11132,10 @@ msgstr "لقد استخدمت {attempts} من عدد المحاولات غير �
 msgid "Sign In"
 msgstr "سجِّل الدخول"
 
+#: themes/red-theme/lms/templates/ace_common/edx_ace/common/base_body.html:176
+msgid "Our mailing address is"
+msgstr "عنواننا البريدي هو"
+
 #: xmodule/annotatable_block.py:48
 msgid "XML data for the annotation"
 msgstr "بيانات XML للملاحظات التوضيحية"
@@ -10037,6 +11154,10 @@ msgstr "الاسم الظاهر لهذا المكون."
 #: xmodule/annotatable_block.py:72
 msgid "Annotation"
 msgstr "الملاحظة التوضيحية"
+
+#: xmodule/capa/capa_problem.py:511
+msgid "Cannot rescore problems with possible file submissions"
+msgstr "لا يمكن إعادة تقييم المسائل التي قد تتضمن تقديم ملفات"
 
 #: xmodule/capa/capa_problem.py:605
 msgid "Question {}"
@@ -10074,19 +11195,45 @@ msgstr "لم يُجب عنه"
 msgid "submitted"
 msgstr "أُرسِل"
 
+#: xmodule/capa/inputtypes.py:97
+msgid "processing"
+msgstr "قيد المعالجة"
+
+#. Translators: these are tooltips that indicate the state of an assessment
+#. question
+#: xmodule/capa/inputtypes.py:101
+msgid "This answer is correct."
+msgstr "هذه الإجابة صحيحة."
+
 #: xmodule/capa/inputtypes.py:102
 msgid "This answer is incorrect."
 msgstr "هذه الإجابة خاطئة."
 
+#: xmodule/capa/inputtypes.py:103
+msgid "This answer is partially correct."
+msgstr "هذه الإجابة صحيحة جزئياً."
+
+#: xmodule/capa/inputtypes.py:104
+msgid "This answer is being processed."
+msgstr "هذه الإجابة قيد المعالجة."
+
 #: xmodule/capa/inputtypes.py:106
 msgid "Not yet answered."
 msgstr "لم يُجب عنه بعد."
+
+#: xmodule/capa/inputtypes.py:441
+msgid "Select an option"
+msgstr "اختَر خياراً"
 
 #. Translators: 'ChoiceGroup' is an input type and should not be translated.
 #: xmodule/capa/inputtypes.py:493
 #, python-brace-format
 msgid "ChoiceGroup: unexpected tag {tag_name}"
 msgstr "ChoiceGroup: وسم {tag_name} غير متوقّع"
+
+#: xmodule/capa/inputtypes.py:506 xmodule/capa/inputtypes.py:1704
+msgid "Answer received."
+msgstr "استُلمت الإجابة."
 
 #. Translators: '<choice>' and '<compoundhint>' are tag names and should not
 #. be translated.
@@ -10122,9 +11269,42 @@ msgstr "محرر {programming_language} "
 msgid "Press ESC then TAB or click outside of the code editor to exit"
 msgstr "اضغط ESC ثم TAB، أو انقر خارج محرر النصوص البرمجية للخروج"
 
+#: xmodule/capa/inputtypes.py:847
+msgid ""
+"Submitted. As soon as a response is returned, this message will be replaced "
+"by that feedback."
+msgstr "أُرسلت الإجابة. ستُستبدل هذه الرسالة بتلك التعليقات بمجرد وصول الرد."
+
+#: xmodule/capa/inputtypes.py:872
+#, python-brace-format
+msgid "No response from Xqueue within {xqueue_timeout} seconds. Aborted."
+msgstr ""
+"لا استجابة من Xqueue في غضون {xqueue_timeout} من الثواني. أُوقفت العملية."
+
+#: xmodule/capa/inputtypes.py:941
+msgid "Error running code."
+msgstr "حدث خطأ في تشغيل الكود."
+
+#: xmodule/capa/inputtypes.py:980
+msgid "Cannot connect to the queue"
+msgstr "لا يمكن الاتصال بقائمة الانتظار."
+
+#: xmodule/capa/inputtypes.py:1211 xmodule/capa/inputtypes.py:1294
+msgid "No formula specified."
+msgstr "لم تُحدَّد صيغة."
+
+#: xmodule/capa/inputtypes.py:1217
+#, python-brace-format
+msgid "Couldn't parse formula: {error_msg}"
+msgstr "تعذر تحليل الصيغة: {error_msg}"
+
 #: xmodule/capa/inputtypes.py:1221 xmodule/capa/inputtypes.py:1316
 msgid "Error while rendering preview"
 msgstr "حدث خطأ أثناء عرض الإعداد لعرض المعاينة"
+
+#: xmodule/capa/inputtypes.py:1312
+msgid "Sorry, couldn't parse formula"
+msgstr "عذراً، تعذر تحليل الصيغة"
 
 #: xmodule/capa/inputtypes.py:1684
 #, python-brace-format
@@ -10139,6 +11319,12 @@ msgstr ""
 "كان من المتوقّع أن يُستلم وسم {expected_tag} ; لكن حُصل على {given_tag} "
 "بدلاً منه"
 
+#. Translators: index here could be 1,2,3 and so on
+#: xmodule/capa/responsetypes.py:254
+#, python-brace-format
+msgid "Question {index}"
+msgstr "سؤال {index}"
+
 #: xmodule/capa/responsetypes.py:365
 msgid "Correct:"
 msgstr "صحيح:"
@@ -10152,9 +11338,90 @@ msgstr "غير صحيح:"
 msgid "Answer"
 msgstr "الجواب"
 
+#: xmodule/capa/responsetypes.py:491
+#, python-brace-format
+msgid "Error {err} in evaluating hint function {hintfn}."
+msgstr "حدث الخطأ {err} أثناء تقييم دالة التلميح {hintfn}."
+
+#: xmodule/capa/responsetypes.py:492
+msgid "(Source code line unavailable)"
+msgstr "(سطر الكود المصدري غير متوفّر) "
+
+#: xmodule/capa/responsetypes.py:493
+#, python-brace-format
+msgid "See XML source line {sourcenum}."
+msgstr "انظر سطر XML المصدري رقم {sourcenum}."
+
+#: xmodule/capa/responsetypes.py:664
+msgid "Checkboxes"
+msgstr "مُربّعات الاختيار"
+
+#: xmodule/capa/responsetypes.py:991
+msgid "Multiple Choice"
+msgstr "اختيار من متعدد"
+
+#. Translators: 'shuffle' and 'answer-pool' are attribute names and should not
+#. be translated.
+#: xmodule/capa/responsetypes.py:1208
+msgid "Do not use shuffle and answer-pool at the same time"
+msgstr "لا تستخدم shuffle وanswer-pool في الوقت ذاته."
+
+#. Translators: 'answer-pool' is an attribute name and should not be
+#. translated.
+#: xmodule/capa/responsetypes.py:1291
+msgid "answer-pool value should be an integer"
+msgstr "يجب أن تكون قيمة answer-pool عددًا صحيحًا."
+
+#. Translators: 'Choicegroup' is an input type and should not be translated.
+#: xmodule/capa/responsetypes.py:1358
+msgid "Choicegroup must include at least 1 correct and 1 incorrect choice"
+msgstr ""
+"يجب أن تتضمن Choicegroup خيارًا صحيحًا واحدًا وخيارًا خاطئًا واحدًا على "
+"الأقل."
+
+#: xmodule/capa/responsetypes.py:1383
+msgid "True/False Choice"
+msgstr "اختيار صحيح/خاطئ"
+
 #: xmodule/capa/responsetypes.py:1428
 msgid "Dropdown"
 msgstr "قائمة منسدلة"
+
+#: xmodule/capa/responsetypes.py:1506
+msgid "Numerical Input"
+msgstr "إدخال عددي"
+
+#: xmodule/capa/responsetypes.py:1542 xmodule/capa/responsetypes.py:1569
+msgid "There was a problem with the staff answer to this problem."
+msgstr "حدثت مشكلة في إجابة الطاقم عن هذه المسألة."
+
+#: xmodule/capa/responsetypes.py:1592
+#, python-brace-format
+msgid "Could not interpret '{student_answer}' as a number."
+msgstr "تعذّر تفسير '{student_answer}' على أنه عدد."
+
+#: xmodule/capa/responsetypes.py:1610
+#, python-brace-format
+msgid "Factorial function evaluated outside its domain:'{student_answer}'"
+msgstr "قُيّمت دالة المضروب خارج مجالها: '{student_answer}'"
+
+#: xmodule/capa/responsetypes.py:1617
+#, python-brace-format
+msgid "Invalid math syntax: '{student_answer}'"
+msgstr "صيغة رياضية غير صالحة: '{student_answer}'"
+
+#: xmodule/capa/responsetypes.py:1648
+msgid "You may not use complex numbers in range tolerance problems"
+msgstr "لا يجوز استخدام الأعداد المركّبة في مسائل نطاق التحمّل"
+
+#. Translators: This is an error message for a math problem. If the instructor
+#. provided a
+#. boundary (end limit) for a variable that is a complex number (a + bi), this
+#. message displays.
+#: xmodule/capa/responsetypes.py:1656
+msgid ""
+"There was a problem with the staff answer to this problem: complex boundary."
+msgstr "حدثت مشكلة في إجابة الطاقم عن هذه المسألة: حدّ مركّب."
 
 #. Translators: This is an error message for a math problem. If the instructor
 #. did not
@@ -10176,12 +11443,36 @@ msgstr "أو"
 msgid "Text Input"
 msgstr "إجابة نصية"
 
+#: xmodule/capa/responsetypes.py:2058
+msgid "Custom Evaluated Script"
+msgstr "برنامج نصي مخصص مُقيَّم"
+
+#: xmodule/capa/responsetypes.py:2191
+msgid "No answer entered!"
+msgstr "لم تُدخَل أي إجابة!"
+
+#: xmodule/capa/responsetypes.py:2410
+msgid "CustomResponse: check function returned an invalid dictionary!"
+msgstr "CustomResponse: أرجعت دالة التحقق قاموسًا غير صالح!"
+
+#: xmodule/capa/responsetypes.py:2504
+msgid "Symbolic Math Input"
+msgstr "إدخال رياضي رمزي"
+
 #. Translators: 'SymbolicResponse' is a problem type and should not be
 #. translated.
 #: xmodule/capa/responsetypes.py:2535
 #, python-brace-format
 msgid "An error occurred with SymbolicResponse. The error was: {error_msg}"
 msgstr "حدث خطأ في SymbolicResponse. الخطأ هو: {error_msg}"
+
+#: xmodule/capa/responsetypes.py:2574
+msgid "Code Input"
+msgstr "إدخال الكود"
+
+#: xmodule/capa/responsetypes.py:2630
+msgid "No answer provided."
+msgstr "لم تُقدَّم أي إجابة."
 
 #: xmodule/capa/responsetypes.py:2649
 msgid "Error: No grader has been set up for this problem."
@@ -10205,14 +11496,88 @@ msgstr "رد المصحّح غير صالح. يُرجى الاتصال بطاق�
 msgid "External Grader"
 msgstr "مصحّح خارجي"
 
+#: xmodule/capa/responsetypes.py:2989
+msgid "Math Expression Input"
+msgstr "إدخال تعبير رياضي"
+
+#: xmodule/capa/responsetypes.py:3076
+#, python-brace-format
+msgid ""
+"Factorial function not permitted in answer for this problem. Provided answer"
+" was: {bad_input}"
+msgstr ""
+"دالة المضروب غير مسموح بها في الإجابة عن هذه المسألة. الإجابة المقدَّمة "
+"كانت: {bad_input}"
+
+#: xmodule/capa/responsetypes.py:3084
+#, python-brace-format
+msgid "Invalid input: Could not parse '{bad_input}' as a formula."
+msgstr "إدخال غير صالح: تعذّر تحليل '{bad_input}' على أنه صيغة."
+
+#: xmodule/capa/responsetypes.py:3092
+#, python-brace-format
+msgid "Invalid input: Could not parse '{bad_input}' as a formula"
+msgstr "إدخال غير صالح: تعذّر تحليل '{bad_input}' كمعادلة"
+
+#: xmodule/capa/responsetypes.py:3198
+msgid "Circuit Schematic Builder"
+msgstr "منشئ مخطط الدارة"
+
+#. Translators: 'SchematicResponse' is a problem type and should not be
+#. translated.
+#: xmodule/capa/responsetypes.py:3234
+#, python-brace-format
+msgid "Error in evaluating SchematicResponse. The error was: {error_msg}"
+msgstr "حدوث خطأ في تقييم ’SchematicResponse‘. رسالة الخطأ: {error_msg}"
+
+#: xmodule/capa/responsetypes.py:3276
+msgid "Image Mapped Input"
+msgstr "إدخال بخريطة صورة"
+
+#: xmodule/capa/responsetypes.py:3301
+#, python-brace-format
+msgid "error grading {image_input_id} (input={user_input})"
+msgstr "خطأ في تقييم {image_input_id} (input={user_input})"
+
+#. Translators: {sr_coords} are the coordinates of a rectangle
+#: xmodule/capa/responsetypes.py:3324
+#, python-brace-format
+msgid "Error in problem specification! Cannot parse rectangle in {sr_coords}"
+msgstr "حدث خطأ في توصيف المسألة! لا يمكن تحليل المستطيل في {sr_coords}"
+
 #: xmodule/capa/responsetypes.py:3401
 msgid "Annotation Input"
 msgstr "إدخال الملاحظة التوضيحية"
+
+#: xmodule/capa/responsetypes.py:3521
+msgid "Checkboxes With Text Input"
+msgstr "مربعات اختيار مع إدخال نصي"
+
+#: xmodule/capa/responsetypes.py:3573
+#, python-brace-format
+msgid "Answer not provided for {input_type}"
+msgstr "لم تُقدَّم إجابة عن {input_type}"
+
+#: xmodule/capa/responsetypes.py:3798
+msgid "The Staff answer could not be interpreted as a number."
+msgstr "تعذّر تفسير إجابة الطاقم كرقم."
+
+#: xmodule/capa/responsetypes.py:3808
+msgid "Could not interpret '{html.escape(answer_value)}' as a number."
+msgstr "تعذر تفسير '{html.escape(answer_value)}' كرقم."
 
 #: xmodule/capa/safe_exec/remote_exec.py:120
 msgid ""
 "Codejail API Service is unavailable. Please try again in a few minutes."
 msgstr "خدمة Codejail API غير متوفرة. من فضلك حاول مرة أخرى في بضع دقائق. "
+
+#: xmodule/capa/safe_exec/remote_exec.py:126
+msgid "Codejail API Service invalid response."
+msgstr "استجابة Codejail API Service غير صالحة."
+
+#: xmodule/capa/safe_exec/remote_exec.py:132
+msgid "Invalid JSON response received from codejail api service."
+msgstr "وردت استجابة JSON غير صالحة من خدمة codejail api."
 
 #: xmodule/capa/templates/codeinput.html:7
 msgid "Code Editor"
@@ -10228,10 +11593,22 @@ msgstr "تلميح"
 msgid "Save"
 msgstr "احفظ"
 
+#: xmodule/capa/templates/problem.html:33
+msgid "Save your answer"
+msgstr "احفظ إجابتك"
+
 #: xmodule/capa/templates/problem.html:41
 #: xmodule/capa/templates/problem.html:42
 msgid "Reset"
 msgstr "أعِد التعيين"
+
+#: xmodule/capa/templates/problem.html:42
+msgid "Reset your answer"
+msgstr "أعِد تعيين إجابتك"
+
+#: xmodule/capa/templates/problem.html:51
+msgid "Show answer"
+msgstr "اعرض الإجابة"
 
 #: xmodule/capa/templates/problem.html:115
 #, python-format
@@ -10256,6 +11633,14 @@ msgstr ""
 "تحتوي بعض المسائل على خيارات مثل \"احفظ\"، أو \"أعِد التعيين\"، أو "
 "تلميحات\"، أو أظهِر الجواب\". تأتي هذه الخيارات بعد الضغط غلى زر \"أرسِل\"."
 
+#: xmodule/capa/templates/problem.html:146
+msgid "Answers are displayed within the problem"
+msgstr "تُعرض الإجابات داخل المسألة"
+
+#: xmodule/capa/templates/problem_notifications.html:11
+msgid "Next Hint"
+msgstr "التلميح التالي"
+
 #: xmodule/capa/templates/problem_notifications.html:16
 msgid "Review"
 msgstr "راجع"
@@ -10268,6 +11653,18 @@ msgstr "عدد المرات التي حاول فيها هذا الطالب حل 
 msgid "Maximum Attempts"
 msgstr "الحد الأقصى للمحاولات"
 
+#: xmodule/capa_block.py:200
+msgid ""
+"Defines the number of times a student can try to answer this problem. If the"
+" value is not set, infinite attempts are allowed."
+msgstr ""
+"تضبط هذه القيمة عدد المرّات التي يمكن فيها للطالب أن يحاول الإجابة عن هذه "
+"المسألة. إذا لم تُضبط هذه القيمة، فسيُسمح بعدد غير محدود من المحاولات."
+
+#: xmodule/capa_block.py:207
+msgid "Grading Method"
+msgstr "طريقة التقييم"
+
 #: xmodule/capa_block.py:209
 msgid ""
 "Define the grading method for this problem. By default, it's the score of "
@@ -10276,13 +11673,41 @@ msgstr ""
 "حدد طريقة التقييم لهذه المسألة. بالحالة الافتراضية، يتم التقييم بناءً على "
 "الدرجة التي أحرزها الطالب في آخر مرة سلّم بها إجابته. "
 
+#: xmodule/capa_block.py:215 xmodule/capa_block.py:505
+msgid "Last Score"
+msgstr "النتيجة الأخيرة"
+
+#: xmodule/capa_block.py:216 xmodule/capa_block.py:506
+msgid "First Score"
+msgstr "النتيجة الأولى"
+
+#: xmodule/capa_block.py:217 xmodule/capa_block.py:507
+msgid "Highest Score"
+msgstr "أعلى نتيجة"
+
 #: xmodule/capa_block.py:218 xmodule/capa_block.py:508
 msgid "Average Score"
 msgstr "معدّل الدرجات"
 
+#: xmodule/capa_block.py:221
+msgid "Date that this problem is due by"
+msgstr "تاريخ استحقاق تقديم هذه المسألة"
+
+#: xmodule/capa_block.py:223
+msgid "Amount of time after the due date that submissions will be accepted"
+msgstr "المدة التي تُقبل خلالها الإجابات المقدَّمة بعد تاريخ الاستحقاق"
+
 #: xmodule/capa_block.py:226 xmodule/modulestore/inheritance.py:102
 msgid "Show Results"
 msgstr "أظهِر النتائج"
+
+#: xmodule/capa_block.py:228
+msgid ""
+"Defines when to show whether a learner's answer to the problem is correct. "
+"Configured on the subsection."
+msgstr ""
+"تحدد متى يُعرض ما إذا كانت إجابة المتعلم عن المسألة صحيحة أم لا. تُضبط في "
+"القسم الفرعي."
 
 #: xmodule/capa_block.py:234 xmodule/capa_block.py:245
 #: xmodule/capa_block.py:289
@@ -10297,9 +11722,20 @@ msgstr "انقضى الموعد!"
 msgid "Show Answer"
 msgstr "اعرض الجواب"
 
+#: xmodule/capa_block.py:241
+msgid ""
+"Defines when to show the answer to the problem. A default value can be set "
+"in Advanced Settings."
+msgstr ""
+"تحدد متى تُعرض إجابة المسألة. يمكن ضبط قيمة افتراضية في الإعدادات المتقدمة."
+
 #: xmodule/capa_block.py:246
 msgid "Answered"
 msgstr "أُجيب عنه"
+
+#: xmodule/capa_block.py:247
+msgid "Attempted or Past Due"
+msgstr "بعد المحاولة أو تجاوز تاريخ الاستحقاق"
 
 #: xmodule/capa_block.py:248
 msgid "Closed"
@@ -10309,21 +11745,154 @@ msgstr "مغلق"
 msgid "Finished"
 msgstr "انتهى"
 
+#: xmodule/capa_block.py:250
+msgid "Correct or Past Due"
+msgstr "بعد الإجابة الصحيحة أو تجاوز تاريخ الاستحقاق"
+
+#: xmodule/capa_block.py:253
+msgid "After Some Number of Attempts"
+msgstr "بعد عدد معيّن من المحاولات"
+
+#: xmodule/capa_block.py:254
+msgid "After All Attempts"
+msgstr "بعد استنفاد جميع المحاولات"
+
+#: xmodule/capa_block.py:255
+msgid "After All Attempts or Correct"
+msgstr "بعد استنفاد جميع المحاولات أو عند الإجابة الصحيحة"
+
+#: xmodule/capa_block.py:256
+msgid "Attempted"
+msgstr "تمت المحاولة"
+
 #: xmodule/capa_block.py:260
 msgid "Show Answer: Number of Attempts"
 msgstr "اعرض الجواب: عدد المحاولات"
+
+#: xmodule/capa_block.py:262
+msgid ""
+"Number of times the student must attempt to answer the question before the "
+"Show Answer button appears."
+msgstr ""
+"عدد المرات التي يجب أن يحاول فيها الطالب الإجابة عن السؤال قبل ظهور زر إظهار"
+" الإجابة."
+
+#: xmodule/capa_block.py:269
+msgid "Whether to force the save button to appear on the page"
+msgstr "ما إذا كان سيُفرض ظهور زر الحفظ في الصفحة"
+
+#: xmodule/capa_block.py:272 xmodule/item_bank_block.py:81
+msgid "Show Reset Button"
+msgstr "آظهر زرّ إعادة الضبط"
+
+#: xmodule/capa_block.py:274
+msgid ""
+"Determines whether a 'Reset' button is shown so the user may reset their "
+"answer. A default value can be set in Advanced Settings."
+msgstr ""
+"تحدد ما إذا كان زر ‘إعادة الضبط’ يظهر ليتمكن المستخدم من إعادة ضبط إجابته. "
+"يمكن تعيين قيمة افتراضية في الإعدادات المتقدمة."
+
+#: xmodule/capa_block.py:281 xmodule/modulestore/inheritance.py:114
+msgid "Randomization"
+msgstr "العشوائية"
+
+#: xmodule/capa_block.py:283
+msgid ""
+"Defines when to randomize the variables specified in the associated Python "
+"script. For problems that do not randomize values, specify \"Never\". "
+msgstr ""
+"تحدد متى تُعيَّن قيم عشوائية للمتغيرات المحددة في برنامج بايثون النصي "
+"المرتبط. في المسائل التي لا تستخدم قيماً عشوائية، حدّد \"أبداً\"."
+
+#: xmodule/capa_block.py:290
+msgid "On Reset"
+msgstr "عند إعادة الضبط"
+
+#: xmodule/capa_block.py:292
+msgid "Per Student"
+msgstr "لكلّ طالب"
+
+#: xmodule/capa_block.py:296
+msgid "XML data for the problem"
+msgstr "بيانات XML للمسألة"
+
+#: xmodule/capa_block.py:302
+msgid "Dictionary with the correctness of current student answers"
+msgstr "قاموس يحوي صحة إجابات الطالب الحالية"
+
+#: xmodule/capa_block.py:304
+msgid "List of correctness maps for each attempt"
+msgstr "قائمة خرائط الصحة لكل محاولة"
+
+#: xmodule/capa_block.py:305
+msgid "Dictionary for maintaining the state of inputtypes"
+msgstr "قاموس للحفاظ على حالة أنواع المدخلات"
+
+#: xmodule/capa_block.py:306
+msgid "Dictionary with the current student responses"
+msgstr "قاموس بردود الطالب الحالية"
+
+#: xmodule/capa_block.py:308
+msgid "List of student answers for each attempt"
+msgstr "قائمة إجابات الطالب لكل محاولة"
+
+#: xmodule/capa_block.py:312
+msgid "Dictionary with the current student score"
+msgstr "قاموس لعلامة الطالب الحالية"
 
 #: xmodule/capa_block.py:314
 msgid "List of scores for each attempt"
 msgstr "قائمة النتائج لكل محاولة"
 
+#: xmodule/capa_block.py:317
+msgid "Whether or not the answers have been saved since last submit"
+msgstr "ما إذا كانت الإجابات قد حُفظت أم لا منذ آخر تقديم"
+
 #: xmodule/capa_block.py:319
 msgid "Whether the student has answered the problem"
 msgstr "ما إذا أجاب الطالب عن المسألة"
 
+#: xmodule/capa_block.py:320
+msgid "Random seed for this student"
+msgstr "بذرة عشوائية لهذا الطالب"
+
+#: xmodule/capa_block.py:321
+msgid "Last submission time"
+msgstr "وقت آخر تقديم"
+
+#: xmodule/capa_block.py:323
+msgid "Timer Between Attempts"
+msgstr "المؤقّت بين المحاولات"
+
+#: xmodule/capa_block.py:324
+msgid ""
+"Seconds a student must wait between submissions for a problem with multiple "
+"attempts."
+msgstr ""
+"عدد الثواني التي ينبغي على الطالب انتظارها بين إجابة وأخرى لمسألة متعددة "
+"المحاولات."
+
 #: xmodule/capa_block.py:329
 msgid "Problem Weight"
 msgstr "ثقل المسألة"
+
+#: xmodule/capa_block.py:331
+msgid ""
+"Defines the number of points each problem is worth. If the value is not set,"
+" each response field in the problem is worth one point."
+msgstr ""
+"يُحدِّد عدد الدرجات التي تساويها كل مسألة. إذا لم تُحدَّد القيمة، يساوي كل "
+"حقل رد في المسألة درجة واحدة."
+
+#: xmodule/capa_block.py:337
+msgid "Markdown source of this module"
+msgstr "مصدر Markdown لهذه الوحدة"
+
+#: xmodule/capa_block.py:339
+msgid ""
+"Source code for LaTeX and Word problems. This feature is not well-supported."
+msgstr "الكود المصدري لمسائل LaTeX وWord. هذه الميزة غير مدعومة دعماً جيداً."
 
 #: xmodule/capa_block.py:341 xmodule/html_block.py:77
 msgid "Enable LaTeX templates?"
@@ -10332,6 +11901,22 @@ msgstr "هل تريد تفعيل قوالب LaTeX؟"
 #: xmodule/capa_block.py:343 xmodule/modulestore/inheritance.py:150
 msgid "Matlab API key"
 msgstr "مفتاح واجهة برمجة التطبيقات (API) لبرنامج Matlab"
+
+#: xmodule/capa_block.py:345
+msgid ""
+"Enter the API key provided by MathWorks for accessing the MATLAB Hosted "
+"Service. This key is granted for exclusive use by this course for the "
+"specified duration. Please do not share the API key with other courses and "
+"notify MathWorks immediately if you believe the key is exposed or "
+"compromised. To obtain a key for your course, or to report an issue, please "
+"contact moocsupport@mathworks.com"
+msgstr ""
+"أدخِل مفتاح واجهة برمجة التطبيقات المقدَّم من ماثووركس للوصول إلى خدمة "
+"ماتلاب المستضافة. يُمنح هذا المفتاح لهذا المساق للاستخدام الحصري خلال المدة "
+"المحددة. يُرجى عدم مشاركة مفتاح واجهة برمجة التطبيقات مع مساقات أخرى، وإبلاغ"
+" ماثووركس فوراً إذا كنت تعتقد أن المفتاح قد أصبح مكشوفاً أو مخترَقاً. للحصول"
+" على مفتاح لمساقك، أو للإبلاغ عن مشكلة، يُرجى التواصل مع "
+"moocsupport@mathworks.com"
 
 #: xmodule/capa_block.py:354
 msgid ""
@@ -10348,9 +11933,23 @@ msgstr ""
 "عُذراً، كان هناك خطأ أثناء معالجة طلبك. من فضلك أعِد تحميل صفحتك ثم حاول "
 "مجدداً."
 
+#: xmodule/capa_block.py:438
+msgid ""
+"The state of this problem has changed since you loaded this page. Please "
+"refresh your page."
+msgstr "تغيّرت حالة هذه المسألة منذ تحميلك هذه الصفحة. يُرجى تحديث صفحتك."
+
+#: xmodule/capa_block.py:758 xmodule/capa_block.py:775
+msgid "Answer ID"
+msgstr "معرف الإجابة"
+
 #: xmodule/capa_block.py:759 xmodule/capa_block.py:776
 msgid "Question"
 msgstr "السؤال"
+
+#: xmodule/capa_block.py:763
+msgid "Correct Answer"
+msgstr "إجابة صحيحة"
 
 #: xmodule/capa_block.py:1014
 msgid "Submitting"
@@ -10369,6 +11968,10 @@ msgid ""
 msgstr ""
 "أُفسدت حالة المسألة بسبب عملية إرسال غير صحيحة. يتكون الملف المُرسل من:"
 
+#: xmodule/capa_block.py:1147
+msgid "If this error persists, please contact the course staff."
+msgstr "إذا استمرّ ظهور هذا الخطأ، يُرجى الاتصال بطاقم المساق."
+
 #. Translators: {previous_hints} is the HTML of hints that have already been
 #. generated, {hint_number_prefix}
 #. is a header for this hint, and {hint_text} is the text of the hint itself.
@@ -10386,6 +11989,12 @@ msgstr "{previous_hints}{list_start_tag}{strong_text}{hint_text}</li>"
 #, python-brace-format
 msgid "Hint ({hint_num} of {hints_count}): "
 msgstr "التلميح ({hint_num} من أصل {hints_count}):"
+
+#: xmodule/capa_block.py:1289
+#, python-brace-format
+msgid ""
+"Your answers were previously saved. Click '{button_name}' to grade them."
+msgstr "حُفظت إجاباتك سابقاً. انقر على '{button_name}' لتقييمها."
 
 #: xmodule/capa_block.py:1365
 #, python-brace-format
@@ -10420,11 +12029,23 @@ msgstr[3] "صحيح جزئياً ({progress} درجات)"
 msgstr[4] "صحيح جزئياً ({progress} درجة)"
 msgstr[5] "صحيح جزئياً ({progress} درجة)"
 
+#: xmodule/capa_block.py:1384
+msgid "Partially Correct"
+msgstr "صحيحة جزئياً"
+
+#: xmodule/capa_block.py:1386
+msgid "Answer submitted."
+msgstr "أُرسلت الإجابة."
+
 #. Translators: 'closed' means the problem's due date has passed.
 #. You may no longer attempt to solve the problem.
 #: xmodule/capa_block.py:1778 xmodule/capa_block.py:2097
 msgid "Problem is closed."
 msgstr "أُغلقت المسألة."
+
+#: xmodule/capa_block.py:1784
+msgid "Problem must be reset before it can be submitted again."
+msgstr "يجب إعادة ضبط المسألة قبل إرسالها مرة أخرى."
 
 #: xmodule/capa_block.py:1794
 #, python-brace-format
@@ -10439,6 +12060,43 @@ msgid ""
 msgstr ""
 "يجب أن تنتظر ما لا يقل عن {wait_secs} بين كل إرسالين متتاليين. بقيت "
 "{remaining_secs}."
+
+#: xmodule/capa_block.py:1977
+#, python-brace-format
+msgid "{num_hour} hour"
+msgid_plural "{num_hour} hours"
+msgstr[0] "لا ساعات"
+msgstr[1] "ساعة واحدة"
+msgstr[2] "ساعتان"
+msgstr[3] "{num_hour} ساعات"
+msgstr[4] "{num_hour} ساعةً"
+msgstr[5] "{num_hour} ساعةٍ"
+
+#: xmodule/capa_block.py:1982
+#, python-brace-format
+msgid "{num_minute} minute"
+msgid_plural "{num_minute} minutes"
+msgstr[0] "لا دقائق"
+msgstr[1] "دقيقة واحدة"
+msgstr[2] "دقيقتان"
+msgstr[3] "{num_minute} دقائق"
+msgstr[4] "{num_minute} دقيقةً"
+msgstr[5] "{num_minute} دقيقةٍ"
+
+#: xmodule/capa_block.py:1988
+#, python-brace-format
+msgid "{num_second} second"
+msgid_plural "{num_second} seconds"
+msgstr[0] "لا ثوانٍ"
+msgstr[1] "ثانية واحدة"
+msgstr[2] "ثانيتان"
+msgstr[3] "{num_second} ثوانٍ"
+msgstr[4] "{num_second} ثانيةً"
+msgstr[5] "{num_second} ثانيةٍ"
+
+#: xmodule/capa_block.py:2105
+msgid "Problem needs to be reset prior to save."
+msgstr "يجب إعادة تعيين المسألة قبل حفظها."
 
 #: xmodule/capa_block.py:2114
 msgid "Your answers have been saved."
@@ -10459,6 +12117,10 @@ msgstr ""
 msgid "You cannot select Reset for a problem that is closed."
 msgstr "لا يمكنك اختيار \"أعِد التعيين\" لمسألة قد أُغلقت."
 
+#: xmodule/capa_block.py:2153
+msgid "You must submit an answer before you can select Reset."
+msgstr "يجب إرسال إجابة قبل أن تتمكن من اختيار \"إعادة تعيين\"."
+
 #. Translators: 'rescoring' refers to the act of re-submitting a student's
 #. solution so it can get a new score.
 #: xmodule/capa_block.py:2209
@@ -10469,9 +12131,17 @@ msgstr "لا يدعم تعريف المسألة عملية إعادة التقي
 msgid "Problem must be answered before it can be graded again."
 msgstr "ينبغي الإجابة عن هذه المسألة قبل أن يٌسمح بتقييمها مجدداً."
 
+#: xmodule/conditional_block.py:91
+msgid "Conditional"
+msgstr "مشروط"
+
 #: xmodule/conditional_block.py:95
 msgid "List of urls of children that are references to external modules"
 msgstr "قائمة بالروابط بالكتل الفرعية التي تُعتبر مراجع للوحدات الخارجية"
+
+#: xmodule/conditional_block.py:100
+msgid "Source Components"
+msgstr "مكوّنات المصدر"
 
 #: xmodule/conditional_block.py:101
 msgid ""
@@ -10484,6 +12154,10 @@ msgstr ""
 "سيظهر له محتوى هذه اللبنة الشرطية. انسخ معرّف موقع المكون من مربع حوار "
 "الإعدادات الخاص به في الاستوديو."
 
+#: xmodule/conditional_block.py:108
+msgid "Conditional Attribute"
+msgstr "خاصية مشروطة"
+
 #: xmodule/conditional_block.py:109
 msgid ""
 "The attribute of the source components that determines whether a learner is "
@@ -10492,6 +12166,10 @@ msgstr ""
 "خاصية مكونات المصدر التي تحدد ما إذا كان المتعلم سيظهر له محتوى هذه اللبنة "
 "الشرطية."
 
+#: xmodule/conditional_block.py:118
+msgid "Conditional Value"
+msgstr "قيمة مشروطة"
+
 #: xmodule/conditional_block.py:119
 msgid ""
 "The value that the conditional attribute of the source components must match"
@@ -10499,6 +12177,10 @@ msgid ""
 msgstr ""
 "القيمة التي يجب أن تتطابق مع الخاصية الشرطية لمكونات المصدر قبل عرض محتوى "
 "هذه اللبنة الشرطية للمستخدم."
+
+#: xmodule/conditional_block.py:126
+msgid "Blocked Content Message"
+msgstr "رسالة محتوى محظور"
 
 #: xmodule/conditional_block.py:127
 #, python-brace-format
@@ -10518,6 +12200,26 @@ msgstr ""
 msgid "You must complete {link} before you can access this unit."
 msgstr "يجب عليك إتمام {link} قبل أن تتمكن من الوصول على هذه الوحدة."
 
+#: xmodule/conditional_block.py:376
+msgid "This component has no source components configured yet."
+msgstr "لا يحتوي هذا المكوّن على أي مكوّنات مصدر مضبوطة بعد."
+
+#: xmodule/conditional_block.py:378
+msgid "Configure list of sources"
+msgstr "اضبط قائمة المصادر"
+
+#: xmodule/course_block.py:348
+msgid "LTI Passports"
+msgstr "بيانات اعتماد LTI"
+
+#: xmodule/course_block.py:349
+msgid ""
+"Enter the passports for course LTI tools in the following format: "
+"\"id:client_key:client_secret\"."
+msgstr ""
+"أدخِل بيانات اعتماد أدوات LTI للمساق بالصيغة التالية: "
+"\"id:client_key:client_secret\"."
+
 #: xmodule/course_block.py:353
 msgid ""
 "List of Textbook objects with (title, url) for textbooks used in this course"
@@ -10528,13 +12230,60 @@ msgstr ""
 msgid "Slug that points to the wiki for this course"
 msgstr "المعرّف المختصر الذي يشير إلى الويكي الخاص بهذا المساق"
 
+#: xmodule/course_block.py:360
+msgid "Date that enrollment for this class is opened"
+msgstr "تاريخ فتح باب التسجيل في هذا المساق"
+
 #: xmodule/course_block.py:364
 msgid "Date that enrollment for this class is closed"
 msgstr "تاريخ إغلاق الانضمام إلى هذا الصف"
 
+#: xmodule/course_block.py:366
+msgid "Start time when this block is visible"
+msgstr "وقت البدء الذي تكون عنده هذه اللبنة مرئية"
+
+#: xmodule/course_block.py:370
+msgid "Date that this class ends"
+msgstr "تاريخ انتهاء هذا المساق"
+
 #: xmodule/course_block.py:372
 msgid "Date that certificates become available to learners"
 msgstr "التاريخ الذي يجب أن تصبح في الشهادات متاحة للمتعلمين"
+
+#: xmodule/course_block.py:376
+msgid "Cosmetic Course Display Price"
+msgstr "سعر المساق الظاهري المعروض"
+
+#: xmodule/course_block.py:378
+msgid ""
+"The cost displayed to students for enrolling in the course. If a paid course"
+" registration price is set by an administrator in the database, that price "
+"will be displayed instead of this one."
+msgstr ""
+"التكلفة المعروضة للطلاب مقابل التسجيل في المساق. إذا حدّد أحد المشرفين في "
+"قاعدة البيانات سعر التسجيل في المساق المدفوع، فسيُعرض ذلك السعر بدلاً منها."
+
+#: xmodule/course_block.py:385
+msgid "Course Advertised Start"
+msgstr "بدء المساق المُعلَن"
+
+#: xmodule/course_block.py:387
+msgid ""
+"Enter the text that you want to use as the advertised starting time frame "
+"for the course, such as \"Winter 2018\". If you enter null for this value, "
+"the start date that you have set for this course is used."
+msgstr ""
+"أدخل النص الذي تريد استخدامه كالإطار الزمني المُعلَن لبدء المساق، مثل \"شتاء"
+" 2018\". إذا أدخلت null لهذه القيمة، فسيُستخدم تاريخ البدء الذي ضبطته لهذا "
+"المساق."
+
+#: xmodule/course_block.py:394
+msgid "Pre-Requisite Courses"
+msgstr "مساقات المتطلبات السابقة"
+
+#: xmodule/course_block.py:395
+msgid "Pre-Requisite Course key if this course has a pre-requisite course"
+msgstr "مفتاح مساق المتطلب السابق إذا كان لهذا المساق مساق متطلب سابق"
 
 #: xmodule/course_block.py:399
 msgid "Grading policy definition for this class"
@@ -10564,6 +12313,71 @@ msgstr "الاسم الظاهر للمساق"
 msgid "Course Editor"
 msgstr "محرر المساق"
 
+#: xmodule/course_block.py:417 xmodule/modulestore/inheritance.py:63
+msgid "Enter the method by which this course is edited (\"XML\" or \"Studio\")."
+msgstr "أدخِل طريقة تعديل هذا المساق (\"XML\" أو \"ستُوديو\")."
+
+#: xmodule/course_block.py:424
+msgid "Course Survey URL"
+msgstr "رابط استبيان المساق"
+
+#: xmodule/course_block.py:425
+msgid ""
+"Enter the URL for the end-of-course survey. If your course does not have a "
+"survey, enter null."
+msgstr ""
+"أدخِل رابط استبيان نهاية المساق. إذا لم يكن لمساقك استبيان، فأدخِل null."
+
+#: xmodule/course_block.py:430
+msgid "Discussion Blackout Dates"
+msgstr "تواريخ حجب النقاشات"
+
+#: xmodule/course_block.py:432
+msgid ""
+"Enter pairs of dates between which students cannot post to discussion "
+"forums. Inside the provided brackets, enter an additional set of square "
+"brackets surrounding each pair of dates you add. Format each pair of dates "
+"as [\"YYYY-MM-DD\", \"YYYY-MM-DD\"]. To specify times as well as dates, "
+"format each pair as [\"YYYY-MM-DDTHH:MM\", \"YYYY-MM-DDTHH:MM\"]. Be sure to"
+" include the \"T\" between the date and time. For example, an entry defining"
+" two blackout periods looks like this, including the outer pair of square "
+"brackets: [[\"2015-09-15\", \"2015-09-21\"], [\"2015-10-01\", "
+"\"2015-10-08\"]] "
+msgstr ""
+"أدخِل أزواج التواريخ التي لا يمكن للطلاب خلالها النشر في منتديات النقاش. "
+"داخل القوسين الموجودين، أدخِل مجموعة إضافية من الأقواس المربعة تحيط بكل زوج "
+"من التواريخ التي تضيفها. اكتب كل زوج من التواريخ بالصيغة: [\"YYYY-MM-DD\", "
+"\"YYYY-MM-DD\"]. ولتحديد الأوقات مع التواريخ، اكتب كل زوج بالصيغة: [\"YYYY-"
+"MM-DDTHH:MM\", \"YYYY-MM-DDTHH:MM\"]. احرص على وضع الحرف \"T\" بين التاريخ "
+"والوقت. على سبيل المثال، يبدو الإدخال الذي يحدد فترتَي حظر على النحو التالي،"
+" بما في ذلك زوج الأقواس المربعة الخارجي: [[\"2015-09-15\", \"2015-09-21\"], "
+"[\"2015-10-01\", \"2015-10-08\"]]"
+
+#: xmodule/course_block.py:442
+msgid "Discussion Topic Mapping"
+msgstr "تعيين موضوع المناقشة"
+
+#: xmodule/course_block.py:444
+msgid ""
+"Enter discussion categories in the following format: \"CategoryName\": "
+"{\"id\": \"i4x-InstitutionName-CourseNumber-course-CourseRun\"}. For "
+"example, one discussion category may be \"Lydian Mode\": {\"id\": "
+"\"i4x-UniversityX-MUS101-course-2015_T1\"}. The \"id\" value for each "
+"category must be unique. In \"id\" values, the only special characters that "
+"are supported are underscore, hyphen, and period. You can also specify a "
+"category as the default for new posts in the Discussion page by setting its "
+"\"default\" attribute to true. For example, \"Lydian Mode\": {\"id\": "
+"\"i4x-UniversityX-MUS101-course-2015_T1\", \"default\": true}."
+msgstr ""
+"أدخِل فئات المناقشة بالصيغة التالية: \"CategoryName\": {\"id\": "
+"\"i4x-InstitutionName-CourseNumber-course-CourseRun\"}. على سبيل المثال، قد "
+"تكون إحدى فئات المناقشة \"Lydian Mode\": {\"id\": \"i4x-UniversityX-"
+"MUS101-course-2015_T1\"}. يجب أن تكون قيمة \"id\" فريدة لكل فئة. في قيم "
+"\"id\"، الأحرف الخاصة الوحيدة المدعومة هي الشرطة السفلية والواصلة والنقطة. "
+"يمكنك أيضاً تحديد فئة كفئة افتراضية للمشاركات الجديدة في صفحة المناقشة "
+"بتعيين السمة \"default\" إلى true. على سبيل المثال، \"Lydian Mode\": "
+"{\"id\": \"i4x-UniversityX-MUS101-course-2015_T1\", \"default\": true}."
+
 #: xmodule/course_block.py:456
 msgid "Discussions Plugin Settings"
 msgstr "إعدادات ملحق المناقشات"
@@ -10571,6 +12385,32 @@ msgstr "إعدادات ملحق المناقشات"
 #: xmodule/course_block.py:458
 msgid "Settings for discussions plugins."
 msgstr "إعدادات ملحقات المناقشات."
+
+#: xmodule/course_block.py:466
+msgid "Course Announcement Date"
+msgstr "تاريخ الإعلان عن المساق"
+
+#: xmodule/course_block.py:467
+msgid "Enter the date to announce your course."
+msgstr "أدخِل تاريخ الإعلان عن مساقك."
+
+#: xmodule/course_block.py:471
+msgid "Cohort Configuration"
+msgstr "إعدادات الشعبة"
+
+#: xmodule/course_block.py:473
+msgid ""
+"Enter policy keys and values to enable the cohort feature, define automated "
+"student assignment to groups, or identify any course-wide discussion topics "
+"as private to cohort members."
+msgstr ""
+"أدخِل مفاتيح السياسة وقيمها لتفعيل ميزة الشعب، أو لتعريف الإسناد الآلي "
+"للطلاب إلى مجموعات، أو لتحديد أي مواضيع نقاش على مستوى المساق بأنها خاصة "
+"بأعضاء الشعبة."
+
+#: xmodule/course_block.py:479
+msgid "Course Is New"
+msgstr "المساق جديد"
 
 #: xmodule/course_block.py:481
 msgid ""
@@ -10580,6 +12420,22 @@ msgstr ""
 "يُرجى إدخال \"نعم\" أو \"لا\". إذا أدخلت \"نعم\"، فسيظهر المساق في قائمة "
 "المساقات الجديدة وستظهر شارة \"جديد!\" مؤقتاً بجوار صورة المساق. "
 
+#: xmodule/course_block.py:487
+msgid "Mobile Course Available"
+msgstr "المساق مُتاح على الأجهزة المحمولة"
+
+#: xmodule/course_block.py:488
+msgid ""
+"Enter true or false. If true, the course will be available to mobile "
+"devices."
+msgstr ""
+"أدخِل true أو false. إذا كانت القيمة true، فسيكون المساق متاحاً على الأجهزة "
+"المحمولة."
+
+#: xmodule/course_block.py:493
+msgid "Video Upload Credentials"
+msgstr "بيانات اعتماد رفع الفيديو"
+
 #: xmodule/course_block.py:495
 #, python-brace-format
 msgid ""
@@ -10587,6 +12443,46 @@ msgid ""
 "{platform_name}."
 msgstr ""
 "أدخِل المعرّف الفريد لملفات الفيديو لمساقك المقدمة من خلال  {platform_name}."
+
+#: xmodule/course_block.py:500
+msgid "Course Not Graded"
+msgstr "مساق غير مٌقيّم"
+
+#: xmodule/course_block.py:501
+msgid "Enter true or false. If true, the course will not be graded."
+msgstr "أدخِل true أو false. إذا كانت القيمة true، فلن يُقيَّم المساق."
+
+#: xmodule/course_block.py:506
+msgid "Disable Progress Graph"
+msgstr "تعطيل الرسم البياني للتقدّم"
+
+#: xmodule/course_block.py:507
+msgid "Enter true or false. If true, students cannot view the progress graph."
+msgstr ""
+"أدخِل true أو false. إذا كانت القيمة true، فلا يمكن للطلاب عرض الرسم البياني"
+" للتقدّم."
+
+#: xmodule/course_block.py:512
+msgid "PDF Textbooks"
+msgstr "الكتب الدراسية بصيغة PDF"
+
+#: xmodule/course_block.py:513
+msgid "List of dictionaries containing pdf_textbook configuration"
+msgstr "قائمة القواميس التي تحتوي على إعدادات pdf_textbook"
+
+#: xmodule/course_block.py:516
+msgid "HTML Textbooks"
+msgstr "الكتب الدراسية بصيغة HTML"
+
+#: xmodule/course_block.py:518
+msgid ""
+"For HTML textbooks that appear as separate tabs in the course, enter the "
+"name of the tab (usually the title of the book) as well as the URLs and "
+"titles of each chapter in the book."
+msgstr ""
+"في الكتب الدراسية بصيغة HTML التي تظهر في المساق كعلامات تبويب منفصلة، أدخِل"
+" اسم علامة التبويب (وهو عادةً عنوان الكتاب)، إضافةً إلى روابط كل فصل في "
+"الكتاب وعناوينها."
 
 #: xmodule/course_block.py:524
 msgid "Remote Gradebook"
@@ -10605,6 +12501,15 @@ msgstr ""
 #. a role created by a course Instructor to enable a person (the "Coach") to
 #. manage the custom course for
 #. his students.
+#: xmodule/course_block.py:535
+msgid "Enable CCX"
+msgstr "تفعيل CCX"
+
+#. Translators: Custom Courses for edX (CCX) is an edX feature for re-using
+#. course content. CCX Coach is
+#. a role created by a course Instructor to enable a person (the "Coach") to
+#. manage the custom course for
+#. his students.
 #: xmodule/course_block.py:540
 #, python-brace-format
 msgid ""
@@ -10615,6 +12520,20 @@ msgstr ""
 "اسمح لمعلمي المساق بتعيين أدوار مدرب CCX، واسمح للمدربين بإدارة المساقات "
 "المخصصة على {platform_name}. في حال عُطِّل هذا الخيار، لن تتمكن من إنشاء "
 "مساقات مخصصة جديدة، ولكن ستبقى المساقات المخصصة الحالية موجودة."
+
+#. Translators: Custom Courses for edX (CCX) is an edX feature for re-using
+#. course content.
+#: xmodule/course_block.py:549
+msgid "CCX Connector URL"
+msgstr "رابط URL لموصِّل CCX"
+
+#: xmodule/course_block.py:552
+msgid ""
+"URL for CCX Connector application for managing creation of CCXs. (optional)."
+" Ignored unless 'Enable CCX' is set to 'true'."
+msgstr ""
+"رابط URL لتطبيق موصِّل CCX المخصص لإدارة إنشاء مساقات CCX. (اختياري). "
+"يُتجاهل ما لم يُضبط إعداد 'تفعيل CCX' على 'true'."
 
 #: xmodule/course_block.py:558
 msgid "Allow Anonymous Discussion Posts"
@@ -10641,6 +12560,57 @@ msgstr ""
 "يُرجى إدخال \"صح\" أو \"خطأ\". إذا أدخلت صح، فيستمكن الطلاب من إنشاء منشورات"
 " المناقشة دون الإفصاح هويتهم للطلاب الآخرين. ولكن من دون إخفاء هوية كاتب "
 "المنشور عن طاقم المساق."
+
+#: xmodule/course_block.py:571 xmodule/library_root_xblock.py:36
+msgid "Advanced Module List"
+msgstr "قائمة المكوّنات المتقدمة"
+
+#: xmodule/course_block.py:572
+msgid "Enter the names of the advanced modules to use in your course."
+msgstr "أدخِل أسماء المكوّنات المتقدمة لاستخدامها في مساقك."
+
+#: xmodule/course_block.py:578
+msgid ""
+"True if timezones should be shown on dates in the course. Deprecated in "
+"favor of due_date_display_format."
+msgstr ""
+"تكون القيمة true إذا وجب إظهار المناطق الزمنية في تواريخ المساق. مُهمَل، "
+"واستُعيض عنه بـ due_date_display_format."
+
+#: xmodule/course_block.py:584
+msgid "Due Date Display Format"
+msgstr "صيغة عرض تاريخ الاستحقاق"
+
+#: xmodule/course_block.py:586
+msgid ""
+"Enter the format for due dates. The default is Mon DD, YYYY. Enter "
+"\"%m-%d-%Y\" for MM-DD-YYYY, \"%d-%m-%Y\" for DD-MM-YYYY, \"%Y-%m-%d\" for "
+"YYYY-MM-DD, or \"%Y-%d-%m\" for YYYY-DD-MM."
+msgstr ""
+"أدخِل صيغة تواريخ الاستحقاق. الصيغة الافتراضية هي Mon DD, YYYY. أدخِل "
+"\"%m-%d-%Y\" للصيغة MM-DD-YYYY، أو \"%d-%m-%Y\" للصيغة DD-MM-YYYY، أو "
+"\"%Y-%m-%d\" للصيغة YYYY-MM-DD، أو \"%Y-%d-%m\" للصيغة YYYY-DD-MM."
+
+#: xmodule/course_block.py:592
+msgid "External Login Domain"
+msgstr "نطاق تسجيل الدخول الخارجي"
+
+#: xmodule/course_block.py:593
+msgid "Enter the external login method students can use for the course."
+msgstr ""
+"أدخِل طريقة تسجيل الدخول الخارجي التي يمكن للطلاب استخدامها في المساق."
+
+#: xmodule/course_block.py:597
+msgid "Certificates Downloadable Before End"
+msgstr "الشهادات القابلة للتحميل قبل انتهاء المساق"
+
+#: xmodule/course_block.py:599
+msgid ""
+"Enter true or false. If true, students can download certificates before the "
+"course ends, if they've met certificate requirements."
+msgstr ""
+"أدخِل true أو false. إذا كانت القيمة true، يمكن للطلاب تنزيل الشهادات قبل "
+"انتهاء المساق، في حال استيفائهم متطلبات الشهادة."
 
 #: xmodule/course_block.py:608
 msgid "Certificates Display Behavior"
@@ -10692,9 +12662,55 @@ msgstr ""
 "عدِّل اسم ملف الصورة المصغرة للفيديو. يمكنك تعيين الصورة المصغرة للفيديو من "
 "خلال صفحة الإعدادات والتفاصيل."
 
+#: xmodule/course_block.py:650
+msgid ""
+"Use this setting only when generating PDF certificates. Between quotation "
+"marks, enter the short name of the type of certificate that students receive"
+" when they complete the course. For instance, \"Certificate\"."
+msgstr ""
+"استخدم هذا الإعداد فقط عند إنشاء شهادات بصيغة PDF. أدخِل، بين علامتي اقتباس،"
+" الاسم المختصر لنوع الشهادة التي يتلقّاها الطلاب عند إتمامهم المساق. على "
+"سبيل المثال: \"شهادة\"."
+
+#: xmodule/course_block.py:654
+msgid "Certificate Name (Short)"
+msgstr "اسم الشهادة (مختصر)"
+
+#: xmodule/course_block.py:660
+msgid ""
+"Use this setting only when generating PDF certificates. Between quotation "
+"marks, enter the long name of the type of certificate that students receive "
+"when they complete the course. For instance, \"Certificate of Achievement\"."
+msgstr ""
+"استخدم هذا الإعداد فقط عند إنشاء شهادات بصيغة PDF. أدخِل، بين علامتي اقتباس،"
+" الاسم الكامل لنوع الشهادة التي يتلقّاها الطلاب عند إتمامهم المساق. على سبيل"
+" المثال: \"شهادة إنجاز\"."
+
 #: xmodule/course_block.py:664
 msgid "Certificate Name (Long)"
 msgstr "اسم الشهادة (طويل)"
+
+#: xmodule/course_block.py:669
+msgid "Certificate Web/HTML View Enabled"
+msgstr "تفعيل عرض الشهادة بصيغة ويب/HTML"
+
+#: xmodule/course_block.py:670
+msgid "If true, certificate Web/HTML views are enabled for the course."
+msgstr "إذا كانت القيمة true، يُفعَّل عرض الشهادات بصيغة ويب/HTML للمساق."
+
+#. Translators: This field is the container for course-specific certificate
+#. configuration values
+#: xmodule/course_block.py:677
+msgid "Certificate Web/HTML View Overrides"
+msgstr "تجاوزات عرض الشهادة بصيغة ويب/HTML"
+
+#. Translators: These overrides allow for an alternative configuration of the
+#. certificate web view
+#: xmodule/course_block.py:679
+msgid ""
+"Enter course-specific overrides for the Web/HTML template parameters here "
+"(JSON format)"
+msgstr "أدخِل هنا تجاوزات معاملات قالب ويب/HTML الخاصة بالمساق (بصيغة JSON)."
 
 #. Translators: This field is the container for course-specific certificate
 #. configuration values
@@ -10702,9 +12718,22 @@ msgstr "اسم الشهادة (طويل)"
 msgid "Certificate Configuration"
 msgstr "إعدادات الشهادة"
 
+#. Translators: These overrides allow for an alternative configuration of the
+#. certificate web view
+#: xmodule/course_block.py:688
+msgid "Enter course-specific configuration information here (JSON format)"
+msgstr "أدخِل هنا معلومات الإعدادات الخاصة بالمساق (بصيغة JSON)."
+
 #: xmodule/course_block.py:702
 msgid "CSS Class for Course Reruns"
 msgstr "فئة CSS لإعادة طرح المساقات"
+
+#: xmodule/course_block.py:703
+msgid ""
+"Allows courses to share the same css class across runs even if they have "
+"different numbers."
+msgstr ""
+"يتيح للمساقات مشاركة فئة CSS نفسها عبر عمليات التشغيل حتى لو اختلفت أرقامها."
 
 #: xmodule/course_block.py:714
 msgid "Discussion Forum External Link"
@@ -10722,6 +12751,10 @@ msgstr "اخفِ علامة تبويب \"التقدم\""
 msgid "Allows hiding of the progress tab."
 msgstr "اسمح بإخفاء علامة تبويب\" التقدم\"."
 
+#: xmodule/course_block.py:731
+msgid "Course Organization Display String"
+msgstr "نص عرض مؤسسة المساق"
+
 #: xmodule/course_block.py:733
 msgid ""
 "Enter the course organization that you want to appear in the course. This "
@@ -10733,6 +12766,10 @@ msgstr ""
 "المؤسسة الذي كُتب عندما أُنشئ المساق. لاستخدام الاسم الذي كُتب حينها، أدخِل "
 "القيمة ’null‘."
 
+#: xmodule/course_block.py:741
+msgid "Course Number Display String"
+msgstr "نص عرض رقم المساق"
+
 #: xmodule/course_block.py:743
 msgid ""
 "Enter the course number that you want to appear in the course. This setting "
@@ -10743,6 +12780,10 @@ msgstr ""
 "أدخِل رقم المساق الذي تريد أن يظهر في المساق. سيستبدل هذا الإعداد رقم المساق"
 " الذي كُتب عندما أُنشئ المساق. لاستخدام الرقم الذي كُتب حينها، أدخِل القيمة "
 "’null‘."
+
+#: xmodule/course_block.py:752
+msgid "Course Maximum Student Enrollment"
+msgstr "الحد الأقصى لتسجيل الطلاب في المساق"
 
 #: xmodule/course_block.py:754
 msgid ""
@@ -10764,23 +12805,82 @@ msgstr ""
 "يُرجى إدخال \"نعم\" أو \"لا\". إذا أدخلت \"نعم\"، فسيتمكن الطلاب من عرض ويكي"
 " المساق حتى وإن لم يكونوا مسجّلين في المساق. "
 
+#: xmodule/course_block.py:771
+msgid "Invitation Only"
+msgstr "التسجيل بالدعوة فقط"
+
+#: xmodule/course_block.py:772
+msgid "Whether to restrict enrollment to invitation by the course staff."
+msgstr "تحديد ما إذا كان التسجيل مقصوراً على من يدعوهم طاقم المساق."
+
+#: xmodule/course_block.py:778
+msgid "Pre-Course Survey Name"
+msgstr "اسم استبيان ما قبل المساق"
+
 #: xmodule/course_block.py:779
 msgid "Name of SurveyForm to display as a pre-course survey to the user."
 msgstr ""
 "اسم نموذج الاستبيان ’SurveyForm‘ الذي سيُعرض للمستخدم كاستبيان ما قبل "
 "المساق."
 
+#: xmodule/course_block.py:786
+msgid "Pre-Course Survey Required"
+msgstr "استبيان ما قبل المساق مطلوب"
+
+#: xmodule/course_block.py:788
+msgid ""
+"Specify whether students must complete a survey before they can view your "
+"course content. If you set this value to true, you must add a name for the "
+"survey to the Course Survey Name setting above."
+msgstr ""
+"حدّد ما إذا كان الطلاب مُلزمين بتعبئة استبيان قبل عرض محتوى مساقك. إذا ضبطت "
+"هذه القيمة على true، فيجب عليك إضافة اسم للاستبيان إلى إعداد اسم استبيان "
+"المساق أعلاه."
+
 #: xmodule/course_block.py:797
 msgid "Course Visibility In Catalog"
 msgstr "ظهور المساق في الدليل"
+
+#. Translators: the quoted words 'both', 'about', and 'none' must be
+#. left untranslated.  Leave them as English words.
+#: xmodule/course_block.py:801
+msgid ""
+"Defines the access permissions for showing the course in the course catalog."
+" This can be set to one of three values: 'both' (show in catalog and allow "
+"access to about page), 'about' (only allow access to about page), 'none' (do"
+" not show in catalog and do not allow access to an about page)."
+msgstr ""
+"يحدّد هذا الإعداد صلاحيات الوصول المتعلقة بعرض المساق في دليل المساقات. يمكن"
+" ضبطه على إحدى ثلاث قيم: 'both' (العرض في الدليل والسماح بالوصول إلى صفحة "
+"لمحة عن المساق)، 'about' (السماح بالوصول إلى صفحة لمحة عن المساق فقط)، "
+"'none' (عدم العرض في الدليل وعدم السماح بالوصول إلى صفحة لمحة عن المساق)."
 
 #: xmodule/course_block.py:815
 msgid "Entrance Exam Enabled"
 msgstr "لقد فُعّل امتحان القبول"
 
+#: xmodule/course_block.py:817
+msgid ""
+"Specify whether students must complete an entrance exam before they can view"
+" your course content. Note, you must enable Entrance Exams for this course "
+"setting to take effect."
+msgstr ""
+"حدّد ما إذا كان على الطلاب إكمال امتحان دخول قبل أن يتمكنوا من عرض محتوى "
+"مساقك. ملاحظة: يجب تفعيل امتحانات الدخول ليصبح هذا الإعداد ساري المفعول."
+
 #: xmodule/course_block.py:828
 msgid "Entrance Exam Minimum Score (%)"
 msgstr "الحدّ الأدنى للدرجة في امتحان القبول (%)"
+
+#: xmodule/course_block.py:830
+msgid ""
+"Specify a minimum percentage score for an entrance exam before students can "
+"view your course content. Note, you must enable Entrance Exams for this "
+"course setting to take effect."
+msgstr ""
+"حدّد الحد الأدنى للدرجة المئوية لامتحان دخول قبل أن يتمكن الطلاب من عرض "
+"محتوى مساقك. ملاحظة: يجب تفعيل امتحانات الدخول ليصبح هذا الإعداد ساري "
+"المفعول."
 
 #: xmodule/course_block.py:838
 msgid "Entrance Exam ID"
@@ -10793,6 +12893,26 @@ msgstr "معرّف (موقع) لبنة المحتوى لامتحان القبو�
 #: xmodule/course_block.py:845
 msgid "Social Media Sharing URL"
 msgstr "رابط المشاركة عبر وسائل التواصل الاجتماعي"
+
+#: xmodule/course_block.py:847
+msgid ""
+"If dashboard social sharing and custom course URLs are enabled, you can "
+"provide a URL (such as the URL to a course About page) that social media "
+"sites can link to. URLs must be fully qualified. For example: "
+"http://www.edx.org/course/Introduction-to-MOOCs-ITM001"
+msgstr ""
+"في حال تفعيل المشاركة عبر مواقع التواصل الاجتماعي من اللوحة الرئيسية وروابط "
+"URL المخصصة للمساقات، يمكنك إدخال رابط URL (مثل رابط URL لصفحة لمحة عن "
+"المساق) لتربط به مواقع التواصل الاجتماعي. يجب أن تكون روابط URL كاملة. على "
+"سبيل المثال: http://www.edx.org/course/Introduction-to-MOOCs-ITM001"
+
+#: xmodule/course_block.py:855
+msgid "Course Language"
+msgstr "لغة المساق"
+
+#: xmodule/course_block.py:856
+msgid "Specify the language of your course."
+msgstr "حدّد لغة مساقك."
 
 #: xmodule/course_block.py:862
 msgid "Teams Configuration"
@@ -10814,6 +12934,29 @@ msgstr ""
 msgid "Enable Proctored Exams"
 msgstr "فعِّل الامتحانات المراقبة"
 
+#: xmodule/course_block.py:876
+msgid ""
+"Enter true or false. If this value is true, proctored exams are enabled in "
+"your course. Note that enabling proctored exams will also enable timed "
+"exams."
+msgstr ""
+"أدخِل true أو false. إذا كانت القيمة true، تكون الامتحانات المراقبة مفعّلة "
+"في مساقك. لاحظ أن تفعيل الامتحانات المراقبة سيؤدي أيضاً إلى تفعيل الامتحانات"
+" محدّدة التوقيت."
+
+#: xmodule/course_block.py:885
+msgid "Proctoring Provider"
+msgstr "مزود المراقبة"
+
+#: xmodule/course_block.py:887
+#, python-brace-format
+msgid ""
+"Enter the proctoring provider you want to use for this course run. Choose "
+"from the following options: {available_providers}."
+msgstr ""
+"أدخِل مزوّد المراقبة الذي تريد استخدامه في هذا التشغيل من المساق. اختر من "
+"الخيارات التالية: {available_providers}."
+
 #: xmodule/course_block.py:901
 msgid "Proctoring Exam Escalation Contact"
 msgstr "جهة الاتصال لتصعيد مشكلات الامتحانات المراقَبة"
@@ -10828,9 +12971,59 @@ msgstr ""
 " عنوان بريد إلكتروني ليتواصل معه فريق الدعم عند وجود حالات تصعيد (مثل "
 "الاعتراضات والمراجعات المتأخرة وغيرها)."
 
+#: xmodule/course_block.py:913
+msgid "Allow Opting Out of Proctored Exams"
+msgstr "السماح بالانسحاب من الامتحانات المراقبة"
+
+#: xmodule/course_block.py:915
+msgid ""
+"Enter true or false. If this value is true, learners can choose to take "
+"proctored exams without proctoring. If this value is false, all learners "
+"must take the exam with proctoring. This setting only applies if proctored "
+"exams are enabled for the course."
+msgstr ""
+"أدخِل true أو false. إذا كانت القيمة true، يمكن للمتعلمين اختيار أداء "
+"الامتحانات المراقبة دون مراقبة. وإذا كانت القيمة false، فعلى جميع المتعلمين "
+"أداء الامتحان بمراقبة. لا ينطبق هذا الإعداد إلا إذا كانت الامتحانات المراقبة"
+" مفعّلة للمساق."
+
+#: xmodule/course_block.py:925
+msgid "Create Zendesk Tickets For Suspicious Proctored Exam Attempts"
+msgstr "إنشاء تذاكر Zendesk لمحاولات الامتحانات المراقبة المشبوهة"
+
+#: xmodule/course_block.py:927
+msgid ""
+"Enter true or false. If this value is true, a Zendesk ticket will be created"
+" for suspicious attempts."
+msgstr ""
+"أدخِل true أو false. إذا كانت القيمة true، ستُنشأ تذكرة Zendesk للمحاولات "
+"المشبوهة."
+
 #: xmodule/course_block.py:935
 msgid "Enable Timed Exams"
 msgstr "فعِّل الامتحانات المحددة بوقت"
+
+#: xmodule/course_block.py:937
+msgid ""
+"Enter true or false. If this value is true, timed exams are enabled in your "
+"course. Regardless of this setting, timed exams are enabled if Enable "
+"Proctored Exams is set to true."
+msgstr ""
+"أدخِل true أو false. إذا كانت القيمة true، تكون الامتحانات محدّدة التوقيت "
+"مفعّلة في مساقك. وبغض النظر عن هذا الإعداد، تكون الامتحانات محدّدة التوقيت "
+"مفعّلة إذا ضُبط تفعيل الامتحانات المراقبة على true."
+
+#: xmodule/course_block.py:946
+msgid "Minimum Grade for Credit"
+msgstr "الدرجة الدنيا للحصول على الاعتماد"
+
+#: xmodule/course_block.py:948
+msgid ""
+"The minimum grade that a learner must earn to receive credit in the course, "
+"as a decimal between 0.0 and 1.0. For example, for 75%, enter 0.75."
+msgstr ""
+"الحد الأدنى للدرجة التي يجب أن يحققها المتعلم للحصول على الاعتماد في المساق،"
+" كعدد عشري بين 0.0 و1.0. على سبيل المثال، للنسبة 75%، أدخِل 0.75."
 
 #: xmodule/course_block.py:956 xmodule/modulestore/inheritance.py:232
 msgid "Self Paced"
@@ -10850,9 +13043,43 @@ msgstr ""
 msgid "Enable Subsection Prerequisites"
 msgstr "فعِّل المتطلبات المسبقة للقسم الفرعي"
 
+#: xmodule/course_block.py:969
+msgid ""
+"Enter true or false. If this value is true, you can hide a subsection until "
+"learners earn a minimum score in another, prerequisite subsection."
+msgstr ""
+"أدخِل true أو false. إذا كانت القيمة true، يمكنك إخفاء قسم فرعي إلى أن يحصل "
+"المتعلمون على الحد الأدنى للدرجة في قسم فرعي آخر يُعدّ متطلباً سابقاً."
+
+#: xmodule/course_block.py:978
+msgid "Course Learning Information"
+msgstr "معلومات التعلم في المساق"
+
+#: xmodule/course_block.py:979
+msgid "Specify what student can learn from the course."
+msgstr "حدّد ما يمكن أن يتعلمه الطالب من المساق."
+
 #: xmodule/course_block.py:985
 msgid "Course Visibility For Unenrolled Learners"
 msgstr "ظهور المساق للمتعلمين غير المسجّلين"
+
+#. Translators: the quoted words 'private', 'public_outline', and 'public'
+#. must be left untranslated.  Leave them as English words.
+#: xmodule/course_block.py:989
+msgid ""
+"Defines the access permissions for unenrolled learners. This can be set to "
+"one of three values: 'private' (default visibility, only allowed for "
+"enrolled students), 'public_outline' (allow access to course outline) and "
+"'public' (allow access to both outline and course content)."
+msgstr ""
+"يحدّد هذا الإعداد أذونات الوصول للمتعلمين غير المسجّلين. يمكن ضبطه على إحدى "
+"ثلاث قيم: 'private' (الرؤية الافتراضية، مسموح بها للطلاب المسجّلين فقط)، "
+"و'public_outline' (السماح بالوصول إلى مخطط المساق) و'public' (السماح بالوصول"
+" إلى كل من المخطط ومحتوى المساق)."
+
+#: xmodule/course_block.py:1003
+msgid "Video Sharing Options"
+msgstr "خيارات مشاركة الفيديو"
 
 #: xmodule/course_block.py:1005
 msgid ""
@@ -10883,6 +13110,10 @@ msgstr "معلم المساق"
 msgid "Enter the details for Course Instructor"
 msgstr "أدخِل معلومات معلم المساق"
 
+#: xmodule/course_block.py:1048
+msgid "Add Unsupported Problems and Tools"
+msgstr "إضافة مسائل وأدوات غير مدعومة"
+
 #: xmodule/course_block.py:1050
 msgid ""
 "Enter true or false. If true, you can add unsupported problems and tools to "
@@ -10895,6 +13126,10 @@ msgstr ""
 "غير المدعومة إلى مساقك في الاستوديو. ولا يُنصح باستخدام المسائل والأدوات غير"
 " المدعومة في المساقات بسبب عدم امتثالها لواحد أو أكثر من المتطلبات الأساسية،"
 " مثل الاختبار وإتاحة الوصول لذوي الاحتياجات الخاصة والتدويل والتوثيق."
+
+#: xmodule/course_block.py:1057
+msgid "Highlights Enabled for Messaging"
+msgstr "اللمحات المفعّلة للمراسلة"
 
 #: xmodule/course_block.py:1059
 msgid ""
@@ -10923,6 +13158,21 @@ msgid ""
 "Enter CSS resource URLs you want to be loaded globally throughout the course"
 " pages."
 msgstr "أدخِل روابط موارد CSS التي تريد إضافتها إلى كل صفحات المساق. "
+
+#: xmodule/course_block.py:1078
+msgid "Other Course Settings"
+msgstr "الإعدادات الأخرى للمساق"
+
+#: xmodule/course_block.py:1080
+msgid ""
+"Any additional information about the course that the platform needs or that "
+"allows integration with external systems such as CRM software. Enter a "
+"dictionary of values in JSON format, such as { \"my_custom_setting\": "
+"\"value\", \"other_setting\": \"value\" }"
+msgstr ""
+"أي معلومات إضافية عن المساق تحتاجها المنصة أو تتيح التكامل مع أنظمة خارجية "
+"مثل برامج CRM. أدخِل قاموساً من القيم بتنسيق JSON، مثل { "
+"\"my_custom_setting\": \"value\", \"other_setting\": \"value\" }"
 
 #: xmodule/course_block.py:1132
 msgid "General"
@@ -10955,6 +13205,15 @@ msgstr ""
 "اسم فئة فرعية للمناقشة. يظهر هذا الاسم على الجانب الأيسر من منتدى نقاش "
 "المساق."
 
+#: xmodule/discussion_block.py:185
+#, python-brace-format
+msgid ""
+"You are not signed in. To view the discussion content, {sign_in_link} or "
+"{register_link}, and enroll in this course."
+msgstr ""
+"لم تسجّل الدخول. لعرض محتوى المناقشة، {sign_in_link} أو {register_link}، "
+"وسجّل في هذا المساق."
+
 #: xmodule/graders.py:274
 #, python-brace-format
 msgid "{assignment_type} = {weighted_percent:.2%} of a possible {weight:.2%}"
@@ -10971,6 +13230,11 @@ msgstr "أُنشئ"
 #, python-brace-format
 msgid "{section_type} {index} Unreleased - 0% (?/?)"
 msgstr "{section_type} {index}غير منشور - 0% (؟/؟)"
+
+#: xmodule/graders.py:415
+#, python-brace-format
+msgid "The lowest {drop_count} {section_type} scores are dropped."
+msgstr "تُستبعد أدنى {drop_count} من نتائج {section_type}."
 
 #. Translators: "Homework Average = 0%"
 #: xmodule/graders.py:434
@@ -10993,9 +13257,28 @@ msgstr ""
 "خطأ: \"{block_type}\" هو نوع مكون غير معروف. سيُخفى هذا المكون في نظام إدارة"
 " التعلم (LMS)."
 
+#: xmodule/html_block.py:64 xmodule/html_block.py:404
+#: xmodule/html_block.py:466
+msgid "Html contents to display for this block"
+msgstr "محتويات Html المراد عرضها لهذه اللبنة"
+
 #: xmodule/html_block.py:66
 msgid "Upstream html contents to store upstream data field"
 msgstr "محتويات HTML من المصدر لتخزين حقل بيانات المصدر"
+
+#: xmodule/html_block.py:73
+msgid "Source code for LaTeX documents. This feature is not well-supported."
+msgstr "الكود المصدري لمستندات LaTeX. هذه الميزة غير مدعومة جيدًا."
+
+#: xmodule/html_block.py:83
+msgid ""
+"Select Visual to enter content and have the editor automatically create the "
+"HTML. Select Raw to edit HTML directly. If you change this setting, you must"
+" save the component and then re-open it for editing."
+msgstr ""
+"اختر مرئي لإدخال المحتوى وليتولّى المحرّر إنشاء HTML تلقائيًا. اختر أولي "
+"لتعديل HTML مباشرةً. إذا غيّرت هذا الإعداد، فعليك حفظ المكوّن ثم إعادة فتحه "
+"للتعديل."
 
 #: xmodule/html_block.py:86
 msgid "Editor"
@@ -11004,6 +13287,10 @@ msgstr "محرر"
 #: xmodule/html_block.py:89
 msgid "Visual"
 msgstr "مرئي"
+
+#: xmodule/html_block.py:90
+msgid "Raw"
+msgstr "خام"
 
 #: xmodule/html_block.py:432
 msgid "Hide Page From Learners"
@@ -11017,9 +13304,24 @@ msgstr ""
 "عندك اختيارك هذا الخيار، سيرى هذه الصفحة فقط أعضاء المساق الذي لهم دور طاقم "
 "المساق أو مشرف المساق."
 
+#: xmodule/html_block.py:443
+msgid "HTML for the additional pages"
+msgstr "HTML للصفحات الإضافية"
+
+#: xmodule/html_block.py:461
+msgid "List of course update items"
+msgstr "قائمة بعناصر تحديث المساق"
+
 #: xmodule/item_bank_block.py:68
 msgid "Count"
 msgstr "عدد"
+
+#: xmodule/item_bank_block.py:69
+msgid ""
+"Enter the number of components to display to each student. Set it to -1 to "
+"display all components."
+msgstr ""
+"أدخل عدد المكونات المراد عرضها لكل طالب. اضبطه على -1 لعرض جميع المكونات."
 
 #: xmodule/item_bank_block.py:82
 msgid ""
@@ -11098,6 +13400,11 @@ msgstr "لم تُحدَّد مكتبة المحتوى المصدر."
 msgid "Content libraries are not available in the current runtime."
 msgstr "مكتبات المحتوى غير متاحة في وقت التشغيل الحالي."
 
+#: xmodule/library_content_block.py:254
+#, python-brace-format
+msgid "Source content library does not exist: {source_library_id}"
+msgstr "مكتبة محتوى المصدر غير موجودة: {source_library_id}"
+
 #: xmodule/library_content_block.py:358
 msgid ""
 "This legacy library reference is no longer supported, and needs to be "
@@ -11112,6 +13419,10 @@ msgstr ""
 #, python-brace-format
 msgid "{refresh_icon} Update reference"
 msgstr "{refresh_icon} حدّث المرجع"
+
+#: xmodule/library_content_block.py:374
+msgid "This component is out of date. The library has new content."
+msgstr "هذا المكوّن قديم. تحتوي المكتبة على محتوى جديد."
 
 #. Translators: {refresh_icon} placeholder is substituted to "↻" (without
 #. double quotes)
@@ -11161,6 +13472,17 @@ msgstr "لا توجد مسائل في المكتبة المحددة من نوع 
 msgid "Select another problem type."
 msgstr "اختَر نوعاً آخر من المسائل."
 
+#: xmodule/library_content_block.py:481
+#, python-brace-format
+msgid "The specified library is configured to fetch {count} problem, "
+msgid_plural "The specified library is configured to fetch {count} problems, "
+msgstr[0] "المكتبة المحدّدة مُعدّة لعدم جلب أي مسألة،"
+msgstr[1] "المكتبة المحدّدة مُعدّة لجلب مسألة واحدة،"
+msgstr[2] "المكتبة المحدّدة مُعدّة لجلب مسألتين،"
+msgstr[3] "المكتبة المحدّدة مُعدّة لجلب {count} مسائل،"
+msgstr[4] "المكتبة المحدّدة مُعدّة لجلب {count} مسألةً،"
+msgstr[5] "المكتبة المحدّدة مُعدّة لجلب {count} مسألةٍ،"
+
 #: xmodule/library_content_block.py:486
 #, python-brace-format
 msgid "but there is only {actual} matching problem."
@@ -11172,9 +13494,25 @@ msgstr[3] "ولكن لا توجد سوى {actual} مسائل مطابقة فقط
 msgstr[4] "ولكن لا توجد سوى {actual} مسألة مطابقة فقط."
 msgstr[5] "ولكن لا توجد سوى {actual} مسألة مطابقة فقط."
 
+#: xmodule/library_content_block.py:492
+msgid "Edit the library configuration."
+msgstr "عدّل إعدادات المكتبة."
+
+#: xmodule/library_content_block.py:510
+msgid "Invalid Library"
+msgstr "مكتبة غير صالحة"
+
+#: xmodule/library_content_block.py:511
+msgid "No Library Selected"
+msgstr "لم يجرِ اختيار أي مكتبة"
+
 #: xmodule/library_root_xblock.py:32
 msgid "Library Display Name"
 msgstr "الاسم الظاهر للمكتبة"
+
+#: xmodule/library_root_xblock.py:37
+msgid "Enter the names of the advanced components to use in your library."
+msgstr "أدخل أسماء المكوّنات المتقدّمة لاستخدامها في مكتبتك."
 
 #: xmodule/lti_block.py:133
 msgid ""
@@ -11183,6 +13521,23 @@ msgid ""
 msgstr ""
 "الاسم الظاهر لهذا المكون. قد تستخدم تقارير التحليلات أيضاً الاسم الظاهر "
 "لتعريف هذا المكون."
+
+#: xmodule/lti_block.py:140
+msgid "LTI ID"
+msgstr "الرقم التعريفي لـ LTI"
+
+#: xmodule/lti_block.py:142
+#, python-brace-format
+msgid ""
+"Enter the LTI ID for the external LTI provider.  This value must be the same"
+" LTI ID that you entered in the LTI Passports setting on the Advanced "
+"Settings page.{break_tag}See {docs_anchor_open}the edX LTI "
+"documentation{anchor_close} for more details on this setting."
+msgstr ""
+"أدخل الرقم التعريفي لـ LTI الخاص بمزوّد LTI الخارجي. يجب أن تطابق هذه القيمة"
+" الرقم التعريفي لـ LTI الذي أدخلته في إعداد LTI Passports بصفحة الإعدادات "
+"المتقدمة.{break_tag}راجع {docs_anchor_open}وثائق LTI الخاصة "
+"بإدكس{anchor_close} لمزيد من التفاصيل حول هذا الإعداد."
 
 #: xmodule/lti_block.py:155
 msgid "LTI URL"
@@ -11200,6 +13555,10 @@ msgstr ""
 "عند تعيين خيار \"اخفِ الأداة الخارجية\" على \"لا\". {break_tag}اطّلِع على "
 "{docs_anchor_open}وثائق edX LTI{anchor_close} لمعرفة المزيد من التفاصيل حول "
 "هذا الإعداد."
+
+#: xmodule/lti_block.py:168
+msgid "Custom Parameters"
+msgstr "معاملات مخصّصة"
 
 #: xmodule/lti_block.py:170
 #, python-brace-format
@@ -11233,6 +13592,12 @@ msgstr ""
 #: xmodule/lti_block.py:190
 msgid "Scored"
 msgstr "مقيَّم "
+
+#: xmodule/lti_block.py:192
+msgid ""
+"Select True if this component will receive a numerical score from the "
+"external LTI system."
+msgstr "اختر True إذا كان هذا المكوّن سيتلقى نتيجة رقمية من نظام LTI الخارجي."
 
 #: xmodule/lti_block.py:198
 msgid "Weight"
@@ -11315,6 +13680,10 @@ msgid ""
 "Enter the text on the button used to launch the third party application."
 msgstr "أدخِل النص الظاهر على الزر المستخدم لتشغيل تطبيق الجهة الخارجية."
 
+#: xmodule/lti_block.py:266
+msgid "Accept grades past deadline"
+msgstr "قبول الدرجات بعد الموعد النهائي"
+
 #: xmodule/lti_block.py:267
 msgid ""
 "Select True to allow third party systems to post grades past the deadline."
@@ -11322,9 +13691,31 @@ msgstr ""
 "يُرجى اختيار \"نعم\" للسماح لأنظمة خارجية بنشر الدرجات بعد انقضاء الموعد "
 "النهائي."
 
+#: xmodule/lti_block.py:441
+#, python-brace-format
+msgid ""
+"Could not parse custom parameter: {custom_parameter}. Should be \"x=y\" "
+"string."
+msgstr ""
+"تعذّر تحليل المعامل المخصّص: {custom_parameter}. يجب أن يكون سلسلة نصية "
+"بصيغة \"x=y\"."
+
+#: xmodule/lti_block.py:974
+#, python-brace-format
+msgid ""
+"Could not parse LTI passport: {lti_passport}. Should be \"id:key:secret\" "
+"string."
+msgstr ""
+"تعذّر تحليل تصريح LTI: {lti_passport}. يجب أن يكون سلسلة نصية بالصيغة "
+"\"id:key:secret\"."
+
 #: xmodule/modulestore/inheritance.py:46 xmodule/seq_block.py:76
 msgid "Due Date"
 msgstr "تاريخ الاستحقاق"
+
+#: xmodule/modulestore/inheritance.py:47
+msgid "Enter the default date by which problems are due."
+msgstr "أدخِل تاريخ الاستحقاق الافتراضي للمسائل."
 
 #: xmodule/modulestore/inheritance.py:52 xmodule/seq_block.py:82
 msgid "Number of Relative Weeks Due By"
@@ -11338,6 +13729,14 @@ msgstr ""
 "أدخِل عدد الأسابيع التي يجب خلالها تسليم إجابات المسائل من تاريخ تسجيل "
 "المتعلم في المساق"
 
+#: xmodule/modulestore/inheritance.py:69
+msgid "GIT URL"
+msgstr "رابط URL لـ GIT"
+
+#: xmodule/modulestore/inheritance.py:70
+msgid "Enter the URL for the course data GIT repository."
+msgstr "أدخِل رابط URL لمستودع GIT الخاص ببيانات المساق."
+
 #: xmodule/modulestore/inheritance.py:74
 msgid "XQA Key"
 msgstr "مفتاح XQA"
@@ -11345,6 +13744,10 @@ msgstr "مفتاح XQA"
 #: xmodule/modulestore/inheritance.py:75
 msgid "This setting is not currently supported."
 msgstr "هذا الإعداد غير مدعوم حالياً."
+
+#: xmodule/modulestore/inheritance.py:83
+msgid "Enter the ids for the content groups this problem belongs to."
+msgstr "أدخِل معرّفات مجموعات المحتوى التي تنتمي إليها هذه المسألة."
 
 #. Translators: DO NOT translate the words in quotes here, they are
 #. specific words for the acceptable values.
@@ -11370,6 +13773,37 @@ msgstr ""
 "حدد متى تُعرض صحة الجواب والدرجة للمتعلمين. القيم الصالحة هي \"دائماً\" و "
 "\"أبداً\" و \"past_due\""
 
+#. Translators: DO NOT translate the words in quotes here, they are
+#. specific words for the acceptable values.
+#: xmodule/modulestore/inheritance.py:118
+msgid ""
+"Specify the default for how often variable values in a problem are "
+"randomized. This setting should be set to \"never\" unless you plan to "
+"provide a Python script to identify and randomize values in most of the "
+"problems in your course. Valid values are \"always\", \"onreset\", "
+"\"never\", and \"per_student\"."
+msgstr ""
+"حدّد الإعداد الافتراضي لمدى تكرار تعيين قيم المتغيّرات في المسألة عشوائيًا. "
+"يجب ضبط هذا الإعداد على \"never\" ما لم تكن تخطِّط لتوفير نص برمجي بلغة "
+"بايثون لتحديد القيم وتعيينها عشوائيًا في معظم مسائل مساقك. القيم الصالحة هي "
+"\"always\" و\"onreset\" و\"never\" و\"per_student\"."
+
+#: xmodule/modulestore/inheritance.py:127
+msgid "Days Early for Beta Users"
+msgstr "أيام الوصول المبكر لمستخدمي بيتا"
+
+#: xmodule/modulestore/inheritance.py:128
+msgid ""
+"Enter the number of days before the start date that beta users can access "
+"the course."
+msgstr ""
+"أدخِل عدد الأيام التي يمكن فيها لمستخدمي بيتا الوصول إلى المساق قبل تاريخ "
+"البدء."
+
+#: xmodule/modulestore/inheritance.py:133
+msgid "Static Asset Path"
+msgstr "مسار الملفات الثابتة"
+
 #: xmodule/modulestore/inheritance.py:134
 msgid ""
 "Enter the path to use for files on the Files & Uploads page. This value "
@@ -11377,6 +13811,18 @@ msgid ""
 msgstr ""
 "أدخِل المسار الذي تريد استخدامه للملفات في صفحة \"الملفات والمرفوعات\". "
 "القيمة التي تُكتب هنا تتجاوز قيمة الاستوديو الافتراضية، c4x://."
+
+#: xmodule/modulestore/inheritance.py:139
+msgid "Enable LaTeX Compiler"
+msgstr "تفعيل المترجم البرمجي لـ LaTeX"
+
+#: xmodule/modulestore/inheritance.py:140
+msgid ""
+"Enter true or false. If true, you can use the LaTeX templates for HTML "
+"components and advanced Problem components."
+msgstr ""
+"أدخِل true أو false. إذا كانت القيمة true، فيمكنك استخدام قوالب LaTeX "
+"لمكوّنات HTML ولمكوّنات المسائل المتقدمة."
 
 #: xmodule/modulestore/inheritance.py:146
 msgid ""
@@ -11393,13 +13839,98 @@ msgstr ""
 " مسائل محددة في المساق. أما كان عدد المحاولات في إعدادات المساق رقماً "
 "معيناً، فلن يكون بإمكانك تعيين عدد غير محدود من المحاولات لمسائل محددة."
 
+#: xmodule/modulestore/inheritance.py:151
+msgid ""
+"Enter the API key provided by MathWorks for accessing the MATLAB Hosted "
+"Service. This key is granted for exclusive use in this course for the "
+"specified duration. Do not share the API key with other courses. Notify "
+"MathWorks immediately if you believe the key is exposed or compromised. To "
+"obtain a key for your course, or to report an issue, please contact "
+"moocsupport@mathworks.com"
+msgstr ""
+"أدخِل مفتاح API الذي توفّره ماثووركس للوصول إلى خدمة MATLAB المستضافة. يُمنح"
+" هذا المفتاح للاستخدام الحصري في هذا المساق خلال المدة المحدّدة. لا تشارك "
+"مفتاح API مع مساقات أخرى. أبلِغ ماثووركس فوراً إذا كنت تعتقد أن المفتاح "
+"انكشف أو تعرّض للاختراق. للحصول على مفتاح لمساقك، أو للإبلاغ عن مشكلة، يُرجى"
+" مراسلة moocsupport@mathworks.com"
+
 #: xmodule/modulestore/inheritance.py:161
 msgid "Group Configurations"
 msgstr "إعدادات المجموعة"
 
+#: xmodule/modulestore/inheritance.py:162
+msgid ""
+"Enter the configurations that govern how students are grouped together."
+msgstr "أدخِل الإعدادات التي تحكم كيفية تجميع الطلاب في مجموعات."
+
+#: xmodule/modulestore/inheritance.py:167
+msgid "Enable video caching system"
+msgstr "تفعيل نظام التخزين المؤقّت للفيديوهات"
+
+#: xmodule/modulestore/inheritance.py:168
+msgid ""
+"Enter true or false. If true, video caching will be used for HTML5 videos."
+msgstr ""
+"أدخِل true أو false. إذا كانت القيمة true، فسيُستخدم التخزين المؤقت "
+"لفيديوهات HTML5."
+
+#: xmodule/modulestore/inheritance.py:173
+msgid "Enable video auto-advance"
+msgstr "تفعيل الانتقال التلقائي للفيديو"
+
+#: xmodule/modulestore/inheritance.py:175
+msgid ""
+"Specify whether to show an auto-advance button in videos. If the student "
+"clicks it, when the last video in a unit finishes it will automatically move"
+" to the next unit and autoplay the first video."
+msgstr ""
+"حدِّد ما إذا كنت تريد إظهار زر الانتقال التلقائي في الفيديوهات. إذا نقر "
+"الطالب عليه، فعند انتهاء آخر فيديو في الوحدة سينتقل تلقائياً إلى الوحدة "
+"التالية ويُشغَّل أول فيديو فيها."
+
+#: xmodule/modulestore/inheritance.py:181
+msgid "Video Pre-Roll"
+msgstr "مقطع تمهيدي قبل الفيديو"
+
+#: xmodule/modulestore/inheritance.py:183
+#, python-brace-format
+msgid ""
+"Identify a video, 5-10 seconds in length, to play before course videos. "
+"Enter the video ID from the Video Uploads page and one or more transcript "
+"files in the following format: {format}. For example, an entry for a video "
+"with two transcripts looks like this: {example}"
+msgstr ""
+"حدِّد فيديو مدته من 5 إلى 10 ثوانٍ ليُشغَّل قبل فيديوهات المساق. أدخِل الرقم"
+" التعريفي للفيديو من صفحة تحميلات الفيديو، وملف نص مكتوب واحداً أو أكثر "
+"بالصيغة التالية: {format}. على سبيل المثال، يبدو الإدخال الخاص بفيديو له "
+"نصان مكتوبان على النحو التالي: {example}"
+
 #: xmodule/modulestore/inheritance.py:200
 msgid "Show Reset Button for Problems"
 msgstr "أظهِر زر \"أعِد تعيين المسائل\""
+
+#: xmodule/modulestore/inheritance.py:202
+msgid ""
+"Enter true or false. If true, problems in the course default to always "
+"displaying a 'Reset' button. You can override this in each problem's "
+"settings. All existing problems are affected when this course-wide setting "
+"is changed."
+msgstr ""
+"أدخِل true أو false. إذا كانت القيمة true، فستعرض مسائل المساق زر 'إعادة "
+"الضبط' دائماً بشكل افتراضي. يمكنك تجاوز هذا الإعداد في إعدادات كل مسألة. "
+"تتأثر جميع المسائل الموجودة عند تغيير هذا الإعداد الذي يسري على المساق "
+"بأكمله."
+
+#: xmodule/modulestore/inheritance.py:210
+msgid "Enable Student Notes"
+msgstr "تفعيل ملاحظات الطلاب"
+
+#: xmodule/modulestore/inheritance.py:211
+msgid ""
+"Enter true or false. If true, students can use the Student Notes feature."
+msgstr ""
+"أدخِل true أو false. إذا كانت القيمة true، فيمكن للطلاب استخدام ميزة ملاحظات"
+" الطلاب."
 
 #: xmodule/modulestore/inheritance.py:217
 msgid ""
@@ -11433,6 +13964,10 @@ msgstr ""
 "يُرجى إدخال \"نعم\" أو \"لا\". إذا اخترت نعم، فستُخفى هذه الكتلى من \"جدول "
 "المحتويات\"."
 
+#: xmodule/modulestore/xml_importer.py:82
+msgid "Error while reading {}. Check file for XML errors."
+msgstr "خطأ أثناء قراءة {}. افحص الملف بحثًا عن أخطاء XML."
+
 #: xmodule/modulestore/xml_importer.py:94
 msgid "Failed to import block: {} at location: {}"
 msgstr "فشل استيراد اللبنة: {} في الموقع: {}"
@@ -11445,9 +13980,41 @@ msgstr "مجموعات مسارات التسجيل"
 msgid "Partition for segmenting users by enrollment track"
 msgstr "افرِز المستخدمين حسب مسار التسجيل"
 
+#: xmodule/poll_block.py:57
+msgid "Whether this student has voted on the poll"
+msgstr "ما إذا كان هذا الطالب قد صوت في الاستطلاع"
+
+#: xmodule/poll_block.py:62
+msgid "Student answer"
+msgstr "إجابة الطالب"
+
+#: xmodule/poll_block.py:67
+msgid "Poll answers from all students"
+msgstr "إجابات الاستطلاع من جميع الطلاب"
+
+#: xmodule/poll_block.py:73
+msgid "Poll answers from xml"
+msgstr "إجابات الاستطلاع من xml"
+
+#: xmodule/poll_block.py:79
+msgid "Poll question"
+msgstr "سؤال الاستطلاع"
+
+#: xmodule/seq_block.py:77
+msgid "Enter the date by which problems are due."
+msgstr "أدخِل تاريخ استحقاق المسائل."
+
 #: xmodule/seq_block.py:88
 msgid "Hide sequence content After Due Date"
 msgstr "أخفِ محتوى التسلسل بعد تاريخ الاستحقاق"
+
+#: xmodule/seq_block.py:90
+msgid ""
+"If set, the sequence content is hidden for non-staff users after the due "
+"date has passed."
+msgstr ""
+"إذا فُعِّل، يُخفى محتوى التسلسل عن المستخدمين غير الموظفين بعد انقضاء تاريخ "
+"الاستحقاق."
 
 #: xmodule/seq_block.py:97
 msgid "Is Entrance Exam"
@@ -11461,6 +14028,10 @@ msgstr ""
 "ضَع وسماً يصف هذه اللبنة على أنّها امتحان قبول. ملاحظة، ينبغي عليك تفعيل "
 "امتحانات القبول لإعدادات هذا المساق لكي يُعتمد إجراؤك."
 
+#: xmodule/seq_block.py:150
+msgid "Is Time Limited"
+msgstr "محدّد بوقت"
+
 #: xmodule/seq_block.py:152
 msgid ""
 "This setting indicates whether students have a limited time to view or "
@@ -11468,6 +14039,10 @@ msgid ""
 msgstr ""
 "يحدد هذا الإعداد ما إذا كان للطلاب وقت محدود لعرض مكونات محتويات المساق أو "
 "التفاعل معها."
+
+#: xmodule/seq_block.py:160
+msgid "Time Limit in Minutes"
+msgstr "الحد الزمني بالدقائق"
 
 #: xmodule/seq_block.py:162
 msgid ""
@@ -11484,9 +14059,29 @@ msgstr "هل المراقبة مفعلة"
 msgid "This setting indicates whether this exam is a proctored exam."
 msgstr "يشير هذا الإعداد إلى ما إذا كان هذا الامتحان مراقباً أم لا."
 
+#: xmodule/seq_block.py:178
+msgid "Software Secure Review Rules"
+msgstr "قواعد مراجعة سوفتوير سكيور"
+
+#: xmodule/seq_block.py:180
+msgid ""
+"This setting indicates what rules the proctoring team should follow when "
+"viewing the videos."
+msgstr ""
+"يبيّن هذا الإعداد القواعد التي ينبغي أن يتبعها فريق المراقبة عند مشاهدة "
+"مقاطع الفيديو."
+
 #: xmodule/seq_block.py:187
 msgid "Is Practice Exam"
 msgstr "هو امتحان تدريبي"
+
+#: xmodule/seq_block.py:189
+msgid ""
+"This setting indicates whether this exam is for testing purposes only. "
+"Practice exams are not verified."
+msgstr ""
+"يبيّن هذا الإعداد ما إذا كان هذا الامتحان مخصّصًا لأغراض التجربة فقط. "
+"الامتحانات التدريبية غير معتمدة."
 
 #: xmodule/seq_block.py:196
 msgid "Is Onboarding Exam"
@@ -11495,6 +14090,16 @@ msgstr "هو امتحان قبول"
 #: xmodule/seq_block.py:198
 msgid "This setting indicates whether this exam is an onboarding exam."
 msgstr "يشير هذا الإعداد إلى ما إذا كان هذا الامتحان امتحان قبول أم لا."
+
+#: xmodule/seq_block.py:356 xmodule/seq_block.py:448
+msgid ""
+"This subsection is unlocked for learners when they meet the prerequisite "
+"requirements."
+msgstr "يُفتح هذا القسم الفرعي للمتعلمين عند استيفائهم المتطلبات المسبقة."
+
+#: xmodule/seq_block.py:500
+msgid "This exam is hidden from the learner."
+msgstr "هذا الامتحان مخفي عن المتعلم."
 
 #: xmodule/seq_block.py:509
 msgid ""
@@ -11505,6 +14110,17 @@ msgstr "لأن المساق انتهى، فقد أُخفي هذا الواجب �
 msgid ""
 "Because the due date has passed, this assignment is hidden from the learner."
 msgstr "نظراً لانقضاء الموعد المحدد، فقد أُخفي هذا الواجب عن المتعلم."
+
+#: xmodule/seq_block.py:555
+msgid ""
+"This section is a prerequisite. You must complete this section in order to "
+"unlock additional content."
+msgstr "هذا القسم متطلب مسبق. يجب عليك إكمال هذا القسم لفتح محتوى إضافي."
+
+#: xmodule/seq_block.py:994
+msgid ""
+"A list summarizing what students should look forward to in this section."
+msgstr "قائمة تلخص ما ينبغي أن يتطلع إليه الطلاب في هذا القسم."
 
 #: xmodule/split_test_block.py:42
 #, python-brace-format
@@ -11522,6 +14138,15 @@ msgstr "الاسم الظاهر لهذا المكون. (لا يظهر للمتع
 #: xmodule/split_test_block.py:85
 msgid "Content Experiment"
 msgstr "تجربة المحتوى"
+
+#: xmodule/split_test_block.py:96
+msgid ""
+"The configuration defines how users are grouped for this content experiment."
+" Caution: Changing the group configuration of a student-visible experiment "
+"will impact the experiment data."
+msgstr ""
+"يحدّد الإعداد كيفية تجميع المستخدمين في مجموعات لتجربة المحتوى هذه. تنبيه: "
+"سيؤثّر تغيير إعداد المجموعات لتجربة مرئية للطلاب على بيانات التجربة."
 
 #: xmodule/split_test_block.py:98
 msgid "Group Configuration"
@@ -11571,6 +14196,14 @@ msgstr "لا تحتوي هذه التجربة على جميع المجموعات
 msgid "Add Missing Groups"
 msgstr "أضِف المجموعات المفقودة"
 
+#: xmodule/split_test_block.py:675
+msgid ""
+"The experiment has an inactive group. Move content into active groups, then "
+"delete the inactive group."
+msgstr ""
+"تتضمّن التجربة مجموعة غير نشطة. انقل المحتوى إلى مجموعات نشطة، ثم احذف "
+"المجموعة غير النشطة."
+
 #: xmodule/split_test_block.py:694
 msgid "This content experiment has issues that affect content visibility."
 msgstr "توجد مشكلات في تجربة المحتوى هذه تؤثّر في ظهور المحتوى."
@@ -11578,6 +14211,42 @@ msgstr "توجد مشكلات في تجربة المحتوى هذه تؤثّر �
 #: xmodule/tabs.py:398 xmodule/tabs.py:433
 msgid "External Discussion"
 msgstr "مناقشة خارجية"
+
+#: xmodule/templates/item_bank/author_view.html:8
+#: xmodule/templates/item_bank/author_view.html:18
+#, python-format
+msgid ""
+"\n"
+"                Learners will see the selected component:\n"
+"                "
+msgid_plural ""
+"\n"
+"                Learners will see all of the %(num_selected)s selected components, in random order:\n"
+"                "
+msgstr[0] ""
+"\n"
+"                لن يرى المتعلمون أي مكوّن محدّد:\n"
+"                "
+msgstr[1] ""
+"\n"
+"                سيرى الطلاب مُكوّناً مُحدّداً واحداً :\n"
+"                "
+msgstr[2] ""
+"\n"
+"                سيرى المتعلمون المكوّنين المحدّدين بترتيب عشوائي:\n"
+"                "
+msgstr[3] ""
+"\n"
+"                سيرى المتعلمون جميع المكوّنات المحدّدة، وهي %(num_selected)s مكوّنات، بترتيب عشوائي:\n"
+"                "
+msgstr[4] ""
+"\n"
+"                سيرى المتعلمون جميع المكوّنات المحدّدة، وهي %(num_selected)s مكوّناً، بترتيب عشوائي:\n"
+"                "
+msgstr[5] ""
+"\n"
+"                سيرى المتعلمون جميع المكوّنات المحدّدة، وهي %(num_selected)s مكوّنٍ، بترتيب عشوائي:\n"
+"                "
 
 #: xmodule/templates/item_bank/author_view.html:32
 #, python-brace-format
@@ -11616,6 +14285,10 @@ msgstr "فعِّل المناقشات في السياق للوحدة"
 msgid "Add discussion for the Unit."
 msgstr "أضِف مناقشة للوحدة."
 
+#: xmodule/video_block/video_block.py:136
+msgid "Basic"
+msgstr "أساسي"
+
 #: xmodule/video_block/video_block.py:538
 #, python-brace-format
 msgid "There is no transcript file associated with the {lang} language."
@@ -11628,6 +14301,23 @@ msgstr[3] "لا توجد ملفات نصية مرتبطة باللغات {lang}.
 msgstr[4] "لا توجد ملفات نصية مرتبطة باللغات {lang}."
 msgstr[5] "لا توجد ملفات نصية مرتبطة باللغات {lang}."
 
+#: xmodule/video_block/video_block.py:840
+msgid ""
+"The URL for your video. This can be a YouTube URL or a link to an .mp4, "
+".ogg, or .webm video file hosted elsewhere on the Internet."
+msgstr ""
+"رابط URL لفيديوك. يمكن أن يكون رابط URL من يوتيوب، أو رابطاً لملف فيديو "
+"بصيغة .mp4 أو .ogg أو .webm مستضاف في مكان آخر على الإنترنت."
+
+#: xmodule/video_block/video_block.py:842
+msgid "Default Video URL"
+msgstr "رابط URL الافتراضي للفيديو"
+
+#: xmodule/video_block/video_handlers.py:469
+#: xmodule/video_block/video_handlers.py:510
+msgid "Runtime does not support transcripts."
+msgstr "لا تدعم بيئة التشغيل النصوص المكتوبة."
+
 #: xmodule/video_block/video_handlers.py:528
 msgid "Language is required."
 msgstr "اللغة مطلوبة."
@@ -11636,13 +14326,142 @@ msgstr "اللغة مطلوبة."
 msgid "Component Display Name"
 msgstr "الاسم الظاهر للمكون"
 
+#: xmodule/video_block/video_xfields.py:25
+msgid "Current position in the video."
+msgstr "موضع التشغيل الحالي في الفيديو."
+
+#: xmodule/video_block/video_xfields.py:32
+msgid ""
+"Optional, for older browsers: the YouTube ID for the normal speed video."
+msgstr ""
+"اختياري، للمتصفحات الأقدم: الرقم التعريفي على يوتيوب للفيديو ذي السرعة "
+"العادية."
+
+#: xmodule/video_block/video_xfields.py:33
+msgid "YouTube ID"
+msgstr "الرقم التعريفي ليوتيوب"
+
+#: xmodule/video_block/video_xfields.py:38
+msgid "Optional, for older browsers: the YouTube ID for the .75x speed video."
+msgstr ""
+"اختياري، للمتصفحات الأقدم: الرقم التعريفي على يوتيوب للفيديو ذي السرعة .75x."
+
+#: xmodule/video_block/video_xfields.py:39
+msgid "YouTube ID for .75x speed"
+msgstr "الرقم التعريفي ليوتيوب للسرعة .75x"
+
+#: xmodule/video_block/video_xfields.py:44
+msgid ""
+"Optional, for older browsers: the YouTube ID for the 1.25x speed video."
+msgstr ""
+"اختياري، للمتصفحات الأقدم: الرقم التعريفي على يوتيوب للفيديو ذي السرعة "
+"1.25x."
+
+#: xmodule/video_block/video_xfields.py:45
+msgid "YouTube ID for 1.25x speed"
+msgstr "الرقم التعريفي ليوتيوب للسرعة 1.25x"
+
+#: xmodule/video_block/video_xfields.py:50
+msgid "Optional, for older browsers: the YouTube ID for the 1.5x speed video."
+msgstr ""
+"اختياري، للمتصفحات الأقدم: الرقم التعريفي على يوتيوب للفيديو ذي السرعة 1.5x."
+
+#: xmodule/video_block/video_xfields.py:51
+msgid "YouTube ID for 1.5x speed"
+msgstr "الرقم التعريفي ليوتيوب للسرعة 1.5x"
+
+#: xmodule/video_block/video_xfields.py:57
+msgid ""
+"Time you want the video to start if you don't want the entire video to play."
+" Not supported in the native mobile app: the full video file will play. "
+"Formatted as HH:MM:SS. The maximum value is 23:59:59."
+msgstr ""
+"الوقت الذي تريد أن يبدأ الفيديو عنده إن لم ترغب في تشغيله بالكامل. غير مدعوم"
+" في التطبيق الأصلي للأجهزة المحمولة: سيُشغَّل ملف الفيديو بأكمله. يُكتب "
+"بصيغة HH:MM:SS. الحد الأقصى للقيمة هو 23:59:59."
+
 #: xmodule/video_block/video_xfields.py:61
 msgid "Video Start Time"
-msgstr "وقت بداية الفيديو"
+msgstr "وقت بدء الفيديو"
+
+#: xmodule/video_block/video_xfields.py:67
+msgid ""
+"Time you want the video to stop if you don't want the entire video to play. "
+"Not supported in the native mobile app: the full video file will play. "
+"Formatted as HH:MM:SS. The maximum value is 23:59:59."
+msgstr ""
+"الوقت الذي تريد أن يتوقف الفيديو عنده إن لم ترغب في تشغيله بالكامل. غير "
+"مدعوم في التطبيق الأصلي للأجهزة المحمولة: سيُشغَّل ملف الفيديو بأكمله. يُكتب"
+" بصيغة HH:MM:SS. الحد الأقصى للقيمة هو 23:59:59."
+
+#: xmodule/video_block/video_xfields.py:71
+msgid "Video Stop Time"
+msgstr "وقت إيقاف الفيديو"
+
+#: xmodule/video_block/video_xfields.py:78
+msgid ""
+"Allow students to download versions of this video in different formats if "
+"they cannot use the edX video player or do not have access to YouTube. You "
+"must add at least one non-YouTube URL in the Video File URLs field."
+msgstr ""
+"اسمح للطلاب بتنزيل نسخ من هذا الفيديو بصيغ مختلفة إن تعذّر عليهم استخدام "
+"مشغّل فيديو إدكس أو الوصول إلى يوتيوب. يجب عليك إضافة رابط URL واحد على "
+"الأقل غير تابع ليوتيوب في حقل روابط URL لملف الفيديو."
+
+#: xmodule/video_block/video_xfields.py:81
+msgid "Video Download Allowed"
+msgstr "السماح بتنزيل الفيديو"
+
+#: xmodule/video_block/video_xfields.py:86
+msgid ""
+"The URL or URLs where you've posted non-YouTube versions of the video. Each "
+"URL must end in .mpeg, .mp4, .ogg, or .webm and cannot be a YouTube URL. "
+"(For browser compatibility, we strongly recommend .mp4 and .webm format.) "
+"Students will be able to view the first listed video that's compatible with "
+"the student's computer. To allow students to download these videos, set "
+"Video Download Allowed to True."
+msgstr ""
+"رابط URL أو روابط URL حيث نشرتَ نسخاً غير تابعة ليوتيوب من الفيديو. يجب أن "
+"ينتهي كل رابط URL بأحد الامتدادات .mpeg أو .mp4 أو .ogg أو .webm، ولا يمكن "
+"أن يكون رابط URL من يوتيوب. (للتوافق مع المتصفحات، نوصي بشدة بصيغتي .mp4 "
+"و.webm.) سيتمكن الطلاب من عرض أول فيديو مُدرج في القائمة يتوافق مع حاسوبهم. "
+"للسماح للطلاب بتنزيل مقاطع الفيديو هذه، اضبط السماح بتنزيل الفيديو على True."
+
+#: xmodule/video_block/video_xfields.py:91
+msgid "Video File URLs"
+msgstr "روابط URL لملفات الفيديو"
+
+#: xmodule/video_block/video_xfields.py:95
+msgid ""
+"By default, students can download an .srt or .txt transcript when you set "
+"Download Transcript Allowed to True. If you want to provide a downloadable "
+"transcript in a different format, we recommend that you upload a handout by "
+"using the Upload a Handout field. If this isn't possible, you can post a "
+"transcript file on the Files & Uploads page or on the Internet, and then add"
+" the URL for the transcript here. Students see a link to download that "
+"transcript below the video."
+msgstr ""
+"يمكن للطلّاب، وبشكل افتراضي، تنزيل نصّ وفق أحد امتدادَيْ .srt أو .txt عند "
+"ضبط خاصية 'السماح بتنزيل النص' على القيمة 'true'. في حال رغبتَ في تقديم نص "
+"قابل للتنزيل بصيغة مختلفة، فنوصيك بتحميل نشرة باستخدام حقل 'تحميل نشرة'. وفي"
+" حال لم يكن ذلك ممكنًا، يمكنك نشر ملف النص على صفحة 'الملفّات والتحميلات' أو"
+" على الإنترنت، ثم إضافة رابط URL الخاص بالنص هنا. وسيجد الطلّاب رابطًا "
+"لتنزيل ذلك النص أسفل مقطع الفيديو."
 
 #: xmodule/video_block/video_xfields.py:100
 msgid "Downloadable Transcript URL"
 msgstr "رابط النص القابل للتنزيل"
+
+#: xmodule/video_block/video_xfields.py:105
+msgid ""
+"Allow students to download the timed transcript. A link to download the file"
+" appears below the video. By default, the transcript is an .srt or .txt "
+"file. If you want to provide the transcript for download in a different "
+"format, upload a file by using the Upload Handout field."
+msgstr ""
+"السماح للطلاب بتنزيل النص محدّد التوقيت. يظهر رابط لتنزيل الملف أسفل "
+"الفيديو. وبشكل افتراضي، يكون النص ملفًا بصيغة .srt أو .txt. وإن أردت إتاحة "
+"النص للتنزيل بصيغة مختلفة، فحمّل ملفًا باستخدام حقل “تحميل نشرة”."
 
 #: xmodule/video_block/video_xfields.py:108
 msgid "Download Transcript Allowed"
@@ -11661,6 +14480,10 @@ msgstr ""
 #: xmodule/video_block/video_xfields.py:117
 msgid "Default Timed Transcript"
 msgstr "التفريغ النصي الافتراضي الموقوت"
+
+#: xmodule/video_block/video_xfields.py:122
+msgid "Specify whether the transcripts appear with the video by default."
+msgstr "حدّد ما إذا كانت النصوص تظهر مع الفيديو بشكل افتراضي."
 
 #: xmodule/video_block/video_xfields.py:123
 msgid "Show Transcript"
@@ -11686,6 +14509,10 @@ msgstr "اللغة المفضلة للتفريغ النصي."
 msgid "Preferred language for transcript"
 msgstr "اللغة المفضلة للتفريغ النصي"
 
+#: xmodule/video_block/video_xfields.py:142
+msgid "Transcript file format to download by user."
+msgstr "صيغة ملف النص التي ينزّلها المستخدم."
+
 #. Translators: This is a type of file used for captioning in the video
 #. player.
 #: xmodule/video_block/video_xfields.py:146
@@ -11696,17 +14523,74 @@ msgstr "ملفّ SubRip (بصيغة .srt)"
 msgid "Text (.txt) file"
 msgstr "ملف نصي (.txt)"
 
+#: xmodule/video_block/video_xfields.py:152
+msgid "The last speed that the user specified for the video."
+msgstr "السرعة الأخيرة التي حدّدها المستخدم للفيديو."
+
 #: xmodule/video_block/video_xfields.py:156
 msgid "The default speed for the video."
 msgstr "السرعة الافتراضية للفيديو."
+
+#: xmodule/video_block/video_xfields.py:161
+msgid ""
+"Specify whether to advance automatically to the next unit when the video "
+"ends."
+msgstr ""
+"حدد ما إذا كنت تريد التقدم تلقائياً إلى الوحدة التالية عند انتهاء الفيديو."
+
+#: xmodule/video_block/video_xfields.py:170
+msgid "Specify whether YouTube is available for the user."
+msgstr "حدّد ما إذا كان يوتيوب متاحًا للمستخدم."
+
+#: xmodule/video_block/video_xfields.py:175
+msgid ""
+"Upload a handout to accompany this video. Students can download the handout "
+"by clicking Download Handout under the video."
+msgstr ""
+"حمّل نشرة مرافقة لهذا الفيديو. يمكن للطلّاب تنزيل النشرة بالنقر على رابط "
+"’تنزيل النشرة‘ الموجود تحت الفيديو."
 
 #: xmodule/video_block/video_xfields.py:177
 msgid "Upload Handout"
 msgstr "ارفع النشرة "
 
+#: xmodule/video_block/video_xfields.py:182
+msgid ""
+"Specify whether access to this video is limited to browsers only, or if it "
+"can be accessed from other applications including mobile apps."
+msgstr ""
+"حدّد ما إذا كان الوصول إلى هذا الفيديو مقتصرًا على المتصفّحات، أم يمكن "
+"الوصول إليه من تطبيقات أخرى، بما فيها تطبيقات الهاتف المحمول."
+
 #: xmodule/video_block/video_xfields.py:185
 msgid "Video Available on Web Only"
 msgstr "مقطع الفيديو متاح على الويب فقط"
+
+#: xmodule/video_block/video_xfields.py:190
+msgid ""
+"If you were assigned a Video ID by edX for the video to play in this "
+"component, enter the ID here. In this case, do not enter values in the "
+"Default Video URL, the Video File URLs, and the YouTube ID fields. If you "
+"were not assigned a Video ID, enter values in those other fields and ignore "
+"this field."
+msgstr ""
+"في حال خصّصت لك إدكس رقمًا تعريفيًا للفيديو المراد تشغيله في هذا المكوّن، "
+"فأدخل ذلك الرقم هنا. وفي هذه الحالة، لا تُدخل قيمًا في حقول رابط URL للفيديو"
+" الافتراضي وروابط URL لملفات الفيديو والرقم التعريفي ليوتيوب. أمّا في حال لم"
+" يُخصَّص لك رقم تعريفي للفيديو، فأدخل القيم في تلك الحقول الأخرى وتجاهل هذا "
+"الحقل."
+
+#: xmodule/video_block/video_xfields.py:199
+msgid "Date of the last view of the bumper"
+msgstr "تاريخ آخر مشاهدة للمقطع التمهيدي"
+
+#: xmodule/video_block/video_xfields.py:203
+msgid "Do not show bumper again"
+msgstr "عدم إظهار المقطع التمهيدي مرة أخرى"
+
+#: xmodule/video_block/video_xfields.py:208
+msgid "Specify whether the video can be accessed publicly by learners."
+msgstr "حدّد ما إذا كان يمكن للمتعلمين الوصول إلى الفيديو علنًا."
 
 #: xmodule/video_block/video_xfields.py:209
 msgid "Public Access"
@@ -11724,9 +14608,23 @@ msgstr "صورة مصغرة"
 msgid "Instructions"
 msgstr "التعليمات"
 
+#: xmodule/word_cloud_block.py:70
+msgid ""
+"Add instructions to help learners understand how to use the word cloud. "
+"Clear instructions are important, especially for learners who have "
+"accessibility requirements."
+msgstr ""
+"أضف تعليمات لمساعدة المتعلمين على فهم كيفية استخدام سحابة الكلمات. التعليمات"
+" الواضحة مهمة، خاصةً للمتعلمين الذين لديهم متطلبات تتعلق بإمكانية الوصول."
+
 #: xmodule/word_cloud_block.py:74
 msgid "Inputs"
 msgstr "مدخلات"
+
+#: xmodule/word_cloud_block.py:75
+msgid ""
+"The number of text boxes available for learners to add words and sentences."
+msgstr "عدد المربعات النصية المتاحة للمتعلمين لإضافة كلمات وجمل."
 
 #: xmodule/word_cloud_block.py:81
 msgid "Maximum Words"
@@ -11740,9 +14638,25 @@ msgstr "الحد الأقصى لعدد الكلمات المعروضة في مو
 msgid "Show Percents"
 msgstr "أظهِر النِسب"
 
+#: xmodule/word_cloud_block.py:89
+msgid "Statistics are shown for entered words near that word."
+msgstr "تُعرض إحصاءات الكلمات المُدخلة بجوار كل كلمة منها."
+
+#: xmodule/word_cloud_block.py:96
+msgid "Whether this learner has posted words to the cloud."
+msgstr "ما إذا كان هذا المتعلم قد نشر كلمات في سحابة الكلمات."
+
 #: xmodule/word_cloud_block.py:101
 msgid "Student answer."
 msgstr "جواب الطالب."
+
+#: xmodule/word_cloud_block.py:106
+msgid "All possible words from all learners."
+msgstr "جميع الكلمات الممكنة من جميع المتعلمين."
+
+#: xmodule/word_cloud_block.py:110
+msgid "Top num_top_words words for word cloud."
+msgstr "أبرز num_top_words كلمات في سحابة الكلمات."
 
 #: xmodule/x_module.py:717
 #, python-brace-format
